@@ -10,6 +10,7 @@ from importlib.metadata import version as _pkg_version
 
 import tianze
 from tianze.analysis import count_elements, collect_roots, compute_month_command, analyze_visibility
+from tianze.analysis.pattern import analyze_pattern
 from tianze.analysis.strength import StrengthFacts, default_run
 from tianze.calendar import lunar_adapter as LA
 from tianze.calendar.time_resolution import resolve_time
@@ -40,6 +41,12 @@ _CONVENTIONS = {
     "monthCommandStates": "R17",
     "stemVisibility": "R18",
     "strengthFramework": "R19",
+    "weightedParams": "R20",
+    "fuyiCascade": "R21",
+    "agreementSemantics": "R22",
+    "patternCandidate": "R23",
+    "luRen": "R24",
+    "patternEvaluation": "R25",
 }
 
 
@@ -176,6 +183,9 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
     )
     strength = default_run(facts)
 
+    # 格局（M5）：候选识别 + 证据化评估（R23-R25）
+    pattern = analyze_pattern(day_master, month_gz[1], stems, positions)
+
     warnings = list(time_warnings)
     warnings.extend(
         LA.boundary_warnings(tr.beijing_dt, tr.pillar_dt, birth.time_known, birth.sect)
@@ -205,6 +215,7 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
         month_command=month_command,
         element_counts=element_counts,
         strength=strength,
+        pattern=pattern,
         conventions=_CONVENTIONS,
         meta=M.ChartMeta(
             engine_version=tianze.__version__,

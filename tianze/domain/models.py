@@ -338,6 +338,49 @@ class StrengthReport(CamelizeModel):
     note: str
 
 
+class PatternCandidate(CamelizeModel):
+    """M5.1 格局候选（R23）：只回答"为什么把它列为候选"，不下成败结论。"""
+
+    name: str                          # 正官格/七杀格/…/建禄格/阳刃格
+    category: Literal["regular"]
+    month_branch: str
+    source_stem: str                   # 取格所据之干（透出藏干或月令本气）
+    ten_god: TenGod
+    via: Literal["本气透干", "中气透干", "余气透干", "本气不透取本气", "禄位", "阳刃位"]
+    evidence: list[str]
+    provenance: list[Provenance]
+
+
+class PatternFactor(CamelizeModel):
+    """M5.2 格局评估的单条证据（支持/破坏/救应/冲突）。"""
+
+    kind: Literal["support", "damage", "rescue", "conflict"]
+    rule_id: str
+    name: str
+    detail: str
+    provenance: Provenance
+    related: list[str] = []            # rescue：其所救应的 damage rule_id 列表
+
+
+class PatternEvaluation(CamelizeModel):
+    """M5.2 格局评估：status 只是摘要，真正重要的是四组证据（任务书原则）。"""
+
+    candidate: PatternCandidate
+    supports: list[PatternFactor] = []
+    damages: list[PatternFactor] = []
+    rescues: list[PatternFactor] = []
+    conflicts: list[PatternFactor] = []
+    status: Literal["成立", "有瑕", "受损", "破格", "待定"]
+    note: str | None = None
+
+
+class PatternAnalysis(CamelizeModel):
+    candidates: list[PatternCandidate]
+    primary_index: int | None = None
+    evaluation: PatternEvaluation | None = None
+    note: str | None = None            # 月劫无正格、特殊格未支持等说明
+
+
 class ChartMeta(CamelizeModel):
     engine_version: str
     engine_stage: str
@@ -360,6 +403,7 @@ class BaziChart(CamelizeModel):
     month_command: MonthCommand | None = None    # M3.3
     element_counts: ElementCounts | None = None  # M3.4
     strength: StrengthReport | None = None       # M4
+    pattern: PatternAnalysis | None = None       # M5
     conventions: dict[str, str] = {}
     meta: ChartMeta
 
