@@ -2,7 +2,41 @@
 
 > 长任务纪律文件。若任务中断，恢复后必须先读本文件再继续。
 
-- 状态：**Phase 0 完成；Coding Night M0-M2 完成（2026-10-01），118 测试全绿。**
+- 状态：**Phase 0 ✅；M0-M2 ✅（10f98a8）；M3 ✅（29c078c）；M4 ✅（6038c4a）。151 测试全绿。**
+
+## M3-M4 记录（2026-10-01）
+
+### M3（提交 29c078c）
+- R15 通根：`analysis/roots.py`，10 干×12 支穷举不变式；定性深度 strong/medium/weak（ADR-016，零权重）；月令通根/日主标记 + 证据语句。
+- R18 透干：`analysis/visibility.py`，来源支/藏干类型/距离/月令相关/日主相关（dayMasterRelated=藏干即日主）。
+- R17 月令：`analysis/month_command.py`，**按月支本气五行**判旺相休囚死（修正了最初按季节查表的口径错误——丑月壬水应为"死/囚域"而非季节表"旺"；OBE 同口径）；四库月土旺自然成立；得令严格=旺；藏干优先级含透出标记；120 组合用测试内独立生克环交叉验证。
+- R16 五行统计：`analysis/element_counts.py`，visible(8 字)/hidden(全部藏干) 两独立视图 + missing，零加权。
+
+### M4（提交 6038c4a）
+- `analysis/strength/`：StrengthFacts（与 BaziChart 解耦，ADR-020）+ StrengthAnalyzer Protocol + run_strength 注册表；agreement 仅在 ≥2 个带 verdict 方法时输出（HIGH/DISPUTED），单方法缺席+note 说明（ADR-019）。
+- M4.1 `methods/dimensional.py`：得令/得地/得势三维定性（result+reason，零评分）；得势 = 年月时干印比 ≥2（DE_SHI_THRESHOLD 公开常量，标 PROJECT_HEURISTIC）。
+- 修复 run_strength 对去重 verdict 集合计数的逻辑 bug（FakeA/FakeB 双方法测试抓出）。
+- 教训守卫：2003 盘年干癸对癸日主是**比肩**——"别柱同干比肩必须计入"（jiwenxu 同款教训）成为 fixture 级断言。
+
+### 测试
+151 全绿（新增 33 项：通根穷举/透干四位置/月令 120 组合/五行金标/旺衰阈值边界/JSON 形状/agreement 语义）。
+
+### 发现与修正（Coding Night 累计）
+- oracle 锚点自检抓到 jdn 漏减 32045。
+- 2003-08-18 实盘 癸未 庚申 癸亥 己未（任务书示意图非实盘）。
+- 旺相休囚死口径修正（季节→月支本气）。
+- 三次"金标错误、引擎正确"案例：丑未=冲+刑并存、藏干总数 11、别柱比肩计入——测试侧期望值错误被引擎+守恒律反驳，最终以传统口径为准复核。
+
+## 下一步
+
+- M4.2：weighted / fuyi 计分制分析器（权重全部入 params 并标 PROJECT_HEURISTIC）。
+- M5：格局（月令透干定格 + 成败状态机，ADR 参照 jiwenxu 四档 + Horosa 待复核三态）。
+- M6：调候 120 组自录（公有领域原文）。
+- 可选：GitHub 远程仓库创建 + push（本地 git 已就绪，3 个里程碑提交）。
+
+---
+
+# 以下为 Coding Night M0-M2 记录（存档）
 
 ## Coding Night 记录（M0-M2）
 
@@ -19,11 +53,6 @@
 - jdn 公式漏 -32045 常数 → 被锚点自检拦截（已修）。
 - 测试期口径错误 3 处（丑未=冲+刑部分对并存；三合/三会成员须按传统序 申子辰/寅卯辰；亥子丑的库支丑排序位置）——均属"期望值写错"，引擎行为经核对为正确。
 - 未解决：Windows 下 CI 未实测（本地仅单机跑通）；`docs/ERRATA-05` DST 表待逐条核对。
-
-## 下一步
-
-- M3：通根/透干/月令（`docs/research/09-V1-ROADMAP.md`）。
-- 可选：GitHub 远程仓库创建 + push（需用户账号；本地 git 已初始化并提交）。
 
 ---
 
