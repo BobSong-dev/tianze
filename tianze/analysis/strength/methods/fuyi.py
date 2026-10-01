@@ -24,11 +24,13 @@ class FuyiStrengthAnalyzer:
     name = "fuyi"
 
     # 级联规则表（首中即停，公开于 R21 / docs/STRENGTH.md）
+    # 注：得令 ⟹ 月支藏日主 ⟹ 必有月令根，故"得令+无根"不可达；
+    # R21-4 捕捉可达的真冲突：得令但仅月令单根、无印比、克泄耗透干 ≥2。
     RULES: tuple[tuple[str, str, str], ...] = (
         ("R21-1", "极强", "high"),      # 得令 + 多根 + 多印比
         ("R21-2", "极弱", "high"),      # 失令 + 无根 + 无印比 + 月令克日
         ("R21-3", "极弱", "medium"),    # 失令 + 无根 + 无印比
-        ("R21-4", "UNCERTAIN", "high"),  # 得令但虚浮无依（信号冲突）
+        ("R21-4", "UNCERTAIN", "high"),  # 得令但仅月令单根 + 无印比 + 克泄耗重（信号对冲）
         ("R21-5", "偏强", "medium"),    # 支持票领先 ≥3
         ("R21-6", "偏弱", "medium"),    # 克泄票领先 ≥3
         ("R21-7", "偏强", "low"),       # 支持票领先 ≥1
@@ -125,7 +127,7 @@ class FuyiStrengthAnalyzer:
             elif rid == "R21-3":
                 hit = (not rel.in_command) and root_count == 0 and helper_count == 0
             elif rid == "R21-4":
-                hit = rel.in_command and root_count == 0 and helper_count == 0
+                hit = rel.in_command and root_count == 1 and helper_count == 0 and drain_count >= 2
             elif rid == "R21-5":
                 hit = diff >= 3
             elif rid == "R21-6":
@@ -145,8 +147,8 @@ class FuyiStrengthAnalyzer:
             f"支持票 {support_votes} vs 克泄票 {drain_votes}（差值 {diff:+d}）",
         ]
         conflicts: list[str] = []
-        if rel.in_command and root_count == 0 and helper_count == 0:
-            conflicts.append("信号冲突：月令得令但日主虚浮无根、无印比——判 UNCERTAIN，不强行下结论")
+        if rel.in_command and root_count == 1 and helper_count == 0 and drain_count >= 2:
+            conflicts.append("信号冲突：月令得令但日主仅月令单根、无印比帮扶且克泄耗透干重——判 UNCERTAIN，不强行下结论")
         if support_votes >= 3 and drain_votes >= 3:
             conflicts.append("信号冲突：帮扶与克泄票数均 ≥3，verdict 置信度受限")
         reason.extend(conflicts)
