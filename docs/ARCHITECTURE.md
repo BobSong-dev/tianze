@@ -1,7 +1,7 @@
 # Tianze 架构（现行实现状态）
 
 > 本文是**随实现演进的活动文档**；Phase 0 的完整架构设计见 `docs/research/05-TIANZE-ARCHITECTURE.md`，设计决策见 `docs/DECISIONS.md`（Phase 0 的 ADR-001~015 在 `docs/research/08-DECISION-LOG.md`）。
-> 当前版本：0.2.0 · ENGINE_STAGE = M4。
+> 当前版本：0.2.0 · ENGINE_STAGE = M5。旺衰三方法详见 `docs/STRENGTH.md`；格局详见 `docs/PATTERN.md`。
 
 ## 数据流（已实现部分）
 
@@ -35,10 +35,12 @@ Unified JSON（camelCase + conventions 回显 + warnings + fallbacks）
 | `tianze/analysis/visibility.py` | L7 | 透干事实 | R18 |
 | `tianze/analysis/month_command.py` | L7 | 月令（按月支本气判旺相休囚死） | R6/R17 |
 | `tianze/analysis/element_counts.py` | L7 | 五行两视图统计 | R16 |
-| `tianze/analysis/strength/` | L7 | 旺衰框架 + dimension 分析器 | R19 |
+| `tianze/analysis/strength/` | L7 | 旺衰框架 + dimension/weighted/fuyi 三分析器 | R19-R22 |
+| `tianze/analysis/pattern.py` | L7 | 格局候选（禄刃/透干优先级）+ 证据化评估 | R23-R25 |
 | `tianze/pipeline.py` | — | 组装 build_chart | — |
 | `tests/crosscheck/oracle.py` | 测试网 | 独立排盘路径（JDN/遁/Meeus 黄经） | — |
 | `tools/stamp_expected.py` | 测试网 | fixture 盖章器 | — |
+| `tools/atlas_differential.mjs` | 测试网 | bazi-atlas 跨引擎差分桥（实跑 5 命例） | — |
 
 ## 尚未实现（按路线图）
 

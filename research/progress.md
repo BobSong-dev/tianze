@@ -2,7 +2,37 @@
 
 > 长任务纪律文件。若任务中断，恢复后必须先读本文件再继续。
 
-- 状态：**Phase 0 ✅；M0-M2 ✅（10f98a8）；M3 ✅（29c078c）；M4 ✅（6038c4a）。151 测试全绿。**
+- 状态：**Phase 0 ✅；M0-M2 ✅（10f98a8）；M3 ✅（29c078c）；M4 ✅（6038c4a）；M4.2 ✅（1d2de8a/07f6f6c）；M5 ✅（c2ecb16）。203 测试全绿；bazi-atlas 跨引擎实跑差分 5/5。**
+
+## M4.2-M5 记录（2026-10-01）
+
+### M4.2（1d2de8a weighted / 07f6f6c fuyi）
+- weighted-v1：9 参数全参数化（WeightedStrengthParams，出处逐条标注 PROJECT_REFERENCE/ENGINEERING_HEURISTIC）；逐字单位计分 + 贡献明细可复现总分；**防重复计分（ADR-022）**：根/得令不设独立计分项并有守卫测试。
+- 修复：日主自身天干误入计分单位（测试抓出，amend 修正）。
+- fuyi-v1：派生特征计票 + 九条首中即停级联；UNCERTAIN（证据对冲不强判）；数学发现：得令⟹必有月令根（"得令+无根"不可达），R21-4 相应改为可达条件。
+- agreement R22：UNCERTAIN 弃权；HIGH/PARTIAL/DISPUTED 三态。
+
+### M5（c2ecb16）
+- 取格 R23/R24：禄刃优先（禄位表 + 阳干帝旺，阴干无刃）→ 藏干透干优先（比劫不立格）→ 皆不透取本气；多候选并存（中余同透）；月劫无正格 → note。
+- 评估 R25：supports/damages/rescues/conflicts 四组证据 + status（成立/有瑕/受损/破格/待定）；建禄/阳刃 v1 诚实输出"待定"；provenance 全部 PROJECT_REFERENCE，无古籍伪造。
+- MonthCommand 预留 ruling_stem/jie_qi_depth_days（ADR-021）。
+
+### 跨引擎差分（补欠账）
+- **bazi-atlas 实跑对拍 5/5 通过**（node v24 + upstream clone + lunar-javascript@1.7.7 --no-save）：plan_2003/basic_1986/female_1983/晚子时 sect2/立春 2024 边界，四柱全部一致。
+- 桥接：tools/atlas_differential.mjs（仅调用 atlas 公开入口 computeBazi）；测试环境缺失时 skip 留痕。
+
+### 新文档
+docs/STRENGTH.md、docs/PATTERN.md、CONVENTIONS R20-R25、DECISIONS ADR-021~025、SOURCES/ARCHITECTURE 同步。
+
+## 下一步
+
+- M6：调候 120 组（公有领域原文自录 + 交叉校验）。
+- M4.3（可选）：weighted 参数标定实验（development/holdout）；格局规则古籍核校升级 provenance。
+- 从格/专旺条件化接入（需 strength verdict 稳定后的阈值口径）。
+
+---
+
+# 以下为 M3-M4 记录（存档）
 
 ## M3-M4 记录（2026-10-01）
 

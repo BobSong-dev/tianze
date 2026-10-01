@@ -9,11 +9,15 @@
 | lunar-python 1.4.8 | 历法/节气/四柱/藏干/纳音/十二长生/旬空/胎元/大运底座 | MIT (©2020 6tail) | https://github.com/6tail/lunar-python |
 | pydantic | 数据契约 | MIT | https://github.com/pydantic/pydantic |
 
+注：差分对拍时以 `npm install --no-save` 为 research/upstream/bazi-atlas 安装
+lunar-javascript@1.7.7（MIT）至其 node_modules——不改上游任何被跟踪文件，
+该目录本就不入库。
+
 ## 参考项目（研究期克隆于 `research/upstream/`，均只读）
 
 | 项目 | 借鉴内容 | License | 本仓库对应文档 |
 |---|---|---|---|
-| bazi-atlas/bazi-engine | 验证体系（对拍/盖章/守恒律/守卫 fixture/R 约定模式）；双轨道时间；DST 处理的问题定义 | MIT | docs/research/07-BORROWING-MATRIX.md |
+| bazi-atlas/bazi-engine | 验证体系（对拍/盖章/守恒律/守卫 fixture/R 约定模式）；双轨道时间；DST 处理的问题定义；weighted/fuyi/取格默认参数出处；**跨引擎差分对拍实跑对象**（tools/atlas_differential.mjs 仅调用其公开入口 computeBazi，5 命例四柱一致） | MIT | docs/research/07-BORROWING-MATRIX.md |
 | jiwenxu025-boop/bazi-engine | 边界警告、EvidenceItem 概念、provenance 分级、反例测试模式 | MIT | 同上 |
 | ruanxiaoer888/bazi-engine | 规则 schema 与质检方法论（**其 CC BY-NC-SA 数据本仓库未使用**） | 代码 MIT / 数据 CC BY-NC-SA 4.0 | 同上 |
 | lymcho/open-bazi-engine | 架构思想（分层/Interaction 形状/rationale）——**无 License，未复制任何代码或表** | UNKNOWN | docs/research/04-LICENSE-AUDIT.md |
