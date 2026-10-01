@@ -1,0 +1,4181 @@
+{
+ "note": "程序建议草案（启发式 target 提取），供人工复核；复核后经 build_tiaohou_rules.py 生成 ExecutableRule。",
+ "covered": 103,
+ "unresolvedCells": [
+  "甲丑",
+  "丙寅",
+  "丙午",
+  "丙未",
+  "丙酉",
+  "丙亥",
+  "戊寅",
+  "辛辰",
+  "辛巳",
+  "辛午",
+  "辛申",
+  "辛子",
+  "壬午",
+  "壬亥",
+  "癸巳",
+  "癸午",
+  "癸酉"
+ ],
+ "cells": {
+  "丁-丑": [
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丁-亥": [
+   {
+    "candidateId": "QBT-丁-14",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "丁",
+     "己",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丁-午": [
+   {
+    "candidateId": "QBT-丁-05",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "丙",
+     "丁",
+     "庚",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-08",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "丁",
+     "庚",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丁-卯": [
+   {
+    "candidateId": "QBT-丁-03",
+    "primary": [
+     "庚",
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "己",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丁-子": [
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丁-寅": [
+   {
+    "candidateId": "QBT-丁-01",
+    "primary": [
+     "庚"
+    ],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "丁"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-02",
+    "primary": [
+     "庚"
+    ],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丁",
+     "己",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丁-巳": [
+   {
+    "candidateId": "QBT-丁-05",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "丙",
+     "丁",
+     "庚",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丁-戌": [
+   {
+    "candidateId": "QBT-丁-09",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-12",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丙",
+     "丁",
+     "戊",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丁-未": [
+   {
+    "candidateId": "QBT-丁-05",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "丙",
+     "丁",
+     "庚",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-08",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "丁",
+     "庚",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丁-申": [
+   {
+    "candidateId": "QBT-丁-09",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丁-辰": [
+   {
+    "candidateId": "QBT-丁-04",
+    "primary": [],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "戊",
+     "己",
+     "庚",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-09",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-13",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "丙",
+     "丁",
+     "戊",
+     "己",
+     "庚",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丁-酉": [
+   {
+    "candidateId": "QBT-丁-09",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-丁-16",
+    "primary": [
+     "甲",
+     "壬",
+     "庚",
+     "丙",
+     "癸",
+     "己"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "乙",
+     "丁",
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "丙-丑": [
+   {
+    "candidateId": "QBT-丙-12",
+    "primary": [
+     "壬",
+     "甲"
+    ],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "丙",
+     "己"
+    ]
+   }
+  ],
+  "丙-卯": [
+   {
+    "candidateId": "QBT-丙-02",
+    "primary": [
+     "壬"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "丙",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-丙-12",
+    "primary": [
+     "壬",
+     "甲"
+    ],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "丙",
+     "己"
+    ]
+   }
+  ],
+  "丙-子": [
+   {
+    "candidateId": "QBT-丙-11",
+    "primary": [
+     "壬"
+    ],
+    "secondary": [
+     "戊"
+    ],
+    "mentioned": [
+     "甲",
+     "丙",
+     "己"
+    ]
+   }
+  ],
+  "丙-巳": [
+   {
+    "candidateId": "QBT-丙-04",
+    "primary": [
+     "壬"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "丙"
+    ]
+   }
+  ],
+  "丙-戌": [
+   {
+    "candidateId": "QBT-丙-09",
+    "primary": [
+     "壬"
+    ],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "丙",
+     "癸"
+    ]
+   }
+  ],
+  "丙-申": [
+   {
+    "candidateId": "QBT-丙-07",
+    "primary": [
+     "壬"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "丙"
+    ]
+   }
+  ],
+  "丙-辰": [
+   {
+    "candidateId": "QBT-丙-03",
+    "primary": [
+     "壬"
+    ],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "丙"
+    ]
+   }
+  ],
+  "乙-丑": [
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "乙-亥": [
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "乙-午": [
+   {
+    "candidateId": "QBT-乙-05",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "乙",
+     "丁"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-09@2",
+    "primary": [
+     "癸",
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-12@2",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丁",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "乙-卯": [
+   {
+    "candidateId": "QBT-乙-05@2",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "戊",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "乙-子": [
+   {
+    "candidateId": "QBT-乙-11",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "戊",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-28",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙",
+     "戊",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "乙-寅": [
+   {
+    "candidateId": "QBT-乙-01",
+    "primary": [
+     "丙",
+     "癸"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-02@2",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "乙-巳": [
+   {
+    "candidateId": "QBT-乙-04",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [
+     "辛"
+    ],
+    "mentioned": [
+     "乙",
+     "丙",
+     "戊",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-09@2",
+    "primary": [
+     "癸",
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-11@2",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "戊",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "乙-戌": [
+   {
+    "candidateId": "QBT-乙-09",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-18",
+    "primary": [
+     "丙",
+     "癸"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "戊"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-25",
+    "primary": [],
+    "secondary": [
+     "辛"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "戊",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "乙-未": [
+   {
+    "candidateId": "QBT-乙-09@2",
+    "primary": [
+     "癸",
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-17",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "乙-申": [
+   {
+    "candidateId": "QBT-乙-18",
+    "primary": [
+     "丙",
+     "癸"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "戊"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "乙-辰": [
+   {
+    "candidateId": "QBT-乙-03",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "乙"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-06@2",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "乙-酉": [
+   {
+    "candidateId": "QBT-乙-08",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-18",
+    "primary": [
+     "丙",
+     "癸"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "戊"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-21",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "丁"
+    ]
+   },
+   {
+    "candidateId": "QBT-乙-32",
+    "primary": [
+     "丙",
+     "庚",
+     "丁",
+     "戊",
+     "癸",
+     "壬"
+    ],
+    "secondary": [
+     "癸",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "壬-丑": [
+   {
+    "candidateId": "QBT-壬-12",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "己",
+     "辛",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "壬-卯": [
+   {
+    "candidateId": "QBT-壬-02",
+    "primary": [
+     "戊"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "丙",
+     "庚",
+     "辛",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-壬-12",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "己",
+     "辛",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "壬-子": [
+   {
+    "candidateId": "QBT-壬-11",
+    "primary": [
+     "丙",
+     "戊"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "庚",
+     "壬"
+    ]
+   }
+  ],
+  "壬-寅": [
+   {
+    "candidateId": "QBT-壬-01",
+    "primary": [],
+    "secondary": [
+     "丙",
+     "戊"
+    ],
+    "mentioned": [
+     "庚",
+     "壬"
+    ]
+   }
+  ],
+  "壬-巳": [
+   {
+    "candidateId": "QBT-壬-04",
+    "primary": [
+     "壬"
+    ],
+    "secondary": [
+     "辛"
+    ],
+    "mentioned": [
+     "丙",
+     "庚",
+     "癸"
+    ]
+   }
+  ],
+  "壬-戌": [
+   {
+    "candidateId": "QBT-壬-09",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "丙",
+     "丁",
+     "戊",
+     "己",
+     "庚",
+     "壬"
+    ]
+   }
+  ],
+  "壬-未": [
+   {
+    "candidateId": "QBT-壬-06",
+    "primary": [],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "己",
+     "庚",
+     "辛",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "壬-申": [
+   {
+    "candidateId": "QBT-壬-07",
+    "primary": [
+     "戊"
+    ],
+    "secondary": [
+     "丁",
+     "庚"
+    ],
+    "mentioned": [
+     "丙",
+     "壬"
+    ]
+   }
+  ],
+  "壬-辰": [
+   {
+    "candidateId": "QBT-壬-03",
+    "primary": [],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "甲",
+     "戊",
+     "壬"
+    ]
+   }
+  ],
+  "壬-酉": [
+   {
+    "candidateId": "QBT-壬-08",
+    "primary": [
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "戊",
+     "己",
+     "庚",
+     "辛",
+     "壬"
+    ]
+   }
+  ],
+  "己-丑": [
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "己-亥": [
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "己-午": [
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "己-卯": [
+   {
+    "candidateId": "QBT-己-01",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [
+     "癸",
+     "甲"
+    ],
+    "mentioned": [
+     "己"
+    ]
+   },
+   {
+    "candidateId": "QBT-己-03",
+    "primary": [],
+    "secondary": [
+     "癸"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "丁",
+     "戊",
+     "己"
+    ]
+   },
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "己-子": [
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "己-寅": [
+   {
+    "candidateId": "QBT-己-01",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [
+     "癸",
+     "甲"
+    ],
+    "mentioned": [
+     "己"
+    ]
+   },
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "己-巳": [
+   {
+    "candidateId": "QBT-己-06",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "己",
+     "庚",
+     "辛",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "己-戌": [
+   {
+    "candidateId": "QBT-己-12",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "戊",
+     "己",
+     "庚",
+     "辛",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "己-未": [
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "己-申": [
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "己-辰": [
+   {
+    "candidateId": "QBT-己-01",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [
+     "癸",
+     "甲"
+    ],
+    "mentioned": [
+     "己"
+    ]
+   },
+   {
+    "candidateId": "QBT-己-04",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙",
+     "己",
+     "庚",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-己-05",
+    "primary": [],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "丁",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-己-09",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "丁",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "己-酉": [
+   {
+    "candidateId": "QBT-己-11",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "戊",
+     "己",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-己-16",
+    "primary": [
+     "丙",
+     "甲",
+     "癸",
+     "壬",
+     "丁"
+    ],
+    "secondary": [
+     "甲",
+     "癸"
+    ],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ],
+  "庚-丑": [
+   {
+    "candidateId": "QBT-庚-12",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "庚"
+    ]
+   }
+  ],
+  "庚-亥": [
+   {
+    "candidateId": "QBT-庚-10",
+    "primary": [
+     "丁",
+     "丙"
+    ],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "己",
+     "庚",
+     "壬"
+    ]
+   }
+  ],
+  "庚-午": [
+   {
+    "candidateId": "QBT-庚-05",
+    "primary": [
+     "壬"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "丁",
+     "庚",
+     "癸"
+    ]
+   }
+  ],
+  "庚-卯": [
+   {
+    "candidateId": "QBT-庚-03",
+    "primary": [],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "戊",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-庚-12",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "庚"
+    ]
+   }
+  ],
+  "庚-子": [
+   {
+    "candidateId": "QBT-庚-11",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "丁",
+     "庚"
+    ]
+   }
+  ],
+  "庚-寅": [
+   {
+    "candidateId": "QBT-庚-01",
+    "primary": [],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "丙",
+     "庚"
+    ]
+   }
+  ],
+  "庚-巳": [
+   {
+    "candidateId": "QBT-庚-04",
+    "primary": [],
+    "secondary": [
+     "戊"
+    ],
+    "mentioned": [
+     "丙",
+     "庚",
+     "壬"
+    ]
+   }
+  ],
+  "庚-戌": [
+   {
+    "candidateId": "QBT-庚-09",
+    "primary": [],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "戊",
+     "己",
+     "庚"
+    ]
+   }
+  ],
+  "庚-未": [
+   {
+    "candidateId": "QBT-庚-06",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "庚"
+    ]
+   }
+  ],
+  "庚-申": [
+   {
+    "candidateId": "QBT-庚-07",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "庚",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "庚-辰": [
+   {
+    "candidateId": "QBT-庚-03",
+    "primary": [],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "戊",
+     "庚"
+    ]
+   }
+  ],
+  "庚-酉": [
+   {
+    "candidateId": "QBT-庚-08",
+    "primary": [],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "丁",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-庚-09",
+    "primary": [],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "戊",
+     "己",
+     "庚"
+    ]
+   }
+  ],
+  "戊-丑": [
+   {
+    "candidateId": "QBT-戊-12",
+    "primary": [],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "丙",
+     "丁",
+     "戊",
+     "己",
+     "辛",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-戊-14",
+    "primary": [],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "丙",
+     "戊",
+     "辛",
+     "癸"
+    ]
+   }
+  ],
+  "戊-亥": [
+   {
+    "candidateId": "QBT-戊-11",
+    "primary": [],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "丁",
+     "戊",
+     "庚",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "戊-午": [
+   {
+    "candidateId": "QBT-戊-06",
+    "primary": [],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "丙",
+     "戊",
+     "辛",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "戊-卯": [
+   {
+    "candidateId": "QBT-戊-01",
+    "primary": [
+     "丙",
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-戊-12",
+    "primary": [],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "丙",
+     "丁",
+     "戊",
+     "己",
+     "辛",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-戊-14",
+    "primary": [],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "丙",
+     "戊",
+     "辛",
+     "癸"
+    ]
+   }
+  ],
+  "戊-子": [
+   {
+    "candidateId": "QBT-戊-12",
+    "primary": [],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "丙",
+     "丁",
+     "戊",
+     "己",
+     "辛",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-戊-13",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "戊",
+     "壬"
+    ]
+   }
+  ],
+  "戊-巳": [
+   {
+    "candidateId": "QBT-戊-05",
+    "primary": [],
+    "secondary": [
+     "丙",
+     "癸"
+    ],
+    "mentioned": [
+     "甲",
+     "丁",
+     "戊",
+     "壬"
+    ]
+   }
+  ],
+  "戊-戌": [
+   {
+    "candidateId": "QBT-戊-10",
+    "primary": [],
+    "secondary": [
+     "癸"
+    ],
+    "mentioned": [
+     "甲",
+     "丙",
+     "戊",
+     "壬"
+    ]
+   }
+  ],
+  "戊-未": [
+   {
+    "candidateId": "QBT-戊-07",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "戊",
+     "庚",
+     "辛",
+     "壬"
+    ]
+   }
+  ],
+  "戊-申": [
+   {
+    "candidateId": "QBT-戊-08",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "戊",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "戊-辰": [
+   {
+    "candidateId": "QBT-戊-01",
+    "primary": [
+     "丙",
+     "甲"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "乙",
+     "戊",
+     "己",
+     "庚",
+     "辛",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-戊-04",
+    "primary": [],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "戊",
+     "庚",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "戊-酉": [
+   {
+    "candidateId": "QBT-戊-09",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "丁",
+     "戊",
+     "辛",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "甲-亥": [
+   {
+    "candidateId": "QBT-甲-11",
+    "primary": [],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "丙",
+     "戊",
+     "庚",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-33",
+    "primary": [],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "丙",
+     "戊",
+     "庚",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-34",
+    "primary": [
+     "庚"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "丁",
+     "戊",
+     "己"
+    ]
+   }
+  ],
+  "甲-午": [
+   {
+    "candidateId": "QBT-甲-06",
+    "primary": [
+     "癸",
+     "丁"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-12@2",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "甲",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-16",
+    "primary": [
+     "癸",
+     "丁"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-07@3",
+    "primary": [
+     "癸",
+     "丁"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-10@3",
+    "primary": [
+     "庚",
+     "丁",
+     "癸"
+    ],
+    "secondary": [
+     "丁",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "戊",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "甲-卯": [
+   {
+    "candidateId": "QBT-甲-02",
+    "primary": [],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-04@2",
+    "primary": [
+     "庚"
+    ],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-03@3",
+    "primary": [],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "戊",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-04@3",
+    "primary": [
+     "庚"
+    ],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "丁",
+     "戊",
+     "己"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-10@3",
+    "primary": [
+     "庚",
+     "丁",
+     "癸"
+    ],
+    "secondary": [
+     "丁",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "戊",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "甲-子": [
+   {
+    "candidateId": "QBT-甲-12",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "庚",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-35",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "戊",
+     "己",
+     "庚",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-36",
+    "primary": [
+     "庚"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "丙",
+     "丁",
+     "壬"
+    ]
+   }
+  ],
+  "甲-寅": [
+   {
+    "candidateId": "QBT-甲-02@2",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-03@3",
+    "primary": [],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "戊",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-10@3",
+    "primary": [
+     "庚",
+     "丁",
+     "癸"
+    ],
+    "secondary": [
+     "丁",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "戊",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "甲-巳": [
+   {
+    "candidateId": "QBT-甲-05",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "丙",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-12@2",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "甲",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-13@2",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "丙",
+     "己",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-06@3",
+    "primary": [
+     "癸"
+    ],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "丙",
+     "戊",
+     "庚",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-07@3",
+    "primary": [
+     "癸",
+     "丁"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-10@3",
+    "primary": [
+     "庚",
+     "丁",
+     "癸"
+    ],
+    "secondary": [
+     "丁",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "戊",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "甲-戌": [
+   {
+    "candidateId": "QBT-甲-22",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "甲"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-31",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "戊",
+     "庚",
+     "壬"
+    ]
+   }
+  ],
+  "甲-未": [
+   {
+    "candidateId": "QBT-甲-06",
+    "primary": [
+     "癸",
+     "丁"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-07",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "庚",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-12@2",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "甲",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-16",
+    "primary": [
+     "癸",
+     "丁"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-07@3",
+    "primary": [
+     "癸",
+     "丁"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-09@3",
+    "primary": [],
+    "secondary": [
+     "癸"
+    ],
+    "mentioned": [
+     "甲",
+     "壬"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-10@3",
+    "primary": [
+     "庚",
+     "丁",
+     "癸"
+    ],
+    "secondary": [
+     "丁",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "戊",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "甲-申": [
+   {
+    "candidateId": "QBT-甲-08",
+    "primary": [
+     "丁",
+     "庚"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "甲"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-22",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "甲"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-23",
+    "primary": [
+     "丁",
+     "庚"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-24",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "戊",
+     "己",
+     "庚",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "甲-辰": [
+   {
+    "candidateId": "QBT-甲-04",
+    "primary": [],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-10@2",
+    "primary": [],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "丁",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-11@2",
+    "primary": [
+     "庚"
+    ],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "丁",
+     "戊",
+     "己"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-01@3",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丁",
+     "庚",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-03@3",
+    "primary": [],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "戊",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-04@3",
+    "primary": [
+     "庚"
+    ],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "丁",
+     "戊",
+     "己"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-05@3",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "甲",
+     "壬",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-10@3",
+    "primary": [
+     "庚",
+     "丁",
+     "癸"
+    ],
+    "secondary": [
+     "丁",
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丙",
+     "戊",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "甲-酉": [
+   {
+    "candidateId": "QBT-甲-09",
+    "primary": [],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "丁",
+     "庚"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-22",
+    "primary": [
+     "丁"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "甲"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-26",
+    "primary": [],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "丁",
+     "庚",
+     "辛"
+    ]
+   },
+   {
+    "candidateId": "QBT-甲-27",
+    "primary": [],
+    "secondary": [
+     "丁"
+    ],
+    "mentioned": [
+     "甲",
+     "丙",
+     "戊",
+     "己",
+     "庚",
+     "癸"
+    ]
+   }
+  ],
+  "癸-丑": [
+   {
+    "candidateId": "QBT-癸-12",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "癸"
+    ]
+   }
+  ],
+  "癸-亥": [
+   {
+    "candidateId": "QBT-癸-10",
+    "primary": [
+     "庚",
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "辛",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "癸-卯": [
+   {
+    "candidateId": "QBT-癸-02",
+    "primary": [
+     "庚"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丁",
+     "辛",
+     "癸"
+    ]
+   },
+   {
+    "candidateId": "QBT-癸-12",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "癸"
+    ]
+   }
+  ],
+  "癸-子": [
+   {
+    "candidateId": "QBT-癸-11",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "庚",
+     "辛",
+     "癸"
+    ]
+   }
+  ],
+  "癸-寅": [
+   {
+    "candidateId": "QBT-癸-01",
+    "primary": [
+     "辛"
+    ],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "癸-戌": [
+   {
+    "candidateId": "QBT-癸-09",
+    "primary": [
+     "辛"
+    ],
+    "secondary": [
+     "癸"
+    ],
+    "mentioned": [
+     "甲",
+     "戊"
+    ]
+   }
+  ],
+  "癸-未": [
+   {
+    "candidateId": "QBT-癸-06",
+    "primary": [
+     "庚"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "乙",
+     "丁",
+     "己",
+     "辛",
+     "癸"
+    ]
+   }
+  ],
+  "癸-申": [
+   {
+    "candidateId": "QBT-癸-07",
+    "primary": [],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "丁",
+     "庚",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "癸-辰": [
+   {
+    "candidateId": "QBT-癸-03",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "庚",
+     "辛",
+     "壬",
+     "癸"
+    ]
+   }
+  ],
+  "辛-丑": [
+   {
+    "candidateId": "QBT-辛-12",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "辛"
+    ]
+   }
+  ],
+  "辛-亥": [
+   {
+    "candidateId": "QBT-辛-10",
+    "primary": [],
+    "secondary": [
+     "丙"
+    ],
+    "mentioned": [
+     "甲",
+     "戊",
+     "辛",
+     "壬"
+    ]
+   }
+  ],
+  "辛-卯": [
+   {
+    "candidateId": "QBT-辛-12",
+    "primary": [
+     "丙"
+    ],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "辛"
+    ]
+   }
+  ],
+  "辛-寅": [
+   {
+    "candidateId": "QBT-辛-01",
+    "primary": [],
+    "secondary": [
+     "壬"
+    ],
+    "mentioned": [
+     "甲",
+     "丙",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "辛-戌": [
+   {
+    "candidateId": "QBT-辛-09",
+    "primary": [
+     "壬"
+    ],
+    "secondary": [
+     "甲"
+    ],
+    "mentioned": [
+     "戊",
+     "辛"
+    ]
+   }
+  ],
+  "辛-未": [
+   {
+    "candidateId": "QBT-辛-06",
+    "primary": [
+     "壬"
+    ],
+    "secondary": [
+     "庚"
+    ],
+    "mentioned": [
+     "戊",
+     "己",
+     "辛"
+    ]
+   }
+  ],
+  "辛-酉": [
+   {
+    "candidateId": "QBT-辛-08",
+    "primary": [
+     "壬"
+    ],
+    "secondary": [],
+    "mentioned": [
+     "甲",
+     "戊",
+     "己",
+     "庚",
+     "辛"
+    ]
+   }
+  ]
+ },
+ "unmatchedCandidates": [
+  {
+   "id": "QBT-丁-06",
+   "dm": "丁",
+   "months": [
+    "巳"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-丁-07",
+   "dm": "丁",
+   "months": [
+    "午"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-丁-10",
+   "dm": "丁",
+   "months": [
+    "申"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-丁-11",
+   "dm": "丁",
+   "months": [
+    "酉"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-丁-15",
+   "dm": "丁",
+   "months": [
+    "子"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-01",
+   "dm": "甲",
+   "months": [
+    "寅"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-03",
+   "dm": "甲",
+   "months": [
+    "卯"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-10",
+   "dm": "甲",
+   "months": [
+    "戌"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-13",
+   "dm": "甲",
+   "months": [
+    "卯",
+    "丑"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-02",
+   "dm": "乙",
+   "months": [
+    "卯"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-06",
+   "dm": "乙",
+   "months": [
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-07",
+   "dm": "乙",
+   "months": [
+    "申"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-10",
+   "dm": "乙",
+   "months": [
+    "亥"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-12",
+   "dm": "乙",
+   "months": [
+    "卯",
+    "丑"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-丙-01",
+   "dm": "丙",
+   "months": [
+    "寅"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-丙-05",
+   "dm": "丙",
+   "months": [
+    "午"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-丙-06",
+   "dm": "丙",
+   "months": [
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-丙-08",
+   "dm": "丙",
+   "months": [
+    "酉"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-丙-10",
+   "dm": "丙",
+   "months": [
+    "亥"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-庚-02",
+   "dm": "庚",
+   "months": [
+    "卯"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-辛-02",
+   "dm": "辛",
+   "months": [
+    "卯"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-辛-03",
+   "dm": "辛",
+   "months": [
+    "卯",
+    "辰"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-辛-04",
+   "dm": "辛",
+   "months": [
+    "巳"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-辛-05",
+   "dm": "辛",
+   "months": [
+    "午"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-辛-07",
+   "dm": "辛",
+   "months": [
+    "申"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-辛-11",
+   "dm": "辛",
+   "months": [
+    "子"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-壬-05",
+   "dm": "壬",
+   "months": [
+    "巳",
+    "午"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-壬-10",
+   "dm": "壬",
+   "months": [
+    "亥"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-癸-04",
+   "dm": "癸",
+   "months": [
+    "巳"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-癸-05",
+   "dm": "癸",
+   "months": [
+    "午"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-癸-08",
+   "dm": "癸",
+   "months": [
+    "酉"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-戊-02",
+   "dm": "戊",
+   "months": [
+    "寅"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-戊-03",
+   "dm": "戊",
+   "months": [
+    "卯"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-己-02",
+   "dm": "己",
+   "months": [
+    "寅"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-己-07",
+   "dm": "己",
+   "months": [
+    "午"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-己-08",
+   "dm": "己",
+   "months": [
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-己-10",
+   "dm": "己",
+   "months": [
+    "申"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-己-13",
+   "dm": "己",
+   "months": [
+    "辰"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-己-14",
+   "dm": "己",
+   "months": [
+    "亥"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-己-15",
+   "dm": "己",
+   "months": [
+    "子"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-01@2",
+   "dm": "甲",
+   "months": [
+    "寅",
+    "卯",
+    "辰"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-03@2",
+   "dm": "甲",
+   "months": [
+    "寅"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-05@2",
+   "dm": "甲",
+   "months": [
+    "卯"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-06@2",
+   "dm": "甲",
+   "months": [
+    "卯"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-07@2",
+   "dm": "甲",
+   "months": [
+    "卯"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-08@2",
+   "dm": "甲",
+   "months": [
+    "卯"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-09@2",
+   "dm": "甲",
+   "months": [
+    "卯"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-14",
+   "dm": "甲",
+   "months": [
+    "巳"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-15",
+   "dm": "甲",
+   "months": [
+    "巳"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-17",
+   "dm": "甲",
+   "months": [
+    "午",
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-18",
+   "dm": "甲",
+   "months": [
+    "午",
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-19",
+   "dm": "甲",
+   "months": [
+    "午",
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-20",
+   "dm": "甲",
+   "months": [
+    "午",
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-21",
+   "dm": "甲",
+   "months": [
+    "午",
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-25",
+   "dm": "甲",
+   "months": [
+    "申"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-28",
+   "dm": "甲",
+   "months": [
+    "戌"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-29",
+   "dm": "甲",
+   "months": [
+    "戌"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-30",
+   "dm": "甲",
+   "months": [
+    "戌"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-32",
+   "dm": "甲",
+   "months": [
+    "亥",
+    "子",
+    "丑"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-37",
+   "dm": "甲",
+   "months": [
+    "卯",
+    "丑"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-38",
+   "dm": "甲",
+   "months": [
+    "卯",
+    "丑"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-01@2",
+   "dm": "乙",
+   "months": [
+    "寅",
+    "卯",
+    "辰"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-03@2",
+   "dm": "乙",
+   "months": [
+    "寅"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-04@2",
+   "dm": "乙",
+   "months": [
+    "卯"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-07@2",
+   "dm": "乙",
+   "months": [
+    "辰"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-08@2",
+   "dm": "乙",
+   "months": [
+    "辰"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-10@2",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "QBT-乙-13",
+   "dm": "乙",
+   "months": [
+    "午"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-14",
+   "dm": "乙",
+   "months": [
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-15",
+   "dm": "乙",
+   "months": [
+    "午",
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-16",
+   "dm": "乙",
+   "months": [
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-19",
+   "dm": "乙",
+   "months": [
+    "申"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-20",
+   "dm": "乙",
+   "months": [
+    "申"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-22",
+   "dm": "乙",
+   "months": [
+    "酉"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-23",
+   "dm": "乙",
+   "months": [
+    "酉"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-24",
+   "dm": "乙",
+   "months": [
+    "戌"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-26",
+   "dm": "乙",
+   "months": [
+    "亥"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-27",
+   "dm": "乙",
+   "months": [
+    "亥"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-29",
+   "dm": "乙",
+   "months": [
+    "子"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-30",
+   "dm": "乙",
+   "months": [
+    "子"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-乙-31",
+   "dm": "乙",
+   "months": [
+    "卯",
+    "丑"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-02@3",
+   "dm": "甲",
+   "months": [
+    "寅"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-甲-08@3",
+   "dm": "甲",
+   "months": [
+    "未"
+   ],
+   "reason": "no explicit target stems"
+  },
+  {
+   "id": "QBT-00",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "QBT-01",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R01",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R02",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R03",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R04",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R05",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R06",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R07",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R08",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R09",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R10",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R11",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R12",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R13",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R14",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R15",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R16",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R17",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R18",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R19",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R20",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-E01",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-E02",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-E03",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-E04",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-E05",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R21",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R22",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R23",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R24",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R25",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R26",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R27",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R28",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R29",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R30",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R31",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R32",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R33",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R34",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R35",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R36",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R37",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R38",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R39",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R40",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R41",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R42",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R43",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R44",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R45",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R46",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R47",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R48",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R49",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R50",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R51",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R52",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R53",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R54",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R55",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R56",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R57",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R58",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R59",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R60",
+   "reason": "no dayMaster/months"
+  },
+  {
+   "id": "ZHY-R61",
+   "reason": "no dayMaster/months"
+  }
+ ]
+}

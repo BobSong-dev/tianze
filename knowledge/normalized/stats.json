@@ -1,0 +1,27 @@
+{
+ "files": 63,
+ "rules_total": 556,
+ "candidates_total": 556,
+ "quotes_total": 893,
+ "commentaries_total": 556,
+ "executable_total": 182,
+ "classical_explicit_total": 182,
+ "project_reference_total": 182,
+ "unverified_total": 0,
+ "ocr_risk_total": 163,
+ "tiaohou_coverage": {
+  "covered": 120,
+  "total": 120,
+  "unresolved": 0
+ },
+ "conflicts_total": 3,
+ "duplicate_ids": [],
+ "missing_source": [],
+ "invalid_refs": [],
+ "quality": {
+  "A": 0,
+  "B": 227,
+  "C": 329,
+  "D": 0
+ }
+}
