@@ -14,9 +14,11 @@
 | M4 | 旺衰多分析器框架 + dimension 定性三维 | ✅ `6038c4a` |
 | M4.2 | weighted（逐字加权 ratio）+ fuyi（规则级联）+ agreement R22 | ✅ `1d2de8a`/`07f6f6c` |
 | M5 | 格局候选（禄刃/透干优先级）+ 证据化评估（supports/damages/rescues/conflicts/status） | ✅ `c2ecb16` |
-| M6+ | 调候 → 规则库 → API → Web | 📋 `docs/research/09-V1-ROADMAP.md` |
+| K0/K1 | 古籍知识库 Schema + 556 条候选归一化 + 校验工具（docs/knowledge/） | ✅ 本轮 |
+| M6 | 调候引擎：182 条 ExecutableRule，10×12 全覆盖，desired/present 分离，反查原文 | ✅ 本轮 |
+| M7+ | 规则库扩展 → API → Web | 📋 `docs/research/09-V1-ROADMAP.md` |
 
-**测试：203 项全绿**，其中与 bazi-atlas 的**跨引擎实跑差分 5/5**（四柱完全一致，含晚子时与立春边界）。
+**测试：217 项全绿**；bazi-atlas 跨引擎实跑差分 5/5；知识库校验（validate_knowledge.py）：调候 120/120、0 重复 ID、0 缺失来源。
 
 ## 快速开始
 

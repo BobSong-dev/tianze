@@ -10,3 +10,8 @@ htmlcov/
 
 # Phase 0 上游只读克隆（不入库，见 docs/SOURCES.md 的仓库清单）
 research/upstream/
+
+# K1 知识库原始数据：只读语义，不入库（版权谨慎 + 可由 zip 重建）；清单与校验和入库
+knowledge/raw/*
+!knowledge/raw/MANIFEST.sha256
+!knowledge/raw/README.md

@@ -12,6 +12,7 @@ import tianze
 from tianze.analysis import count_elements, collect_roots, compute_month_command, analyze_visibility
 from tianze.analysis.pattern import analyze_pattern
 from tianze.analysis.strength import StrengthFacts, default_run
+from tianze.analysis.tiaohou import analyze_tiaohou
 from tianze.calendar import lunar_adapter as LA
 from tianze.calendar.time_resolution import resolve_time
 from tianze.domain import models as M
@@ -47,6 +48,8 @@ _CONVENTIONS = {
     "patternCandidate": "R23",
     "luRen": "R24",
     "patternEvaluation": "R25",
+    "knowledgeSchema": "R26",
+    "tiaohouRules": "R27",
 }
 
 
@@ -186,6 +189,10 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
     # 格局（M5）：候选识别 + 证据化评估（R23-R25）
     pattern = analyze_pattern(day_master, month_gz[1], stems, positions)
 
+    # 调候（M6）：古籍规则引擎（穷通宝鉴评注，desired/present 分离）
+    tiaohou = analyze_tiaohou(day_master, month_gz[1],
+                              {p: s for p, s in zip(positions, stems)})
+
     warnings = list(time_warnings)
     warnings.extend(
         LA.boundary_warnings(tr.beijing_dt, tr.pillar_dt, birth.time_known, birth.sect)
@@ -216,6 +223,7 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
         element_counts=element_counts,
         strength=strength,
         pattern=pattern,
+        tiaohou=tiaohou,
         conventions=_CONVENTIONS,
         meta=M.ChartMeta(
             engine_version=tianze.__version__,

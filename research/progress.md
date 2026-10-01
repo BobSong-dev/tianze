@@ -2,7 +2,22 @@
 
 > 长任务纪律文件。若任务中断，恢复后必须先读本文件再继续。
 
-- 状态：**Phase 0 ✅；M0-M2 ✅（10f98a8）；M3 ✅（29c078c）；M4 ✅（6038c4a）；M4.2 ✅（1d2de8a/07f6f6c）；M5 ✅（c2ecb16）。203 测试全绿；bazi-atlas 跨引擎实跑差分 5/5。**
+- 状态：**Phase 0 ✅；M0-M5 ✅；M4.2 ✅；K0 ✅（b7bde6f）；K1 ✅（c5d5e22）；M6 ✅（472a5c5）。217 测试全绿；知识库校验 120/120、0 重复 ID、0 缺失来源；atlas 实跑差分 5/5。**
+
+## K0/K1/M6 记录（2026-10-01）
+
+- K0：`tianze/knowledge/models.py`（SourceKind 五级/Quote(OCR 照录+correctedText)/Commentary/RuleCandidate/ExecutableRule(conditions+effects+exceptions+normalizationNotes+conflictNote)/RuleConflict/CaseReference/QualityGrade A-D/KnowledgeStats）；KnowledgeSource/ProvenanceRef 上移 domain（避免循环导入）。
+- K1：normalize_knowledge.py 解析 62 文件 **556 条规则 0 失败**；35 处跨文件 ID 冲突（甲乙木 vs 十干逐月复用 QBT-甲-01~13）加 @n 后缀登记；validate_knowledge.py（重复 ID/缺失来源/无效引用/CLASSICAL_EXPLICIT 无引文/覆盖/冲突 → stats.json，失败退出码 1）；审计报告 docs/knowledge/02。
+- raw/ 只读不入库（ADR-026）：MANIFEST.sha256 锚定两个 zip；normalized/rules 入库可重建。
+- M6：draft 启发式 103/120 → **人工复核 curation 表（120 格全锚定）** → 182 条 ExecutableRule（TH-{候选}-{月支} 格限定 ID）→ TiaoHouAnalyzer（desired/present 分离、条件休眠留痕、例外命中、UNRESOLVED 诚实、无吉凶字段）。冲突 3 组登记（甲未/己申/己未）。
+- 调试教训：Position 是 Literal 别名（无 .value）；loader 产出 Pydantic 对象需属性访问；builder 新旧键并存导致 extra_forbidden——均被测试当场拦截。
+
+## 下一步
+
+- 命例结构化（CaseReference，530 则+400 组索引）作规则复核参照。
+- 子平真诠 OCR 完成后：M5 格局规则 provenance 升级 CLASSICAL_EXPLICIT 的逐条核校。
+- OCR 人工核对推进（B→A）；孙正治/赵嘉宁今译层与徐注层完全分层。
+- M7：规则库扩展（格局/旺衰域知识规则）+ API。
 
 ## M4.2-M5 记录（2026-10-01）
 
