@@ -1,0 +1,1500 @@
+{
+ "schemaVersion": "1.1.0",
+ "generatedBy": "tools/analyze_rule_usage.py",
+ "rulesTotal": 182,
+ "rulesWithEngineTrigger": 352,
+ "rulesNeverMatched": [
+  "QBT-丙-10",
+  "QBT-壬-10"
+ ],
+ "rulesNeverMatchedCount": 2,
+ "explicitlyCitedCandidates": 17,
+ "explicitCitationsTotal": 95,
+ "multiConflictCases": {},
+ "usage": {
+  "QBT-丁-01": {
+   "explicitlyCited": 0,
+   "engineTriggered": 22
+  },
+  "QBT-丁-02": {
+   "explicitlyCited": 0,
+   "engineTriggered": 22
+  },
+  "QBT-丁-03": {
+   "explicitlyCited": 0,
+   "engineTriggered": 18
+  },
+  "QBT-丁-04": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "QBT-丁-05": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "QBT-丁-06": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "QBT-丁-07": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "QBT-丁-08": {
+   "explicitlyCited": 0,
+   "engineTriggered": 19
+  },
+  "QBT-丁-09": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-丁-10": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-丁-11": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "QBT-丁-12": {
+   "explicitlyCited": 0,
+   "engineTriggered": 18
+  },
+  "QBT-丁-13": {
+   "explicitlyCited": 0,
+   "engineTriggered": 29
+  },
+  "QBT-丁-14": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "QBT-丁-15": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "QBT-丁-16": {
+   "explicitlyCited": 0,
+   "engineTriggered": 31
+  },
+  "QBT-丙-01": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "QBT-丙-02": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "QBT-丙-03": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "QBT-丙-04": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "QBT-丙-05": {
+   "explicitlyCited": 0,
+   "engineTriggered": 8
+  },
+  "QBT-丙-06": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-丙-07": {
+   "explicitlyCited": 0,
+   "engineTriggered": 8
+  },
+  "QBT-丙-08": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-丙-09": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-丙-10": {
+   "explicitlyCited": 0,
+   "engineTriggered": 0
+  },
+  "QBT-丙-11": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-丙-12": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "QBT-乙-01": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "QBT-乙-01@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "QBT-乙-02": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "QBT-乙-02@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "QBT-乙-03": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-乙-04": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "QBT-乙-04@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "QBT-乙-05": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-乙-05@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "QBT-乙-06": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-乙-06@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-乙-07": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "QBT-乙-07@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-乙-08": {
+   "explicitlyCited": 0,
+   "engineTriggered": 24
+  },
+  "QBT-乙-09": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "QBT-乙-10": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "QBT-乙-11": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "QBT-乙-11@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "QBT-乙-12": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "QBT-乙-12@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-乙-13": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-乙-14": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-乙-15": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-乙-19": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "QBT-乙-20": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "QBT-乙-21": {
+   "explicitlyCited": 0,
+   "engineTriggered": 24
+  },
+  "QBT-乙-22": {
+   "explicitlyCited": 0,
+   "engineTriggered": 24
+  },
+  "QBT-乙-23": {
+   "explicitlyCited": 4,
+   "engineTriggered": 0
+  },
+  "QBT-乙-24": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "QBT-乙-25": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "QBT-乙-26": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "QBT-乙-27": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "QBT-乙-28": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "QBT-乙-29": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "QBT-乙-30": {
+   "explicitlyCited": 2,
+   "engineTriggered": 0
+  },
+  "QBT-乙-31": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "QBT-乙-32": {
+   "explicitlyCited": 15,
+   "engineTriggered": 0
+  },
+  "QBT-壬-01": {
+   "explicitlyCited": 0,
+   "engineTriggered": 18
+  },
+  "QBT-壬-02": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "QBT-壬-03": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "QBT-壬-04": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "QBT-壬-05": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "QBT-壬-06": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "QBT-壬-07": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "QBT-壬-08": {
+   "explicitlyCited": 0,
+   "engineTriggered": 8
+  },
+  "QBT-壬-09": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-壬-10": {
+   "explicitlyCited": 0,
+   "engineTriggered": 0
+  },
+  "QBT-壬-11": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "QBT-壬-12": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "QBT-己-01": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-己-02": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-己-03": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "QBT-己-04": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "QBT-己-05": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "QBT-己-06": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "QBT-己-07": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-己-08": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-己-09": {
+   "explicitlyCited": 0,
+   "engineTriggered": 24
+  },
+  "QBT-己-10": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "QBT-己-11": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-己-12": {
+   "explicitlyCited": 0,
+   "engineTriggered": 18
+  },
+  "QBT-己-13": {
+   "explicitlyCited": 0,
+   "engineTriggered": 28
+  },
+  "QBT-己-14": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-己-15": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-己-16": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "QBT-庚-01": {
+   "explicitlyCited": 0,
+   "engineTriggered": 8
+  },
+  "QBT-庚-02": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "QBT-庚-03": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "QBT-庚-04": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "QBT-庚-05": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "QBT-庚-06": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "QBT-庚-07": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "QBT-庚-08": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "QBT-庚-09": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-庚-10": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "QBT-庚-11": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "QBT-庚-12": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "QBT-戊-01": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "QBT-戊-02": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "QBT-戊-03": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "QBT-戊-04": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "QBT-戊-05": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "QBT-戊-06": {
+   "explicitlyCited": 0,
+   "engineTriggered": 17
+  },
+  "QBT-戊-07": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "QBT-戊-08": {
+   "explicitlyCited": 0,
+   "engineTriggered": 18
+  },
+  "QBT-戊-09": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "QBT-戊-10": {
+   "explicitlyCited": 0,
+   "engineTriggered": 23
+  },
+  "QBT-戊-11": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "QBT-戊-12": {
+   "explicitlyCited": 0,
+   "engineTriggered": 23
+  },
+  "QBT-戊-13": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-戊-14": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "QBT-甲-01": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "QBT-甲-01@3": {
+   "explicitlyCited": 0,
+   "engineTriggered": 30
+  },
+  "QBT-甲-02": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "QBT-甲-02@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "QBT-甲-02@3": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "QBT-甲-03": {
+   "explicitlyCited": 10,
+   "engineTriggered": 0
+  },
+  "QBT-甲-04": {
+   "explicitlyCited": 0,
+   "engineTriggered": 30
+  },
+  "QBT-甲-04@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "QBT-甲-05": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "QBT-甲-06": {
+   "explicitlyCited": 0,
+   "engineTriggered": 22
+  },
+  "QBT-甲-06@3": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "QBT-甲-07": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "QBT-甲-07@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "QBT-甲-08": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "QBT-甲-09": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "QBT-甲-10": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "QBT-甲-10@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 30
+  },
+  "QBT-甲-11": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "QBT-甲-12": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "QBT-甲-12@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "QBT-甲-13": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-甲-13@2": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "QBT-甲-14": {
+   "explicitlyCited": 2,
+   "engineTriggered": 0
+  },
+  "QBT-甲-15": {
+   "explicitlyCited": 12,
+   "engineTriggered": 0
+  },
+  "QBT-甲-16": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "QBT-甲-17": {
+   "explicitlyCited": 8,
+   "engineTriggered": 0
+  },
+  "QBT-甲-18": {
+   "explicitlyCited": 2,
+   "engineTriggered": 0
+  },
+  "QBT-甲-19": {
+   "explicitlyCited": 4,
+   "engineTriggered": 0
+  },
+  "QBT-甲-20": {
+   "explicitlyCited": 8,
+   "engineTriggered": 0
+  },
+  "QBT-甲-21": {
+   "explicitlyCited": 2,
+   "engineTriggered": 0
+  },
+  "QBT-甲-22": {
+   "explicitlyCited": 1,
+   "engineTriggered": 0
+  },
+  "QBT-甲-23": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "QBT-甲-24": {
+   "explicitlyCited": 6,
+   "engineTriggered": 0
+  },
+  "QBT-甲-25": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "QBT-甲-26": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "QBT-甲-27": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "QBT-甲-28": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "QBT-甲-29": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "QBT-甲-30": {
+   "explicitlyCited": 3,
+   "engineTriggered": 0
+  },
+  "QBT-甲-31": {
+   "explicitlyCited": 7,
+   "engineTriggered": 0
+  },
+  "QBT-甲-32": {
+   "explicitlyCited": 8,
+   "engineTriggered": 0
+  },
+  "QBT-甲-33": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "QBT-甲-34": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "QBT-甲-35": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "QBT-甲-36": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "QBT-甲-37": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-甲-38": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "QBT-癸-01": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "QBT-癸-02": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "QBT-癸-03": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "QBT-癸-04": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "QBT-癸-05": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "QBT-癸-06": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "QBT-癸-07": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "QBT-癸-08": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "QBT-癸-09": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "QBT-癸-10": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "QBT-癸-11": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "QBT-癸-12": {
+   "explicitlyCited": 0,
+   "engineTriggered": 8
+  },
+  "QBT-辛-01": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "QBT-辛-02": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "QBT-辛-03": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "QBT-辛-04": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "QBT-辛-05": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "QBT-辛-06": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "QBT-辛-07": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "QBT-辛-08": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "QBT-辛-09": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "QBT-辛-10": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "QBT-辛-11": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "QBT-辛-12": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "TH-QBT-丁-01-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 22
+  },
+  "TH-QBT-丁-02-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 22
+  },
+  "TH-QBT-丁-03-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 18
+  },
+  "TH-QBT-丁-04-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "TH-QBT-丁-05-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "TH-QBT-丁-06-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "TH-QBT-丁-07-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "TH-QBT-丁-08-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 19
+  },
+  "TH-QBT-丁-09-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-丁-10-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-丁-11-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "TH-QBT-丁-12-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 18
+  },
+  "TH-QBT-丁-13-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "TH-QBT-丁-13-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "TH-QBT-丁-14-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "TH-QBT-丁-15-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "TH-QBT-丁-16-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "TH-QBT-丁-16-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "TH-QBT-丙-01-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "TH-QBT-丙-02-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "TH-QBT-丙-03-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "TH-QBT-丙-04-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "TH-QBT-丙-05-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 8
+  },
+  "TH-QBT-丙-06-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-丙-07-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 8
+  },
+  "TH-QBT-丙-08-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-丙-09-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-丙-11-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-丙-12-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "TH-QBT-乙-01-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "TH-QBT-乙-01@2-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "TH-QBT-乙-02-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "TH-QBT-乙-02@2-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "TH-QBT-乙-03-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-乙-04-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "TH-QBT-乙-04@2-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "TH-QBT-乙-05-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-乙-05@2-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "TH-QBT-乙-06-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-乙-06@2-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-乙-07-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "TH-QBT-乙-07@2-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-乙-08-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 24
+  },
+  "TH-QBT-乙-09-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "TH-QBT-乙-10-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "TH-QBT-乙-11-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "TH-QBT-乙-11@2-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "TH-QBT-乙-12-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "TH-QBT-乙-12@2-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-乙-13-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-乙-14-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-乙-15-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-乙-19-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "TH-QBT-乙-20-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "TH-QBT-乙-21-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 24
+  },
+  "TH-QBT-乙-22-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 24
+  },
+  "TH-QBT-乙-24-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "TH-QBT-乙-25-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "TH-QBT-乙-26-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "TH-QBT-乙-27-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "TH-QBT-乙-28-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "TH-QBT-乙-29-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "TH-QBT-乙-31-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "TH-QBT-壬-01-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 18
+  },
+  "TH-QBT-壬-02-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "TH-QBT-壬-03-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "TH-QBT-壬-04-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "TH-QBT-壬-05-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "TH-QBT-壬-06-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "TH-QBT-壬-07-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "TH-QBT-壬-08-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 8
+  },
+  "TH-QBT-壬-09-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-壬-11-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "TH-QBT-壬-12-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "TH-QBT-己-01-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-己-02-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-己-03-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "TH-QBT-己-04-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "TH-QBT-己-05-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "TH-QBT-己-05-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-己-06-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "TH-QBT-己-07-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-己-08-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-己-09-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 18
+  },
+  "TH-QBT-己-09-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-己-10-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "TH-QBT-己-11-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-己-12-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 18
+  },
+  "TH-QBT-己-13-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "TH-QBT-己-13-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-己-13-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-己-14-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-己-15-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-己-16-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "TH-QBT-庚-01-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 8
+  },
+  "TH-QBT-庚-02-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "TH-QBT-庚-03-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "TH-QBT-庚-04-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "TH-QBT-庚-05-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "TH-QBT-庚-06-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "TH-QBT-庚-07-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "TH-QBT-庚-08-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "TH-QBT-庚-09-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-庚-10-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "TH-QBT-庚-11-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "TH-QBT-庚-12-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 6
+  },
+  "TH-QBT-戊-01-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "TH-QBT-戊-02-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "TH-QBT-戊-03-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "TH-QBT-戊-04-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "TH-QBT-戊-05-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "TH-QBT-戊-06-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 17
+  },
+  "TH-QBT-戊-07-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 13
+  },
+  "TH-QBT-戊-08-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 18
+  },
+  "TH-QBT-戊-09-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "TH-QBT-戊-10-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 23
+  },
+  "TH-QBT-戊-11-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "TH-QBT-戊-12-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "TH-QBT-戊-12-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-戊-13-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-戊-14-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "TH-QBT-甲-01-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "TH-QBT-甲-01@3-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 30
+  },
+  "TH-QBT-甲-02-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "TH-QBT-甲-02@2-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "TH-QBT-甲-02@3-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 14
+  },
+  "TH-QBT-甲-04-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 30
+  },
+  "TH-QBT-甲-04@2-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "TH-QBT-甲-05-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "TH-QBT-甲-06-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "TH-QBT-甲-06-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "TH-QBT-甲-06@3-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "TH-QBT-甲-07-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "TH-QBT-甲-07@2-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 10
+  },
+  "TH-QBT-甲-08-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "TH-QBT-甲-09-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "TH-QBT-甲-10-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "TH-QBT-甲-10@2-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 30
+  },
+  "TH-QBT-甲-11-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "TH-QBT-甲-12-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "TH-QBT-甲-12@2-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "TH-QBT-甲-13-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-甲-13@2-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "TH-QBT-甲-16-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "TH-QBT-甲-23-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "TH-QBT-甲-25-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 15
+  },
+  "TH-QBT-甲-26-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "TH-QBT-甲-27-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 11
+  },
+  "TH-QBT-甲-28-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "TH-QBT-甲-29-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 20
+  },
+  "TH-QBT-甲-33-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "TH-QBT-甲-34-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 12
+  },
+  "TH-QBT-甲-35-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "TH-QBT-甲-36-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 16
+  },
+  "TH-QBT-甲-37-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-甲-38-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 7
+  },
+  "TH-QBT-癸-01-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "TH-QBT-癸-02-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "TH-QBT-癸-03-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "TH-QBT-癸-04-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "TH-QBT-癸-05-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "TH-QBT-癸-06-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "TH-QBT-癸-07-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "TH-QBT-癸-08-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "TH-QBT-癸-09-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "TH-QBT-癸-10-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "TH-QBT-癸-11-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 9
+  },
+  "TH-QBT-癸-12-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 8
+  },
+  "TH-QBT-辛-01-寅": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "TH-QBT-辛-02-卯": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "TH-QBT-辛-03-辰": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "TH-QBT-辛-04-巳": {
+   "explicitlyCited": 0,
+   "engineTriggered": 1
+  },
+  "TH-QBT-辛-05-午": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "TH-QBT-辛-06-未": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "TH-QBT-辛-07-申": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "TH-QBT-辛-08-酉": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "TH-QBT-辛-09-戌": {
+   "explicitlyCited": 0,
+   "engineTriggered": 5
+  },
+  "TH-QBT-辛-10-亥": {
+   "explicitlyCited": 0,
+   "engineTriggered": 2
+  },
+  "TH-QBT-辛-11-子": {
+   "explicitlyCited": 0,
+   "engineTriggered": 4
+  },
+  "TH-QBT-辛-12-丑": {
+   "explicitlyCited": 0,
+   "engineTriggered": 3
+  },
+  "ZHY-R43": {
+   "explicitlyCited": 1,
+   "engineTriggered": 0
+  }
+ }
+}

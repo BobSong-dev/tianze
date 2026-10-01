@@ -1,0 +1,1315 @@
+{
+ "book": "子平真诠评注",
+ "count": 22,
+ "cases": [
+  {
+   "caseId": "CASE-ZPZM-01（刘某造·浙西首富）",
+   "rawBlockId": "ZPZM-01（刘某造·浙西首富）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     65
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬戌",
+     "month": "己酉",
+     "day": "丁丑",
+     "hour": "甲辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丁-11-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-02（史某造·无冕帝王）",
+   "rawBlockId": "ZPZM-02（史某造·无冕帝王）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     65
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己卯",
+     "month": "丙子",
+     "day": "庚寅",
+     "hour": "辛巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-庚-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-03（三奇造·光绪造时辰两说）",
+   "rawBlockId": "ZPZM-03（三奇造·光绪造时辰两说）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     65,
+     66
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己卯",
+     "month": "丙子",
+     "day": "丙子",
+     "hour": "丁酉"
+    },
+    "gender": null,
+    "birthText": "光绪五年十一月初七日酉时",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "壬",
+     "戊"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-04（癸巳丙辰壬申癸卯造）",
+   "rawBlockId": "ZPZM-04（癸巳丙辰壬申癸卯造）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     66
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸巳",
+     "month": "丙辰",
+     "day": "壬申",
+     "hour": "癸卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-03-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-05（谭君造）",
+   "rawBlockId": "ZPZM-05（谭君造）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     66
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己卯",
+     "month": "丁丑",
+     "day": "癸丑",
+     "hour": "乙卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-12-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-06（伍某造）",
+   "rawBlockId": "ZPZM-06（伍某造）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     66
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁亥",
+     "month": "丙午",
+     "day": "壬寅",
+     "hour": "己酉"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "庚",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-05-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-07（石某造·阳刃格）",
+   "rawBlockId": "ZPZM-07（石某造·阳刃格）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     66
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸巳",
+     "month": "辛酉",
+     "day": "庚申",
+     "hour": "丙戌"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丁",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-庚-08-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-08（龙某造·煞刃格成）",
+   "rawBlockId": "ZPZM-08（龙某造·煞刃格成）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     66
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁卯",
+     "month": "丙午",
+     "day": "丙子",
+     "hour": "壬辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "壬",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丙-05-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-09（江万平造·建禄格成）",
+   "rawBlockId": "ZPZM-09（江万平造·建禄格成）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     66
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁酉",
+     "month": "丙午",
+     "day": "丁酉",
+     "hour": "己酉"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-丁-07-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-10（救应诸造：朱某/张某/褚某/辛巳壬辰乙亥壬午）",
+   "rawBlockId": "ZPZM-10（救应诸造：朱某/张某/褚某/辛巳壬辰乙亥壬午）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     67,
+     68
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-11（论用神变化诸造）",
+   "rawBlockId": "ZPZM-11（论用神变化诸造）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     71
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-12（论用神纯杂两造）",
+   "rawBlockId": "ZPZM-12（论用神纯杂两造）",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     73,
+     90
+    ],
+    "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": "female",
+    "birthText": null,
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-13（姚文敷君造·行运成格变格）",
+   "rawBlockId": "ZPZM-13（姚文敷君造·行运成格变格）",
+   "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     132
+    ],
+    "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛未",
+     "month": "甲午",
+     "day": "丙申",
+     "hour": "戊戌"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "壬",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-05-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-14（薛相公命·正官大贵）",
+   "rawBlockId": "ZPZM-14（薛相公命·正官大贵）",
+   "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     144,
+     145
+    ],
+    "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲申",
+     "month": "壬申",
+     "day": "乙巳",
+     "hour": "戊寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-07-申",
+     "TH-QBT-乙-19-申",
+     "TH-QBT-乙-20-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-15（岳武穆命·阳刃格最著）",
+   "rawBlockId": "ZPZM-15（岳武穆命·阳刃格最著）",
+   "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     202
+    ],
+    "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸未",
+     "month": "乙卯",
+     "day": "甲子",
+     "hour": "己巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-甲-02-卯",
+     "TH-QBT-甲-04@2-卯",
+     "TH-QBT-甲-07@2-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-16（脱脱丞相命·煞格）",
+   "rawBlockId": "ZPZM-16（脱脱丞相命·煞格）",
+   "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     188,
+     189
+    ],
+    "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬辰",
+     "month": "甲辰",
+     "day": "丙戌",
+     "hour": "戊戌"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丙-03-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-17（史春芳命·伤官用财）",
+   "rawBlockId": "ZPZM-17（史春芳命·伤官用财）",
+   "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     195,
+     196,
+     197,
+     198
+    ],
+    "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬午",
+     "month": "己酉",
+     "day": "戊午",
+     "hour": "庚申"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-09-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-18（罗状元命·金水伤官）",
+   "rawBlockId": "ZPZM-18（罗状元命·金水伤官）",
+   "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     198
+    ],
+    "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲子",
+     "month": "乙亥",
+     "day": "辛未",
+     "hour": "戊子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-10-亥"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-19（梁丞相命·食神生财）",
+   "rawBlockId": "ZPZM-19（梁丞相命·食神生财）",
+   "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     169
+    ],
+    "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁未",
+     "month": "癸卯",
+     "day": "癸亥",
+     "hour": "癸丑"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "庚",
+     "辛"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-02-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-20（张参政造·印格别取）",
+   "rawBlockId": "ZPZM-20（张参政造·印格别取）",
+   "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     162,
+     163,
+     164,
+     165
+    ],
+    "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丙寅",
+     "month": "戊戌",
+     "day": "辛酉",
+     "hour": "戊子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-09-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-21（王少师命·三奇格）",
+   "rawBlockId": "ZPZM-21（王少师命·三奇格）",
+   "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     207
+    ],
+    "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚午",
+     "month": "戊子",
+     "day": "癸卯",
+     "hour": "丁巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丙",
+     "辛"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZPZM-22（吴相公命·曲直仁寿格）",
+   "rawBlockId": "ZPZM-22（吴相公命·曲直仁寿格）",
+   "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平真诠评注",
+    "chapter": "子平真诠评注",
+    "pages": [
+     213,
+     214,
+     215,
+     216,
+     217,
+     218,
+     219
+    ],
+    "sourceFile": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸亥",
+     "month": "乙卯",
+     "day": "乙未",
+     "hour": "壬午"
+    },
+    "gender": "female",
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-02-卯",
+     "TH-QBT-乙-04@2-卯",
+     "TH-QBT-乙-05@2-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  }
+ ]
+}

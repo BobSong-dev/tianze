@@ -1,0 +1,556 @@
+{
+ "book": "造化元钥评注",
+ "count": 9,
+ "cases": [
+  {
+   "caseId": "CASE-ZHY-M01",
+   "rawBlockId": "ZHY-M01",
+   "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "造化元钥评注",
+    "chapter": "造化元钥评注",
+    "pages": [
+     13
+    ],
+    "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "乙丑",
+     "month": "辛巳",
+     "day": "己巳",
+     "hour": "庚午"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [
+    {
+     "ruleId": "ZHY-R43",
+     "relation": "EXPLICITLY_CITED"
+    }
+   ],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-05-巳",
+     "TH-QBT-己-06-巳"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZHY-M02（杨士襄）",
+   "rawBlockId": "ZHY-M02（杨士襄）",
+   "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "造化元钥评注",
+    "chapter": "造化元钥评注",
+    "pages": [
+     14
+    ],
+    "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚申",
+     "month": "甲申",
+     "day": "己丑",
+     "hour": "癸酉"
+    },
+    "gender": null,
+    "birthText": "咸丰十年六月廿七日酉时」（与所排干支不完全对应，原书照录）",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-己-10-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZHY-M03（袁乃宽）",
+   "rawBlockId": "ZHY-M03（袁乃宽）",
+   "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "造化元钥评注",
+    "chapter": "造化元钥评注",
+    "pages": [
+     14
+    ],
+    "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己巳",
+     "month": "壬申",
+     "day": "己卯",
+     "hour": "戊辰"
+    },
+    "gender": null,
+    "birthText": "同治八年七月初九日辰时〕",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-10-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZHY-M04（王正廷）",
+   "rawBlockId": "ZHY-M04（王正廷）",
+   "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "造化元钥评注",
+    "chapter": "造化元钥评注",
+    "pages": [
+     14
+    ],
+    "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬午",
+     "month": "戊申",
+     "day": "己酉",
+     "hour": "丙寅"
+    },
+    "gender": null,
+    "birthText": "光绪八年七月廿五日寅时",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-10-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZHY-M05（孙某言）",
+   "rawBlockId": "ZHY-M05（孙某言）",
+   "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "造化元钥评注",
+    "chapter": "造化元钥评注",
+    "pages": [
+     14
+    ],
+    "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "乙亥",
+     "month": "乙酉",
+     "day": "己巳",
+     "hour": "乙丑"
+    },
+    "gender": null,
+    "birthText": "嘉庆廿年八月十七日丑时〕",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-己-09-酉",
+     "TH-QBT-己-11-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZHY-M06（李纯）",
+   "rawBlockId": "ZHY-M06（李纯）",
+   "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "造化元钥评注",
+    "chapter": "造化元钥评注",
+    "pages": [
+     14
+    ],
+    "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "乙亥",
+     "month": "乙酉",
+     "day": "己卯",
+     "hour": "庚午"
+    },
+    "gender": null,
+    "birthText": "光绪元年八月十五日午时〕",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-己-09-酉",
+     "TH-QBT-己-11-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZHY-M07（胡瑞兰）",
+   "rawBlockId": "ZHY-M07（胡瑞兰）",
+   "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "造化元钥评注",
+    "chapter": "造化元钥评注",
+    "pages": [
+     14
+    ],
+    "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊寅",
+     "month": "壬戌",
+     "day": "己巳",
+     "hour": "庚午"
+    },
+    "gender": null,
+    "birthText": "嘉庆廿三年十月初四日午时（\"拾月\"照录）〕",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-09-戌",
+     "TH-QBT-己-12-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZHY-M08（庞澄云）",
+   "rawBlockId": "ZHY-M08（庞澄云）",
+   "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "造化元钥评注",
+    "chapter": "造化元钥评注",
+    "pages": [
+     14
+    ],
+    "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛巳",
+     "month": "戊戌",
+     "day": "己卯",
+     "hour": "癸酉"
+    },
+    "gender": null,
+    "birthText": "道光元年十月初二日酉时〕",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-09-戌",
+     "TH-QBT-己-12-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-ZHY-M09（三月癸水无名例）",
+   "rawBlockId": "ZHY-M09（三月癸水无名例）",
+   "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "造化元钥评注",
+    "chapter": "造化元钥评注",
+    "pages": [
+     19
+    ],
+    "sourceFile": "_知识库/_知识库/01-造化元钥评注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛卯",
+     "month": "壬辰",
+     "day": "癸未",
+     "hour": "丙辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-癸-03-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  }
+ ]
+}

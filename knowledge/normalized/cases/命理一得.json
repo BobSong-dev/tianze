@@ -1,0 +1,2538 @@
+{
+ "book": "命理一得",
+ "count": 42,
+ "cases": [
+  {
+   "caseId": "CASE-MLYD-01（明太祖·洪武）",
+   "rawBlockId": "MLYD-01（明太祖·洪武）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     10
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊辰",
+     "month": "丁巳",
+     "day": "丁未",
+     "hour": "壬戌"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-05-巳",
+     "TH-QBT-丁-06-巳"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-02（明成祖·永乐）",
+   "rawBlockId": "MLYD-02（明成祖·永乐）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     11
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛酉",
+     "month": "庚子",
+     "day": "丁酉",
+     "hour": "癸巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-15-子",
+     "TH-QBT-丁-16-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-03（明思宗·崇祯）",
+   "rawBlockId": "MLYD-03（明思宗·崇祯）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     11
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛亥",
+     "month": "庚寅",
+     "day": "乙未",
+     "hour": "己卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-01-寅",
+     "TH-QBT-乙-01@2-寅",
+     "TH-QBT-乙-02@2-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-04（清圣祖·康熙）",
+   "rawBlockId": "MLYD-04（清圣祖·康熙）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     12
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊午",
+     "month": "甲午",
+     "day": "戊申",
+     "hour": "戊午"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-06-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-05（清高宗·乾隆）",
+   "rawBlockId": "MLYD-05（清高宗·乾隆）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     13
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丙子",
+     "month": "庚午",
+     "day": "辛卯",
+     "hour": "丁酉"
+    },
+    "gender": null,
+    "birthText": "嘉庆）四年，八十九",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "壬",
+     "己"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-05-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-06（清德宗·光绪）",
+   "rawBlockId": "MLYD-06（清德宗·光绪）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     13
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬申",
+     "month": "丁未",
+     "day": "戊子",
+     "hour": "壬子"
+    },
+    "gender": null,
+    "birthText": "同治十一年六月廿八日子时\"与\"相传生同治十年辛未十一月廿八日子时",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-07-未"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-07（清逊帝·宣统）",
+   "rawBlockId": "MLYD-07（清逊帝·宣统）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     14
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬寅",
+     "month": "庚寅",
+     "day": "壬午",
+     "hour": "丙午"
+    },
+    "gender": null,
+    "birthText": "光绪造己嫌金水衰竭",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "庚",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-壬-01-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-08（徐世昌〔徐东海〕）",
+   "rawBlockId": "MLYD-08（徐世昌〔徐东海〕）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     15
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸酉",
+     "month": "丙辰",
+     "day": "丙戌",
+     "hour": "乙卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-03-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-09（袁世凯）",
+   "rawBlockId": "MLYD-09（袁世凯）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "守素室丛谈",
+    "pages": [
+     15
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己未",
+     "month": "癸酉",
+     "day": "丁巳",
+     "hour": "丁未"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "甲",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-11-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-10（吴佩孚）",
+   "rawBlockId": "MLYD-10（吴佩孚）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     16
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": null,
+    "birthText": "同治十三年三月初七日卯时〕",
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-11（李鸿章〔李文忠公〕）",
+   "rawBlockId": "MLYD-11（李鸿章〔李文忠公〕）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     16
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸未",
+     "month": "甲寅",
+     "day": "乙亥",
+     "hour": "己卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-01-寅",
+     "TH-QBT-乙-01@2-寅",
+     "TH-QBT-乙-02@2-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-12（段祺瑞）",
+   "rawBlockId": "MLYD-12（段祺瑞）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     16
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸未",
+     "month": "乙亥",
+     "day": "乙丑",
+     "hour": "己卯"
+    },
+    "gender": null,
+    "birthText": "同治四年二月初九日未时〕",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "丙",
+     "戊"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-10-亥",
+     "TH-QBT-乙-26-亥",
+     "TH-QBT-乙-27-亥"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-13（张作霖）",
+   "rawBlockId": "MLYD-13（张作霖）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     17
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚辰",
+     "month": "乙亥",
+     "day": "丁丑",
+     "hour": "己卯"
+    },
+    "gender": null,
+    "birthText": "光绪元年二月十二日丑时〕",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-13-亥",
+     "TH-QBT-丁-14-亥"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-14（林森〔附孟恩远、萨镇冰〕）",
+   "rawBlockId": "MLYD-14（林森〔附孟恩远、萨镇冰〕）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     18
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁卯",
+     "month": "癸酉",
+     "day": "甲寅",
+     "hour": "戊辰"
+    },
+    "gender": null,
+    "birthText": "同治七年正月十八日酉时",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "丁",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-甲-09-酉",
+     "TH-QBT-甲-26-酉",
+     "TH-QBT-甲-27-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-15（梁士诒）",
+   "rawBlockId": "MLYD-15（梁士诒）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     18
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": null,
+    "birthText": "同治八年二月二十四日午时〕",
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-16（蒋中正〔蒋奉化〕）",
+   "rawBlockId": "MLYD-16（蒋中正〔蒋奉化〕）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "造化元钥",
+    "pages": [
+     19
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁亥",
+     "month": "庚戌",
+     "day": "丁丑",
+     "hour": "丁未"
+    },
+    "gender": null,
+    "birthText": "光绪十三年（丁亥）\"不合，柱序存疑",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-12-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-17（傅宗耀）",
+   "rawBlockId": "MLYD-17（傅宗耀）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "守素室丛谈",
+    "pages": [
+     19
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬申",
+     "month": "壬子",
+     "day": "辛亥",
+     "hour": "癸巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-18（汪精卫〔汪精术〕）",
+   "rawBlockId": "MLYD-18（汪精卫〔汪精术〕）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     20
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": null,
+    "birthText": "光绪九年三月二十八日巳时〕",
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-19（阎锡山〔附商震、张人杰、张敬、萧世英等〕）",
+   "rawBlockId": "MLYD-19（阎锡山〔附商震、张人杰、张敬、萧世英等〕）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     21
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸未",
+     "month": "辛酉",
+     "day": "乙酉",
+     "hour": "丁亥"
+    },
+    "gender": null,
+    "birthText": "光绪九年九月初八日亥时〕",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-乙-08-酉",
+     "TH-QBT-乙-21-酉",
+     "TH-QBT-乙-22-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-20（胡汉民）",
+   "rawBlockId": "MLYD-20（胡汉民）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     21
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己卯",
+     "month": "丁酉",
+     "day": "丙子",
+     "hour": "丙子"
+    },
+    "gender": null,
+    "birthText": "光绪五年十一月初七日酉时〕",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-08-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-21（白崇禧）",
+   "rawBlockId": "MLYD-21（白崇禧）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     23
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸巳",
+     "month": "戊午",
+     "day": "乙卯",
+     "hour": "癸巳"
+    },
+    "gender": null,
+    "birthText": "光绪十九年（癸巳）\"及\"午时\"互参推列，柱序疑误】",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-乙-05-午",
+     "TH-QBT-乙-12@2-午",
+     "TH-QBT-乙-13-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-22（张学良）",
+   "rawBlockId": "MLYD-22（张学良）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     23
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚子",
+     "month": "辛丑",
+     "day": "癸巳",
+     "hour": "庚子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-12-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-23（孔祥熙）",
+   "rawBlockId": "MLYD-23（孔祥熙）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     24
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚申",
+     "month": "癸卯",
+     "day": "乙酉",
+     "hour": "庚辰"
+    },
+    "gender": null,
+    "birthText": "光绪六年八月初二日申时\"互参，柱序存疑】",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-02-卯",
+     "TH-QBT-乙-04@2-卯",
+     "TH-QBT-乙-05@2-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-24（宋子文）",
+   "rawBlockId": "MLYD-24（宋子文）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     24
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己卯",
+     "month": "庚辰",
+     "day": "乙亥",
+     "hour": "甲午"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-03-辰",
+     "TH-QBT-乙-06@2-辰",
+     "TH-QBT-乙-07@2-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-25（周佛海）",
+   "rawBlockId": "MLYD-25（周佛海）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     25
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁酉",
+     "month": "甲辰",
+     "day": "丁酉",
+     "hour": "甲辰"
+    },
+    "gender": null,
+    "birthText": "光绪二十年四月廿八日辰时\"",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丁-04-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-26（贺耀祖）",
+   "rawBlockId": "MLYD-26（贺耀祖）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     25
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己丑",
+     "month": "戊辰",
+     "day": "己未",
+     "hour": "戊辰"
+    },
+    "gender": null,
+    "birthText": "同治十年五月初五日未时，辛未、甲午、甲午、辛未……（辛卯庚寅二十",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-04-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-27（胡适之）",
+   "rawBlockId": "MLYD-27（胡适之）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     41
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛卯",
+     "month": "庚子",
+     "day": "丁丑",
+     "hour": "丁未"
+    },
+    "gender": null,
+    "birthText": "光绪十六年庚寅十一月十一日午时，庚寅、丁丑、戊子、丙午）相类，好",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-15-子",
+     "TH-QBT-丁-16-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-28（双生子）",
+   "rawBlockId": "MLYD-28（双生子）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     44
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己卯",
+     "month": "乙亥",
+     "day": "甲寅",
+     "hour": "乙亥"
+    },
+    "gender": null,
+    "birthText": "民国二十八年己卯十月十八日，兄生于下午十时十五分（亥末），弟生于",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "庚",
+     "丁"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-甲-11-亥",
+     "TH-QBT-甲-33-亥",
+     "TH-QBT-甲-34-亥"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-29（女命无名例一·庚戌年）",
+   "rawBlockId": "MLYD-29（女命无名例一·庚戌年）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     35
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚午",
+     "month": "戊辰",
+     "day": "己未",
+     "hour": "己未"
+    },
+    "gender": "female",
+    "birthText": "同治七年戊辰六月十三日辰时〕【OCR识别待核：年柱与生辰年份互参",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-04-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-30（女命无名例二·庚申年）",
+   "rawBlockId": "MLYD-30（女命无名例二·庚申年）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     35
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚申",
+     "month": "庚辰",
+     "day": "乙亥",
+     "hour": "庚申"
+    },
+    "gender": "female",
+    "birthText": "咸丰拾年庚申三月廿五日亥时〕",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-03-辰",
+     "TH-QBT-乙-06@2-辰",
+     "TH-QBT-乙-07@2-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-31（女命无名例三·壬寅年重华盖格）",
+   "rawBlockId": "MLYD-31（女命无名例三·壬寅年重华盖格）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     36
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": "female",
+    "birthText": "光绪二十七年十二月十六日丑时〕",
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-32（女命无名例四·庚子月）",
+   "rawBlockId": "MLYD-32（女命无名例四·庚子月）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     36
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸未",
+     "month": "庚子",
+     "day": "甲午",
+     "hour": "辛未"
+    },
+    "gender": "female",
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丁",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-甲-12-子",
+     "TH-QBT-甲-35-子",
+     "TH-QBT-甲-36-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-33（女命无名例五·癸亥月）",
+   "rawBlockId": "MLYD-33（女命无名例五·癸亥月）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     37
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己未",
+     "month": "癸亥",
+     "day": "戊子",
+     "hour": "庚戌"
+    },
+    "gender": "female",
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "甲",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-11-亥"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-34（女命无名例六·丙火亥月）",
+   "rawBlockId": "MLYD-34（女命无名例六·丙火亥月）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     37
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": "female",
+    "birthText": null,
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-35（女命无名例七·壬子红艳）",
+   "rawBlockId": "MLYD-35（女命无名例七·壬子红艳）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     38
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬子",
+     "month": "乙酉",
+     "day": "壬寅",
+     "hour": "壬寅"
+    },
+    "gender": "female",
+    "birthText": "光绪二十八年（壬寅）\"及原文\"壬子红艳桃花于门户\"互参，柱序存疑",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-08-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-36（女命无名例八·壬子年庚金）",
+   "rawBlockId": "MLYD-36（女命无名例八·壬子年庚金）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     39
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬子",
+     "month": "癸卯",
+     "day": "庚辰",
+     "hour": "壬子"
+    },
+    "gender": "female",
+    "birthText": "民国元年（壬子）正月二十七日辰时\"及原文\"壬癸为子星引至时上入墓",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丁",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-庚-02-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-37（女命无名例九·己卯年）",
+   "rawBlockId": "MLYD-37（女命无名例九·己卯年）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     43
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "乙卯",
+     "month": "辛未",
+     "day": "乙酉",
+     "hour": "辛卯"
+    },
+    "gender": "female",
+    "birthText": "民国四年乙卯八月廿八日卯时\"，三柱：辛未、乙酉、辛卯）【OCR识",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-06-未",
+     "TH-QBT-乙-14-未",
+     "TH-QBT-乙-15-未"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-38（徐乐吾自造）",
+   "rawBlockId": "MLYD-38（徐乐吾自造）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     34
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丙申",
+     "month": "丙申",
+     "day": "丙戌",
+     "hour": "壬辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丙-07-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-39（伯兄之造·官伤两停）",
+   "rawBlockId": "MLYD-39（伯兄之造·官伤两停）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     34
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬戌",
+     "month": "癸未",
+     "day": "戊申",
+     "hour": "丁未"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-戊-07-未"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-40（友人造·壬龙背格）",
+   "rawBlockId": "MLYD-40（友人造·壬龙背格）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     42
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬辰",
+     "month": "丙申",
+     "day": "丙午",
+     "hour": "壬辰"
+    },
+    "gender": null,
+    "birthText": "光绪二十二年丙申二月二十七日午时〕",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丙-07-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-41（书2所附其他无名造·择要）",
+   "rawBlockId": "MLYD-41（书2所附其他无名造·择要）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "穷通宝鉴评注",
+    "pages": [
+     26,
+     26,
+     27,
+     27,
+     27,
+     27,
+     27,
+     28,
+     28,
+     28,
+     28,
+     28,
+     29,
+     29,
+     29,
+     29,
+     30,
+     30,
+     41,
+     41,
+     41,
+     41,
+     42,
+     42,
+     44,
+     44,
+     22,
+     22,
+     22,
+     22,
+     22,
+     22,
+     22,
+     22,
+     21,
+     21,
+     21,
+     21,
+     25,
+     25,
+     19,
+     19,
+     19,
+     19,
+     39,
+     39,
+     60,
+     60
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁丑",
+     "month": "己酉",
+     "day": "乙未",
+     "hour": "辛巳"
+    },
+    "gender": "female",
+    "birthText": "同治四年十月初九日午时",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-乙-08-酉",
+     "TH-QBT-乙-21-酉",
+     "TH-QBT-乙-22-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-MLYD-42（帝造类·存目）",
+   "rawBlockId": "MLYD-42（帝造类·存目）",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "命理一得",
+    "chapter": "命理一得",
+    "pages": [
+     14,
+     13
+    ],
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  }
+ ]
+}

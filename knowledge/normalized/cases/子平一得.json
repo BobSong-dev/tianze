@@ -1,0 +1,66 @@
+{
+ "book": "子平一得",
+ "count": 1,
+ "cases": [
+  {
+   "caseId": "CASE-ZPY-M01（徐乐吾自造）",
+   "rawBlockId": "ZPY-M01（徐乐吾自造）",
+   "sourceFile": "09p-滴天髓补注/06-子平一得知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "子平一得",
+    "chapter": "子平一得",
+    "pages": [
+     2
+    ],
+    "sourceFile": "09p-滴天髓补注/06-子平一得知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丙申",
+     "month": "丙申",
+     "day": "丙戌",
+     "hour": "壬辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丙-07-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  }
+ ]
+}

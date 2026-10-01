@@ -1,0 +1,407 @@
+{
+ "pipeline": "normalize_cases.py@1.0.0",
+ "caseSchemaVersion": "1.0.0",
+ "generatedAt": "2026-10-01T21:36:43",
+ "inputs": [
+  {
+   "path": "09p-滴天髓补注/06-子平一得_命例检索索引.md",
+   "sha256": "3e511d87b1bd9634"
+  },
+  {
+   "path": "09p-滴天髓补注/06-子平一得知识库.md",
+   "sha256": "0bbd912ce5a7413b"
+  },
+  {
+   "path": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "sha256": "1fb060be606fa566"
+  },
+  {
+   "path": "09p-滴天髓补注/07b-子平真诠评注_八格与行运.md",
+   "sha256": "ff8840a28b4a9d3e"
+  },
+  {
+   "path": "09p-滴天髓补注/08-子平粹言知识库.md",
+   "sha256": "9ca52af112bd75d1"
+  },
+  {
+   "path": "09p-滴天髓补注/08b-子平粹言_辟谬长生.md",
+   "sha256": "4b2cf99269696ab0"
+  },
+  {
+   "path": "09p-滴天髓补注/08c-子平粹言_排盘与六神.md",
+   "sha256": "3e60e978e7335669"
+  },
+  {
+   "path": "09p-滴天髓补注/08d-子平粹言_推大运法.md",
+   "sha256": "5a0498c7c372cefe"
+  },
+  {
+   "path": "09p-滴天髓补注/08e-子平粹言_小运流年命宫.md",
+   "sha256": "28809a4e2f6a9d69"
+  },
+  {
+   "path": "09p-滴天髓补注/08f-子平粹言_胎元小限五合.md",
+   "sha256": "281a05ae4ad4bf5a"
+  },
+  {
+   "path": "09p-滴天髓补注/08g-子平粹言_合非化与六合.md",
+   "sha256": "33e0f4d2b038f23e"
+  },
+  {
+   "path": "09p-滴天髓补注/08h-子平粹言_会合刑冲禄刃.md",
+   "sha256": "392704bf4a8e6a04"
+  },
+  {
+   "path": "09p-滴天髓补注/08i-子平粹言_旺衰强弱与反生克.md",
+   "sha256": "67ef44a3a4a08391"
+  },
+  {
+   "path": "09p-滴天髓补注/08j-子平粹言_论八法.md",
+   "sha256": "768510bf6df56666"
+  },
+  {
+   "path": "09p-滴天髓补注/08k-子平粹言_明体立用与体性.md",
+   "sha256": "6defb36478f571fe"
+  },
+  {
+   "path": "09p-滴天髓补注/08l-子平粹言_四时体性表.md",
+   "sha256": "69541684e785a63c"
+  },
+  {
+   "path": "09p-滴天髓补注/08m-子平粹言_四时体性表金水.md",
+   "sha256": "bbd3018b3f136f45"
+  },
+  {
+   "path": "09p-滴天髓补注/08n-子平粹言_附释八正格.md",
+   "sha256": "769b7bcb71366dae"
+  },
+  {
+   "path": "09p-滴天髓补注/08o-子平粹言_用神节四时之木.md",
+   "sha256": "09126a3bd324162f"
+  },
+  {
+   "path": "09p-滴天髓补注/08p-子平粹言_冬木与甲乙造化.md",
+   "sha256": "9a47e730edfbbdab"
+  },
+  {
+   "path": "09p-滴天髓补注/08q-子平粹言_四时之火.md",
+   "sha256": "f5c0ced512ac0aad"
+  },
+  {
+   "path": "09p-滴天髓补注/08r-子平粹言_丁火与四时之土.md",
+   "sha256": "29c390f8f6e37be3"
+  },
+  {
+   "path": "09p-滴天髓补注/08s-子平粹言_戊己土性与四季月.md",
+   "sha256": "bcd2e8d486858354"
+  },
+  {
+   "path": "09p-滴天髓补注/08t-子平粹言_四时之金与庚辛性.md",
+   "sha256": "7564e78e55cb1dd5"
+  },
+  {
+   "path": "09p-滴天髓补注/08u-子平粹言_四时之水与壬癸性.md",
+   "sha256": "f5bf78c6f9d62c2d"
+  },
+  {
+   "path": "09p-滴天髓补注/08v-子平粹言_六壬六癸与甲木选用.md",
+   "sha256": "6c5bb06163e7d930"
+  },
+  {
+   "path": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+   "sha256": "fc4565ae1388bba8"
+  },
+  {
+   "path": "09p-滴天髓补注/09b-滴天髓补注_十干性情.md",
+   "sha256": "f08d9eff9e5f1a35"
+  },
+  {
+   "path": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+   "sha256": "c0b303caca2c9fc6"
+  },
+  {
+   "path": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "sha256": "76377c65f0c60711"
+  },
+  {
+   "path": "09p-滴天髓补注/09e-滴天髓补注_形象方局.md",
+   "sha256": "ae4c3d194157fcaf"
+  },
+  {
+   "path": "09p-滴天髓补注/09f-滴天髓补注_方局齐来与八格.md",
+   "sha256": "784e46c82843f074"
+  },
+  {
+   "path": "09p-滴天髓补注/09g-滴天髓补注_杂气财官与正官.md",
+   "sha256": "0caed017120f92e4"
+  },
+  {
+   "path": "09p-滴天髓补注/09h-滴天髓补注_官印格局.md",
+   "sha256": "f4beb61143d60ed7"
+  },
+  {
+   "path": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+   "sha256": "e2134da132894bdb"
+  },
+  {
+   "path": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+   "sha256": "cb8502a7bcaba699"
+  },
+  {
+   "path": "09p-滴天髓补注/09k-滴天髓补注_影响遥系官煞伤官.md",
+   "sha256": "7b320d3eb7032f7d"
+  },
+  {
+   "path": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+   "sha256": "44bfa5266dd7cee3"
+  },
+  {
+   "path": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+   "sha256": "3715c637b1c15b91"
+  },
+  {
+   "path": "09p-滴天髓补注/09n-滴天髓补注_从化章.md",
+   "sha256": "cadb3bf034b0b209"
+  },
+  {
+   "path": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+   "sha256": "273fa113cedae90c"
+  },
+  {
+   "path": "09p-滴天髓补注/09p-滴天髓补注_君赖臣生儿能生母.md",
+   "sha256": "923749872734a792"
+  },
+  {
+   "path": "09p-滴天髓补注/09q-滴天髓补注_母慈灭子夫健怕妻.md",
+   "sha256": "fe7371e97b4800ca"
+  },
+  {
+   "path": "09p-滴天髓补注/09r-滴天髓补注_体用精神.md",
+   "sha256": "29d3a1f7adb65821"
+  },
+  {
+   "path": "09p-滴天髓补注/09s-滴天髓补注_精神与人元用事.md",
+   "sha256": "3ef78e892502989a"
+  },
+  {
+   "path": "09p-滴天髓补注/09t-滴天髓补注_旺衰真机与中和.md",
+   "sha256": "43e23374be59d966"
+  },
+  {
+   "path": "09p-滴天髓补注/09u-滴天髓补注_源流通关.md",
+   "sha256": "8a9677a53ff96339"
+  },
+  {
+   "path": "09p-滴天髓补注/09v-滴天髓补注_清浊节.md",
+   "sha256": "74c5c1c6f1f0542e"
+  },
+  {
+   "path": "09p-滴天髓补注/09w-滴天髓补注_真假节.md",
+   "sha256": "467046ea12cd6d23"
+  },
+  {
+   "path": "README.md",
+   "sha256": "c64050845fe5084b"
+  },
+  {
+   "path": "_知识库/_知识库/00-索引与方法论.md",
+   "sha256": "82ed99aaf6dbf780"
+  },
+  {
+   "path": "_知识库/_知识库/01-造化元钥评注知识库.md",
+   "sha256": "6c9e704002a9c963"
+  },
+  {
+   "path": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "sha256": "510334b2e1dca09e"
+  },
+  {
+   "path": "_知识库/_知识库/03-扫描版OCR处理说明.md",
+   "sha256": "aca4cb134ed8f45c"
+  },
+  {
+   "path": "_知识库/_知识库/04-命理一得知识库.md",
+   "sha256": "239755f08d1af14c"
+  },
+  {
+   "path": "_知识库/_知识库/05-穷通宝鉴评注_丁火.md",
+   "sha256": "c313ae6715b94a38"
+  },
+  {
+   "path": "_知识库/_知识库/05-穷通宝鉴评注_十干逐月.md",
+   "sha256": "bd17231b395a4538"
+  },
+  {
+   "path": "_知识库/_知识库/05-穷通宝鉴评注_命例检索索引.md",
+   "sha256": "3a87d6cf0f4922af"
+  },
+  {
+   "path": "_知识库/_知识库/05-穷通宝鉴评注_庚辛壬癸.md",
+   "sha256": "347e75c42093d51c"
+  },
+  {
+   "path": "_知识库/_知识库/05-穷通宝鉴评注_戊己土.md",
+   "sha256": "58e14f75b08630af"
+  },
+  {
+   "path": "_知识库/_知识库/05-穷通宝鉴评注_甲乙木.md",
+   "sha256": "507e401ea1e2274f"
+  },
+  {
+   "path": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md",
+   "sha256": "5b62ba51ec62034e"
+  },
+  {
+   "path": "_知识库/_知识库/05-穷通宝鉴评注知识库.md",
+   "sha256": "abf6e62d37ea1022"
+  }
+ ],
+ "stats": {
+  "rawCaseBlocks": 748,
+  "indexLinesSeen": 400,
+  "parsedCases": 1147,
+  "fromStructuredBlocks": 748,
+  "fromIndexLines": 400,
+  "parseFailures": 0,
+  "duplicateGroups": 60,
+  "uniqueIdentityKeys": 980,
+  "unresolvedPillars": 102,
+  "idConflicts": [
+   {
+    "originalId": "CASE-QBTM-甲-01",
+    "assignedId": "CASE-QBTM-甲-01@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-02",
+    "assignedId": "CASE-QBTM-甲-02@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-03",
+    "assignedId": "CASE-QBTM-甲-03@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-04",
+    "assignedId": "CASE-QBTM-甲-04@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-05",
+    "assignedId": "CASE-QBTM-甲-05@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-06",
+    "assignedId": "CASE-QBTM-甲-06@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-07",
+    "assignedId": "CASE-QBTM-甲-07@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-08",
+    "assignedId": "CASE-QBTM-甲-08@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-09",
+    "assignedId": "CASE-QBTM-甲-09@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-10",
+    "assignedId": "CASE-QBTM-甲-10@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-11",
+    "assignedId": "CASE-QBTM-甲-11@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-12",
+    "assignedId": "CASE-QBTM-甲-12@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-13",
+    "assignedId": "CASE-QBTM-甲-13@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-14",
+    "assignedId": "CASE-QBTM-甲-14@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-15",
+    "assignedId": "CASE-QBTM-甲-15@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-16",
+    "assignedId": "CASE-QBTM-甲-16@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-17",
+    "assignedId": "CASE-QBTM-甲-17@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-18",
+    "assignedId": "CASE-QBTM-甲-18@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-19",
+    "assignedId": "CASE-QBTM-甲-19@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-20",
+    "assignedId": "CASE-QBTM-甲-20@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-21",
+    "assignedId": "CASE-QBTM-甲-21@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-22",
+    "assignedId": "CASE-QBTM-甲-22@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-23",
+    "assignedId": "CASE-QBTM-甲-23@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-24",
+    "assignedId": "CASE-QBTM-甲-24@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-25",
+    "assignedId": "CASE-QBTM-甲-25@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-26",
+    "assignedId": "CASE-QBTM-甲-26@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   },
+   {
+    "originalId": "CASE-QBTM-甲-27",
+    "assignedId": "CASE-QBTM-甲-27@2",
+    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md"
+   }
+  ]
+ }
+}

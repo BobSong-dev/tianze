@@ -1,0 +1,6412 @@
+{
+ "book": "滴天髓补注",
+ "count": 104,
+ "cases": [
+  {
+   "caseId": "CASE-DTZM-01（徐乐吾自造·气之进退证）",
+   "rawBlockId": "DTZM-01（徐乐吾自造·气之进退证）",
+   "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     22
+    ],
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丙戌",
+     "month": "壬辰",
+     "day": "丙申",
+     "hour": "丙申"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丙-03-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-02（王克敏造·伤官生财可用）",
+   "rawBlockId": "DTZM-02（王克敏造·伤官生财可用）",
+   "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     23,
+     24
+    ],
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丙子",
+     "month": "壬辰",
+     "day": "壬申",
+     "hour": "乙巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-03-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-03（友人某君造·同格不可用只可顺局）",
+   "rawBlockId": "DTZM-03（友人某君造·同格不可用只可顺局）",
+   "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     23,
+     24,
+     25
+    ],
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁卯",
+     "month": "壬子",
+     "day": "壬申",
+     "hour": "甲辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "戊",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-04（甲申丙子庚辰戊寅造·通根则可用）",
+   "rawBlockId": "DTZM-04（甲申丙子庚辰戊寅造·通根则可用）",
+   "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     25,
+     26,
+     17,
+     15,
+     16
+    ],
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲申",
+     "month": "丙子",
+     "day": "庚辰",
+     "hour": "戊寅"
+    },
+    "gender": "female",
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-庚-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-05（韩复榘造·绝处逢生）",
+   "rawBlockId": "DTZM-05（韩复榘造·绝处逢生）",
+   "sourceFile": "09p-滴天髓补注/09b-滴天髓补注_十干性情.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     31
+    ],
+    "sourceFile": "09p-滴天髓补注/09b-滴天髓补注_十干性情.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛卯",
+     "month": "庚寅",
+     "day": "庚午",
+     "hour": "乙卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "23丁亥、33丙戌、43乙酉、53甲申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "丙",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-庚-01-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-06（虞洽卿造·不能从煞）",
+   "rawBlockId": "DTZM-06（虞洽卿造·不能从煞）",
+   "sourceFile": "09p-滴天髓补注/09b-滴天髓补注_十干性情.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     31,
+     32
+    ],
+    "sourceFile": "09p-滴天髓补注/09b-滴天髓补注_十干性情.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁卯",
+     "month": "丙午",
+     "day": "庚午",
+     "hour": "己卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "24癸卯、34壬寅、44辛丑、54庚子〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "壬",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-庚-05-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-07（施再邨造·弃命从财）",
+   "rawBlockId": "DTZM-07（施再邨造·弃命从财）",
+   "sourceFile": "09p-滴天髓补注/09b-滴天髓补注_十干性情.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     32,
+     33
+    ],
+    "sourceFile": "09p-滴天髓补注/09b-滴天髓补注_十干性情.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊辰",
+     "month": "甲寅",
+     "day": "壬戌",
+     "hour": "丙午"
+    },
+    "gender": null,
+    "birthText": "民国浙江绍兴人，上海富豪）",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "29丁巳、39戊午、49己未、59庚申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "庚",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-01-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-08（伍庭芳造·阴干从势）",
+   "rawBlockId": "DTZM-08（伍庭芳造·阴干从势）",
+   "sourceFile": "09p-滴天髓补注/09b-滴天髓补注_十干性情.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     33
+    ],
+    "sourceFile": "09p-滴天髓补注/09b-滴天髓补注_十干性情.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬寅",
+     "month": "丁未",
+     "day": "己卯",
+     "hour": "乙亥"
+    },
+    "gender": null,
+    "birthText": "民国外交总长、名高望重",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "21庚戌、31辛亥、41壬子、51癸丑〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-05-未",
+     "TH-QBT-己-08-未"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-09（许世英造·阴干亦不能从）",
+   "rawBlockId": "DTZM-09（许世英造·阴干亦不能从）",
+   "sourceFile": "09p-滴天髓补注/09b-滴天髓补注_十干性情.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     34
+    ],
+    "sourceFile": "09p-滴天髓补注/09b-滴天髓补注_十干性情.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸酉",
+     "month": "辛酉",
+     "day": "乙丑",
+     "hour": "辛巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "21戊午、31丁巳、41丙辰、51乙卯〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-乙-08-酉",
+     "TH-QBT-乙-21-酉",
+     "TH-QBT-乙-22-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-10（朱瑞造·三刑有气）",
+   "rawBlockId": "DTZM-10（朱瑞造·三刑有气）",
+   "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     53
+    ],
+    "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸未",
+     "month": "乙丑",
+     "day": "壬戌",
+     "hour": "庚子"
+    },
+    "gender": null,
+    "birthText": "民国元年任浙江都督，五年在天津病死）",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "2甲子、12癸亥、22壬戌、32辛酉〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "丙",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-12-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-11（萧耀南造·暗合）",
+   "rawBlockId": "DTZM-11（萧耀南造·暗合）",
+   "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     56
+    ],
+    "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "乙亥",
+     "month": "己卯",
+     "day": "甲申",
+     "hour": "乙亥"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "16丁丑、26丙子、36乙亥、46甲戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-46（萧耀南造·煞刃相合格）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-甲-02-卯",
+     "TH-QBT-甲-04@2-卯",
+     "TH-QBT-甲-07@2-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-12（黄郛造·联珠拱贵）",
+   "rawBlockId": "DTZM-12（黄郛造·联珠拱贵）",
+   "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     56,
+     57,
+     58
+    ],
+    "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚辰",
+     "month": "己卯",
+     "day": "丙申",
+     "hour": "戊戌"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "39癸未、49甲申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-02-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-13（朱古薇造·冲去忌神）",
+   "rawBlockId": "DTZM-13（朱古薇造·冲去忌神）",
+   "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     58,
+     59
+    ],
+    "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁巳",
+     "month": "己酉",
+     "day": "庚子",
+     "hour": "丁亥"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "11乙巳、21丙午、31乙巳、41甲辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丁",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-庚-08-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-14（两淮盐运使某君造·炎上格虚神）",
+   "rawBlockId": "DTZM-14（两淮盐运使某君造·炎上格虚神）",
+   "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     59,
+     60
+    ],
+    "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛未",
+     "month": "甲午",
+     "day": "丙申",
+     "hour": "戊戌"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "36庚寅、46己丑、56戊子、66丁亥〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "壬",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-05-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-15（李鸿章造·曲直仁寿格纯粹）",
+   "rawBlockId": "DTZM-15（李鸿章造·曲直仁寿格纯粹）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     66
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸未",
+     "month": "甲寅",
+     "day": "乙亥",
+     "hour": "己卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-01-寅",
+     "TH-QBT-乙-01@2-寅",
+     "TH-QBT-乙-02@2-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-16（段祺瑞造·同格而微疵）",
+   "rawBlockId": "DTZM-16（段祺瑞造·同格而微疵）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     67
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "乙丑",
+     "month": "己卯",
+     "day": "乙亥",
+     "hour": "癸未"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-02-卯",
+     "TH-QBT-乙-04@2-卯",
+     "TH-QBT-乙-05@2-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-17（唐子培造·火金相成富格）",
+   "rawBlockId": "DTZM-17（唐子培造·火金相成富格）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     68
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁丑",
+     "month": "己酉",
+     "day": "丙午",
+     "hour": "己丑"
+    },
+    "gender": null,
+    "birthText": "民国巨富（原书记载",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-08-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-18（某君造·四丁富格欠精神）",
+   "rawBlockId": "DTZM-18（某君造·四丁富格欠精神）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     68,
+     69
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁丑",
+     "month": "丁未",
+     "day": "丁酉",
+     "hour": "丁未"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲",
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-08-未"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-19（黄克强造·阳乘阳位无安顿）",
+   "rawBlockId": "DTZM-19（黄克强造·阳乘阳位无安顿）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     72
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲戌",
+     "month": "甲戌",
+     "day": "甲寅",
+     "hour": "甲戌"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "2乙亥、15丙子、25丁丑、35戊寅〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "丁",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-甲-10-戌",
+     "TH-QBT-甲-28-戌",
+     "TH-QBT-甲-29-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-20（席鹿笙造·喜用被冲）",
+   "rawBlockId": "DTZM-20（席鹿笙造·喜用被冲）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     72,
+     73
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲申",
+     "month": "庚午",
+     "day": "戊戌",
+     "hour": "丙辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-06-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-21（赵秉钧造·坐长生三刑逢冲）",
+   "rawBlockId": "DTZM-21（赵秉钧造·坐长生三刑逢冲）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     75,
+     76
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊午",
+     "month": "乙丑",
+     "day": "壬申",
+     "hour": "乙巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "21戊辰、31己巳、41庚午、51辛未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "破格",
+    "tiaohouTargets": [
+     "丙",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-12-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-22（姜登选造·艮坤怕冲宜静）",
+   "rawBlockId": "DTZM-22（姜登选造·艮坤怕冲宜静）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     76,
+     77
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛巳",
+     "month": "辛丑",
+     "day": "戊申",
+     "hour": "甲寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "12己亥、22戊戌、32丁酉、42丙申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-12-丑",
+     "TH-QBT-戊-14-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-23（坤造辛丑辛丑癸丑辛丑·阴乘阴位）",
+   "rawBlockId": "DTZM-23（坤造辛丑辛丑癸丑辛丑·阴乘阴位）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     74
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛丑",
+     "month": "辛丑",
+     "day": "癸丑",
+     "hour": "辛丑"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "22甲辰、32乙巳、42丙午、52丁未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-12-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-24（张廷玉造·天合地旺而静）",
+   "rawBlockId": "DTZM-24（张廷玉造·天合地旺而静）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     78
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬子",
+     "month": "庚戌",
+     "day": "辛巳",
+     "hour": "壬辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "23癸丑、33甲寅、43乙卯、53丙辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-辛-09-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-25（尹文端造·上下皆合巳亥不冲）",
+   "rawBlockId": "DTZM-25（尹文端造·上下皆合巳亥不冲）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     79
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛巳",
+     "month": "己亥",
+     "day": "辛巳",
+     "hour": "己亥"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-10-亥"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-26（杨毓造·日禄归时合起财官）",
+   "rawBlockId": "DTZM-26（杨毓造·日禄归时合起财官）",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     79,
+     80
+    ],
+    "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁亥",
+     "month": "己酉",
+     "day": "戊子",
+     "hour": "丁巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "25丙午、35乙巳、45甲辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-09-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-27（康熙造·上上格）",
+   "rawBlockId": "DTZM-27（康熙造·上上格）",
+   "sourceFile": "09p-滴天髓补注/09e-滴天髓补注_形象方局.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     87,
+     88
+    ],
+    "sourceFile": "09p-滴天髓补注/09e-滴天髓补注_形象方局.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲午",
+     "month": "戊辰",
+     "day": "戊申",
+     "hour": "丁巳"
+    },
+    "gender": null,
+    "birthText": "乾隆造辛卯、丁酉、庚午、丙子——煞刃格、四方拱夹、精神团结，福泽",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "1己巳、11庚午、21辛未、31壬申、41癸酉、51甲戌、61乙亥〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "甲",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-戊-04-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-28（从革格女造·假从）",
+   "rawBlockId": "DTZM-28（从革格女造·假从）",
+   "sourceFile": "09p-滴天髓补注/09e-滴天髓补注_形象方局.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     92,
+     93
+    ],
+    "sourceFile": "09p-滴天髓补注/09e-滴天髓补注_形象方局.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁酉",
+     "month": "戊申",
+     "day": "辛丑",
+     "hour": "己丑"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "4己酉、14庚戌、24辛亥、34壬子、44癸丑、54甲寅、64乙卯、74丙辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-07-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-29（稼穑格某造·晦火无光）",
+   "rawBlockId": "DTZM-29（稼穑格某造·晦火无光）",
+   "sourceFile": "09p-滴天髓补注/09e-滴天髓补注_形象方局.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     93,
+     94
+    ],
+    "sourceFile": "09p-滴天髓补注/09e-滴天髓补注_形象方局.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊戌",
+     "month": "己未",
+     "day": "戊戌",
+     "hour": "丙辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "2庚申、12辛酉、22壬戌、32癸亥〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-07-未"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-30（蒋光造·气势团结）",
+   "rawBlockId": "DTZM-30（蒋光造·气势团结）",
+   "sourceFile": "09p-滴天髓补注/09e-滴天髓补注_形象方局.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     86
+    ],
+    "sourceFile": "09p-滴天髓补注/09e-滴天髓补注_形象方局.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己丑",
+     "month": "乙亥",
+     "day": "丁巳",
+     "hour": "辛丑"
+    },
+    "gender": null,
+    "birthText": "乾隆造为疵）",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "30壬申、40辛未、50庚午、60己巳〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-13-亥",
+     "TH-QBT-丁-14-亥"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-31（吴经熊造·方局齐来干头无反复）",
+   "rawBlockId": "DTZM-31（吴经熊造·方局齐来干头无反复）",
+   "sourceFile": "09p-滴天髓补注/09f-滴天髓补注_方局齐来与八格.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     97,
+     98
+    ],
+    "sourceFile": "09p-滴天髓补注/09f-滴天髓补注_方局齐来与八格.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己亥",
+     "month": "丁卯",
+     "day": "乙未",
+     "hour": "己卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "17乙丑、27甲子、37癸亥、47壬戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-02-卯",
+     "TH-QBT-乙-04@2-卯",
+     "TH-QBT-乙-05@2-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-32（明崇祯帝造·干头反复）",
+   "rawBlockId": "DTZM-32（明崇祯帝造·干头反复）",
+   "sourceFile": "09p-滴天髓补注/09f-滴天髓补注_方局齐来与八格.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     98
+    ],
+    "sourceFile": "09p-滴天髓补注/09f-滴天髓补注_方局齐来与八格.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛亥",
+     "month": "庚寅",
+     "day": "乙未",
+     "hour": "己卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "11戊子、21丁亥、31丙戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-01-寅",
+     "TH-QBT-乙-01@2-寅",
+     "TH-QBT-乙-02@2-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-33（胡汉民〔胡展堂〕造·三奇格）",
+   "rawBlockId": "DTZM-33（胡汉民〔胡展堂〕造·三奇格）",
+   "sourceFile": "09p-滴天髓补注/09h-滴天髓补注_官印格局.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     105,
+     106
+    ],
+    "sourceFile": "09p-滴天髓补注/09h-滴天髓补注_官印格局.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己卯",
+     "month": "丙子",
+     "day": "丙子",
+     "hour": "丁酉"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "24癸酉、34壬申、44辛未、54庚午〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "壬",
+     "戊"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-34（刘镛造·官印格）",
+   "rawBlockId": "DTZM-34（刘镛造·官印格）",
+   "sourceFile": "09p-滴天髓补注/09h-滴天髓补注_官印格局.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     106,
+     107
+    ],
+    "sourceFile": "09p-滴天髓补注/09h-滴天髓补注_官印格局.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲子",
+     "month": "丙寅",
+     "day": "己丑",
+     "hour": "甲子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "27己巳、37庚午、47辛未、57壬申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-94（刘镛造·源流格）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-己-01-寅",
+     "TH-QBT-己-02-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-35（戴季陶造·财官格）",
+   "rawBlockId": "DTZM-35（戴季陶造·财官格）",
+   "sourceFile": "09p-滴天髓补注/09h-滴天髓补注_官印格局.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     107
+    ],
+    "sourceFile": "09p-滴天髓补注/09h-滴天髓补注_官印格局.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚寅",
+     "month": "己丑",
+     "day": "壬辰",
+     "hour": "庚戌"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "30壬辰、40癸巳、50甲午、60乙未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-12-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-36（伍朝枢造·财官印三重在印）",
+   "rawBlockId": "DTZM-36（伍朝枢造·财官印三重在印）",
+   "sourceFile": "09p-滴天髓补注/09h-滴天髓补注_官印格局.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     108
+    ],
+    "sourceFile": "09p-滴天髓补注/09h-滴天髓补注_官印格局.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁亥",
+     "month": "丙午",
+     "day": "壬寅",
+     "hour": "己酉"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "11甲辰、21癸卯、31壬寅、41辛丑〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "庚",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-05-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-37（朱珪造·用神在印，寅亥合化克为生）",
+   "rawBlockId": "DTZM-37（朱珪造·用神在印，寅亥合化克为生）",
+   "sourceFile": "09p-滴天髓补注/09h-滴天髓补注_官印格局.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     110
+    ],
+    "sourceFile": "09p-滴天髓补注/09h-滴天髓补注_官印格局.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛亥",
+     "month": "庚寅",
+     "day": "丙子",
+     "hour": "乙未"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "25丁亥、35丙戌、45乙酉、55甲申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "壬",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-01-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-38（韩国钧造·官印格）",
+   "rawBlockId": "DTZM-38（韩国钧造·官印格）",
+   "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     110,
+     111
+    ],
+    "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁巳",
+     "month": "癸卯",
+     "day": "丙辰",
+     "hour": "癸巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "28庚子、38己亥、48戊戌、58丁酉〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-02-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-39（袁世凯造·财旺生官）",
+   "rawBlockId": "DTZM-39（袁世凯造·财旺生官）",
+   "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     112,
+     113
+    ],
+    "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己未",
+     "month": "癸酉",
+     "day": "丁巳",
+     "hour": "丁未"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "23庚午、33己巳、43戊辰、53丁卯〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "甲",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-11-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-40（张作霖造·财旺生官）",
+   "rawBlockId": "DTZM-40（张作霖造·财旺生官）",
+   "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     113,
+     114
+    ],
+    "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "乙亥",
+     "month": "己卯",
+     "day": "庚辰",
+     "hour": "丁丑"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "24丙子、34乙亥、44甲戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丁",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-庚-02-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-41（叶澄衷造·生成富造）",
+   "rawBlockId": "DTZM-41（叶澄衷造·生成富造）",
+   "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     114,
+     115
+    ],
+    "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚子",
+     "month": "癸未",
+     "day": "戊寅",
+     "hour": "壬子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "27丙戌、37丁亥、47戊子、57己丑〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "UNCERTAIN"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-戊-07-未"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-42（巨商某富翁造·归禄财格）",
+   "rawBlockId": "DTZM-42（巨商某富翁造·归禄财格）",
+   "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     115
+    ],
+    "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸酉",
+     "month": "癸亥",
+     "day": "戊子",
+     "hour": "丁巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "28庚申、38己未、48戊午、58丁巳〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-11-亥"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-43（阎锡山造·食神制煞格之正）",
+   "rawBlockId": "DTZM-43（阎锡山造·食神制煞格之正）",
+   "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     117
+    ],
+    "sourceFile": "09p-滴天髓补注/09i-滴天髓补注_财格偏官格.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸未",
+     "month": "辛酉",
+     "day": "乙酉",
+     "hour": "丁亥"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "30戊午、40丁巳、50丙辰、60乙卯〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-92（阎锡山造·丁火制煞〔源流前造〕）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-乙-08-酉",
+     "TH-QBT-乙-21-酉",
+     "TH-QBT-乙-22-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-44（王士珍造·财滋弱煞）",
+   "rawBlockId": "DTZM-44（王士珍造·财滋弱煞）",
+   "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     117,
+     118
+    ],
+    "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛酉",
+     "month": "丙申",
+     "day": "庚子",
+     "hour": "丙戌"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "25癸巳、35壬辰、45辛卯、55庚寅〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丁",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-庚-07-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-45（冯煦造·身煞两停用印调候）",
+   "rawBlockId": "DTZM-45（冯煦造·身煞两停用印调候）",
+   "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     118,
+     119
+    ],
+    "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸卯",
+     "month": "乙丑",
+     "day": "己亥",
+     "hour": "己巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "35辛酉、45庚申、55己未、65戊午〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "丙",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-13-丑",
+     "TH-QBT-己-16-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-46（萧耀南造·煞刃相合格）",
+   "rawBlockId": "DTZM-46（萧耀南造·煞刃相合格）",
+   "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     119
+    ],
+    "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "乙亥",
+     "month": "己卯",
+     "day": "甲申",
+     "hour": "乙亥"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "16丁丑、26丙子、36乙亥、46甲戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-11（萧耀南造·暗合）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-甲-02-卯",
+     "TH-QBT-甲-04@2-卯",
+     "TH-QBT-甲-07@2-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-47（周玉山〔周馥〕造·身衰煞旺用印）",
+   "rawBlockId": "DTZM-47（周玉山〔周馥〕造·身衰煞旺用印）",
+   "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     120
+    ],
+    "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁酉",
+     "month": "壬子",
+     "day": "丁酉",
+     "hour": "壬寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "44丁未、54丙午、64乙巳、74甲辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-15-子",
+     "TH-QBT-丁-16-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-48（阮元造·纯粹食神生财格）",
+   "rawBlockId": "DTZM-48（阮元造·纯粹食神生财格）",
+   "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     121
+    ],
+    "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲申",
+     "month": "丙寅",
+     "day": "壬申",
+     "hour": "庚子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "24己巳、34庚午、44辛未、54壬申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "庚",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-壬-01-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-49（宋子文造·真正食神生财格）",
+   "rawBlockId": "DTZM-49（宋子文造·真正食神生财格）",
+   "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     122
+    ],
+    "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲午",
+     "month": "乙亥",
+     "day": "庚辰",
+     "hour": "丙寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "21戊寅、31己卯、41庚辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丁",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-庚-10-亥"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-50（洪承畴造·杂气财官引出）",
+   "rawBlockId": "DTZM-50（洪承畴造·杂气财官引出）",
+   "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     123,
+     124
+    ],
+    "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸巳",
+     "month": "壬戌",
+     "day": "癸酉",
+     "hour": "壬戌"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "25己未、35戊午、45丁巳、55丙辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "辛",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-09-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-51（友人某君造·杂气锁闭终老寒儒）",
+   "rawBlockId": "DTZM-51（友人某君造·杂气锁闭终老寒儒）",
+   "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     124,
+     125
+    ],
+    "sourceFile": "09p-滴天髓补注/09j-滴天髓补注_煞格食神格杂气.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸亥",
+     "month": "壬戌",
+     "day": "癸丑",
+     "hour": "癸亥"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "24己未、34戊午、44丁巳、54丙辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "辛",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-09-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-52（曾国荃造·影响遥系取贵）",
+   "rawBlockId": "DTZM-52（曾国荃造·影响遥系取贵）",
+   "sourceFile": "09p-滴天髓补注/09k-滴天髓补注_影响遥系官煞伤官.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     125,
+     126
+    ],
+    "sourceFile": "09p-滴天髓补注/09k-滴天髓补注_影响遥系官煞伤官.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲申",
+     "month": "甲戌",
+     "day": "庚辰",
+     "hour": "壬午"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "29丁丑、39戊寅、49己卯、59庚辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "甲",
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-庚-09-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-53（癸卯丁巳癸卯丁巳造·夹拱参用）",
+   "rawBlockId": "DTZM-53（癸卯丁巳癸卯丁巳造·夹拱参用）",
+   "sourceFile": "09p-滴天髓补注/09k-滴天髓补注_影响遥系官煞伤官.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     126,
+     127
+    ],
+    "sourceFile": "09p-滴天髓补注/09k-滴天髓补注_影响遥系官煞伤官.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸卯",
+     "month": "丁巳",
+     "day": "癸卯",
+     "hour": "丁巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "23甲寅、33癸丑、43壬子、53辛亥〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "辛",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-04-巳"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-54（丁酉丙午辛酉戊子造·官煞混杂用印化）",
+   "rawBlockId": "DTZM-54（丁酉丙午辛酉戊子造·官煞混杂用印化）",
+   "sourceFile": "09p-滴天髓补注/09k-滴天髓补注_影响遥系官煞伤官.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     128,
+     129
+    ],
+    "sourceFile": "09p-滴天髓补注/09k-滴天髓补注_影响遥系官煞伤官.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁酉",
+     "month": "丙午",
+     "day": "辛酉",
+     "hour": "戊子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "19甲辰、29癸卯、39壬寅、49辛丑〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "壬",
+     "己"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-05-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-55（癸未壬戌丁未戊申造·喜煞助官）",
+   "rawBlockId": "DTZM-55（癸未壬戌丁未戊申造·喜煞助官）",
+   "sourceFile": "09p-滴天髓补注/09k-滴天髓补注_影响遥系官煞伤官.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     129
+    ],
+    "sourceFile": "09p-滴天髓补注/09k-滴天髓补注_影响遥系官煞伤官.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸未",
+     "month": "壬戌",
+     "day": "丁未",
+     "hour": "戊申"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "7辛酉、17庚申、27己未、37戊午〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-12-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-56（胡林翼造·火土伤官有财化）",
+   "rawBlockId": "DTZM-56（胡林翼造·火土伤官有财化）",
+   "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     134,
+     135
+    ],
+    "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬申",
+     "month": "丁未",
+     "day": "丁未",
+     "hour": "己酉"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "35辛亥、45壬子、55癸丑〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲",
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-08-未"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-57（黎元洪造·伤官伤尽）",
+   "rawBlockId": "DTZM-57（黎元洪造·伤官伤尽）",
+   "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     135
+    ],
+    "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲子",
+     "month": "甲戌",
+     "day": "丁未",
+     "hour": "甲辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "40戊寅、50己卯、60庚辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丁-12-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-58（张勋造·井栏填实破格）",
+   "rawBlockId": "DTZM-58（张勋造·井栏填实破格）",
+   "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     136
+    ],
+    "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲寅",
+     "month": "丙子",
+     "day": "庚申",
+     "hour": "庚辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "48辛巳、58壬午、68癸未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-庚-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-59（曹锟造·飞天禄马填实破格）",
+   "rawBlockId": "DTZM-59（曹锟造·飞天禄马填实破格）",
+   "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     136,
+     137
+    ],
+    "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬戌",
+     "month": "壬子",
+     "day": "庚子",
+     "hour": "丙子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "49丁巳、59戊午、69己未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-庚-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-60（彭玉麟造·土金伤官调候）",
+   "rawBlockId": "DTZM-60（彭玉麟造·土金伤官调候）",
+   "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     137
+    ],
+    "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丙子",
+     "month": "辛丑",
+     "day": "戊子",
+     "hour": "癸丑"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "32乙巳、42丙午、52丁未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-戊-12-丑",
+     "TH-QBT-戊-14-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-61（张之洞造与蒋冯二造·土金伤官佩印）",
+   "rawBlockId": "DTZM-61（张之洞造与蒋冯二造·土金伤官佩印）",
+   "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     138
+    ],
+    "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "28乙巳、38甲辰、48癸卯、58壬寅〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-62（瞿鸿玑造·木火伤官乃官印格）",
+   "rawBlockId": "DTZM-62（瞿鸿玑造·木火伤官乃官印格）",
+   "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     139
+    ],
+    "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚戌",
+     "month": "癸未",
+     "day": "乙亥",
+     "hour": "丁丑"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "25丙戌、35丁亥、45戊子、55己丑〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-06-未",
+     "TH-QBT-乙-14-未",
+     "TH-QBT-乙-15-未"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-63（金绍曾造·木火伤官调候）",
+   "rawBlockId": "DTZM-63（金绍曾造·木火伤官调候）",
+   "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     139,
+     140
+    ],
+    "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁丑",
+     "month": "丙午",
+     "day": "乙丑",
+     "hour": "丁亥"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "26癸卯、36壬寅、46辛丑、56庚子〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-05-午",
+     "TH-QBT-乙-12@2-午",
+     "TH-QBT-乙-13-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-64（康有为造·水木伤官财官两见）",
+   "rawBlockId": "DTZM-64（康有为造·水木伤官财官两见）",
+   "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     140,
+     141
+    ],
+    "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊午",
+     "month": "乙卯",
+     "day": "壬子",
+     "hour": "庚子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "15丁巳、25戊午、35己未、45庚申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "戊",
+     "辛"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-壬-02-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-65（张宗昌造·六壬趋艮归伤官）",
+   "rawBlockId": "DTZM-65（张宗昌造·六壬趋艮归伤官）",
+   "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     141
+    ],
+    "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬午",
+     "month": "壬寅",
+     "day": "壬寅",
+     "hour": "壬寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "21乙巳、31丙午、41丁未、51戊申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "庚",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-01-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-66（戊寅庚申己丑甲子造·财化并存）",
+   "rawBlockId": "DTZM-66（戊寅庚申己丑甲子造·财化并存）",
+   "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     142,
+     143
+    ],
+    "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊寅",
+     "month": "庚申",
+     "day": "己丑",
+     "hour": "甲子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "21癸亥、31甲子、41乙丑、51丙寅〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-10-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-67（甲午戊辰丁未壬寅造·印制伤护官）",
+   "rawBlockId": "DTZM-67（甲午戊辰丁未壬寅造·印制伤护官）",
+   "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     143
+    ],
+    "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲午",
+     "month": "戊辰",
+     "day": "丁未",
+     "hour": "壬寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "21辛未、31壬申、41癸酉、51甲戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丁-04-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-68（戊子丙辰辛酉壬辰造·印制护官）",
+   "rawBlockId": "DTZM-68（戊子丙辰辛酉壬辰造·印制护官）",
+   "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     144
+    ],
+    "sourceFile": "09p-滴天髓补注/09m-滴天髓补注_伤官命例与从化.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊子",
+     "month": "丙辰",
+     "day": "辛酉",
+     "hour": "壬辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "15戊午、25己未、35庚申、45辛酉〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-辛-03-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-69（虞洽卿与施再邨对照·不能从/假从）",
+   "rawBlockId": "DTZM-69（虞洽卿与施再邨对照·不能从/假从）",
+   "sourceFile": "09p-滴天髓补注/09n-滴天髓补注_从化章.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     147,
+     148
+    ],
+    "sourceFile": "09p-滴天髓补注/09n-滴天髓补注_从化章.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-70（伍廷芳与许世英对照·从势真/不能从）",
+   "rawBlockId": "DTZM-70（伍廷芳与许世英对照·从势真/不能从）",
+   "sourceFile": "09p-滴天髓补注/09n-滴天髓补注_从化章.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     148,
+     149
+    ],
+    "sourceFile": "09p-滴天髓补注/09n-滴天髓补注_从化章.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-71（友人之子造·夏金从煞之凶）",
+   "rawBlockId": "DTZM-71（友人之子造·夏金从煞之凶）",
+   "sourceFile": "09p-滴天髓补注/09n-滴天髓补注_从化章.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     149,
+     150
+    ],
+    "sourceFile": "09p-滴天髓补注/09n-滴天髓补注_从化章.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁未",
+     "month": "丙午",
+     "day": "辛卯",
+     "hour": "甲午"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "1乙巳、11甲辰、21癸卯〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "破格",
+    "tiaohouTargets": [
+     "壬",
+     "己"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-05-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-72（丁巳丁未壬寅壬寅女造·真化失时）",
+   "rawBlockId": "DTZM-72（丁巳丁未壬寅壬寅女造·真化失时）",
+   "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     152,
+     153
+    ],
+    "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁巳",
+     "month": "丁未",
+     "day": "壬寅",
+     "hour": "壬寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "29庚戌、39辛亥、49壬子、59癸丑〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "辛",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-06-未"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-73（丁未甲辰己酉戊辰造·真化有缺点）",
+   "rawBlockId": "DTZM-73（丁未甲辰己酉戊辰造·真化有缺点）",
+   "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     153
+    ],
+    "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁未",
+     "month": "甲辰",
+     "day": "己酉",
+     "hour": "戊辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "8癸卯、18壬寅、28辛丑、38庚子〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-04-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-74（浙西刘某造·真从）",
+   "rawBlockId": "DTZM-74（浙西刘某造·真从）",
+   "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     154,
+     155
+    ],
+    "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬午",
+     "month": "丙午",
+     "day": "癸巳",
+     "hour": "甲寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "25己酉、35庚戌、45辛亥、55壬子〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-癸-05-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-75（吴星垣造·假从，与许世英对照）",
+   "rawBlockId": "DTZM-75（吴星垣造·假从，与许世英对照）",
+   "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     155
+    ],
+    "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己巳",
+     "month": "癸酉",
+     "day": "乙丑",
+     "hour": "甲申"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "26庚午、36己巳、46戊辰、56丁卯〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-乙-08-酉",
+     "TH-QBT-乙-21-酉",
+     "TH-QBT-乙-22-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-76（骆秉章造·假化）",
+   "rawBlockId": "DTZM-76（骆秉章造·假化）",
+   "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     156
+    ],
+    "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸丑",
+     "month": "丙辰",
+     "day": "辛亥",
+     "hour": "戊子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "23癸丑、33壬子、43辛亥、53庚戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-03-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-77（戊子辛酉丙申己丑造·丙辛从化＋引入沟渠）",
+   "rawBlockId": "DTZM-77（戊子辛酉丙申己丑造·丙辛从化＋引入沟渠）",
+   "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     156,
+     157
+    ],
+    "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊子",
+     "month": "辛酉",
+     "day": "丙申",
+     "hour": "己丑"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "15癸亥、25甲子、35乙丑、45丙寅〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-08-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-78（甲寅丁卯癸卯乙卯女造·从儿）",
+   "rawBlockId": "DTZM-78（甲寅丁卯癸卯乙卯女造·从儿）",
+   "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     158,
+     159
+    ],
+    "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲寅",
+     "month": "丁卯",
+     "day": "癸卯",
+     "hour": "乙卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "29甲子、39癸亥、49壬戌、59辛酉〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "庚",
+     "辛"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-02-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-79（丁未丙午甲午丙寅造·从儿反例）",
+   "rawBlockId": "DTZM-79（丁未丙午甲午丙寅造·从儿反例）",
+   "sourceFile": "09p-滴天髓补注/09p-滴天髓补注_君赖臣生儿能生母.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     159
+    ],
+    "sourceFile": "09p-滴天髓补注/09p-滴天髓补注_君赖臣生儿能生母.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁未",
+     "month": "丙午",
+     "day": "甲午",
+     "hour": "丙寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "2乙巳、12甲辰、32癸卯、43壬寅〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "癸",
+     "丁"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-甲-06-午",
+     "TH-QBT-甲-12@2-午",
+     "TH-QBT-甲-16-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-80（林森造·君赖臣生）",
+   "rawBlockId": "DTZM-80（林森造·君赖臣生）",
+   "sourceFile": "09p-滴天髓补注/09p-滴天髓补注_君赖臣生儿能生母.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     162
+    ],
+    "sourceFile": "09p-滴天髓补注/09p-滴天髓补注_君赖臣生儿能生母.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊辰",
+     "month": "甲寅",
+     "day": "丁卯",
+     "hour": "己酉"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "47己未、57庚申、67辛酉、77壬戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-86（林森造·体用精神章重析）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "庚",
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-01-寅",
+     "TH-QBT-丁-02-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-81（孙景扬造·母慈灭子）",
+   "rawBlockId": "DTZM-81（孙景扬造·母慈灭子）",
+   "sourceFile": "09p-滴天髓补注/09q-滴天髓补注_母慈灭子夫健怕妻.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     166
+    ],
+    "sourceFile": "09p-滴天髓补注/09q-滴天髓补注_母慈灭子夫健怕妻.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊戌",
+     "month": "辛酉",
+     "day": "壬寅",
+     "hour": "辛丑"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "1壬戌、11癸亥、21甲子、31乙丑〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-08-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-82（癸亥甲子戊戌癸丑造·夫健怕妻取贵）",
+   "rawBlockId": "DTZM-82（癸亥甲子戊戌癸丑造·夫健怕妻取贵）",
+   "sourceFile": "09p-滴天髓补注/09q-滴天髓补注_母慈灭子夫健怕妻.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     167,
+     168
+    ],
+    "sourceFile": "09p-滴天髓补注/09q-滴天髓补注_母慈灭子夫健怕妻.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸亥",
+     "month": "甲子",
+     "day": "戊戌",
+     "hour": "癸丑"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-12-子",
+     "TH-QBT-戊-13-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-83（乙亥己卯戊辰癸亥富商造·夫健怕妻取富）",
+   "rawBlockId": "DTZM-83（乙亥己卯戊辰癸亥富商造·夫健怕妻取富）",
+   "sourceFile": "09p-滴天髓补注/09q-滴天髓补注_母慈灭子夫健怕妻.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     168,
+     169
+    ],
+    "sourceFile": "09p-滴天髓补注/09q-滴天髓补注_母慈灭子夫健怕妻.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "乙亥",
+     "month": "己卯",
+     "day": "戊辰",
+     "hour": "癸亥"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "24丙子、34乙亥、44甲戌、54癸酉〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-03-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-84（孔祥熙造·母慈灭子恤孤）",
+   "rawBlockId": "DTZM-84（孔祥熙造·母慈灭子恤孤）",
+   "sourceFile": "09p-滴天髓补注/09r-滴天髓补注_体用精神.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     170,
+     171
+    ],
+    "sourceFile": "09p-滴天髓补注/09r-滴天髓补注_体用精神.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚辰",
+     "month": "乙酉",
+     "day": "癸卯",
+     "hour": "庚申"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "29戊子、39己丑、49庚寅、59辛卯〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "辛",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-08-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-85（丁酉壬子癸亥壬子某名人造·子旺母孤）",
+   "rawBlockId": "DTZM-85（丁酉壬子癸亥壬子某名人造·子旺母孤）",
+   "sourceFile": "09p-滴天髓补注/09r-滴天髓补注_体用精神.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     171
+    ],
+    "sourceFile": "09p-滴天髓补注/09r-滴天髓补注_体用精神.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁酉",
+     "month": "壬子",
+     "day": "癸亥",
+     "hour": "壬子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "28己酉、38戊申、48丁未、58丙午〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "极强"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丙",
+     "辛"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-86（林森造·体用精神章重析）",
+   "rawBlockId": "DTZM-86（林森造·体用精神章重析）",
+   "sourceFile": "09p-滴天髓补注/09r-滴天髓补注_体用精神.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     175,
+     176
+    ],
+    "sourceFile": "09p-滴天髓补注/09r-滴天髓补注_体用精神.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊辰",
+     "month": "甲寅",
+     "day": "丁卯",
+     "hour": "己酉"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "48己未、58庚申、68辛酉、78壬戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-80（林森造·君赖臣生）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "庚",
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-01-寅",
+     "TH-QBT-丁-02-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-87（蔡元培造·体用精神章）",
+   "rawBlockId": "DTZM-87（蔡元培造·体用精神章）",
+   "sourceFile": "09p-滴天髓补注/09r-滴天髓补注_体用精神.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     176
+    ],
+    "sourceFile": "09p-滴天髓补注/09r-滴天髓补注_体用精神.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁卯",
+     "month": "癸丑",
+     "day": "丙申",
+     "hour": "戊子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "42戊申、52丁未、62丙午、72乙巳〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-12-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-88（陈济棠造·精神之所在）",
+   "rawBlockId": "DTZM-88（陈济棠造·精神之所在）",
+   "sourceFile": "09p-滴天髓补注/09s-滴天髓补注_精神与人元用事.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     179
+    ],
+    "sourceFile": "09p-滴天髓补注/09s-滴天髓补注_精神与人元用事.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚寅",
+     "month": "戊寅",
+     "day": "甲子",
+     "hour": "丙寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "17庚辰、27辛巳、37壬午、47癸未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-104（陈济棠造·聚得真〔月中甲丙戊〕）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-甲-01-寅",
+     "TH-QBT-甲-02@2-寅",
+     "TH-QBT-甲-02@3-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-89（杨化昭造·与陈济棠仅差一字）",
+   "rawBlockId": "DTZM-89（杨化昭造·与陈济棠仅差一字）",
+   "sourceFile": "09p-滴天髓补注/09s-滴天髓补注_精神与人元用事.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     179,
+     180
+    ],
+    "sourceFile": "09p-滴天髓补注/09s-滴天髓补注_精神与人元用事.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚寅",
+     "month": "戊寅",
+     "day": "甲戌",
+     "hour": "丙寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "14庚辰、24辛巳、34壬午、44癸未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-甲-01-寅",
+     "TH-QBT-甲-02@2-寅",
+     "TH-QBT-甲-02@3-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-90（蒋介石造·土金伤官／“金神入火乡”）",
+   "rawBlockId": "DTZM-90（蒋介石造·土金伤官／“金神入火乡”）",
+   "sourceFile": "09p-滴天髓补注/09s-滴天髓补注_精神与人元用事.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     180
+    ],
+    "sourceFile": "09p-滴天髓补注/09s-滴天髓补注_精神与人元用事.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁亥",
+     "month": "庚戌",
+     "day": "己巳",
+     "hour": "庚午"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "28丁未、38丙午、48乙巳、58甲辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-103（蒋中正造·聚得真〔真假节重见〕）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-09-戌",
+     "TH-QBT-己-12-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-91（冯玉祥造·气势稍逊）",
+   "rawBlockId": "DTZM-91（冯玉祥造·气势稍逊）",
+   "sourceFile": "09p-滴天髓补注/09s-滴天髓补注_精神与人元用事.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     180,
+     181
+    ],
+    "sourceFile": "09p-滴天髓补注/09s-滴天髓补注_精神与人元用事.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬午",
+     "month": "庚戌",
+     "day": "己酉",
+     "hour": "庚午"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "21癸丑、31甲寅、41乙卯、51丙辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "中和"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-09-戌",
+     "TH-QBT-己-12-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-92（阎锡山造·丁火制煞〔源流前造〕）",
+   "rawBlockId": "DTZM-92（阎锡山造·丁火制煞〔源流前造〕）",
+   "sourceFile": "09p-滴天髓补注/09u-滴天髓补注_源流通关.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     191
+    ],
+    "sourceFile": "09p-滴天髓补注/09u-滴天髓补注_源流通关.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸未",
+     "month": "辛酉",
+     "day": "乙酉",
+     "hour": "丁亥"
+    },
+    "gender": null,
+    "birthText": "民国以来几度沧桑，惟阎一人坐镇三晋，始终兀然不动——是则一路南方",
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "30戊午、40丁巳、50丙辰、60乙卯〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-43（阎锡山造·食神制煞格之正）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-乙-08-酉",
+     "TH-QBT-乙-21-酉",
+     "TH-QBT-乙-22-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-93（商震造·丙火制煞〔对照〕）",
+   "rawBlockId": "DTZM-93（商震造·丙火制煞〔对照〕）",
+   "sourceFile": "09p-滴天髓补注/09u-滴天髓补注_源流通关.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     192
+    ],
+    "sourceFile": "09p-滴天髓补注/09u-滴天髓补注_源流通关.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊子",
+     "month": "辛酉",
+     "day": "乙未",
+     "hour": "丙午"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "25甲子、35乙丑、45丙寅、55丁卯〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-乙-08-酉",
+     "TH-QBT-乙-21-酉",
+     "TH-QBT-乙-22-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-94（刘镛造·源流格）",
+   "rawBlockId": "DTZM-94（刘镛造·源流格）",
+   "sourceFile": "09p-滴天髓补注/09u-滴天髓补注_源流通关.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     193
+    ],
+    "sourceFile": "09p-滴天髓补注/09u-滴天髓补注_源流通关.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲子",
+     "month": "丙寅",
+     "day": "己丑",
+     "hour": "甲子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "24己巳、34庚午、44辛未、54壬申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-34（刘镛造·官印格）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正官格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-己-01-寅",
+     "TH-QBT-己-02-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-95（杨增新造·源流而及身而止）",
+   "rawBlockId": "DTZM-95（杨增新造·源流而及身而止）",
+   "sourceFile": "09p-滴天髓补注/09u-滴天髓补注_源流通关.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     194
+    ],
+    "sourceFile": "09p-滴天髓补注/09u-滴天髓补注_源流通关.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲子",
+     "month": "丁卯",
+     "day": "己亥",
+     "hour": "戊辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "21庚午、31辛未、41壬申、51癸酉〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "甲",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-己-03-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-96（李经羲造·财印交叉用官煞）",
+   "rawBlockId": "DTZM-96（李经羲造·财印交叉用官煞）",
+   "sourceFile": "09p-滴天髓补注/09u-滴天髓补注_源流通关.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     196
+    ],
+    "sourceFile": "09p-滴天髓补注/09u-滴天髓补注_源流通关.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己未",
+     "month": "丁卯",
+     "day": "丁巳",
+     "hour": "庚子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "35癸亥、45壬戌、55辛酉、65庚申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "庚",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丁-03-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-97（董诰造·一清到底）",
+   "rawBlockId": "DTZM-97（董诰造·一清到底）",
+   "sourceFile": "09p-滴天髓补注/09v-滴天髓补注_清浊节.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     200
+    ],
+    "sourceFile": "09p-滴天髓补注/09v-滴天髓补注_清浊节.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚申",
+     "month": "庚辰",
+     "day": "戊辰",
+     "hour": "戊午"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "27癸未、37甲申、47乙酉、57丙戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "甲",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-戊-04-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-98（熊学鹏造·金水伤官一清到底）",
+   "rawBlockId": "DTZM-98（熊学鹏造·金水伤官一清到底）",
+   "sourceFile": "09p-滴天髓补注/09v-滴天髓补注_清浊节.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     200,
+     201
+    ],
+    "sourceFile": "09p-滴天髓补注/09v-滴天髓补注_清浊节.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁巳",
+     "month": "壬子",
+     "day": "辛巳",
+     "hour": "丁酉"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "21己酉、31戊申、41丁未、51丙午〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-99（盛宣怀造·澄浊求清）",
+   "rawBlockId": "DTZM-99（盛宣怀造·澄浊求清）",
+   "sourceFile": "09p-滴天髓补注/09v-滴天髓补注_清浊节.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     201,
+     202
+    ],
+    "sourceFile": "09p-滴天髓补注/09v-滴天髓补注_清浊节.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲辰",
+     "month": "甲戌",
+     "day": "戊子",
+     "hour": "甲寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "31戊寅、41己卯、51庚辰、61辛巳〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "甲",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-戊-10-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-100（上海道某造·寒谷回春）",
+   "rawBlockId": "DTZM-100（上海道某造·寒谷回春）",
+   "sourceFile": "09p-滴天髓补注/09v-滴天髓补注_清浊节.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     202
+    ],
+    "sourceFile": "09p-滴天髓补注/09v-滴天髓补注_清浊节.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬申",
+     "month": "癸丑",
+     "day": "乙丑",
+     "hour": "辛巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "27丙辰、37丁巳、47戊午、57己未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-12-丑",
+     "TH-QBT-乙-31-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-101（癸巳庚申甲申壬申造·浊而枯）",
+   "rawBlockId": "DTZM-101（癸巳庚申甲申壬申造·浊而枯）",
+   "sourceFile": "09p-滴天髓补注/09w-滴天髓补注_真假节.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     204
+    ],
+    "sourceFile": "09p-滴天髓补注/09w-滴天髓补注_真假节.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸巳",
+     "month": "庚申",
+     "day": "甲申",
+     "hour": "壬申"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "3己未、13戊午、23丁巳、33丙辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丁",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-甲-08-申",
+     "TH-QBT-甲-23-申",
+     "TH-QBT-甲-25-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-102（甲午丙寅丙午丁酉造·清而偏枯）",
+   "rawBlockId": "DTZM-102（甲午丙寅丙午丁酉造·清而偏枯）",
+   "sourceFile": "09p-滴天髓补注/09w-滴天髓补注_真假节.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     206
+    ],
+    "sourceFile": "09p-滴天髓补注/09w-滴天髓补注_真假节.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲午",
+     "month": "丙寅",
+     "day": "丙午",
+     "hour": "丁酉"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "21己巳、31庚午、41辛未、51壬申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丙-01-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-103（蒋中正造·聚得真〔真假节重见〕）",
+   "rawBlockId": "DTZM-103（蒋中正造·聚得真〔真假节重见〕）",
+   "sourceFile": "09p-滴天髓补注/09w-滴天髓补注_真假节.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     208
+    ],
+    "sourceFile": "09p-滴天髓补注/09w-滴天髓补注_真假节.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丁亥",
+     "month": "庚戌",
+     "day": "己巳",
+     "hour": "庚午"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-90（蒋介石造·土金伤官／“金神入火乡”）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "偏印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-09-戌",
+     "TH-QBT-己-12-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-DTZM-104（陈济棠造·聚得真〔月中甲丙戊〕）",
+   "rawBlockId": "DTZM-104（陈济棠造·聚得真〔月中甲丙戊〕）",
+   "sourceFile": "09p-滴天髓补注/09w-滴天髓补注_真假节.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "滴天髓补注",
+    "chapter": "滴天髓补注",
+    "pages": [
+     208
+    ],
+    "sourceFile": "09p-滴天髓补注/09w-滴天髓补注_真假节.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚寅",
+     "month": "戊寅",
+     "day": "甲子",
+     "hour": "丙寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "17庚辰、27辛巳、37壬午、47癸未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "possibleDuplicates": [
+    "CASE-DTZM-88（陈济棠造·精神之所在）"
+   ],
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-甲-01-寅",
+     "TH-QBT-甲-02@2-寅",
+     "TH-QBT-甲-02@3-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  }
+ ]
+}

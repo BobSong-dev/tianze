@@ -1,0 +1,1468 @@
+{
+ "book": "守素室丛谈",
+ "count": 24,
+ "cases": [
+  {
+   "caseId": "CASE-SS-M01（阎锡山）",
+   "rawBlockId": "SS-M01（阎锡山）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     1
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸未",
+     "month": "辛酉",
+     "day": "乙酉",
+     "hour": "丁亥"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-乙-08-酉",
+     "TH-QBT-乙-21-酉",
+     "TH-QBT-乙-22-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M02（六阴朝阳无名例）",
+   "rawBlockId": "SS-M02（六阴朝阳无名例）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     1
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸卯",
+     "month": "丁巳",
+     "day": "辛酉",
+     "hour": "戊子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "19乙卯 29甲寅 39癸丑 49壬子〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-04-巳"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M03（福星无名例）",
+   "rawBlockId": "SS-M03（福星无名例）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     2
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丙子",
+     "month": "庚寅",
+     "day": "甲辰",
+     "hour": "乙丑"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "30癸巳 40甲午 50乙未 60丙申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "建禄格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-甲-01-寅",
+     "TH-QBT-甲-02@2-寅",
+     "TH-QBT-甲-02@3-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M04（日犯岁君无名例一）",
+   "rawBlockId": "SS-M04（日犯岁君无名例一）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     2
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊申",
+     "month": "癸亥",
+     "day": "癸未",
+     "hour": "壬子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "25丙寅 35丁卯〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "庚",
+     "辛"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-癸-10-亥"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M05（日犯岁君无名例二）",
+   "rawBlockId": "SS-M05（日犯岁君无名例二）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     2
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "甲寅",
+     "month": "戊辰",
+     "day": "甲申",
+     "hour": "庚午"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "13庚午 23辛未 33壬申〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "庚",
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-甲-04-辰",
+     "TH-QBT-甲-10@2-辰",
+     "TH-QBT-甲-01@3-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M06（刃头财无名例一）",
+   "rawBlockId": "SS-M06（刃头财无名例一）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     2
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚子",
+     "month": "辛巳",
+     "day": "甲辰",
+     "hour": "丙寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "32乙酉〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "癸",
+     "丁"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-甲-05-巳",
+     "TH-QBT-甲-13@2-巳",
+     "TH-QBT-甲-06@3-巳"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M07（刃头财无名例二）",
+   "rawBlockId": "SS-M07（刃头财无名例二）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     2
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "乙未",
+     "month": "己卯",
+     "day": "甲子",
+     "hour": "壬申"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "34乙亥 44甲戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "阳刃格",
+    "patternStatus": "待定",
+    "tiaohouTargets": [],
+    "tiaohouPrimaryPresent": null,
+    "engineRuleIds": [
+     "TH-QBT-甲-02-卯",
+     "TH-QBT-甲-04@2-卯",
+     "TH-QBT-甲-07@2-卯"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M08（刃头财无名例三）",
+   "rawBlockId": "SS-M08（刃头财无名例三）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     2
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "癸巳",
+     "month": "甲子",
+     "day": "甲辰",
+     "hour": "己巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "39庚申 49己未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "丁",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-甲-12-子",
+     "TH-QBT-甲-35-子",
+     "TH-QBT-甲-36-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M09（李国杰）",
+   "rawBlockId": "SS-M09（李国杰）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     2
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛巳",
+     "month": "辛丑",
+     "day": "庚申",
+     "hour": "辛巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "45丙申 55乙未〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "丁"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-庚-12-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M10（徐新六）",
+   "rawBlockId": "SS-M10（徐新六）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     2,
+     4
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "庚寅",
+     "month": "丙戌",
+     "day": "己丑",
+     "hour": "乙亥"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "31庚寅 41辛卯 51壬辰〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-己-09-戌",
+     "TH-QBT-己-12-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M11（傅宗耀）",
+   "rawBlockId": "SS-M11（傅宗耀）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     2
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬申",
+     "month": "壬子",
+     "day": "辛亥",
+     "hour": "癸巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "食神格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-11-子"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M12（胡笔江）",
+   "rawBlockId": "SS-M12（胡笔江）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     3
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛巳",
+     "month": "壬辰",
+     "day": "辛卯",
+     "hour": "庚寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "48丁亥 58丙戌〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-辛-03-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M13（孙景扬）",
+   "rawBlockId": "SS-M13（孙景扬）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     3
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊戌",
+     "month": "辛酉",
+     "day": "壬寅",
+     "hour": "辛丑"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": "11癸亥 21甲子 31乙丑 41丙寅〕"
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "中和",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-08-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M14（胡斯悌）",
+   "rawBlockId": "SS-M14（胡斯悌）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     3
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛酉",
+     "month": "戊戌",
+     "day": "辛亥",
+     "hour": "癸巳"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-辛-09-戌"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M15（天月二德无名例一）",
+   "rawBlockId": "SS-M15（天月二德无名例一）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     3
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "乙未",
+     "month": "己丑",
+     "day": "庚午",
+     "hour": "丙戌"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "丙",
+     "丁"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-庚-12-丑"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M16（天月二德无名例二）",
+   "rawBlockId": "SS-M16（天月二德无名例二）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     3
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "丙午",
+     "month": "庚寅",
+     "day": "丁酉",
+     "hour": "壬寅"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "庚",
+     "壬"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-丁-01-寅",
+     "TH-QBT-丁-02-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M17（天月二德无名例三）",
+   "rawBlockId": "SS-M17（天月二德无名例三）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     3
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "壬辰",
+     "month": "甲辰",
+     "day": "辛未",
+     "hour": "壬辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "极弱"
+    },
+    "patternCandidate": "正印格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "壬",
+     "甲"
+    ],
+    "tiaohouPrimaryPresent": true,
+    "engineRuleIds": [
+     "TH-QBT-辛-03-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M18（天月二德无名例四）",
+   "rawBlockId": "SS-M18（天月二德无名例四）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     3
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛巳",
+     "month": "壬辰",
+     "day": "壬申",
+     "hour": "戊申"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏强",
+     "fuyi": "偏强"
+    },
+    "patternCandidate": "七杀格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "甲",
+     "庚"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-壬-03-辰"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M19（天月二德无名例五、六）",
+   "rawBlockId": "SS-M19（天月二德无名例五、六）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     3,
+     4
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "",
+     "month": "",
+     "day": "",
+     "hour": ""
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": true
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": false
+   }
+  },
+  {
+   "caseId": "CASE-SS-M20（天乙贵人无名例一）",
+   "rawBlockId": "SS-M20（天乙贵人无名例一）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     4
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "戊寅",
+     "month": "庚申",
+     "day": "己丑",
+     "hour": "甲子"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "癸",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-己-10-申"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M21（天乙贵人无名例二）",
+   "rawBlockId": "SS-M21（天乙贵人无名例二）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     4
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛未",
+     "month": "甲午",
+     "day": "甲午",
+     "hour": "辛未"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "伤官格",
+    "patternStatus": "受损",
+    "tiaohouTargets": [
+     "癸",
+     "丁"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-甲-06-午",
+     "TH-QBT-甲-12@2-午",
+     "TH-QBT-甲-16-午"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M22（袁世凯）",
+   "rawBlockId": "SS-M22（袁世凯）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     4
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己未",
+     "month": "癸酉",
+     "day": "丁巳",
+     "hour": "丁未"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "极弱",
+     "fuyi": "偏弱"
+    },
+    "patternCandidate": "偏财格",
+    "patternStatus": "有瑕",
+    "tiaohouTargets": [
+     "甲",
+     "丙"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-丁-11-酉"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M23（董其昌）",
+   "rawBlockId": "SS-M23（董其昌）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     4
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "己卯",
+     "month": "戊寅",
+     "day": "乙卯",
+     "hour": "庚辰"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": "正财格",
+    "patternStatus": "成立",
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-01-寅",
+     "TH-QBT-乙-01@2-寅",
+     "TH-QBT-乙-02@2-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  },
+  {
+   "caseId": "CASE-SS-M24（明崇祯）",
+   "rawBlockId": "SS-M24（明崇祯）",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "source": {
+    "sourceKind": "CLASSICAL_TEXT",
+    "book": "守素室丛谈",
+    "chapter": "守素室丛谈",
+    "pages": [
+     4
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified"
+   },
+   "fact": {
+    "pillars": {
+     "year": "辛亥",
+     "month": "庚寅",
+     "day": "乙未",
+     "hour": "己卯"
+    },
+    "gender": null,
+    "birthText": null,
+    "name": null,
+    "unresolved": false
+   },
+   "sourceAnalysis": {
+    "verdict": null,
+    "steps": [],
+    "events": [],
+    "purpose": null,
+    "dayun": null
+   },
+   "ruleReferences": [],
+   "quality": "B",
+   "verification": {
+    "status": "MACHINE_EXTRACTED",
+    "verifiedBy": "tianze-pipeline:normalize_cases.py@1.0.0",
+    "method": "regex_extraction",
+    "sourceChecked": false
+   },
+   "tianzeAnalysis": {
+    "computed": true,
+    "strengthVerdicts": {
+     "dimension": null,
+     "weighted": "偏弱",
+     "fuyi": "中和"
+    },
+    "patternCandidate": null,
+    "patternStatus": null,
+    "tiaohouTargets": [
+     "丙",
+     "癸"
+    ],
+    "tiaohouPrimaryPresent": false,
+    "engineRuleIds": [
+     "TH-QBT-乙-01-寅",
+     "TH-QBT-乙-01@2-寅",
+     "TH-QBT-乙-02@2-寅"
+    ],
+    "note": "Tianze 引擎对四柱的结构分析（与原书分析无关，仅记录）"
+   }
+  }
+ ]
+}
