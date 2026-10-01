@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tianze-bazi"
+version = "0.1.0"
+description = "Tianze 天泽 —— 以四柱八字为核心的可验证、可溯源、多流派并列的结构化命理分析引擎"
+requires-python = ">=3.12"
+dependencies = [
+    "lunar-python>=1.4.8",
+    "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+include = ["tianze*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

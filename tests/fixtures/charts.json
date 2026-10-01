@@ -1,0 +1,892 @@
+{
+  "note": "Tianze 排盘回归基线：expected 由 tests/crosscheck/oracle.py 独立路径盖章，从不手填（bazi-atlas 模式）。实时防线是 tests/test_crosscheck.py 的主引擎 vs oracle 差分；本文件锁历史。",
+  "generatedAt": "2026-10-01T08:41:27",
+  "count": 40,
+  "cases": [
+    {
+      "name": "plan_example_2003",
+      "birth": {
+        "date": "2003-08-18",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "14:30"
+      },
+      "expected": {
+        "pillars": {
+          "year": "癸未",
+          "month": "庚申",
+          "day": "癸亥",
+          "hour": "己未"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "basic_1986",
+      "birth": {
+        "date": "1986-04-21",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "10:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "丙寅",
+          "month": "壬辰",
+          "day": "乙未",
+          "hour": "辛巳"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "basic_1990",
+      "birth": {
+        "date": "1990-06-15",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "12:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "庚午",
+          "month": "壬午",
+          "day": "辛亥",
+          "hour": "甲午"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "basic_1995",
+      "birth": {
+        "date": "1995-08-08",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "06:30"
+      },
+      "expected": {
+        "pillars": {
+          "year": "乙亥",
+          "month": "癸未",
+          "day": "辛未",
+          "hour": "辛卯"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "midnight_2000",
+      "birth": {
+        "date": "2000-01-01",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "00:15"
+      },
+      "expected": {
+        "pillars": {
+          "year": "己卯",
+          "month": "丙子",
+          "day": "戊午",
+          "hour": "壬子"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "winter_1970",
+      "birth": {
+        "date": "1970-01-01",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "12:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "己酉",
+          "month": "丙子",
+          "day": "辛巳",
+          "hour": "甲午"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "nye_1999",
+      "birth": {
+        "date": "1999-12-31",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "23:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "己卯",
+          "month": "丙子",
+          "day": "丁巳",
+          "hour": "壬子"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "olympic_2008",
+      "birth": {
+        "date": "2008-08-08",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "20:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "戊子",
+          "month": "庚申",
+          "day": "庚辰",
+          "hour": "丙戌"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "bailu_season_2012",
+      "birth": {
+        "date": "2012-09-07",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "12:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "壬辰",
+          "month": "戊申",
+          "day": "辛未",
+          "hour": "甲午"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "female_1983",
+      "birth": {
+        "date": "1983-02-15",
+        "timeKnown": true,
+        "gender": "female",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "20:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "癸亥",
+          "month": "甲寅",
+          "day": "甲戌",
+          "hour": "甲戌"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "daymaster_1984",
+      "birth": {
+        "date": "1984-02-05",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "10:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "甲子",
+          "month": "丙寅",
+          "day": "己巳",
+          "hour": "己巳"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "daymaster_1976",
+      "birth": {
+        "date": "1976-07-16",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "04:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "丙辰",
+          "month": "乙未",
+          "day": "己巳",
+          "hour": "丙寅"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "daymaster_1968",
+      "birth": {
+        "date": "1968-11-30",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "16:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "戊申",
+          "month": "癸亥",
+          "day": "甲辰",
+          "hour": "壬申"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "daymaster_1990",
+      "birth": {
+        "date": "1990-09-09",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "20:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "庚午",
+          "month": "乙酉",
+          "day": "丁丑",
+          "hour": "庚戌"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "daymaster_1982",
+      "birth": {
+        "date": "1982-04-04",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "08:30"
+      },
+      "expected": {
+        "pillars": {
+          "year": "壬戌",
+          "month": "癸卯",
+          "day": "丁巳",
+          "hour": "甲辰"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "late_zi_sect1",
+      "birth": {
+        "date": "1986-04-21",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 1,
+        "time": "23:30"
+      },
+      "expected": {
+        "pillars": {
+          "year": "丙寅",
+          "month": "壬辰",
+          "day": "丙申",
+          "hour": "戊子"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "late_zi_sect2",
+      "birth": {
+        "date": "1986-04-21",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "23:30"
+      },
+      "expected": {
+        "pillars": {
+          "year": "丙寅",
+          "month": "壬辰",
+          "day": "乙未",
+          "hour": "戊子"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "early_zi_2001",
+      "birth": {
+        "date": "2001-05-05",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "00:30"
+      },
+      "expected": {
+        "pillars": {
+          "year": "辛巳",
+          "month": "壬辰",
+          "day": "戊辰",
+          "hour": "壬子"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "midnight_2355",
+      "birth": {
+        "date": "1990-06-14",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "23:55"
+      },
+      "expected": {
+        "pillars": {
+          "year": "庚午",
+          "month": "壬午",
+          "day": "庚戌",
+          "hour": "丁亥"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "midnight_0005",
+      "birth": {
+        "date": "1990-06-15",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "00:05"
+      },
+      "expected": {
+        "pillars": {
+          "year": "庚午",
+          "month": "壬午",
+          "day": "庚戌",
+          "hour": "戊子"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "unknown_time_1995",
+      "birth": {
+        "date": "1995-08-08",
+        "timeKnown": false,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2
+      },
+      "expected": {
+        "pillars": {
+          "year": "乙亥",
+          "month": "甲申",
+          "day": "辛未",
+          "hour": null
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "dst_1988_midnight",
+      "birth": {
+        "date": "1988-07-11",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "00:30"
+      },
+      "expected": {
+        "pillars": {
+          "year": "戊辰",
+          "month": "己未",
+          "day": "丙寅",
+          "hour": "庚子"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "dst_1988_winter",
+      "birth": {
+        "date": "1988-01-15",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "12:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "丁卯",
+          "month": "癸丑",
+          "day": "己巳",
+          "hour": "庚午"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "urumqi_1985",
+      "birth": {
+        "date": "1985-04-20",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "10:00",
+        "longitude": 87.6
+      },
+      "expected": {
+        "pillars": {
+          "year": "乙丑",
+          "month": "庚辰",
+          "day": "己丑",
+          "hour": "己巳"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "nyc_1990",
+      "birth": {
+        "date": "1990-07-01",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": -4.0,
+        "sect": 2,
+        "time": "08:00",
+        "longitude": -74.0
+      },
+      "expected": {
+        "pillars": {
+          "year": "庚午",
+          "month": "壬午",
+          "day": "丁卯",
+          "hour": "甲辰"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "london_1992",
+      "birth": {
+        "date": "1992-08-08",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 1.0,
+        "sect": 2,
+        "time": "14:00",
+        "longitude": -0.1
+      },
+      "expected": {
+        "pillars": {
+          "year": "壬申",
+          "month": "戊申",
+          "day": "丙辰",
+          "hour": "乙未"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "leap_day_1996",
+      "birth": {
+        "date": "1996-02-29",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "09:15"
+      },
+      "expected": {
+        "pillars": {
+          "year": "丙子",
+          "month": "庚寅",
+          "day": "丙申",
+          "hour": "癸巳"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "old_1965",
+      "birth": {
+        "date": "1965-03-01",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "08:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "乙巳",
+          "month": "戊寅",
+          "day": "甲寅",
+          "hour": "戊辰"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "recent_2025",
+      "birth": {
+        "date": "2025-10-01",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "12:00"
+      },
+      "expected": {
+        "pillars": {
+          "year": "乙巳",
+          "month": "乙酉",
+          "day": "癸卯",
+          "hour": "戊午"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "hongkong_1975",
+      "birth": {
+        "date": "1975-11-02",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "03:20",
+        "longitude": 114.17
+      },
+      "expected": {
+        "pillars": {
+          "year": "乙卯",
+          "month": "丙戌",
+          "day": "壬子",
+          "hour": "壬寅"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "india_tz55_1994",
+      "birth": {
+        "date": "1994-05-06",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 5.5,
+        "sect": 2,
+        "time": "10:00",
+        "longitude": 77.2
+      },
+      "expected": {
+        "pillars": {
+          "year": "甲戌",
+          "month": "己巳",
+          "day": "壬辰",
+          "hour": "乙巳"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "la_crossday_1988",
+      "birth": {
+        "date": "1988-07-06",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": -7.0,
+        "sect": 2,
+        "time": "20:00",
+        "longitude": -118.24
+      },
+      "expected": {
+        "pillars": {
+          "year": "戊辰",
+          "month": "己未",
+          "day": "壬戌",
+          "hour": "庚戌"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "lichun_2024_before",
+      "birth": {
+        "date": "2024-02-04",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "16:02"
+      },
+      "expected": {
+        "pillars": {
+          "year": "癸卯",
+          "month": "乙丑",
+          "day": "戊戌",
+          "hour": "庚申"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "lichun_2024_after",
+      "birth": {
+        "date": "2024-02-04",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "16:52"
+      },
+      "expected": {
+        "pillars": {
+          "year": "甲辰",
+          "month": "丙寅",
+          "day": "戊戌",
+          "hour": "庚申"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "lichun_2025_before",
+      "birth": {
+        "date": "2025-02-03",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "21:45"
+      },
+      "expected": {
+        "pillars": {
+          "year": "甲辰",
+          "month": "丁丑",
+          "day": "癸卯",
+          "hour": "癸亥"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "lichun_2025_after",
+      "birth": {
+        "date": "2025-02-03",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "22:35"
+      },
+      "expected": {
+        "pillars": {
+          "year": "乙巳",
+          "month": "戊寅",
+          "day": "癸卯",
+          "hour": "癸亥"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "xiaoshu_2025_before",
+      "birth": {
+        "date": "2025-07-07",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "03:39"
+      },
+      "expected": {
+        "pillars": {
+          "year": "乙巳",
+          "month": "壬午",
+          "day": "丁丑",
+          "hour": "壬寅"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "xiaoshu_2025_after",
+      "birth": {
+        "date": "2025-07-07",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "04:29"
+      },
+      "expected": {
+        "pillars": {
+          "year": "乙巳",
+          "month": "癸未",
+          "day": "丁丑",
+          "hour": "壬寅"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "zhongqi_dongzhi_2024_before",
+      "birth": {
+        "date": "2024-12-21",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "16:55"
+      },
+      "expected": {
+        "pillars": {
+          "year": "甲辰",
+          "month": "丙子",
+          "day": "己未",
+          "hour": "壬申"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    },
+    {
+      "name": "zhongqi_dongzhi_2024_after",
+      "birth": {
+        "date": "2024-12-21",
+        "timeKnown": true,
+        "gender": "male",
+        "tzOffsetHours": 8.0,
+        "sect": 2,
+        "time": "17:45"
+      },
+      "expected": {
+        "pillars": {
+          "year": "甲辰",
+          "month": "丙子",
+          "day": "己未",
+          "hour": "癸酉"
+        },
+        "verifiedBy": "独立算法路径对拍（JDN 日柱公式 + 五鼠遁/五虎遁 + Meeus Ch.25 黄经区间），与主引擎实现路径不同",
+        "verifiedAt": "2026-10-01",
+        "status": "verified"
+      }
+    }
+  ]
+}
