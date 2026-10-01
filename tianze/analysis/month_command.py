@@ -132,8 +132,11 @@ def compute_month_command(
         season=season,
         element=month_elem,
         yin_yang=branch_yin_yang(month_branch),
+        main_qi=priority[0] if priority else None,
         hidden_stem_priority=priority,
         day_master=day_master,
         relation_to_day_master=relation,
+        ruling_stem=None,        # ADR-021：V2 接入人元司令（fenye）后填充
+        jie_qi_depth_days=None,  # ADR-021：V2 接入节气深度后填充
         evidence=evidence,
     )

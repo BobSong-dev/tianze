@@ -241,15 +241,23 @@ class DayMasterRelation(CamelizeModel):
 
 
 class MonthCommand(CamelizeModel):
-    """M3.3 月令：季节/五行/藏干优先级/对日主关系，全部带证据（R6/R17）。"""
+    """M3.3 月令：季节/五行/藏干优先级/对日主关系，全部带证据（R6/R17）。
+
+    扩展预留（ADR-021）：`ruling_stem`（人元司令/分野）、`jie_qi_depth_days`
+    （节后深度）为 V2 字段，当前引擎恒为 None——占位以保证数据模型不阻碍
+    司令分野（Horosa baziFenYe 两版口径）接入，不改变现有契约。
+    """
 
     month_branch: str
     season: Season
     element: Element
     yin_yang: YinYang
+    main_qi: HiddenStemPriorityItem | None = None        # 月支本气便捷引用
     hidden_stem_priority: list[HiddenStemPriorityItem]   # 本气→中气→余气
     day_master: str
     relation_to_day_master: DayMasterRelation
+    ruling_stem: str | None = None                       # 预留：人元司令（V2）
+    jie_qi_depth_days: float | None = None               # 预留：节后第几天（V2）
     evidence: list[str]
 
 
