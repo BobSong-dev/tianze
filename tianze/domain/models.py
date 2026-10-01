@@ -268,6 +268,36 @@ class ElementCounts(CamelizeModel):
     missing: list[str]                      # 两视图皆 0 的五行
 
 
+class DimensionResult(CamelizeModel):
+    """单维度定性结论（M4.1）：只有 result 与 reason，无分数（R17/ADR-017）。"""
+
+    result: bool
+    reason: list[str] = []
+
+
+class DimensionalEvidence(CamelizeModel):
+    de_ling: DimensionResult   # 得令
+    de_di: DimensionResult     # 得地
+    de_shi: DimensionResult    # 得势
+
+
+class StrengthMethodResult(CamelizeModel):
+    """单个旺衰分析方法的输出（M4.2：多方法并列，Tianze 不裁决，R19）。"""
+
+    analyzer_id: str
+    name: str
+    verdict: str | None = None              # 计分制方法才有；dimensional 为 None
+    strength_evidence: DimensionalEvidence | None = None
+    evidence: list[str] = []
+    note: str | None = None
+
+
+class StrengthReport(CamelizeModel):
+    methods: list[StrengthMethodResult]
+    agreement: str | None = None            # 仅当 ≥2 个给出 verdict 的方法并存时才有意义
+    note: str
+
+
 class ChartMeta(CamelizeModel):
     engine_version: str
     engine_stage: str
@@ -289,6 +319,7 @@ class BaziChart(CamelizeModel):
     visibility: list[StemVisibility] = []        # M3.2
     month_command: MonthCommand | None = None    # M3.3
     element_counts: ElementCounts | None = None  # M3.4
+    strength: StrengthReport | None = None       # M4
     conventions: dict[str, str] = {}
     meta: ChartMeta
 

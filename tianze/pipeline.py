@@ -10,6 +10,7 @@ from importlib.metadata import version as _pkg_version
 
 import tianze
 from tianze.analysis import count_elements, collect_roots, compute_month_command, analyze_visibility
+from tianze.analysis.strength import StrengthFacts, default_run
 from tianze.calendar import lunar_adapter as LA
 from tianze.calendar.time_resolution import resolve_time
 from tianze.domain import models as M
@@ -38,6 +39,7 @@ _CONVENTIONS = {
     "elementStats": "R16",
     "monthCommandStates": "R17",
     "stemVisibility": "R18",
+    "strengthFramework": "R19",
 }
 
 
@@ -163,6 +165,16 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
     visibility = analyze_visibility(stems, branches, positions, day_master)
     element_counts = count_elements(stems, branches)
 
+    # 旺衰框架（M4）：多方法并列，当前仅 dimension（R19）
+    facts = StrengthFacts(
+        day_master=day_master,
+        day_master_element=G.STEM_ELEMENT[day_master],
+        month_command=month_command,
+        day_master_roots=tuple(r for r in roots if r.is_day_master),
+        other_stems=tuple((s, p) for s, p in zip(stems, positions) if s and p != "day"),
+    )
+    strength = default_run(facts)
+
     warnings = list(time_warnings)
     warnings.extend(
         LA.boundary_warnings(tr.beijing_dt, tr.pillar_dt, birth.time_known, birth.sect)
@@ -191,6 +203,7 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
         visibility=visibility,
         month_command=month_command,
         element_counts=element_counts,
+        strength=strength,
         conventions=_CONVENTIONS,
         meta=M.ChartMeta(
             engine_version=tianze.__version__,

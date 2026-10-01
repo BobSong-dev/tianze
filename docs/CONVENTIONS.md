@@ -97,9 +97,20 @@
 - `distance` = |支位置序 − 干位置序|（0-3）。
 - `dayMasterRelated` = 藏干字即日主（月令藏日主是建禄/得令类判定的事实基础）；透出位置是否日干由 `position=="day"` 表达。
 
+## R19 · 旺衰评估框架（M4） — `LOCKED`（架构） / `OPEN`（阈值）
+
+- **不存在唯一旺衰算法**：多个 `StrengthAnalyzer` 并列输出到 `strength.methods[]`，Tianze 不裁决。
+- M4.1 仅内置 `dimension`（dimensional_v1）：得令/得地/得势三维**定性**输出（`result: bool + reason[]`），**无分数、无 verdict**。
+- 得令严格 = 旺（同 R17）；"相"不得令但注明。
+- 得地 = 日主在四支藏干中有同字之根（R15）。
+- **得势 = 年/月/时天干中印比（比肩/劫财/正印/偏印）透干 ≥2**。⚠️ 阈值 2 是**结构规则（作者口径），非古籍量化**——标 `PROJECT_HEURISTIC`，常量 `DE_SHI_THRESHOLD` 公开可配；别柱同干比肩必须计入（2003 盘年干癸案例为守卫 fixture）。
+- `agreement` 仅当 ≥2 个带 verdict 的方法并存时输出（HIGH/DISPUTED）；单方法时缺席并在 note 说明。
+- 后续 weighted/fuyi 等计分制方法加入时：权重必须全部进 `params` 输出并标 `PROJECT_HEURISTIC`。
+
 ## 维护记录
 
 | 日期 | 变更 | 原因 |
 |---|---|---|
 | 2026-10-01 | 初版 R1-R14 | M0 |
 | 2026-10-01 | 新增 R15-R18（通根/五行统计/月令细则/透干） | M3 |
+| 2026-10-01 | 新增 R19（旺衰框架 + 得势阈值声明） | M4 |
