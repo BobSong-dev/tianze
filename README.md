@@ -16,9 +16,11 @@
 | M5 | 格局候选（禄刃/透干优先级）+ 证据化评估（supports/damages/rescues/conflicts/status） | ✅ `c2ecb16` |
 | K0/K1 | 古籍知识库 Schema + 556 条候选归一化 + 校验工具（docs/knowledge/） | ✅ 本轮 |
 | M6 | 调候引擎：182 条 ExecutableRule，10×12 全覆盖，desired/present 分离，反查原文 | ✅ 本轮 |
-| M7+ | 规则库扩展 → API → Web | 📋 `docs/research/09-V1-ROADMAP.md` |
+| M6.1 | 验证体系：VerificationRecord/四维准确度/182 条诚实降级 MACHINE_CURATED/Golden Set 43/复核队列 | ✅ 本轮 |
+| M7 | 命例体系：1147 例结构化/三层分离/Rule↔Case 双向/规则使用报告/对比只记录不裁决 | ✅ 本轮 |
+| M8+ | API → Web | 📋 `docs/research/09-V1-ROADMAP.md` |
 
-**测试：217 项全绿**；bazi-atlas 跨引擎实跑差分 5/5；知识库校验（validate_knowledge.py）：调候 120/120、0 重复 ID、0 缺失来源。
+**测试：232 项全绿**；bazi-atlas 跨引擎实跑差分 5/5；知识库校验（validate_knowledge.py）：调候 120/120、0 重复 ID、0 缺失来源。
 
 ## 快速开始
 

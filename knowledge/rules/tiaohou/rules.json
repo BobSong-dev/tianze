@@ -1,5 +1,6 @@
 {
  "domain": "tiaohou",
+ "schemaVersion": "1.1.0",
  "count": 182,
  "rules": [
   {
@@ -60,10 +61,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "春月之木，渐有生长之象，春初，犹有余寒，当以火温暖，则有舒畅之美，水多变克，有损精神……是水火二物，要得时相济为美。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "初春（雨水前）余寒未尽，丙暖为主癸润为辅；丙癸两透富贵双全（寒木向阳）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-02@2-寅",
@@ -120,10 +141,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正月甲木，初春尚有余寒。得丙癸透，富贵双全。癸藏丙透，名寒木向阳，主大富贵。倘风水不及，亦不失儒林俊秀。如无丙癸，平常人…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "初春（雨水前）余寒未尽，丙暖为主癸润为辅；丙癸两透富贵双全（寒木向阳）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-02@3-寅",
@@ -180,10 +221,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正月甲木，初春尚有余寒。得丙癸透，富贵双全。癸藏丙透，名寒木向阳，主大富贵。倘风水不及，亦不失儒林俊秀。如无丙癸，平常人…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "初春（雨水前）余寒未尽，丙暖为主癸润为辅；丙癸两透富贵双全（寒木向阳）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-02-卯",
@@ -248,10 +309,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正二月甲木一例，木乘旺气，无金必殃，先看庚，次取丁，有庚木能成器，有丁木火通明。庚丁两透，科甲定许。即风水不及，亦不失富…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正二月一例：木乘旺气先庚次丁（庚成器、丁通明）；二月另有阳刃架煞变格（庚金得所）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-04@2-卯",
@@ -313,10 +394,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正二月甲木一例，木乘旺气，无金必殃，先看庚，次取丁，有庚木能成器，有丁木火通明。庚丁两透，科甲定许。即风水不及，亦不失富…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正二月一例：木乘旺气先庚次丁（庚成器、丁通明）；二月另有阳刃架煞变格（庚金得所）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-07@2-卯",
@@ -378,10 +479,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或二月甲木，庚金得所者，名阳刃架煞，可许异途小贵。若武职便显，但要财资煞，柱中逢财，英雄独压万人。若见癸水，困了财杀，主…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正二月一例：木乘旺气先庚次丁（庚成器、丁通明）；二月另有阳刃架煞变格（庚金得所）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-04-辰",
@@ -440,10 +561,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月木气将竭，先取庚，次取壬。三月春深木老，重见生旺，宜用庚金，有金凿，可成栋梁，阳盛木渴宜用壬水，泄庚润木，枝叶繁茂，…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月木老：先庚成栋梁，阳壮木渴次壬滋扶（谷雨后土旺用事尤重壬）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-10@2-辰",
@@ -502,10 +643,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月木气将竭，先取庚，次取壬。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月木老：先庚成栋梁，阳壮木渴次壬滋扶（谷雨后土旺用事尤重壬）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-01@3-辰",
@@ -564,10 +725,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "春月之木，渐有生长之象。春初，犹有余寒，当以火温暖，则有舒畅之美，水多变克，有损精神，重见生旺，必用庚金啄凿，可成栋梁。…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月木老：先庚成栋梁，阳壮木渴次壬滋扶（谷雨后土旺用事尤重壬）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-05-巳",
@@ -632,10 +813,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月木气已退，丙火司权，先癸次丁，又须有庚透。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月调候为急：先癸次丁，又须庚透生癸（癸衰绝无源则无用）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-13@2-巳",
@@ -700,10 +901,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月木气已退，丙火司权，先癸次丁，又须有庚透。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月调候为急：先癸次丁，又须庚透生癸（癸衰绝无源则无用）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-06@3-巳",
@@ -766,10 +987,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月木气已退，丙火司权，先癸次丁，又须有庚透。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月调候为急：先癸次丁，又须庚透生癸（癸衰绝无源则无用）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-06-午",
@@ -829,10 +1070,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "五六月甲木，木性虚焦，一理共推，五月先癸后丁，庚金次之。六月三伏生寒，丁火退气，先丁后庚，无癸亦可，或五月乏癸，用丁亦可…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月（大暑前）先癸后丁，庚金次之；乏癸不得已用丁宜行北地"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-12@2-午",
@@ -889,10 +1150,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三夏甲木，用神先丁次庚，无丁不得通明，无庚劈甲，丁火不燃。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月（大暑前）先癸后丁，庚金次之；乏癸不得已用丁宜行北地"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-16-午",
@@ -951,10 +1232,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "五六月甲木，木性虚焦，一理共推，五月先癸后丁，庚金次之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月（大暑前）先癸后丁，庚金次之；乏癸不得已用丁宜行北地"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-07-未",
@@ -1013,10 +1314,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "六月甲木，木盛先丁。五月癸庚两透为上格，六月丁庚两透亦为上格。用神既透，木火通明，自然富贵。或丁多庚少，又是平人；或一庚…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月（大暑后）三伏生寒先丁后庚，丁庚两透上格；同格引用 QBT-甲-06（五月口径），以本条专论为准"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-06-未",
@@ -1076,10 +1397,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "五六月甲木，木性虚焦，一理共推，五月先癸后丁，庚金次之。六月三伏生寒，丁火退气，先丁后庚，无癸亦可，或五月乏癸，用丁亦可…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月（大暑后）三伏生寒先丁后庚，丁庚两透上格；同格引用 QBT-甲-06（五月口径），以本条专论为准"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-08-申",
@@ -1138,10 +1479,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "七月甲堪为戟，然非丁不能造庚，非庚不能造甲，丁庚两透，科甲可许。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月甲堪为戟：非丁不能造庚、非庚不能造甲，丁庚两透科甲"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-23-申",
@@ -1198,10 +1559,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "七月甲堪为戟，然非丁不能造庚，非庚不能造甲，丁庚两透，科甲可许。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月甲堪为戟：非丁不能造庚、非庚不能造甲，丁庚两透科甲"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-25-申",
@@ -1260,10 +1641,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "总之七月甲木，丁火为尊，庚金次之，但不可少，火隔水不能豁金，丁火金，必赖甲木引助，方成洪炉。若有癸水阴隔，便灭丁火，壬水…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月甲堪为戟：非丁不能造庚、非庚不能造甲，丁庚两透科甲"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-09-酉",
@@ -1328,10 +1729,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "八月甲木，木衰金旺，丁火为先，次用丙火，庚金再次。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月木衰金旺：丁火为先，次丙，庚再次；一丁一庚科甲定显"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-26-酉",
@@ -1396,10 +1817,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "八月甲木，木衰金旺，丁火为先，次用丙火，庚金再次。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月木衰金旺：丁火为先，次丙，庚再次；一丁一庚科甲定显"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-27-酉",
@@ -1462,10 +1903,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "一丁一庚，科甲定显。癸水一透，科甲难全。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月木衰金旺：丁火为先，次丙，庚再次；一丁一庚科甲定显"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-10-戌",
@@ -1524,10 +1985,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "九月甲木，木性凋零，丁火壬癸滋扶。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月木性凋零：丁火壬癸滋扶；四柱木多用庚为妙（当取水妻木子）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-28-戌",
@@ -1586,10 +2067,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "九月甲木，木性凋零，丁火壬癸滋扶。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月木性凋零：丁火壬癸滋扶；四柱木多用庚为妙（当取水妻木子）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-29-戌",
@@ -1646,10 +2147,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或四柱木多，用丙用丁，皆不为善，用庚为妙。九月用庚者，却不取土妻金子，当取水妻木子。凡四季甲木，总不外乎庚，譬如木为犁，…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月木性凋零：丁火壬癸滋扶；四柱木多用庚为妙（当取水妻木子）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-11-亥",
@@ -1715,10 +2236,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十月甲木，以庚为君，以丁为佐，丙火次之。忌壬水泛木，须戊土为制，故戊又次之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月以庚为君丁为佐丙次之；忌壬水泛木须戊土为制（戊又次之）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-33-亥",
@@ -1783,10 +2324,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十月甲木，以庚为君，以丁为佐，丙火次之。忌壬水泛木，须戊土为制，故戊又次之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月以庚为君丁为佐丙次之；忌壬水泛木须戊土为制（戊又次之）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-34-亥",
@@ -1851,10 +2412,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或多比劫，只一庚出干，坐禄逢生，乃为舍丁从庚，逢财略有富贵。运行东南吉，西北凶。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月以庚为君丁为佐丙次之；忌壬水泛木须戊土为制（戊又次之）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-12-子",
@@ -1919,10 +2500,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一月甲木，本性生寒，先丁后庚，取丙佐之，癸水司权，为火金之病。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月本性生寒：先丁后庚取丙佐之；癸水司权为火金之病（忌癸）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-35-子",
@@ -1987,10 +2588,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一月甲木，本性生寒，先丁后庚，取丙佐之，癸水司权，为火金之病。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月本性生寒：先丁后庚取丙佐之；癸水司权为火金之病（忌癸）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-36-子",
@@ -2053,10 +2674,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或支成水局，加以壬透，名水泛木浮，死无棺木。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月本性生寒：先丁后庚取丙佐之；癸水司权为火金之病（忌癸）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-13-丑",
@@ -2115,10 +2756,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十二月甲木，天气寒冻，木性极寒，无发生之意，先用庚劈甲以引丁火，木火始有通明之象，故丁次之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月寒冻：先用庚劈甲引丁，木火始有通明；庚丁两透科甲有准"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-37-丑",
@@ -2175,10 +2836,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十二月甲木，天气寒冻，木性极寒，无发生之意，先用庚劈甲以引丁火，木火始有通明之象，故丁次之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月寒冻：先用庚劈甲引丁，木火始有通明；庚丁两透科甲有准"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-甲-38-丑",
@@ -2237,10 +2918,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "庚丁两透，科甲有准。庚透丁藏者，小富贵；丁透庚藏者，富贵。无庚者贫贱，无丁者寒儒。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月寒冻：先用庚劈甲引丁，木火始有通明；庚丁两透科甲有准"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-01-寅",
@@ -2299,10 +3000,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正月天气，犹有余寒，非丙不长，虽有癸润，恐凝寒气，故先用丙，癸次之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月余寒非丙不长，癸润恐凝寒气故先丙"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-01@2-寅",
@@ -2361,10 +3082,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三春乙木，为芝兰柳残之木，丙癸不可离也。春乙有丙，卉木向阳，丙癸两见，有癸滋养根基，枝叶自然发生茂盛。丙癸齐透，不逢化合…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月余寒非丙不长，癸润恐凝寒气故先丙"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-02@2-寅",
@@ -2421,10 +3162,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正月天气，犹有余寒，非丙不长，虽有癸润，恐凝寒气，故先用丙，癸次之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月余寒非丙不长，癸润恐凝寒气故先丙"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-02-卯",
@@ -2483,10 +3244,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "二月阳气渐升，木不寒矣。以丙为君，癸为臣，丙癸两透，庚藏，科甲富贵无疑。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "二月以丙为君癸为臣，丙癸两透庚藏科甲"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-04@2-卯",
@@ -2543,10 +3324,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "二月阳气渐升，木不寒矣。以丙为君，癸为臣，丙癸两透，庚藏，科甲富贵无疑。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "二月以丙为君癸为臣，丙癸两透庚藏科甲"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-05@2-卯",
@@ -2605,10 +3406,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或支成木局，见癸透养木，乃作贵命，更得丙泄木气，大贵之命。但须透癸，有丙无癸者，常人。或水多用丙，戊多化癸者，下格。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "二月以丙为君癸为臣，丙癸两透庚藏科甲"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-03-辰",
@@ -2667,10 +3488,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月阳气愈炽，先癸次丙。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月阳气愈炽先癸次丙；癸丙两透不见己庚玉堂之客"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-06@2-辰",
@@ -2727,10 +3568,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月阳气愈炽，先癸次丙。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月阳气愈炽先癸次丙；癸丙两透不见己庚玉堂之客"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-07@2-辰",
@@ -2789,10 +3650,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "癸丙两透，不见己庚，玉堂之客；见已庚者，平常之人。或一乙逢庚，不见己者，主小富贵，但不显达。或庚已混杂，丙癸全无，下格。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月阳气愈炽先癸次丙；癸丙两透不见己庚玉堂之客"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-04-巳",
@@ -2851,10 +3732,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月乙木，已宫自有丙火，戊取癸水为尊。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月巳宫自有丙火，专取癸水为尊，庚辛为佐（尤以辛透为清）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-11@2-巳",
@@ -2913,10 +3814,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月乙木，已宫自有丙火，戊取癸水为尊。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月巳宫自有丙火，专取癸水为尊，庚辛为佐（尤以辛透为清）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-05-午",
@@ -2975,10 +3896,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "五月乙木，丁火司权，禾稼俱旱。上半月属阳，先癸次丙；下半月属阴，三伏生寒，丙癸尊。四柱多金水，丙火为先，余皆用癸水。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月以夏至为界：上半月先癸次丙，下半月丙癸俱尊；无癸见丙支成火局非夭即残（见壬可解）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-12@2-午",
@@ -3037,10 +3978,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "五月乙木，丁火司权，禾稼俱旱。上半月属阳，先癸次丙；下半月属阴，三伏生寒，丙癸尊。四柱多金水，丙火为先，余皆用癸水。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月以夏至为界：上半月先癸次丙，下半月丙癸俱尊；无癸见丙支成火局非夭即残（见壬可解）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-13-午",
@@ -3097,10 +4058,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "若无癸而见丙透，支又成火局，阳焦木性，此人残疾，无癸必天，见壬可解。或火土太多，其人愚贱，或为僧道门下。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月以夏至为界：上半月先癸次丙，下半月丙癸俱尊；无癸见丙支成火局非夭即残（见壬可解）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-06-未",
@@ -3159,10 +4140,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "六月乙木，性枯而寒，柱多金水，丙火为尊。支成木局，乙得无伤。丙癸两透，大富大贵，无癸者常人。运不行北，困苦一生。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月性枯而寒柱多金水丙为尊；丙癸两透大富大贵；用癸忌戊己杂乱"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-14-未",
@@ -3219,10 +4220,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "六月乙木，性枯而寒，柱多金水，丙火为尊。支成木局，乙得无伤。丙癸两透，大富大贵，无癸者常人。运不行北，困苦一生。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月性枯而寒柱多金水丙为尊；丙癸两透大富大贵；用癸忌戊己杂乱"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-15-未",
@@ -3281,10 +4302,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "凡五六月乙木，气退枯焦，用癸者切忌戊己杂乱，便是下格。或得甲木透，制伏土神，名为去浊留清，可许俊秀。土多乏甲，秀气脱空，…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月性枯而寒柱多金水丙为尊；丙癸两透大富大贵；用癸忌戊己杂乱"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-07-申",
@@ -3343,10 +4384,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "七月乙木，庚金司令，庚虽输情于乙妹，而干乙难合支庚，见庚，乙必受伤。或丙癸出干，又加柱有三已，以污金，可许科甲。有己透加…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月庚金司令见庚乙必受伤；或丙癸出干加柱有三己污金"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-19-申",
@@ -3403,10 +4464,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "七月乙木，庚金司令，庚虽输情于乙妹，而干乙难合支庚，见庚，乙必受伤。或丙癸出干，又加柱有三已，以污金，可许科甲。有己透加…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月庚金司令见庚乙必受伤；或丙癸出干加柱有三己污金"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-20-申",
@@ -3463,10 +4544,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或癸透丙藏，庚少，此不用己土，只许贡监生员。无丙有癸透者，不失刀笔门户，三考知名。或支藏癸水，多庚，无丙己二神者，平常人…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月庚金司令见庚乙必受伤；或丙癸出干加柱有三己污金"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-08-酉",
@@ -3533,10 +4634,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "八月乙木，芝兰禾稼均退，以丹桂为乙木。在白露过后，桂蕊未开，专用癸水，以滋桂。若秋分后，桂花已开。又当向阳，宜先用丙，癸…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月丹桂：白露后专用癸滋桂；秋分后桂花已开先用丙癸次之（节气条件）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-21-酉",
@@ -3603,10 +4724,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "八月乙木，芝兰禾稼均退，以丹桂为乙木。在白露过后，桂蕊未开，专用癸水，以滋桂。若秋分后，桂花已开。又当向阳，宜先用丙，癸…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月丹桂：白露后专用癸滋桂；秋分后桂花已开先用丙癸次之（节气条件）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-22-酉",
@@ -3671,10 +4812,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "若有癸水，如子得母，其人一生丰盈，若癸出干，终身秀才。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月丹桂：白露后专用癸滋桂；秋分后桂花已开先用丙癸次之（节气条件）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-09-戌",
@@ -3733,10 +4894,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "九月乙木，枝枯叶落，必赖癸水滋养。如见甲申时，名为藤萝繁甲，可秋可冬。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月枝枯叶落必赖癸水滋养；见癸又遇辛金发水源定主科甲"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-24-戌",
@@ -3795,10 +4976,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "九月乙木，枝枯叶落，必赖癸水滋养。如见甲申时，名为藤萝繁甲，可秋可冬。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月枝枯叶落必赖癸水滋养；见癸又遇辛金发水源定主科甲"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-25-戌",
@@ -3857,10 +5058,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "若柱中见癸水，又遇辛金发水源，定主科甲。或有癸无辛，常人；有辛无癸，贫贱。或四柱壬多，惟难泛乙，每作寻常人物中之上品。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月枝枯叶落必赖癸水滋养；见癸又遇辛金发水源定主科甲"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-10-亥",
@@ -3919,10 +5140,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十月乙木，丙不受气，壬水司令，丙为尊，或壬多，用戊土。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月壬水司令丙为尊；壬多用戊土；水多无戊乙性漂浮"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-26-亥",
@@ -3979,10 +5220,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十月乙木，丙不受气，壬水司令，丙为尊，或壬多，用戊土。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月壬水司令丙为尊；壬多用戊土；水多无戊乙性漂浮"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-27-亥",
@@ -4041,10 +5302,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或水多无戊，乙性漂浮，游食好闲之人。不见丙己，妻子难全。或一点壬水，见戊，常人。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月壬水司令丙为尊；壬多用戊土；水多无戊乙性漂浮"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-11-子",
@@ -4110,10 +5391,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一月根叶寒冻，喜丙复一阳，用丙火解冻，斯花木有向阳之意，不宜癸水出干以冻花木，故专用丙火。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月专用丙火解冻；不宜癸水出干以冻花木（avoid 癸）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-28-子",
@@ -4177,10 +5478,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一月根叶寒冻，喜丙复一阳，用丙火解冻，斯花木有向阳之意，不宜癸水出干以冻花木，故专用丙火。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月专用丙火解冻；不宜癸水出干以冻花木（avoid 癸）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-29-子",
@@ -4246,10 +5567,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或支水局，子出壬癸，全无丙火，虽见戊制，不免贫寒到老，入南方运，稍有衣禄。丁火有亦如无，即或用丁，灯烛之光，岂能解严寒之…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月专用丙火解冻；不宜癸水出干以冻花木（avoid 癸）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-12-丑",
@@ -4302,10 +5643,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十二月寒木见丙，有回春之意。①大寒以前，同此看法。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月寒木见丙有回春之意；得一丙透无癸破格科甲显宦"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-乙-31-丑",
@@ -4356,10 +5717,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十二月寒木见丙，有回春之意。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月寒木见丙有回春之意；得一丙透无癸破格科甲显宦"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-01-寅",
@@ -4418,10 +5799,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正月三阳开泰，火气渐炎，取壬为尊，庚金为佐。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月取壬为尊，庚金为佐"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-02-卯",
@@ -4474,10 +5875,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "二月丙火，阳气舒升，专用壬水。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "二月专用壬水（须藉金生助）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-03-辰",
@@ -4536,10 +5957,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月火气渐炎，专用壬水，或支成土局，取甲为辅，壬不可离。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月专用壬水；支成土局取甲为辅，壬不可离"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-04-巳",
@@ -4592,10 +6033,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月丙火，建禄于已，炎势离，专用壬水，解炎威之力。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月建禄于巳，专用壬水解炎威之力"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-05-午",
@@ -4654,10 +6115,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "五月火气愈炎，得二壬一庚出干，方为上格。或一壬无庚，贡监生员，还须好运。或戊已出干，加丁出干，与壬化合，则为平人。即不透…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月火气愈炎：二壬一庚出干方为上格"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-06-未",
@@ -4716,10 +6197,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "六月火气渐退，三伏生寒。己土泄气，取庚佐壬用。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月三伏生寒，取庚佐壬"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-07-申",
@@ -4772,10 +6273,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "七月太阳转西，阳气渐衰，日近西山，见土皆晦，惟日照湖海，暮夜燃光，故专用壬水，辅映太阳光辉。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月专用壬水辅映太阳光辉"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-08-酉",
@@ -4828,10 +6349,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "八月丙火，日近黄昏，丙有余光，存于湖海，仍用壬水辅映。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月日近黄昏，仍用壬水辅映"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-09-戌",
@@ -4890,10 +6431,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "九月丙火愈衰，忌土晦光，先用甲木，次取壬水。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月忌土晦光：先用甲木次取壬水"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-10-亥",
@@ -4958,10 +6519,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十月丙火，太阳失令，见甲戊庚齐透，科甲有准，风土不及，终成选拔。主为人性好清高，斯文领袖。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月太阳失令：甲戊庚齐透科甲有准（三干并重）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-11-子",
@@ -5020,10 +6601,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一月冬至阳生，弱中生旺，先壬，戊佐之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月冬至阳生：先壬，戊佐之"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丙-12-丑",
@@ -5082,10 +6683,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十二月气进二阳，侮雪欺霜，应先壬为用，己土司令，己多须用甲为佐。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月先壬为用；己土司令，己多须用甲为佐"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-01-寅",
@@ -5144,10 +6765,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正月丁火，甲木当权，乃为母旺，非庚不能劈甲，何以引丁？先庚次壬。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月甲木当权：非庚不能劈甲引丁，先庚次壬"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-02-寅",
@@ -5206,10 +6847,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "如壬透化木，弱复生旺，合此身伴帝王；但不宜庚破格，有庚不过秀才。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月甲木当权：非庚不能劈甲引丁，先庚次壬"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-03-卯",
@@ -5268,10 +6929,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "二月因湿乙伤丁，非庚不能扫乙，非甲不能引丁，先庚后甲。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "二月湿乙伤丁：非庚不能扫乙、非甲不能引丁，先庚后甲"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-04-辰",
@@ -5330,10 +7011,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月戊土司令，泄弱丁气，先用甲木引丁制戊，次看庚金。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月戊土司令泄弱丁气：先用甲引丁制戊，次看庚金"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-05-巳",
@@ -5393,10 +7094,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月火气乘旺，虽取甲引丁，必须庚金制甲，有庚有甲，方云木火通明，甲多又取庚为先。但四柱忌见癸水，有病必滞庚湿甲，并伤丁火…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月火气乘旺：取甲引丁必须庚制甲；四柱忌见癸水"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-06-巳",
@@ -5455,10 +7176,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月火气乘旺，虽取甲引丁，必须庚金制甲，有庚有甲，方云木火通明，甲多又取庚为先。但四柱忌见癸水，有水必滞庚湿甲，并伤丁火…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月火气乘旺：取甲引丁必须庚制甲；四柱忌见癸水"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-07-午",
@@ -5523,10 +7264,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "时逢建禄，不得轻用甲木。遇干透隔位之壬，不贪丁合，忠而且孝。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月建禄不得轻用甲：遇壬解炎、庚为水源（条件：建禄）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-08-未",
@@ -5586,10 +7347,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "六月丁火，阴柔日弱，又值三伏生寒，丁弱极矣，专用甲木，壬水次之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月丁弱极矣：专用甲木，壬水次之"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-09-申",
@@ -5649,10 +7430,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三秋丁火，阴柔退气，专用甲木。金虽乘旺司权，无伤丁之理，仍取庚劈甲，为引火之物，又借丙暖金晒甲，不畏丙势夺丁。凡两丙夹丁…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三秋专用甲木：甲不离庚（申中有庚）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-10-申",
@@ -5712,10 +7513,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三秋甲庚丙并用，仍分优劣，何也？七月甲丙，申中有庚……"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三秋专用甲木：甲不离庚（申中有庚）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-11-酉",
@@ -5775,10 +7596,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三秋甲庚丙并用，仍分优劣，何也？……八月甲丙庚皆用。七八月无甲木，乙亦姑用，名枯草引灯，却不离丙晒也。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月甲丙庚皆用；无甲用乙名枯草引灯（不离丙晒）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-12-戌",
@@ -5838,10 +7679,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三秋甲庚丙并用……九月专用甲庚，总之甲不离庚，乙不离丙。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月专用甲庚"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-13-亥",
@@ -5901,10 +7762,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三冬丁火微寒，专用甲庚。庚乃甲之良友，用甲木，庚不可少，无庚不能劈甲，无甲何以引丁？难云木火通明。冬丁有甲，虽水多金多，…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "冬丁有甲虽水多金多可称上格；得庚透天干科甲有准"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-14-亥",
@@ -5964,10 +7845,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三冬丁火微寒，专用甲庚……冬丁有甲，虽水多金多，可称上格。得庚透天干，科甲有准，即非科甲，亦儒雅风流。见己则否，己多合甲…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "冬丁有甲虽水多金多可称上格；得庚透天干科甲有准"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-15-子",
@@ -6045,10 +7946,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或仲冬金旺水多，全无比印，作弃命从杀论，大贵。比印破格，常人，且主骨肉浮云，六亲流水。或戊出破癸，多贤兄弟，六亲有力。此…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "仲冬金旺水多：无比印作弃命从杀论大贵（例外：从杀）；常规专用甲庚"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-16-子",
@@ -6126,10 +8047,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三冬丁火微寒，专用甲庚……得庚透天干，科甲有准，即非科甲，亦儒雅风流。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "仲冬金旺水多：无比印作弃命从杀论大贵（例外：从杀）；常规专用甲庚"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-13-丑",
@@ -6189,10 +8130,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三冬丁火微寒，专用甲庚。庚乃甲之良友，用甲木，庚不可少，无庚不能劈甲，无甲何以引丁？难云木火通明。冬丁有甲，虽水多金多，…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月微寒专用甲庚：庚乃甲之良友"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-丁-16-丑",
@@ -6252,10 +8213,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三冬丁火微寒，专用甲庚……得庚透天干，科甲有准，即非科甲，亦儒雅风流。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月微寒专用甲庚：庚乃甲之良友"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-01-寅",
@@ -6312,10 +8293,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三春戊土，无丙照暖，戊土不生，无甲疏劈，戊土不灵，无癸滋润，万物不长。正二月先丙后甲，癸次之，三月先甲后丙，癸亦次之，因…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月先丙后甲癸次之：无丙难除寒气，一生成败"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-02-寅",
@@ -6374,10 +8375,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正二月宜先透丙，三月宜先透甲，盖正二月虽有癸甲，无丙亦难除寒气。如风雨淹淹，万物生而不长，故无丙者，一生成败，富贵艰辛。…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月先丙后甲癸次之：无丙难除寒气，一生成败"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-03-卯",
@@ -6436,10 +8457,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或一派乙木，名权官会党，即有庚从，亦难制己。此人内奸外直，口是心非，难与交游。加一甲在内，无庚，必懒惰自甘，贪心无厌。或…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "二月先丙次甲佐癸；一派乙木忌无庚"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-04-辰",
@@ -6499,10 +8540,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月戊土司令，不见甲癸丙者，贫贱无用之人，癸透主科甲，丙透者主禀贡衣矜，丙透甲藏，无癸者富，有癸者异途显达。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月戊土司令：先甲后丙癸佐之；不见甲癸丙者贫贱无用"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-05-巳",
@@ -6561,10 +8622,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月戊土，阳气外发，寒气内藏，外实内虚，不畏火炎。无阳气相催，万物不长，故先取甲木疏劈，次取丙癸佐之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月先取甲疏劈，次取丙癸佐之（无水为配则火炎土燥）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-06-午",
@@ -6623,10 +8704,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "五月戊土，火炎土燥，先看壬水，次取甲木，丙火酌用，用癸恐其力微。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月火炎土燥：先看壬水次取甲木，丙酌用（用癸恐力微）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-07-未",
@@ -6685,10 +8786,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "六月戊土，遇夏干枯，先看癸水，次用丙火甲木。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月遇夏干枯：先看癸水次用丙火甲木（大暑前后取用不同）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-08-申",
@@ -6747,10 +8868,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "七月戊土，阳气渐入，寒气渐出，先丙后癸，甲木次之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月阳气渐入：先丙后癸，甲木次之；支成水局不作从财"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-09-酉",
@@ -6809,10 +8950,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "八月戊土，金泄身寒，赖丙照暖，喜水滋润，先丙后癸，不必木疏。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月金泄身寒：先丙后癸，不必木疏"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-10-戌",
@@ -6871,10 +9032,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "九月戊土当权，取癸为妙，不必用丙，却忌戊与癸合。先看甲木，次取癸水，再取丙火配合支干，方成有生之土，合此定发云程，科甲有…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月戊土当权：先看甲木次取癸水再取丙火；忌戊与癸合"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-11-亥",
@@ -6933,10 +9114,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十月戊土，时值小阳，阳气略出，先用甲木，次取丙火。非甲土不灵，非丙土不暖，安能发生万物？"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月专用甲丙不用癸：非甲土不灵、非丙土不暖"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-12-子",
@@ -6995,10 +9196,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一、二月严寒冰冻，丙火为尊，甲木为佐。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月调候为急必用丙火为先以甲为佐；无甲犹可决不可缺丙"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-13-子",
@@ -7058,10 +9279,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一、二月严寒土冻，调候为急，必用丙火为先，以甲为佐，无甲犹可，决不可缺丙。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月调候为急必用丙火为先以甲为佐；无甲犹可决不可缺丙"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-12-丑",
@@ -7120,10 +9361,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一、二月严寒冰冻，丙火为尊，甲木为佐。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月严寒土冻：丙火为先甲木为佐"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-戊-14-丑",
@@ -7183,10 +9444,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一、二月严寒土冻，调候为急，必用丙火为先，以甲为佐，无甲犹可，决不可缺丙。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月严寒土冻：丙火为先甲木为佐"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-01-寅",
@@ -7245,10 +9526,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三春己土，田园气寒，必须暖润疏辟，万物方得吐芽生苗。正月专用丙暖，以除寒气。二月先用甲疏，如犁之辅土，次用癸润，乃非旱田…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月寒气未退田园犹冻：丙暖为尊；忌见壬水（须戊为堤）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-02-寅",
@@ -7307,10 +9608,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正月寒气未退，田园犹冻，丙暖为尊，得丙照暖，万物自生。忌见壬水，盖壬不为丙优，反为己病，何也？壬如长河泛滥，田园浸没，急…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月寒气未退田园犹冻：丙暖为尊；忌见壬水（须戊为堤）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-03-卯",
@@ -7369,10 +9690,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "二月己土，阳气渐升，虽和稼未成，万物发生，但田园未展，宜先取甲，木疏之，忌合，次取癸水润之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "二月宜先取甲疏之（忌甲己相合）、次取癸水润之"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-04-辰",
@@ -7431,10 +9772,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月己土，正栽培和稼之时，先丙后癸，令土暖而润，复用甲疏之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月先丙后癸令土暖而润，复用甲疏之"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-05-巳",
@@ -7493,10 +9854,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三夏己土，时值和稼在田，急须甘露为润，取癸为要，次用丙火。夏炎用丙何也？夏无太阳，和稼不长，愈炎愈长，故无癸日旱田，无丙…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三夏急须甘露：取癸为要次用丙火（必以辛金发癸之源）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-06-巳",
@@ -7555,10 +9936,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三夏己土，时值和稼在田，急须甘露为润，取癸为要，次用丙火。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三夏急须甘露：取癸为要次用丙火（必以辛金发癸之源）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-07-午",
@@ -7618,10 +10019,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或有癸无丙亦好，即不科甲，亦高才选拔之士。有丙无癸，有壬亦可，但不大发。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月得水方云中和；有癸无丙亦好，有丙无癸有壬亦可"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-05-未",
@@ -7680,10 +10101,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三夏己土，时值和稼在田，急须甘露为润，取癸为要，次用丙火。夏炎用丙何也？夏无太阳，和稼不长，愈炎愈长，故无癸日旱田，无丙…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月同三夏取癸为要次用丙；无丙气寒（己-08 与三夏总论并引）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-08-未",
@@ -7743,10 +10184,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "用癸者，金妻水子；用丙者，木妻火子。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月同三夏取癸为要次用丙；无丙气寒（己-08 与三夏总论并引）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-10-申",
@@ -7806,10 +10267,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "先透癸，次透丙，自当雁塔题名，权重百僚。壬丙两透，无癸，异途显职，或武职权高。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月先透癸次透丙雁塔题名；标题谓丙为主要——原文两说并存，以正文为先癸后丙（conflict 已记）"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-09-酉",
@@ -7873,10 +10354,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三秋己土，万物收藏之际，内实外虚，寒气渐升，须殊途同归火温之，癸水润之，不特此也。且癸能泄金，丙能制金，补土精神，则秋生…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月支成金局癸透有根大富（条件：支成金局）；三秋先丙后癸取辛辅癸"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-11-酉",
@@ -7941,10 +10442,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或支成金局，癸透有根，必主大富，且富中取贵。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月支成金局癸透有根大富（条件：支成金局）；三秋先丙后癸取辛辅癸"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-09-戌",
@@ -8003,10 +10524,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三秋己土，万物收藏之际，内实外虚，寒气渐升，须殊途同归火温之，癸水润之，不特此也。且癸能泄金，丙能制金，补土精神，则秋生…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月甲透者富乏甲者僧道；三秋先丙后癸取辛辅癸"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-12-戌",
@@ -8066,10 +10607,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或支四库，甲透者富，乏甲者，僧道贫贱。或甲出见癸，不见庚伤，厚培元气，可期科甲，不贵，风土之薄也。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月甲透者富乏甲者僧道；三秋先丙后癸取辛辅癸"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-13-亥",
@@ -8128,10 +10689,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三冬己土，湿泥寒冻，非丙暖不生，取丙为尊，甲木能参用。不可用癸，戊土惟初冬壬水旺，用以为制。余皆用丙，无丙用丁，但丁不能…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月湿泥寒冻非丙暖不生，甲木参用；初冬壬旺可用戊制"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-14-亥",
@@ -8191,10 +10772,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三冬己土，湿泥寒冻，非丙暖不生，取丙为尊，甲木能参用。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月湿泥寒冻非丙暖不生，甲木参用；初冬壬旺可用戊制"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-13-子",
@@ -8253,10 +10854,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三冬己土，湿泥寒冻，非丙暖不生，取丙为尊，甲木能参用。不可用癸，戊土惟初冬壬水旺，用以为制。余皆用丙，无丙用丁，但丁不能…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月官印并透寒木向阳，非丙无生意"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-15-子",
@@ -8316,10 +10937,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三冬己土，湿泥寒冻，非丙暖不生，取丙为尊，甲木能参用。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月官印并透寒木向阳，非丙无生意"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-13-丑",
@@ -8378,10 +11019,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三冬己土，湿泥寒冻，非丙暖不生，取丙为尊，甲木能参用。不可用癸，戊土惟初冬壬水旺，用以为制。余皆用丙，无丙用丁，但丁不能…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月土寒须丁暖甲疏季土；透丁藏丙富贵无双"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-己-16-丑",
@@ -8441,10 +11102,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "或一片庚金，虽用丙火还宜丁为助，透丁藏丙，富贵无双，奇特之命。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月土寒须丁暖甲疏季土；透丁藏丙富贵无双"
     }
    ],
    "quality": "C",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-01-寅",
@@ -8503,10 +11184,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正月木气渐旺，克土土死，不能生金，且金之寒气未除，先用丙以暖庚性，次甲疏厚土，令土势不能埋金。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月金寒未除：先用丙暖庚性，次甲疏厚土防埋"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-02-卯",
@@ -8566,10 +11267,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "二月卯中乙木当权，柱中自然有乙，又有丁火，得庚辰时，庚必输情於乙妹，金有暗强之势，与秋金相似。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "二月庚输情于乙妹金有暗强之势（与秋金相似，用丁）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-03-辰",
@@ -8628,10 +11349,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月戊土司令，不怕生寒，只怕埋金，先用甲疏土，次用丁火炼成器，庚金劈甲，此不必用。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月戊土司令只怕埋金：先用甲疏土次用丁炼器"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-04-巳",
@@ -8690,10 +11431,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月庚金长生在巳，巳虽有丙，内有戊土，丙不（烁）金，故不畏火炎。但丙不可轻用，宜先用壬水，方得中和，书曰：群金生夏，妙用…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月庚长生在巳不畏火炎：宜先用壬方得中和，戊丙佐之"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-05-午",
@@ -8752,10 +11513,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "五月丁旺而烈，庚逢败地。专用壬水，癸又次之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月丁旺庚逢败地：专用壬水癸又次之"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-06-未",
@@ -8814,10 +11595,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "六月三伏生寒，金顽已极，先丁火，次取甲木。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月三伏生寒金顽已极：先丁火次甲木（大暑分界）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-07-申",
@@ -8876,10 +11677,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "七月庚金司令，刚锐已极，专用丁火炼，次取甲木（引）丁光。书曰：秋金锐锐最为奇，壬癸相逢总不宜，如逢水火来成局，试看福寿与…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月刚锐已极专用丁炼次甲引丁；壬癸相逢总不宜"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-08-酉",
@@ -8938,10 +11759,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "八月庚金，刚锐未退，仍用丁甲，以丙佐之，丙火不可少也。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月刚锐未退仍用丁甲，以丙佐之不可少"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-09-戌",
@@ -9000,10 +11841,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "九月戊土司令，大惧土厚埋金，先用甲疏，次用壬洗，金自出矣，忌见己土浊壬。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月大惧土厚埋金：先用甲疏次用壬洗；忌己土浊壬"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-10-亥",
@@ -9062,10 +11923,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十月水冷金塞，非丁不能造，非丙不能暖。……用丁不离甲木，丁为主，丙甲为佐。丙丁两透，支无子水通流，一榜有之；又见寅巳蓄丙…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月水冷金塞：非丁不能造非丙不能暖；用丁不离甲木"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-11-子",
@@ -9118,10 +11999,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一月天气严寒，仍先取丙照。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月天气严寒仍先取丙照"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-庚-12-丑",
@@ -9180,10 +12081,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十二月寒气太重，丑为湿泥，愈冻愈寒，先用丙火解冻，次取丁火锻金，甲木亦不可少。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月丑为湿泥愈冻愈寒：先丙解冻次丁锻金，甲不可少"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-01-寅",
@@ -9242,10 +12163,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正月阳气舒升，寒气犹有未除，然（月）建寅，寅中有长生之丙，可解寒气。但忌甲木司权，辛金失令。性爱湿泥滋养，先取已土为生身…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月忌甲木司权辛金失令：先取己土生身次用壬水淘洗"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-02-卯",
@@ -9304,10 +12245,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "二月辛金，阳气发于外，壬水为尊，见（戊）已便为辛病。有甲木制之，辛金不致埋没，壬水不致混浊，用神之清，如病得奇药。合此清…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "二月壬水为尊；见戊己便为辛病，甲木制之为去病之药"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-03-辰",
@@ -9366,10 +12327,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月戊土司令，辛承正气，母旺子相。三月辛金，与二月同。壬水为尊……"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月与二月同（辰土湿润）：壬水为尊"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-04-巳",
@@ -9428,10 +12409,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月时逢首夏，忌丙之烁，乐水之湿。……故四月辛金，必喜庚壬为用，甲木为去病之药也。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月忌丙之烁乐水之湿：必喜庚壬为用，甲木为去病之药"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-05-午",
@@ -9490,10 +12491,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "五月丁火司（权），辛金失令，阴柔之极，不宜（煅）炼，须己壬兼用，何也？己为泥沙，壬为湖海，己无壬不湿，辛无己不生，故壬己…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月己壬兼用：己无壬不湿、辛无己不生"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-06-未",
@@ -9552,10 +12573,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "六月己土当权，滋扶太过，恐污金不耀，专用壬水为妙，次取庚金佐之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月己土当权恐污金不耀：专用壬水为妙次取庚佐"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-07-申",
@@ -9613,10 +12654,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "七月辛金，值庚秉令，不旺自旺，且申中有自然壬水，四柱不见戊土透，胎元亦无戊制，惟申中一戊，为壬堤岸。合此清贵显达，但为清…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月申中自然壬水：四柱不见戊土透则清贵显达（壬可藏不须透）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-08-酉",
@@ -9669,10 +12730,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "八月辛金，当权，得令，旺之极矣，专用壬水淘之泄之为贵，故云金见水以流通。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月旺极专用壬水淘泄（金见水以流通）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-09-戌",
@@ -9731,10 +12812,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "九月戊土司令，母旺子相之时，喜甲疏（季）土，壬泄旺金，先壬次甲。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月母旺子相：先壬泄旺金次甲疏季土"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-10-亥",
@@ -9793,10 +12894,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十月时值小阳，阳气初潜，寒气未盛，先用壬水，次用丙火暖壬温辛。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月先用壬水次用丙火暖壬温辛"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-11-子",
@@ -9862,10 +12983,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一月子中癸水得令，为寒冬雨露，最忌癸水出干，冻金而困丙火。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月最忌癸水出干冻金而困丙（need 丙 由'困丙'反推：Tianze 工程化推导，UNVERIFIED 级）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-辛-12-丑",
@@ -9924,10 +13065,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十二月气寒水冻，先丙次壬，非丙不能解冻，解冻水不成冰，方可用壬淘洗。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月先丙解冻后方可用壬淘洗"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-01-寅",
@@ -9986,10 +13147,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正月壬水，汪洋之象，渊渊不息，既失其令，亦无泛滥之虞，盖水性秉弱故也，先用庚金发水之源，次取丙火以除寒气，又次取戊土以止…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月先用庚发水源，次丙除寒又次戊止流"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "OCR_RISK",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-02-卯",
@@ -10048,10 +13229,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "二月寒气悉除，清流湛深，不可用火，专取戊土为堤岸，辛发其源。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "二月不可用火：专取戊土为堤岸辛金发其源"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-03-辰",
@@ -10110,10 +13311,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月戊土司权，恐有塞河壅海之患，先用甲疏（季）土，次取庚发水源。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月恐塞河壅海：先用甲疏季土次取庚发水源"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-04-巳",
@@ -10172,10 +13393,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月巳宫，丙火司权，壬为火土所燥，专取壬水，为比助身强，次取辛金发水源，忌与丙火合化，又以庚金为佐。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月壬为火土所燥：专取壬水比助身强，次辛发源（忌与丙合）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-05-午",
@@ -10234,10 +13475,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "五月丁旺壬弱，取庚为君，癸为臣，无庚不能蓄源，无癸不能伤丁。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月庚君癸臣：无庚不能蓄源无癸不能伤丁"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-06-未",
@@ -10296,10 +13557,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "六月己土当权，壬水怯弱，先用辛金蓄源，次用甲木制己。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月己土当权：先用辛金蓄源次用甲木制己（大暑分界）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-07-申",
@@ -10358,10 +13639,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "七月壬水，倚母当令，变弱为强，专用戊土，次取丁制庚佐之；但宜用辰戌之土，不可用申中受病之土。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月倚母当令变弱为强：专用戊土次丁制庚佐之（宜辰戌土）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-08-酉",
@@ -10414,10 +13715,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "八月辛金司权，金白水清之时，忌戊己为病，专取甲木。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月金白水清：忌戊己为病专取甲木"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-09-戌",
@@ -10477,10 +13798,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "九月亥水进气，其势将旺，见一派壬水，得一甲以破戊（戌），又见一戊出干，斯用丙火，合此富贵清雅之品，正谓一将当关，群邪自伏…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月见一派壬水得一甲破戊；又见一戊出干斯用丙火"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-10-亥",
@@ -10539,10 +13880,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十月亥水当令，用戊为尊。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月亥水当令用戊为尊丙佐（壬辰日辰时特格）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-11-子",
@@ -10601,10 +13962,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一月壬水，阳刃帮身，较前更旺，先取戊土，次用丙火。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月阳刃帮身较前更旺：先取戊土次用丙火（不取庚）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-壬-12-丑",
@@ -10663,10 +14044,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十二月壬水旺极复衰，何也？上半月癸辛主事，壬水稍旺，专用丙火解冻，下半月己土主事，故丙火为先，徐用甲木为佐，术士不察，例…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月旺极复衰：专丙解冻（下半月己土主事丙为先甲徐用）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-01-寅",
@@ -10725,10 +14126,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "正月癸水，值三阳之候，为雨露之精。雨露之性至弱，专取辛金发源，次取丙火照暖，名阴阳和合，万物发生。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "正月雨露之精：专取辛金发源次取丙火照暖（阴阳和合）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-02-卯",
@@ -10787,10 +14208,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "二月癸水，不刚不柔，但因乙木司令，泄弱无神，专用庚金为妙，辛金佐之。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "二月乙木司令泄弱无神：专用庚金为妙辛金佐之（恐乙庚相合）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-03-辰",
@@ -10857,10 +14298,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "三月癸水，要分清明谷雨。清明后火气未炽，专用丙火，名阴阳承蔼；谷雨后虽用丙火，还宜辛金佐之，富贵。次看何神高透无伤，便可…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "三月分清明谷雨：清明后专用丙；谷雨后虽用丙还宜辛佐（节气条件）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-04-巳",
@@ -10919,10 +14380,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "四月癸水，喜见辛母，无辛，庚亦可用，但不自然。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "四月喜见辛母；无辛庚亦可用但不自然；忌丁破格"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-05-午",
@@ -10975,10 +14456,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "五月癸水，至弱无根，本喜庚辛为生身之本，乃丁火司权，庚辛虽能滋癸，而不能与丁为敌，反怯丁也，须用比肩劫财，方得庚辛妙用。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "五月丁火司权庚辛不能与丁为敌：须用比肩（癸）互相救护"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-06-未",
@@ -11045,10 +14546,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "六月癸水，作两节推，上半月庚辛无气，下半月庚辛有气。凡六癸日，人多推此月不验，何也？不知未中有乙，与己同宫，欲破不破，癸…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "六月作两节推：上半月庚辛无气须比劫助金，下半月庚辛有气专用庚辛"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-07-申",
@@ -11107,10 +14628,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "七月癸水，正母旺子相之时，癸虽死申，然申中有庚，名绝处逢生，弱中变强，即如以癸（为）用（神），运行申酉地，不死，盖庚旺故…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "七月绝处逢生（申中有庚）：取丁制金甲木佐之"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-08-酉",
@@ -11169,10 +14710,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "八月酉辛虚灵，非顽金可比，正金白水清之时，取辛为用，丙火佐之，名水暖金温。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "八月金白水清：取辛为用丙火佐之名水暖金温"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-09-戌",
@@ -11231,10 +14792,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "九月戊土司权，癸水失令无根，专用辛金（发水源），次用癸甲（癸水滋甲制戊），有辛，水乃得母，有癸，木乃有根。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "九月专用辛发源次用癸甲（癸滋甲制戊）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-10-亥",
@@ -11293,10 +14874,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十月癸水，最忌支成木局，泄散元神，故旺中有弱，专用庚辛生发。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十月最忌支成木局泄散元神：专用庚辛生发"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-11-子",
@@ -11355,10 +14956,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十一月癸水，严寒冰冻，癸禄庚死，金水无交欢之象，专用丙火解冻，不致变雨为雪，结露为霜，方用辛金滋扶，然无丙火，辛亦不妙，…"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十一月严寒冰冻专用丙解冻，方用辛金滋扶（丙辛齐透科甲）"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   },
   {
    "id": "TH-QBT-癸-12-丑",
@@ -11411,10 +15032,30 @@
      "project": null,
      "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
      "note": "十二月癸水，落地成冰，万物不能舒泰，专用丙火解冻。"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+     "note": "十二月落地成冰万物不舒：专用丙火解冻"
     }
    ],
    "quality": "B",
-   "status": "active"
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
   }
  ]
 }

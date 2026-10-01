@@ -282,6 +282,7 @@ class RuleLevel(str, Enum):
     CLASSICAL_EXPLICIT = "CLASSICAL_EXPLICIT"      # 已核实古籍原文
     PROJECT_REFERENCE = "PROJECT_REFERENCE"        # 参考某开源项目的实现
     ENGINEERING_HEURISTIC = "ENGINEERING_HEURISTIC"  # 工程化量化方案（作者口径）
+    TIANZE_NORMALIZATION = "TIANZE_NORMALIZATION"    # Tianze 机器化/AI 整理层（非原文、非人工核验）
     UNVERIFIED = "UNVERIFIED"
 
 

@@ -14,7 +14,7 @@ from __future__ import annotations
 from enum import Enum
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, model_validator
 
 from tianze.domain.models import (  # noqa: F401
     CamelizeModel,
@@ -52,6 +52,82 @@ class QualityGrade(str, Enum):
     B = "B"
     C = "C"
     D = "D"
+
+
+class VerificationStatus(str, Enum):
+    """验证状态（M6.1）：机器不得产生 HUMAN_*；只有真人逐条核验后才可升级。"""
+
+    UNREVIEWED = "UNREVIEWED"
+    MACHINE_EXTRACTED = "MACHINE_EXTRACTED"      # 程序解析，未整理
+    MACHINE_CURATED = "MACHINE_CURATED"          # 程序/AI 整理（含本仓库此前的 curation）
+    SOURCE_ALIGNED = "SOURCE_ALIGNED"            # 已与来源文本逐字对齐（尚未判定解释正确性）
+    HUMAN_VERIFIED = "HUMAN_VERIFIED"            # 真人逐条核验（verifiedBy 必须为人名）
+    HUMAN_VERIFIED_PRIMARY_SOURCE = "HUMAN_VERIFIED_PRIMARY_SOURCE"  # 真人对照一手扫描件核验
+
+
+class VerificationMethod(str, Enum):
+    REGEX_EXTRACTION = "regex_extraction"
+    HEURISTIC_DRAFT = "heuristic_draft"
+    AI_CURATION = "ai_curation"                  # 本仓库 M6 的 curation 实为此类（诚实降级）
+    SOURCE_ALIGNMENT = "source_alignment"
+    ENGINE_TEST = "engine_test"
+    HUMAN_REVIEW = "human_review"
+
+
+class VerificationRecord(CamelizeModel):
+    """统一验证记录：Quote/RuleCandidate/ExecutableRule/Commentary/CaseReference 通用。"""
+
+    status: VerificationStatus = VerificationStatus.UNREVIEWED
+    verified_by: str | None = None       # 机器流程固定 "tianze-pipeline:{tool}"；人工才可为人名
+    verified_at: str | None = None
+    method: VerificationMethod | None = None
+    source_checked: bool = False
+    notes: str | None = None
+
+    def model_validate(cls, value):  # noqa: N805（classmethod 语义）
+        return super().model_validate(value)
+
+    @model_validator(mode="after")
+    def _no_fake_human(self) -> "VerificationRecord":
+        if self.status.name.startswith("HUMAN") and self.verified_by and self.verified_by.startswith("tianze-pipeline:"):
+            raise ValueError("机器不得伪造人工核验：HUMAN_* 状态要求真人署名")
+        return self
+
+
+class AccuracyMatrix(CamelizeModel):
+    """四个独立概念分别建模，禁止混淆（M6.1）。"""
+
+    traceability: Literal["PASS", "FAIL", "UNVERIFIED"] = "UNVERIFIED"      # 能否找到出处
+    text_accuracy: Literal["VERIFIED", "OCR_RISK", "UNVERIFIED"] = "UNVERIFIED"  # OCR 与 PDF 是否一致
+    interpretation_accuracy: VerificationStatus = VerificationStatus.UNREVIEWED  # 结构化是否准确表达原文
+    engine_accuracy: Literal["TESTED", "UNTESTED"] = "UNTESTED"              # 引擎语义是否被测试覆盖
+
+
+class ConflictKind(str, Enum):
+    """冲突分类（M6.1 扩展）：全部可查询，禁止 last-rule-wins。"""
+
+    TEXT_CONFLICT = "TEXT_CONFLICT"
+    COMMENTARY_CONFLICT = "COMMENTARY_CONFLICT"
+    RULE_CONFLICT = "RULE_CONFLICT"
+    CONDITION_OVERLAP = "CONDITION_OVERLAP"
+    SCHOOL_DIFFERENCE = "SCHOOL_DIFFERENCE"
+    OCR_AMBIGUITY = "OCR_AMBIGUITY"
+
+
+class CaseIdentity(CamelizeModel):
+    """命例同一性键：四柱（有序）+ 姓名/称谓 + 来源书籍。不做文本 hash。"""
+
+    pillars: list[str]                 # [年,月,日,时] 干支
+    name: str | None = None
+    book: str | None = None
+
+
+
+# Schema 版本（M6.1）：字段变更必须走 migration，禁止静默改 JSON 导致旧数据失效
+KNOWLEDGE_SCHEMA_VERSION = "1.1.0"     # 1.1.0: +verification/accuracyMatrix；conflicts.json +kind
+CASE_SCHEMA_VERSION = "1.0.0"
+
+
 
 
 class Correction(CamelizeModel):
@@ -137,6 +213,8 @@ class ExecutableRule(CamelizeModel):
     modifiers: list[RuleCondition] = []
     normalization_notes: str | None = None  # 机器化过程增加了解释？为什么这样拆？
     conflict_note: str | None = None        # 与其他规则的条件重叠/两说并存说明（不静默覆盖）
+    verification: VerificationRecord = VerificationRecord(status=VerificationStatus.MACHINE_EXTRACTED)
+    accuracy_matrix: AccuracyMatrix = AccuracyMatrix()
     source: KnowledgeSource
     provenance: list[ProvenanceRef] = []
     quality: QualityGrade = QualityGrade.B

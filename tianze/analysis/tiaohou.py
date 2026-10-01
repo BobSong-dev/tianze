@@ -118,9 +118,15 @@ def analyze_tiaohou(
                     "present": bool(positions),
                     "positions": positions,
                     "ruleIds": [rule.id],
-                    "provenance": list(rule.provenance),
+                    # 推荐级 provenance 不携带 TIANZE_NORMALIZATION 的整理注释
+                    # （那是规则层的机器化痕迹，避免 AI 摘要语混入结论字段）
+                    "provenance": [
+                        p_ref.model_copy(update={"note": None})
+                        if p_ref.level == "TIANZE_NORMALIZATION" else p_ref
+                        for p_ref in rule.provenance
+                    ],
                     "quality": rule.quality,
-                    "quote": (rule.provenance[-1].note if rule.provenance else None),
+                    "quote": next((p.note for p in rule.provenance if p.level == "CLASSICAL_EXPLICIT"), None),
                     "source": rule.source,
                 }
             else:

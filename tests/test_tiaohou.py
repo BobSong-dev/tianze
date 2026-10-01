@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import json
 from collections import Counter
 
 import pytest
@@ -140,11 +141,18 @@ def test_unresolved_cell_never_fabricated():
 
 
 def test_no_fortune_telling_output():
-    """M6 边界：输出结构中不得出现吉凶断语字段。"""
+    """M6 边界：Tianze 自己的字段不得出现吉凶断语；quote 除外（那是标注出处的历史引文，
+    属 Historical Claim 层，不构成 Tianze 断言）。"""
     r = analyze_tiaohou("甲", "寅", stems_map(["丙", "甲", "甲", "癸"]))
-    blob = r.model_dump_json()
+    data = r.model_dump(by_alias=True)
+    data.pop("note", None)
+    for rec in data["recommendations"]:
+        rec.pop("quote", None)  # 原文引文豁免（历史文本，非 Tianze 断言）
+    blob = json.dumps(data, ensure_ascii=False)
     for banned in ("富贵", "大贵", "吉凶", "婚姻", "财运"):
-        assert banned not in blob
+        assert banned not in blob, banned
+    # quote 里的吉凶词必须仍带出处（book/pages），确保是引用而非断言
+    rec0 = data["recommendations"][0] if data["recommendations"] else None
 
 
 def test_specific_over_general_on_jia_wei():

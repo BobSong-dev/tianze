@@ -163,6 +163,20 @@
   （specific-over-general / 从正文）+ 结果 conflicts[] 可见。
 - 规则 ID：`TH-{候选ID}-{月支}`，格限定；released 后冻结。
 
+## R28 · 验证状态与命例纪律（M6.1/M7） — `LOCKED`
+
+- 机器流程不得产生 HUMAN_* 验证状态（Schema 校验器 + Status Test 双保险）；
+  M6 curation 已诚实降级 MACHINE_CURATED/ai_curation。
+- 四维准确度分别建模：traceability / textAccuracy / interpretationAccuracy /
+  engineAccuracy，禁止互相冒充。
+- Rule↔Case 三态：EXPLICITLY_CITED / INFERRED_MATCH / ENGINE_TRIGGERED；
+  引擎触发不冒充"古人明确用了这条规则"。
+- 命例三层：Case Fact / AUTHOR_INTERPRETATION / HISTORICAL_CLAIM；
+  sourceAnalysis 与 tianzeAnalysis 永久分离；命例不是训练标签。
+- 冲突六类（TEXT/COMMENTARY/RULE/CONDITION_OVERLAP/SCHOOL_DIFFERENCE/OCR_AMBIGUITY），
+  禁止 last-rule-wins。
+- Schema 版本：KNOWLEDGE=1.1.0 / CASE=1.0.0；字段变更必须显式 migration。
+
 ## 维护记录
 
 | 日期 | 变更 | 原因 |
@@ -172,3 +186,4 @@
 | 2026-10-01 | 新增 R19（旺衰框架 + 得势阈值声明） | M4 |
 | 2026-10-01 | 新增 R20-R25（weighted/fuyi/agreement/取格/禄刃/评估状态） | M4.2-M5 |
 | 2026-10-01 | 新增 R26-R27（知识库来源质量/调候口径） | K0/K1/M6 |
+| 2026-10-01 | 新增 R28（验证状态/命例纪律/schema 版本） | M6.1/M7 |

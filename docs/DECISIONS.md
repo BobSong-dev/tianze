@@ -98,3 +98,24 @@
 - **Decision**：`tools/build_tiaohou_rules.py` 内嵌人工复核后的 CURATION 表（每格引用候选 ID + targets + conditions/exceptions/notes），脚本负责引用完整性校验与结构化输出；草案保留作审计痕迹。
 - **Reason**：两层规则模型中"人工/程序验证"步骤的落地；curation 即审计对象。
 - **Tradeoff**：新格/修订需人工改 curation 并重建——这正是可追踪性的成本。
+
+## ADR-029 · M6 curation 诚实降级为 MACHINE_CURATED（M6.1）
+
+- **Context**：M6 报告称"人工复核 curation"，但实际由 AI（agent）完成——不满足 HUMAN_VERIFIED 定义。
+- **Decision**：全部 182 条调候规则 verification 重标 `MACHINE_CURATED + ai_curation`，
+  verifiedBy=tianze-pipeline:build_tiaohou_rules.py；新增 VerificationStatus 六级与
+  AccuracyMatrix 四维；Schema 校验器拒绝 pipeline 署名的 HUMAN_*；人工升级走
+  review/knowledge-review.csv 队列（182 行，冲突/OCR 优先）。
+- **Reason**：第一原则"机器整理 ≠ 人工核验"；边界模糊即失信。
+- **Tradeoff**：HUMAN_VERIFIED=0 的诚实边界——等待真人核验（Golden Set 43 条为首核集）。
+
+## ADR-030 · 命例 system：三层分离 + 双分析分离 + 关系三态（M7）
+
+- **Context**：知识库含 748 结构化命例块 + 400 索引行，混有事实/作者判断/历史事件；
+  引擎可对四柱直接派生分析。
+- **Decision**：CaseReference 严格分层（fact / AUTHOR_INTERPRETATION / HISTORICAL_CLAIM）；
+  sourceAnalysis 与 tianzeAnalysis 独立字段；Rule↔Case 关系三态（EXPLICITLY_CITED /
+  INFERRED_MATCH / ENGINE_TRIGGERED）；CaseIdentity 候选重复只登记不合并；对比只记录
+  不裁决；命例不是训练标签。
+- **Reason**：让每条数据都能回答"这是谁说的、机器还是人、验证到什么程度"。
+- **Tradeoff**：语义级命例对比（721 例）留待人工——自动判对错必然越界。

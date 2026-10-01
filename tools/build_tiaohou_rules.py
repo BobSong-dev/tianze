@@ -357,23 +357,46 @@ def main() -> None:
                          "project": None,
                          "concept": "古籍原文引文（穷通宝鉴原书口诀，经评注本页码定位）",
                          "note": (quote[:60] + "…") if len(quote) > 60 else quote},
+                        {"level": "TIANZE_NORMALIZATION",
+                         "project": "Tianze",
+                         "concept": "目标干提取/优先级/条件结构化为 AI 整理层（M6 curation，非人工核验）",
+                         "note": entry.get("n")},
                     ],
                     "quality": cand["quality"],
                     "status": "active",
+                    "verification": {
+                        "status": "MACHINE_CURATED",
+                        "verifiedBy": "tianze-pipeline:build_tiaohou_rules.py",
+                        "verifiedAt": None,
+                        "method": "ai_curation",
+                        "sourceChecked": True,
+                        "notes": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件",
+                    },
+                    "accuracyMatrix": {
+                        "traceability": "PASS",
+                        "textAccuracy": "OCR_RISK" if cand.get("ocrRisk") else "UNVERIFIED",
+                        "interpretationAccuracy": "MACHINE_CURATED",
+                        "engineAccuracy": "TESTED",
+                    },
                 })
                 if entry.get("conf"):
                     conflicts.append({
-                        "ruleIds": [f"TH-{c}" for c in entry["r"]],
+                        "ruleIds": list(entry["r"]),
                         "conditionOverlap": {"dayMaster": dm, "monthBranch": month},
                         "description": entry["conf"],
                         "resolution": "specific-over-general",
                     })
 
     OUT.mkdir(parents=True, exist_ok=True)
-    payload = {"domain": "tiaohou", "count": len(rules), "rules": rules}
+    payload = {"domain": "tiaohou", "schemaVersion": "1.1.0", "count": len(rules), "rules": rules}
     (OUT / "rules.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
-    (OUT / "conflicts.json").write_text(json.dumps({"count": len(conflicts), "conflicts": conflicts},
-                                                   ensure_ascii=False, indent=1), encoding="utf-8")
+    conflict_records = [
+        {**c, "kind": "SCHOOL_DIFFERENCE" if "两说" in c["description"] else "CONDITION_OVERLAP"}
+        for c in conflicts
+    ]
+    (OUT / "conflicts.json").write_text(json.dumps({
+        "schemaVersion": "1.1.0", "count": len(conflict_records), "conflicts": conflict_records,
+    }, ensure_ascii=False, indent=1), encoding="utf-8")
     cells = {(r["conditions"][0]["value"], r["conditions"][1]["value"]) for r in rules}
     print(f"executable rules: {len(rules)} | cells covered: {len(cells)}/120 | conflicts: {len(conflicts)}")
 
