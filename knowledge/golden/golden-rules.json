@@ -1,0 +1,77 @@
+{
+ "schemaVersion": "1.1.0",
+ "purpose": "重点人工核验候选集合——不是自动宣布正确；进入 HUMAN_VERIFIED 须真人对照扫描件",
+ "coverage": {
+  "dayMasters": 10,
+  "seasons": 4,
+  "storeMonths": 4
+ },
+ "rules": {
+  "dayMasters": {
+   "甲": "TH-QBT-甲-01-寅",
+   "乙": "TH-QBT-乙-01-寅",
+   "丙": "TH-QBT-丙-01-寅",
+   "丁": "TH-QBT-丁-01-寅",
+   "戊": "TH-QBT-戊-01-寅",
+   "己": "TH-QBT-己-01-寅",
+   "庚": "TH-QBT-庚-01-寅",
+   "辛": "TH-QBT-辛-01-寅",
+   "壬": "TH-QBT-壬-01-寅",
+   "癸": "TH-QBT-癸-01-寅"
+  },
+  "seasons": {
+   "spring": "TH-QBT-甲-01-寅",
+   "summer": "TH-QBT-甲-05-巳",
+   "autumn": "TH-QBT-甲-08-申",
+   "winter": "TH-QBT-甲-11-亥"
+  },
+  "storeMonths": [
+   "TH-QBT-甲-04-辰",
+   "TH-QBT-甲-10@2-辰",
+   "TH-QBT-甲-01@3-辰",
+   "TH-QBT-甲-07-未"
+  ],
+  "ocrRisk": [
+   "TH-QBT-甲-01@3-辰",
+   "TH-QBT-丁-02-寅",
+   "TH-QBT-丁-16-子",
+   "TH-QBT-丁-16-丑",
+   "TH-QBT-戊-07-未",
+   "TH-QBT-己-16-丑",
+   "TH-QBT-庚-04-巳",
+   "TH-QBT-庚-10-亥",
+   "TH-QBT-辛-01-寅",
+   "TH-QBT-辛-05-午",
+   "TH-QBT-辛-12-丑",
+   "TH-QBT-壬-01-寅"
+  ],
+  "conflicts": [
+   "TH-QBT-甲-06-午",
+   "TH-QBT-甲-07-未",
+   "TH-QBT-甲-06-未",
+   "TH-QBT-己-10-申"
+  ],
+  "conditionRules": [
+   "TH-QBT-甲-02-卯",
+   "TH-QBT-甲-04@2-卯",
+   "TH-QBT-甲-07@2-卯",
+   "TH-QBT-乙-08-酉",
+   "TH-QBT-乙-21-酉",
+   "TH-QBT-乙-22-酉",
+   "TH-QBT-丁-07-午",
+   "TH-QBT-己-09-酉",
+   "TH-QBT-己-11-酉",
+   "TH-QBT-辛-07-申",
+   "TH-QBT-癸-03-辰",
+   "TH-QBT-癸-06-未"
+  ],
+  "avoidOrException": [
+   "TH-QBT-乙-11-子",
+   "TH-QBT-乙-28-子",
+   "TH-QBT-乙-29-子",
+   "TH-QBT-丁-15-子",
+   "TH-QBT-丁-16-子",
+   "TH-QBT-辛-11-子"
+  ]
+ }
+}

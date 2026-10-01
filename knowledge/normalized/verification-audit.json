@@ -1,0 +1,23 @@
+{
+ "schemaVersion": "1.1.0",
+ "generatedBy": "tools/audit_verification.py",
+ "stats": {
+  "total": 182,
+  "verification.MACHINE_CURATED": 182,
+  "traceability.PASS": 182,
+  "textAccuracy.UNVERIFIED": 170,
+  "engineAccuracy.TESTED": 182,
+  "withNormalizationNotes": 182,
+  "withOriginalQuote": 182,
+  "textAccuracy.OCR_RISK": 12,
+  "conflictRules": 4,
+  "withConflictNote": 3
+ },
+ "provenanceLevels": {
+  "PROJECT_REFERENCE": 182,
+  "CLASSICAL_EXPLICIT": 182,
+  "TIANZE_NORMALIZATION": 182
+ },
+ "conflictsTotal": 3,
+ "goldenSetSize": 46
+}
