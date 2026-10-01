@@ -276,6 +276,31 @@ class ElementCounts(CamelizeModel):
     missing: list[str]                      # 两视图皆 0 的五行
 
 
+class RuleLevel(str, Enum):
+    """规则来源分级（任务书口径）：未核实古籍原文前不得标 CLASSICAL_EXPLICIT。"""
+
+    CLASSICAL_EXPLICIT = "CLASSICAL_EXPLICIT"      # 已核实古籍原文
+    PROJECT_REFERENCE = "PROJECT_REFERENCE"        # 参考某开源项目的实现
+    ENGINEERING_HEURISTIC = "ENGINEERING_HEURISTIC"  # 工程化量化方案（作者口径）
+    UNVERIFIED = "UNVERIFIED"
+
+
+class Provenance(CamelizeModel):
+    level: RuleLevel
+    concept: str
+    project: str | None = None
+    note: str | None = None
+
+
+class Contribution(CamelizeModel):
+    """weighted 分析器的单项计分贡献（每个入算事实一条，可复现任意总分）。"""
+
+    factor: str                        # 计分单位标识，如 "stem:year" / "hidden:month:本气"
+    effect: Literal["support", "drain"]
+    value: float
+    reason: str
+
+
 class DimensionResult(CamelizeModel):
     """单维度定性结论（M4.1）：只有 result 与 reason，无分数（R17/ADR-017）。"""
 
@@ -294,8 +319,15 @@ class StrengthMethodResult(CamelizeModel):
 
     analyzer_id: str
     name: str
-    verdict: str | None = None              # 计分制方法才有；dimensional 为 None
+    verdict: str | None = None              # 五级（极强/偏强/中和/偏弱/极弱）或 UNCERTAIN；dimension 为 None
+    score: float | None = None              # weighted 的 ratio；其他方法 None
+    params: dict[str, Any] | None = None    # 本次计算使用的全部权重/阈值（公开公式）
+    contributions: list[Contribution] | None = None  # weighted：逐单位贡献明细
+    provenance: list[Provenance] | None = None       # 规则/参数来源分级
+    confidence: str | None = None           # fuyi：high/medium/low
     strength_evidence: DimensionalEvidence | None = None
+    support_evidence: list[str] | None = None        # fuyi：帮扶信号
+    drain_evidence: list[str] | None = None          # fuyi：克泄耗信号
     evidence: list[str] = []
     note: str | None = None
 

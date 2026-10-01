@@ -172,6 +172,7 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
         month_command=month_command,
         day_master_roots=tuple(r for r in roots if r.is_day_master),
         other_stems=tuple((s, p) for s, p in zip(stems, positions) if s and p != "day"),
+        pillar_units=tuple((p, s, b) for p, s, b in zip(positions, stems, branches)),
     )
     strength = default_run(facts)
 
