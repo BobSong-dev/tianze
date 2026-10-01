@@ -172,6 +172,102 @@ class Interaction(CamelizeModel):
     convention_id: str = "R9"
 
 
+class Season(str, Enum):
+    SPRING = "spring"
+    SUMMER = "summer"
+    AUTUMN = "autumn"
+    WINTER = "winter"
+
+
+class SeasonState(str, Enum):
+    """旺相休囚死（R6/R17）。"""
+
+    WANG = "旺"
+    XIANG = "相"
+    XIU = "休"
+    QIN = "囚"
+    SI = "死"
+
+
+class RootDepth(str, Enum):
+    """通根深度的定性分级（R15）：本气→strong / 中气→medium / 余气→weak。非分数。"""
+
+    STRONG = "strong"
+    MEDIUM = "medium"
+    WEAK = "weak"
+
+
+class RootEvidence(CamelizeModel):
+    """M3.1 通根事实：某天干在某地支藏干中有根（R15：只答"有没有根"，不给分）。"""
+
+    stem: str                          # 被通根的天干（命局四干之一）
+    branch: str                        # 根所在的地支
+    hidden_stem: str                   # 对应的藏干字（与 stem 同字）
+    root_type: HiddenStemRole          # 本气/中气/余气
+    depth: RootDepth                   # 定性深度（R15 映射，非权重）
+    position: Position                 # 根所在支的位置（year/month/day/hour）
+    is_month_root: bool                # 是否月令通根
+    is_day_master: bool                # 被通根者是否日主
+    statement: str                     # 证据语句
+
+
+class StemVisibility(CamelizeModel):
+    """M3.2 透干事实：地支藏干同字透出于天干（R18：只记录，不判吉凶）。"""
+
+    hidden_stem: str
+    visible_stem: str
+    position: Position                 # 透出所在的天干位置
+    source_branch: str                 # 来源地支
+    source_role: HiddenStemRole        # 藏干类型
+    source_position: Position          # 来源地支位置
+    distance: int                      # |支位置序 - 干位置序|（0-3，R18）
+    month_related: bool                # 来源支为月支（月令透干）
+    day_master_related: bool           # 透出天干即日主
+    statement: str
+
+
+class HiddenStemPriorityItem(CamelizeModel):
+    stem: str
+    role: HiddenStemRole
+    transparent: bool                  # 该藏干是否透出（M3.2）
+
+
+class DayMasterRelation(CamelizeModel):
+    """月令对日主的旺相休囚死关系（R6/R17：土旺四季特判）。"""
+
+    state: SeasonState
+    in_command: bool                   # 得令（R17：严格 = 旺）
+    rule: str
+
+
+class MonthCommand(CamelizeModel):
+    """M3.3 月令：季节/五行/藏干优先级/对日主关系，全部带证据（R6/R17）。"""
+
+    month_branch: str
+    season: Season
+    element: Element
+    yin_yang: YinYang
+    hidden_stem_priority: list[HiddenStemPriorityItem]   # 本气→中气→余气
+    day_master: str
+    relation_to_day_master: DayMasterRelation
+    evidence: list[str]
+
+
+class ElementCountView(CamelizeModel):
+    visible: int
+    hidden: int
+
+
+class ElementCounts(CamelizeModel):
+    """M3.4 五行基础统计（R16：两个独立视图，不加权，不给分）。"""
+
+    elements: dict[str, ElementCountView]   # key 为小写五行名（wood/fire/earth/metal/water）
+    stems: dict[str, int]                   # 天干五行计数
+    branches: dict[str, int]                # 地支主气五行计数
+    hidden_stems: dict[str, int]            # 全部藏干五行计数
+    missing: list[str]                      # 两视图皆 0 的五行
+
+
 class ChartMeta(CamelizeModel):
     engine_version: str
     engine_stage: str
@@ -189,6 +285,10 @@ class BaziChart(CamelizeModel):
     special_points: SpecialPoints | None = None
     luck: LuckInfo | None = None
     relations: list[Interaction] = []
+    roots: list[RootEvidence] = []               # M3.1
+    visibility: list[StemVisibility] = []        # M3.2
+    month_command: MonthCommand | None = None    # M3.3
+    element_counts: ElementCounts | None = None  # M3.4
     conventions: dict[str, str] = {}
     meta: ChartMeta
 

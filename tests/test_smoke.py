@@ -10,8 +10,8 @@ from tianze.pipeline import build_chart
 
 
 def test_version():
-    assert tianze.__version__ == "0.1.0"
-    assert tianze.ENGINE_STAGE in {"M0", "M1", "M2", "M3"}
+    assert tianze.__version__ == "0.2.0"
+    assert tianze.ENGINE_STAGE in {"M2", "M3", "M4", "M5"}
 
 
 def test_build_chart_smoke():

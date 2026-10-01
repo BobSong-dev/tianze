@@ -9,6 +9,7 @@ from __future__ import annotations
 from importlib.metadata import version as _pkg_version
 
 import tianze
+from tianze.analysis import count_elements, collect_roots, compute_month_command, analyze_visibility
 from tianze.calendar import lunar_adapter as LA
 from tianze.calendar.time_resolution import resolve_time
 from tianze.domain import models as M
@@ -33,6 +34,10 @@ _CONVENTIONS = {
     "timezoneDst": "R12",
     "transformCandidateOnly": "R13",
     "stemOpposition": "R14",
+    "rootDepth": "R15",
+    "elementStats": "R16",
+    "monthCommandStates": "R17",
+    "stemVisibility": "R18",
 }
 
 
@@ -152,6 +157,12 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
     positions: list[M.Position] = ["year", "month", "day", "hour"]
     relations = analyze_relations(stems, branches, positions)
 
+    # 结构事实（M3）：月令 / 通根 / 透干 / 五行统计（不加权，R15-R18）
+    month_command = compute_month_command(month_gz[1], day_master, stems)
+    roots = collect_roots(stems, branches, positions, day_master)
+    visibility = analyze_visibility(stems, branches, positions, day_master)
+    element_counts = count_elements(stems, branches)
+
     warnings = list(time_warnings)
     warnings.extend(
         LA.boundary_warnings(tr.beijing_dt, tr.pillar_dt, birth.time_known, birth.sect)
@@ -176,6 +187,10 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
         special_points=special,
         luck=luck,
         relations=relations,
+        roots=roots,
+        visibility=visibility,
+        month_command=month_command,
+        element_counts=element_counts,
         conventions=_CONVENTIONS,
         meta=M.ChartMeta(
             engine_version=tianze.__version__,
