@@ -77,3 +77,24 @@
 - **Reason**：诚实原则——伪检测比不检测更糟；候选结构为 M6+ 从格接入留好接口。
 - **Tradeoff**：比劫月令（月劫）当前无候选输出，只有 note 解释。
 
+
+## ADR-026 · 知识库 raw 不入库，以 MANIFEST 锚定（K1）
+
+- **Context**：用户提供的知识库 zip 含现代今译（孙正治注译/赵嘉宁今译）与整理层，版权状态不适合再分发；但规范化流程需要可复现。
+- **Decision**：`knowledge/raw/` 只读、gitignore；入库 `MANIFEST.sha256`（zip 哈希）+ README（重建步骤）；normalized/rules 为可再生的确定性产物入库。
+- **Reason**：可复现性与版权谨慎兼得。
+- **Tradeoff**：克隆仓库后需自行获取 zip 才能重跑 normalize（candidates JSON 已入库，日常开发/测试不受影响）。
+
+## ADR-027 · 调候目标保留 specificStem，两说并存不裁决（M6）
+
+- **Context**：穷通宝鉴逐月规则以具体天干表述（丙丁壬癸庚辛），且存在同格两说（己-申 标题 vs 正文）与合论/专论重叠（甲-未）。
+- **Decision**：效果层保留 specificStem（element 为派生）；多候选并存；重叠登记 conflicts.json（resolution: specific-over-general / 从正文）并在结果 conflicts[] 可见；desired 与 present 分离。
+- **Reason**：过早降维为五行会丢失原文信息；静默覆盖会伪装共识。
+- **Tradeoff**：消费方需理解 priority 序列而非单一"用神"。
+
+## ADR-028 · 调候规则层（ExecutableRule）由人工复核 curation 生成（M6）
+
+- **Context**：启发式草案仅 103/120 命中且有错配（如 丙寅缺格、己未 primary 误判），程序不能自证 target 提取正确。
+- **Decision**：`tools/build_tiaohou_rules.py` 内嵌人工复核后的 CURATION 表（每格引用候选 ID + targets + conditions/exceptions/notes），脚本负责引用完整性校验与结构化输出；草案保留作审计痕迹。
+- **Reason**：两层规则模型中"人工/程序验证"步骤的落地；curation 即审计对象。
+- **Tradeoff**：新格/修订需人工改 curation 并重建——这正是可追踪性的成本。

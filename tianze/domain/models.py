@@ -301,6 +301,38 @@ class Contribution(CamelizeModel):
     reason: str
 
 
+class SourceKind(str, Enum):
+    """知识来源五级（K0）：不同级别禁止混写（详见 docs/knowledge/04）。"""
+
+    CLASSICAL_TEXT = "CLASSICAL_TEXT"            # 古籍原文
+    COMMENTARY = "COMMENTARY"                    # 注家评注（如徐乐吾评注）
+    MODERN_BOOK = "MODERN_BOOK"                  # 现代著作/整理本/今译
+    OPEN_SOURCE_PROJECT = "OPEN_SOURCE_PROJECT"  # 开源项目经验
+    TIANZE_HEURISTIC = "TIANZE_HEURISTIC"        # Tianze 工程化推导
+
+
+class KnowledgeSource(CamelizeModel):
+    """出处（K0 Source 模型）：谁说的？什么书？哪个版本？哪一章？哪几页？"""
+
+    source_kind: SourceKind
+    book: str
+    chapter: str | None = None
+    pages: list[int] = []              # 源 PDF 页码（知识库约定 PDF第N页）
+    edition: str | None = None
+    source_file: str | None = None     # knowledge/raw 内来源 md 文件（相对路径）
+    confidence: Literal["verified", "unverified"] = "unverified"
+    commentator: str | None = None
+
+
+class ProvenanceRef(CamelizeModel):
+    """引擎侧 provenance 引用（K0）：level 取 RuleLevel 字符串值。"""
+
+    level: str
+    project: str | None = None
+    concept: str
+    note: str | None = None
+
+
 class DimensionResult(CamelizeModel):
     """单维度定性结论（M4.1）：只有 result 与 reason，无分数（R17/ADR-017）。"""
 
@@ -381,6 +413,34 @@ class PatternAnalysis(CamelizeModel):
     note: str | None = None            # 月劫无正格、特殊格未支持等说明
 
 
+class TiaoHouRecommendation(CamelizeModel):
+    """调候建议：desired（体系认为需要）与 present（命局已有）严格分离（M6）。"""
+
+    target_stem: str                      # specificStem 优先，不降维成五行
+    element: str                          # 派生字段
+    priority: Literal["primary", "secondary", "tertiary"]
+    present: bool                         # 命局可见天干中是否已有
+    positions: list[Position] = []        # 出现位置（day=日主本身）
+    rule_ids: list[str] = []              # 反查 ExecutableRule → candidate → 原文
+    provenance: list[ProvenanceRef] = []
+    quality: str | None = None
+    quote: str | None = None              # 原文引文（截断展示，全量走 candidateId）
+    source: KnowledgeSource | None = None
+
+
+class TiaoHouResult(CamelizeModel):
+    day_master: str
+    month_branch: str
+    resolved: bool                        # False = 资料不足（UNRESOLVED），不强编规则
+    recommendations: list[TiaoHouRecommendation] = []
+    evidence: list[str] = []
+    conflicts: list[str] = []             # 条件重叠/两说并存说明
+    conditions: list[dict[str, Any]] = []  # 影响本格取用的命局条件（知识层 RuleCondition 的 dict 形态）
+    exceptions: list[dict[str, Any]] = []  # 例外（如 从杀/忌癸）
+    rule_ids: list[str] = []
+    note: str | None = None
+
+
 class ChartMeta(CamelizeModel):
     engine_version: str
     engine_stage: str
@@ -404,6 +464,7 @@ class BaziChart(CamelizeModel):
     element_counts: ElementCounts | None = None  # M3.4
     strength: StrengthReport | None = None       # M4
     pattern: PatternAnalysis | None = None       # M5
+    tiaohou: TiaoHouResult | None = None         # M6
     conventions: dict[str, str] = {}
     meta: ChartMeta
 

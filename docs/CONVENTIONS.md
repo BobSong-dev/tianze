@@ -143,6 +143,26 @@
   候选缺失或禄刃格（v1 未配置规则）→ 待定。
 - status 不取代证据；救应以 `related=[damage rule_id]` 关联，damage+rescue 允许并存。
 
+## R26 · 知识库来源与质量（K0/K1） — `LOCKED`
+
+- 来源五级（SourceKind）不可混写：CLASSICAL_TEXT / COMMENTARY / MODERN_BOOK /
+  OPEN_SOURCE_PROJECT / TIANZE_HEURISTIC。徐乐吾原著（命理一得等）归 COMMENTARY；
+  孙正治注译、赵嘉宁今译归 MODERN_BOOK（不入 provenance 主链）。
+- 两层规则：RuleCandidate（文献候选）→ 人工复核 → ExecutableRule（可执行）；
+  禁止"一句古籍立即变 if"。转换必须携带 normalizationNotes。
+- OCR 错字照录（rawText 不可变），修订走 correctedText+correction。
+- 数据质量等级 A-D 进入运行时 provenance；当前最高 B（OCR 未全核，A 为零是诚实边界）。
+- raw/ 只读不入库（MANIFEST.sha256 锚定）；normalized/rules 可再生。
+
+## R27 · 调候规则口径（M6） — `LOCKED`
+
+- 调候为独立分析维度，非旺衰换名；只输出 desired/present/条件/例外/出处。
+- specificStem 优先（丙丁壬癸不降维成五行）；element 为派生字段。
+- 10×12 覆盖：每格有规则或显式 UNRESOLVED；禁止编造。
+- 条件重叠不静默覆盖：conflicts.json 登记 + resolution 策略
+  （specific-over-general / 从正文）+ 结果 conflicts[] 可见。
+- 规则 ID：`TH-{候选ID}-{月支}`，格限定；released 后冻结。
+
 ## 维护记录
 
 | 日期 | 变更 | 原因 |
@@ -151,3 +171,4 @@
 | 2026-10-01 | 新增 R15-R18（通根/五行统计/月令细则/透干） | M3 |
 | 2026-10-01 | 新增 R19（旺衰框架 + 得势阈值声明） | M4 |
 | 2026-10-01 | 新增 R20-R25（weighted/fuyi/agreement/取格/禄刃/评估状态） | M4.2-M5 |
+| 2026-10-01 | 新增 R26-R27（知识库来源质量/调候口径） | K0/K1/M6 |
