@@ -43,8 +43,21 @@ BaziChart.tiaohou（每个建议可反查：规则 → 候选 → 原文 → 书
 | knowledge/rules/ | 可执行规则 + 冲突登记 | ✓ |
 | knowledge/cases/ | 命例（CaseReference，evaluation 用途） | 待 M6+ |
 
+## 验证与命例层（M6.1/M7）
+
+```text
+ExecutableRule ──audit_verification.py──▶ verification/accuracyMatrix（MACHINE_CURATED）
+                                        ▶ golden/golden-rules.json（43 重点核验候选）
+                                        ▶ review/knowledge-review.csv（人工复核队列）
+命例 748块+400索引行 ──normalize_cases.py──▶ normalized/cases/（CaseReference，1147 例）
+                    ──derive_case_analysis.py──▶ tianzeAnalysis + indexes/cases/（Rule↔Case 双向）
+                    ──compare_cases.py──▶ case-comparisons.json（只记录不裁决）
+```
+
+Schema 版本：KNOWLEDGE_SCHEMA_VERSION=1.1.0 / CASE_SCHEMA_VERSION=1.0.0
+（字段变更必须显式 migration）。详见 07/08/10/11。
+
 ## 文档索引
 
-02-KNOWLEDGE-AUDIT.md（审计）· 03-RULE-SCHEMA.md（Schema）·
-04-SOURCE-PROVENANCE.md（来源五级）· 05-DATA-QUALITY.md（质量等级 A-D）·
-06-TIAOHOU.md（调候引擎与 10×12 覆盖）。
+02（审计）· 03（Schema）· 04（来源五级）· 05（质量等级）· 06（调候）·
+**07（验证体系）· 08（命例审计）· 09（规则使用）· 10（命例模型）· 11（核验队列）**。

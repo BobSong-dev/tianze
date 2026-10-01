@@ -2,7 +2,27 @@
 
 > 长任务纪律文件。若任务中断，恢复后必须先读本文件再继续。
 
-- 状态：**Phase 0 ✅；M0-M5 ✅；M4.2 ✅；K0 ✅（b7bde6f）；K1 ✅（c5d5e22）；M6 ✅（472a5c5）。217 测试全绿；知识库校验 120/120、0 重复 ID、0 缺失来源；atlas 实跑差分 5/5。**
+- 状态：**Phase 0 ✅；M0-M5 ✅；M4.2 ✅；K0/K1/M6 ✅；M6.1 ✅（ea29bb3/b9c4268）；M7 ✅（aa5144f/175823d）。232 测试全绿。**
+
+## M6.1/M7 记录（2026-10-01）
+
+### 诚实更正（M6.1 首务）
+M6 报告的"人工复核 curation"实为 AI 完成 → 182 条全部重标 MACHINE_CURATED+ai_curation（ADR-029）；Schema 校验器拒绝 pipeline 署名的 HUMAN_*；HUMAN_VERIFIED=0 是诚实边界。
+
+### M6.1
+- VerificationStatus 六级 + AccuracyMatrix 四维（traceability/text/interpretation/engine 分别建模）+ ConflictKind 六类 + schema version（KNOWLEDGE=1.1.0）。
+- audit_verification.py：验证矩阵 + Golden Set 43 条（十日主/四季/四库/冲突/OCR/条件规则）+ review/knowledge-review.csv 182 行（冲突>OCR>引文>条件>普通，不自动填 humanVerified）。
+- A 级四要件升级规则（一手核对/OCR 核实/解释核实/页码核实）；机器上限 B。
+
+### M7
+- normalize_cases.py：748 块+400 索引行 → **1147 例 0 解析失败**；102 例 UNRESOLVED；60 组候选重复只登记；cases-manifest（输入 hash/pipeline/schema 版本）。
+- derive_case_analysis.py：1045 例引擎派生（与原书分析严格分离）；byRule/byDayMaster/byMonthBranch/byBook 双向索引；EXPLICITLY_CITED 17 候选 95 处 / ENGINE_TRIGGERED 不冒充古法。
+- compare_cases.py：426 机械化对比（420 一致/24 差异），721 例 unresolved 待人工，不裁决。
+- validate_cases.py：ID 唯一/双分析分离/事件分层/无伪造 HUMAN_*。
+- 命例引用正则含中文天干的修正（3 轮调试）；Case ID 跨文件冲突与规则同因（甲木分部一）。
+
+## 下一步
+真人核验队列（Golden 43 条优先）→ B→A 升级；命例语义级对比人工化；M8 API。
 
 ## K0/K1/M6 记录（2026-10-01）
 
