@@ -28,6 +28,9 @@ BASELINE = REGRESSION / "baseline" / "snapshot.json"
 
 import tianze
 from tianze.knowledge.models import CASE_SCHEMA_VERSION, KNOWLEDGE_SCHEMA_VERSION
+from tianze.ganzhi.tables import HIDDEN_STEMS, STEM_ELEMENT, ten_god
+from tianze.analysis.month_command import compute_month_command
+from tianze.analysis.roots import collect_roots
 
 
 def compute_snapshots() -> list[dict]:
@@ -50,6 +53,29 @@ def compute_snapshots() -> list[dict]:
                 snapshots.append({"caseId": case["caseId"], "unresolved": True,
                                   "chartFingerprint": None})
                 continue
+            # M10.0: compute M8 special/bingYao/tongGuan results
+            from tianze.analysis.special import analyze_all_special
+            from tianze.ganzhi.tables import Element as _E
+            dm_stem = pillars["day"][:1]
+            stems_list = [pillars.get(k, "")[:1] or None for k in ("year", "month", "day", "hour")]
+            branches_list = [pillars.get(k, "")[1:2] or None for k in ("year", "month", "day", "hour")]
+            ec = {}
+            for e in _E:
+                v = sum(1 for st in stems_list if st and STEM_ELEMENT.get(st) == e)
+                h = sum(1 for b in branches_list if b and b in HIDDEN_STEMS
+                        for h, _ in HIDDEN_STEMS[b] if STEM_ELEMENT.get(h) == e)
+                ec[e.value.lower()] = {"visible": v, "hidden": h}
+            mc = compute_month_command(branches_list[1], dm_stem, stems_list)
+            roots = collect_roots(stems_list, branches_list, ["year", "month", "day", "hour"], dm_stem)
+            dm_roots = sum(1 for r in roots if r.is_day_master)
+            helpers = [st for st in stems_list if st and st != dm_stem and
+                       ten_god(dm_stem, st).value in ("比肩", "劫财", "正印", "偏印")]
+            verdicts = {"weighted": None, "fuyi": None, "dimension": None}  # 简化：M8 不依赖 verdicts
+            special = analyze_all_special(dm_stem, branches_list[1], stems_list, branches_list,
+                                          verdicts, None, dm_roots, helpers, ec)
+            # Derive bingYao and tongGuan summaries
+            by_summary = len(special.get("bingYao", {}).get("problems", []))
+            tg_count = len(special.get("tongGuan", {}).get("conflictPairs", []))
             fingerprint = hashlib.sha256(
                 "|".join(pillars[k] for k in ("year", "month", "day", "hour")).encode("utf-8")
             ).hexdigest()[:16]
@@ -64,9 +90,13 @@ def compute_snapshots() -> list[dict]:
                 "tiaohouTargets": derived["tiaohouTargets"],
                 "tiaohouPrimaryPresent": derived["tiaohouPrimaryPresent"],
                 "triggeredRuleIds": sorted(derived["engineRuleIds"]),
-                "specialPattern": derived.get("specialPattern"),   # M8 起填充
-                "bingYao": derived.get("bingYao"),                 # M8 起填充
-                "tongGuan": derived.get("tongGuan"),               # M8 起填充
+                "specialPattern": {
+                    "cong": [c["type"] + ":" + c["status"] for c in special["specialPattern"]["cong"]],
+                    "zhuanwang": [z["type"] + ":" + z["status"] for z in special["specialPattern"]["zhuanwang"]],
+                    "transformation": [t["stemPair"][0] + t["stemPair"][1] + ":" + t["status"] for t in special["specialPattern"]["transformation"]],
+                },
+                "bingYao": {"problemCount": by_summary, "medicineCount": len(special.get("bingYao", {}).get("medicines", []))},
+                "tongGuan": {"pairCount": tg_count, "bridgePresent": sum(1 for b in special.get("tongGuan", {}).get("bridges", []) if b["present"])},
                 "warnings": [],
             })
     return snapshots
