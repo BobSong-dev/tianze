@@ -15,3 +15,7 @@ research/upstream/
 knowledge/raw/*
 !knowledge/raw/MANIFEST.sha256
 !knowledge/raw/README.md
+
+# Frontend
+apps/web/node_modules/
+apps/web/dist/
