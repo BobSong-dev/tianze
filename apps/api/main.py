@@ -91,3 +91,48 @@ async def analyze_endpoint(request: Request):
 
     result = analyze(birth, options)
     return result.model_dump()
+
+
+# ---- Interpret (AI) ----
+
+@app.post("/api/v1/interpret")
+async def interpret_endpoint(request: Request):
+    import asyncio
+    from tianze.sdk import TianzeError
+    from tianze.ai import (
+        build_interpretation_context, create_provider_from_env,
+        interpret, MockInterpretationProvider,
+    )
+    from tianze import __version__
+    from tianze.knowledge.models import KNOWLEDGE_SCHEMA_VERSION
+    from tianze.sdk import AnalysisSchemaVersion
+
+    body = await request.json()
+    analysis_data = body.get("analysis") or body
+
+    provider = create_provider_from_env()
+    if provider is None:
+        return JSONResponse(status_code=503, content={
+            "error": {"code": "AI_NOT_CONFIGURED",
+                       "message": "AI 解读尚未配置。请设置 TIANZE_LLM_API_KEY 环境变量。确定性分析仍可正常使用。",
+                       "details": {}}
+        })
+
+    ctx = build_interpretation_context(
+        analysis_data,
+        engine_version=__version__,
+        knowledge_version=KNOWLEDGE_SCHEMA_VERSION,
+        analysis_schema_version=AnalysisSchemaVersion.V1.value,
+    )
+
+    try:
+        result, metadata = await interpret(ctx, provider)
+    except Exception as e:
+        return JSONResponse(status_code=500, content={
+            "error": {"code": "AI_INTERPRETATION_ERROR", "message": str(e), "details": {}}
+        })
+
+    return {
+        "interpretation": result.model_dump(by_alias=True, exclude_none=True),
+        "metadata": metadata.model_dump(by_alias=True, exclude_none=True),
+    }

@@ -201,6 +201,17 @@
 - Case Regression：severity 四级（BREAKING/REVIEW/EXPECTED/INFO）；caseCount 与
   comparisonItemCount 口径分离（ADR-031）。
 
+## R33 · AI Interpretation（M11） — `LOCKED`
+
+- AI 只解释 Tianze 已有结果，不参与确定性计算。
+- InterpretationContext 只注入当前命盘实际触发的 Evidence/Rule/Source。
+- 事实/方法结论/高阶候选三层区分（FactType）。
+- Grounding Validator 六类检查（UNKNOWN_EVIDENCE_ID/…/UNRESOLVED_ASSERTED）。
+- Prompt 10 条铁律（不重算/不发明/保留分歧/UNRESOLVED 不裁决/…）。
+- INTERPRETATION_SCHEMA_VERSION = 1.0.0 / PROMPT_VERSION = 1.0.0。
+- API Key 只在后端环境变量，禁止前端持有。
+- AI 失败不影响 `/api/v1/analyze` 确定性分析。
+
 ## 维护记录
 
 | 日期 | 变更 | 原因 |

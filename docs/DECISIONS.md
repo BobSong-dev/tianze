@@ -147,3 +147,17 @@
 - **Decision**：Snapshot 只保留可判断行为变化的稳定字段（strength 三方法/pattern/tiaohou/triggeredRuleIds/specialPattern/bingYao/tongGuan/chartFingerprint），不含完整推荐 evidence。
 - **Reason**：性能 + 可 diff。
 - **Tradeoff**：新增字段须更新 snapshot 代码。
+
+## ADR-037 · AI 位于确定性分析之后（M11）
+
+- **Context**：AI 可能幻觉（编造格局/伪造古籍/忽略分歧），必须约束在确定性结果之内。
+- **Decision**：AI 永远消费 `AnalyzeResult → InterpretationContext → Prompt → LLM → InterpretationResult → Grounding Validator`。AI 不参与排盘/旺衰/格局/调候/特殊格局的任何计算。
+- **Reason**：确定性引擎是唯一真相源。
+- **Tradeoff**：AI 只能解释引擎已算出的内容，不能"发现"引擎遗漏的东西——这正是设计意图。
+
+## ADR-038 · Grounding Validator 程序化检查（M11）
+
+- **Context**：LLM 输出不可信任，需要程序化校验。
+- **Decision**：六类检查（evidenceId/sourceId 存在性、格局候选一致性、古籍来源存在性、验证状态不越界、UNRESOLVED 不裁决）。检查结果记入 `grounding_issues[]` + `grounding_passed`。
+- **Reason**：规则式检查比 LLM-as-judge 更可靠、更快、可测试。
+- **Tradeoff**：检查有假阴性（如同义改写）——后续可加 LLM-as-judge 第二层。
