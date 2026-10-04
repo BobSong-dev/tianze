@@ -109,6 +109,9 @@ class AnalysisOptions(BaseModel):
     include_relations: bool = True
     include_element_counts: bool = True
     strength_methods: list[Literal["dimension", "weighted", "fuyi"]] = ["dimension", "weighted", "fuyi"]
+    include_temporal: bool = False
+    target_luck_index: int | None = None
+    target_year: int | None = None
 
 
 # ---- 输出模型 ----
@@ -147,6 +150,7 @@ class SimplifiedResult(BaseModel):
     warnings: list[str] = []
     fallbacks: list[str] = []
     missingCapabilities: list[str] = []
+    temporal: dict | None = None
 
 
 # ---- Facade ----
@@ -239,6 +243,50 @@ def analyze(
     fallbacks = list(d.get("meta", {}).get("fallbacks") or [])
     missing = list(d.get("meta", {}).get("fallbacks") or [])  # 缺失能力
 
+    # M12: Temporal analysis (optional)
+    temporal = None
+    if options.include_temporal and chart.luck:
+        from tianze.analysis.temporal import analyze_temporal
+        luck_idx = options.target_luck_index
+        annual_year = options.target_year
+        luck_stem, luck_branch = None, None
+        if luck_idx is not None and chart.luck and chart.luck.da_yun:
+            for dy in chart.luck.da_yun:
+                if dy.index == luck_idx and dy.gan_zhi:
+                    luck_stem, luck_branch = dy.gan_zhi[0], dy.gan_zhi[1]
+                    break
+        # If target_year given but no luck_index, find current luck pillar
+        if annual_year and luck_stem is None and chart.luck.da_yun:
+            for dy in chart.luck.da_yun:
+                if dy.start_year <= annual_year <= dy.end_year and dy.gan_zhi:
+                    luck_stem, luck_branch = dy.gan_zhi[0], dy.gan_zhi[1]
+                    break
+        annual_stem, annual_branch = None, None
+        if annual_year:
+            from tianze.ganzhi.tables import STEMS, BRANCHES
+            ai = (annual_year - 4) % 10
+            ab = (annual_year - 4) % 12
+            annual_stem = STEMS[ai]
+            annual_branch = BRANCHES[ab]
+
+        natal_stems = [chart.pillars.year.stem, chart.pillars.month.stem,
+                       chart.pillars.day.stem]
+        if chart.pillars.hour:
+            natal_stems.append(chart.pillars.hour.stem)
+        natal_branches = [chart.pillars.year.branch, chart.pillars.month.branch,
+                          chart.pillars.day.branch]
+        if chart.pillars.hour:
+            natal_branches.append(chart.pillars.hour.branch)
+
+        temporal_result = analyze_temporal(
+            natal_stems=natal_stems, natal_branches=natal_branches,
+            day_master=chart.day_master.stem,
+            luck_stem=luck_stem, luck_branch=luck_branch,
+            annual_stem=annual_stem, annual_branch=annual_branch,
+            luck_index=luck_idx, annual_year=annual_year,
+        )
+        temporal = temporal_result.model_dump(by_alias=True, exclude_none=True)
+
     result = SimplifiedResult(
         meta={
             "engineVersion": __version__,
@@ -265,5 +313,6 @@ def analyze(
         warnings=warnings,
         fallbacks=fallbacks,
         missingCapabilities=missing,
+    temporal=temporal,
     )
     return result
