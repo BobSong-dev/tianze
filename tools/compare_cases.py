@@ -27,11 +27,14 @@ def main() -> int:
         effects_of[r["id"]] = [e["targetStem"] for e in r["effects"] if e["kind"] == "needStem" and e.get("targetStem")]
 
     comparisons = []
-    stats = {"total": 0, "withSourceClaims": 0, "mechanicalCompared": 0, "agreements": 0, "differences": 0}
+    # 口径（M8.0 修正）：caseCount=案例数；comparisonItem/agreementItem/differenceItem=比较项数。
+    # 一例可同时产生一致项与差异项，故 item 数之和可与案例数不等。
+    stats = {"caseCount": 0, "withSourceClaims": 0, "mechanicallyComparedCaseCount": 0,
+             "comparisonItemCount": 0, "agreementItemCount": 0, "differenceItemCount": 0}
     for path in sorted(CASES.glob("*.json")):
         data = json.loads(path.read_text(encoding="utf-8"))
         for case in data["cases"]:
-            stats["total"] += 1
+            stats["caseCount"] += 1
             src = case.get("sourceAnalysis") or {}
             tz = case.get("tianzeAnalysis") or {}
             claims = []
@@ -59,20 +62,21 @@ def main() -> int:
                     if rid.startswith(f"TH-{cand}-"):
                         cited_targets |= set(effs)
             if cited and engine_targets and cited_targets:
-                stats["mechanicalCompared"] += 1
+                stats["mechanicallyComparedCaseCount"] += 1
                 hit = cited_targets & engine_targets
                 miss = engine_targets - cited_targets
                 if hit:
                     agreements.append(f"双方均指向目标干 {'、'.join(sorted(hit))}")
                 if miss:
                     differences.append(f"引擎目标 {'、'.join(sorted(miss))} 未见于引用规则效果（口径差异，仅记录）")
+                stats["comparisonItemCount"] += len(hit) + len(miss)
 
             if not agreements and not differences:
                 unresolved.append("语义级对比（作者断语 vs 引擎结论）需人工复核，本轮不自动判定")
             if claims:
                 stats["withSourceClaims"] += 1
-            stats["agreements"] += len(agreements)
-            stats["differences"] += len(differences)
+            stats["agreementItemCount"] += len(agreements)
+            stats["differenceItemCount"] += len(differences)
             comparisons.append({
                 "caseId": case["caseId"],
                 "sourceClaims": claims,

@@ -3,11 +3,12 @@
  "generatedBy": "tools/compare_cases.py",
  "note": "只记录差异与一致，不裁决 Tianze 或古籍谁正确",
  "stats": {
-  "total": 1147,
+  "caseCount": 1147,
   "withSourceClaims": 939,
-  "mechanicalCompared": 426,
-  "agreements": 420,
-  "differences": 24
+  "mechanicallyComparedCaseCount": 426,
+  "comparisonItemCount": 837,
+  "agreementItemCount": 420,
+  "differenceItemCount": 24
  },
  "comparisons": [
   {
