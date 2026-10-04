@@ -118,7 +118,7 @@ function toggleEvidence(id: string) {
         <h2>四柱</h2>
         <div class="pillars">
           <div v-for="key in pillarKeys" :key="key" class="pillar-card">
-            <div class="pillar-label">{{ { year: "年柱", month: "月柱", day: "日柱", hour: "时柱" }[key as keyof typeof result.pillars] }}</div>
+            <div class="pillar-label">{{ ({ year: "年柱", month: "月柱", day: "日柱", hour: "时柱" } as Record<string, string>)[key as string] }}</div>
             <div class="pillar-ganzhi">
               <span class="stem">{{ (result.pillars as any)[key]?.stem }}</span>
               <span class="branch">{{ (result.pillars as any)[key]?.branch }}</span>
