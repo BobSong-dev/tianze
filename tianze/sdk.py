@@ -16,6 +16,7 @@ from enum import Enum
 from typing import Any, Literal, Optional
 
 from pydantic import BaseModel, ConfigDict, model_validator
+from pydantic.alias_generators import to_camel
 
 from tianze.domain.models import CamelizeModel
 
@@ -67,7 +68,7 @@ class AnalysisUnavailable(TianzeError):
 class SimplifiedBirthInfo(BaseModel):
     """SDK 输入：简化版 BirthInfo（内部自动转换为完整 BirthInfo）。"""
 
-    model_config = ConfigDict(populate_by_name=True, extra="forbid")
+    model_config = ConfigDict(populate_by_name=True, extra="forbid", alias_generator=to_camel)
 
     date: str                                    # "2003-08-18"
     time: Optional[str] = None                   # "14:30"；None=未知时辰
@@ -99,7 +100,7 @@ class SimplifiedBirthInfo(BaseModel):
 class AnalysisOptions(BaseModel):
     """分析选项：只暴露已实现的功能。"""
 
-    model_config = ConfigDict(populate_by_name=True, extra="forbid")
+    model_config = ConfigDict(populate_by_name=True, extra="forbid", alias_generator=to_camel)
 
     include_strength: bool = True
     include_pattern: bool = True
