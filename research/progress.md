@@ -2,7 +2,28 @@
 
 > 长任务纪律文件。若任务中断，恢复后必须先读本文件再继续。
 
-- 状态：**Phase 0 ✅；M0-M5 ✅；M4.2 ✅；K0/K1/M6 ✅；M6.1 ✅（ea29bb3/b9c4268）；M7 ✅（aa5144f/175823d）。232 测试全绿。**
+- 状态：**Phase 0 ✅；M0-M8.5 ✅；M8.6 ✅（252ebef）；M9 ✅（ff3dcfc）。266 测试全绿。**
+
+## M8.6/M9 记录（2026-10-01）
+
+### M8.6（252ebef）
+- 从格 LIKELY 349 例审计：SOURCE_SUPPORTS 7 / SOURCE_DIFFERENT_PATTERN 8 / SOURCE_SILENT 118 / SOURCE_UNRESOLVED 216
+- 阴阳干从格：知识库 73 条命中（滴天髓/子平粹言），证据不足实现差异 → UNRESOLVED
+- 化气证据：100 条命中（DTZ 滴天髓补注）；专旺证据：47 条命中
+- PopulationStats：totalCases 1147 / parseable 1045 / engineEligible 1045 / unresolved 102
+
+### M9 SDK（ff3dcfc）
+- `tianze.analyze(SimplifiedBirthInfo, AnalysisOptions) → SimplifiedResult`
+- TianzeError 统一错误模型（INVALID_BIRTH_INFO/UNSUPPORTED_CONVENTION/…）
+- Partial Result：未知时辰不 crash；ANALYSIS_SCHEMA_VERSION=1.0.0
+- Deterministic：同输入+同版本 → 同 JSON（测试锁定）
+- test_sdk.py 13 项（determinism/partial/error/options/version/canonical cases）
+- docs/sdk/01-04 四份文档
+
+## 下一步
+- 从格 LIKELY 349 例人工逐条核验（review/cong-likely-cases.csv）
+- 化气/专旺知识库证据逐条核对扫描件 → CLASSICAL_EXPLICIT 升级
+- M10: FastAPI 封装 analyze() / Web UI**Phase 0 ✅；M0-M5 ✅；M4.2 ✅；K0/K1/M6 ✅；M6.1 ✅（ea29bb3/b9c4268）；M7 ✅（aa5144f/175823d）。232 测试全绿。**
 
 ## M6.1/M7 记录（2026-10-01）
 
