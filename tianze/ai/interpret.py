@@ -108,6 +108,13 @@ def create_provider_from_env() -> InterpretationProvider | None:
 
 # ---- Grounding Validator ----
 
+def _sev(t: GroundingIssueType) -> GroundingSeverity:
+    FATAL = {GroundingIssueType.FABRICATED_CLASSICAL_SOURCE,
+             GroundingIssueType.UNRESOLVED_ASSERTED,
+             GroundingIssueType.VERIFICATION_MISREPRESENTATION,
+             GroundingIssueType.UNSUPPORTED_PATTERN}
+    return GroundingSeverity.FATAL if t in FATAL else GroundingSeverity.ERROR
+
 def validate_grounding(
     result: InterpretationResult,
     ctx: InterpretationContext,

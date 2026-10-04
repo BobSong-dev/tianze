@@ -25,8 +25,46 @@ const tabs = [
   { id: "pattern", label: "格局" },
   { id: "tiaohou", label: "调候" },
   { id: "advanced", label: "高级" },
+  { id: "ai", label: "AI 解读" },
 ];
 const expandedEvidence = ref<string | null>(null);
+const aiState = ref<"NOT_CONFIGURED" | "READY" | "LOADING" | "SUCCESS" | "GROUNDING_FAILED" | "PROVIDER_ERROR" | "SCHEMA_ERROR">("READY");
+const aiResult = ref<any>(null);
+const aiError = ref("");
+
+async function generateAI() {
+  if (!result.value) return;
+  aiState.value = "LOADING";
+  aiError.value = "";
+  try {
+    const r = await fetch("/api/v1/interpret", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ analysis: result.value }),
+    });
+    if (r.status === 503) {
+      aiState.value = "NOT_CONFIGURED";
+      return;
+    }
+    const body = await r.json();
+    if (!r.ok) {
+      aiState.value = "PROVIDER_ERROR";
+      aiError.value = body?.error?.message || `HTTP ${r.status}`;
+      return;
+    }
+    const interp = body.interpretation;
+    if (!interp.groundingPassed) {
+      aiState.value = "GROUNDING_FAILED";
+      aiResult.value = interp;
+      return;
+    }
+    aiResult.value = interp;
+    aiState.value = "SUCCESS";
+  } catch (e) {
+    aiState.value = "PROVIDER_ERROR";
+    aiError.value = e instanceof Error ? e.message : String(e);
+  }
+}
 
 async function submit() {
   loading.value = true;
@@ -331,7 +369,58 @@ function toggleEvidence(id: string) {
         </div>
       </section>
 
-      <!-- Warnings / Fallbacks -->
+      <!-- AI Interpretation -->
+    <section v-if="activeTab === 'ai' && result" class="panel">
+      <h2>AI 解读</h2>
+      <div v-if="aiState === 'READY'" class="ai-ready">
+        <p>点击下方按钮生成基于确定性分析结果的 AI 解释。</p>
+        <button class="submit" @click="generateAI">生成 AI 解读</button>
+      </div>
+      <div v-if="aiState === 'LOADING'" class="ai-loading">
+        <p>正在生成基于 Tianze 分析结果的解释…</p>
+      </div>
+      <div v-if="aiState === 'NOT_CONFIGURED'" class="ai-not-configured">
+        <p>当前未配置 AI 解读服务，确定性命理分析仍可正常使用。</p>
+      </div>
+      <div v-if="aiState === 'GROUNDING_FAILED'" class="ai-grounding-failed">
+        <p>本次 AI 输出未通过事实一致性检查，因此未展示。</p>
+        <details v-if="aiResult?.groundingIssues?.length"><summary>Grounding Issues</summary>
+          <div v-for="(gi, i) in aiResult.groundingIssues" :key="i" class="evidence-item conflict">
+            [{{ gi.severity }}] {{ gi.type }}: {{ gi.detail }}
+          </div>
+        </details>
+        <button class="submit" @click="generateAI">重新生成</button>
+      </div>
+      <div v-if="aiState === 'PROVIDER_ERROR'" class="error">
+        <p>{{ aiError }}</p>
+        <button class="submit" @click="generateAI">重试</button>
+      </div>
+      <template v-if="aiState === 'SUCCESS' && aiResult">
+        <p class="ai-summary">{{ aiResult.summary }}</p>
+        <div v-for="sec in aiResult.sections || []" :key="sec.type + sec.title" class="ai-section">
+          <h3>{{ sec.title }}</h3>
+          <p>{{ sec.content }}</p>
+          <details v-if="sec.claims?.length"><summary>引用依据</summary>
+            <div v-for="c in sec.claims" :key="c.refId" class="evidence-item">
+              <span class="badge">{{ c.type }}</span> {{ c.refId }}
+            </div>
+          </details>
+          <details v-if="sec.sourceIds?.length"><summary>来源</summary>
+            <div v-for="sid in sec.sourceIds" :key="sid" class="evidence-item">{{ sid }}</div>
+          </details>
+        </div>
+        <div v-if="aiResult.disagreements?.length">
+          <h3>分析分歧</h3>
+          <div v-for="d in aiResult.disagreements" :key="d" class="evidence-item conflict">{{ d }}</div>
+        </div>
+        <div v-if="aiResult.uncertainties?.length">
+          <h3>不确定项</h3>
+          <div v-for="u in aiResult.uncertainties" :key="u" class="evidence-item fallback">{{ u }}</div>
+        </div>
+      </template>
+    </section>
+
+    <!-- Warnings / Fallbacks -->
       <section v-if="result.warnings.length || result.fallbacks.length" class="panel warnings-panel">
         <h3>注意事项</h3>
         <div v-for="w in result.warnings" :key="w" class="evidence-item warning">⚠ {{ w }}</div>

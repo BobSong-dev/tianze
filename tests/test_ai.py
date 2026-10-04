@@ -26,6 +26,8 @@ from tianze.ai.models import (
 )
 from tianze.ai.prompt_builder import build_prompts
 from tianze.sdk import SimplifiedBirthInfo, analyze
+from tianze.ai.models import INTERPRETATION_SCHEMA_VERSION, PROMPT_VERSION
+from tianze.ai.models import INTERPRETATION_SCHEMA_VERSION, PROMPT_VERSION
 
 
 def _make_result(**kw) -> dict:
@@ -89,7 +91,7 @@ def test_prompt_builder_contains_key_sections():
     assert "UNRESOLVED" in sys_p or "不确定" in sys_p
     assert "FACTS" in user_p
     assert "ANALYSIS" in user_p
-    assert "SOURCES" in user_p
+    assert "untrusted-reference-data" in user_p  # source data isolation
     assert "癸" in user_p  # 日主事实出现
 
 
@@ -170,8 +172,8 @@ def test_mock_provider_interpret_passes_grounding():
 def test_mock_provider_e2e():
     ctx = _make_ctx()
     result, meta = asyncio.run(interpret(ctx, MockInterpretationProvider(), engine_version="test"))
-    assert meta.interpretation_schema_version == "1.0.0"
-    assert meta.prompt_version == "1.0.0"
+    assert meta.interpretation_schema_version == INTERPRETATION_SCHEMA_VERSION
+    assert meta.prompt_version == PROMPT_VERSION
     assert result.summary  # 非空
 
 

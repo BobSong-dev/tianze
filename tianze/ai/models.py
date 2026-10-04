@@ -1,9 +1,11 @@
 """M11 · AI Interpretation Layer models and types.
 
-结构：
-- InterpretationContext: 从 AnalyzeResult 提取的解释所需最小上下文
-- InterpretationResult: 模型返回的结构化解释
-- GroundingIssue: 程序化检查发现的幻觉/越界
+M11 产品闭环新增：
+- ClaimType / Claim / Structured Claim Reference
+- GroundingSeverity（WARNING/ERROR/FATAL）
+- InterpretationSection.claims
+- InterpretationMetadata.attempt_count
+- ContextBuilder 输出 claim_refs（模型只能引用提供的 refId）
 """
 
 from __future__ import annotations
@@ -14,10 +16,28 @@ from typing import Any
 from tianze.domain.models import CamelizeModel
 from pydantic import BaseModel, ConfigDict
 
-
 # ---- Schema versions ----
-INTERPRETATION_SCHEMA_VERSION = "1.0.0"
-PROMPT_VERSION = "1.0.0"
+INTERPRETATION_SCHEMA_VERSION = "1.1.0"  # 1.1.0: +claims +severity +attemptCount
+PROMPT_VERSION = "1.1.0"                  # 1.1.0: +claim refs +data isolation
+
+
+class ClaimType(str, Enum):
+    FACT = "FACT"
+    STRENGTH = "STRENGTH"
+    PATTERN = "PATTERN"
+    TIAOHOU = "TIAOHOU"
+    SPECIAL_PATTERN = "SPECIAL_PATTERN"
+    TRANSFORMATION = "TRANSFORMATION"
+    BINGYAO = "BINGYAO"
+    TONGGUAN = "TONGGUAN"
+    SOURCE = "SOURCE"
+    VERIFICATION = "VERIFICATION"
+
+
+class GroundingSeverity(str, Enum):
+    WARNING = "WARNING"   # 缺少可选引用
+    ERROR = "ERROR"       # 引用不存在的 ID
+    FATAL = "FATAL"       # 发明格局/古籍 / UNRESOLVED→确定 / MACHINE→人工
 
 
 class GroundingIssueType(str, Enum):
@@ -28,27 +48,42 @@ class GroundingIssueType(str, Enum):
     FABRICATED_CLASSICAL_SOURCE = "FABRICATED_CLASSICAL_SOURCE"
     VERIFICATION_MISREPRESENTATION = "VERIFICATION_MISREPRESENTATION"
     UNRESOLVED_ASSERTED = "UNRESOLVED_ASSERTED"
+    UNKNOWN_CLAIM_REF = "UNKNOWN_CLAIM_REF"
+    STRENGTH_MISMATCH = "STRENGTH_MISMATCH"
+    TIAOHOU_STEM_MISMATCH = "TIAOHOU_STEM_MISMATCH"
+    CONG_TYPE_MISMATCH = "CONG_TYPE_MISMATCH"
+    ZHUANWANG_TYPE_MISMATCH = "ZHUANWANG_TYPE_MISMATCH"
+    TRANSFORMATION_MISMATCH = "TRANSFORMATION_MISMATCH"
 
 
 class GroundingIssue(CamelizeModel):
     type: GroundingIssueType
+    severity: GroundingSeverity = GroundingSeverity.ERROR
     detail: str
     claimed: str | None = None
     actual: str | None = None
 
 
+class Claim(CamelizeModel):
+    """AI section 内的结构化引用。"""
+
+    type: ClaimType
+    ref_id: str
+    value: str | None = None
+
+
 class FactType(str, Enum):
-    FACT = "FACT"                    # 原书事实（四柱等）
-    DERIVED_FACT = "DERIVED_FACT"    # 派生事实（通根/关系等）
-    METHOD_RESULT = "METHOD_RESULT"  # 某分析方法的结论
-    CANDIDATE = "CANDIDATE"          # 高阶候选（特殊格局）
+    FACT = "FACT"
+    DERIVED_FACT = "DERIVED_FACT"
+    METHOD_RESULT = "METHOD_RESULT"
+    CANDIDATE = "CANDIDATE"
 
 
 class ContextFact(CamelizeModel):
-    category: str                    # chart / relation / root / visibility / monthCommand / …
+    category: str
     fact_type: FactType
     statement: str
-    key: str                         # 唯一标识 key，供模型引用
+    key: str
     data: dict[str, Any] = {}
 
 
@@ -69,7 +104,7 @@ class ContextSource(CamelizeModel):
     chapter: str | None = None
     pages: list[int] = []
     quote: str | None = None
-    source_kind: str = "CLASSICAL_TEXT"     # SourceKind.value
+    source_kind: str = "CLASSICAL_TEXT"
     verification_status: str = "MACHINE_CURATED"
     quality: str | None = None
     commentator: str | None = None
@@ -77,7 +112,7 @@ class ContextSource(CamelizeModel):
 
 class InterpretationContext(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
-    """从 AnalyzeResult 提取的解释所需最小上下文（不含完整内部 JSON）。"""
+    """从 AnalyzeResult 提取的解释所需最小上下文。"""
 
     meta: dict[str, Any] = {}
     chart_facts: list[ContextFact] = []
@@ -95,12 +130,15 @@ class InterpretationContext(BaseModel):
     unresolved: list[str] = []
     disagreements: list[str] = []
     all_rule_ids: list[str] = []
+    claim_refs: list[str] = []  # 模型可引用的全部 refId（deterministic 生成）
 
 
-class InterpretationSection(CamelizeModel):
-    type: str                         # summary / strength / pattern / tiaohou / advanced / bingyao / tongguan / disagreements / uncertainties
+class InterpretationSection(BaseModel):
+    model_config = ConfigDict(populate_by_name=True, validate_assignment=True)
+    type: str
     title: str
     content: str
+    claims: list[Claim] = []
     evidence_ids: list[str] = []
     source_ids: list[str] = []
 
@@ -114,6 +152,7 @@ class InterpretationResult(BaseModel):
     source_references: list[str] = []
     grounding_issues: list[GroundingIssue] = []
     grounding_passed: bool = True
+    grounding_fatal: bool = False
 
 
 class InterpretationMetadata(CamelizeModel):
@@ -126,3 +165,4 @@ class InterpretationMetadata(CamelizeModel):
     analysis_schema_version: str
     prompt_tokens: int | None = None
     completion_tokens: int | None = None
+    attempt_count: int = 1
