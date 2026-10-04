@@ -4,23 +4,37 @@
 >
 > **取诸家之长，统一为 Tianze。** 基础计算直接复用；成熟实现优先借鉴；算法必须可解释；规则必须可追踪；流派差异必须保留；权重与 heuristic 必须公开；有争议的地方不伪装成唯一答案；LLM 不参与确定性计算。
 
-## 当前状态：M5 完成（结构事实 + 旺衰三方法 + 格局证据化评估）
+## 当前状态：M10 完成（可解释分析 Web 产品）
 
 | 里程碑 | 内容 | 状态 |
 |---|---|---|
 | Phase 0 | 7 个上游项目深度研究 + 架构设计 | ✅ `docs/research/` |
-| M0-M2 | 脚手架 / 排盘+差分对拍 / 关系引擎 | ✅ `10f98a8` |
-| M3 | 通根（定性深度）/ 透干 / 月令（旺相休囚死）/ 五行两视图统计 | ✅ `29c078c` |
-| M4 | 旺衰多分析器框架 + dimension 定性三维 | ✅ `6038c4a` |
-| M4.2 | weighted（逐字加权 ratio）+ fuyi（规则级联）+ agreement R22 | ✅ `1d2de8a`/`07f6f6c` |
-| M5 | 格局候选（禄刃/透干优先级）+ 证据化评估（supports/damages/rescues/conflicts/status） | ✅ `c2ecb16` |
-| K0/K1 | 古籍知识库 Schema + 556 条候选归一化 + 校验工具（docs/knowledge/） | ✅ 本轮 |
-| M6 | 调候引擎：182 条 ExecutableRule，10×12 全覆盖，desired/present 分离，反查原文 | ✅ 本轮 |
-| M6.1 | 验证体系：VerificationRecord/四维准确度/182 条诚实降级 MACHINE_CURATED/Golden Set 43/复核队列 | ✅ 本轮 |
-| M7 | 命例体系：1147 例结构化/三层分离/Rule↔Case 双向/规则使用报告/对比只记录不裁决 | ✅ 本轮 |
-| M8+ | API → Web | 📋 `docs/research/09-V1-ROADMAP.md` |
+| M0-M2 | 脚手架 / 排盘+差分对拍 / 关系引擎 | ✅ |
+| M3 | 通根 / 透干 / 月令 / 五行统计 | ✅ |
+| M4 | 旺衰三方法（dimension / weighted / fuyi） | ✅ |
+| M5 | 格局候选 + 证据化评估 | ✅ |
+| K0/K1/M6 | 古籍知识 Schema + 调候 120 格 | ✅ |
+| M6.1 | 验证体系（MACHINE_CURATED / HUMAN_VERIFIED 严格分离） | ✅ |
+| M7 | 1147 命例结构化 + Rule↔Case 双向索引 | ✅ |
+| M8 | 特殊格局（从格/专旺/化气）+ 病药 + 通关 + Case Regression | ✅ |
+| M8.6 | 从格审计 / 阴阳干证据 / PopulationStats | ✅ |
+| M9 | SDK Facade (`tianze.analyze()`) | ✅ |
+| M10 | FastAPI + Vue 3 Web + Contract Tests | ✅ |
 
-**测试：232 项全绿**；bazi-atlas 跨引擎实跑差分 5/5；知识库校验（validate_knowledge.py）：调候 120/120、0 重复 ID、0 缺失来源。
+**测试：266 项全绿**（Python 253 + API contract 13）；Case Regression 1147 例 baseline。
+
+## Web 应用
+
+```bash
+# 启动 API
+cd apps/api && uvicorn main:app --reload --port 8000
+
+# 启动前端（另一个终端）
+cd apps/web && npm run dev
+```
+
+打开浏览器 → `http://localhost:5173` → 输入出生信息 → 查看完整分析。
+每个结论可展开"为什么"→ 查看规则来源 → 古籍原文 → 页码 → 验证状态。
 
 ## 快速开始
 
