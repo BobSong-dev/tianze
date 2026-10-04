@@ -1,0 +1,11 @@
+{
+ "totalCases": 1147,
+ "parseableCases": 1045,
+ "engineEligibleCases": 1045,
+ "strengthEligibleCases": 1045,
+ "patternEligibleCases": 1045,
+ "tiaohouEligibleCases": 1045,
+ "specialPatternEligibleCases": 1045,
+ "transformationEligibleCases": 1147,
+ "unresolvedCases": 102
+}
