@@ -287,6 +287,26 @@ def analyze(
         )
         temporal = temporal_result.model_dump(by_alias=True, exclude_none=True)
 
+        # M12 extended: Timeline
+        if chart.luck and chart.luck.da_yun:
+            from tianze.analysis.temporal_extended import build_timeline
+            dy_dicts = [dy.model_dump(by_alias=True, exclude_none=True) for dy in chart.luck.da_yun]
+            birth_year = birth_date.year
+            natal_stems_tl = [chart.pillars.year.stem, chart.pillars.month.stem,
+                              chart.pillars.day.stem]
+            if chart.pillars.hour:
+                natal_stems_tl.append(chart.pillars.hour.stem)
+            natal_branches_tl = [chart.pillars.year.branch, chart.pillars.month.branch,
+                                 chart.pillars.day.branch]
+            if chart.pillars.hour:
+                natal_branches_tl.append(chart.pillars.hour.branch)
+            timeline = build_timeline(
+                natal_stems=natal_stems_tl, natal_branches=natal_branches_tl,
+                day_master=chart.day_master.stem, birth_year=birth_year,
+                da_yun=dy_dicts,
+            )
+            temporal["timeline"] = timeline.model_dump(by_alias=True, exclude_none=True)
+
     result = SimplifiedResult(
         meta={
             "engineVersion": __version__,
