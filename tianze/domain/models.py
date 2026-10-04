@@ -466,6 +466,7 @@ class BaziChart(CamelizeModel):
     strength: StrengthReport | None = None       # M4
     pattern: PatternAnalysis | None = None       # M5
     tiaohou: TiaoHouResult | None = None         # M6
+    advancedAnalysis: dict[str, Any] | None = None  # M8 specialPattern/bingYao/tongGuan specialPattern/bingYao/tongGuan
     conventions: dict[str, str] = {}
     meta: ChartMeta
 

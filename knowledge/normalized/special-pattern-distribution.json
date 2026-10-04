@@ -1,0 +1,244 @@
+{
+ "total": 1147,
+ "computed": 1045,
+ "congCandidate": 392,
+ "congLikely": 349,
+ "congBlocked": 702,
+ "congDisputed": 92,
+ "zhuanwangCandidate": 366,
+ "zhuanwangLikely": 11,
+ "zhuanwangBlocked": 467,
+ "transformationCandidate": 71,
+ "transformationUnresolved": 503,
+ "bingyaoProblems": 180,
+ "tongguanPairs": 593,
+ "byDayMaster": {
+  "丁": {
+   "cong_DISPUTED": 17,
+   "zw_CANDIDATE": 65,
+   "cong_LIKELY": 56,
+   "zw_BLOCKED": 83,
+   "cong_BLOCKED": 117,
+   "cong_CANDIDATE": 57,
+   "zw_UNRESOLVED": 31,
+   "cong_UNRESOLVED": 8,
+   "zw_LIKELY": 1
+  },
+  "乙": {
+   "cong_BLOCKED": 102,
+   "zw_BLOCKED": 52,
+   "cong_CANDIDATE": 50,
+   "zw_UNRESOLVED": 46,
+   "cong_DISPUTED": 7,
+   "cong_LIKELY": 52,
+   "zw_CANDIDATE": 34,
+   "cong_UNRESOLVED": 6
+  },
+  "戊": {
+   "cong_CANDIDATE": 46,
+   "zw_CANDIDATE": 57,
+   "cong_DISPUTED": 16,
+   "zw_BLOCKED": 89,
+   "cong_BLOCKED": 173,
+   "zw_UNRESOLVED": 17,
+   "zw_LIKELY": 4,
+   "cong_LIKELY": 17
+  },
+  "辛": {
+   "cong_BLOCKED": 27,
+   "zw_CANDIDATE": 11,
+   "cong_LIKELY": 13,
+   "zw_UNRESOLVED": 12,
+   "cong_CANDIDATE": 9,
+   "zw_BLOCKED": 14,
+   "cong_DISPUTED": 6
+  },
+  "壬": {
+   "cong_CANDIDATE": 37,
+   "zw_BLOCKED": 30,
+   "cong_UNRESOLVED": 3,
+   "zw_CANDIDATE": 26,
+   "cong_BLOCKED": 17,
+   "cong_LIKELY": 39,
+   "zw_UNRESOLVED": 15,
+   "cong_DISPUTED": 3,
+   "zw_LIKELY": 1
+  },
+  "丙": {
+   "cong_CANDIDATE": 39,
+   "zw_CANDIDATE": 37,
+   "cong_LIKELY": 27,
+   "zw_BLOCKED": 35,
+   "zw_UNRESOLVED": 11,
+   "cong_DISPUTED": 9,
+   "cong_BLOCKED": 33,
+   "cong_UNRESOLVED": 2
+  },
+  "甲": {
+   "cong_BLOCKED": 99,
+   "zw_BLOCKED": 57,
+   "cong_CANDIDATE": 63,
+   "zw_UNRESOLVED": 30,
+   "cong_DISPUTED": 11,
+   "zw_CANDIDATE": 71,
+   "cong_LIKELY": 60,
+   "cong_UNRESOLVED": 2
+  },
+  "癸": {
+   "cong_CANDIDATE": 13,
+   "zw_CANDIDATE": 12,
+   "cong_BLOCKED": 29,
+   "zw_BLOCKED": 24,
+   "cong_DISPUTED": 10,
+   "zw_UNRESOLVED": 10,
+   "cong_LIKELY": 13
+  },
+  "己": {
+   "cong_CANDIDATE": 51,
+   "zw_LIKELY": 5,
+   "cong_BLOCKED": 83,
+   "zw_CANDIDATE": 34,
+   "cong_DISPUTED": 11,
+   "zw_BLOCKED": 54,
+   "zw_UNRESOLVED": 21,
+   "cong_LIKELY": 33,
+   "cong_UNRESOLVED": 2
+  },
+  "庚": {
+   "cong_LIKELY": 39,
+   "zw_UNRESOLVED": 8,
+   "cong_DISPUTED": 2,
+   "zw_CANDIDATE": 19,
+   "cong_BLOCKED": 22,
+   "cong_CANDIDATE": 27,
+   "zw_BLOCKED": 29,
+   "cong_UNRESOLVED": 6
+  }
+ },
+ "byMonth": {
+  "巳": {
+   "cong_DISPUTED": 5,
+   "cong_BLOCKED": 22,
+   "cong_LIKELY": 8,
+   "cong_CANDIDATE": 21
+  },
+  "子": {
+   "cong_LIKELY": 50,
+   "cong_CANDIDATE": 32,
+   "cong_DISPUTED": 9,
+   "cong_BLOCKED": 32,
+   "cong_UNRESOLVED": 2
+  },
+  "寅": {
+   "cong_BLOCKED": 106,
+   "cong_CANDIDATE": 38,
+   "cong_DISPUTED": 22,
+   "cong_LIKELY": 23,
+   "cong_UNRESOLVED": 7
+  },
+  "午": {
+   "cong_CANDIDATE": 40,
+   "cong_BLOCKED": 38,
+   "cong_DISPUTED": 6,
+   "cong_LIKELY": 23
+  },
+  "未": {
+   "cong_DISPUTED": 7,
+   "cong_BLOCKED": 43,
+   "cong_CANDIDATE": 27,
+   "cong_LIKELY": 20,
+   "cong_UNRESOLVED": 2
+  },
+  "辰": {
+   "cong_CANDIDATE": 41,
+   "cong_BLOCKED": 79,
+   "cong_LIKELY": 24,
+   "cong_DISPUTED": 5,
+   "cong_UNRESOLVED": 2
+  },
+  "酉": {
+   "cong_BLOCKED": 50,
+   "cong_CANDIDATE": 25,
+   "cong_UNRESOLVED": 3,
+   "cong_LIKELY": 49,
+   "cong_DISPUTED": 2
+  },
+  "亥": {
+   "cong_BLOCKED": 43,
+   "cong_CANDIDATE": 26,
+   "cong_LIKELY": 17,
+   "cong_DISPUTED": 3,
+   "cong_UNRESOLVED": 4
+  },
+  "戌": {
+   "cong_DISPUTED": 15,
+   "cong_BLOCKED": 90,
+   "cong_CANDIDATE": 36,
+   "cong_LIKELY": 33,
+   "cong_UNRESOLVED": 1
+  },
+  "丑": {
+   "cong_CANDIDATE": 59,
+   "cong_BLOCKED": 55,
+   "cong_LIKELY": 48,
+   "cong_DISPUTED": 12,
+   "cong_UNRESOLVED": 2
+  },
+  "卯": {
+   "cong_DISPUTED": 2,
+   "cong_LIKELY": 21,
+   "cong_CANDIDATE": 30,
+   "cong_BLOCKED": 71,
+   "cong_UNRESOLVED": 6
+  },
+  "申": {
+   "cong_LIKELY": 33,
+   "cong_CANDIDATE": 17,
+   "cong_BLOCKED": 73,
+   "cong_DISPUTED": 4
+  }
+ },
+ "byBook": {
+  "命理一得": {
+   "cong_DISPUTED": 6,
+   "cong_LIKELY": 11,
+   "cong_BLOCKED": 19,
+   "cong_CANDIDATE": 11,
+   "cong_UNRESOLVED": 1
+  },
+  "子平一得": {
+   "cong_LIKELY": 1
+  },
+  "子平真诠评注": {
+   "cong_BLOCKED": 12,
+   "cong_DISPUTED": 4,
+   "cong_CANDIDATE": 10,
+   "cong_LIKELY": 2
+  },
+  "守素室丛谈": {
+   "cong_BLOCKED": 19,
+   "cong_DISPUTED": 3,
+   "cong_LIKELY": 8,
+   "cong_CANDIDATE": 6
+  },
+  "滴天髓补注": {
+   "cong_LIKELY": 34,
+   "cong_CANDIDATE": 45,
+   "cong_BLOCKED": 63,
+   "cong_DISPUTED": 8
+  },
+  "穷通宝鉴评注": {
+   "cong_BLOCKED": 584,
+   "cong_CANDIDATE": 317,
+   "cong_LIKELY": 287,
+   "cong_UNRESOLVED": 28,
+   "cong_DISPUTED": 70
+  },
+  "造化元钥评注": {
+   "cong_BLOCKED": 5,
+   "cong_LIKELY": 6,
+   "cong_CANDIDATE": 3,
+   "cong_DISPUTED": 1
+  }
+ }
+}

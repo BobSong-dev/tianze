@@ -13,10 +13,12 @@ from tianze.analysis import count_elements, collect_roots, compute_month_command
 from tianze.analysis.pattern import analyze_pattern
 from tianze.analysis.strength import StrengthFacts, default_run
 from tianze.analysis.tiaohou import analyze_tiaohou
+from tianze.analysis.special import analyze_all_special
 from tianze.calendar import lunar_adapter as LA
 from tianze.calendar.time_resolution import resolve_time
 from tianze.domain import models as M
 from tianze.ganzhi import tables as G
+from tianze.ganzhi.tables import ten_god
 from tianze.relation.relations import analyze_relations
 
 _LUNAR_PYTHON_VERSION = _pkg_version("lunar_python")
@@ -193,6 +195,19 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
     tiaohou = analyze_tiaohou(day_master, month_gz[1],
                               {p: s for p, s in zip(positions, stems)})
 
+    # 特殊格局 + 病药 + 通关（M8）
+    ec = element_counts.elements if element_counts else {}
+    advanced = analyze_all_special(
+        day_master=day_master, month_branch=month_gz[1], stems=stems, branches=branches,
+        strength_verdicts={"weighted": strength.methods[1].verdict if strength and len(strength.methods) > 1 else None,
+                         "fuyi": strength.methods[2].verdict if strength and len(strength.methods) > 2 else None,
+                         "dimension": strength.methods[0].verdict if strength else None},
+        weighted_score=strength.methods[1].score if strength and len(strength.methods) > 1 else None, day_master_roots=len([r for r in roots if r.is_day_master]),
+        helper_stems=[s for s in stems if s and s != day_master and
+                      ten_god(day_master, s).value in ("比肩", "劫财", "正印", "偏印")],
+        element_counts={k: {"visible": v.visible, "hidden": v.hidden} for k, v in ec.items()},
+    )
+
     warnings = list(time_warnings)
     warnings.extend(
         LA.boundary_warnings(tr.beijing_dt, tr.pillar_dt, birth.time_known, birth.sect)
@@ -224,6 +239,7 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
         strength=strength,
         pattern=pattern,
         tiaohou=tiaohou,
+        advancedAnalysis=advanced,
         conventions=_CONVENTIONS,
         meta=M.ChartMeta(
             engine_version=tianze.__version__,
