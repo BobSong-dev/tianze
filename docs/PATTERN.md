@@ -53,3 +53,7 @@ provenance[]`。特殊格（从财/从杀/从儿/从强/专旺/化气）**M5 未
   Classical Knowledge Integration，届时逐条升级 provenance。
 - 规则表为引擎内显式数据（`_SUPPORT_RULES` / `_DAMAGE_RULES`），可直接被
   未来知识库数据替换。
+
+## M8 · 特殊格局（从格/专旺/化气）
+
+详见 `docs/SPECIAL-PATTERNS.md`。核心：候选/阻断/冲突模型，永不 CONFIRMED；从格复用 M4 strength 三方法（ADR-032）；化气只报候选（ADR-027 延伸）。

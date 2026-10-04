@@ -37,14 +37,18 @@ Unified JSON（camelCase + conventions 回显 + warnings + fallbacks）
 | `tianze/analysis/element_counts.py` | L7 | 五行两视图统计 | R16 |
 | `tianze/analysis/strength/` | L7 | 旺衰框架 + dimension/weighted/fuyi 三分析器 | R19-R22 |
 | `tianze/analysis/pattern.py` | L7 | 格局候选（禄刃/透干优先级）+ 证据化评估 | R23-R25 |
+| `tianze/analysis/special.py` | L7 | M8 特殊格局+病药+通关（候选/阻断/冲突模型） | R29-R31 |
 | `tianze/pipeline.py` | — | 组装 build_chart | — |
 | `tests/crosscheck/oracle.py` | 测试网 | 独立排盘路径（JDN/遁/Meeus 黄经） | — |
 | `tools/stamp_expected.py` | 测试网 | fixture 盖章器 | — |
 | `tools/atlas_differential.mjs` | 测试网 | bazi-atlas 跨引擎差分桥（实跑 5 命例） | — |
+| `tools/case_regression.py` | 回归网 | 1147 命例领域回归（snapshot/compare/report） | — |
+| `tools/analyze_special_pattern_distribution.py` | 审计 | 特殊格局分布审计（过拟合检测） | — |
 
 ## 尚未实现（按路线图）
 
-L5 规则库（M7）· L8 流派层（M5 格局起逐步并入）· 调候（M6）· L10 API（M8）· L11 AI（M8 后）· L12 Web（M9）。
+L5 规则库扩展（M7 后续）· L8 流派层 · L10 API（后续）· L11 AI · L12 Web。
+已实现：M8 特殊格局/病药/通关（`tianze/analysis/special.py`）+ Case Regression（`tools/case_regression.py`）。
 
 ## 铁律（不变）
 

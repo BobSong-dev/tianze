@@ -37,6 +37,17 @@ lunar-javascript@1.7.7（MIT）至其 node_modules——不改上游任何被跟
 | 中国夏令时窗口表（1986-1991） | 国务院夏时制通告（多源一致；与 bazi-atlas 同源口径） | 公共事实，标记 needs-verification |
 | （未来）调候 120 组 | 《穷通宝鉴》原文自录 | 公有领域原文 + Tianze 结构化 |
 
+## M8 特殊格局规则来源
+
+| 规则 | 来源 | 级别 |
+|---|---|---|
+| 从格反条件（有根不从） | jiwenxu yongshen.py | PROJECT_REFERENCE |
+| 从格/专旺阈值 | Horosa baziGejuYongShen | PROJECT_REFERENCE |
+| 专旺五格划分 | ruan build_ui | PROJECT_REFERENCE |
+| 候选阈值/状态映射 | Tianze | ENGINEERING_HEURISTIC |
+| 化气框架 | jiwenxu HUA_QI_CONDITIONS（概念） | PROJECT_REFERENCE |
+| 通关元素图 | Tianze 五行生克图 | ENGINEERING_HEURISTIC |
+
 ## 古籍（规则层引用目标）
 
 《子平真诠》《穷通宝鉴》《滴天髓》《三命通会》《渊海子平》——公有领域；Tianze 引用时标注书名与篇名，不逐字搬运现代校注本。

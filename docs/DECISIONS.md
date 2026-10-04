@@ -119,3 +119,31 @@
   不裁决；命例不是训练标签。
 - **Reason**：让每条数据都能回答"这是谁说的、机器还是人、验证到什么程度"。
 - **Tradeoff**：语义级命例对比（721 例）留待人工——自动判对错必然越界。
+
+## ADR-031 · Case Regression 统计口径分离（M8.0）
+
+- **Context**：此前报告"426 例机械化对比、420 一致、24 差异"——420+24>426，案例数与比较项数混用。
+- **Decision**：`caseCount`（案例数）与 `comparisonItemCount` / `agreementItemCount` / `differenceItemCount`（比较项数）严格分离；一例可同时含一致与差异项。
+- **Reason**：统计诚实。
+- **Tradeoff**：数字变大但准确（当前 426 例 → 837 项）。
+
+## ADR-032 · 从格复用 StrengthAnalyzer，不复制旺衰算法（M8.1）
+
+- **Context**：从格判断需要日主旺衰，但 M4 已有三个分析器。
+- **Decision**：从格以 `strength_verdicts`（weighted/fuyi）为输入之一；两方法方向冲突 → DISPUTED；score 仅作 evidence，不单独决定从格。
+- **Reason**：避免同一逻辑写两遍；多分析器分歧直接映射为从格 DISPUTED。
+- **Tradeoff**：从格精度受限于上游分析器精度。
+
+## ADR-033 · 病药命名 StructuralProblem / MedicineCandidate（M8.4）
+
+- **Context**：任务书明令"病药不是健康疾病预测"。
+- **Decision**：代码使用 StructuralProblem/MedicineCandidate；API/文档避免 Disease/Diagnosis；禁止输出个人健康预测。
+- **Reason**：避免 API 使用者误解。
+- **Tradeoff**：与传统术语"病药"不完全对应——文档已说明。
+
+## ADR-034 · Case Regression Snapshot Contract（M8.0）
+
+- **Context**：1147 例的完整 JSON 过大，但需要能检测所有行为变化。
+- **Decision**：Snapshot 只保留可判断行为变化的稳定字段（strength 三方法/pattern/tiaohou/triggeredRuleIds/specialPattern/bingYao/tongGuan/chartFingerprint），不含完整推荐 evidence。
+- **Reason**：性能 + 可 diff。
+- **Tradeoff**：新增字段须更新 snapshot 代码。

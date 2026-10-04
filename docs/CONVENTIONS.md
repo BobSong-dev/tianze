@@ -177,6 +177,30 @@
   禁止 last-rule-wins。
 - Schema 版本：KNOWLEDGE=1.1.0 / CASE=1.0.0；字段变更必须显式 migration。
 
+## R29 · 特殊格局候选口径（M8.1/M8.2） — `LOCKED`
+
+- 从格四型（从财/从官杀/从儿/从强）；专旺五格（曲直/炎上/稼穑/从革/润下）。
+- 状态永不 CONFIRMED：CANDIDATE/LIKELY/BLOCKED/DISPUTED/UNRESOLVED。
+- 从格复用 M4 strength 三方法；weighted/fuyi 方向冲突 → DISPUTED。
+- 从格阻断：有根（jiwenxu 反条件）/印比透干。
+- 专旺阻断：官杀透干 / 同党占比 <60% / weighted 不支持。
+- `schoolVariants` 保留 Horosa/ruan 口径差异。
+
+## R30 · 化气候选（M8.3） — `LOCKED`
+
+- 五组合（甲己/乙庚/丙辛/丁壬/戊癸）；干合 ≠ 化（R13 延伸）。
+- 化神得令 → season_support；藏干含化神 → root_support。
+- 有争合或缺季节支持 → UNRESOLVED；大量 UNRESOLVED 是正确行为。
+
+## R31 · 病药与通关（M8.4/M8.5） — `LOCKED`
+
+- 病药：StructuralProblem/MedicineCandidate（非医学疾病）；病准入 ≥1/2 且 ≥3 字；
+  药 = 制（克病者）/ 泄（病所生），必须关联具体病。
+- 通关：ConflictPair（一方 ≥ 另一方 2 倍对峙）+ BridgeCandidate（A→C→B 五行生链）；
+  桥存在 = C 可见 >0。
+- Case Regression：severity 四级（BREAKING/REVIEW/EXPECTED/INFO）；caseCount 与
+  comparisonItemCount 口径分离（ADR-031）。
+
 ## 维护记录
 
 | 日期 | 变更 | 原因 |
@@ -187,3 +211,4 @@
 | 2026-10-01 | 新增 R20-R25（weighted/fuyi/agreement/取格/禄刃/评估状态） | M4.2-M5 |
 | 2026-10-01 | 新增 R26-R27（知识库来源质量/调候口径） | K0/K1/M6 |
 | 2026-10-01 | 新增 R28（验证状态/命例纪律/schema 版本） | M6.1/M7 |
+| 2026-10-01 | 新增 R29-R31（特殊格局/化气/病药通关/回归） | M8 |

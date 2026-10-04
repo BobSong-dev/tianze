@@ -18,5 +18,10 @@
 
 | # | 日期 | 错误 | 发现方式 | 状态 |
 |---|---|---|---|---|
+| ERRATA-10 | 2026-10-01 | M8 special.py 初版 STEM_ELEMENT 误用于地支（应用 BRANCH_ELEMENT），导致 KeyError | smoke test | CLOSED：逐处修正 |
+| ERRATA-11 | 2026-10-01 | pipeline 变量 `special` 与 `special_points` 重名导致 Pydantic 校验失败 | smoke test | CLOSED：改名 `advanced` |
+
+| # | 日期 | 错误 | 发现方式 | 状态 |
+|---|---|---|---|---|
 | ERRATA-08 | 2026-10-01 | M3 初版把旺相休囚死按"季节"查表（丑月壬水误判"旺"） | 120 组合交叉真值测试（测试内独立生克环） | CLOSED：改为按月支本气五行判定（ADR-017），四库月土旺自然成立 |
 | ERRATA-09 | 2026-10-01 | M4 初版 run_strength 对去重后 verdict 集合计数，单方法误判可出 agreement | FakeA/FakeB 双方法协议测试 | CLOSED：按带 verdict 的方法数判定 |
