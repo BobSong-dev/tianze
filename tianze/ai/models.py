@@ -32,6 +32,7 @@ class ClaimType(str, Enum):
     TONGGUAN = "TONGGUAN"
     SOURCE = "SOURCE"
     VERIFICATION = "VERIFICATION"
+    TEMPORAL = "TEMPORAL"
 
 
 class GroundingSeverity(str, Enum):
@@ -54,6 +55,7 @@ class GroundingIssueType(str, Enum):
     CONG_TYPE_MISMATCH = "CONG_TYPE_MISMATCH"
     ZHUANWANG_TYPE_MISMATCH = "ZHUANWANG_TYPE_MISMATCH"
     TRANSFORMATION_MISMATCH = "TRANSFORMATION_MISMATCH"
+    TEMPORAL_PREDICTION = "TEMPORAL_PREDICTION"
 
 
 class GroundingIssue(CamelizeModel):
@@ -130,6 +132,7 @@ class InterpretationContext(BaseModel):
     unresolved: list[str] = []
     disagreements: list[str] = []
     all_rule_ids: list[str] = []
+    temporal: dict[str, Any] | None = None   # M13：岁运上下文（chain/rules/delta）
     claim_refs: list[str] = []  # 模型可引用的全部 refId（deterministic 生成）
 
 

@@ -201,6 +201,61 @@ def build_interpretation_context(
         claim_refs.append(f"source:{s.source_id}")
         claim_refs.append(f"verification:{s.source_id}:{s.verification_status}")
 
+    # ---- Temporal (M13) ----
+    tp = result.get("temporal")
+    if isinstance(tp, dict) and tp.get("context"):
+        tctx = tp["context"]
+        chain = ["原局"]
+        if tctx.get("luckStem"):
+            chain.append(f"大运{tctx['luckStem']}{tctx.get('luckBranch') or ''}")
+        if tctx.get("annualStem"):
+            chain.append(f"流年{tctx['annualStem']}{tctx.get('annualBranch') or ''}")
+        if tctx.get("monthlyStem"):
+            chain.append(f"流月{tctx['monthlyStem']}{tctx.get('monthlyBranch') or ''}")
+        if tctx.get("dailyStem"):
+            chain.append(f"流日{tctx['dailyStem']}{tctx.get('dailyBranch') or ''}")
+        delta = tp.get("delta") or {}
+        matched_rules = [
+            {"ruleId": t.get("ruleId"), "label": t.get("label"),
+             "observations": t.get("observations", []),
+             "refId": t.get("refId")}
+            for t in (tp.get("ruleTriggers") or []) if t.get("matched")
+        ]
+        delta_items = [
+            {"analysis": d.get("analysis"), "kind": d.get("kind"),
+             "subject": d.get("subject"), "supportLevel": d.get("supportLevel"),
+             "trigger": d.get("trigger"), "evidence": d.get("evidence", []),
+             "refId": d.get("refId")}
+            for d in (delta.get("items") or [])
+        ]
+        ctx.temporal = {
+            "chain": " → ".join(chain),
+            "relations": [
+                {"label": r.get("label"), "sources": r.get("sources", []),
+                 "completesHarmony": r.get("completesHarmony", False),
+                 "transformCandidate": r.get("transformCandidate")}
+                for r in (tp.get("relations") or [])
+            ],
+            "structures": [
+                {"label": s.get("label"), "description": s.get("description")}
+                for s in (tp.get("structures") or [])
+            ],
+            "matchedRules": matched_rules,
+            "deltaItems": delta_items,
+            "unsupportedNotes": delta.get("unsupportedNotes", []),
+        }
+        claim_refs.append(f"temporal:chain:{'-'.join(chain[1:]).replace(' ', '') or 'natal-only'}")
+        for t in matched_rules:
+            if t.get("refId"):
+                claim_refs.append(t["refId"])
+        for d in delta_items:
+            if d.get("refId"):
+                claim_refs.append(d["refId"])
+        for r in (tp.get("relations") or []):
+            claim_refs.append(f"temporal:relation:{r.get('label', '')}")
+        for s_ in (tp.get("structures") or []):
+            claim_refs.append(f"temporal:structure:{s_.get('label', '')}")
+
     # ---- Warnings / fallbacks ----
     ctx.warnings = list(result.get("warnings") or [])
     ctx.unresolved.extend(result.get("fallbacks") or [])

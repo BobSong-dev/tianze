@@ -38,10 +38,14 @@ async function generateAI() {
   aiState.value = "LOADING";
   aiError.value = "";
   try {
+    // M13：若时序工作台已加载岁运上下文，合并进解释输入（AI 只消费引擎结果）
+    const payloadAnalysis = temporalData.value
+      ? { ...result.value, temporal: temporalData.value }
+      : result.value;
     const r = await fetch("/api/v1/interpret", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ analysis: result.value }),
+      body: JSON.stringify({ analysis: payloadAnalysis }),
     });
     if (r.status === 503) {
       aiState.value = "NOT_CONFIGURED";

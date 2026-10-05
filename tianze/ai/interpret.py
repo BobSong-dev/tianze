@@ -195,6 +195,19 @@ def validate_grounding(
                         claimed=phrase,
                     ))
 
+    # Check temporal sections for life-event predictions (M13)
+    _TEMPORAL_BANNED = ("一定", "必然", "必定", "肯定会", "必将", "注定",
+                        "发财", "升职", "结婚", "离婚", "大病", "横祸", "有灾")
+    for section in result.sections:
+        if section.type == "temporal":
+            hits = [w for w in _TEMPORAL_BANNED if w in section.content]
+            if hits:
+                issues.append(GroundingIssue(
+                    type=GroundingIssueType.TEMPORAL_PREDICTION,
+                    detail=f"Section '{section.title}' 含具体事件预测语言: {hits}（岁运只允许结构描述）",
+                    claimed=",".join(hits),
+                ))
+
     # Check UNRESOLVED asserted as definitive
     for section in result.sections:
         for u in ctx.unresolved:

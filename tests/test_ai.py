@@ -25,7 +25,7 @@ from tianze.ai.models import (
     FactType,
 )
 from tianze.ai.prompt_builder import build_prompts
-from tianze.sdk import SimplifiedBirthInfo, analyze
+from tianze.sdk import AnalysisOptions, SimplifiedBirthInfo, analyze
 from tianze.ai.models import INTERPRETATION_SCHEMA_VERSION, PROMPT_VERSION
 from tianze.ai.models import INTERPRETATION_SCHEMA_VERSION, PROMPT_VERSION
 
@@ -178,3 +178,70 @@ def test_mock_provider_e2e():
 
 
 import asyncio  # noqa: E402
+
+
+# ---- M13 Temporal AI ----
+
+def _make_temporal_result() -> dict:
+    r = analyze(
+        SimplifiedBirthInfo(date="2003-08-18", time="14:30", gender="male"),
+        AnalysisOptions(include_temporal=True, target_year=2026, include_temporal_delta=True),
+    )
+    return r.model_dump()
+
+
+def test_context_builder_temporal():
+    ctx = build_interpretation_context(_make_temporal_result())
+    assert ctx.temporal is not None
+    assert "大运" in ctx.temporal["chain"] and "流年" in ctx.temporal["chain"]
+    assert any(t["ruleId"] == "TR-SPZY-28" for t in ctx.temporal["matchedRules"])
+    temporal_refs = [r for r in ctx.claim_refs if r.startswith("temporal:")]
+    assert temporal_refs, "必须有 temporal claim refs"
+    assert "temporal:rule:TR-SPZY-28" in ctx.claim_refs
+
+
+def test_prompt_contains_temporal_section():
+    ctx = build_interpretation_context(_make_temporal_result())
+    system_prompt, user_prompt = build_prompts(ctx)
+    assert "## TEMPORAL" in user_prompt
+    assert "岁运链" in user_prompt
+    assert "不得输出任何具体人生事件预测" in system_prompt
+    assert "EXPERIMENTAL" in system_prompt
+
+
+def test_prompt_no_temporal_section_without_temporal():
+    ctx = build_interpretation_context(_make_result())
+    _, user_prompt = build_prompts(ctx)
+    assert "## TEMPORAL" not in user_prompt
+
+
+def test_grounding_temporal_prediction_blocked():
+    """岁运 section 出现具体事件预测语言 → TEMPORAL_PREDICTION issue。"""
+    ctx = build_interpretation_context(_make_temporal_result())
+    result = InterpretationResult(
+        summary="岁运概要",
+        sections=[InterpretationSection(
+            type="temporal", title="岁运", content="此大运中您一定会发财，事业必定腾飞。",
+            claims=[],
+        )],
+    )
+    issues = validate_grounding(result, ctx)
+    assert any(i.type == GroundingIssueType.TEMPORAL_PREDICTION for i in issues)
+
+
+def test_grounding_temporal_structural_passes():
+    """结构化岁运描述（含 EXPERIMENTAL 说明）不触发 TEMPORAL_PREDICTION。"""
+    ctx = build_interpretation_context(_make_temporal_result())
+    result = InterpretationResult(
+        summary="岁运概要",
+        sections=[InterpretationSection(
+            type="temporal", title="岁运",
+            content="流年丙午与原局形成天干关系（TR-SPZY-28 流年即太岁，术语框架）。"
+                    "Delta 中旺衰加权条目标记为 EXPERIMENTAL，说明岁运参与计分存在流派分歧，"
+                    "本描述仅为结构状态迁移。",
+            claims=[],
+        )],
+    )
+    issues = validate_grounding(result, ctx)
+    temporal_issues = [i for i in issues if i.type == GroundingIssueType.TEMPORAL_PREDICTION]
+    assert not temporal_issues
