@@ -1,0 +1,1452 @@
+{
+ "meta": {
+  "engineVersion": "0.2.0",
+  "engineStage": "M4",
+  "deltaSchemaVersion": "1.0.0",
+  "generatedBy": "tools/temporal_regression.py snapshot",
+  "count": 6
+ },
+ "snapshots": [
+  {
+   "probe": "m_1984_0205",
+   "note": "甲子年男（阳男顺排）",
+   "luck": {
+    "forward": true,
+    "start": [
+     9,
+     9,
+     10,
+     0
+    ],
+    "dayun": [
+     {
+      "i": 0,
+      "gz": "",
+      "sy": 1984,
+      "ey": 1992,
+      "sa": 1
+     },
+     {
+      "i": 1,
+      "gz": "丁卯",
+      "sy": 1993,
+      "ey": 2002,
+      "sa": 10
+     },
+     {
+      "i": 2,
+      "gz": "戊辰",
+      "sy": 2003,
+      "ey": 2012,
+      "sa": 20
+     },
+     {
+      "i": 3,
+      "gz": "己巳",
+      "sy": 2013,
+      "ey": 2022,
+      "sa": 30
+     },
+     {
+      "i": 4,
+      "gz": "庚午",
+      "sy": 2023,
+      "ey": 2032,
+      "sa": 40
+     },
+     {
+      "i": 5,
+      "gz": "辛未",
+      "sy": 2033,
+      "ey": 2042,
+      "sa": 50
+     },
+     {
+      "i": 6,
+      "gz": "壬申",
+      "sy": 2043,
+      "ey": 2052,
+      "sa": 60
+     },
+     {
+      "i": 7,
+      "gz": "癸酉",
+      "sy": 2053,
+      "ey": 2062,
+      "sa": 70
+     },
+     {
+      "i": 8,
+      "gz": "甲戌",
+      "sy": 2063,
+      "ey": 2072,
+      "sa": 80
+     },
+     {
+      "i": 9,
+      "gz": "乙亥",
+      "sy": 2073,
+      "ey": 2082,
+      "sa": 90
+     }
+    ]
+   },
+   "annuals": [
+    {
+     "year": 2010,
+     "gz": "庚寅",
+     "relations": [
+      "harm:寅|巳:natal:day,annual",
+      "harm:寅|巳:natal:hour,annual",
+      "stem_opposition:庚|甲:natal:year,annual"
+     ],
+     "structures": [],
+     "rules": [
+      "TR-DTZ-09",
+      "TR-SPZY-28"
+     ]
+    },
+    {
+     "year": 2026,
+     "gz": "丙午",
+     "relations": [
+      "clash:午|子:natal:year,annual",
+      "clash:午|子:natal:year,luck",
+      "stem_opposition:庚|甲:natal:year,luck"
+     ],
+     "structures": [
+      "fanyin"
+     ],
+     "rules": [
+      "TR-FANYIN-01",
+      "TR-SPZY-28"
+     ]
+    },
+    {
+     "year": 2040,
+     "gz": "庚申",
+     "relations": [
+      "break:巳|申:natal:day,annual",
+      "break:巳|申:natal:hour,annual",
+      "clash:寅|申:natal:month,annual",
+      "harm:子|未:natal:year,luck",
+      "six_combination:巳|申:natal:day,annual",
+      "six_combination:巳|申:natal:hour,annual",
+      "stem_combination:丙|辛:natal:month,luck",
+      "stem_opposition:庚|甲:natal:year,annual"
+     ],
+     "structures": [],
+     "rules": [
+      "TR-DTZ-09",
+      "TR-SPZY-28"
+     ]
+    }
+   ],
+   "months_2026": [
+    {
+     "n": 1,
+     "gz": "庚寅",
+     "jie": "立春",
+     "start": "2026-02-04 04:02"
+    },
+    {
+     "n": 2,
+     "gz": "辛卯",
+     "jie": "惊蛰",
+     "start": "2026-03-05 21:59"
+    },
+    {
+     "n": 3,
+     "gz": "壬辰",
+     "jie": "清明",
+     "start": "2026-04-05 02:40"
+    },
+    {
+     "n": 4,
+     "gz": "癸巳",
+     "jie": "立夏",
+     "start": "2026-05-05 19:48"
+    },
+    {
+     "n": 5,
+     "gz": "甲午",
+     "jie": "芒种",
+     "start": "2026-06-05 23:48"
+    },
+    {
+     "n": 6,
+     "gz": "乙未",
+     "jie": "小暑",
+     "start": "2026-07-07 09:56"
+    },
+    {
+     "n": 7,
+     "gz": "丙申",
+     "jie": "立秋",
+     "start": "2026-08-07 19:42"
+    },
+    {
+     "n": 8,
+     "gz": "丁酉",
+     "jie": "白露",
+     "start": "2026-09-07 22:41"
+    },
+    {
+     "n": 9,
+     "gz": "戊戌",
+     "jie": "寒露",
+     "start": "2026-10-08 14:29"
+    },
+    {
+     "n": 10,
+     "gz": "己亥",
+     "jie": "立冬",
+     "start": "2026-11-07 17:52"
+    },
+    {
+     "n": 11,
+     "gz": "庚子",
+     "jie": "大雪",
+     "start": "2026-12-07 10:52"
+    },
+    {
+     "n": 12,
+     "gz": "辛丑",
+     "jie": "小寒",
+     "start": "2027-01-05 22:09"
+    }
+   ],
+   "day_probe": {
+    "date": "2026-3-1",
+    "gz": "甲戌",
+    "jdn": 2461101
+   },
+   "delta": {
+    "deltaSchemaVersion": "1.0.0",
+    "items": [
+     "strength:status_changed:temporal:strength:weighted-v1:score",
+     "strength:strengthened:temporal:strength:weighted-v1",
+     "tenGodTheme:added:temporal:tengod:劫财",
+     "tenGodTheme:strengthened:temporal:tengod:正印",
+     "tiaohou:strengthened:temporal:tiaohou:丙",
+     "tongGuan:added:temporal:tongguan:bridge:METAL"
+    ]
+   },
+   "tenGodDirections": [
+    "偏印:new",
+    "劫财:new"
+   ],
+   "scores": {
+    "大运 丁卯": 0.0,
+    "大运 戊辰": 0.0
+   }
+  },
+  {
+   "probe": "f_1983_0215",
+   "note": "癸亥年女（阴女顺排）",
+   "luck": {
+    "forward": true,
+    "start": [
+     6,
+     2,
+     20,
+     0
+    ],
+    "dayun": [
+     {
+      "i": 0,
+      "gz": "",
+      "sy": 1983,
+      "ey": 1988,
+      "sa": 1
+     },
+     {
+      "i": 1,
+      "gz": "乙卯",
+      "sy": 1989,
+      "ey": 1998,
+      "sa": 7
+     },
+     {
+      "i": 2,
+      "gz": "丙辰",
+      "sy": 1999,
+      "ey": 2008,
+      "sa": 17
+     },
+     {
+      "i": 3,
+      "gz": "丁巳",
+      "sy": 2009,
+      "ey": 2018,
+      "sa": 27
+     },
+     {
+      "i": 4,
+      "gz": "戊午",
+      "sy": 2019,
+      "ey": 2028,
+      "sa": 37
+     },
+     {
+      "i": 5,
+      "gz": "己未",
+      "sy": 2029,
+      "ey": 2038,
+      "sa": 47
+     },
+     {
+      "i": 6,
+      "gz": "庚申",
+      "sy": 2039,
+      "ey": 2048,
+      "sa": 57
+     },
+     {
+      "i": 7,
+      "gz": "辛酉",
+      "sy": 2049,
+      "ey": 2058,
+      "sa": 67
+     },
+     {
+      "i": 8,
+      "gz": "壬戌",
+      "sy": 2059,
+      "ey": 2068,
+      "sa": 77
+     },
+     {
+      "i": 9,
+      "gz": "癸亥",
+      "sy": 2069,
+      "ey": 2078,
+      "sa": 87
+     }
+    ]
+   },
+   "annuals": [
+    {
+     "year": 2010,
+     "gz": "庚寅",
+     "relations": [
+      "break:亥|寅:natal:year,annual",
+      "clash:亥|巳:natal:year,luck",
+      "harm:寅|巳:natal:month,luck",
+      "six_combination:亥|寅:natal:year,annual",
+      "stem_opposition:丁|癸:natal:year,luck",
+      "stem_opposition:庚|甲:natal:day,annual",
+      "stem_opposition:庚|甲:natal:hour,annual",
+      "stem_opposition:庚|甲:natal:month,annual"
+     ],
+     "structures": [
+      "fanyin"
+     ],
+     "rules": [
+      "TR-DTZ-09",
+      "TR-FANYIN-01",
+      "TR-SPZY-28"
+     ]
+    },
+    {
+     "year": 2026,
+     "gz": "丙午",
+     "relations": [
+      "stem_combination:戊|癸:natal:year,luck",
+      "three_harmony_completed:午|寅|戌:natal:day,natal:month,luck"
+     ],
+     "structures": [],
+     "rules": [
+      "TR-SPZY-28"
+     ]
+    },
+    {
+     "year": 2040,
+     "gz": "庚申",
+     "relations": [
+      "clash:寅|申:natal:month,annual",
+      "clash:寅|申:natal:month,luck",
+      "harm:亥|申:natal:year,annual",
+      "harm:亥|申:natal:year,luck",
+      "stem_opposition:庚|甲:natal:day,annual",
+      "stem_opposition:庚|甲:natal:day,luck",
+      "stem_opposition:庚|甲:natal:hour,annual",
+      "stem_opposition:庚|甲:natal:hour,luck",
+      "stem_opposition:庚|甲:natal:month,annual",
+      "stem_opposition:庚|甲:natal:month,luck"
+     ],
+     "structures": [
+      "binglin",
+      "fanyin"
+     ],
+     "rules": [
+      "TR-BINGLIN-01",
+      "TR-DTZ-09",
+      "TR-FANYIN-01",
+      "TR-SPZY-28"
+     ]
+    }
+   ],
+   "months_2026": [
+    {
+     "n": 1,
+     "gz": "庚寅",
+     "jie": "立春",
+     "start": "2026-02-04 04:02"
+    },
+    {
+     "n": 2,
+     "gz": "辛卯",
+     "jie": "惊蛰",
+     "start": "2026-03-05 21:59"
+    },
+    {
+     "n": 3,
+     "gz": "壬辰",
+     "jie": "清明",
+     "start": "2026-04-05 02:40"
+    },
+    {
+     "n": 4,
+     "gz": "癸巳",
+     "jie": "立夏",
+     "start": "2026-05-05 19:48"
+    },
+    {
+     "n": 5,
+     "gz": "甲午",
+     "jie": "芒种",
+     "start": "2026-06-05 23:48"
+    },
+    {
+     "n": 6,
+     "gz": "乙未",
+     "jie": "小暑",
+     "start": "2026-07-07 09:56"
+    },
+    {
+     "n": 7,
+     "gz": "丙申",
+     "jie": "立秋",
+     "start": "2026-08-07 19:42"
+    },
+    {
+     "n": 8,
+     "gz": "丁酉",
+     "jie": "白露",
+     "start": "2026-09-07 22:41"
+    },
+    {
+     "n": 9,
+     "gz": "戊戌",
+     "jie": "寒露",
+     "start": "2026-10-08 14:29"
+    },
+    {
+     "n": 10,
+     "gz": "己亥",
+     "jie": "立冬",
+     "start": "2026-11-07 17:52"
+    },
+    {
+     "n": 11,
+     "gz": "庚子",
+     "jie": "大雪",
+     "start": "2026-12-07 10:52"
+    },
+    {
+     "n": 12,
+     "gz": "辛丑",
+     "jie": "小寒",
+     "start": "2027-01-05 22:09"
+    }
+   ],
+   "day_probe": {
+    "date": "2026-3-1",
+    "gz": "甲戌",
+    "jdn": 2461101
+   },
+   "delta": {
+    "deltaSchemaVersion": "1.0.0",
+    "items": [
+     "bingYao:removed:temporal:bingyao:medicine:earth:制",
+     "bingYao:removed:temporal:bingyao:problem:wood",
+     "special:added:temporal:special:cong:从儿",
+     "special:status_changed:temporal:special:zhuanwang:曲直",
+     "strength:disagreement_changed:temporal:strength:agreement",
+     "strength:status_changed:temporal:strength:weighted-v1:score",
+     "strength:weakened:temporal:strength:weighted-v1",
+     "tenGodTheme:added:temporal:tengod:食神",
+     "tiaohou:unblocked:temporal:tiaohou:丙",
+     "tongGuan:removed:temporal:tongguan:bridge:FIRE"
+    ]
+   },
+   "tenGodDirections": [
+    "劫财:new",
+    "食神:new"
+   ],
+   "scores": {
+    "大运 乙卯": 4.0,
+    "大运 丙辰": 10.0
+   }
+  },
+  {
+   "probe": "m_2003_0818",
+   "note": "癸未年男（阴男逆排）",
+   "luck": {
+    "forward": false,
+    "start": [
+     3,
+     5,
+     10,
+     0
+    ],
+    "dayun": [
+     {
+      "i": 0,
+      "gz": "",
+      "sy": 2003,
+      "ey": 2006,
+      "sa": 1
+     },
+     {
+      "i": 1,
+      "gz": "己未",
+      "sy": 2007,
+      "ey": 2016,
+      "sa": 5
+     },
+     {
+      "i": 2,
+      "gz": "戊午",
+      "sy": 2017,
+      "ey": 2026,
+      "sa": 15
+     },
+     {
+      "i": 3,
+      "gz": "丁巳",
+      "sy": 2027,
+      "ey": 2036,
+      "sa": 25
+     },
+     {
+      "i": 4,
+      "gz": "丙辰",
+      "sy": 2037,
+      "ey": 2046,
+      "sa": 35
+     },
+     {
+      "i": 5,
+      "gz": "乙卯",
+      "sy": 2047,
+      "ey": 2056,
+      "sa": 45
+     },
+     {
+      "i": 6,
+      "gz": "甲寅",
+      "sy": 2057,
+      "ey": 2066,
+      "sa": 55
+     },
+     {
+      "i": 7,
+      "gz": "癸丑",
+      "sy": 2067,
+      "ey": 2076,
+      "sa": 65
+     },
+     {
+      "i": 8,
+      "gz": "壬子",
+      "sy": 2077,
+      "ey": 2086,
+      "sa": 75
+     },
+     {
+      "i": 9,
+      "gz": "辛亥",
+      "sy": 2087,
+      "ey": 2096,
+      "sa": 85
+     }
+    ]
+   },
+   "annuals": [
+    {
+     "year": 2010,
+     "gz": "庚寅",
+     "relations": [
+      "break:亥|寅:natal:day,annual",
+      "clash:寅|申:natal:month,annual",
+      "six_combination:亥|寅:natal:day,annual"
+     ],
+     "structures": [
+      "fuyin"
+     ],
+     "rules": [
+      "TR-DTZ-09",
+      "TR-FUYIN-01",
+      "TR-SPZY-28"
+     ]
+    },
+    {
+     "year": 2026,
+     "gz": "丙午",
+     "relations": [
+      "six_combination:午|未:natal:hour,annual",
+      "six_combination:午|未:natal:hour,luck",
+      "six_combination:午|未:natal:year,annual",
+      "six_combination:午|未:natal:year,luck",
+      "stem_combination:戊|癸:natal:day,luck",
+      "stem_combination:戊|癸:natal:year,luck"
+     ],
+     "structures": [],
+     "rules": [
+      "TR-SPZY-28",
+      "TR-SS-R09"
+     ]
+    },
+    {
+     "year": 2040,
+     "gz": "庚申",
+     "relations": [
+      "harm:亥|申:natal:day,annual"
+     ],
+     "structures": [
+      "identical"
+     ],
+     "rules": [
+      "TR-DTZ-09",
+      "TR-FUYIN-01",
+      "TR-SPZY-28"
+     ]
+    }
+   ],
+   "months_2026": [
+    {
+     "n": 1,
+     "gz": "庚寅",
+     "jie": "立春",
+     "start": "2026-02-04 04:02"
+    },
+    {
+     "n": 2,
+     "gz": "辛卯",
+     "jie": "惊蛰",
+     "start": "2026-03-05 21:59"
+    },
+    {
+     "n": 3,
+     "gz": "壬辰",
+     "jie": "清明",
+     "start": "2026-04-05 02:40"
+    },
+    {
+     "n": 4,
+     "gz": "癸巳",
+     "jie": "立夏",
+     "start": "2026-05-05 19:48"
+    },
+    {
+     "n": 5,
+     "gz": "甲午",
+     "jie": "芒种",
+     "start": "2026-06-05 23:48"
+    },
+    {
+     "n": 6,
+     "gz": "乙未",
+     "jie": "小暑",
+     "start": "2026-07-07 09:56"
+    },
+    {
+     "n": 7,
+     "gz": "丙申",
+     "jie": "立秋",
+     "start": "2026-08-07 19:42"
+    },
+    {
+     "n": 8,
+     "gz": "丁酉",
+     "jie": "白露",
+     "start": "2026-09-07 22:41"
+    },
+    {
+     "n": 9,
+     "gz": "戊戌",
+     "jie": "寒露",
+     "start": "2026-10-08 14:29"
+    },
+    {
+     "n": 10,
+     "gz": "己亥",
+     "jie": "立冬",
+     "start": "2026-11-07 17:52"
+    },
+    {
+     "n": 11,
+     "gz": "庚子",
+     "jie": "大雪",
+     "start": "2026-12-07 10:52"
+    },
+    {
+     "n": 12,
+     "gz": "辛丑",
+     "jie": "小寒",
+     "start": "2027-01-05 22:09"
+    }
+   ],
+   "day_probe": {
+    "date": "2026-3-1",
+    "gz": "甲戌",
+    "jdn": 2461101
+   },
+   "delta": {
+    "deltaSchemaVersion": "1.0.0",
+    "items": [
+     "pattern:added:temporal:pattern:damage:PAT-YIN-D1",
+     "pattern:added:temporal:pattern:rescue:PAT-YIN-D1-R",
+     "pattern:added:temporal:pattern:support:PAT-YIN-S1",
+     "pattern:status_changed:temporal:pattern:status",
+     "special:added:temporal:special:cong:从财",
+     "special:added:temporal:special:transformation:戊-癸",
+     "special:blocked:temporal:special:zhuanwang:润下",
+     "strength:status_changed:temporal:strength:weighted-v1:score",
+     "strength:weakened:temporal:strength:fuyi-v1",
+     "strength:weakened:temporal:strength:weighted-v1",
+     "tenGodTheme:added:temporal:tengod:正官",
+     "tenGodTheme:added:temporal:tengod:正财"
+    ]
+   },
+   "tenGodDirections": [
+    "七杀:increased",
+    "正官:new"
+   ],
+   "scores": {
+    "大运 己未": 3.0,
+    "大运 戊午": 8.0
+   }
+  },
+  {
+   "probe": "f_1990_0615",
+   "note": "庚午年女（阳女逆排）",
+   "luck": {
+    "forward": false,
+    "start": [
+     3,
+     0,
+     0,
+     0
+    ],
+    "dayun": [
+     {
+      "i": 0,
+      "gz": "",
+      "sy": 1990,
+      "ey": 1992,
+      "sa": 1
+     },
+     {
+      "i": 1,
+      "gz": "辛巳",
+      "sy": 1993,
+      "ey": 2002,
+      "sa": 4
+     },
+     {
+      "i": 2,
+      "gz": "庚辰",
+      "sy": 2003,
+      "ey": 2012,
+      "sa": 14
+     },
+     {
+      "i": 3,
+      "gz": "己卯",
+      "sy": 2013,
+      "ey": 2022,
+      "sa": 24
+     },
+     {
+      "i": 4,
+      "gz": "戊寅",
+      "sy": 2023,
+      "ey": 2032,
+      "sa": 34
+     },
+     {
+      "i": 5,
+      "gz": "丁丑",
+      "sy": 2033,
+      "ey": 2042,
+      "sa": 44
+     },
+     {
+      "i": 6,
+      "gz": "丙子",
+      "sy": 2043,
+      "ey": 2052,
+      "sa": 54
+     },
+     {
+      "i": 7,
+      "gz": "乙亥",
+      "sy": 2053,
+      "ey": 2062,
+      "sa": 64
+     },
+     {
+      "i": 8,
+      "gz": "甲戌",
+      "sy": 2063,
+      "ey": 2072,
+      "sa": 74
+     },
+     {
+      "i": 9,
+      "gz": "癸酉",
+      "sy": 2073,
+      "ey": 2082,
+      "sa": 84
+     }
+    ]
+   },
+   "annuals": [
+    {
+     "year": 2010,
+     "gz": "庚寅",
+     "relations": [
+      "break:亥|寅:natal:day,annual",
+      "harm:卯|辰:natal:hour,luck",
+      "six_combination:亥|寅:natal:day,annual"
+     ],
+     "structures": [],
+     "rules": [
+      "TR-SPZY-28"
+     ]
+    },
+    {
+     "year": 2026,
+     "gz": "丙午",
+     "relations": [
+      "break:亥|寅:natal:day,luck",
+      "break:午|卯:natal:hour,annual",
+      "six_combination:亥|寅:natal:day,luck",
+      "stem_combination:丙|辛:natal:day,annual",
+      "stem_combination:丙|辛:natal:hour,annual",
+      "stem_opposition:丙|壬:natal:month,annual"
+     ],
+     "structures": [],
+     "rules": [
+      "TR-DTZ-09",
+      "TR-SPZY-28"
+     ]
+    },
+    {
+     "year": 2040,
+     "gz": "庚申",
+     "relations": [
+      "harm:丑|午:natal:month,luck",
+      "harm:丑|午:natal:year,luck",
+      "harm:亥|申:natal:day,annual",
+      "stem_combination:丁|壬:natal:month,luck"
+     ],
+     "structures": [],
+     "rules": [
+      "TR-SPZY-28"
+     ]
+    }
+   ],
+   "months_2026": [
+    {
+     "n": 1,
+     "gz": "庚寅",
+     "jie": "立春",
+     "start": "2026-02-04 04:02"
+    },
+    {
+     "n": 2,
+     "gz": "辛卯",
+     "jie": "惊蛰",
+     "start": "2026-03-05 21:59"
+    },
+    {
+     "n": 3,
+     "gz": "壬辰",
+     "jie": "清明",
+     "start": "2026-04-05 02:40"
+    },
+    {
+     "n": 4,
+     "gz": "癸巳",
+     "jie": "立夏",
+     "start": "2026-05-05 19:48"
+    },
+    {
+     "n": 5,
+     "gz": "甲午",
+     "jie": "芒种",
+     "start": "2026-06-05 23:48"
+    },
+    {
+     "n": 6,
+     "gz": "乙未",
+     "jie": "小暑",
+     "start": "2026-07-07 09:56"
+    },
+    {
+     "n": 7,
+     "gz": "丙申",
+     "jie": "立秋",
+     "start": "2026-08-07 19:42"
+    },
+    {
+     "n": 8,
+     "gz": "丁酉",
+     "jie": "白露",
+     "start": "2026-09-07 22:41"
+    },
+    {
+     "n": 9,
+     "gz": "戊戌",
+     "jie": "寒露",
+     "start": "2026-10-08 14:29"
+    },
+    {
+     "n": 10,
+     "gz": "己亥",
+     "jie": "立冬",
+     "start": "2026-11-07 17:52"
+    },
+    {
+     "n": 11,
+     "gz": "庚子",
+     "jie": "大雪",
+     "start": "2026-12-07 10:52"
+    },
+    {
+     "n": 12,
+     "gz": "辛丑",
+     "jie": "小寒",
+     "start": "2027-01-05 22:09"
+    }
+   ],
+   "day_probe": {
+    "date": "2026-3-1",
+    "gz": "甲戌",
+    "jdn": 2461101
+   },
+   "delta": {
+    "deltaSchemaVersion": "1.0.0",
+    "items": [
+     "pattern:added:temporal:pattern:damage:PAT-SHA-D1",
+     "pattern:status_changed:temporal:pattern:status",
+     "special:added:temporal:special:cong:从官杀",
+     "special:added:temporal:special:transformation:丙-辛",
+     "strength:disagreement_changed:temporal:strength:agreement",
+     "strength:status_changed:temporal:strength:weighted-v1:score",
+     "strength:strengthened:temporal:strength:weighted-v1",
+     "tenGodTheme:added:temporal:tengod:正官",
+     "tenGodTheme:strengthened:temporal:tengod:劫财",
+     "tongGuan:added:temporal:tongguan:bridge:EARTH",
+     "tongGuan:added:temporal:tongguan:bridge:WOOD"
+    ]
+   },
+   "tenGodDirections": [
+    "劫财:increased",
+    "比肩:increased"
+   ],
+   "scores": {
+    "大运 辛巳": 5.0,
+    "大运 庚辰": 2.0
+   }
+  },
+  {
+   "probe": "m_1976_0130",
+   "note": "立春前+晚子时（R1/R4 边界）",
+   "luck": {
+    "forward": false,
+    "start": [
+     8,
+     1,
+     20,
+     0
+    ],
+    "dayun": [
+     {
+      "i": 0,
+      "gz": "",
+      "sy": 1976,
+      "ey": 1983,
+      "sa": 1
+     },
+     {
+      "i": 1,
+      "gz": "戊子",
+      "sy": 1984,
+      "ey": 1993,
+      "sa": 9
+     },
+     {
+      "i": 2,
+      "gz": "丁亥",
+      "sy": 1994,
+      "ey": 2003,
+      "sa": 19
+     },
+     {
+      "i": 3,
+      "gz": "丙戌",
+      "sy": 2004,
+      "ey": 2013,
+      "sa": 29
+     },
+     {
+      "i": 4,
+      "gz": "乙酉",
+      "sy": 2014,
+      "ey": 2023,
+      "sa": 39
+     },
+     {
+      "i": 5,
+      "gz": "甲申",
+      "sy": 2024,
+      "ey": 2033,
+      "sa": 49
+     },
+     {
+      "i": 6,
+      "gz": "癸未",
+      "sy": 2034,
+      "ey": 2043,
+      "sa": 59
+     },
+     {
+      "i": 7,
+      "gz": "壬午",
+      "sy": 2044,
+      "ey": 2053,
+      "sa": 69
+     },
+     {
+      "i": 8,
+      "gz": "辛巳",
+      "sy": 2054,
+      "ey": 2063,
+      "sa": 79
+     },
+     {
+      "i": 9,
+      "gz": "庚辰",
+      "sy": 2064,
+      "ey": 2073,
+      "sa": 89
+     }
+    ]
+   },
+   "annuals": [
+    {
+     "year": 2010,
+     "gz": "庚寅",
+     "relations": [
+      "harm:寅|巳:natal:day,annual",
+      "six_combination:卯|戌:natal:year,luck",
+      "stem_combination:丙|辛:natal:day,luck",
+      "stem_combination:乙|庚:natal:year,annual"
+     ],
+     "structures": [],
+     "rules": [
+      "TR-SPZY-28"
+     ]
+    },
+    {
+     "year": 2026,
+     "gz": "丙午",
+     "relations": [
+      "break:午|卯:natal:year,annual",
+      "break:巳|申:natal:day,luck",
+      "clash:午|子:natal:hour,annual",
+      "harm:丑|午:natal:month,annual",
+      "six_combination:巳|申:natal:day,luck",
+      "stem_combination:丙|辛:natal:day,annual",
+      "stem_combination:己|甲:natal:month,luck",
+      "stem_opposition:庚|甲:natal:hour,luck"
+     ],
+     "structures": [],
+     "rules": [
+      "TR-SPZY-28"
+     ]
+    },
+    {
+     "year": 2040,
+     "gz": "庚申",
+     "relations": [
+      "break:巳|申:natal:day,annual",
+      "clash:丑|未:natal:month,luck",
+      "harm:子|未:natal:hour,luck",
+      "six_combination:巳|申:natal:day,annual",
+      "stem_combination:乙|庚:natal:year,annual"
+     ],
+     "structures": [
+      "fanyin"
+     ],
+     "rules": [
+      "TR-DTZ-09",
+      "TR-FANYIN-01",
+      "TR-SPZY-28"
+     ]
+    }
+   ],
+   "months_2026": [
+    {
+     "n": 1,
+     "gz": "庚寅",
+     "jie": "立春",
+     "start": "2026-02-04 04:02"
+    },
+    {
+     "n": 2,
+     "gz": "辛卯",
+     "jie": "惊蛰",
+     "start": "2026-03-05 21:59"
+    },
+    {
+     "n": 3,
+     "gz": "壬辰",
+     "jie": "清明",
+     "start": "2026-04-05 02:40"
+    },
+    {
+     "n": 4,
+     "gz": "癸巳",
+     "jie": "立夏",
+     "start": "2026-05-05 19:48"
+    },
+    {
+     "n": 5,
+     "gz": "甲午",
+     "jie": "芒种",
+     "start": "2026-06-05 23:48"
+    },
+    {
+     "n": 6,
+     "gz": "乙未",
+     "jie": "小暑",
+     "start": "2026-07-07 09:56"
+    },
+    {
+     "n": 7,
+     "gz": "丙申",
+     "jie": "立秋",
+     "start": "2026-08-07 19:42"
+    },
+    {
+     "n": 8,
+     "gz": "丁酉",
+     "jie": "白露",
+     "start": "2026-09-07 22:41"
+    },
+    {
+     "n": 9,
+     "gz": "戊戌",
+     "jie": "寒露",
+     "start": "2026-10-08 14:29"
+    },
+    {
+     "n": 10,
+     "gz": "己亥",
+     "jie": "立冬",
+     "start": "2026-11-07 17:52"
+    },
+    {
+     "n": 11,
+     "gz": "庚子",
+     "jie": "大雪",
+     "start": "2026-12-07 10:52"
+    },
+    {
+     "n": 12,
+     "gz": "辛丑",
+     "jie": "小寒",
+     "start": "2027-01-05 22:09"
+    }
+   ],
+   "day_probe": {
+    "date": "2026-3-1",
+    "gz": "甲戌",
+    "jdn": 2461101
+   },
+   "delta": {
+    "deltaSchemaVersion": "1.0.0",
+    "items": [
+     "pattern:added:temporal:pattern:rescue:PAT-YIN2-D1-R",
+     "pattern:added:temporal:pattern:support:PAT-YIN2-S1",
+     "pattern:status_changed:temporal:pattern:status",
+     "special:added:temporal:special:cong:从官杀",
+     "special:added:temporal:special:transformation:丙-辛",
+     "special:unblocked:temporal:special:cong:从财",
+     "strength:disagreement_changed:temporal:strength:agreement",
+     "strength:status_changed:temporal:strength:weighted-v1:score",
+     "strength:weakened:temporal:strength:weighted-v1",
+     "tenGodTheme:added:temporal:tengod:七杀",
+     "tenGodTheme:added:temporal:tengod:正官",
+     "tiaohou:unblocked:temporal:tiaohou:丙",
+     "tongGuan:added:temporal:tongguan:bridge:EARTH",
+     "tongGuan:added:temporal:tongguan:bridge:EARTH",
+     "tongGuan:removed:temporal:tongguan:bridge:METAL",
+     "tongGuan:removed:temporal:tongguan:bridge:WATER"
+    ]
+   },
+   "tenGodDirections": [
+    "七杀:new",
+    "正印:new"
+   ],
+   "scores": {
+    "大运 戊子": 2.0,
+    "大运 丁亥": 5.0
+   }
+  },
+  {
+   "probe": "f_2000_0229",
+   "note": "闰年闰日",
+   "luck": {
+    "forward": false,
+    "start": [
+     8,
+     2,
+     20,
+     0
+    ],
+    "dayun": [
+     {
+      "i": 0,
+      "gz": "",
+      "sy": 2000,
+      "ey": 2007,
+      "sa": 1
+     },
+     {
+      "i": 1,
+      "gz": "丁丑",
+      "sy": 2008,
+      "ey": 2017,
+      "sa": 9
+     },
+     {
+      "i": 2,
+      "gz": "丙子",
+      "sy": 2018,
+      "ey": 2027,
+      "sa": 19
+     },
+     {
+      "i": 3,
+      "gz": "乙亥",
+      "sy": 2028,
+      "ey": 2037,
+      "sa": 29
+     },
+     {
+      "i": 4,
+      "gz": "甲戌",
+      "sy": 2038,
+      "ey": 2047,
+      "sa": 39
+     },
+     {
+      "i": 5,
+      "gz": "癸酉",
+      "sy": 2048,
+      "ey": 2057,
+      "sa": 49
+     },
+     {
+      "i": 6,
+      "gz": "壬申",
+      "sy": 2058,
+      "ey": 2067,
+      "sa": 59
+     },
+     {
+      "i": 7,
+      "gz": "辛未",
+      "sy": 2068,
+      "ey": 2077,
+      "sa": 69
+     },
+     {
+      "i": 8,
+      "gz": "庚午",
+      "sy": 2078,
+      "ey": 2087,
+      "sa": 79
+     },
+     {
+      "i": 9,
+      "gz": "己巳",
+      "sy": 2088,
+      "ey": 2097,
+      "sa": 89
+     }
+    ]
+   },
+   "annuals": [
+    {
+     "year": 2010,
+     "gz": "庚寅",
+     "relations": [
+      "break:丑|辰:natal:year,luck",
+      "harm:丑|午:natal:hour,luck",
+      "harm:寅|巳:natal:day,annual"
+     ],
+     "structures": [],
+     "rules": [
+      "TR-DTZ-09",
+      "TR-SPZY-28",
+      "TR-SS-R09"
+     ]
+    },
+    {
+     "year": 2026,
+     "gz": "丙午",
+     "relations": [
+      "clash:午|子:natal:hour,luck"
+     ],
+     "structures": [
+      "fanyin",
+      "identical"
+     ],
+     "rules": [
+      "TR-FANYIN-01",
+      "TR-FUYIN-01",
+      "TR-SPZY-28"
+     ]
+    },
+    {
+     "year": 2040,
+     "gz": "庚申",
+     "relations": [
+      "break:巳|申:natal:day,annual",
+      "clash:寅|申:natal:month,annual",
+      "clash:戌|辰:natal:year,luck",
+      "six_combination:巳|申:natal:day,annual",
+      "stem_opposition:庚|甲:natal:year,luck",
+      "three_harmony_completed:午|寅|戌:natal:hour,natal:month,luck"
+     ],
+     "structures": [
+      "fanyin"
+     ],
+     "rules": [
+      "TR-DTZ-09",
+      "TR-FANYIN-01",
+      "TR-SPZY-28",
+      "TR-SS-R09"
+     ]
+    }
+   ],
+   "months_2026": [
+    {
+     "n": 1,
+     "gz": "庚寅",
+     "jie": "立春",
+     "start": "2026-02-04 04:02"
+    },
+    {
+     "n": 2,
+     "gz": "辛卯",
+     "jie": "惊蛰",
+     "start": "2026-03-05 21:59"
+    },
+    {
+     "n": 3,
+     "gz": "壬辰",
+     "jie": "清明",
+     "start": "2026-04-05 02:40"
+    },
+    {
+     "n": 4,
+     "gz": "癸巳",
+     "jie": "立夏",
+     "start": "2026-05-05 19:48"
+    },
+    {
+     "n": 5,
+     "gz": "甲午",
+     "jie": "芒种",
+     "start": "2026-06-05 23:48"
+    },
+    {
+     "n": 6,
+     "gz": "乙未",
+     "jie": "小暑",
+     "start": "2026-07-07 09:56"
+    },
+    {
+     "n": 7,
+     "gz": "丙申",
+     "jie": "立秋",
+     "start": "2026-08-07 19:42"
+    },
+    {
+     "n": 8,
+     "gz": "丁酉",
+     "jie": "白露",
+     "start": "2026-09-07 22:41"
+    },
+    {
+     "n": 9,
+     "gz": "戊戌",
+     "jie": "寒露",
+     "start": "2026-10-08 14:29"
+    },
+    {
+     "n": 10,
+     "gz": "己亥",
+     "jie": "立冬",
+     "start": "2026-11-07 17:52"
+    },
+    {
+     "n": 11,
+     "gz": "庚子",
+     "jie": "大雪",
+     "start": "2026-12-07 10:52"
+    },
+    {
+     "n": 12,
+     "gz": "辛丑",
+     "jie": "小寒",
+     "start": "2027-01-05 22:09"
+    }
+   ],
+   "day_probe": {
+    "date": "2026-3-1",
+    "gz": "甲戌",
+    "jdn": 2461101
+   },
+   "delta": {
+    "deltaSchemaVersion": "1.0.0",
+    "items": [
+     "strength:disagreement_changed:temporal:strength:agreement",
+     "strength:status_changed:temporal:strength:dimensional_v1:de_shi",
+     "strength:status_changed:temporal:strength:weighted-v1:score",
+     "strength:strengthened:temporal:strength:weighted-v1",
+     "tenGodTheme:strengthened:temporal:tengod:劫财",
+     "tongGuan:added:temporal:tongguan:bridge:EARTH",
+     "tongGuan:added:temporal:tongguan:bridge:METAL"
+    ]
+   },
+   "tenGodDirections": [
+    "劫财:increased",
+    "比肩:new"
+   ],
+   "scores": {
+    "大运 丁丑": 4.0,
+    "大运 丙子": 5.0
+   }
+  }
+ ]
+}

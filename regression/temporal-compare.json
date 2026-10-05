@@ -1,0 +1,24 @@
+{
+ "meta": {
+  "baseline": {
+   "engineVersion": "0.2.0",
+   "engineStage": "M4",
+   "deltaSchemaVersion": "1.0.0",
+   "generatedBy": "tools/temporal_regression.py snapshot",
+   "count": 6
+  },
+  "current": {
+   "engineVersion": "0.2.0",
+   "engineStage": "M4",
+   "deltaSchemaVersion": "1.0.0"
+  }
+ },
+ "probeCount": {
+  "baseline": 6,
+  "current": 6
+ },
+ "newProbes": [],
+ "removedProbes": [],
+ "changedProbes": [],
+ "severityCounts": {}
+}
