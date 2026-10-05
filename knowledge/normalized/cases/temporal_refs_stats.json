@@ -1,0 +1,19 @@
+{
+  "totalCases": 1147,
+  "withSourceDayun": 101,
+  "dayunConsistent": 97,
+  "dayunInconsistent": 3,
+  "dayunUnparsedResidual": 266,
+  "withMentions": 63,
+  "mentionTotal": 134,
+  "mentionByKind": {
+    "luck": 93,
+    "annual": 41
+  },
+  "historicalClaims": 529,
+  "tianzeComputed": 508,
+  "tianzeNotComputed": 639,
+  "dayunForward": 49,
+  "dayunBackward": 48,
+  "dayunNotRecorded": 380
+}
