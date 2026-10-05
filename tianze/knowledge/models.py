@@ -206,7 +206,7 @@ class ExecutableRule(CamelizeModel):
 
     id: str
     candidate_id: str                  # 指回 RuleCandidate.id（引用完整性受检）
-    domain: Literal["tiaohou", "generic"]
+    domain: Literal["tiaohou", "generic", "temporal"]
     conditions: list[RuleCondition]
     effects: list[RuleEffect]
     exceptions: list[RuleCondition] = []

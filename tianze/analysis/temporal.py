@@ -20,7 +20,7 @@ from pydantic import BaseModel, ConfigDict
 __all__ = [
     "TemporalSource", "TemporalContext", "TemporalRelation",
     "TemporalStructure", "TemporalDelta", "TemporalAnalysis",
-    "AnalysisSupport", "analyze_temporal",
+    "TemporalEvidence", "AnalysisSupport", "analyze_temporal",
 ]
 
 
@@ -95,6 +95,10 @@ class TemporalContext(CamelizeModel):
     def natal_positions(self) -> list[str]:
         return ["year", "month", "day", "hour"][:len(self.natal_stems)]
 
+    def month_branch(self) -> str | None:
+        """原局月支（岁运分析中月令永远取原局，R4/月令原则）。"""
+        return self.natal_branches[1] if len(self.natal_branches) > 1 else None
+
 
 class TemporalRelation(CamelizeModel):
     """带来源标记的岁运关系。"""
@@ -128,13 +132,25 @@ class TemporalDelta(CamelizeModel):
     description: str = ""
 
 
+class TemporalEvidence(CamelizeModel):
+    """一条岁运规则触发证据（M13：ExecutableRule(domain=temporal) → 结构观察，非吉凶）。"""
+    ruleId: str
+    category: str = "generic"
+    label: str = ""
+    matched: bool = False
+    observations: list[str] = []
+    provenance: list[Any] = []
+    refId: str | None = None
+
+
 class TemporalAnalysis(CamelizeModel):
-    """M12 完整岁运结构分析结果。"""
+    """M12/M13 完整岁运结构分析结果。"""
     context: TemporalContext
     relations: list[TemporalRelation] = []
     structures: list[TemporalStructure] = []
     deltas: list[TemporalDelta] = []
     evidence: list[str] = []
+    ruleTriggers: list[TemporalEvidence] = []
     warnings: list[str] = []
 
 
@@ -163,7 +179,7 @@ def _detect_structures(ctx: TemporalContext) -> list[TemporalStructure]:
                 continue
             bi = BRANCHES.index(b) if b in BRANCHES else -1
             li = BRANCHES.index(ctx.luck_branch) if ctx.luck_branch in BRANCHES else -1
-            if bi >= 0 and li >= 0 and (bi - li) % 6 == 0:
+            if bi >= 0 and li >= 0 and bi != li and (bi - li) % 6 == 0:
                 structures.append(TemporalStructure(
                     type="fanyin", label=f"大运反吟（{b}{ctx.luck_branch}冲）",
                     description=f"大运地支{ctx.luck_branch}与原局{_pos(i)}支{b}相冲",
@@ -195,7 +211,7 @@ def _detect_structures(ctx: TemporalContext) -> list[TemporalStructure]:
         stem_ke = (se_a and se_l) and (_CTL.get(se_a) == se_l or _CTL.get(se_l) == se_a)
         bi_l = BRANCHES.index(ctx.luck_branch) if ctx.luck_branch in BRANCHES else -1
         bi_a = BRANCHES.index(ctx.annual_branch) if ctx.annual_branch in BRANCHES else -1
-        branch_chong = bi_l >= 0 and bi_a >= 0 and (bi_l - bi_a) % 6 == 0
+        branch_chong = bi_l >= 0 and bi_a >= 0 and bi_l != bi_a and (bi_l - bi_a) % 6 == 0
         if stem_ke and branch_chong:
             structures.append(TemporalStructure(
                 type="tiankedi", label=f"天克地冲（{ab}{ctx.annual_branch} ↔ {ls}{ctx.luck_branch}）",
@@ -385,10 +401,14 @@ def analyze_temporal(
     # 结构现象
     structures = _detect_structures(ctx)
 
+    # M13：岁运知识规则 → TemporalEvidence（懒加载避免循环依赖）
+    from tianze.knowledge.temporal_rules import evaluate_temporal_rules
+    rule_triggers = evaluate_temporal_rules(ctx, relations, structures)
+
     return TemporalAnalysis(
         context=ctx, relations=relations, structures=structures,
-        evidence=evidence,
-        warnings=["M12 岁运分析为结构变化检测，不构成任何吉凶预测。"],
+        evidence=evidence, ruleTriggers=rule_triggers,
+        warnings=["M12/M13 岁运分析为结构变化检测，不构成任何吉凶预测。"],
     )
 
 
