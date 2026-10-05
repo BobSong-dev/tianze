@@ -112,6 +112,9 @@ class AnalysisOptions(BaseModel):
     include_temporal: bool = False
     target_luck_index: int | None = None
     target_year: int | None = None
+    target_month: int | None = None       # M13：流月序（1=寅月，节气窗口）
+    target_day: str | None = None         # M13：流日（"YYYY-MM-DD"，公历）
+    include_temporal_delta: bool = False  # M13：完整 Temporal Delta（strength/pattern/tiaohou/special/...）
 
 
 # ---- 输出模型 ----
@@ -243,53 +246,57 @@ def analyze(
     fallbacks = list(d.get("meta", {}).get("fallbacks") or [])
     missing = list(d.get("meta", {}).get("fallbacks") or [])  # 缺失能力
 
-    # M12: Temporal analysis (optional)
+    # M12/M13: Temporal analysis (optional)
     temporal = None
     if options.include_temporal and chart.luck:
-        from tianze.analysis.temporal import analyze_temporal
-        luck_idx = options.target_luck_index
-        annual_year = options.target_year
-        luck_stem, luck_branch = None, None
-        if luck_idx is not None and chart.luck and chart.luck.da_yun:
-            for dy in chart.luck.da_yun:
-                if dy.index == luck_idx and dy.gan_zhi:
-                    luck_stem, luck_branch = dy.gan_zhi[0], dy.gan_zhi[1]
-                    break
-        # If target_year given but no luck_index, find current luck pillar
-        if annual_year and luck_stem is None and chart.luck.da_yun:
-            for dy in chart.luck.da_yun:
-                if dy.start_year <= annual_year <= dy.end_year and dy.gan_zhi:
-                    luck_stem, luck_branch = dy.gan_zhi[0], dy.gan_zhi[1]
-                    break
-        annual_stem, annual_branch = None, None
-        if annual_year:
-            from tianze.ganzhi.tables import STEMS, BRANCHES
-            ai = (annual_year - 4) % 10
-            ab = (annual_year - 4) % 12
-            annual_stem = STEMS[ai]
-            annual_branch = BRANCHES[ab]
+        from tianze.analysis.temporal_extended import (
+            build_focused_temporal, build_timeline, month_windows_for_year,
+        )
+        from tianze.analysis.temporal_delta import compute_temporal_delta
 
-        natal_stems = [chart.pillars.year.stem, chart.pillars.month.stem,
-                       chart.pillars.day.stem]
-        if chart.pillars.hour:
-            natal_stems.append(chart.pillars.hour.stem)
-        natal_branches = [chart.pillars.year.branch, chart.pillars.month.branch,
-                          chart.pillars.day.branch]
-        if chart.pillars.hour:
-            natal_branches.append(chart.pillars.hour.branch)
+        # 解析 target_day
+        target_day_tuple = None
+        if options.target_day:
+            try:
+                yd, md, dd = (int(x) for x in options.target_day.split("-"))
+                target_day_tuple = (yd, md, dd)
+            except ValueError:
+                raise InvalidBirthInfo(f"target_day 格式无效: {options.target_day!r}（应为 YYYY-MM-DD）") from None
 
-        temporal_result = analyze_temporal(
-            natal_stems=natal_stems, natal_branches=natal_branches,
-            day_master=chart.day_master.stem,
-            luck_stem=luck_stem, luck_branch=luck_branch,
-            annual_stem=annual_stem, annual_branch=annual_branch,
-            luck_index=luck_idx, annual_year=annual_year,
+        temporal_result, mw_info = build_focused_temporal(
+            chart,
+            luck_index=options.target_luck_index,
+            year=options.target_year,
+            month_number=options.target_month,
+            day=target_day_tuple,
         )
         temporal = temporal_result.model_dump(by_alias=True, exclude_none=True)
+        if mw_info:
+            temporal["monthWindow"] = mw_info
 
-        # M12 extended: Timeline
+        # M13: 完整 Delta（所选岁运层级 vs 原局）
+        if options.include_temporal_delta:
+            luck_pair = None
+            if temporal.get("context", {}).get("luckStem"):
+                luck_pair = (temporal["context"]["luckStem"], temporal["context"].get("luckBranch"))
+            annual_pair = None
+            if temporal.get("context", {}).get("annualStem"):
+                annual_pair = (temporal["context"]["annualStem"], temporal["context"].get("annualBranch"))
+            monthly_pair = None
+            if temporal.get("context", {}).get("monthlyStem"):
+                monthly_pair = (temporal["context"]["monthlyStem"], temporal["context"].get("monthlyBranch"))
+            daily_pair = None
+            if temporal.get("context", {}).get("dailyStem"):
+                daily_pair = (temporal["context"]["dailyStem"], temporal["context"].get("dailyBranch"))
+            delta_report = compute_temporal_delta(
+                chart, luck=luck_pair, annual=annual_pair,
+                monthly=monthly_pair, daily=daily_pair,
+                luck_index=options.target_luck_index, annual_year=options.target_year,
+            )
+            temporal["delta"] = delta_report.model_dump(by_alias=True, exclude_none=True)
+
+        # M12/M13: Timeline（大运→流年；focus_year/focus_month 展开流月/流日）
         if chart.luck and chart.luck.da_yun:
-            from tianze.analysis.temporal_extended import build_timeline
             dy_dicts = [dy.model_dump(by_alias=True, exclude_none=True) for dy in chart.luck.da_yun]
             birth_year = birth_date.year
             natal_stems_tl = [chart.pillars.year.stem, chart.pillars.month.stem,
@@ -304,6 +311,8 @@ def analyze(
                 natal_stems=natal_stems_tl, natal_branches=natal_branches_tl,
                 day_master=chart.day_master.stem, birth_year=birth_year,
                 da_yun=dy_dicts,
+                focus_year=options.target_year,
+                focus_month=options.target_month,
             )
             temporal["timeline"] = timeline.model_dump(by_alias=True, exclude_none=True)
 

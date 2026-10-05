@@ -28,6 +28,8 @@ class TemporalSource(str, Enum):
     NATAL = "natal"
     LUCK = "luck"
     ANNUAL = "annual"
+    MONTHLY = "monthly"
+    DAILY = "daily"
 
 
 class AnalysisSupport(str, Enum):
@@ -44,6 +46,10 @@ class TemporalContext(CamelizeModel):
     luck_branch: str | None = None
     annual_stem: str | None = None
     annual_branch: str | None = None
+    monthly_stem: str | None = None   # 流月干（M13）
+    monthly_branch: str | None = None
+    daily_stem: str | None = None     # 流日干（M13）
+    daily_branch: str | None = None
     luck_index: int | None = None
     annual_year: int | None = None
     day_master: str = ""
@@ -55,6 +61,10 @@ class TemporalContext(CamelizeModel):
             out.append((self.luck_stem, TemporalSource.LUCK))
         if self.annual_stem:
             out.append((self.annual_stem, TemporalSource.ANNUAL))
+        if self.monthly_stem:
+            out.append((self.monthly_stem, TemporalSource.MONTHLY))
+        if self.daily_stem:
+            out.append((self.daily_stem, TemporalSource.DAILY))
         return out
 
     def all_branches(self) -> list[tuple[str, TemporalSource]]:
@@ -63,6 +73,23 @@ class TemporalContext(CamelizeModel):
             out.append((self.luck_branch, TemporalSource.LUCK))
         if self.annual_branch:
             out.append((self.annual_branch, TemporalSource.ANNUAL))
+        if self.monthly_branch:
+            out.append((self.monthly_branch, TemporalSource.MONTHLY))
+        if self.daily_branch:
+            out.append((self.daily_branch, TemporalSource.DAILY))
+        return out
+
+    def temporal_units(self) -> list[tuple[str, str | None, str | None]]:
+        """岁运层单元：(层标签, 干, 支)，按 大运→流年→流月→流日 顺序。"""
+        out = []
+        if self.luck_stem or self.luck_branch:
+            out.append(("luck", self.luck_stem, self.luck_branch))
+        if self.annual_stem or self.annual_branch:
+            out.append(("annual", self.annual_stem, self.annual_branch))
+        if self.monthly_stem or self.monthly_branch:
+            out.append(("monthly", self.monthly_stem, self.monthly_branch))
+        if self.daily_stem or self.daily_branch:
+            out.append(("daily", self.daily_stem, self.daily_branch))
         return out
 
     def natal_positions(self) -> list[str]:
@@ -196,6 +223,9 @@ def _pos(i: int) -> str:
     return ["year", "month", "day", "hour"][i] if i < 4 else f"pos{i}"
 
 
+_LAYER_CN = {"luck": "大运", "annual": "流年", "monthly": "流月", "daily": "流日"}
+
+
 def _natal_name(i: int) -> str:
     return ["年柱", "月柱", "日柱", "时柱"][i] if i < 4 else f"第{i}柱"
 
@@ -210,20 +240,27 @@ def analyze_temporal(
     luck_branch: str | None = None,
     annual_stem: str | None = None,
     annual_branch: str | None = None,
+    monthly_stem: str | None = None,
+    monthly_branch: str | None = None,
+    daily_stem: str | None = None,
+    daily_branch: str | None = None,
     luck_index: int | None = None,
     annual_year: int | None = None,
     luck_pillar: dict | None = None,     # DaYunEntry dict
     annual_pillar: dict | None = None,   # LiuNianEntry dict
 ) -> TemporalAnalysis:
-    """M12 岁运结构分析入口。
+    """M12/M13 岁运结构分析入口。
 
-    输入原局四柱 + 可选大运干支 + 可选流年干支。
+    输入原局四柱 + 可选大运/流年/流月/流日干支。
     输出：岁运关系（带来源标记）、结构现象、与原局的 Delta。
+    月令保持原局事实：岁运字不参与月令判定。
     """
     ctx = TemporalContext(
         natal_stems=list(natal_stems), natal_branches=list(natal_branches),
         luck_stem=luck_stem, luck_branch=luck_branch,
         annual_stem=annual_stem, annual_branch=annual_branch,
+        monthly_stem=monthly_stem, monthly_branch=monthly_branch,
+        daily_stem=daily_stem, daily_branch=daily_branch,
         luck_index=luck_index, annual_year=annual_year,
         day_master=day_master,
     )
@@ -253,7 +290,7 @@ def analyze_temporal(
                         is_new=True,
                         transform_candidate=transform.value if hasattr(transform, "value") else transform,
                     ))
-                    evidence.append(f"岁运{source_label}干{st}与原局{_pos(i)}干{ns}构成天干五合")
+                    evidence.append(f"岁运{_LAYER_CN.get(source_label, source_label)}干{st}与原局{_pos(i)}干{ns}构成天干五合")
                 if pair in STEM_OPPOSITIONS:
                     relations.append(TemporalRelation(
                         kind="stem_opposition",
@@ -263,7 +300,7 @@ def analyze_temporal(
                         sources=[TemporalSource.NATAL, _src(source_label)],
                         is_new=True,
                     ))
-                    evidence.append(f"岁运{source_label}干{st}与原局{_pos(i)}干{ns}天干相冲")
+                    evidence.append(f"岁运{_LAYER_CN.get(source_label, source_label)}干{st}与原局{_pos(i)}干{ns}天干相冲")
         # 岁运支与原局支的地支关系
         if br:
             for i, nb in enumerate(ctx.natal_branches):
@@ -283,7 +320,7 @@ def analyze_temporal(
                         sources=[TemporalSource.NATAL, _src(source_label)],
                         is_new=True,
                     ))
-                    evidence.append(f"岁运{source_label}支{br}与原局{_pos(i)}支{nb}相冲")
+                    evidence.append(f"岁运{_LAYER_CN.get(source_label, source_label)}支{br}与原局{_pos(i)}支{nb}相冲")
                 if pair_fs in SIX_COMBINATIONS:
                     transform = SIX_COMBINATIONS[pair_fs]
                     relations.append(TemporalRelation(
@@ -293,7 +330,7 @@ def analyze_temporal(
                         sources=[TemporalSource.NATAL, _src(source_label)],
                         is_new=True, transform_candidate=transform.value if hasattr(transform, "value") else transform,
                     ))
-                    evidence.append(f"岁运{source_label}支{br}与原局{_pos(i)}支{nb}六合")
+                    evidence.append(f"岁运{_LAYER_CN.get(source_label, source_label)}支{br}与原局{_pos(i)}支{nb}六合")
                 if pair_fs in SIX_HARMS:
                     relations.append(TemporalRelation(
                         kind="harm", label=f"{br}{nb}害",
@@ -319,15 +356,14 @@ def analyze_temporal(
         if len(natal_members) == 2:
             missing = trio - set(natal_members)
             missing_branch = list(missing)[0]
-            # 检查岁运是否补齐
+            # 检查岁运是否补齐（大运/流年/流月/流日）
             temporal_branch = None
             temporal_src = None
-            if ctx.luck_branch == missing_branch:
-                temporal_branch = ctx.luck_branch
-                temporal_src = "luck"
-            if ctx.annual_branch == missing_branch:
-                temporal_branch = ctx.annual_branch
-                temporal_src = "annual"
+            for label, st, br in ctx.temporal_units():
+                if br == missing_branch:
+                    temporal_branch = br
+                    temporal_src = label
+                    break
             if temporal_branch:
                 relations.append(TemporalRelation(
                     kind="three_harmony_completed",
@@ -337,11 +373,12 @@ def analyze_temporal(
                     sources=[TemporalSource.NATAL, _src(temporal_src)],
                     is_new=True, completes_harmony=True,
                     transform_candidate=elem.value if hasattr(elem, "value") else elem,
-                    note=f"原局{'+'.join(natal_members)}，岁运补{missing_branch}",
+                    note=f"原局{'+'.join(natal_members)}，"
+                         f"岁运{_LAYER_CN.get(temporal_src, temporal_src)}补{missing_branch}",
                 ))
                 evidence.append(
                     f"三合补齐：原局{'+'.join(natal_members)}，"
-                    f"岁运{'大运' if temporal_src == 'luck' else '流年'}地支{missing_branch}"
+                    f"岁运{_LAYER_CN.get(temporal_src, temporal_src)}地支{missing_branch}"
                     f"补齐{''.join(sorted(trio))}三合{elem.value}局条件"
                 )
 
@@ -356,12 +393,15 @@ def analyze_temporal(
 
 
 def _iter_temporal_stems_branches(ctx: TemporalContext):
-    """迭代岁运干支对：大运 + 流年。"""
-    if ctx.luck_stem:
-        yield "luck", ctx.luck_stem, ctx.luck_branch
-    if ctx.annual_stem:
-        yield "annual", ctx.annual_stem, ctx.annual_branch
+    """迭代岁运干支对：大运 → 流年 → 流月 → 流日。"""
+    for label, stem, branch in ctx.temporal_units():
+        if stem:
+            yield label, stem, branch
+
+
+_SRC_MAP = {"luck": TemporalSource.LUCK, "annual": TemporalSource.ANNUAL,
+            "monthly": TemporalSource.MONTHLY, "daily": TemporalSource.DAILY}
 
 
 def _src(label: str) -> TemporalSource:
-    return TemporalSource.LUCK if label == "luck" else TemporalSource.ANNUAL
+    return _SRC_MAP.get(label, TemporalSource.LUCK)

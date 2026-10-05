@@ -129,3 +129,65 @@ def test_canonical_snapshot(case):
     # 结构完整性
     assert "meta" in r.model_dump()
     assert "conventions" in r.model_dump()
+
+
+# ---------- M12/M13 Temporal SDK ----------
+
+def test_sdk_temporal_focused_month_day():
+    """include_temporal + target_year/target_month/target_day → 聚焦岁运分析。"""
+    r = analyze(_birth(), AnalysisOptions(
+        include_temporal=True, target_year=2026, target_month=1,
+        target_day="2026-03-01",
+    ))
+    t = r.temporal
+    assert t is not None
+    ctx = t["context"]
+    assert ctx["annualStem"] == "丙" and ctx["annualBranch"] == "午"
+    assert ctx["monthlyStem"] == "庚" and ctx["monthlyBranch"] == "寅"  # 丙年寅月
+    assert ctx["dailyStem"] and ctx["dailyBranch"]
+    assert "monthWindow" in t and "立春" in t["monthWindow"]["jieName"]
+    # timeline 只展开目标年（树形展平后流月=12）
+    tl = t["timeline"]
+
+    def _flat(nodes):
+        out = []
+        for n in nodes:
+            out.append(n)
+            out.extend(_flat(n.get("children", [])))
+        return out
+
+    months = [n for n in _flat(tl["nodes"]) if n["level"] == "monthly"]
+    assert len(months) == 12
+
+
+def test_sdk_temporal_delta():
+    """include_temporal_delta → 统一 Delta 报告（含 schema 版本与边界声明）。"""
+    r = analyze(_birth(), AnalysisOptions(
+        include_temporal=True, target_year=2026,
+        include_temporal_delta=True,
+    ))
+    delta = r.temporal["delta"]
+    assert delta["deltaSchemaVersion"] == "1.0.0"
+    assert delta["warnings"]
+    for it in delta["items"]:
+        assert it["analysis"] in ("strength", "pattern", "tiaohou", "special",
+                                  "bingYao", "tongGuan", "tenGodTheme")
+        assert it["supportLevel"] in ("SUPPORTED", "EXPERIMENTAL", "UNSUPPORTED")
+        assert it["refId"].startswith("temporal:")
+
+
+def test_sdk_temporal_target_day_invalid():
+    from tianze import InvalidBirthInfo
+    with pytest.raises(InvalidBirthInfo):
+        analyze(_birth(), AnalysisOptions(
+            include_temporal=True, target_year=2026, target_day="bad-date",
+        ))
+
+
+def test_sdk_temporal_deterministic():
+    """同输入同版本 → temporal 输出逐字节一致。"""
+    opts = AnalysisOptions(include_temporal=True, target_year=2026,
+                           target_month=1, include_temporal_delta=True)
+    r1 = analyze(_birth(), opts)
+    r2 = analyze(_birth(), opts)
+    assert r1.model_dump_json() == r2.model_dump_json()

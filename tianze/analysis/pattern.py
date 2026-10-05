@@ -58,7 +58,7 @@ _RULE_PROV = Provenance(
     note="规则条件为工程化转写，古籍原文核校留待知识库接入",
 )
 
-_POS_CN = {"year": "年", "month": "月", "day": "日", "hour": "时"}
+_POS_CN = {"year": "年", "month": "月", "day": "日", "hour": "时", "luck": "大运", "annual": "流年", "monthly": "流月", "daily": "流日"}
 
 _BI_JIE = {TenGod.BI_JIAN, TenGod.JIE_CAI}
 _YIN = {TenGod.ZHENG_YIN, TenGod.PIAN_YIN}

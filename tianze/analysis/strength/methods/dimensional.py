@@ -13,7 +13,7 @@ from tianze.analysis.strength.base import StrengthFacts
 from tianze.domain.models import DimensionResult, DimensionalEvidence, StrengthMethodResult, TenGod
 from tianze.ganzhi.tables import ten_god
 
-_POS_CN = {"year": "年", "month": "月", "day": "日", "hour": "时"}
+_POS_CN = {"year": "年", "month": "月", "day": "日", "hour": "时", "luck": "大运", "annual": "流年", "monthly": "流月", "daily": "流日"}
 _HELPFUL: frozenset[TenGod] = frozenset({
     TenGod.BI_JIAN, TenGod.JIE_CAI, TenGod.PIAN_YIN, TenGod.ZHENG_YIN,
 })

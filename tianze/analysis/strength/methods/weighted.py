@@ -35,7 +35,7 @@ ELEM_CN: dict[Element, str] = {
     Element.WOOD: "木", Element.FIRE: "火", Element.EARTH: "土",
     Element.METAL: "金", Element.WATER: "水",
 }
-POS_CN = {"year": "年", "month": "月", "day": "日", "hour": "时"}
+POS_CN = {"year": "年", "month": "月", "day": "日", "hour": "时", "luck": "大运", "annual": "流年", "monthly": "流月", "daily": "流日"}
 
 
 class WeightedStrengthParams:
