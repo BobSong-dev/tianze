@@ -52,7 +52,16 @@ def main() -> int:
     dup_er = [i for i, n in __import__("collections").Counter(er_ids).items() if n > 1]
     problems.extend(f"重复 ExecutableRule ID: {i}" for i in dup_er)
 
-    invalid_refs = [r["id"] for r in executable if r["candidateId"] not in all_candidates]
+    # TIANZE-ENGINEERING-* 候选引用：工程化 heuristic 无文献候选（必须带 heuristic 类 provenance）
+    def _engineering_ok(r: dict) -> bool:
+        prov_levels = {p["level"] for p in r.get("provenance", [])}
+        return "ENGINEERING_HEURISTIC" in prov_levels
+
+    invalid_refs = [
+        r["id"] for r in executable
+        if r["candidateId"] not in all_candidates
+        and not (r["candidateId"].startswith("TIANZE-ENGINEERING-") and _engineering_ok(r))
+    ]
     problems.extend(f"无效候选引用: {i}" for i in invalid_refs)
 
     missing_source = [r["id"] for r in executable if not r.get("source", {}).get("book")]

@@ -28,6 +28,7 @@ def _quote_note(quote: str) -> str:
 def build_rule(rid: str, candidate_id: str, category: str, label: str,
                conditions: list[dict], effects: list[dict],
                provenance: list[dict], quality: str,
+               source: dict,
                normalization_notes: str | None = None,
                conflict_note: str | None = None) -> dict:
     return {
@@ -43,6 +44,7 @@ def build_rule(rid: str, candidate_id: str, category: str, label: str,
         "normalizationNotes": normalization_notes,
         "conflictNote": conflict_note,
         "provenance": provenance,
+        "source": source,
         "quality": quality,
         "status": "active",
         "verification": {
@@ -78,6 +80,10 @@ def main() -> int:
             conditions=[{"field": "dayMasterKeAnnualStem", "operator": "eq", "value": True}],
             effects=[{"kind": "note",
                       "text": "日犯岁君结构：检查继善篇救应法（克者→救神映射），输出有救/无救观察"}],
+            source={"sourceKind": "COMMENTARY", "book": "守素室丛谈",
+                    "chapter": "日犯岁君", "pages": [2],
+                    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（原著）"},
             provenance=[
                 {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库（用户提供 zip）",
                  "concept": "守素室丛谈·日犯岁君节（SS-R09）"},
@@ -96,6 +102,10 @@ def main() -> int:
             conditions=[{"field": "annualBranch", "operator": "eq", "value": "YANG_STEM_REN[dayMaster]"},
                         {"field": "annualStemTenGod", "operator": "in", "value": ["正财", "偏财"]}],
             effects=[{"kind": "note", "text": "流年构成刃头财结构（销镕煞）；记录组合与十神"}],
+            source={"sourceKind": "COMMENTARY", "book": "守素室丛谈",
+                    "chapter": "刃头财与禄头财", "pages": [2],
+                    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（原著）"},
             provenance=[
                 {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库（用户提供 zip）",
                  "concept": "守素室丛谈·刃头财/禄头财节（SS-R10）"},
@@ -112,6 +122,10 @@ def main() -> int:
             conditions=[{"field": "annualBranch", "operator": "eq", "value": "STEM_LU[dayMaster]"},
                         {"field": "annualStemTenGod", "operator": "in", "value": ["正财", "偏财"]}],
             effects=[{"kind": "note", "text": "流年构成禄头财结构（捆缛煞）；记录组合与十神"}],
+            source={"sourceKind": "COMMENTARY", "book": "守素室丛谈",
+                    "chapter": "刃头财与禄头财", "pages": [2],
+                    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（原著）"},
             provenance=[
                 {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库（用户提供 zip）",
                  "concept": "守素室丛谈·刃头财/禄头财节（SS-R10）"},
@@ -129,6 +143,10 @@ def main() -> int:
                         {"field": "temporalCombinesMonthBranch", "operator": "exists", "value": None}],
             effects=[{"kind": "note",
                       "text": "月支墓库 + 岁运支三合/六合会合 → 杂气引出候选（观察项，不判格局成败）"}],
+            source={"sourceKind": "COMMENTARY", "book": "滴天髓补注",
+                    "chapter": "杂气财官", "pages": [],
+                    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（补注）"},
             provenance=[
                 {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库（用户提供 zip）",
                  "concept": "滴天髓补注·杂气财官须运程引出（DTZ-35）"},
@@ -147,6 +165,10 @@ def main() -> int:
                         {"field": "temporalCompletesSanXing", "operator": "eq", "value": True}],
             effects=[{"kind": "note",
                       "text": "记录岁运支冲月令提纲、三刑因岁运全备的结构观察（冲为重、刑害为轻）"}],
+            source={"sourceKind": "COMMENTARY", "book": "滴天髓补注",
+                    "chapter": "支神", "pages": [],
+                    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（补注）"},
             provenance=[
                 {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库（用户提供 zip）",
                  "concept": "滴天髓补注·支神只以冲为重（DTZ-09）"},
@@ -163,6 +185,10 @@ def main() -> int:
             conditions=[{"field": "annualStem", "operator": "exists", "value": None}],
             effects=[{"kind": "note",
                       "text": "记录流年干支即太岁的术语框架；Tianze 不做神煞吉凶推断"}],
+            source={"sourceKind": "COMMENTARY", "book": "子平粹言",
+                    "chapter": "流年太岁", "pages": [],
+                    "sourceFile": "_知识库/_知识库/06-子平粹言知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾"},
             provenance=[
                 {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库（用户提供 zip）",
                  "concept": "子平粹言·流年太岁定义（SPZY-28）"},
@@ -173,9 +199,12 @@ def main() -> int:
             quality="B",
         ),
         build_rule(
-            "TR-FUYIN-01", "TIANZE-TEMPORAL-01", "fuyin", "伏吟（岁运柱与原局柱相同）",
+            "TR-FUYIN-01", "TIANZE-ENGINEERING-01", "fuyin", "伏吟（岁运柱与原局柱相同）",
             conditions=[{"field": "structureType", "operator": "in", "value": ["fuyin"]}],
             effects=[{"kind": "note", "text": "记录伏吟结构（何柱伏吟、来源层）"}],
+            source={"sourceKind": "TIANZE_HEURISTIC", "book": "Tianze",
+                    "chapter": "temporal.py 结构检测", "pages": [],
+                    "confidence": "unverified"},
             provenance=[
                 {"level": "PROJECT_REFERENCE", "project": "传统命理通说",
                  "concept": "伏吟概念（反吟伏吟，泪吟吟吟；Tianze 知识库暂无原文引文链，如实标注）"},
@@ -187,9 +216,12 @@ def main() -> int:
                           "仅输出相同柱位结构。",
         ),
         build_rule(
-            "TR-FANYIN-01", "TIANZE-TEMPORAL-02", "fanyin", "反吟（岁运柱天克地冲原局柱）",
+            "TR-FANYIN-01", "TIANZE-ENGINEERING-02", "fanyin", "反吟（岁运柱天克地冲原局柱）",
             conditions=[{"field": "structureType", "operator": "in", "value": ["fanyin"]}],
             effects=[{"kind": "note", "text": "记录反吟结构（何柱被冲克、来源层）"}],
+            source={"sourceKind": "TIANZE_HEURISTIC", "book": "Tianze",
+                    "chapter": "temporal.py 结构检测", "pages": [],
+                    "confidence": "unverified"},
             provenance=[
                 {"level": "PROJECT_REFERENCE", "project": "传统命理通说",
                  "concept": "反吟概念（天克地冲；Tianze 知识库暂无原文引文链，如实标注）"},
@@ -199,9 +231,12 @@ def main() -> int:
             quality="C",
         ),
         build_rule(
-            "TR-BINGLIN-01", "TIANZE-TEMPORAL-03", "binglin", "岁运并临（大运=流年干支）",
+            "TR-BINGLIN-01", "TIANZE-ENGINEERING-03", "binglin", "岁运并临（大运=流年干支）",
             conditions=[{"field": "structureType", "operator": "in", "value": ["binglin"]}],
             effects=[{"kind": "note", "text": "记录岁运并临结构（干支完全相同的岁运层）"}],
+            source={"sourceKind": "TIANZE_HEURISTIC", "book": "Tianze",
+                    "chapter": "temporal.py 结构检测", "pages": [],
+                    "confidence": "unverified"},
             provenance=[
                 {"level": "PROJECT_REFERENCE", "project": "传统命理通说",
                  "concept": "岁运并临概念（Tianze 知识库暂无原文引文链，如实标注）"},
@@ -211,9 +246,12 @@ def main() -> int:
             quality="C",
         ),
         build_rule(
-            "TR-TIANKEDI-01", "TIANZE-TEMPORAL-04", "tiankedi", "天克地冲（流年克冲大运）",
+            "TR-TIANKEDI-01", "TIANZE-ENGINEERING-04", "tiankedi", "天克地冲（流年克冲大运）",
             conditions=[{"field": "structureType", "operator": "in", "value": ["tiankedi"]}],
             effects=[{"kind": "note", "text": "记录天克地冲结构（流年天干克大运天干+流年支冲大运支）"}],
+            source={"sourceKind": "TIANZE_HEURISTIC", "book": "Tianze",
+                    "chapter": "temporal.py 结构检测", "pages": [],
+                    "confidence": "unverified"},
             provenance=[
                 {"level": "PROJECT_REFERENCE", "project": "传统命理通说",
                  "concept": "天克地冲概念（Tianze 知识库暂无原文引文链，如实标注）"},

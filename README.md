@@ -4,7 +4,7 @@
 >
 > **取诸家之长，统一为 Tianze。** 基础计算直接复用；成熟实现优先借鉴；算法必须可解释；规则必须可追踪；流派差异必须保留；权重与 heuristic 必须公开；有争议的地方不伪装成唯一答案；LLM 不参与确定性计算。
 
-## 当前状态：M10 完成（可解释分析 Web 产品）
+## 当前状态：M13 完成（完整岁运系统）
 
 | 里程碑 | 内容 | 状态 |
 |---|---|---|
@@ -20,8 +20,12 @@
 | M8.6 | 从格审计 / 阴阳干证据 / PopulationStats | ✅ |
 | M9 | SDK Facade (`tianze.analyze()`) | ✅ |
 | M10 | FastAPI + Vue 3 Web + Contract Tests | ✅ |
+| M11 | Grounded AI 解释层（claim_refs + Grounding Validator） | ✅ |
+| M12 | 岁运基础（大运/流年关系 + Timeline + 十神主题） | ✅ |
+| M13 | 完整岁运系统（Temporal Delta / 流月流日 / TemporalCaseReference / 岁运规则 / Temporal Regression / 时间边界 / Web 时序工作台 / AI 岁运 / StructuralTheme / 报告导出） | ✅ |
 
-**测试：266 项全绿**（Python 253 + API contract 13）；Case Regression 1147 例 baseline。
+**测试：387 项全绿**（Python）；E2E 7 项；Case Regression 1147 例无变化；
+Temporal Regression 6 探针 baseline。详见 `docs/temporal/03-M13-complete-temporal.md`。
 
 ## Web 应用
 

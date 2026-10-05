@@ -353,7 +353,7 @@
      "gz": "丙午",
      "relations": [
       "stem_combination:戊|癸:natal:year,luck",
-      "three_harmony_completed:午|寅|戌:natal:day,natal:month,luck"
+      "three_harmony_completed:午|寅|戌:natal:month,natal:day,luck"
      ],
      "structures": [],
      "rules": [
@@ -1335,7 +1335,7 @@
       "clash:戌|辰:natal:year,luck",
       "six_combination:巳|申:natal:day,annual",
       "stem_opposition:庚|甲:natal:year,luck",
-      "three_harmony_completed:午|寅|戌:natal:hour,natal:month,luck"
+      "three_harmony_completed:午|寅|戌:natal:month,natal:hour,luck"
      ],
      "structures": [
       "fanyin"

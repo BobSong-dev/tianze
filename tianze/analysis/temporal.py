@@ -367,8 +367,11 @@ def analyze_temporal(
     # 三合补齐检测：原局有 2 支 + 岁运补第 3 支
     from tianze.relation.tables import THREE_HARMONIES
     natal_branch_set = {b for b in ctx.natal_branches if b}
+    from tianze.ganzhi.tables import BRANCHES as _BR
     for trio, elem in THREE_HARMONIES.items():
-        natal_members = list({b for b in ctx.natal_branches if b and b in trio})
+        # 集合迭代序受 PYTHONHASHSEED 影响 → 按地支序确定性排序（回归稳定性）
+        natal_members = sorted({b for b in ctx.natal_branches if b and b in trio},
+                               key=_BR.index)
         if len(natal_members) == 2:
             missing = trio - set(natal_members)
             missing_branch = list(missing)[0]

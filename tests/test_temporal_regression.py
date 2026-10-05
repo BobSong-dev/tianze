@@ -76,3 +76,25 @@ def test_compare_detects_synthetic_breaking(current):
     fields = {c["field"] for c in result["changedProbes"]}
     assert "luck.forward" in fields and "months" in fields
     assert result["severityCounts"].get("BREAKING", 0) >= 1
+
+
+def test_three_harmony_positions_deterministic():
+    """回归防护：三合补齐 positions 曾受 PYTHONHASHSEED 影响（集合迭代序）。
+    以多 seed 模拟进程差异，验证输出排序确定。"""
+    import subprocess
+    import sys
+    code = (
+        "from tianze.analysis.temporal import analyze_temporal;"
+        "r = analyze_temporal(natal_stems=['甲','丙','戊','庚'],"
+        "natal_branches=['子','辰','午','寅'], day_master='戊',"
+        "luck_stem='壬', luck_branch='戌');"
+        "print([x.positions for x in r.relations if x.kind == 'three_harmony_completed'])"
+    )
+    outs = set()
+    for seed in ("0", "1", "42", "999"):
+        env = {"PYTHONHASHSEED": seed, "PATH": __import__("os").environ.get("PATH", ""),
+               "SYSTEMROOT": __import__("os").environ.get("SYSTEMROOT", "")}
+        res = subprocess.run([sys.executable, "-c", code], capture_output=True,
+                             text=True, env=env, cwd=str(BASELINE.parents[1]))
+        outs.add(res.stdout.strip())
+    assert len(outs) == 1, f"三合 positions 随哈希种子变化: {outs}"

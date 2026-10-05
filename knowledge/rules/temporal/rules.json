@@ -45,6 +45,17 @@
      "concept": "救应映射结构化（克者干→救神干集合）；效果仅输出结构观察，不输出吉凶"
     }
    ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "守素室丛谈",
+    "chapter": "日犯岁君",
+    "pages": [
+     2
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（原著）"
+   },
    "quality": "B",
    "status": "active",
    "verification": {
@@ -111,6 +122,17 @@
      "concept": "阳刃取 YANG_STEM_REN 表（阴干无刃口径 R24）；财星 = ten_god∈{正财,偏财}"
     }
    ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "守素室丛谈",
+    "chapter": "刃头财与禄头财",
+    "pages": [
+     2
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（原著）"
+   },
    "quality": "B",
    "status": "active",
    "verification": {
@@ -177,6 +199,17 @@
      "concept": "禄位取 STEM_LU 表（R24）；财星 = ten_god∈{正财,偏财}"
     }
    ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "守素室丛谈",
+    "chapter": "刃头财与禄头财",
+    "pages": [
+     2
+    ],
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（原著）"
+   },
    "quality": "B",
    "status": "active",
    "verification": {
@@ -245,6 +278,15 @@
      "concept": "「引出」判定 = 岁运支与月支三合补齐/六合（复用 TemporalRelation），不含冲开墓库（原书明言喜冲之说极不可靠）"
     }
    ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "chapter": "杂气财官",
+    "pages": [],
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
    "quality": "B",
    "status": "active",
    "verification": {
@@ -308,6 +350,15 @@
      "concept": "三刑集 = {寅巳申, 丑戌未, 子卯}；冲 = 六冲表（R9 刑冲命名口径）"
     }
    ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "chapter": "支神",
+    "pages": [],
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
    "quality": "B",
    "status": "active",
    "verification": {
@@ -361,6 +412,15 @@
      "note": "流年者，本年之太岁也……太岁为一岁之尊神，管一年之吉凶，又名游行太岁。"
     }
    ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "子平粹言",
+    "chapter": "流年太岁",
+    "pages": [],
+    "sourceFile": "_知识库/_知识库/06-子平粹言知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾"
+   },
    "quality": "B",
    "status": "active",
    "verification": {
@@ -380,7 +440,7 @@
   },
   {
    "id": "TR-FUYIN-01",
-   "candidateId": "TIANZE-TEMPORAL-01",
+   "candidateId": "TIANZE-ENGINEERING-01",
    "domain": "temporal",
    "category": "fuyin",
    "label": "伏吟（岁运柱与原局柱相同）",
@@ -415,6 +475,13 @@
      "concept": "检测 = 岁运干支与原局四柱干支完全相同（temporal.py structures.type=fuyin）"
     }
    ],
+   "source": {
+    "sourceKind": "TIANZE_HEURISTIC",
+    "book": "Tianze",
+    "chapter": "temporal.py 结构检测",
+    "pages": [],
+    "confidence": "unverified"
+   },
    "quality": "C",
    "status": "active",
    "verification": {
@@ -434,7 +501,7 @@
   },
   {
    "id": "TR-FANYIN-01",
-   "candidateId": "TIANZE-TEMPORAL-02",
+   "candidateId": "TIANZE-ENGINEERING-02",
    "domain": "temporal",
    "category": "fanyin",
    "label": "反吟（岁运柱天克地冲原局柱）",
@@ -469,6 +536,13 @@
      "concept": "检测口径 v1 = 岁运支与原局支六冲（干克维度暂缺，见 temporal.py 注）"
     }
    ],
+   "source": {
+    "sourceKind": "TIANZE_HEURISTIC",
+    "book": "Tianze",
+    "chapter": "temporal.py 结构检测",
+    "pages": [],
+    "confidence": "unverified"
+   },
    "quality": "C",
    "status": "active",
    "verification": {
@@ -488,7 +562,7 @@
   },
   {
    "id": "TR-BINGLIN-01",
-   "candidateId": "TIANZE-TEMPORAL-03",
+   "candidateId": "TIANZE-ENGINEERING-03",
    "domain": "temporal",
    "category": "binglin",
    "label": "岁运并临（大运=流年干支）",
@@ -523,6 +597,13 @@
      "concept": "检测 = 大运干支 == 流年干支"
     }
    ],
+   "source": {
+    "sourceKind": "TIANZE_HEURISTIC",
+    "book": "Tianze",
+    "chapter": "temporal.py 结构检测",
+    "pages": [],
+    "confidence": "unverified"
+   },
    "quality": "C",
    "status": "active",
    "verification": {
@@ -542,7 +623,7 @@
   },
   {
    "id": "TR-TIANKEDI-01",
-   "candidateId": "TIANZE-TEMPORAL-04",
+   "candidateId": "TIANZE-ENGINEERING-04",
    "domain": "temporal",
    "category": "tiankedi",
    "label": "天克地冲（流年克冲大运）",
@@ -577,6 +658,13 @@
      "concept": "检测 = 流年干克大运干（五行相克）且流年支冲大运支（六冲）"
     }
    ],
+   "source": {
+    "sourceKind": "TIANZE_HEURISTIC",
+    "book": "Tianze",
+    "chapter": "temporal.py 结构检测",
+    "pages": [],
+    "confidence": "unverified"
+   },
    "quality": "C",
    "status": "active",
    "verification": {

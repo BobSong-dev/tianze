@@ -161,3 +161,31 @@
 - **Decision**：六类检查（evidenceId/sourceId 存在性、格局候选一致性、古籍来源存在性、验证状态不越界、UNRESOLVED 不裁决）。检查结果记入 `grounding_issues[]` + `grounding_passed`。
 - **Reason**：规则式检查比 LLM-as-judge 更可靠、更快、可测试。
 - **Tradeoff**：检查有假阴性（如同义改写）——后续可加 LLM-as-judge 第二层。
+
+## ADR-039 · Temporal Delta 的适用性三标（M13）
+
+- **Context**：岁运是否参与旺衰计分/从格判定/化气判定存在真实流派分歧；硬算会把一种口径伪装成真理。
+- **Decision**：每条 DeltaItem 标 SUPPORTED（规则驱动无分歧）/ EXPERIMENTAL（有分歧，如实计算并标注）/
+  UNSUPPORTED（理论不应变化，只给 note 不计算）。前端与 AI 必须保留标注。
+- **Reason**：把分歧显式化比隐藏分歧更诚实；engine 不裁决流派。
+- **Tradeoff**：EXPERIMENTAL 条目对新手可能造成困惑——通过 note 与文档缓解。
+
+## ADR-040 · 岁运规则进入 Knowledge Framework（M13）
+
+- **Context**：伏吟/反吟/岁运并临/天克地冲等概念在知识库中部分有引文（日犯岁君、刃头财、
+  杂气引出、冲为重、流年太岁），部分只有通说概念。
+- **Decision**：统一走 Source → Quote → RuleCandidate → ExecutableRule(domain=temporal) →
+  TemporalEvidence；有引文链标 CLASSICAL_EXPLICIT，无引文链标 PROJECT_REFERENCE/ENGINEERING_HEURISTIC
+  并使用 TIANZE-ENGINEERING-* 候选 ID。规则未触发保留 matched=false。缺执行器的规则使引擎抛错。
+- **Reason**：与 M6/M8 同一纪律；岁运规则不因"新领域"而降低 provenance 标准。
+- **Tradeoff**：100% 触发的定义性规则（TR-SPZY-28 流年即太岁）会在每个流年出现——
+  它是术语框架说明而非断言，已在 label/note 中声明。
+
+## ADR-041 · TemporalCaseReference 三层分离（M13）
+
+- **Context**：原书岁运分析（大运序列、事件断言）OCR 噪声大，且历史事件不是 truth。
+- **Decision**：sourceTemporalAnalysis（原样保留 + 干支序列一致性校验：同向 ±1、年龄 +10）/
+  tianzeTemporalAnalysis（缺出生信息显式 not_computed）/ historicalClaims（仅 claim）。
+  不为迎合古籍案例调整引擎规则。
+- **Reason**：M7 三层分离在岁运维度的直接推广。
+- **Tradeoff**：101/1147 例可结构化大运，覆盖率有限——如实报告而非夸大。

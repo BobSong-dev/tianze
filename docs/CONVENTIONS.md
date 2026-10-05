@@ -212,6 +212,20 @@
 - API Key 只在后端环境变量，禁止前端持有。
 - AI 失败不影响 `/api/v1/analyze` 确定性分析。
 
+## R34 · 岁运边界（M13） — `LOCKED`
+
+- **月令保持原局**：岁运（大运/流年/流月/流日）字一律不参与月令判定；
+  格局候选、调候规则匹配、旺衰得令维度恒用原局月支（`TemporalContext.month_branch()`）。
+- **适用性三标**：Temporal Delta 每条比较必须标 SUPPORTED / EXPERIMENTAL / UNSUPPORTED；
+  UNSUPPORTED 只给说明不硬算（如格局候选重推导）。
+- **候选纪律**：特殊格局在岁运上下文中仍然只是候选（CANDIDATE/LIKELY/BLOCKED/DISPUTED/UNRESOLVED），
+  永不出 CONFIRMED。
+- **岁运规则**：domain=temporal 的 ExecutableRule 遵守同一 provenance 纪律；
+  无引文链的工程规则用 TIANZE-ENGINEERING-* 候选 ID（validator 显式放行），不得标 CLASSICAL_EXPLICIT。
+- **触发可审计**：岁运规则未触发时保留 matched=false（引擎不静默跳过）。
+- **流月**：月柱只认"节"（R4），流月窗口 = 立春起 12 个节窗；**流日** = JDN 公式（锚点 1949-10-01=甲子）。
+- **structuralChangeScore** 是 ENGINEERING_HEURISTIC 排序值，禁止包装成吉凶指数。
+
 ## 维护记录
 
 | 日期 | 变更 | 原因 |
@@ -223,3 +237,4 @@
 | 2026-10-01 | 新增 R26-R27（知识库来源质量/调候口径） | K0/K1/M6 |
 | 2026-10-01 | 新增 R28（验证状态/命例纪律/schema 版本） | M6.1/M7 |
 | 2026-10-01 | 新增 R29-R31（特殊格局/化气/病药通关/回归） | M8 |
+| 2026-10-05 | 新增 R34（岁运边界：月令原局/适用性三标/岁运规则纪律） | M13 |
