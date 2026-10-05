@@ -70,11 +70,25 @@ class DeltaItem(CamelizeModel):
     refId: str | None = None             # 确定性 claim ref（供 AI 绑定）
 
 
+class StructuralTheme(CamelizeModel):
+    """结构主题：十神主题增减 / 冲突关系增减 / 结构波动度的中间描述层。
+
+    只描述结构状态（可做后续事件推理的输入），绝不是事件预测器。
+    """
+    theme: str                       # 财星 / 官杀 / 印星 / 食伤 / 比劫 / 冲突关系 / 结构波动
+    label: str                       # 如 "财星结构增强"
+    direction: str                   # increased / decreased / unchanged / new / removed
+    basis: list[str] = []            # 依据（引用具体 Delta/refId）
+    supportLevel: AnalysisSupport = AnalysisSupport.SUPPORTED
+    note: str | None = None
+
+
 class TemporalDeltaReport(CamelizeModel):
     """完整岁运 Delta 报告。"""
     context: TemporalContext
     deltaSchemaVersion: str = DELTA_SCHEMA_VERSION
     items: list[DeltaItem] = []
+    themes: list[StructuralTheme] = []   # M13 结构主题层（中间层，非事件预测）
     unsupportedNotes: list[str] = []     # 明示未计算/不适用的部分
     warnings: list[str] = []
 
@@ -576,8 +590,96 @@ def compute_temporal_delta(
     _special_delta(chart, ctx, units, items, strength_ctx)
     _tengod_delta(chart, ctx, units, items)
 
-    return TemporalDeltaReport(
-        context=ctx, items=items, unsupportedNotes=unsupported,
-        warnings=["Temporal Delta 仅描述结构状态迁移，不构成任何吉凶或事件预测。",
-                  "岁运不替换原局月令；EXPERIMENTAL 条目表示岁运参与该计算存在流派分歧。"],
+    # 结构主题层：十神主题 + 岁运新增冲突关系 + 波动 heuristic
+    from tianze.analysis.temporal import analyze_temporal as _at
+    ta = _at(
+        natal_stems=ctx.natal_stems, natal_branches=ctx.natal_branches,
+        day_master=ctx.day_master,
+        luck_stem=ctx.luck_stem, luck_branch=ctx.luck_branch,
+        annual_stem=ctx.annual_stem, annual_branch=ctx.annual_branch,
+        monthly_stem=ctx.monthly_stem, monthly_branch=ctx.monthly_branch,
+        daily_stem=ctx.daily_stem, daily_branch=ctx.daily_branch,
     )
+    total_score = float(len(ta.relations) * 2 + len(ta.structures) * 3)
+    themes = _compute_structural_themes(items, ta.relations, total_score)
+
+    return TemporalDeltaReport(
+        context=ctx, items=items, themes=themes, unsupportedNotes=unsupported,
+        warnings=["Temporal Delta 仅描述结构状态迁移，不构成任何吉凶或事件预测。",
+                  "岁运不替换原局月令；EXPERIMENTAL 条目表示岁运参与该计算存在流派分歧。",
+                  "themes 为结构主题中间层，不是事件预测器。"],
+    )
+
+
+# ---------- 结构主题层（StructuralTheme） ----------
+
+# 十神 → 主题分组（财星/官杀/印星/食伤/比劫）
+_THEME_OF_GOD: dict[str, str] = {
+    "正财": "财星", "偏财": "财星",
+    "正官": "官杀", "七杀": "官杀",
+    "正印": "印星", "偏印": "印星",
+    "食神": "食伤", "伤官": "食伤",
+    "比肩": "比劫", "劫财": "比劫",
+}
+
+_CONFLICT_KINDS = {"clash", "harm", "break", "stem_opposition"}
+
+# "结构变化剧烈"的透明阈值（ENGINEERING_HEURISTIC，随结果输出，非吉凶指数）
+_VOLATILITY_SCORE_THRESHOLD = 6.0
+
+
+def _compute_structural_themes(
+    items: list[DeltaItem],
+    relations: Sequence[Any],
+    total_change_score: float,
+) -> list[StructuralTheme]:
+    """从 Delta 条目 + 岁运关系归纳结构主题。
+
+    - 十神主题：由 tenGodTheme Delta 汇总（原局计数 → 原局+岁运计数）
+    - 冲突关系：岁运引入的冲/害/破/干冲计数
+    - 结构波动：structuralChangeScore ≥ 阈值（ENGINEERING_HEURISTIC）
+    """
+    themes: list[StructuralTheme] = []
+    by_god: dict[str, int] = {}
+    for it in items:
+        if it.analysis != "tenGodTheme":
+            continue
+        for god, theme in _THEME_OF_GOD.items():
+            if god in it.subject:
+                tc = it.temporalValue if isinstance(it.temporalValue, int) else 0
+                nc = it.natalValue if isinstance(it.natalValue, int) else 0
+                by_god[theme] = by_god.get(theme, 0) + max(0, tc - nc)
+                break
+    for theme, inc in sorted(by_god.items()):
+        if inc <= 0:
+            continue
+        basis = [f"{it.refId}（{it.kind.value}，{it.trigger}）" for it in items
+                 if it.analysis == "tenGodTheme" and it.refId and f"tengod:{theme}"
+                 not in it.refId and any(g in it.subject for g in _THEME_OF_GOD
+                                         if _THEME_OF_GOD[g] == theme)]
+        themes.append(StructuralTheme(
+            theme=theme, label=f"{theme}结构增强", direction="increased",
+            basis=basis,
+            note="十神主题计数变化，仅描述结构组成，不指向任何具体事件。",
+        ))
+
+    conflict_rels = [r for r in relations
+                     if getattr(r, "kind", "") in _CONFLICT_KINDS and getattr(r, "is_new", False)]
+    if conflict_rels:
+        themes.append(StructuralTheme(
+            theme="冲突关系", label="冲突关系增多", direction="increased",
+            basis=[f"{r.kind}:{r.label}（{'、'.join(r.positions)}）" for r in conflict_rels],
+            supportLevel=AnalysisSupport.SUPPORTED,
+            note="岁运引入的冲/害/破关系计数，结构层面摩擦面增加，不构成吉凶判断。",
+        ))
+
+    if total_change_score >= _VOLATILITY_SCORE_THRESHOLD:
+        themes.append(StructuralTheme(
+            theme="结构波动", label="结构变化剧烈", direction="increased",
+            basis=[f"structuralChangeScore={total_change_score:g}"
+                   f" ≥ 阈值 {_VOLATILITY_SCORE_THRESHOLD:g}"
+                   "（relations×2 + structures×3，ENGINEERING_HEURISTIC 排序值）"],
+            supportLevel=AnalysisSupport.EXPERIMENTAL,
+            note="透明 heuristic 排序指标，用于节点排序；不是吉凶指数。",
+        ))
+    return themes

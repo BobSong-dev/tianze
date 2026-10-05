@@ -204,9 +204,15 @@ export interface TemporalDeltaItemData {
   evidence: string[]; refId: string | null;
 }
 
+export interface StructuralThemeData {
+  theme: string; label: string; direction: string; basis: string[];
+  supportLevel: string; note: string | null;
+}
+
 export interface TemporalDeltaReportData {
   deltaSchemaVersion: string;
   items: TemporalDeltaItemData[];
+  themes: StructuralThemeData[];
   unsupportedNotes: string[];
   warnings: string[];
 }

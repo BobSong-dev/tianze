@@ -578,6 +578,18 @@ async function loadTemporal() {
             <div v-for="(n, i) in temporalData.delta.unsupportedNotes || []" :key="'u' + i" class="evidence-item note">
               UNSUPPORTED：{{ n }}
             </div>
+
+            <!-- StructuralTheme 结构主题层 -->
+            <h3>结构主题 <span class="note">十神主题/冲突关系/结构波动——中间描述层，不是事件预测</span></h3>
+            <div v-for="(t, i) in temporalData.delta.themes || []" :key="'t' + i" class="evidence-item">
+              <span class="badge rescue">{{ t.label }}</span>
+              <span v-if="t.supportLevel === 'EXPERIMENTAL'" class="badge damage">EXPERIMENTAL</span>
+              <span class="note">{{ t.note }}</span>
+              <details><summary>依据</summary>
+                <div v-for="(b, j) in t.basis" :key="j" class="evidence-item">{{ b }}</div>
+              </details>
+            </div>
+            <p v-if="!(temporalData.delta.themes || []).length" class="note">无结构主题。</p>
           </template>
 
           <div class="note" style="margin-top: 0.6rem;">

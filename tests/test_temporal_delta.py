@@ -141,3 +141,50 @@ def test_delta_three_harmony_completed_by_monthly():
     completed = [rel for rel in r.relations if rel.kind == "three_harmony_completed"]
     assert completed, "流月申应补齐申子辰"
     assert any("monthly" in c.positions for c in completed) and any("流月" in (c.note or "") for c in completed)
+
+
+# ---------- StructuralTheme（结构主题层） ----------
+
+def test_structural_themes_basic(chart):
+    """十神主题/冲突关系/结构波动三层主题，带透明依据。"""
+    rep = compute_temporal_delta(chart, annual=("丙", "午"))  # 丙午 vs 原局甲子年：午子冲
+    themes = {t.theme: t for t in rep.themes}
+    assert "冲突关系" in themes, "午冲子应产生冲突主题"
+    ct = themes["冲突关系"]
+    assert ct.direction == "increased"
+    assert ct.supportLevel == AnalysisSupport.SUPPORTED
+    assert ct.basis
+    for t in rep.themes:
+        assert t.note  # 每个主题必须带"非事件预测"说明
+        assert ("事件" in t.note or "吉凶" in t.note)  # 必须带非预测声明
+
+
+def test_structural_themes_volatility_threshold(chart):
+    """结构波动主题：threshold 透明（≥6 触发，EXPERIMENTAL，标 ENGINEERING_HEURISTIC）。"""
+    rep_big = compute_temporal_delta(chart, luck=("甲", "子"), annual=("丙", "午"),
+                                     monthly=("庚", "寅"), daily=("乙", "卯"))
+    rep_small = compute_temporal_delta(chart, annual=("甲", "子"))  # 原局已有甲子年柱 → 伏吟仅结构
+    themes_big = {t.theme for t in rep_big.themes}
+    if any(it.analysis == "strength" for it in rep_big.items) or len(rep_big.items) >= 3:
+        assert "结构波动" in themes_big
+    for t in rep_big.themes:
+        if t.theme == "结构波动":
+            assert t.supportLevel == AnalysisSupport.EXPERIMENTAL
+            assert "ENGINEERING_HEURISTIC" in " ".join(t.basis)
+    # 波动主题在低分上下文不出现（除非分数确实达标）
+    score_small_items = len(rep_small.items)
+    if score_small_items < 3:
+        assert "结构波动" not in {t.theme for t in rep_small.themes}
+
+
+def test_structural_themes_no_event_language(chart):
+    rep = compute_temporal_delta(chart, luck=("甲", "子"), annual=("丙", "午"))
+    blob = rep.model_dump_json(by_alias=True, exclude_none=True)
+    for banned in ("发财", "升职", "结婚", "生病", "大凶", "必有灾"):
+        assert banned not in blob
+
+
+def test_structural_themes_empty_without_layers(chart):
+    """无岁运 → 无主题。"""
+    rep = compute_temporal_delta(chart)
+    assert rep.themes == []
