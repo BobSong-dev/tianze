@@ -25,6 +25,7 @@ const tabs = [
   { id: "pattern", label: "格局" },
   { id: "tiaohou", label: "调候" },
   { id: "advanced", label: "高级" },
+  { id: "temporal", label: "时序" },
   { id: "ai", label: "AI 解读" },
 ];
 const expandedEvidence = ref<string | null>(null);
@@ -70,6 +71,11 @@ async function submit() {
   loading.value = true;
   error.value = "";
   result.value = null;
+  temporalData.value = null;
+  selLuck.value = null;
+  selYear.value = null;
+  selMonth.value = null;
+  selDay.value = "";
   try {
     const payload: AnalyzePayload = {
       birthInfo: {
@@ -102,6 +108,115 @@ const pillarKeys = computed(() => {
 
 function toggleEvidence(id: string) {
   expandedEvidence.value = expandedEvidence.value === id ? null : id;
+}
+
+// ---------- M13 时序工作台 ----------
+
+const selLuck = ref<number | null>(null);
+const selYear = ref<number | null>(null);
+const selMonth = ref<number | null>(null);
+const selDay = ref<string>("");
+const temporalLoading = ref(false);
+const temporalError = ref("");
+const temporalData = ref<any>(null);
+
+const luckOptions = computed(() => {
+  const luck = (result.value as any)?.luck;
+  if (!luck?.daYun?.length) return [];
+  return luck.daYun.filter((d: any) => d.ganZhi);
+});
+
+const yearOptions = computed(() => {
+  const luck = luckOptions.value.find((d: any) => d.index === selLuck.value);
+  if (!luck) return [];
+  const years: number[] = [];
+  for (let y = luck.startYear; y <= luck.endYear; y++) years.push(y);
+  return years;
+});
+
+const monthOptions = computed(() => [
+  { n: 1, label: "寅月（立春起）" }, { n: 2, label: "卯月（惊蛰起）" },
+  { n: 3, label: "辰月（清明起）" }, { n: 4, label: "巳月（立夏起）" },
+  { n: 5, label: "午月（芒种起）" }, { n: 6, label: "未月（小暑起）" },
+  { n: 7, label: "申月（立秋起）" }, { n: 8, label: "酉月（白露起）" },
+  { n: 9, label: "戌月（寒露起）" }, { n: 10, label: "亥月（立冬起）" },
+  { n: 11, label: "子月（大雪起）" }, { n: 12, label: "丑月（小寒起）" },
+]);
+
+const matchedRules = computed(() =>
+  (temporalData.value?.ruleTriggers ?? []).filter((t: any) => t.matched));
+
+const deltaByAnalysis = computed(() => {
+  const items: any[] = temporalData.value?.delta?.items ?? [];
+  const groups: Record<string, any[]> = {};
+  for (const it of items) {
+    (groups[it.analysis] ??= []).push(it);
+  }
+  return groups;
+});
+
+const KIND_CN: Record<string, string> = {
+  added: "新出现", removed: "消失", strengthened: "增强", weakened: "减弱",
+  status_changed: "状态改变", blocked: "被阻断", unblocked: "解除/到位",
+  disagreement_changed: "一致性变化",
+};
+
+function onLuckChange() {
+  selYear.value = null;
+  selMonth.value = null;
+  selDay.value = "";
+  temporalData.value = null;
+}
+
+function onYearChange() {
+  selMonth.value = null;
+  selDay.value = "";
+  temporalData.value = null;
+}
+
+function onMonthChange() {
+  selDay.value = "";
+  temporalData.value = null;
+}
+
+async function loadTemporal() {
+  if (!result.value) return;
+  if (selLuck.value === null && selYear.value === null) {
+    temporalError.value = "请先选择大运或年份";
+    return;
+  }
+  temporalLoading.value = true;
+  temporalError.value = "";
+  try {
+    const resp = await analyzeBirthInfo({
+      birthInfo: {
+        date: date.value,
+        time: timeKnown.value ? time.value : undefined,
+        gender: gender.value,
+        timezoneOffset: tzOffset.value,
+        sect: sect.value,
+        longitude: longitude.value ?? undefined,
+      },
+      options: {
+        includeStrength: true, includePattern: true, includeTiaohou: true,
+        includeSpecialPatterns: true, includeRelations: true, includeElementCounts: true,
+        includeTemporal: true,
+        targetLuckIndex: selLuck.value,
+        targetYear: selYear.value,
+        targetMonth: selMonth.value,
+        targetDay: selDay.value || undefined,
+        includeTemporalDelta: true,
+      },
+    });
+    temporalData.value = resp.temporal;
+    if (!temporalData.value) {
+      temporalError.value = "该命例无法进行岁运分析（缺少大运：性别或时辰未知）";
+    }
+  } catch (e) {
+    temporalError.value = e instanceof Error ? e.message : String(e);
+  } finally {
+    temporalLoading.value = false;
+  }
 }
 </script>
 
@@ -369,6 +484,104 @@ function toggleEvidence(id: string) {
         </div>
       </section>
 
+      <!-- M13 Temporal Workspace -->
+      <section v-if="activeTab === 'temporal' && result" class="panel">
+        <h2>时序工作台 <span class="note">大运 → 流年 → 流月 → 流日；岁运不替换原局月令</span></h2>
+
+        <div class="temporal-controls">
+          <label>大运
+            <select v-model.number="selLuck" @change="onLuckChange" :disabled="!luckOptions.length">
+              <option :value="null" disabled>选择大运</option>
+              <option v-for="d in luckOptions" :key="d.index" :value="d.index">
+                {{ d.ganZhi }}（{{ d.startYear }}–{{ d.endYear }}，{{ d.startAge }} 岁起）
+              </option>
+            </select>
+          </label>
+          <label>流年
+            <select v-model.number="selYear" @change="onYearChange" :disabled="!yearOptions.length">
+              <option :value="null" disabled>选择年份</option>
+              <option v-for="y in yearOptions" :key="y" :value="y">{{ y }}</option>
+            </select>
+          </label>
+          <label>流月
+            <select v-model.number="selMonth" @change="onMonthChange" :disabled="selYear === null">
+              <option :value="null">（不选）</option>
+              <option v-for="m in monthOptions" :key="m.n" :value="m.n">{{ m.label }}</option>
+            </select>
+          </label>
+          <label>流日（可选）
+            <input type="date" v-model="selDay" :disabled="selMonth === null" />
+          </label>
+          <button class="submit" @click="loadTemporal" :disabled="temporalLoading">
+            {{ temporalLoading ? "分析中…" : "分析" }}
+          </button>
+        </div>
+        <p v-if="!luckOptions.length" class="note">
+          该命例无大运数据（性别或时辰未知时大运缺席，R7/R11）。
+        </p>
+        <p v-if="temporalError" class="error-text">{{ temporalError }}</p>
+
+        <template v-if="temporalData">
+          <!-- 岁运上下文 -->
+          <div class="temporal-context">
+            <span class="ctx-chip natal">原局 {{ temporalData.context.natalStems.filter(Boolean).map((s: string, i: number) => s + temporalData.context.natalBranches.filter(Boolean)[i]).join(" ") }}</span>
+            <template v-if="temporalData.context.luckStem"><span class="arrow">→</span><span class="ctx-chip luck">大运 {{ temporalData.context.luckStem }}{{ temporalData.context.luckBranch }}</span></template>
+            <template v-if="temporalData.context.annualStem"><span class="arrow">→</span><span class="ctx-chip annual">流年 {{ temporalData.context.annualStem }}{{ temporalData.context.annualBranch }}</span></template>
+            <template v-if="temporalData.context.monthlyStem"><span class="arrow">→</span><span class="ctx-chip monthly">流月 {{ temporalData.context.monthlyStem }}{{ temporalData.context.monthlyBranch }}<span v-if="temporalData.monthWindow">（{{ temporalData.monthWindow.jieName }}起）</span></span></template>
+            <template v-if="temporalData.context.dailyStem"><span class="arrow">→</span><span class="ctx-chip daily">流日 {{ temporalData.context.dailyStem }}{{ temporalData.context.dailyBranch }}</span></template>
+          </div>
+
+          <!-- 规则触发 -->
+          <h3>岁运规则触发 <span class="note">ExecutableRule(domain=temporal) → 结构观察，不含吉凶</span></h3>
+          <div v-for="t in matchedRules" :key="t.ruleId" class="candidate-block">
+            <strong>{{ t.label }}</strong>
+            <span class="badge">{{ t.ruleId }}</span>
+            <div v-for="(o, i) in t.observations" :key="i" class="evidence-item">{{ o }}</div>
+          </div>
+          <p v-if="!matchedRules.length" class="note">无规则触发（全部 {{ temporalData.ruleTriggers?.length ?? 0 }} 条规则已参与判定，matched=false 保留可审计）。</p>
+
+          <!-- 关系与结构 -->
+          <h3>新增关系 <span class="note">原局不存在、由岁运引入</span></h3>
+          <div v-for="(r, i) in temporalData.relations" :key="i" class="evidence-item">
+            {{ r.label }}
+            <span class="badge">{{ r.sources.join("+") }}</span>
+            <span v-if="r.completesHarmony" class="badge rescue">补齐三合</span>
+            <span v-if="r.transformCandidate" class="badge">化{{ r.transformCandidate }}候选</span>
+            <span class="note">{{ r.positions.join(" ↔ ") }}</span>
+          </div>
+          <p v-if="!temporalData.relations.length" class="note">无新增关系。</p>
+          <h3>结构现象</h3>
+          <div v-for="(s, i) in temporalData.structures" :key="i" class="evidence-item damage">
+            {{ s.label }}：{{ s.description }}
+          </div>
+          <p v-if="!temporalData.structures.length" class="note">无结构现象（伏吟/反吟/岁运并临/天克地冲等）。</p>
+
+          <!-- Delta -->
+          <template v-if="temporalData.delta">
+            <h3>完整 Temporal Delta <span class="note">相对原局的状态差异；EXPERIMENTAL = 岁运参与该计算存在流派分歧</span></h3>
+            <div v-for="(items, analysis) in deltaByAnalysis" :key="analysis" class="candidate-block">
+              <strong>{{ analysis }}</strong>
+              <div v-for="it in items" :key="it.refId + it.kind" class="evidence-item">
+                <span class="badge">{{ KIND_CN[it.kind] || it.kind }}</span>
+                <span v-if="it.supportLevel === 'EXPERIMENTAL'" class="badge damage">EXPERIMENTAL</span>
+                <strong>{{ it.subject }}</strong>
+                <span v-if="it.natalValue !== null || it.temporalValue !== null" class="note">
+                  {{ JSON.stringify(it.natalValue) }} → {{ JSON.stringify(it.temporalValue) }}
+                </span>
+                <div v-for="(e, i) in it.evidence" :key="i" class="evidence-item">{{ e }}</div>
+              </div>
+            </div>
+            <div v-for="(n, i) in temporalData.delta.unsupportedNotes || []" :key="'u' + i" class="evidence-item note">
+              UNSUPPORTED：{{ n }}
+            </div>
+          </template>
+
+          <div class="note" style="margin-top: 0.6rem;">
+            ⚠️ 所有内容为结构变化描述，不构成任何吉凶或事件预测。
+          </div>
+        </template>
+      </section>
+
       <!-- AI Interpretation -->
     <section v-if="activeTab === 'ai' && result" class="panel">
       <h2>AI 解读</h2>
@@ -487,5 +700,17 @@ body { font-family: "Noto Sans SC", system-ui, sans-serif; background: #f5f6fa; 
 details { margin: 0.3rem 0; }
 summary { cursor: pointer; color: #3498db; font-size: 0.85rem; }
 .link { background: none; border: none; color: #3498db; cursor: pointer; text-decoration: underline; font-size: 0.85rem; }
+.temporal-controls { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: end; margin-bottom: 0.8rem; }
+.temporal-controls label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.85rem; }
+.temporal-controls select, .temporal-controls input { padding: 0.3rem; border: 1px solid #bdc3c7; border-radius: 4px; }
+.temporal-context { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin: 0.6rem 0 1rem; }
+.ctx-chip { padding: 0.3rem 0.7rem; border-radius: 4px; font-size: 0.9rem; font-weight: 600; }
+.ctx-chip.natal { background: #eaf2f8; color: #2471a3; }
+.ctx-chip.luck { background: #fef9e7; color: #b7950b; }
+.ctx-chip.annual { background: #e8f8f5; color: #148f77; }
+.ctx-chip.monthly { background: #f4ecf7; color: #7d3c98; }
+.ctx-chip.daily { background: #fdedec; color: #b03a2e; }
+.arrow { color: #95a5a6; font-weight: 700; }
+.error-text { color: #e74c3c; font-size: 0.9rem; }
 @media (max-width: 600px) { .pillars { grid-template-columns: repeat(2, 1fr); } .form-grid { grid-template-columns: 1fr; } }
 </style>

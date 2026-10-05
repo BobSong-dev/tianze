@@ -162,11 +162,85 @@ export interface AnalyzeResponse {
   tiaohou: TiaoHouResult | null;
   advancedAnalysis: AdvancedAnalysis | null;
   specialPoints: { taiYuan: string; mingGong: string | null; shenGong: string | null } | null;
-  luck: unknown;
+  luck: LuckData | null;
   conventions: Record<string, string>;
   warnings: string[];
   fallbacks: string[];
   missingCapabilities: string[];
+  temporal: TemporalAnalysisData | null;
+}
+
+// ---- M12/M13 Temporal ----
+
+export interface DaYunEntryData {
+  index: number; startYear: number; endYear: number;
+  startAge: number; endAge: number; ganZhi: string;
+}
+
+export interface LuckData {
+  forward: boolean;
+  startYears: number; startMonths: number; startDays: number; startHours: number;
+  daYun: DaYunEntryData[];
+}
+
+export interface TemporalRelationData {
+  kind: string; label: string; members: string[]; positions: string[];
+  sources: string[]; isNew: boolean; completesHarmony: boolean;
+  transformCandidate: string | null; note: string | null;
+}
+
+export interface TemporalStructureData {
+  type: string; label: string; description: string; positions: string[]; sources: string[];
+}
+
+export interface TemporalEvidenceData {
+  ruleId: string; category: string; label: string; matched: boolean;
+  observations: string[]; provenance: unknown[]; refId: string | null;
+}
+
+export interface TemporalDeltaItemData {
+  analysis: string; kind: string; subject: string; supportLevel: string;
+  natalValue: unknown; temporalValue: unknown; trigger: string | null;
+  evidence: string[]; refId: string | null;
+}
+
+export interface TemporalDeltaReportData {
+  deltaSchemaVersion: string;
+  items: TemporalDeltaItemData[];
+  unsupportedNotes: string[];
+  warnings: string[];
+}
+
+export interface TimelineNodeData {
+  level: string; label: string; year: number | null; month: number | null;
+  day: number | null; ganzhi: string; source: string;
+  structuralChangeScore: number; relations: TemporalRelationData[];
+  structures: TemporalStructureData[]; tenGodTheme: Record<string, number>;
+  evidence: string[]; monthWindow: string | null; children: TimelineNodeData[];
+}
+
+export interface MonthWindowData {
+  monthNumber: number; stem: string; branch: string; jieName: string;
+  start: string; end: string;
+}
+
+export interface TemporalAnalysisData {
+  context: {
+    natalStems: (string | null)[]; natalBranches: (string | null)[];
+    luckStem: string | null; luckBranch: string | null;
+    annualStem: string | null; annualBranch: string | null;
+    monthlyStem: string | null; monthlyBranch: string | null;
+    dailyStem: string | null; dailyBranch: string | null;
+    luckIndex: number | null; annualYear: number | null; dayMaster: string;
+  };
+  relations: TemporalRelationData[];
+  structures: TemporalStructureData[];
+  evidence: string[];
+  ruleTriggers: TemporalEvidenceData[];
+  warnings: string[];
+  monthWindow?: MonthWindowData;
+  delta?: TemporalDeltaReportData;
+  timeline?: { nodes: TimelineNodeData[]; totalNodes: number };
 }
 
 export interface MetaResponse {

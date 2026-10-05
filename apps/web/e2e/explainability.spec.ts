@@ -7,7 +7,7 @@ test("evidence drawer opens after analysis", async ({ page }) => {
   await page.click("button.submit");
   await expect(page.locator(".pillar-card")).toHaveCount(4, { timeout: 15000 });
   await page.click('button:has-text("旺衰")');
-  const details = page.locator("details summary");
+  const details = page.locator(".method-block details summary");
   if (await details.first().isVisible()) {
     await details.first().click();
     await expect(page.locator(".evidence-item").first()).toBeVisible();

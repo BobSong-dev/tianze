@@ -13,9 +13,9 @@ test("normal case: full analysis flow", async ({ page }) => {
   await expect(page.locator("text=weighted")).toBeVisible();
   await expect(page.locator("text=fuyi")).toBeVisible();
   await page.click('button:has-text("格局")');
-  await expect(page.locator(".candidate-block, .status, .panel h2")).toBeVisible();
+  await expect(page.locator(".candidate-block, .status, .panel h2").first()).toBeVisible();
   await page.click('button:has-text("调候")');
   await expect(page.locator(".tiaohou-item").first()).toBeVisible();
-  await page.click('button:has-text("高级")');
+  await page.locator("nav.tabs button", { hasText: "高级" }).click();
   await expect(page.locator("text=特殊格局候选")).toBeVisible();
 });

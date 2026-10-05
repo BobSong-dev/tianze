@@ -53,6 +53,22 @@
           }
         }
       }
+    },
+    "/api/v1/interpret": {
+      "post": {
+        "summary": "Interpret Endpoint",
+        "operationId": "interpret_endpoint_api_v1_interpret_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

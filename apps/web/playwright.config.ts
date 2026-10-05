@@ -7,7 +7,7 @@ export default defineConfig({
   use: { baseURL: "http://localhost:5173" },
   webServer: [
     {
-      command: "cd ../../ && .venv/Scripts/python -m uvicorn apps.api.main:app --port 8000",
+      command: "cd ../../ && .venv\\Scripts\\python.exe -m uvicorn apps.api.main:app --port 8000",
       port: 8000, reuseExistingServer: true, timeout: 15000,
     },
     { command: "npm run dev", port: 5173, reuseExistingServer: true, timeout: 15000 },

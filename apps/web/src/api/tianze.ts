@@ -24,6 +24,10 @@ export interface AnalyzePayload {
     includeStrength?: boolean; includePattern?: boolean; includeTiaohou?: boolean;
     includeSpecialPatterns?: boolean; includeRelations?: boolean; includeElementCounts?: boolean;
     strengthMethods?: string[];
+    includeTemporal?: boolean;
+    targetLuckIndex?: number | null; targetYear?: number | null;
+    targetMonth?: number | null; targetDay?: string | null;
+    includeTemporalDelta?: boolean;
   };
 }
 
