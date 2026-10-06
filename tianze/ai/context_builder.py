@@ -256,6 +256,34 @@ def build_interpretation_context(
         for s_ in (tp.get("structures") or []):
             claim_refs.append(f"temporal:structure:{s_.get('label', '')}")
 
+    # ---- Event Themes (M14) ----
+    ev = (tp or {}).get("eventThemes") if isinstance(tp, dict) else None
+    if isinstance(ev, dict) and ev.get("themes"):
+        event_items = []
+        for t in ev["themes"]:
+            status = t.get("status")
+            item = {
+                "theme": t.get("theme"),
+                "status": status,
+                "agreement": t.get("agreement"),
+                "confidence": t.get("confidence"),
+                "supportingEvidence": t.get("supportingEvidence", []),
+                "opposingEvidence": t.get("opposingEvidence", []),
+                "schoolViews": t.get("schoolViews", {}),
+                "rules": [h.get("ruleId") for h in t.get("triggeredRules", [])],
+            }
+            event_items.append(item)
+            claim_refs.append(f"event:{t.get('theme')}")
+            claim_refs.append(f"event:{t.get('theme')}:{status}")
+            for h in t.get("triggeredRules", []):
+                if h.get("refId"):
+                    claim_refs.append(h["refId"])
+        ctx.event_themes = {
+            "themes": event_items,
+            "params": ev.get("params", {}),
+            "warnings": ev.get("warnings", []),
+        }
+
     # ---- Warnings / fallbacks ----
     ctx.warnings = list(result.get("warnings") or [])
     ctx.unresolved.extend(result.get("fallbacks") or [])

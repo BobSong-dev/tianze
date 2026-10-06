@@ -208,6 +208,22 @@ def validate_grounding(
                     claimed=",".join(hits),
                 ))
 
+    # Check event theme sections for life-event assertions (M14)
+    _EVENT_BANNED = ("一定会", "必然会", "必定会", "肯定会", "必将", "注定",
+                     "会发财", "会升职", "会结婚", "会离婚", "会生病", "有灾",
+                     "发财", "升职", "结婚", "离婚", "婚期", "横祸", "暴富",
+                     "% 的概率", "％的概率", "概率为")
+    for section in result.sections:
+        if section.type == "event_themes":
+            hits = [w for w in _EVENT_BANNED if w in section.content]
+            if hits:
+                issues.append(GroundingIssue(
+                    type=GroundingIssueType.EVENT_PREDICTION,
+                    detail=f"Section '{section.title}' 含事件断言/伪概率语言: {hits}"
+                           "（Event Theme 只允许结构描述与状态词汇）",
+                    claimed=",".join(hits),
+                ))
+
     # Check UNRESOLVED asserted as definitive
     for section in result.sections:
         for u in ctx.unresolved:

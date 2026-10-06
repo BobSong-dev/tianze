@@ -21,6 +21,7 @@ _SYSTEM_INSTRUCTIONS = """\
 10. 输出 JSON 格式，不输出 Markdown。
 11. 岁运（大运/流年/流月/流日）内容只能引用 Context 中 TEMPORAL 区块提供的结构事实与 Delta 条目（refId 以 temporal: 开头）。不得自行推算任何岁运干支、关系或旺衰变化。
 12. 不得输出任何具体人生事件预测（升职/发财/婚姻/疾病/灾祸等）；岁运描述只限结构状态迁移。岁运 Delta 中标记 EXPERIMENTAL 的条目必须保留该标注并说明存在流派分歧。
+13. 事件主题（Event Themes）是「值得关注的结构主题候选」，绝不是说「某事会发生」。CANDIDATE/LIKELY 必须保持原状态词汇，DISPUTED 必须呈现双方证据；禁止虚构具体年份、金额、日期、疾病或灾祸；confidence 是透明加权值，禁止写成概率（如「80% 会…」）。
 
 ## 输出 Schema
 
@@ -122,6 +123,20 @@ def build_context_prompt(ctx: InterpretationContext) -> str:
                          f"（{d.get('supportLevel', '')}，触发 {d.get('trigger', '')}）")
         for u in ctx.temporal.get("unsupportedNotes", []):
             parts.append(f"- UNSUPPORTED：{u}")
+
+    if ctx.event_themes:
+        parts.append("\n## EVENT THEMES（事件主题候选——只解释结构，不断言事件）\n")
+        for t in ctx.event_themes.get("themes", []):
+            parts.append(f"- 主题 {t.get('theme', '')}：status={t.get('status', '')}"
+                         f" agreement={t.get('agreement') or 'N/A'}"
+                         f" confidence={t.get('confidence')}"
+                         f" views={t.get('schoolViews', {})}")
+            for e in t.get("supportingEvidence", [])[:4]:
+                parts.append(f"    支持：{e}")
+            for e in t.get("opposingEvidence", [])[:4]:
+                parts.append(f"    反对：{e}")
+        parts.append("- 注意：status 保持原文词汇（CANDIDATE/LIKELY/DISPUTED/BLOCKED/"
+                     "UNRESOLVED）；confidence 是 ENGINEERING_HEURISTIC 加权而非概率。")
 
     if ctx.advanced:
         parts.append("\n### Advanced (M8)\n")

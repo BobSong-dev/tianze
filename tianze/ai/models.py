@@ -56,6 +56,7 @@ class GroundingIssueType(str, Enum):
     ZHUANWANG_TYPE_MISMATCH = "ZHUANWANG_TYPE_MISMATCH"
     TRANSFORMATION_MISMATCH = "TRANSFORMATION_MISMATCH"
     TEMPORAL_PREDICTION = "TEMPORAL_PREDICTION"
+    EVENT_PREDICTION = "EVENT_PREDICTION"
 
 
 class GroundingIssue(CamelizeModel):
@@ -133,6 +134,7 @@ class InterpretationContext(BaseModel):
     disagreements: list[str] = []
     all_rule_ids: list[str] = []
     temporal: dict[str, Any] | None = None   # M13：岁运上下文（chain/rules/delta）
+    event_themes: dict[str, Any] | None = None  # M14：事件主题候选（非事件预测）
     claim_refs: list[str] = []  # 模型可引用的全部 refId（deterministic 生成）
 
 

@@ -245,3 +245,59 @@ def test_grounding_temporal_structural_passes():
     issues = validate_grounding(result, ctx)
     temporal_issues = [i for i in issues if i.type == GroundingIssueType.TEMPORAL_PREDICTION]
     assert not temporal_issues
+
+
+# ---- M14 Event Theme AI ----
+
+def _make_event_result() -> dict:
+    r = analyze(
+        SimplifiedBirthInfo(date="1984-02-05", time="10:30", gender="male"),
+        AnalysisOptions(include_temporal=True, target_year=2026,
+                        include_temporal_delta=True, include_event_themes=True),
+    )
+    return r.model_dump()
+
+
+def test_context_builder_event_themes():
+    ctx = build_interpretation_context(_make_event_result())
+    assert ctx.event_themes is not None
+    assert ctx.event_themes["themes"], "1984 盘 + 岁运应有事件主题"
+    event_refs = [r for r in ctx.claim_refs if r.startswith("event:")]
+    assert event_refs
+    assert any(r.startswith("event:rule:EV-") for r in event_refs)
+
+
+def test_prompt_contains_event_themes():
+    ctx = build_interpretation_context(_make_event_result())
+    system_prompt, user_prompt = build_prompts(ctx)
+    assert "## EVENT THEMES" in user_prompt
+    assert "禁止写成概率" in system_prompt
+
+
+def test_grounding_event_prediction_blocked():
+    ctx = build_interpretation_context(_make_event_result())
+    result = InterpretationResult(
+        summary="事件主题",
+        sections=[InterpretationSection(
+            type="event_themes", title="事件主题",
+            content="此年您一定会发财，结婚概率为 80%。",
+            claims=[],
+        )],
+    )
+    issues = validate_grounding(result, ctx)
+    assert any(i.type == GroundingIssueType.EVENT_PREDICTION for i in issues)
+
+
+def test_grounding_event_structural_passes():
+    ctx = build_interpretation_context(_make_event_result())
+    result = InterpretationResult(
+        summary="事件主题",
+        sections=[InterpretationSection(
+            type="event_themes", title="事件主题",
+            content="事业主题为 DISPUTED：官星透出支持，伤官见官反对，两说并存不做裁决。"
+                    "confidence 为透明加权值（非概率）。",
+            claims=[],
+        )],
+    )
+    issues = validate_grounding(result, ctx)
+    assert not [i for i in issues if i.type == GroundingIssueType.EVENT_PREDICTION]
