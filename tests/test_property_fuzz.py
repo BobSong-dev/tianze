@@ -154,5 +154,5 @@ def test_review_queue_discipline():
             assert not str(r["verification"]["status"]).startswith("HUMAN"), r["id"]
     assert os.path.exists("review/review-queue.json")
     q = json.load(open("review/review-queue.json", encoding="utf-8"))
-    assert q["discipline"] and "不自动升级" in q["discipline"]
+    assert q["discipline"] and "不产生任何人工状态" in q["discipline"]
     assert q["stats"].get("machineCurated", 0) >= 24  # temporal 14 + event 20 均 MACHINE_CURATED
