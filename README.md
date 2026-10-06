@@ -4,7 +4,7 @@
 >
 > **取诸家之长，统一为 Tianze。** 基础计算直接复用；成熟实现优先借鉴；算法必须可解释；规则必须可追踪；流派差异必须保留；权重与 heuristic 必须公开；有争议的地方不伪装成唯一答案；LLM 不参与确定性计算。
 
-## 当前状态：M13 完成（完整岁运系统）
+## 当前状态：M14 完成（事件主题推理层）
 
 | 里程碑 | 内容 | 状态 |
 |---|---|---|
@@ -23,9 +23,11 @@
 | M11 | Grounded AI 解释层（claim_refs + Grounding Validator） | ✅ |
 | M12 | 岁运基础（大运/流年关系 + Timeline + 十神主题） | ✅ |
 | M13 | 完整岁运系统（Temporal Delta / 流月流日 / TemporalCaseReference / 岁运规则 / Temporal Regression / 时间边界 / Web 时序工作台 / AI 岁运 / StructuralTheme / 报告导出） | ✅ |
+| M14 | 事件主题层（Event Rule Framework / School-aware Reasoning / EventThemeCandidate / Confidence / Event Evaluation / Grounded AI / Web / 导出） | ✅ |
 
-**测试：387 项全绿**（Python）；E2E 7 项；Case Regression 1147 例无变化；
-Temporal Regression 6 探针 baseline。详见 `docs/temporal/03-M13-complete-temporal.md`。
+**测试：409 项全绿**（Python）；E2E 8 项；Case Regression 1147 例无变化；
+Temporal Regression 6 探针 baseline；Event Evaluation 16 规则/200 随机盘无异常触发。
+详见 `docs/temporal/03-M13-complete-temporal.md` 与 `docs/event/01-event-themes.md`。
 
 ## Web 应用
 

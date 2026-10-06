@@ -176,3 +176,14 @@ def test_lazy_no_full_expansion(chart_male):
     """惰性：不选岁运节点 → 空报告（不做 80 年×12 月全量展开）。"""
     rep = compute_event_themes(chart_male)
     assert rep.themes == []
+
+
+def test_timeline_event_theme_performance(chart_male):
+    """性能纪律：聚焦节点事件主题计算为毫秒级（惰性，无全量预展开）。"""
+    import time
+    t0 = time.perf_counter()
+    for _ in range(20):
+        compute_event_themes(chart_male, luck=("甲", "子"), annual=("丙", "午"),
+                             monthly=("庚", "寅"))
+    elapsed = (time.perf_counter() - t0) / 20
+    assert elapsed < 0.2, f"单节点事件主题计算过慢: {elapsed:.3f}s"

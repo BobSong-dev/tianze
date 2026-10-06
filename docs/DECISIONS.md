@@ -189,3 +189,31 @@
   不为迎合古籍案例调整引擎规则。
 - **Reason**：M7 三层分离在岁运维度的直接推广。
 - **Tradeoff**：101/1147 例可结构化大运，覆盖率有限——如实报告而非夸大。
+
+## ADR-042 · Event Theme 是主题候选而非事件预测（M14）
+
+- **Context**：结构主题（官杀/印星增强等）离现实事件还有多层距离；直接输出事件断言
+  会把命理规则包装成现实必然，违反项目红线。
+- **Decision**：事件层输出 EventThemeCandidate（7 主题 × CANDIDATE/LIKELY/DISPUTED/
+  BLOCKED/UNRESOLVED），绝无 CONFIRMED；每条候选必须带支持/反对证据与流派视角。
+- **Reason**：为后续事件推理保留中间层，同时不越过「不做人生预测」的边界。
+- **Tradeoff**：用户可能期望明确答案——UI/报告/AI 处处标注「候选，非预测」缓解。
+
+## ADR-043 · School-aware Reasoning：流派方向显式保留（M14）
+
+- **Context**：同一结构在不同体系下方向相反（如官星透出：traditional 支持 career、
+  伤官见官反对；神煞驿马被子平派删除）。
+- **Decision**：每条规则带 view（traditional/pattern/strength/tiaohou/special_pattern/
+  shensha/temporal_rule）；聚合按 view 记录方向（support/oppose/both），agreement=
+  HIGH/PARTIAL/CONFLICT；CONFLICT 不裁决，status=DISPUTED。
+- **Reason**：任务书要求「禁止为了漂亮答案隐藏冲突」。
+- **Tradeoff**：DISPUTED 候选对普通用户较难读——Web 用徽章+分组证据缓解。
+
+## ADR-044 · Confidence 是透明加权而非概率（M14）
+
+- **Context**：多规则/多视角支持强度需要一个可比标量；但 ML 式概率会造成伪精度。
+- **Decision**：confidence = 证据 provenance 权重和 × 流派一致性加成 − 反向惩罚，
+  scale 0.3、cap 1.0，全部参数随结果输出并标 ENGINEERING_HEURISTIC；
+  grounding 拦截「概率为/80% 会」类表述。
+- **Reason**：可审计性优先于表面精度。
+- **Tradeoff**：数值跨度较粗（0.3/0.6/0.975 等档位）——是刻意选择，拒绝伪连续。
