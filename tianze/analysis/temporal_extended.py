@@ -254,6 +254,30 @@ def _daily_nodes(
     return nodes
 
 
+from functools import lru_cache as _lru
+
+
+@_lru(maxsize=8192)
+def _analyze_temporal_cached(
+    natal_key: tuple, day_master: str,
+    luck: tuple, annual: tuple, monthly: tuple, daily: tuple,
+):
+    """纯函数缓存：同（原局, 岁运层）组合只算一次（进程内，确定性，不改结果）。
+
+    跨 convention 无污染：缓存键包含完整原局 + 全部岁运层干支。
+    """
+    natal_stems = list(natal_key[0])
+    natal_branches = list(natal_key[1])
+    return analyze_temporal(
+        natal_stems=natal_stems, natal_branches=natal_branches,
+        day_master=day_master,
+        luck_stem=luck[0], luck_branch=luck[1],
+        annual_stem=annual[0], annual_branch=annual[1],
+        monthly_stem=monthly[0], monthly_branch=monthly[1],
+        daily_stem=daily[0], daily_branch=daily[1],
+    )
+
+
 def _analyze_payload(
     natal_stems: list, natal_branches: list, day_master: str,
     luck_stem: str | None, luck_branch: str | None,
@@ -262,14 +286,11 @@ def _analyze_payload(
     daily_stem: str | None, daily_branch: str | None,
     natal_ten_gods: dict, node_stem: str | None,
 ) -> dict:
-    """对单个时序节点运行 analyze_temporal，产出 TimelineNode 字段。"""
-    r = analyze_temporal(
-        natal_stems=natal_stems, natal_branches=natal_branches,
-        day_master=day_master,
-        luck_stem=luck_stem, luck_branch=luck_branch,
-        annual_stem=annual_stem, annual_branch=annual_branch,
-        monthly_stem=monthly_stem, monthly_branch=monthly_branch,
-        daily_stem=daily_stem, daily_branch=daily_branch,
+    """对单个时序节点运行 analyze_temporal（带进程内缓存），产出 TimelineNode 字段。"""
+    r = _analyze_temporal_cached(
+        (tuple(natal_stems), tuple(natal_branches)), day_master,
+        (luck_stem, luck_branch), (annual_stem, annual_branch),
+        (monthly_stem, monthly_branch), (daily_stem, daily_branch),
     )
     score = float(len(r.relations) * 2 + len(r.structures) * 3)
     theme = dict(natal_ten_gods)
