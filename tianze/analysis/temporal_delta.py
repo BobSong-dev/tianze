@@ -89,6 +89,7 @@ class TemporalDeltaReport(CamelizeModel):
     deltaSchemaVersion: str = DELTA_SCHEMA_VERSION
     items: list[DeltaItem] = []
     themes: list[StructuralTheme] = []   # M13 结构主题层（中间层，非事件预测）
+    specialFindings: list[Any] = []      # M15 从格/专旺/化气岁运专题（dict 形态）
     unsupportedNotes: list[str] = []     # 明示未计算/不适用的部分
     warnings: list[str] = []
 
@@ -604,8 +605,17 @@ def compute_temporal_delta(
     total_score = float(len(ta.relations) * 2 + len(ta.structures) * 3)
     themes = _compute_structural_themes(items, ta.relations, total_score)
 
+    # M15：特殊格局岁运专题（有岁运上下文时才计算）
+    special_findings: list[Any] = []
+    if units:
+        from tianze.analysis import special_temporal as _st
+        _shim = type("DeltaShim", (), {"items": items, "context": ctx})()
+        special_findings = [f.model_dump(by_alias=True, exclude_none=True)
+                            for f in _st.analyze_special_temporal(chart, _shim)]
+
     return TemporalDeltaReport(
-        context=ctx, items=items, themes=themes, unsupportedNotes=unsupported,
+        context=ctx, items=items, themes=themes, specialFindings=special_findings,
+        unsupportedNotes=unsupported,
         warnings=["Temporal Delta 仅描述结构状态迁移，不构成任何吉凶或事件预测。",
                   "岁运不替换原局月令；EXPERIMENTAL 条目表示岁运参与该计算存在流派分歧。",
                   "themes 为结构主题中间层，不是事件预测器。"],

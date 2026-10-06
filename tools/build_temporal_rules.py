@@ -262,6 +262,91 @@ def main() -> int:
         ),
     ]
 
+    _Q_TR_SP_01 = ("阳干性质刚健……虽临死绝而见印相生，仍为绝处逢生，亦不能从；"
+                   "若阴干则不然：见四柱财旺则从财、煞旺则从煞。")
+    _Q_TR_SP_02 = _Q_TR_SP_01
+    _Q_TR_SP_03 = "变格重在形象气势，约分六格：专旺、从强、从财、官煞、从儿、化气。"
+    _Q_TR_SP_04 = "天合地者，地旺宜静。……合与化不同，今人见合皆作化论殊误。"
+
+    rules += [
+        build_rule(
+            "TR-SP-01", "DTZ-04", "special-pattern", "从格顺势观察",
+            conditions=[{"field": "congCandidate", "operator": "exists", "value": None},
+             {"field": "temporalShunGods", "operator": "exists", "value": None}],
+            effects=[{"kind": "note", "text": '从格候选 + 岁运顺势之神 → 顺势观察（候选级）'}],
+            source={"sourceKind": "COMMENTARY", "book": "滴天髓补注",
+                    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（补注）"},
+            provenance=[
+                {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库",
+                 "concept": "滴天髓补注（DTZ-04）"},
+                {"level": "CLASSICAL_EXPLICIT", "project": None,
+                 "concept": "古籍原文（DTZ-04）", "note": _quote_note(_Q_TR_SP_01)},
+                {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+                 "concept": "顺势之神映射：从财→财、从官杀→官杀、从儿→食伤（含支藏干）"},
+            ],
+            quality="B",
+        ),
+
+        build_rule(
+            "TR-SP-02", "DTZ-04", "special-pattern", "从格岁运印比：破格两说（分阴阳）",
+            conditions=[{"field": "congCandidate", "operator": "exists", "value": None},
+             {"field": "temporalYinBi", "operator": "exists", "value": None}],
+            effects=[{"kind": "note", "text": '阳干→破格说权重更高（绝处逢生不从）；阴干→顺势说权重更高（从势无情义）；两说并存不裁决'}],
+            source={"sourceKind": "COMMENTARY", "book": "滴天髓补注",
+                    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（补注）"},
+            provenance=[
+                {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库",
+                 "concept": "滴天髓补注（DTZ-04）"},
+                {"level": "CLASSICAL_EXPLICIT", "project": None,
+                 "concept": "古籍原文（DTZ-04）", "note": _quote_note(_Q_TR_SP_02)},
+                {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+                 "concept": "按日主阴阳给两说分配权重——上下文相关流派结构，不是全局 A>B"},
+            ],
+            quality="B",
+        ),
+
+        build_rule(
+            "TR-SP-03", "DTZ-25", "special-pattern", "专旺岁运：生扶/克神两说",
+            conditions=[{"field": "zhuanwangCandidate", "operator": "exists", "value": None},
+             {"field": "temporalSupportOrKe", "operator": "exists", "value": None}],
+            effects=[{"kind": "note", "text": '专旺生扶→更真观察；岁运官杀克神→顺势/犯旺两说'}],
+            source={"sourceKind": "COMMENTARY", "book": "滴天髓补注",
+                    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（补注）"},
+            provenance=[
+                {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库",
+                 "concept": "滴天髓补注（DTZ-25）"},
+                {"level": "CLASSICAL_EXPLICIT", "project": None,
+                 "concept": "古籍原文（DTZ-25）", "note": _quote_note(_Q_TR_SP_03)},
+                {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+                 "concept": "专旺五行映射（曲直木/炎上火/稼穑土/从革金/润下水）；克神=官杀干"},
+            ],
+            quality="B",
+        ),
+
+        build_rule(
+            "TR-SP-04", "DTZ-18", "special-pattern", "化气岁运：引化候选（合≠化）",
+            conditions=[{"field": "transformationCandidate", "operator": "exists", "value": None},
+             {"field": "temporalHuaSupport", "operator": "exists", "value": None}],
+            effects=[{"kind": "note", "text": '合神再现/化神得生扶 → 引化候选；候选永不升级为定论（DTZ-18）'}],
+            source={"sourceKind": "COMMENTARY", "book": "滴天髓补注",
+                    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（补注）"},
+            provenance=[
+                {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库",
+                 "concept": "滴天髓补注（DTZ-18）"},
+                {"level": "CLASSICAL_EXPLICIT", "project": None,
+                 "concept": "古籍原文（DTZ-18）", "note": _quote_note(_Q_TR_SP_04)},
+                {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+                 "concept": "化神五行映射（甲己土/乙庚金/丙辛水/丁壬木/戊癸火）"},
+            ],
+            quality="B",
+        ),
+
+    ]
+
     os.makedirs(OUT, exist_ok=True)
     payload = {
         "domain": "temporal",

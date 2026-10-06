@@ -266,7 +266,8 @@ def evaluate_temporal_rules(ctx: TemporalContext,
     每条 JSON 规则必须有对应 evaluator（缺失即抛错，不静默跳过）。
     未触发的规则 matched=False 保留（可审计哪些规则参与过判定）。
     """
-    rules = load_temporal_rules()
+    rules = [r for r in load_temporal_rules()
+             if r.get("category") != "special-pattern"]  # 特殊格局专题由 special_temporal 评估
     evidence: list[TemporalEvidence] = []
     for r in rules:
         rid = r["id"]
