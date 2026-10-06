@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import datetime
 import json
+import os
 import random
 import subprocess
 import sys
@@ -143,3 +144,15 @@ def test_month_windows_continuity_random_years():
             si = (STEMS.index(b["stem"]) - STEMS.index(a["stem"])) % 10
             bi = (BRANCHES.index(b["branch"]) - BRANCHES.index(a["branch"])) % 12
             assert (si, bi) == (1, 1)
+
+
+def test_review_queue_discipline():
+    """Review Queue：只汇总不升级——全库不得出现机器生成的 HUMAN_* 状态。"""
+    import glob as _glob
+    for f in _glob.glob("knowledge/rules/*/rules.json"):
+        for r in json.load(open(f, encoding="utf-8"))["rules"]:
+            assert not str(r["verification"]["status"]).startswith("HUMAN"), r["id"]
+    assert os.path.exists("review/review-queue.json")
+    q = json.load(open("review/review-queue.json", encoding="utf-8"))
+    assert q["discipline"] and "不自动升级" in q["discipline"]
+    assert q["stats"].get("machineCurated", 0) >= 24  # temporal 14 + event 20 均 MACHINE_CURATED

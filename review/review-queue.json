@@ -1,0 +1,2690 @@
+{
+ "schemaVersion": "1.0.0",
+ "description": "Review Queue：知识质量待办统一出口（只汇总，不自动升级状态）",
+ "discipline": "HUMAN_VERIFIED 只能由真实人工对照扫描件产生；本队列不产生任何人工状态",
+ "generatedBy": "tools/review_queue.py",
+ "stats": {
+  "ocrRisk": 163,
+  "machineCurated": 216,
+  "sensitiveClaims": 38,
+  "ruleConflicts": 7
+ },
+ "totalItems": 424,
+ "queue": {
+  "ocrRiskRules": [
+   {
+    "id": "DTZ-04",
+    "book": "DTZ",
+    "title": "阳干从气不从势，阴干从势无情义"
+   },
+   {
+    "id": "DTZ-05",
+    "book": "DTZ",
+    "title": "阳干虽弱不从势——韩复榘（绝处逢生）、虞洽卿（不能从煞）、施再邨（气绝不从）"
+   },
+   {
+    "id": "DTZ-06",
+    "book": "DTZ",
+    "title": "伍庭芳（己土从木）与许世英（乙木反不能从）之辨"
+   },
+   {
+    "id": "DTZ-07",
+    "book": "DTZ",
+    "title": "甲木参天，脱胎要火——春不容金，秋不容土；火炽乘龙，水汤骑虎"
+   },
+   {
+    "id": "DTZ-08",
+    "book": "DTZ",
+    "title": "乙木虽柔，封羊解牛——怀丁抱丙，跨凤乘猴；虚湿之地骑马亦忧；藤萝系甲可春可秋"
+   },
+   {
+    "id": "DTZ-09",
+    "book": "DTZ",
+    "title": "支神只以冲为重，刑与穿兮动不动——三刑逢冲为祸甚烈"
+   },
+   {
+    "id": "DTZ-11",
+    "book": "DTZ",
+    "title": "旺者冲衰衰者拔，衰神冲旺旺者发（旺衰以全局气势言）"
+   },
+   {
+    "id": "DTZ-13",
+    "book": "DTZ",
+    "title": "土居中央寄于四隅——寅申巳亥同藏戊土，午藏己土；亥子之土名存实亡"
+   },
+   {
+    "id": "DTZ-14",
+    "book": "DTZ",
+    "title": "天地顺遂而精粹者昌，乖悖混乱者亡——不论有根无根俱要天覆地载"
+   },
+   {
+    "id": "DTZ-15",
+    "book": "DTZ",
+    "title": "天全一气不可使地德莫之载；地全三物不可使天道莫之容"
+   },
+   {
+    "id": "DTZ-16",
+    "book": "DTZ",
+    "title": "阳乘阳位阳气昌，最要行程安顿；阴乘阴位阴气盛，还须道路光亨"
+   },
+   {
+    "id": "DTZ-17",
+    "book": "DTZ",
+    "title": "地生天者，天衰怕冲——自坐长生专恃一点，逢冲根拔为祸亦重"
+   },
+   {
+    "id": "DTZ-18",
+    "book": "DTZ",
+    "title": "天合地者，地旺宜静——合与化不同，最重合神非取其化"
+   },
+   {
+    "id": "DTZ-19",
+    "book": "DTZ",
+    "title": "两气合而成象，象不可破也；五气聚而成形，形不可害也"
+   },
+   {
+    "id": "DTZ-23",
+    "book": "DTZ",
+    "title": "始其所始，终其所终——生化不息，一字不可移易"
+   },
+   {
+    "id": "DTZ-25",
+    "book": "DTZ",
+    "title": "财官印绶分偏正，兼论食伤八格定——正格实六、变格六、建禄阳刃不立专格"
+   },
+   {
+    "id": "DTZ-26",
+    "book": "DTZ",
+    "title": "拱夹联珠、干支一气、暗冲遥合之类不成为格"
+   },
+   {
+    "id": "DTZ-29",
+    "book": "DTZ",
+    "title": "正官为用——以财为引、逢官看财；官太旺惟能用印化"
+   },
+   {
+    "id": "DTZ-31",
+    "book": "DTZ",
+    "title": "丑字用神入墓＋酉丧门丑吊客＋流年合局——官印并伤而死"
+   },
+   {
+    "id": "DTZ-32",
+    "book": "DTZ",
+    "title": "用财皆须身旺——富屋贫人之辨；财喜禄、宜藏支"
+   },
+   {
+    "id": "DTZ-33",
+    "book": "DTZ",
+    "title": "一位而清名偏官，多而杂名七煞——制化二法视身煞强弱"
+   },
+   {
+    "id": "DTZ-35",
+    "book": "DTZ",
+    "title": "杂气财官须运程引出，引出亦有分别（会引出/合锁闭）"
+   },
+   {
+    "id": "DTZ-36",
+    "book": "DTZ",
+    "title": "夹拱遥合非格局亦非用神——只是精神所寄，可以取贵"
+   },
+   {
+    "id": "DTZ-39",
+    "book": "DTZ",
+    "title": "官有可见不可见——财化伤生官、印制伤护官；伤官用官惟以调候为最正当"
+   },
+   {
+    "id": "DTZ-41",
+    "book": "DTZ",
+    "title": "井栏叉、飞天禄马、金神——遇官星填实破格，其实为伤官变格"
+   },
+   {
+    "id": "DTZ-42",
+    "book": "DTZ",
+    "title": "从得真者只论从，从神又有吉合凶——阳干从气不从势，阴干不论气势皆从"
+   },
+   {
+    "id": "DTZ-43",
+    "book": "DTZ",
+    "title": "以财化伤生官／以印制伤护官——更有制化并用（看地位）"
+   },
+   {
+    "id": "DTZ-46",
+    "book": "DTZ",
+    "title": "从神非只纯杂真假——《穷通宝鉴》的干支性情时令辨别"
+   },
+   {
+    "id": "DTZ-47",
+    "book": "DTZ",
+    "title": "化得真者只论化——化气乘旺、日干衰绝、须见辰（逢龙而运）"
+   },
+   {
+    "id": "DTZ-48",
+    "book": "DTZ",
+    "title": "从格以所从之神为用，化格以生我化气之神为用——顺其气势，过旺用泄、决不能克"
+   },
+   {
+    "id": "DTZ-50",
+    "book": "DTZ",
+    "title": "从儿不论身强弱，只要我儿再见儿——食伤成象，行财地泄之无不富贵"
+   },
+   {
+    "id": "DTZ-53",
+    "book": "DTZ",
+    "title": "寒木用火制金生木——有反生之理兼制煞之用，不论日元强弱"
+   },
+   {
+    "id": "DTZ-57",
+    "book": "DTZ",
+    "title": "印孤行比劫、食伤孤行食伤（荫及子孙）；印孤行官印、日主孤行比劫（迎养父母）"
+   },
+   {
+    "id": "DTZ-59",
+    "book": "DTZ",
+    "title": "体者体段也——八正格之体专求月令（四时木体示范）"
+   },
+   {
+    "id": "DTZ-61",
+    "book": "DTZ",
+    "title": "从化专旺以全局气势为体——化局用生我化神、从局用所从之神、专旺顺其气势"
+   },
+   {
+    "id": "DTZ-64",
+    "book": "DTZ",
+    "title": "十二月人元司令日数表（五行各旺七十二日）"
+   },
+   {
+    "id": "DTZ-65",
+    "book": "DTZ",
+    "title": "不可以拘执日数司令——惟节气交脱之际以司令之神为重"
+   },
+   {
+    "id": "DTZ-66",
+    "book": "DTZ",
+    "title": "癸巳丙辰造示范——若不从节气进退推之，必作财旺身弱而误"
+   },
+   {
+    "id": "DTZ-67",
+    "book": "DTZ",
+    "title": "春木畏金非上格、秋木不畏金大贵——非五行正变所能概括"
+   },
+   {
+    "id": "DTZ-68",
+    "book": "DTZ",
+    "title": "以泄为生（春木喜火）、以生为克（印多根腐）、以杀为生（秋木喜金）"
+   },
+   {
+    "id": "DTZ-72",
+    "book": "DTZ",
+    "title": "体用对立用印/食伤通关；用神对峙以通关神调和（官伤用财/财印用煞/财逢劫刃用食伤/枭夺食劫为恩星）"
+   },
+   {
+    "id": "DTZ-73",
+    "book": "DTZ",
+    "title": "官伤用财（一司之长）；阳刃逢财用食伤（父以子贵）；枭夺食以劫为恩星"
+   },
+   {
+    "id": "DTZ-75",
+    "book": "DTZ",
+    "title": "满盘浊气庸碌、一局清枯孤苦——浊由于配合失宜、枯由于气势偏胜"
+   },
+   {
+    "id": "DTZ-76",
+    "book": "DTZ",
+    "title": "浊而枯（佳运仅账房）／半浊半清（丁火寒儒）／半清半浊（祭酒视学）／清而偏枯（酉金争财）"
+   },
+   {
+    "id": "DTZ-77",
+    "book": "DTZ",
+    "title": "真神＝合于日主需要（十干十二个月所喜用）；假神＝配合上不能不取"
+   },
+   {
+    "id": "MLD-X01",
+    "book": "MLD",
+    "title": "入门程序约之有三——格用、神煞、合观推人事"
+   },
+   {
+    "id": "MLD-X02",
+    "book": "MLD",
+    "title": "本书所引命例的断语均以\"格用为主、神煞为参\""
+   },
+   {
+    "id": "MLD-01",
+    "book": "MLD",
+    "title": "六亲以五配合与十神生克为据（正财为妻、正印为母、偏财为父、男命官煞为子、女命食伤为子）"
+   },
+   {
+    "id": "MLD-02",
+    "book": "MLD",
+    "title": "官宜财生、煞宜食制（阳干之例）"
+   },
+   {
+    "id": "MLD-03",
+    "book": "MLD",
+    "title": "合官忘贵、合煞忘贱（阳干合去之用）"
+   },
+   {
+    "id": "MLD-04",
+    "book": "MLD",
+    "title": "满盘燥湿中暗藏一点相反之气，为全局生机、贵气所在"
+   },
+   {
+    "id": "MLD-05",
+    "book": "MLD",
+    "title": "冲提不为元（寿元之机），先看日元有气无气"
+   },
+   {
+    "id": "MLD-06",
+    "book": "MLD",
+    "title": "命以用神为机，神煞为辅，吉凶随用神定趋向"
+   },
+   {
+    "id": "MLD-07",
+    "book": "MLD",
+    "title": "财用印取、印用财取（明通赋财印交差之解）"
+   },
+   {
+    "id": "MLD-08",
+    "book": "MLD",
+    "title": "煞刃两停的力量均衡法"
+   },
+   {
+    "id": "MLD-09",
+    "book": "MLD",
+    "title": "乙丙丁寄卯巳午（三台），见卯巳午全而出将入相；三台得用须以火为用"
+   },
+   {
+    "id": "MLD-10",
+    "book": "MLD",
+    "title": "劫财阳刃、护禄阳刃、背禄阳刃"
+   },
+   {
+    "id": "MLD-12",
+    "book": "MLD",
+    "title": "借妻安子（拱虚得用的补救法）"
+   },
+   {
+    "id": "MLD-13",
+    "book": "MLD",
+    "title": "不见之形与抽不抽之绪（虚神成格法）"
+   },
+   {
+    "id": "MLD-14",
+    "book": "MLD",
+    "title": "双生子同时不同刻的判断与胎元"
+   },
+   {
+    "id": "MLD-15",
+    "book": "MLD",
+    "title": "合婚须以生克制化格局配合为本，三元九宫仅皮毛"
+   },
+   {
+    "id": "MLD-16",
+    "book": "MLD",
+    "title": "生而不生、化而不化——类化气类印煞而不成局"
+   },
+   {
+    "id": "MLD-17",
+    "book": "MLD",
+    "title": "看月令十二宫的生旺休囚定旺衰宜忌"
+   },
+   {
+    "id": "MLD-18",
+    "book": "MLD",
+    "title": "离婚之微象——财印不容、夫宫伤官身旺、夫星逢冲"
+   },
+   {
+    "id": "MLD-19",
+    "book": "MLD",
+    "title": "同名同格古今地位悬殊——论命须以今比昔、参以经验"
+   },
+   {
+    "id": "MLD-20",
+    "book": "MLD",
+    "title": "金水伤官不易看——扶抑以得比劫扶助为美，不忌官煞"
+   },
+   {
+    "id": "MLD-21",
+    "book": "MLD",
+    "title": "桃花名目（桃花劫/桃花马/桃花煞/咸池/红艳/倒插）与格局配法"
+   },
+   {
+    "id": "MLD-22",
+    "book": "MLD",
+    "title": "女命八格（旺夫荫子/安静守分/横死夭折/旺夫子/清/和/浊/淫/娼/妓）与八贱"
+   },
+   {
+    "id": "MLD-23",
+    "book": "MLD",
+    "title": "神煞有年取者有日取者，子平以日干为主而神煞并非只论年"
+   },
+   {
+    "id": "MLD-24",
+    "book": "MLD",
+    "title": "命理推算以太阳为根据——欧美生时必须换算本地真时"
+   },
+   {
+    "id": "MLD-25",
+    "book": "MLD",
+    "title": "生而不生与化而不化的命征（过房、招赘、异姓）"
+   },
+   {
+    "id": "MLD-26",
+    "book": "MLD",
+    "title": "三元九宫起例（上中下元）——徐氏作为合婚参考之旧法"
+   },
+   {
+    "id": "MLD-27",
+    "book": "MLD",
+    "title": "以用神合于需要为贵——不顾用神者虽贵亦不足取"
+   },
+   {
+    "id": "MLD-28",
+    "book": "MLD",
+    "title": "六神即天星——日干为主起例（征验以日干为主）"
+   },
+   {
+    "id": "MLD-29",
+    "book": "MLD",
+    "title": "本书以下章节与《守素室丛谈》同源，规则以 SS 编号为准"
+   },
+   {
+    "id": "MLD-30",
+    "book": "MLD",
+    "title": "《命理一得》版神煞起例要点（天乙贵人/文昌/天厨/金神七煞/建除十二星）"
+   },
+   {
+    "id": "MLD-31",
+    "book": "MLD",
+    "title": "希特勒/墨索里尼/罗斯福三造之录存与追问"
+   },
+   {
+    "id": "QBT-丁-02",
+    "book": "QBT",
+    "title": "正月丁火，先庚次壬，化木与财官两途"
+   },
+   {
+    "id": "QBT-丁-16",
+    "book": "QBT",
+    "title": "地支寒湿，甲戊两透，庚甲不可缺"
+   },
+   {
+    "id": "QBT-庚-04",
+    "book": "QBT",
+    "title": "四月庚金——群金生夏妙用元武，先壬次戊丙佐"
+   },
+   {
+    "id": "QBT-庚-10",
+    "book": "QBT",
+    "title": "十月庚金——水冷金塞，非丁不能造、非丙不能暖"
+   },
+   {
+    "id": "QBT-辛-01",
+    "book": "QBT",
+    "title": "正月辛金——先取己土生身，次用壬水淘洗"
+   },
+   {
+    "id": "QBT-辛-05",
+    "book": "QBT",
+    "title": "五月辛金——己壬并用（己无壬不湿、辛无己不生）"
+   },
+   {
+    "id": "QBT-辛-12",
+    "book": "QBT",
+    "title": "十二月辛金——先丙次壬（解冻后方可用壬淘洗）"
+   },
+   {
+    "id": "QBT-壬-01",
+    "book": "QBT",
+    "title": "正月壬水——先用庚发源，次丙除寒，又次戊止流"
+   },
+   {
+    "id": "QBT-戊-07",
+    "book": "QBT",
+    "title": "六月戊土先癸次丙甲；大暑前后取用不同"
+   },
+   {
+    "id": "QBT-己-16",
+    "book": "QBT",
+    "title": "十二月己土土寒须丁暖、甲疏季土；丁透丙藏为大贵"
+   },
+   {
+    "id": "QBT-乙-30",
+    "book": "QBT",
+    "title": "冬至后坐下木局得丙透干者富贵之造；己土透干又有丙透大富贵"
+   },
+   {
+    "id": "QBT-乙-32",
+    "book": "QBT",
+    "title": "一派戊土见甲专用丙火；四柱皆戊己不见比劫作从财论大富"
+   },
+   {
+    "id": "QBT-甲-01@3",
+    "book": "QBT",
+    "title": "三春甲木总论——分三节取用，水火二物要得时相济"
+   },
+   {
+    "id": "QBT-甲-10@3",
+    "book": "QBT",
+    "title": "五六月柱中多金——杀重身轻与得丁制、壬癸透则先贫后富"
+   },
+   {
+    "id": "QBT-01",
+    "book": "QBT",
+    "title": "《造化元钥》＝明代《栏江网》→康熙间日官易名《造化元钥》→光绪间余春台易名《穷通宝鉴》"
+   },
+   {
+    "id": "SPZY-11",
+    "book": "SPZY",
+    "title": "木火金水十二宫位次与甲乙/丙丁/庚辛/壬癸的宫段划分"
+   },
+   {
+    "id": "SPZY-13",
+    "book": "SPZY",
+    "title": "阳长生寅申为旺，阴长生巳亥不旺"
+   },
+   {
+    "id": "SPZY-15",
+    "book": "SPZY",
+    "title": "气有旺衰则力用有显晦——长生与墓位其用显著"
+   },
+   {
+    "id": "SPZY-18",
+    "book": "SPZY",
+    "title": "日与日以子正为界——子正之前犹是昨日（夜子时）"
+   },
+   {
+    "id": "SPZY-20",
+    "book": "SPZY",
+    "title": "克我者为官——阳克阴/阴克阳为正官，阳克阳/阴克阴为偏官（七煞）"
+   },
+   {
+    "id": "SPZY-23",
+    "book": "SPZY",
+    "title": "我生者为食神伤官——同性为和（食神），伤官一名盗气"
+   },
+   {
+    "id": "SPZY-26",
+    "book": "SPZY",
+    "title": "论节不论气——三日一年、一时十日，扣算为大运起点（交脱之期）"
+   },
+   {
+    "id": "SPZY-27",
+    "book": "SPZY",
+    "title": "小运二法皆未必正确——未交大运前以月建为大运"
+   },
+   {
+    "id": "SPZY-29",
+    "book": "SPZY",
+    "title": "命宫＝生时太阳所在（月将加时顺数至卯），太阳宫即月建六合之宫"
+   },
+   {
+    "id": "SPZY-30",
+    "book": "SPZY",
+    "title": "胎元＝受胎之月——子平法重胎元（秉赋之始），但命胎不改八字定局"
+   },
+   {
+    "id": "SPZY-32",
+    "book": "SPZY",
+    "title": "五合源于河图生成数，五鼠遁日建相合"
+   },
+   {
+    "id": "SPZY-33",
+    "book": "SPZY",
+    "title": "合者夫妇配偶（河图），化者变其性质（内经五运）——截然殊途"
+   },
+   {
+    "id": "SPZY-35",
+    "book": "SPZY",
+    "title": "六合无化义——日月（午未）定位，地气上升成四时之序"
+   },
+   {
+    "id": "SPZY-37",
+    "book": "SPZY",
+    "title": "方之气盛、局之气专——方不全两支不能成方"
+   },
+   {
+    "id": "SPZY-41",
+    "book": "SPZY",
+    "title": "阳干以临官为禄，阴干以帝旺为禄"
+   },
+   {
+    "id": "SPZY-44",
+    "book": "SPZY",
+    "title": "旺强喜抑、衰弱喜扶——旺弱抑克泄、衰弱抑中兼扶"
+   },
+   {
+    "id": "SPZY-46",
+    "book": "SPZY",
+    "title": "阳干向旺之气忌衰、阴干向衰之气不畏衰（经验互证）"
+   },
+   {
+    "id": "SPZY-47",
+    "book": "SPZY",
+    "title": "反生为克（子旺母衰）／反克为生——命理中极重要之根据"
+   },
+   {
+    "id": "SPZY-48",
+    "book": "SPZY",
+    "title": "生克之理乃呆法——秋冬寒燥之金不能生水，必须从气候体会"
+   },
+   {
+    "id": "SPZY-50",
+    "book": "SPZY",
+    "title": "水火为主皆不可克——庚见丁成器、己土混壬培甲（绝处逢生）"
+   },
+   {
+    "id": "SPZY-54",
+    "book": "SPZY",
+    "title": "生地之冲（两受其损）／败地之冲（被冲而去）／库地之冲（朋冲，用在墓余则忌）"
+   },
+   {
+    "id": "SPZY-58",
+    "book": "SPZY",
+    "title": "先辨其体方可言其用——甲木酉月（秋木为体）财印为用"
+   },
+   {
+    "id": "SPZY-61",
+    "book": "SPZY",
+    "title": "戊己土十二月体性与格局速查（阴干有刃仅己土未月）"
+   },
+   {
+    "id": "SPZY-64",
+    "book": "SPZY",
+    "title": "壬癸水十二月体性与格局速查（夏水须比劫、秋水通源）"
+   },
+   {
+    "id": "SPZY-65",
+    "book": "SPZY",
+    "title": "古人论命以八格为经而纬以用——八格无单用之法，必辅以用神"
+   },
+   {
+    "id": "SPZY-69",
+    "book": "SPZY",
+    "title": "用印必缘身弱（别格取印）——真印格皆取他神为用；印制伤、枭夺食"
+   },
+   {
+    "id": "SPZY-71",
+    "book": "SPZY",
+    "title": "禄刃同格——用必在官煞或食伤；煞刃格二型（阳刃见煞用财／七煞见刃用印）"
+   },
+   {
+    "id": "SPZY-73",
+    "book": "SPZY",
+    "title": "初春用火可缺水、仲春不可无水、季春不可无水亦不可水泄金"
+   },
+   {
+    "id": "SPZY-74",
+    "book": "SPZY",
+    "title": "夏木根干叶枯——得水为用最上格，忌火旺自焚"
+   },
+   {
+    "id": "SPZY-75",
+    "book": "SPZY",
+    "title": "初秋水土相滋、仲秋刚金修削、季秋水盛则漂火炎则实"
+   },
+   {
+    "id": "SPZY-76",
+    "book": "SPZY",
+    "title": "秋木“木多有多材之美，土厚无自任之能”；冬木“火重见温暖有功，金总多不能克伐”"
+   },
+   {
+    "id": "SPZY-78",
+    "book": "SPZY",
+    "title": "甲子/甲寅/甲辰/甲午/甲申/甲戌的纳木宜忌"
+   },
+   {
+    "id": "SPZY-79",
+    "book": "SPZY",
+    "title": "乙丑/乙卯/乙巳/乙未/乙酉/乙亥的纳木宜忌"
+   },
+   {
+    "id": "SPZY-80",
+    "book": "SPZY",
+    "title": "春火母旺子相——喜木生扶、欲水既济；独畏戊土（火土伤官难言秀气）"
+   },
+   {
+    "id": "SPZY-81",
+    "book": "SPZY",
+    "title": "夏火秉令乘权——喜水制（免自焚）、忌木助（招夭折）；用财用食伤皆不能无水"
+   },
+   {
+    "id": "SPZY-83",
+    "book": "SPZY",
+    "title": "丙火猛烈，欺霜侮雪——能锻庚金，从辛反怯；土众生慈，水猖显节"
+   },
+   {
+    "id": "SPZY-85",
+    "book": "SPZY",
+    "title": "丙子/丙寅/丙辰/丙午/丙申/丙戌的日柱宜忌"
+   },
+   {
+    "id": "SPZY-86",
+    "book": "SPZY",
+    "title": "丁丑/丁卯/丁巳/丁未/丁酉/丁亥的日柱宜忌"
+   },
+   {
+    "id": "SPZY-87",
+    "book": "SPZY",
+    "title": "春土势虚浮（喜火生扶）、夏土势燥烈（得盛水滋润）、秋土子旺母衰（不能离火）、冬土惟喜火温"
+   },
+   {
+    "id": "SPZY-89",
+    "book": "SPZY",
+    "title": "辰戌丑未惟未土极旺（火生）——各月贵格与配合异宜"
+   },
+   {
+    "id": "SPZY-91",
+    "book": "SPZY",
+    "title": "己为田园稼穑之土——春耕喜木、夏耘喜水、秋收宜金、冬藏宜火"
+   },
+   {
+    "id": "SPZY-92",
+    "book": "SPZY",
+    "title": "春金余寒未尽贵乎火气为荣——火必与土兼；金来比助最妙"
+   },
+   {
+    "id": "SPZY-96",
+    "book": "SPZY",
+    "title": "辛丑胎息之金（珠玉性虚灵最喜阳和沙水清）……"
+   },
+   {
+    "id": "SPZY-99",
+    "book": "SPZY",
+    "title": "壬子洋溢之水（煞制刃）／壬寅雨露沙堤（云雨并集）"
+   },
+   {
+    "id": "SPZY-100",
+    "book": "SPZY",
+    "title": "壬辰壬骑龙背（忌戌）／壬午禄马同乡（水火均停）／壬申水满渠成／壬戌骤雨易晴"
+   },
+   {
+    "id": "SPZY-101",
+    "book": "SPZY",
+    "title": "癸丑沟渠（乙卯通）/癸卯涧泉（忌俗土）/癸巳高阜（忌亥冲）/癸酉石孔流泉（木庚）/癸未川泽（金木透）/癸亥还元之水（忌巳"
+   },
+   {
+    "id": "SPZY-102",
+    "book": "SPZY",
+    "title": "初春专用丙（无丙丁可用不如丙有力）；仲春丁（火通明忌癸）／庚（伤官驾煞/财滋弱煞）；暮春庚壬（丁壬合助木气为贵）"
+   },
+   {
+    "id": "ZHY-R61",
+    "book": "ZHY",
+    "title": "三冬癸水——十月忌支成木局、十一月丙透辛透、十二月专用丙解冻"
+   },
+   {
+    "id": "ZPZ-06",
+    "book": "ZPZ",
+    "title": "论用神纯杂——纯者吉、杂者凶"
+   },
+   {
+    "id": "ZP-01",
+    "book": "ZP",
+    "title": "徐乐吾列举之外格系统"
+   },
+   {
+    "id": "ZP-02",
+    "book": "ZP",
+    "title": "胞胎格（受气）——五行绝处即胎元"
+   },
+   {
+    "id": "ZP-03",
+    "book": "ZP",
+    "title": "满盘印杀两看法——以财破印（母慈子灭）／无财就母之性"
+   },
+   {
+    "id": "ZP-04",
+    "book": "ZP",
+    "title": "日禄归时——喜忌篇\"最忌日干生旺\""
+   },
+   {
+    "id": "ZP-05",
+    "book": "ZP",
+    "title": "拱禄拱贵——两支拱虚必须\"集于一点\""
+   },
+   {
+    "id": "ZP-06",
+    "book": "ZP",
+    "title": "六乙鼠贵——印煞临子（天乙），忌见官煞刑冲"
+   },
+   {
+    "id": "ZP-07",
+    "book": "ZP",
+    "title": "刑合格——癸日暗合戊，时甲寅刑巳成格"
+   },
+   {
+    "id": "ZP-08",
+    "book": "ZP",
+    "title": "专印合格——癸日无丙火戊己，庚申时合一己之财官"
+   },
+   {
+    "id": "ZP-09",
+    "book": "ZP",
+    "title": "六辛朝阳——六辛日无午字，得戊子时"
+   },
+   {
+    "id": "ZP-10",
+    "book": "ZP",
+    "title": "专食合禄——戊日庚申时，只取时上食神为用"
+   },
+   {
+    "id": "ZP-11",
+    "book": "ZP",
+    "title": "子邀己格（丑邀巳附）——子巳相合、以虚神邀巳中丙戊"
+   },
+   {
+    "id": "ZP-12",
+    "book": "ZP",
+    "title": "井栏叉格与倒冲格（庚日得禄之地）"
+   },
+   {
+    "id": "ZP-13",
+    "book": "ZP",
+    "title": "六甲趋乾格、六壬趋艮格（附）"
+   },
+   {
+    "id": "ZP-14",
+    "book": "ZP",
+    "title": "看子息法（妻财子息章）"
+   },
+   {
+    "id": "ZP-15",
+    "book": "ZP",
+    "title": "神煞之取法无定、之应用依主（年日为中心之辩）"
+   },
+   {
+    "id": "ZP-16",
+    "book": "ZP",
+    "title": "金水伤官与木火伤官——印食之用"
+   },
+   {
+    "id": "ZP-17",
+    "book": "ZP",
+    "title": "官煞有可混不可混之理"
+   },
+   {
+    "id": "ZP-18",
+    "book": "ZP",
+    "title": "十干性情/六神为看命捷法"
+   },
+   {
+    "id": "ZP-19",
+    "book": "ZP",
+    "title": "贵者自上之擢——官煞与我之遇合"
+   },
+   {
+    "id": "ZP-20",
+    "book": "ZP",
+    "title": "富命百不得一；有终身不能富者"
+   },
+   {
+    "id": "ZP-21",
+    "book": "ZP",
+    "title": "命運非不可转移——其机承人internal（?）方胜遇佳"
+   },
+   {
+    "id": "ZP-22",
+    "book": "ZP",
+    "title": "看名人命造——须看其事实以证"
+   }
+  ],
+  "machineCuratedRules": [
+   {
+    "id": "EV-CAR-01",
+    "domain": "event",
+    "label": "官星透岁运+官杀主题增强",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-CAR-02",
+    "domain": "event",
+    "label": "官印相生（印化官杀）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-CAR-03",
+    "domain": "event",
+    "label": "伤官见官（岁运伤官克官）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-WEA-01",
+    "domain": "event",
+    "label": "财星透岁运+财主题增强",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-WEA-02",
+    "domain": "event",
+    "label": "刃头财/比劫夺财（因财启争）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-WEA-03",
+    "domain": "event",
+    "label": "财库逢冲（两说并存）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-REL-01",
+    "domain": "event",
+    "label": "夫妻宫（日支）逢岁运六合",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-REL-02",
+    "domain": "event",
+    "label": "夫妻宫逢冲/夫星逢冲",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-REL-03",
+    "domain": "event",
+    "label": "配偶星临岁运（男财/女官）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-REL-04",
+    "domain": "event",
+    "label": "咸池桃花临岁运",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-STU-01",
+    "domain": "event",
+    "label": "印星临岁运+印主题增强",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-MOB-01",
+    "domain": "event",
+    "label": "驿马临岁运/驿马逢冲",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-MOB-02",
+    "domain": "event",
+    "label": "岁运冲提纲（月令）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-FAM-01",
+    "domain": "event",
+    "label": "年柱/月柱被天克地冲（宫位引动）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-SOC-01",
+    "domain": "event",
+    "label": "比劫临岁运/比劫主题增强",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-CON-01",
+    "domain": "event",
+    "label": "从格/专旺岁运破格（顺势 vs 破格两说）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-CAR-04",
+    "domain": "event",
+    "label": "食神制杀（条件化）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-CAR-05",
+    "domain": "event",
+    "label": "煞刃相合（身煞两停）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-WEA-04",
+    "domain": "event",
+    "label": "食伤生财",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "EV-REL-05",
+    "domain": "event",
+    "label": "财印不容（关系张力）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
+    "id": "TR-SS-R09",
+    "domain": "temporal",
+    "label": "日犯岁君（流年干为日主所克）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-SS-R10A",
+    "domain": "temporal",
+    "label": "刃头财（流年支阳刃+干财星）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-SS-R10B",
+    "domain": "temporal",
+    "label": "禄头财（流年支禄位+干财星）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-DTZ-35",
+    "domain": "temporal",
+    "label": "杂气财官运程引出候选",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-DTZ-09",
+    "domain": "temporal",
+    "label": "岁运冲提纲/三刑全备观察",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-SPZY-28",
+    "domain": "temporal",
+    "label": "流年即太岁（术语框架）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-FUYIN-01",
+    "domain": "temporal",
+    "label": "伏吟（岁运柱与原局柱相同）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-FANYIN-01",
+    "domain": "temporal",
+    "label": "反吟（岁运柱天克地冲原局柱）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-BINGLIN-01",
+    "domain": "temporal",
+    "label": "岁运并临（大运=流年干支）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-TIANKEDI-01",
+    "domain": "temporal",
+    "label": "天克地冲（流年克冲大运）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-SP-01",
+    "domain": "temporal",
+    "label": "从格顺势观察",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-SP-02",
+    "domain": "temporal",
+    "label": "从格岁运印比：破格两说（分阴阳）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-SP-03",
+    "domain": "temporal",
+    "label": "专旺岁运：生扶/克神两说",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-SP-04",
+    "domain": "temporal",
+    "label": "化气岁运：引化候选（合≠化）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-01-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-01-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-02@2-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-02@2-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-02@3-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-02@3-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-02-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-02-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-04@2-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-04@2-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-07@2-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-07@2-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-04-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-04-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-10@2-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-10@2-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-01@3-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-01@3-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-05-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-05-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-13@2-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-13@2-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-06@3-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-06@3-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-06-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-06-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-12@2-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-12@2-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-16-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-16-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-07-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-07-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-06-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-06-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-08-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-08-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-23-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-23-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-25-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-25-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-09-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-09-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-26-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-26-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-27-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-27-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-10-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-10-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-28-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-28-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-29-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-29-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-11-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-11-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-33-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-33-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-34-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-34-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-12-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-12-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-35-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-35-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-36-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-36-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-13-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-13-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-37-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-37-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-甲-38-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-甲-38-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-01-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-01-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-01@2-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-01@2-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-02@2-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-02@2-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-02-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-02-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-04@2-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-04@2-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-05@2-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-05@2-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-03-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-03-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-06@2-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-06@2-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-07@2-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-07@2-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-04-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-04-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-11@2-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-11@2-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-05-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-05-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-12@2-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-12@2-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-13-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-13-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-06-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-06-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-14-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-14-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-15-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-15-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-07-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-07-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-19-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-19-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-20-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-20-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-08-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-08-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-21-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-21-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-22-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-22-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-09-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-09-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-24-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-24-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-25-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-25-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-10-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-10-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-26-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-26-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-27-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-27-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-11-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-11-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-28-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-28-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-29-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-29-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-12-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-12-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-乙-31-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-乙-31-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-01-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-01-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-02-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-02-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-03-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-03-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-04-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-04-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-05-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-05-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-06-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-06-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-07-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-07-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-08-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-08-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-09-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-09-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-10-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-10-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-11-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-11-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丙-12-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丙-12-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-01-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-01-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-02-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-02-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-03-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-03-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-04-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-04-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-05-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-05-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-06-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-06-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-07-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-07-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-08-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-08-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-09-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-09-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-10-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-10-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-11-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-11-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-12-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-12-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-13-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-13-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-14-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-14-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-15-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-15-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-16-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-16-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-13-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-13-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-丁-16-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-丁-16-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-01-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-01-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-02-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-02-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-03-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-03-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-04-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-04-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-05-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-05-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-06-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-06-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-07-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-07-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-08-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-08-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-09-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-09-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-10-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-10-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-11-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-11-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-12-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-12-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-13-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-13-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-12-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-12-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-戊-14-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-戊-14-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-01-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-01-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-02-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-02-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-03-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-03-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-04-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-04-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-05-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-05-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-06-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-06-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-07-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-07-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-05-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-05-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-08-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-08-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-10-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-10-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-09-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-09-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-11-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-11-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-09-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-09-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-12-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-12-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-13-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-13-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-14-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-14-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-13-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-13-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-15-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-15-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-13-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-13-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-己-16-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-己-16-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-01-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-01-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-02-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-02-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-03-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-03-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-04-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-04-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-05-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-05-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-06-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-06-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-07-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-07-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-08-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-08-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-09-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-09-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-10-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-10-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-11-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-11-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-庚-12-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-庚-12-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-01-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-01-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-02-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-02-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-03-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-03-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-04-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-04-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-05-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-05-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-06-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-06-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-07-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-07-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-08-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-08-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-09-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-09-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-10-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-10-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-11-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-11-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-辛-12-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-辛-12-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-01-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-01-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-02-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-02-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-03-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-03-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-04-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-04-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-05-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-05-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-06-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-06-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-07-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-07-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-08-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-08-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-09-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-09-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-10-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-10-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-11-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-11-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-壬-12-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-壬-12-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-01-寅",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-01-寅",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-02-卯",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-02-卯",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-03-辰",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-03-辰",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-04-巳",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-04-巳",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-05-午",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-05-午",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-06-未",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-06-未",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-07-申",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-07-申",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-08-酉",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-08-酉",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-09-戌",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-09-戌",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-10-亥",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-10-亥",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-11-子",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-11-子",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TH-QBT-癸-12-丑",
+    "domain": "tiaohou",
+    "label": "TH-QBT-癸-12-丑",
+    "method": "ai_curation",
+    "note": "M6 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   }
+  ],
+  "sensitiveClaims": [
+   {
+    "caseId": "CASE-QBTM-丁-37",
+    "text": "位至招商局督办；庚午年遭暗杀；原书生辰标注「光绪十三年闰四月初十日辰时」。",
+    "keywords": [
+     "杀"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-丁-44",
+    "text": "名垂青史；行巳运尽节而死。",
+    "keywords": [
+     "死"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-丁-67",
+    "text": "位居北洋总督；贵为总统；丙辰年卒，年五十八；原书生辰标注「咸丰九年八月廿日未时」。",
+    "keywords": [
+     "卒"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-丁-83",
+    "text": "原书断大富，入午运即死。",
+    "keywords": [
+     "死"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-丁-93",
+    "text": "原书载「甲运大发，午运败家丧家，未运死」。",
+    "keywords": [
+     "死"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-丁-103",
+    "text": "原书断「无庚虽富而夭」。",
+    "keywords": [
+     "夭"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-戊-03",
+    "text": "癸运夭折",
+    "keywords": [
+     "夭"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-戊-26",
+    "text": "位至总长；戊运己卯年元旦被刺殒命",
+    "keywords": [
+     "刺"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-戊-27",
+    "text": "谋刺摄政几遭杀身之祸；位至行政院长；亥运戊寅年被迫下台；辛巳年重见风波",
+    "keywords": [
+     "杀",
+     "刺"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-戊-28",
+    "text": "民国二十六年九月死于先施公司炸弹之役，年廿八",
+    "keywords": [
+     "死"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-戊-34",
+    "text": "残疾瞽目",
+    "keywords": [
+     "疾"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-戊-39",
+    "text": "民国十七年戊辰任浙海关监督；丙子年卒于任，年五十八岁",
+    "keywords": [
+     "卒"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-戊-41",
+    "text": "戌运被暗杀殒命",
+    "keywords": [
+     "杀"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-戊-50",
+    "text": "癸亥运伤用，丙子年逝世，年三十九",
+    "keywords": [
+     "伤"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-戊-56",
+    "text": "连杀七夫",
+    "keywords": [
+     "杀"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-戊-74",
+    "text": "位至警察厅长；辛卯运倒戈被杀",
+    "keywords": [
+     "杀"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-戊-83",
+    "text": "以慈善事业斐声社会；甲运戊寅年十一月卒，寿七十二",
+    "keywords": [
+     "卒"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-己-12",
+    "text": "位至军长省主席；酉运己卯年被炸受伤殒命",
+    "keywords": [
+     "伤"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-己-85",
+    "text": "官至太傅；卒谥文恭",
+    "keywords": [
+     "卒"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-甲-09",
+    "text": "阳刃合煞；全省最高官阶集于一身；戌运病逝。",
+    "keywords": [
+     "病"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-甲-32",
+    "text": "官至尚书；凶死。",
+    "keywords": [
+     "死",
+     "凶死"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-甲-36",
+    "text": "木火伤官佩印之命（徐氏断语）。",
+    "keywords": [
+     "伤"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-甲-47",
+    "text": "定伊犁、讨缅甸、平金川；积功封英勇公；官至大学士；卒谥文成。",
+    "keywords": [
+     "卒"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-甲-50",
+    "text": "握生杀权；甲运遭仇杀。",
+    "keywords": [
+     "杀"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-甲-76",
+    "text": "孤寡多疾；晚年有衣禄。",
+    "keywords": [
+     "疾"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-甲-81",
+    "text": "伤官生财之贵（徐氏断语）。",
+    "keywords": [
+     "伤"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-甲-84",
+    "text": "专用庚丁；至壬运遭仇杀。",
+    "keywords": [
+     "杀"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-甲-93",
+    "text": "为商；行申运溺水而死。",
+    "keywords": [
+     "死"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-乙-33",
+    "text": "残疾；上代荫庇不能及身。",
+    "keywords": [
+     "疾"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-乙-46",
+    "text": "位至尚书；卒谥文肃。",
+    "keywords": [
+     "卒"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-乙-56",
+    "text": "位至财政部长；卒于丁丑年；寿六十二。",
+    "keywords": [
+     "卒"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-乙-58",
+    "text": "贵为都督；起伏不常；被刺命。",
+    "keywords": [
+     "刺"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-乙-77",
+    "text": "位至公路局长；戊运殁。",
+    "keywords": [
+     "殁"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-乙-89",
+    "text": "龙冠六宫；寅运克夫；垂帘听政四十五年；卒，寿七十四。",
+    "keywords": [
+     "卒"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-乙-95",
+    "text": "丁壬合去病为贵；申运失国。",
+    "keywords": [
+     "病"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-乙-101",
+    "text": "煞重身轻；贫而且夭。",
+    "keywords": [
+     "夭"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-乙-112",
+    "text": "遭暗杀命。",
+    "keywords": [
+     "杀"
+    ]
+   },
+   {
+    "caseId": "CASE-QBTM-甲-09@2",
+    "text": "原书载其位至全省最高官阶，入戌运病逝。",
+    "keywords": [
+     "病"
+    ]
+   }
+  ],
+  "ruleConflicts": [
+   {
+    "source": "event",
+    "rules": [
+     "EV-CAR-01",
+     "EV-CAR-03"
+    ],
+    "resolution": "keep-both",
+    "note": "DTZ-39：伤官见官有「可见/不可见」之辨（有财化伤则可见官）；v1 执行器未判救应，因此两条规则可同盘反向命中——保留双方，status=DISPUTED"
+   },
+   {
+    "source": "event",
+    "rules": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ],
+    "resolution": "keep-both",
+    "note": "SS-R10 原书自注「须察其配合，非可一例以推」：财星支持与因财启争同盘并存"
+   },
+   {
+    "source": "event",
+    "rules": [
+     "EV-REL-02",
+     "EV-REL-03"
+    ],
+    "resolution": "keep-both",
+    "note": "MLD-18：配偶星临岁运（support）与夫妻宫逢冲（oppose）可同时成立；原文并注明「离婚非不可避免事」，方向相反只表示主题内张力"
+   },
+   {
+    "source": "event",
+    "rules": [
+     "EV-CON-01",
+     "EV-WEA-02"
+    ],
+    "resolution": "no-adjudication",
+    "note": "special_pattern 视角（从格顺势/破格两说）与 traditional 视角（比劫夺财）方向相反时属流派差异，不裁决"
+   },
+   {
+    "source": "tiaohou",
+    "rules": [
+     "QBT-甲-07",
+     "QBT-甲-06"
+    ],
+    "resolution": "specific-over-general",
+    "note": "QBT-甲-06（五六月合论）与 QBT-甲-07（六月专论）覆盖重叠：specific-over-general"
+   },
+   {
+    "source": "tiaohou",
+    "rules": [
+     "QBT-甲-07",
+     "QBT-甲-06"
+    ],
+    "resolution": "specific-over-general",
+    "note": "QBT-甲-06（五六月合论）与 QBT-甲-07（六月专论）覆盖重叠：specific-over-general"
+   },
+   {
+    "source": "tiaohou",
+    "rules": [
+     "QBT-己-10"
+    ],
+    "resolution": "specific-over-general",
+    "note": "标题'以丙为主要'与正文'先透癸次透丙'两说并存：从正文"
+   }
+  ],
+  "unresolved": [
+   {
+    "kind": "tiaohou_coverage",
+    "detail": "调候 120 格全覆盖（0 UNRESOLVED）——若未来知识库扩展出现缺口会在此登记"
+   },
+   {
+    "kind": "event_unresolved_rate",
+    "detail": "Event 主题 UNRESOLVED 率（探针）：{'multi_view_agree': 0.0, 'multi_view_conflict': 0.0, 'shensha_only': 0.0, 'unknown_hour': 0.0, 'wealth_ku': 0.0, 'female_guan': 0.0}"
+   }
+  ]
+ }
+}
