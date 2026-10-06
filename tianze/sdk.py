@@ -115,6 +115,7 @@ class AnalysisOptions(BaseModel):
     target_month: int | None = None       # M13：流月序（1=寅月，节气窗口）
     target_day: str | None = None         # M13：流日（"YYYY-MM-DD"，公历）
     include_temporal_delta: bool = False  # M13：完整 Temporal Delta（strength/pattern/tiaohou/special/...）
+    include_event_themes: bool = False    # M14：事件主题候选（career/wealth/...，非事件预测）
 
 
 # ---- 输出模型 ----
@@ -274,8 +275,8 @@ def analyze(
         if mw_info:
             temporal["monthWindow"] = mw_info
 
-        # M13: 完整 Delta（所选岁运层级 vs 原局）
-        if options.include_temporal_delta:
+        # M13/M14: 完整 Delta（所选岁运层级 vs 原局）——事件主题需要 Delta 作为证据源
+        if options.include_temporal_delta or options.include_event_themes:
             luck_pair = None
             if temporal.get("context", {}).get("luckStem"):
                 luck_pair = (temporal["context"]["luckStem"], temporal["context"].get("luckBranch"))
@@ -294,6 +295,16 @@ def analyze(
                 luck_index=options.target_luck_index, annual_year=options.target_year,
             )
             temporal["delta"] = delta_report.model_dump(by_alias=True, exclude_none=True)
+
+        # M14: 事件主题候选（惰性：只在选中岁运节点计算，依赖 Delta 证据源）
+        if options.include_event_themes:
+            from tianze.analysis.event_themes import compute_event_themes
+            event_report = compute_event_themes(
+                chart, luck=luck_pair, annual=annual_pair,
+                monthly=monthly_pair, daily=daily_pair,
+                delta_report=delta_report,
+            )
+            temporal["eventThemes"] = event_report.model_dump(by_alias=True, exclude_none=True)
 
         # M12/M13: Timeline（大运→流年；focus_year/focus_month 展开流月/流日）
         if chart.luck and chart.luck.da_yun:
