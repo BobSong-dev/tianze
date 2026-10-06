@@ -52,8 +52,9 @@ def replay_case(case: dict, temporal_ref: dict | None,
     mentions = st.get("mentions") or []
     # 岁运上下文来源（两路，均来自原书记载）：
     #   a) 结构化大运序列首项；b) 文本中的完整干支运提及（如「行辛亥运」）
-    luck_gz = dayun[0].get("ganZhi") if dayun else None
-    luck_src = "dayun[0]" if luck_gz else None
+    # 文本提及的运优先（原书分析针对的具体运）；无提及再用结构化大运首项
+    luck_gz = None
+    luck_src = None
     annual_gz = None
     import re
     for m in mentions:
@@ -62,6 +63,9 @@ def replay_case(case: dict, temporal_ref: dict | None,
             luck_src = f"mention:{m.get('rawText', '')}"
         if m.get("kind") == "annual" and m.get("ganZhi") and not annual_gz:
             annual_gz = m["ganZhi"]
+    if not luck_gz and dayun:
+        luck_gz = dayun[0].get("ganZhi")
+        luck_src = "dayun[0]"
     if not luck_gz:
         return None
     gender = (case.get("fact") or {}).get("gender")
