@@ -111,8 +111,10 @@ def test_hua_never_confirmed(chart_1983):
         assert "合≠化" in f["evidence"][0] or "不升级" in f["evidence"][0]
         assert f["status"] == "CANDIDATE"
     # 直接评估器验证（原局可能无化气候选）
-    out = _sp_hua(chart_1983, chart_1983, {("transformation", "丁壬"): {"status": "CANDIDATE",
-                                                                  "temporal_only": False}})
+    from types import SimpleNamespace
+    ctx_shim = SimpleNamespace(temporal_units=lambda: [("annual", "丁", "子")])
+    out = _sp_hua(chart_1983, ctx_shim, {("transformation", "丁壬"): {"status": "CANDIDATE",
+                                                                      "temporal_only": False}})
     if out:
         assert "不升级" in out[0][5]
 

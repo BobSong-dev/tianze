@@ -310,6 +310,67 @@ def main() -> int:
         ),
     ]
 
+    rules += [
+        build_rule(
+            "EV-CAR-04", "SS-R05", "career", "traditional", "食神制杀（条件化）",
+            [{"field": "temporalStemTenGod", "operator": "eq", "value": "食神"},
+             {"field": "shaPresent", "operator": "eq", "value": True}],
+            [{"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库",
+              "concept": "守素室丛谈·煞有可制不可制（SS-R05）+ 滴天髓补注·制用食神（DTZ-33）"},
+             {"level": "CLASSICAL_EXPLICIT", "project": None,
+              "concept": "古籍原文（制杀框架）",
+              "note": _q("煞有可制不可制：身强煞弱→煞化为官……用食神以节制之。")},
+             {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+              "concept": "v1 不判身强弱：support 方向附带「身强煞浅不可制」前提保留"}],
+            _SS, "B",
+            conflict_note="SS-R05：身强煞浅则假煞为权不可制——本规则 support 以「身煞强弱"
+                          "未判」为前提，与 EV-CAR-01（官杀透出）同盘时可能同向叠加。",
+        ),
+        build_rule(
+            "EV-CAR-05", "DTZ-33", "career", "traditional", "煞刃相合（身煞两停）",
+            [{"field": "yangRenPresent", "operator": "eq", "value": True},
+             {"field": "temporalSha", "operator": "eq", "value": True}],
+            [{"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库",
+              "concept": "滴天髓补注·七煞（DTZ-33）"},
+             {"level": "CLASSICAL_EXPLICIT", "project": None,
+              "concept": "古籍原文（煞刃相合）",
+              "note": _q("身煞两停（如阳刃七煞之类）最宜煞刃相合，不合亦须用印以和之。")},
+             {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+              "concept": "阳刃取 YANG_STEM_REN 表（R24，阴干无刃）"}],
+            _DTZ, "B",
+        ),
+        build_rule(
+            "EV-WEA-04", "ZPZ-12", "wealth", "traditional", "食伤生财",
+            [{"field": "temporalStemTenGod", "operator": "in", "value": ["食神", "伤官"]},
+             {"field": "caiPresent", "operator": "eq", "value": True}],
+            [{"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库",
+              "concept": "子平真诠·财格（ZPZ-12：用财诸局）"},
+             {"level": "CLASSICAL_EXPLICIT", "project": None,
+              "concept": "古籍原文（财格框架）",
+              "note": _q("财格——身强方能任财；喜根深不宜太露；用财诸局。")},
+             {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+              "concept": "食伤生财 = 岁运食伤干 + 命/岁财星并见"}],
+            {"sourceKind": "COMMENTARY", "book": "子平真诠评注",
+             "sourceFile": "_知识库/_知识库/03-子平真诠评注知识库.md",
+             "confidence": "unverified", "commentator": "徐乐吾（评注）"}, "B",
+        ),
+        build_rule(
+            "EV-REL-05", "MLD-18", "relationship", "traditional", "财印不容（关系张力）",
+            [{"field": "temporalStemTenGod", "operator": "in", "value": ["正印", "偏印"]},
+             {"field": "caiPresent", "operator": "eq", "value": True}],
+            [{"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库",
+              "concept": "命理一得·离婚之微象（MLD-18）"},
+             {"level": "CLASSICAL_EXPLICIT", "project": None,
+              "concept": "古籍原文（财印不容）",
+              "note": _q("更见财星冲之，决然合（离），财印不相容势必（分）飞也。")},
+             {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+              "concept": "岁运印干 + 命/岁财星并见的最简结构判定"}],
+            _MLD, "B",
+            conflict_note="MLD-18 原文明言「离婚非不可避免事」且随时代变迁；oppose 方向"
+                          "仅为关系主题张力，绝非关系破裂断言。",
+        ),
+    ]
+
     conflicts = [
         {"ruleA": "EV-CAR-01", "ruleB": "EV-CAR-03",
          "resolution": "keep-both",

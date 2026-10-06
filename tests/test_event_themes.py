@@ -187,3 +187,57 @@ def test_timeline_event_theme_performance(chart_male):
                              monthly=("庚", "寅"))
     elapsed = (time.perf_counter() - t0) / 20
     assert elapsed < 0.2, f"单节点事件主题计算过慢: {elapsed:.3f}s"
+
+
+# ---------- M15 扩充规则（组合/条件化） ----------
+
+def test_shishen_zhisha_conditional():
+    """EV-CAR-04：岁运食神+七杀 → career 支持，前提（身强煞浅不可制）必须保留。"""
+    # 甲日主：丙=食神，庚=七杀
+    rep = compute_event_themes(_dm_chart("甲"), annual=("丙", "子"), luck=("庚", "午"))
+    car = next((t for t in rep.themes if t.theme == EventTheme.CAREER), None)
+    assert car is not None
+    hit = next((h for h in car.triggeredRules if h.ruleId == "EV-CAR-04"), None)
+    assert hit is not None
+    assert any("身强煞浅" in e or "前提保留" in e for e in hit.evidence)
+
+
+def test_sharen_he():
+    """EV-CAR-05：原局阳刃 + 岁运七杀 → 煞刃相合 support。"""
+    rep = compute_event_themes(_dm_chart("甲"), annual=("庚", "子"))
+    car = next((t for t in rep.themes if t.theme == EventTheme.CAREER), None)
+    hit = next((h for h in (car.triggeredRules if car else [])
+                if h.ruleId == "EV-CAR-05"), None)
+    if hit:
+        assert "煞刃相合" in " ".join(hit.evidence)
+
+
+def test_shishang_shengcai():
+    """EV-WEA-04：岁运食伤+财星 → wealth 支持。"""
+    rep = compute_event_themes(_dm_chart("甲"), annual=("丙", "子"), luck=("戊", "辰"))
+    wea = next((t for t in rep.themes if t.theme == EventTheme.WEALTH), None)
+    hit = next((h for h in (wea.triggeredRules if wea else [])
+                if h.ruleId == "EV-WEA-04"), None)
+    if hit:
+        assert "食伤生财" in " ".join(hit.evidence)
+
+
+def test_cai_yin_bu_rong():
+    """EV-REL-05：岁运印+财并见 → relationship 反对 + MLD-18 边界保留。"""
+    rep = compute_event_themes(_dm_chart("甲"), annual=("癸", "巳"))
+    rel = next((t for t in rep.themes if t.theme == EventTheme.RELATIONSHIP), None)
+    hit = next((h for h in (rel.triggeredRules if rel else [])
+                if h.ruleId == "EV-REL-05"), None)
+    if hit:
+        assert any("不可避免" in e or "张力" in e for e in hit.evidence)
+
+
+def _dm_chart(dm: str):
+    """构造指定日主的最小真实 chart（经 pipeline，保证十神/藏干口径一致）。"""
+    import datetime as _dt
+    dates = {"甲": (1983, 2, 15), "己": (1984, 2, 5)}
+    y, m, d = dates.get(dm, (1983, 2, 15))
+    gender = Gender.FEMALE if dm == "甲" else Gender.MALE
+    return build_chart(BirthInfo(date=_dt.date(y, m, d),
+                                 time=_dt.time(20 if dm == "甲" else 10, 0),
+                                 gender=gender))

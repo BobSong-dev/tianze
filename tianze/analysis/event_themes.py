@@ -425,6 +425,71 @@ def _ev_cong_special(ctx: EventContext):
     return None, [], None
 
 
+def _ev_car_shishenzhisha(ctx: EventContext):
+    """食神制杀（条件化）：岁运食神 + 命/岁七杀 → career 支持（制杀成权）。
+
+    条件化边界（SS-R05）：身强煞浅则假煞为权不可制——v1 不判身强弱，
+    conflictNote 保留该前提，方向给 support 但注明前提。
+    """
+    ev: list[str] = []
+    shi_layers = [(l, s) for l, s in _temporal_stems(ctx)
+                  if ten_god(ctx.day_master, s).value == "食神"]
+    sha_present = any(ten_god(ctx.day_master, s).value == "七杀"
+                      for s in ctx.natal_stems if s) or         any(ten_god(ctx.day_master, s).value == "七杀" for _l, s in _temporal_stems(ctx))
+    if shi_layers and sha_present:
+        ev.append("岁运" + "、".join(f"{_layers_cn(l)}干{s}" for l, s in shi_layers)
+                  + "（食神）制命/岁七杀：食神制杀结构（DTZ-33：制用食神）")
+        ev.append("前提保留（SS-R05）：身强煞浅则煞化为官、假煞为权不可制；v1 不判身强弱")
+        return EventDirection.SUPPORT, ev
+    return (None, ev)
+
+
+def _ev_car_sharen(ctx: EventContext):
+    """煞刃相合：岁运七杀 + 原局阳刃 → career 支持（DTZ-33：身煞两停最宜煞刃相合）。"""
+    from tianze.ganzhi.tables import YANG_STEM_REN, BRANCHES
+    ren = YANG_STEM_REN.get(ctx.day_master)
+    if not ren:
+        return (None, [])
+    has_ren = ren in [b for b in ctx.natal_branches if b]
+    sha_layers = [(l, s) for l, s in _temporal_stems(ctx)
+                  if ten_god(ctx.day_master, s).value == "七杀"]
+    if has_ren and sha_layers:
+        ev = [f"原局{ren}（阳刃）+ 岁运"
+              + "、".join(f"{_layers_cn(l)}干{s}" for l, s in sha_layers)
+              + "（七杀）：煞刃相合结构（DTZ-33：身煞两停最宜煞刃相合，不合亦须用印以和之）"]
+        return EventDirection.SUPPORT, ev
+    return (None, [])
+
+
+def _ev_wea_shishang_shengcai(ctx: EventContext):
+    """食伤生财：岁运食伤 + 岁运/命局财星 → wealth 支持（ZPZ-12 财格用财诸局）。"""
+    shi_layers = [(l, s) for l, s in _temporal_stems(ctx)
+                  if ten_god(ctx.day_master, s).value in ("食神", "伤官")]
+    cai_present = any(ten_god(ctx.day_master, s).value in ("正财", "偏财")
+                      for s in ctx.natal_stems if s) or         any(ten_god(ctx.day_master, s).value in ("正财", "偏财")
+            for _l, s in _temporal_stems(ctx))
+    if shi_layers and cai_present:
+        ev = ["岁运" + "、".join(f"{_layers_cn(l)}干{s}（{ten_god(ctx.day_master, s).value}）"
+                                for l, s in shi_layers) + " 生财（命/岁财星并见）：食伤生财结构"]
+        return EventDirection.SUPPORT, ev
+    return (None, [])
+
+
+def _ev_rel_cai_yin(ctx: EventContext):
+    """财印不容（MLD-18）：岁运印星 + 命/岁财星并见 → relationship 反对。"""
+    yin_layers = [(l, s) for l, s in _temporal_stems(ctx)
+                  if ten_god(ctx.day_master, s).value in ("正印", "偏印")]
+    cai_present = any(ten_god(ctx.day_master, s).value in ("正财", "偏财")
+                      for s in ctx.natal_stems if s) or         any(ten_god(ctx.day_master, s).value in ("正财", "偏财")
+            for _l, s in _temporal_stems(ctx))
+    if yin_layers and cai_present:
+        ev = ["岁运" + "、".join(f"{_layers_cn(l)}干{s}" for l, s in yin_layers)
+              + "（印）与财星并见：财印不相容结构（MLD-18：财印不相容势必分飞）"]
+        ev.append("边界保留：MLD-18 原文明言「离婚非不可避免事」——方向仅为关系主题张力")
+        return EventDirection.OPPOSE, ev
+    return (None, [])
+
+
 # 本模块只导出评估器注册表；规则元数据（theme/view/label/provenance）在 rules.json
 EVALUATORS = {
     "EV-CAR-01": _ev_car_guan,
@@ -443,6 +508,10 @@ EVALUATORS = {
     "EV-FAM-01": _ev_fam_tiankedi,
     "EV-SOC-01": _ev_soc_bijie,
     "EV-CON-01": _ev_cong_special,
+    "EV-CAR-04": _ev_car_shishenzhisha,
+    "EV-CAR-05": _ev_car_sharen,
+    "EV-WEA-04": _ev_wea_shishang_shengcai,
+    "EV-REL-05": _ev_rel_cai_yin,
 }
 
 _UNRESOLVED_RULES = {"EV-REL-03"}   # 性别未知时输出 UNRESOLVED 候选的规则
