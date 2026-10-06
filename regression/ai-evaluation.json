@@ -1,0 +1,11 @@
+{
+ "schemaVersion": "1.0.0",
+ "provider": "SKIPPED",
+ "reason": "TIANZE_LLM_API_KEY 未设置：不伪造真实评估结果；CI 使用 --mock",
+ "summary": {
+  "total": 0,
+  "pass": 0,
+  "fail": 0
+ },
+ "results": []
+}
