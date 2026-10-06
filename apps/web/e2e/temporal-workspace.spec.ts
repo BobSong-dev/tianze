@@ -31,3 +31,25 @@ test("temporal workspace: select luck → year → analyze delta", async ({ page
   // 边界声明
   await expect(page.locator("text=不构成任何吉凶或事件预测")).toBeVisible();
 });
+
+test("event themes render with status and disclaimer", async ({ page }) => {
+  await page.goto("/");
+  await page.fill('input[type="date"]', "1984-02-05");
+  await page.fill('input[type="time"]', "10:30");
+  await page.click("button.submit");
+  await expect(page.locator(".pillar-card")).toHaveCount(4, { timeout: 15000 });
+
+  await page.locator("nav.tabs button", { hasText: "时序" }).click();
+  await page.locator(".temporal-controls select").first().selectOption({ index: 1 });
+  await page.locator(".temporal-controls select").nth(1).selectOption({ index: 1 });
+  await page.click('.temporal-controls button:has-text("分析")');
+
+  await expect(page.locator("h3", { hasText: "事件主题" })).toBeVisible({ timeout: 15000 });
+  // status 词汇受控（无 CONFIRMED）
+  const badges = await page.locator(".candidate-block .badge").allTextContents();
+  const statuses = badges.filter(b => ["CANDIDATE", "LIKELY", "DISPUTED", "BLOCKED", "UNRESOLVED"].includes(b));
+  expect(statuses.length).toBeGreaterThan(0);
+  expect(badges).not.toContain("CONFIRMED");
+  // 非概率声明
+  await expect(page.locator("text=非概率").first()).toBeVisible();
+});

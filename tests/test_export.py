@@ -48,3 +48,13 @@ def test_export_deterministic():
     r2 = to_markdown(_result(include_temporal=True, target_year=2026,
                              include_temporal_delta=True))
     assert r1 == r2
+
+
+def test_export_with_event_themes():
+    md = to_markdown(_result(include_temporal=True, target_year=2026,
+                             include_temporal_delta=True, include_event_themes=True))
+    assert "事件主题" in md
+    assert "CANDIDATE" in md or "DISPUTED" in md or "LIKELY" in md
+    assert "非概率" in md
+    for banned in ("一定会", "必然发财", "必定结婚"):
+        assert banned not in md

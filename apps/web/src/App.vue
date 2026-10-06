@@ -159,6 +159,11 @@ const deltaByAnalysis = computed(() => {
   return groups;
 });
 
+function statusBadgeClass(status: string): string {
+  return { LIKELY: "rescue", DISPUTED: "conflict", BLOCKED: "damage",
+           UNRESOLVED: "", CANDIDATE: "" }[status] ?? "";
+}
+
 const KIND_CN: Record<string, string> = {
   added: "新出现", removed: "消失", strengthened: "增强", weakened: "减弱",
   status_changed: "状态改变", blocked: "被阻断", unblocked: "解除/到位",
@@ -210,6 +215,7 @@ async function loadTemporal() {
         targetMonth: selMonth.value,
         targetDay: selDay.value || undefined,
         includeTemporalDelta: true,
+        includeEventThemes: true,
       },
     });
     temporalData.value = resp.temporal;
@@ -590,6 +596,30 @@ async function loadTemporal() {
               </details>
             </div>
             <p v-if="!(temporalData.delta.themes || []).length" class="note">无结构主题。</p>
+          </template>
+
+          <!-- M14 Event Themes -->
+          <template v-if="temporalData.eventThemes">
+            <h3>事件主题 <span class="note">结构层面的「值得关注」候选——不是预测事件；无 CONFIRMED 状态</span></h3>
+            <div v-for="t in temporalData.eventThemes.themes" :key="t.theme" class="candidate-block">
+              <strong>{{ t.themeCn || t.theme }}</strong>
+              <span class="badge" :class="statusBadgeClass(t.status)">{{ t.status }}</span>
+              <span v-if="t.agreement === 'CONFLICT'" class="badge damage">多体系冲突</span>
+              <span v-else-if="t.agreement === 'HIGH'" class="badge rescue">多体系一致</span>
+              <span class="badge">confidence {{ t.confidence }}</span>
+              <span class="note">（ENGINEERING_HEURISTIC 加权，非概率）</span>
+              <div v-for="(v, k) in t.schoolViews" :key="k" class="evidence-item note">
+                视角 {{ k }}：{{ v }}
+              </div>
+              <details open><summary>支持证据</summary>
+                <div v-for="(e, i) in t.supportingEvidence" :key="'s' + i" class="evidence-item rescue">+ {{ e }}</div>
+                <p v-if="!t.supportingEvidence.length" class="note">无</p>
+              </details>
+              <details v-if="t.opposingEvidence.length"><summary>反对证据</summary>
+                <div v-for="(e, i) in t.opposingEvidence" :key="'o' + i" class="evidence-item damage">− {{ e }}</div>
+              </details>
+            </div>
+            <p v-if="!temporalData.eventThemes.themes.length" class="note">当前岁运上下文无事件主题候选。</p>
           </template>
 
           <div class="note" style="margin-top: 0.6rem;">

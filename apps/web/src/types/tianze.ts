@@ -230,6 +230,29 @@ export interface MonthWindowData {
   start: string; end: string;
 }
 
+export interface EventRuleHitData {
+  ruleId: string; label: string; theme: string; direction: string;
+  view: string; evidence: string[]; provenanceLevels: string[]; refId: string | null;
+}
+
+export interface EventThemeCandidateData {
+  theme: string; themeCn: string; status: string;
+  supportingEvidence: string[]; opposingEvidence: string[];
+  triggeredRules: EventRuleHitData[]; schoolViews: Record<string, string>;
+  agreement: string | null; temporalRefs: string[];
+  confidence: number; confidenceBasis: string[]; warnings: string[];
+  refId: string | null;
+}
+
+export interface EventThemeReportData {
+  eventSchemaVersion: string;
+  context: Record<string, unknown>;
+  themes: EventThemeCandidateData[];
+  unmatchedRules: string[];
+  params: Record<string, unknown>;
+  warnings: string[];
+}
+
 export interface TemporalAnalysisData {
   context: {
     natalStems: (string | null)[]; natalBranches: (string | null)[];
@@ -246,6 +269,7 @@ export interface TemporalAnalysisData {
   warnings: string[];
   monthWindow?: MonthWindowData;
   delta?: TemporalDeltaReportData;
+  eventThemes?: EventThemeReportData;
   timeline?: { nodes: TimelineNodeData[]; totalNodes: number };
 }
 

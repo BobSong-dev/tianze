@@ -173,6 +173,19 @@ def to_markdown(result: dict[str, Any]) -> str:
             for u in delta.get("unsupportedNotes") or []:
                 out.append(f"- UNSUPPORTED：{u}")
 
+        ev = tp.get("eventThemes") if isinstance(tp, dict) else None
+        if isinstance(ev, dict) and ev.get("themes"):
+            out.append("")
+            out.append(_h(3, "事件主题（候选，非事件预测）"))
+            for t in ev["themes"]:
+                out.append(f"- **{t.get('themeCn') or t.get('theme')}**：{t.get('status')}"
+                           f"（agreement={t.get('agreement') or 'N/A'}，"
+                           f"confidence={t.get('confidence')}，ENGINEERING_HEURISTIC 非概率）")
+                for e in t.get("supportingEvidence") or []:
+                    out.append(f"  - 支持：{e}")
+                for e in t.get("opposingEvidence") or []:
+                    out.append(f"  - 反对：{e}")
+
     # ---- 声明 ----
     warnings = result.get("warnings") or []
     fallbacks = result.get("fallbacks") or []

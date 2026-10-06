@@ -28,6 +28,7 @@ export interface AnalyzePayload {
     targetLuckIndex?: number | null; targetYear?: number | null;
     targetMonth?: number | null; targetDay?: string | null;
     includeTemporalDelta?: boolean;
+    includeEventThemes?: boolean;
   };
 }
 
