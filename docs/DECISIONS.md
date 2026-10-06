@@ -217,3 +217,24 @@
   grounding 拦截「概率为/80% 会」类表述。
 - **Reason**：可审计性优先于表面精度。
 - **Tradeoff**：数值跨度较粗（0.3/0.6/0.975 等档位）——是刻意选择，拒绝伪连续。
+
+## ADR-045 · 冲突解释是上下文相关的，不建立全局优先级（M15）
+
+- **Context**：同主题规则可同盘反向命中（官星支持 vs 伤官见官反对）；简单的全局 A>B
+  会把流派差异压成单一答案。
+- **Decision**：`ConflictExplanation` 三类——SPECIFIC_EXCEPTION（仅当 conflicts.json
+  显式声明 specificity，引擎绝不猜测）、SCHOOL_DIFFERENCE（不同 view，no-adjudication）、
+  CONDITION_OVERLAP（keep-both，status=DISPUTED）。声明文件与 tiaohou conflicts.json 同构。
+- **Reason**：任务书要求「不简单建立全局 A > B」「precedence/specificity 透明可审计」。
+- **Tradeoff**：v1 无已实现的 specific-over-general 对（救应/喜神判定未做），全部走
+  keep-both/no-adjudication——SPECIFIC_EXCEPTION 路径由单测锁定待未来启用。
+
+## ADR-046 · 特殊格局岁运专题的上下文相关流派权重（M15）
+
+- **Context**：从格岁运破格与否，古典依据本身分阴阳两说（DTZ-04：阳干绝处逢生不从、
+  阴干从势无情义）。
+- **Decision**：TR-SP-02 按日主阴阳给「破格说/顺势说」分配权重（阳干→破格说优先，
+  阴干→顺势说优先），双方证据全部保留、不裁决；化气（TR-SP-04）永远携带
+  DTZ-18「合≠化」警示，候选永不升级。
+- **Reason**：流派权重随上下文（日主阴阳）变化，这正是「上下文相关优先级」的实例。
+- **Tradeoff**：权重表述为文字依据而非数值——数值化需更多文献支撑，暂缓。

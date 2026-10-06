@@ -242,6 +242,9 @@ export interface EventThemeCandidateData {
   agreement: string | null; temporalRefs: string[];
   confidence: number; confidenceBasis: string[]; warnings: string[];
   refId: string | null;
+  conflictExplanations: { kind: string; ruleA: string; ruleB: string;
+                          resolution: string; explanation: string;
+                          refId: string | null }[];
 }
 
 export interface EventThemeReportData {

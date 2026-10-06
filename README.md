@@ -4,7 +4,7 @@
 >
 > **取诸家之长，统一为 Tianze。** 基础计算直接复用；成熟实现优先借鉴；算法必须可解释；规则必须可追踪；流派差异必须保留；权重与 heuristic 必须公开；有争议的地方不伪装成唯一答案；LLM 不参与确定性计算。
 
-## 当前状态：M14 完成（事件主题推理层）
+## 当前状态：M15 完成（冲突推理 / 特殊格局专题 / Case Replay / 报告产品化）
 
 | 里程碑 | 内容 | 状态 |
 |---|---|---|
@@ -24,10 +24,11 @@
 | M12 | 岁运基础（大运/流年关系 + Timeline + 十神主题） | ✅ |
 | M13 | 完整岁运系统（Temporal Delta / 流月流日 / TemporalCaseReference / 岁运规则 / Temporal Regression / 时间边界 / Web 时序工作台 / AI 岁运 / StructuralTheme / 报告导出） | ✅ |
 | M14 | 事件主题层（Event Rule Framework / School-aware Reasoning / EventThemeCandidate / Confidence / Event Evaluation / Grounded AI / Web / 导出） | ✅ |
+| M15 | 成熟推理层（方向级 Rule Conflict / 从格专旺化气岁运专题 / Historical Case Replay / Real-provider AI Evaluation / 打印 HTML 报告 / Timeline memoization / Property-Fuzz 门 / Review Queue） | ✅ |
 
-**测试：409 项全绿**（Python）；E2E 8 项；Case Regression 1147 例无变化；
-Temporal Regression 6 探针 baseline；Event Evaluation 16 规则/200 随机盘无异常触发。
-详见 `docs/temporal/03-M13-complete-temporal.md` 与 `docs/event/01-event-themes.md`。
+**测试：448 项全绿**（Python）；E2E 8 项；可执行规则 216（tiaohou 182 +
+temporal 14 + event 20，见 validator executable_by_domain）；Case Regression 1147 例无变化；
+Case Replay 123 例；Review Queue 424 项。详见 `docs/event/01-event-themes.md`。
 
 ## Web 应用
 

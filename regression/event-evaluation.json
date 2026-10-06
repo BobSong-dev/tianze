@@ -1,13 +1,13 @@
 {
  "schemaVersion": "1.0.0",
- "ruleCount": 16,
+ "ruleCount": 20,
  "ruleCoverageByProbe": {
-  "multi_view_agree": 0.25,
-  "multi_view_conflict": 0.375,
-  "shensha_only": 0.125,
-  "unknown_hour": 0.188,
-  "wealth_ku": 0.188,
-  "female_guan": 0.188
+  "multi_view_agree": 0.2,
+  "multi_view_conflict": 0.3,
+  "shensha_only": 0.1,
+  "unknown_hour": 0.15,
+  "wealth_ku": 0.15,
+  "female_guan": 0.15
  },
  "disagreementRate": {
   "byProbe": {
@@ -84,7 +84,11 @@
     "EV-MOB-02",
     "EV-FAM-01",
     "EV-SOC-01",
-    "EV-CON-01"
+    "EV-CON-01",
+    "EV-CAR-04",
+    "EV-CAR-05",
+    "EV-WEA-04",
+    "EV-REL-05"
    ]
   },
   {
@@ -152,7 +156,11 @@
     "EV-MOB-02",
     "EV-FAM-01",
     "EV-SOC-01",
-    "EV-CON-01"
+    "EV-CON-01",
+    "EV-CAR-04",
+    "EV-CAR-05",
+    "EV-WEA-04",
+    "EV-REL-05"
    ]
   },
   {
@@ -198,7 +206,11 @@
     "EV-MOB-02",
     "EV-FAM-01",
     "EV-SOC-01",
-    "EV-CON-01"
+    "EV-CON-01",
+    "EV-CAR-04",
+    "EV-CAR-05",
+    "EV-WEA-04",
+    "EV-REL-05"
    ]
   },
   {
@@ -255,7 +267,11 @@
     "EV-MOB-01",
     "EV-MOB-02",
     "EV-FAM-01",
-    "EV-SOC-01"
+    "EV-SOC-01",
+    "EV-CAR-04",
+    "EV-CAR-05",
+    "EV-WEA-04",
+    "EV-REL-05"
    ]
   },
   {
@@ -312,7 +328,11 @@
     "EV-MOB-01",
     "EV-MOB-02",
     "EV-FAM-01",
-    "EV-SOC-01"
+    "EV-SOC-01",
+    "EV-CAR-04",
+    "EV-CAR-05",
+    "EV-WEA-04",
+    "EV-REL-05"
    ]
   },
   {
@@ -369,7 +389,11 @@
     "EV-MOB-01",
     "EV-MOB-02",
     "EV-FAM-01",
-    "EV-SOC-01"
+    "EV-SOC-01",
+    "EV-CAR-04",
+    "EV-CAR-05",
+    "EV-WEA-04",
+    "EV-REL-05"
    ]
   }
  ],
@@ -379,6 +403,8 @@
    "EV-CAR-01": 0.2,
    "EV-CAR-02": 0.15,
    "EV-CAR-03": 0.03,
+   "EV-CAR-04": 0.035,
+   "EV-CAR-05": 0.015,
    "EV-CON-01": 0.235,
    "EV-MOB-01": 0.265,
    "EV-MOB-02": 0.08,
@@ -386,23 +412,25 @@
    "EV-REL-02": 0.085,
    "EV-REL-03": 0.185,
    "EV-REL-04": 0.13,
+   "EV-REL-05": 0.09,
    "EV-SOC-01": 0.19,
    "EV-STU-01": 0.235,
    "EV-WEA-01": 0.165,
    "EV-WEA-02": 0.02,
-   "EV-WEA-03": 0.02
+   "EV-WEA-03": 0.02,
+   "EV-WEA-04": 0.09
   },
   "themeTriggerRate": {
-   "career": 0.405,
+   "career": 0.44,
    "mobility": 0.315,
-   "relationship": 0.425,
+   "relationship": 0.485,
    "social": 0.335,
    "study": 0.235,
-   "wealth": 0.18
+   "wealth": 0.27
   },
   "statusDistribution": {
-   "CANDIDATE": 350,
-   "DISPUTED": 7,
+   "CANDIDATE": 382,
+   "DISPUTED": 12,
    "LIKELY": 22
   },
   "abnormalTriggerRate": {
@@ -457,6 +485,16 @@
       "id": "EV-CAR-03",
       "label": "伤官见官（岁运伤官克官）",
       "view": "traditional"
+     },
+     {
+      "id": "EV-CAR-04",
+      "label": "食神制杀（条件化）",
+      "view": "traditional"
+     },
+     {
+      "id": "EV-CAR-05",
+      "label": "煞刃相合（身煞两停）",
+      "view": "traditional"
      }
     ],
     "note": "同主题规则方向由执行器在具体命盘上判定；JSON 层记录同主题规则集与流派视角"
@@ -510,6 +548,11 @@
       "id": "EV-REL-04",
       "label": "咸池桃花临岁运",
       "view": "shensha"
+     },
+     {
+      "id": "EV-REL-05",
+      "label": "财印不容（关系张力）",
+      "view": "traditional"
      }
     ],
     "note": "同主题规则方向由执行器在具体命盘上判定；JSON 层记录同主题规则集与流派视角"
@@ -557,6 +600,11 @@
      {
       "id": "EV-WEA-03",
       "label": "财库逢冲（两说并存）",
+      "view": "traditional"
+     },
+     {
+      "id": "EV-WEA-04",
+      "label": "食伤生财",
       "view": "traditional"
      }
     ],
@@ -629,6 +677,22 @@
   "EV-CON-01": {
    "theme": "social",
    "claimsInTheme": 9
+  },
+  "EV-CAR-04": {
+   "theme": "career",
+   "claimsInTheme": 277
+  },
+  "EV-CAR-05": {
+   "theme": "career",
+   "claimsInTheme": 277
+  },
+  "EV-WEA-04": {
+   "theme": "wealth",
+   "claimsInTheme": 73
+  },
+  "EV-REL-05": {
+   "theme": "relationship",
+   "claimsInTheme": 18
   }
  }
 }

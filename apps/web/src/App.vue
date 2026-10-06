@@ -618,6 +618,12 @@ async function loadTemporal() {
               <details v-if="t.opposingEvidence.length"><summary>反对证据</summary>
                 <div v-for="(e, i) in t.opposingEvidence" :key="'o' + i" class="evidence-item damage">− {{ e }}</div>
               </details>
+              <details v-if="t.conflictExplanations && t.conflictExplanations.length">
+                <summary>冲突解释（上下文相关，无全局优先级）</summary>
+                <div v-for="(c, i) in t.conflictExplanations" :key="'c' + i" class="evidence-item">
+                  <span class="badge">{{ c.kind }}</span> {{ c.explanation }}
+                </div>
+              </details>
             </div>
             <p v-if="!temporalData.eventThemes.themes.length" class="note">当前岁运上下文无事件主题候选。</p>
           </template>
