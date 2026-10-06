@@ -21,6 +21,7 @@ import sys
 import pytest
 
 from tianze.analysis.event_themes import EventStatus, compute_event_themes
+from tianze.sdk import AnalysisOptions
 from tianze.analysis.temporal_delta import compute_temporal_delta
 from tianze.domain.models import BirthInfo, Gender
 from tianze.pipeline import build_chart
@@ -82,8 +83,7 @@ def test_refid_serialization_stability_across_hash_seeds():
     code = (
         "import datetime;"
         "from tianze.domain.models import BirthInfo, Gender;"
-        "from tianze.pipeline import build_chart
-from tianze.sdk import AnalysisOptions;"
+        "from tianze.pipeline import build_chart;"
         "from tianze.analysis.event_themes import compute_event_themes;"
         "chart = build_chart(BirthInfo(date=datetime.date(1984,2,5),"
         "time=datetime.time(10,30), gender=Gender.MALE));"
