@@ -390,8 +390,9 @@ def _special_delta(chart: M.BaziChart, ctx: TemporalContext,
                 kind = (DeltaKind.BLOCKED if ts == "BLOCKED" and ns != "BLOCKED"
                         else DeltaKind.UNBLOCKED if ns == "BLOCKED" and ts != "BLOCKED"
                         else DeltaKind.STATUS_CHANGED)
-                new_blockers = [b for b in c["blockers"]
-                                if b not in natal_map[t]["blockers"]]
+                # transformation 候选无 blockers 字段（结构不同），谨慎取用
+                new_blockers = [b for b in (c.get("blockers") or [])
+                                if b not in (natal_map[t].get("blockers") or [])]
                 ev = [f"{cn}候选 {t}：{ns} → {ts}"]
                 for b in new_blockers:
                     ev.append(f"岁运引入阻断因素：{b.get('description') or b.get('name') or b}")

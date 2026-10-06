@@ -1,0 +1,17 @@
+{
+ "totalCases": 1147,
+ "claimsWithTemporalGz": 20,
+ "claimsAnnotated": 373,
+ "claimsMultiTheme": 88,
+ "sensitiveClaims": 38,
+ "themeDistribution": {
+  "career": 277,
+  "study": 35,
+  "social": 9,
+  "mobility": 21,
+  "wealth": 73,
+  "family": 51,
+  "relationship": 18
+ },
+ "claimsTotal": 529
+}

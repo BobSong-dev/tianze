@@ -1,0 +1,441 @@
+{
+ "schemaVersion": "1.0.0",
+ "ruleCount": 16,
+ "ruleCoverageByProbe": {
+  "multi_view_agree": 0.25,
+  "multi_view_conflict": 0.375,
+  "shensha_only": 0.125,
+  "unknown_hour": 0.188,
+  "wealth_ku": 0.188,
+  "female_guan": 0.188
+ },
+ "disagreementRate": {
+  "byProbe": {
+   "multi_view_agree": 0.0,
+   "multi_view_conflict": 0.25,
+   "shensha_only": 0.0,
+   "unknown_hour": 0.0,
+   "wealth_ku": 0.0,
+   "female_guan": 0.0
+  }
+ },
+ "unresolvedRate": {
+  "byProbe": {
+   "multi_view_agree": 0.0,
+   "multi_view_conflict": 0.0,
+   "shensha_only": 0.0,
+   "unknown_hour": 0.0,
+   "wealth_ku": 0.0,
+   "female_guan": 0.0
+  }
+ },
+ "probes": [
+  {
+   "probe": "multi_view_agree",
+   "scenario": "官印并透+印主题：traditional 单体系一致",
+   "themes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": "PARTIAL",
+     "confidence": 1.0,
+     "views": {
+      "traditional": "support"
+     },
+     "rules": [
+      "EV-CAR-01",
+      "EV-CAR-02"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "shensha": "support"
+     },
+     "rules": [
+      "EV-REL-04"
+     ]
+    },
+    {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "traditional": "support"
+     },
+     "rules": [
+      "EV-STU-01"
+     ]
+    }
+   ],
+   "unmatchedRules": [
+    "EV-CAR-03",
+    "EV-WEA-01",
+    "EV-WEA-02",
+    "EV-WEA-03",
+    "EV-REL-01",
+    "EV-REL-02",
+    "EV-REL-03",
+    "EV-MOB-01",
+    "EV-MOB-02",
+    "EV-FAM-01",
+    "EV-SOC-01",
+    "EV-CON-01"
+   ]
+  },
+  {
+   "probe": "multi_view_conflict",
+   "scenario": "官星支持 vs 伤官见官：DISPUTED/CONFLICT",
+   "themes": [
+    {
+     "theme": "career",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 1.0,
+     "views": {
+      "traditional": "both"
+     },
+     "rules": [
+      "EV-CAR-01",
+      "EV-CAR-02",
+      "EV-CAR-03"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "shensha": "support"
+     },
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "shensha": "support"
+     },
+     "rules": [
+      "EV-REL-04"
+     ]
+    },
+    {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "traditional": "support"
+     },
+     "rules": [
+      "EV-STU-01"
+     ]
+    }
+   ],
+   "unmatchedRules": [
+    "EV-WEA-01",
+    "EV-WEA-02",
+    "EV-WEA-03",
+    "EV-REL-01",
+    "EV-REL-02",
+    "EV-REL-03",
+    "EV-MOB-02",
+    "EV-FAM-01",
+    "EV-SOC-01",
+    "EV-CON-01"
+   ]
+  },
+  {
+   "probe": "shensha_only",
+   "scenario": "驿马独发：shensha view 单独（低权重）",
+   "themes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "traditional": "support"
+     },
+     "rules": [
+      "EV-CAR-01"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "shensha": "support"
+     },
+     "rules": [
+      "EV-MOB-01"
+     ]
+    }
+   ],
+   "unmatchedRules": [
+    "EV-CAR-02",
+    "EV-CAR-03",
+    "EV-WEA-01",
+    "EV-WEA-02",
+    "EV-WEA-03",
+    "EV-REL-01",
+    "EV-REL-02",
+    "EV-REL-03",
+    "EV-REL-04",
+    "EV-STU-01",
+    "EV-MOB-02",
+    "EV-FAM-01",
+    "EV-SOC-01",
+    "EV-CON-01"
+   ]
+  },
+  {
+   "probe": "unknown_hour",
+   "scenario": "unknown hour：大运缺席，事件主题仅在流年层",
+   "themes": [
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "traditional": "support"
+     },
+     "rules": [
+      "EV-REL-03"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "special_pattern": "support"
+     },
+     "rules": [
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "traditional": "support"
+     },
+     "rules": [
+      "EV-WEA-01"
+     ]
+    }
+   ],
+   "unmatchedRules": [
+    "EV-CAR-01",
+    "EV-CAR-02",
+    "EV-CAR-03",
+    "EV-WEA-02",
+    "EV-WEA-03",
+    "EV-REL-01",
+    "EV-REL-02",
+    "EV-REL-04",
+    "EV-STU-01",
+    "EV-MOB-01",
+    "EV-MOB-02",
+    "EV-FAM-01",
+    "EV-SOC-01"
+   ]
+  },
+  {
+   "probe": "wealth_ku",
+   "scenario": "财库/财星结构",
+   "themes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "traditional": "support"
+     },
+     "rules": [
+      "EV-CAR-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "traditional": "support"
+     },
+     "rules": [
+      "EV-REL-03"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "special_pattern": "support"
+     },
+     "rules": [
+      "EV-CON-01"
+     ]
+    }
+   ],
+   "unmatchedRules": [
+    "EV-CAR-02",
+    "EV-CAR-03",
+    "EV-WEA-01",
+    "EV-WEA-02",
+    "EV-WEA-03",
+    "EV-REL-01",
+    "EV-REL-02",
+    "EV-REL-04",
+    "EV-STU-01",
+    "EV-MOB-01",
+    "EV-MOB-02",
+    "EV-FAM-01",
+    "EV-SOC-01"
+   ]
+  },
+  {
+   "probe": "female_guan",
+   "scenario": "女命官星：配偶星规则（gender-conditional）",
+   "themes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "traditional": "support"
+     },
+     "rules": [
+      "EV-CAR-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "traditional": "support"
+     },
+     "rules": [
+      "EV-REL-03"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "views": {
+      "special_pattern": "support"
+     },
+     "rules": [
+      "EV-CON-01"
+     ]
+    }
+   ],
+   "unmatchedRules": [
+    "EV-CAR-02",
+    "EV-CAR-03",
+    "EV-WEA-01",
+    "EV-WEA-02",
+    "EV-WEA-03",
+    "EV-REL-01",
+    "EV-REL-02",
+    "EV-REL-04",
+    "EV-STU-01",
+    "EV-MOB-01",
+    "EV-MOB-02",
+    "EV-FAM-01",
+    "EV-SOC-01"
+   ]
+  }
+ ],
+ "randomAudit": {
+  "samples": 200,
+  "ruleTriggerRate": {
+   "EV-CAR-01": 0.2,
+   "EV-CAR-02": 0.15,
+   "EV-CAR-03": 0.03,
+   "EV-CON-01": 0.235,
+   "EV-MOB-01": 0.265,
+   "EV-MOB-02": 0.08,
+   "EV-REL-01": 0.07,
+   "EV-REL-02": 0.085,
+   "EV-REL-03": 0.185,
+   "EV-REL-04": 0.13,
+   "EV-SOC-01": 0.19,
+   "EV-STU-01": 0.235,
+   "EV-WEA-01": 0.165,
+   "EV-WEA-02": 0.02,
+   "EV-WEA-03": 0.02
+  },
+  "themeTriggerRate": {
+   "career": 0.405,
+   "mobility": 0.315,
+   "relationship": 0.425,
+   "social": 0.335,
+   "study": 0.235,
+   "wealth": 0.18
+  },
+  "statusDistribution": {
+   "CANDIDATE": 350,
+   "DISPUTED": 7,
+   "LIKELY": 22
+  },
+  "abnormalTriggerRate": {
+   "rules": {},
+   "themes": {}
+  },
+  "threshold": "rule >60% / theme >70% → REVIEW（ENGINEERING_HEURISTIC）"
+ },
+ "historicalCoverage": {
+  "claimsTotal": 529,
+  "claimsAnnotated": 373,
+  "sensitiveClaims": 38,
+  "claimThemeDistribution": {
+   "career": 277,
+   "study": 35,
+   "social": 9,
+   "mobility": 21,
+   "wealth": 73,
+   "family": 51,
+   "relationship": 18
+  },
+  "ruleThemes": [
+   "career",
+   "family",
+   "mobility",
+   "relationship",
+   "social",
+   "study",
+   "wealth"
+  ],
+  "claimThemesWithoutRule": [],
+  "ruleThemesWithoutClaims": [],
+  "note": "历史事件不是 ground truth：本对照只描述覆盖，不调整规则"
+ },
+ "problems": []
+}

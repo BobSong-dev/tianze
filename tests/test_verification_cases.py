@@ -27,8 +27,8 @@ MANIFEST = json.loads((NORM / "cases-manifest.json").read_text(encoding="utf-8")
 def all_cases() -> list[dict]:
     cases = []
     for path in sorted((NORM / "cases").glob("*.json")):
-        if "temporal_refs" in path.name:
-            continue  # M13 工具产物（TemporalCaseReference），非命例书册
+        if "temporal_refs" in path.name or "event_claims" in path.name:
+            continue  # M13/M14 工具产物（TemporalCaseReference/EventClaimReference），非命例书册
         cases.extend(json.loads(path.read_text(encoding="utf-8"))["cases"])
     return cases
 
