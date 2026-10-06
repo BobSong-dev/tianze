@@ -102,6 +102,7 @@ class EventThemeCandidate(CamelizeModel):
     schoolViews: dict[str, str] = {}      # view → "support" / "oppose" / "both" / "block"
     agreement: str | None = None          # HIGH / PARTIAL / CONFLICT / None
     temporalRefs: list[str] = []
+    conflictExplanations: list[Any] = []   # M15：方向冲突的上下文相关解释（dict 形态）
     confidence: float = 0.0
     confidenceBasis: list[str] = []
     warnings: list[str] = []
@@ -535,7 +536,8 @@ def _temporal_stems_or_units(ctx: TemporalContext):
 
 def _aggregate(theme_key: str, hits: list[EventRuleHit],
                unresolved: bool,
-               unresolved_notes: list[str] | None = None) -> EventThemeCandidate:
+               unresolved_notes: list[str] | None = None,
+               rule_meta: dict[str, dict] | None = None) -> EventThemeCandidate:
     sup = [h for h in hits if h.direction == EventDirection.SUPPORT]
     opp = [h for h in hits if h.direction == EventDirection.OPPOSE]
     blk = [h for h in hits if h.direction == EventDirection.BLOCK]
@@ -582,6 +584,18 @@ def _aggregate(theme_key: str, hits: list[EventRuleHit],
     if agreement == "CONFLICT":
         warnings.append("多体系方向冲突，已保留 disagreement，不做裁决。")
 
+    # M15：方向冲突 → 上下文相关 ConflictExplanation（specific-over-general /
+    # school-difference / keep-both，全部透明）
+    from tianze.analysis.rule_conflicts import explain_conflicts
+    meta = rule_meta or {}
+    conflict_explanations = [c.model_dump(by_alias=True, exclude_none=True)
+                             for c in explain_conflicts(
+        hits,
+        view_of_rule={rid: m["view"] for rid, m in meta.items()},
+        label_of_rule={rid: m["label"] for rid, m in meta.items()},
+        prov_of_rule={rid: m["provenanceLevels"] for rid, m in meta.items()},
+    )]
+
     return EventThemeCandidate(
         theme=EventTheme(theme_key),
         status=status,
@@ -593,6 +607,7 @@ def _aggregate(theme_key: str, hits: list[EventRuleHit],
         schoolViews=school_views,
         agreement=agreement,
         temporalRefs=sorted({h.refId for h in hits if h.refId}),
+        conflictExplanations=conflict_explanations,
         confidence=confidence,
         confidenceBasis=basis,
         warnings=warnings,
@@ -667,10 +682,14 @@ def compute_event_themes(
         )
         hits_by_theme.setdefault(eff_theme, []).append(hit)
 
+    rule_meta = {r["id"]: {"view": r.get("view", "traditional"),
+                           "label": r.get("label", ""),
+                           "provenanceLevels": [p["level"] for p in r.get("provenance", [])]}
+                 for r in rules}
     all_themes = sorted(set(hits_by_theme) | set(unresolved_themes))
     themes = [_aggregate(t, hits_by_theme.get(t, []),
                          t in unresolved_themes and not hits_by_theme.get(t),
-                         unresolved_notes.get(t, []))
+                         unresolved_notes.get(t, []), rule_meta)
               for t in all_themes]
 
     units = temporal_ctx.temporal_units()

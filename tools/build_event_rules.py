@@ -310,6 +310,27 @@ def main() -> int:
         ),
     ]
 
+    conflicts = [
+        {"ruleA": "EV-CAR-01", "ruleB": "EV-CAR-03",
+         "resolution": "keep-both",
+         "note": "DTZ-39：伤官见官有「可见/不可见」之辨（有财化伤则可见官）；"
+                 "v1 执行器未判救应，因此两条规则可同盘反向命中——保留双方，status=DISPUTED"},
+        {"ruleA": "EV-WEA-01", "ruleB": "EV-WEA-02",
+         "resolution": "keep-both",
+         "note": "SS-R10 原书自注「须察其配合，非可一例以推」：财星支持与因财启争同盘并存"},
+        {"ruleA": "EV-REL-02", "ruleB": "EV-REL-03",
+         "resolution": "keep-both",
+         "note": "MLD-18：配偶星临岁运（support）与夫妻宫逢冲（oppose）可同时成立；"
+                 "原文并注明「离婚非不可避免事」，方向相反只表示主题内张力"},
+        {"ruleA": "EV-CON-01", "ruleB": "EV-WEA-02",
+         "resolution": "no-adjudication",
+         "note": "special_pattern 视角（从格顺势/破格两说）与 traditional 视角（比劫夺财）"
+                 "方向相反时属流派差异，不裁决"},
+    ]
+    with open(os.path.join(OUT, "conflicts.json"), "w", encoding="utf-8") as f:
+        json.dump({"schemaVersion": "1.0.0", "count": len(conflicts),
+                   "conflicts": conflicts}, f, ensure_ascii=False, indent=1)
+
     os.makedirs(OUT, exist_ok=True)
     payload = {
         "domain": "event",

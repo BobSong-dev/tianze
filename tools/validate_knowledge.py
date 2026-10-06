@@ -94,6 +94,9 @@ def main() -> int:
         "quotes_total": sum(len(c.get("originalQuotes") or []) for c in all_candidates.values()),
         "commentaries_total": sum(len(c.get("commentaries") or []) for c in all_candidates.values()),
         "executable_total": len(executable),
+        "executable_by_domain": dict(__import__("collections").Counter(
+            r.get("domain", "unknown") for r in executable)),
+        "candidates_total_unique": len(all_candidates),
         "classical_explicit_total": sum(
             1 for r in executable for p in r.get("provenance", []) if p["level"] == "CLASSICAL_EXPLICIT"
         ),
