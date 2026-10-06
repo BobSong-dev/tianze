@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import json
 import os
-import subprocess
 import sys
 
 from tools.ai_evaluation import _evaluate_output, _verdict, run, CANONICAL_CASES
@@ -36,15 +35,15 @@ def test_verdict_real_mode_fails_on_dispute_missing():
     assert _verdict(fake, real=False) == "PIPELINE_OK"
 
 
-def test_skipped_without_key(monkeypatch, tmp_path):
+def test_skipped_without_key(monkeypatch, capsys):
     """无 API Key → SKIPPED，不伪造结果。"""
     monkeypatch.delenv("TIANZE_LLM_API_KEY", raising=False)
+    monkeypatch.setattr(sys, "argv", ["ai_evaluation.py"])
     import tools.ai_evaluation as ae
-    r = subprocess.run([sys.executable, "tools/ai_evaluation.py"],
-                       capture_output=True, text=True, env={
-                           "PATH": os.environ.get("PATH", ""),
-                           "SYSTEMROOT": os.environ.get("SYSTEMROOT", "")},
-                       cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    assert "SKIPPED" in r.stdout
+    rc = ae.main()
+    assert rc == 0
+    out = capsys.readouterr().out
+    assert "SKIPPED" in out
     d = json.load(open("regression/ai-evaluation.json", encoding="utf-8"))
     assert d["provider"] == "SKIPPED" and d["summary"]["total"] == 0
+    assert "reason" in d
