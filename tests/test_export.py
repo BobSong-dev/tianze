@@ -58,3 +58,17 @@ def test_export_with_event_themes():
     assert "非概率" in md
     for banned in ("一定会", "必然发财", "必定结婚"):
         assert banned not in md
+
+
+def test_html_export_printable():
+    """打印友好 HTML：目录/免责声明/状态词汇/确定性/print CSS。"""
+    from tianze.export_html import to_html
+    r = _result(include_temporal=True, target_year=2026,
+                include_temporal_delta=True, include_event_themes=True)
+    html = to_html(r)
+    assert "<!DOCTYPE html>" in html and "@media print" in html
+    assert 'class="toc"' in html and "目录" in html
+    assert "不构成任何吉凶或人生事件预测" in html
+    assert "非概率" in html
+    assert "CONFIRMED" not in html
+    assert to_html(_result()) == to_html(_result())  # 确定性
