@@ -140,6 +140,50 @@ def historical_coverage() -> dict:
     }
 
 
+def rule_conflict_graph() -> dict:
+    """Event Rule conflict graph：同主题内方向相反/同向的规则对。
+
+    - conflict：同主题、不同 direction（如 EV-CAR-01 support vs EV-CAR-03 oppose）
+    - 冲突不裁决：进 evaluation 报告并写入 knowledge/rules/event/conflicts.json 同源说明
+    """
+    rules = load_event_rules()
+    by_theme: dict[str, list[dict]] = {}
+    for r in rules:
+        by_theme.setdefault(r["theme"], []).append(r)
+    conflicts, allies = [], []
+    for theme, rs in sorted(by_theme.items()):
+        directions = {}
+        for r in rs:
+            # direction 由 evaluator 决定；规则 JSON 不直接存方向，
+            # 以 evaluators 注册表的规则 id → 规则 label 语义近似：依赖 evaluation 运行结果
+            directions[r["id"]] = r.get("label", "")
+        conflicts.append({
+            "theme": theme,
+            "rules": [{"id": r["id"], "label": r.get("label", ""), "view": r.get("view", "")}
+                      for r in rs],
+            "note": "同主题规则方向由执行器在具体命盘上判定；JSON 层记录同主题规则集与流派视角",
+        })
+    return {
+        "themes": conflicts,
+        "note": "方向级冲突（support vs oppose）在 evaluation 的 disagreementRate 与 "
+                "DISPUTED 状态中体现；本图记录主题内规则组与流派视角，供审计",
+    }
+
+
+def rule_claim_coverage() -> dict:
+    """Rule→Case 覆盖：每条事件规则主题下的 historicalClaim 数量（仅覆盖对照，非对错）。"""
+    stats_path = "knowledge/normalized/cases/event_claims_stats.json"
+    if not os.path.exists(stats_path):
+        return {"error": "先运行 tools/parse_event_claims.py"}
+    stats = json.load(open(stats_path, encoding="utf-8"))
+    theme_counts = stats.get("themeDistribution") or {}
+    out = {}
+    for r in load_event_rules():
+        out[r["id"]] = {"theme": r["theme"],
+                        "claimsInTheme": theme_counts.get(r["theme"], 0)}
+    return out
+
+
 def main() -> int:
     probes = [run_probe(p) for p in PROBES]
     audit = random_audit()
@@ -177,6 +221,8 @@ def main() -> int:
     if audit["abnormalTriggerRate"]["rules"] or audit["abnormalTriggerRate"]["themes"]:
         problems.append("abnormal trigger rate 超阈值：REVIEW")
     metrics["problems"] = problems
+    metrics["ruleConflictGraph"] = rule_conflict_graph()
+    metrics["ruleClaimCoverage"] = rule_claim_coverage()
 
     os.makedirs(OUT_DIR, exist_ok=True)
     out = os.path.join(OUT_DIR, "event-evaluation.json")

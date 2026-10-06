@@ -437,5 +437,198 @@
   "ruleThemesWithoutClaims": [],
   "note": "历史事件不是 ground truth：本对照只描述覆盖，不调整规则"
  },
- "problems": []
+ "problems": [],
+ "ruleConflictGraph": {
+  "themes": [
+   {
+    "theme": "career",
+    "rules": [
+     {
+      "id": "EV-CAR-01",
+      "label": "官星透岁运+官杀主题增强",
+      "view": "traditional"
+     },
+     {
+      "id": "EV-CAR-02",
+      "label": "官印相生（印化官杀）",
+      "view": "traditional"
+     },
+     {
+      "id": "EV-CAR-03",
+      "label": "伤官见官（岁运伤官克官）",
+      "view": "traditional"
+     }
+    ],
+    "note": "同主题规则方向由执行器在具体命盘上判定；JSON 层记录同主题规则集与流派视角"
+   },
+   {
+    "theme": "family",
+    "rules": [
+     {
+      "id": "EV-FAM-01",
+      "label": "年柱/月柱被天克地冲（宫位引动）",
+      "view": "traditional"
+     }
+    ],
+    "note": "同主题规则方向由执行器在具体命盘上判定；JSON 层记录同主题规则集与流派视角"
+   },
+   {
+    "theme": "mobility",
+    "rules": [
+     {
+      "id": "EV-MOB-01",
+      "label": "驿马临岁运/驿马逢冲",
+      "view": "shensha"
+     },
+     {
+      "id": "EV-MOB-02",
+      "label": "岁运冲提纲（月令）",
+      "view": "traditional"
+     }
+    ],
+    "note": "同主题规则方向由执行器在具体命盘上判定；JSON 层记录同主题规则集与流派视角"
+   },
+   {
+    "theme": "relationship",
+    "rules": [
+     {
+      "id": "EV-REL-01",
+      "label": "夫妻宫（日支）逢岁运六合",
+      "view": "traditional"
+     },
+     {
+      "id": "EV-REL-02",
+      "label": "夫妻宫逢冲/夫星逢冲",
+      "view": "traditional"
+     },
+     {
+      "id": "EV-REL-03",
+      "label": "配偶星临岁运（男财/女官）",
+      "view": "traditional"
+     },
+     {
+      "id": "EV-REL-04",
+      "label": "咸池桃花临岁运",
+      "view": "shensha"
+     }
+    ],
+    "note": "同主题规则方向由执行器在具体命盘上判定；JSON 层记录同主题规则集与流派视角"
+   },
+   {
+    "theme": "social",
+    "rules": [
+     {
+      "id": "EV-SOC-01",
+      "label": "比劫临岁运/比劫主题增强",
+      "view": "traditional"
+     },
+     {
+      "id": "EV-CON-01",
+      "label": "从格/专旺岁运破格（顺势 vs 破格两说）",
+      "view": "special_pattern"
+     }
+    ],
+    "note": "同主题规则方向由执行器在具体命盘上判定；JSON 层记录同主题规则集与流派视角"
+   },
+   {
+    "theme": "study",
+    "rules": [
+     {
+      "id": "EV-STU-01",
+      "label": "印星临岁运+印主题增强",
+      "view": "traditional"
+     }
+    ],
+    "note": "同主题规则方向由执行器在具体命盘上判定；JSON 层记录同主题规则集与流派视角"
+   },
+   {
+    "theme": "wealth",
+    "rules": [
+     {
+      "id": "EV-WEA-01",
+      "label": "财星透岁运+财主题增强",
+      "view": "traditional"
+     },
+     {
+      "id": "EV-WEA-02",
+      "label": "刃头财/比劫夺财（因财启争）",
+      "view": "traditional"
+     },
+     {
+      "id": "EV-WEA-03",
+      "label": "财库逢冲（两说并存）",
+      "view": "traditional"
+     }
+    ],
+    "note": "同主题规则方向由执行器在具体命盘上判定；JSON 层记录同主题规则集与流派视角"
+   }
+  ],
+  "note": "方向级冲突（support vs oppose）在 evaluation 的 disagreementRate 与 DISPUTED 状态中体现；本图记录主题内规则组与流派视角，供审计"
+ },
+ "ruleClaimCoverage": {
+  "EV-CAR-01": {
+   "theme": "career",
+   "claimsInTheme": 277
+  },
+  "EV-CAR-02": {
+   "theme": "career",
+   "claimsInTheme": 277
+  },
+  "EV-CAR-03": {
+   "theme": "career",
+   "claimsInTheme": 277
+  },
+  "EV-WEA-01": {
+   "theme": "wealth",
+   "claimsInTheme": 73
+  },
+  "EV-WEA-02": {
+   "theme": "wealth",
+   "claimsInTheme": 73
+  },
+  "EV-WEA-03": {
+   "theme": "wealth",
+   "claimsInTheme": 73
+  },
+  "EV-REL-01": {
+   "theme": "relationship",
+   "claimsInTheme": 18
+  },
+  "EV-REL-02": {
+   "theme": "relationship",
+   "claimsInTheme": 18
+  },
+  "EV-REL-03": {
+   "theme": "relationship",
+   "claimsInTheme": 18
+  },
+  "EV-REL-04": {
+   "theme": "relationship",
+   "claimsInTheme": 18
+  },
+  "EV-STU-01": {
+   "theme": "study",
+   "claimsInTheme": 35
+  },
+  "EV-MOB-01": {
+   "theme": "mobility",
+   "claimsInTheme": 21
+  },
+  "EV-MOB-02": {
+   "theme": "mobility",
+   "claimsInTheme": 21
+  },
+  "EV-FAM-01": {
+   "theme": "family",
+   "claimsInTheme": 51
+  },
+  "EV-SOC-01": {
+   "theme": "social",
+   "claimsInTheme": 9
+  },
+  "EV-CON-01": {
+   "theme": "social",
+   "claimsInTheme": 9
+  }
+ }
 }
