@@ -125,13 +125,14 @@ const kbLoaded = ref(false);
 
 async function loadKnowledge() {
   if (kbLoaded.value) return;
-  const [r, st, rq, fn, cov, rel] = await Promise.all([
+  const [r, st, rq, fn, cov, rel, cmp] = await Promise.all([
     fetch("/api/v1/knowledge/rules").then(x => x.json()),
     fetch("/api/v1/knowledge/stats").then(x => x.json()),
     fetch("/api/v1/knowledge/review-queue").then(x => x.json()),
     fetch("/api/v1/knowledge/funnel").then(x => x.json()).catch(() => null),
     fetch("/api/v1/knowledge/coverage").then(x => x.json()).catch(() => null),
     fetch("/api/v1/knowledge/release").then(x => x.json()).catch(() => null),
+    fetch("/api/v1/knowledge/evaluation-compare").then(x => x.json()).catch(() => null),
   ]);
   kbRules.value = r.rules ?? [];
   kbStats.value = st;
@@ -139,8 +140,27 @@ async function loadKnowledge() {
   kbFunnel.value = fn;
   kbCoverage.value = cov;
   kbRelease.value = rel;
+  kbEvalCompare.value = cmp;
   kbLoaded.value = true;
 }
+
+const kbEvalCompare = ref<any>(null);
+const kbGraph = ref<any>(null);
+const graphFilter = ref("");
+
+async function loadGraph() {
+  if (kbGraph.value) return;
+  kbGraph.value = await fetch("/api/v1/knowledge/graph").then(x => x.json()).catch(() => null);
+}
+
+const graphEdges = computed(() => {
+  const g = kbGraph.value;
+  if (!g) return [];
+  const f = graphFilter.value.trim();
+  return ((g.edges ?? []) as any[]).filter((e: any) =>
+    !f || e.type.includes(f) || (e.between ?? []).some((x: string) => x.includes(f))
+      || (e.from ?? "").includes(f) || (e.to ?? "").includes(f));
+});
 
 const kbFunnel = ref<any>(null);
 const kbCoverage = ref<any>(null);
@@ -733,6 +753,26 @@ async function loadTemporal() {
         </div>
         <p v-if="!kbFiltered.length" class="note">无匹配规则。</p>
 
+        <h3>Rule / Conflict / Rescue Graph
+          <span class="note">点击边查看声明出处；反查用规则搜索框</span>
+        </h3>
+        <div class="temporal-controls">
+          <input v-model="graphFilter" placeholder="过滤 type/规则 id…" @focus="loadGraph" />
+          <button class="link" @click="loadGraph">加载图</button>
+        </div>
+        <div v-if="kbGraph" class="note">
+          节点 {{ kbGraph.nodeCount }} · 边 {{ kbGraph.edgeCount }}（{{ kbGraph.edgeTypes }}）
+        </div>
+        <div v-for="(e, i) in graphEdges" :key="i" class="evidence-item">
+          <span class="badge" :class="{ damage: e.type === 'conflict' }">{{ e.type }}</span>
+          {{ (e.between ?? [e.from, e.to]).join(' ↔ ') }}
+          <span v-if="e.views" class="note">（{{ e.views.join(' vs ') }}）</span>
+          <span v-if="e.resolution" class="badge">{{ e.resolution }}</span>
+          <span v-if="e.effect" class="badge">{{ e.effect }}</span>
+          <span v-if="e.specificCondition" class="badge rescue">condition: {{ e.specificCondition }}</span>
+          <div class="note">{{ e.note }}</div>
+        </div>
+
         <!-- M19 Quality/Coverage Dashboard -->
         <h3>Quality / Coverage Dashboard</h3>
         <div v-if="kbFunnel" class="kb-stats">
@@ -756,6 +796,25 @@ async function loadTemporal() {
           </div>
           <div class="note">未触发（never-in-replay）：{{ (kbCoverage.coverage.eventRulesNeverInReplay || []).join('、') || '无' }}</div>
         </div>
+        <div v-if="kbEvalCompare?.comparisons?.length" class="candidate-block">
+          <strong>AI Evaluation Compare <span class="note">确定性指标回归对比（无 LLM-as-judge）</span></strong>
+          <details v-for="(c, i) in kbEvalCompare.comparisons" :key="i">
+            <summary>
+              {{ c.metrics.provider }}/{{ c.metrics.model }}（prompt {{ c.metrics.promptVersion }}）
+              — pass {{ c.metrics.verdictPass }}/{{ c.metrics.verdictTotal }}
+              <span v-if="Object.keys(c.regressionAgainstPrevious).length" class="badge damage">回归</span>
+            </summary>
+            <div class="note">
+              grounding {{ c.metrics.groundingIssueTotal }} · banned {{ c.metrics.bannedTotal }} ·
+              disagreementMissing {{ c.metrics.disagreementMissingCount }} ·
+              claimRefs {{ c.metrics.claimRefsUsedAvg }}
+            </div>
+            <div v-for="(v, k) in c.regressionAgainstPrevious" :key="k" class="evidence-item damage">
+              {{ k }}: {{ v }}
+            </div>
+          </details>
+        </div>
+
         <div v-if="kbRelease?.metadata" class="candidate-block">
           <strong>Release Metadata</strong>
           <div class="note">

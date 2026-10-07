@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **216**（{'event': 20, 'temporal': 14, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 527
+- 命例 1147；Replay 165；测试 528
 
 ## 质量状态
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（79）
+### 特性（80）
+- M20.5: benchmark history (JSONL with commit/engine/regressionSignals, transparent thresholds) + release-check re-verified ALL PASS
 - M20.10: release_check (P0-P7: quality-gate precondition, wheel build, clean-venv install smoke, CLI smoke, version single-source consistency, stale-artifact, notes consistency, transparent benchmark thresholds) — ALL PASS; 2 tests; 513 passing
 - M20.2: packaging + CLI
 - M19.10: ADR-054/055 + README M19 + final E2E/pytest/build verification

@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "release": {
-  "gitCommit": "1dbcece4dee23c9746788e740d69fa2be425b327",
+  "gitCommit": "a9de1687821bc4d78b0f4ca6e4ac94b75bf2b289",
   "gitBranch": "main",
   "dirty": true,
   "generatedBy": "tools/release_metadata.py（全部数据来自真实运行）"
@@ -27,7 +27,7 @@
   "ruleCandidates": 556,
   "cases": 1147,
   "replays": 165,
-  "tests": 528
+  "tests": 529
  },
  "quality": {
   "auditGates": {

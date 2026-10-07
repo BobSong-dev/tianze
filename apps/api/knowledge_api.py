@@ -268,3 +268,14 @@ async def release_metadata() -> JSONResponse:
                          if os.path.exists(os.path.join(RELEASE_DIR, "RELEASE_NOTES.md"))
                          else None),
     })
+
+
+@router.get("/evaluation-compare")
+async def evaluation_compare() -> JSONResponse:
+    """AI Evaluation History 对比（确定性指标回归检测）。"""
+    d = _load("regression/ai-eval-compare.json", None)
+    if d is None:
+        return JSONResponse({"error": {"code": "NOT_BUILT",
+                                       "message": "先运行 tools/ai_eval_compare.py",
+                                       "details": {}}}, status_code=404)
+    return JSONResponse(d)

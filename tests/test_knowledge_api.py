@@ -60,3 +60,11 @@ def test_dashboard_endpoints():
     rel = client.get("/api/v1/knowledge/release").json()
     assert rel["metadata"]["counts"]["executableRules"] == 216
     assert rel["qualitySummary"]["allPass"] is True
+
+
+def test_evaluation_compare_endpoint():
+    r = client.get("/api/v1/knowledge/evaluation-compare")
+    assert r.status_code == 200
+    d = r.json()
+    assert d["entryCount"] >= 1
+    assert all("regressionAgainstPrevious" in c for c in d["comparisons"])
