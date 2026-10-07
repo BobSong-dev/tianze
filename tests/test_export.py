@@ -77,9 +77,10 @@ def test_html_export_printable():
 def test_html_explanation_chains():
     """HTML 报告渲染解释链（支持/反对链 + 原文引注）。"""
     from tianze.export_html import to_html
-    r = _result(include_temporal=True, target_year=2026,
-                include_temporal_delta=True, include_event_themes=True,
-                include_explanations=True)
+    r = analyze(SimplifiedBirthInfo(date="1984-02-05", time="10:30", gender="male"),
+                AnalysisOptions(include_temporal=True, target_year=2026,
+                                include_temporal_delta=True, include_event_themes=True,
+                                include_explanations=True)).model_dump()
     html = to_html(r)
     assert "解释链" in html
     assert "支持链" in html and "反对链" in html
@@ -88,9 +89,13 @@ def test_html_explanation_chains():
 
 
 def test_sdk_explanations_deterministic():
-    r1 = _result(include_temporal=True, target_year=2026,
-                 include_event_themes=True, include_explanations=True)
-    r2 = _result(include_temporal=True, target_year=2026,
-                 include_event_themes=True, include_explanations=True)
+    r1 = analyze(SimplifiedBirthInfo(date="1984-02-05", time="10:30", gender="male"),
+                 AnalysisOptions(include_temporal=True, target_year=2026,
+                                 include_event_themes=True,
+                                 include_explanations=True)).model_dump()
+    r2 = analyze(SimplifiedBirthInfo(date="1984-02-05", time="10:30", gender="male"),
+                 AnalysisOptions(include_temporal=True, target_year=2026,
+                                 include_event_themes=True,
+                                 include_explanations=True)).model_dump()
     assert r1["temporal"]["eventThemes"]["explanations"] == \
         r2["temporal"]["eventThemes"]["explanations"]
