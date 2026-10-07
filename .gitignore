@@ -19,3 +19,4 @@ knowledge/raw/*
 # Frontend
 apps/web/node_modules/
 apps/web/dist/
+knowledge/rules/**/*.migrated.json
