@@ -198,8 +198,7 @@ def main() -> int:
     if use_real:
         history_entry["latencySeconds"] = None  # provider 层计时（后续接入）
     with open("regression/ai-evaluation-history.jsonl", "a", encoding="utf-8") as f:
-        f.write(json.dumps(history_entry, ensure_ascii=False) + "
-")
+        f.write(json.dumps(history_entry, ensure_ascii=False) + chr(10))
     print(f"AI Evaluation（{result['provider']}）：{result['summary']}")
     for r in result["results"]:
         print(f"  {r['verdict']} {r['case']} issues={len(r['groundingIssues'])} "
