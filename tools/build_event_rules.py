@@ -372,6 +372,12 @@ def main() -> int:
     ]
 
     rescues = [
+        {"id": "RSC-GUANSHA-CONTROL", "target": "EV-CAR-01", "predicate": "guan_sha_has_control",
+         "effect": "reinforce",
+         "note": "官杀有制化相连（DTZ-33：偏官无单用者，必与食、印、财相连也）——支持更成立"},
+        {"id": "RSC-WEA-UNFAVORABLE", "target": "EV-WEA-01", "predicate": "wealth_unfavorable",
+         "effect": "weaken",
+         "note": "财为忌神方向（SS-R10：如财为忌神，诚如是论）——身弱口径下财星支持被削弱"},
         {"id": "RSC-SHANGGUAN-YIN", "target": "EV-CAR-03", "predicate": "yin_present",
          "effect": "weaken",
          "note": "伤官见官的印救应（DTZ-43：以印制伤护官）——命中时 oppose 被削弱"},

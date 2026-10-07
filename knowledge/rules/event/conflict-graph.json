@@ -1,10 +1,10 @@
 {
  "schemaVersion": "1.0.0",
- "nodeCount": 220,
- "edgeCount": 14,
+ "nodeCount": 222,
+ "edgeCount": 16,
  "edgeTypes": {
   "conflict": 4,
-  "rescues": 4,
+  "rescues": 6,
   "school-conflict": 6
  },
  "problems": [],
@@ -3036,7 +3036,15 @@
   },
   {
    "type": "predicate",
+   "id": "guan_sha_has_control"
+  },
+  {
+   "type": "predicate",
    "id": "wealth_favorable"
+  },
+  {
+   "type": "predicate",
+   "id": "wealth_unfavorable"
   },
   {
    "type": "predicate",
@@ -3087,6 +3095,20 @@
    "specific": null,
    "specificCondition": null,
    "note": "special_pattern 视角（从格顺势/破格两说）与 traditional 视角（比劫夺财）方向相反时属流派差异，不裁决"
+  },
+  {
+   "type": "rescues",
+   "from": "guan_sha_has_control",
+   "to": "EV-CAR-01",
+   "effect": "reinforce",
+   "note": "官杀有制化相连（DTZ-33：偏官无单用者，必与食、印、财相连也）——支持更成立"
+  },
+  {
+   "type": "rescues",
+   "from": "wealth_unfavorable",
+   "to": "EV-WEA-01",
+   "effect": "weaken",
+   "note": "财为忌神方向（SS-R10：如财为忌神，诚如是论）——身弱口径下财星支持被削弱"
   },
   {
    "type": "rescues",

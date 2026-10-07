@@ -31,9 +31,9 @@ def test_knowledge_rules_with_conflict_neighbors():
 
 def test_knowledge_graph_and_rescues():
     g = client.get("/api/v1/knowledge/graph").json()
-    assert g["nodeCount"] == 220 and g["edgeCount"] == 14
+    assert g["nodeCount"] == 222 and g["edgeCount"] == 16
     r = client.get("/api/v1/knowledge/rescues").json()
-    assert r["count"] == 4
+    assert r["count"] == 6
 
 
 def test_knowledge_review_queue_readonly():

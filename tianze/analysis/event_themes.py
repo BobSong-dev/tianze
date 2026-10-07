@@ -140,6 +140,8 @@ class EventContext(CamelizeModel):
     structures: list[dict[str, Any]] = []
     special_events: list[dict[str, Any]] = [] # special Delta（candidate 状态迁移/BLOCKED）
     strength_verdict: str | None = None       # weighted verdict（救应谓词复用，不另造算法）
+    fuyi_verdict: str | None = None           # fuyi verdict（多方法读数，M17）
+    dimension_de_shi: bool | None = None      # dimension 得势（多方法读数，M17）
     weighted_score: float | None = None
     context_ref: str = ""                     # 岁运链描述（temporal:chain:...）
 
@@ -584,17 +586,24 @@ def build_event_context(
         gender = "female"
     strength_verdict = None
     weighted_score = None
+    fuyi_verdict = None
+    dimension_de_shi = None
     if chart.strength is not None:
         for m in chart.strength.methods:
             if m.score is not None:
                 weighted_score = m.score
-            if m.verdict and m.verdict != "UNCERTAIN":
+            if "weighted" in (m.analyzer_id or "") and m.verdict:
                 strength_verdict = m.verdict
-                break
+            if "fuyi" in (m.analyzer_id or "") and m.verdict:
+                fuyi_verdict = m.verdict
+            if m.strength_evidence is not None:
+                dimension_de_shi = m.strength_evidence.de_shi.result
     return EventContext(
         day_master=chart.day_master.stem,
         gender=gender,
         strength_verdict=strength_verdict,
+        fuyi_verdict=fuyi_verdict,
+        dimension_de_shi=dimension_de_shi,
         weighted_score=weighted_score,
         natal_stems=[chart.pillars.year.stem, chart.pillars.month.stem,
                      chart.pillars.day.stem,

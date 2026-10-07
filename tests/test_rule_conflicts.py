@@ -245,7 +245,7 @@ def test_conflict_graph_integrity():
     g = json.load(open("knowledge/rules/event/conflict-graph.json", encoding="utf-8"))
     assert g["problems"] == []
     assert g["edgeTypes"]["conflict"] == 4
-    assert g["edgeTypes"]["rescues"] == 4
+    assert g["edgeTypes"]["rescues"] == 6
     assert g["edgeTypes"]["school-conflict"] >= 1
 
 

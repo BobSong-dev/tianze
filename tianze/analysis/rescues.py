@@ -69,19 +69,62 @@ def _p_cai_present(ectx):
     return bool(ev), ev, "财星可见（CLASSICAL：DTZ-39 以财化伤生官）"
 
 
-def _p_wealth_favorable(ectx):
-    """财为喜神方向（SS-R10：若财为喜神，有反因之而大发财）。
+def _strength_readings(ectx) -> list[tuple[str, str]]:
+    """收集全部可用的旺衰判定（weighted/fuyi/dimension得势）——复用 Engine 输出。"""
+    readings: list[tuple[str, str]] = []
+    if getattr(ectx, "strength_verdict", None):
+        readings.append(("weighted", ectx.strength_verdict))
+    if getattr(ectx, "fuyi_verdict", None) and ectx.fuyi_verdict != "UNCERTAIN":
+        readings.append(("fuyi", ectx.fuyi_verdict))
+    if getattr(ectx, "dimension_de_shi", None) is not None:
+        readings.append(("dimension 得势", "偏强向" if ectx.dimension_de_shi else "偏弱向"))
+    return readings
 
-    ENGINEERING 映射（显式标注）：日主偏强/极强 → 财为喜神方向。
-    不冒充古籍明文的精确判定；强度口径复用 weighted analyzer。
+
+def _p_wealth_favorable(ectx):
+    """财为喜神方向（SS-R10 前提）——多方法一致才启用，禁止单一布尔量。
+
+    ENGINEERING 映射（显式标注）：
+    - weighted ∈ {偏强, 极强} → 喜神方向读数
+    - fuyi ∈ {偏强, 极强} → 喜神方向读数
+    - dimension 得势=True → 喜神方向读数
+    多方法读数不一致 → 谓词不启用（口径分歧，救应不激活），分歧如实记录。
     """
-    v = getattr(ectx, "strength_verdict", None)
-    ev = []
-    active = v in ("偏强", "极强")
-    if v:
-        ev.append(f"weighted 旺衰判定：{v}")
-    ev.append("ENGINEERING 映射：偏强/极强 → 财为喜神方向（SS-R10 前提，非精确定义）")
-    return active, ev, "财为喜神方向（ENGINEERING：weighted ∈ {偏强, 极强}）"
+    readings = _strength_readings(ectx)
+    strong = {"偏强", "极强", "偏强向"}
+    weak = {"偏弱", "极弱", "偏弱向"}
+    votes = [1 if (v in strong) else 0 if (v in weak) else None for _n, v in readings]
+    ev = [f"{n}：{v}" for n, v in readings]
+    known = [x for x in votes if x is not None]
+    if not known:
+        return False, ev + ["无可用旺衰读数"], "财为喜神方向（证据不足，不启用）"
+    if all(x == 1 for x in known):
+        return True, ev + ["ENGINEERING 映射：多方法一致偏强 → 财为喜神方向（SS-R10 前提）"],             "财为喜神方向（ENGINEERING：多方法一致偏强）"
+    if all(x == 0 for x in known):
+        return False, ev + ["多方法一致偏弱 → 财为忌神方向"],             "财为忌神方向（ENGINEERING：多方法一致偏弱）"
+    return False, ev + ["旺衰读数分歧 → 口径不一致，救应不激活（不裁决）"],         "强度口径分歧（ENGINEERING：多方法不一致，救应不启用）"
+
+
+def _p_wealth_unfavorable(ectx):
+    """财为忌神方向（SS-R10：「如财为忌神，诚如是论」——身弱见财反主负担）。
+
+    与 wealth_favorable 同一套多方法读数，方向相反；两者互斥。
+    """
+    active, ev, note = _p_wealth_favorable(ectx)
+    if "一致偏强" in note:
+        return False, ev, "财为喜神方向成立 → 忌神方向不启用"
+    if "一致偏弱" in note:
+        return True, ev, "财为忌神方向（ENGINEERING：多方法一致偏弱，SS-R10 前提）"
+    return False, ev, note
+
+
+def _p_guan_sha_has_control(ectx):
+    """官杀有制化（DTZ-33：偏官无单用者，必与食、印、财相连也）。"""
+    control = _has_god(ectx, {"食神", "伤官", "正印", "偏印"})
+    guan = _has_god(ectx, {"正官", "七杀"})
+    ev = guan + control
+    active = bool(guan) and bool(control)
+    return active, ev + ["CLASSICAL：DTZ-33「偏官无单用者，必与食、印、财相连也」"],         "官杀有制化相连（食伤/印并见）"
 
 
 def _p_guan_bridges_cai_yin(ectx):
@@ -111,8 +154,10 @@ RESCUE_PREDICATES = {
     "yin_present": _p_yin_present,
     "cai_present": _p_cai_present,
     "wealth_favorable": _p_wealth_favorable,
+    "wealth_unfavorable": _p_wealth_unfavorable,
     "guan_bridges_cai_yin": _p_guan_bridges_cai_yin,
     "sha_weak_body_strong": _p_sha_weak_body_strong,
+    "guan_sha_has_control": _p_guan_sha_has_control,
 }
 
 
