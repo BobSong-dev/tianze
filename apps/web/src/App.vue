@@ -125,16 +125,26 @@ const kbLoaded = ref(false);
 
 async function loadKnowledge() {
   if (kbLoaded.value) return;
-  const [r, st, rq] = await Promise.all([
+  const [r, st, rq, fn, cov, rel] = await Promise.all([
     fetch("/api/v1/knowledge/rules").then(x => x.json()),
     fetch("/api/v1/knowledge/stats").then(x => x.json()),
     fetch("/api/v1/knowledge/review-queue").then(x => x.json()),
+    fetch("/api/v1/knowledge/funnel").then(x => x.json()).catch(() => null),
+    fetch("/api/v1/knowledge/coverage").then(x => x.json()).catch(() => null),
+    fetch("/api/v1/knowledge/release").then(x => x.json()).catch(() => null),
   ]);
   kbRules.value = r.rules ?? [];
   kbStats.value = st;
   kbReview.value = (rq.items ?? []).slice(0, 60);
+  kbFunnel.value = fn;
+  kbCoverage.value = cov;
+  kbRelease.value = rel;
   kbLoaded.value = true;
 }
+
+const kbFunnel = ref<any>(null);
+const kbCoverage = ref<any>(null);
+const kbRelease = ref<any>(null);
 
 const kbFiltered = computed(() => {
   const q = kbSearch.value.trim();
@@ -722,6 +732,42 @@ async function loadTemporal() {
           <div v-if="r.conflictNote" class="note">⚠ {{ r.conflictNote }}</div>
         </div>
         <p v-if="!kbFiltered.length" class="note">无匹配规则。</p>
+
+        <!-- M19 Quality/Coverage Dashboard -->
+        <h3>Quality / Coverage Dashboard</h3>
+        <div v-if="kbFunnel" class="kb-stats">
+          <span class="badge">Source {{ kbFunnel.funnel?.sources }} → Candidate {{ kbFunnel.funnel?.candidates }} → Executable {{ kbFunnel.funnel?.executable }}</span>
+          <span class="badge">未用候选 {{ kbFunnel.candidatesUnused }}</span>
+          <span class="badge">未触发 {{ kbFunnel.neverTriggered }}</span>
+          <span class="badge">冲突密度 {{ kbFunnel.conflictDensity }}</span>
+        </div>
+        <div v-if="kbCoverage?.gates" class="candidate-block">
+          <strong>Audit Gates</strong>
+          <span class="badge" :class="kbCoverage.allPass ? 'rescue' : 'damage'">
+            {{ kbCoverage.allPass ? 'ALL PASS' : 'FAIL' }}</span>
+          <div v-for="(g, k) in kbCoverage.gates" :key="k" class="evidence-item note">
+            {{ k }}：{{ g.pass ? 'PASS' : 'FAIL' }}
+          </div>
+        </div>
+        <div v-if="kbCoverage?.coverage" class="candidate-block">
+          <strong>Rule→Case 覆盖</strong>
+          <div class="note">
+            {{ Object.entries(kbCoverage.coverage.ruleCaseCoverage || {}).map(([k, v]) => k + ':' + v).join('、') || '无' }}
+          </div>
+          <div class="note">未触发（never-in-replay）：{{ (kbCoverage.coverage.eventRulesNeverInReplay || []).join('、') || '无' }}</div>
+        </div>
+        <div v-if="kbRelease?.metadata" class="candidate-block">
+          <strong>Release Metadata</strong>
+          <div class="note">
+            commit {{ (kbRelease.metadata.release?.gitCommit || '').slice(0, 12) }} ·
+            engine {{ kbRelease.metadata.engineVersion }} ·
+            测试 {{ kbRelease.metadata.counts?.tests }} ·
+            质量 {{ kbRelease.qualitySummary?.allPass ? 'ALL PASS' : 'FAIL' }}
+          </div>
+          <details><summary>版本依赖</summary>
+            <div v-for="(v, k) in kbRelease.metadata.versions" :key="k" class="evidence-item note">{{ k }}: {{ v }}</div>
+          </details>
+        </div>
 
         <h3>Review Queue <span class="note">只读；HUMAN_VERIFIED 只能由真实人工产生</span></h3>
         <div v-for="(it, i) in kbReview" :key="i" class="evidence-item">

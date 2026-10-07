@@ -46,3 +46,17 @@ def test_knowledge_review_queue_readonly():
     # 排序：P1 在前
     priorities = [i["priority"] for i in d["items"]]
     assert priorities == sorted(priorities, key=lambda p: {"P1": 0, "P2": 1, "P3": 2}[p])
+
+
+def test_dashboard_endpoints():
+    """M19 Dashboard 数据端点：funnel/coverage-audit/rule-audit/release。"""
+    fn = client.get("/api/v1/knowledge/funnel").json()
+    assert fn["funnel"]["executable"] == 216
+    assert fn["funnel"]["sources"] == 8 and fn["funnel"]["candidates"] == 556
+    cov = client.get("/api/v1/knowledge/coverage-audit").json()
+    assert cov["ruleCount"] == 216
+    ra = client.get("/api/v1/knowledge/rule-audit").json()
+    assert ra["ruleCount"] == 20
+    rel = client.get("/api/v1/knowledge/release").json()
+    assert rel["metadata"]["counts"]["executableRules"] == 216
+    assert rel["qualitySummary"]["allPass"] is True

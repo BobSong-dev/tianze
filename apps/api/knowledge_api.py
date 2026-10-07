@@ -24,6 +24,7 @@ from fastapi.responses import JSONResponse
 router = APIRouter(prefix="/api/v1/knowledge", tags=["knowledge"])
 
 _REVIEW_QUEUE_PATH = "review/review-queue.json"
+RELEASE_DIR = "release"
 
 
 def _load(path: str, default):
@@ -205,4 +206,39 @@ async def funnel() -> JSONResponse:
         "conflictDensity": round(graph.get("edgeCount", 0) / max(1, graph.get("nodeCount", 1)), 3),
         "domainCoverage": dict(domains),
         "ruleCaseCoverage": cov.get("ruleCaseCoverage", {}),
+    })
+
+
+@router.get("/coverage-audit")
+async def coverage_audit() -> JSONResponse:
+    """Rule Coverage / Dead Rule 分类（REVIEW 清单，不自动调整）。"""
+    d = _load("regression/rule-coverage-audit.json", None)
+    if d is None:
+        return JSONResponse({"error": {"code": "NOT_BUILT",
+                                       "message": "先运行 tools/rule_coverage_audit.py",
+                                       "details": {}}}, status_code=404)
+    return JSONResponse(d)
+
+
+@router.get("/rule-audit")
+async def rule_audit() -> JSONResponse:
+    """逐规则 replay 样本与 relation 分布。"""
+    d = _load("regression/rule-audit.json", None)
+    if d is None:
+        return JSONResponse({"error": {"code": "NOT_BUILT",
+                                       "message": "先运行 tools/rule_audit.py",
+                                       "details": {}}}, status_code=404)
+    return JSONResponse(d)
+
+
+@router.get("/release")
+async def release_metadata() -> JSONResponse:
+    """Release Metadata + quality summary（真实运行产物）。"""
+    return JSONResponse({
+        "metadata": _load("release/release-metadata.json", None),
+        "qualitySummary": _load("release/quality-summary.json", None),
+        "releaseNotes": (open(os.path.join(RELEASE_DIR, "RELEASE_NOTES.md"),
+                              encoding="utf-8").read()
+                         if os.path.exists(os.path.join(RELEASE_DIR, "RELEASE_NOTES.md"))
+                         else None),
     })

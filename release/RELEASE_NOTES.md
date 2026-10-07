@@ -1,6 +1,6 @@
 # Tianze v0.2.0 Release Notes
 
-- commit: `b6ce49d14a22`（含未提交改动）
+- commit: `7b6253265d96`（含未提交改动）
 - 当前版本 0.1.0 → 建议 v0.2.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（17.8s / 14 步）
 
@@ -121,7 +121,8 @@
 - M4: add pluggable strength analysis framework (dimensional method)
 - M3: implement root, stem visibility and month command analysis
 
-### 修复（7）
+### 修复（8）
+- fix: zero-fill event rule trigger rates (explicit 0 for dead-rule analysis)
 - fix: rescues payload unwrap in coverage audit
 - fix: JSONL history loading (Edit-tool applied, verified before commit)
 - fix: JSONL history loading in HTML release sections
