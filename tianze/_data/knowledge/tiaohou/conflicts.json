@@ -1,0 +1,44 @@
+{
+ "schemaVersion": "1.1.0",
+ "count": 3,
+ "conflicts": [
+  {
+   "ruleIds": [
+    "QBT-甲-07",
+    "QBT-甲-06"
+   ],
+   "conditionOverlap": {
+    "dayMaster": "甲",
+    "monthBranch": "未"
+   },
+   "description": "QBT-甲-06（五六月合论）与 QBT-甲-07（六月专论）覆盖重叠：specific-over-general",
+   "resolution": "specific-over-general",
+   "kind": "CONDITION_OVERLAP"
+  },
+  {
+   "ruleIds": [
+    "QBT-甲-07",
+    "QBT-甲-06"
+   ],
+   "conditionOverlap": {
+    "dayMaster": "甲",
+    "monthBranch": "未"
+   },
+   "description": "QBT-甲-06（五六月合论）与 QBT-甲-07（六月专论）覆盖重叠：specific-over-general",
+   "resolution": "specific-over-general",
+   "kind": "CONDITION_OVERLAP"
+  },
+  {
+   "ruleIds": [
+    "QBT-己-10"
+   ],
+   "conditionOverlap": {
+    "dayMaster": "己",
+    "monthBranch": "申"
+   },
+   "description": "标题'以丙为主要'与正文'先透癸次透丙'两说并存：从正文",
+   "resolution": "specific-over-general",
+   "kind": "SCHOOL_DIFFERENCE"
+  }
+ ]
+}

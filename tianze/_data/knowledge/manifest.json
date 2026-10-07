@@ -1,0 +1,12 @@
+{
+ "files": {
+  "event/conflict-graph.json": "738c065becaa",
+  "event/conflicts.json": "77b8e7170367",
+  "event/rescues.json": "f2591bd10d45",
+  "event/rules.json": "259e25e04566",
+  "temporal/rules.json": "44fcf5c98e42",
+  "tiaohou/conflicts.json": "26fad863062a",
+  "tiaohou/rules.json": "6b96eeba9abd"
+ },
+ "schemaVersion": "1.0.0"
+}

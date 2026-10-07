@@ -35,9 +35,9 @@ def _load(rel, default):
 
 
 def _pyproject_version() -> str:
-    txt = open(os.path.join(REPO, "pyproject.toml"), encoding="utf-8").read()
-    m = re.search(r'version\s*=\s*"([^"]+)"', txt)
-    return m.group(1) if m else "0.0.0"
+    """单一事实源：tianze.__version__（pyproject dynamic 绑定）。"""
+    import tianze
+    return tianze.__version__
 
 
 def main() -> int:

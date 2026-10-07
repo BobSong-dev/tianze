@@ -8,15 +8,18 @@ from functools import lru_cache
 
 __all__ = ["load_event_rules", "EVENT_RULES_PATH"]
 
-EVENT_RULES_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-    "knowledge", "rules", "event", "rules.json",
-)
+def _rules_path() -> str:
+    from tianze.paths import data_root
+    return str(data_root() / "rules" / "event" / "rules.json")
+
+
+EVENT_RULES_PATH = _rules_path()
 
 
 @lru_cache(maxsize=1)
 def load_event_rules() -> list[dict]:
-    if not os.path.exists(EVENT_RULES_PATH):
+    path = _rules_path()
+    if not os.path.exists(path):
         return []
-    payload = json.load(open(EVENT_RULES_PATH, encoding="utf-8"))
+    payload = json.load(open(path, encoding="utf-8"))
     return payload["rules"]

@@ -29,10 +29,12 @@ __all__ = [
     "TEMPORAL_RULES_PATH",
 ]
 
-TEMPORAL_RULES_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-    "knowledge", "rules", "temporal", "rules.json",
-)
+def _rules_path() -> str:
+    from tianze.paths import data_root
+    return str(data_root() / "rules" / "temporal" / "rules.json")
+
+
+TEMPORAL_RULES_PATH = _rules_path()
 
 # 继善篇救应之法（SS-R09 原文引文内的确定性映射）：键=克者（攻击方，日犯岁君中即日主）→ 制克者之救神
 _RESCUE_MAP: dict[str, set[str]] = {
@@ -56,9 +58,10 @@ _MU_KU = {"辰", "戌", "丑", "未"}
 
 @lru_cache(maxsize=1)
 def load_temporal_rules() -> list[dict]:
-    if not os.path.exists(TEMPORAL_RULES_PATH):
+    path = _rules_path()
+    if not os.path.exists(path):
         return []
-    payload = json.load(open(TEMPORAL_RULES_PATH, encoding="utf-8"))
+    payload = json.load(open(path, encoding="utf-8"))
     return payload["rules"]
 
 

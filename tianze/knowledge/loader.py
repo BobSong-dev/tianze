@@ -8,11 +8,11 @@ from pathlib import Path
 
 from tianze.knowledge.models import ExecutableRule
 
-_REPO = Path(__file__).resolve().parents[2]
+from tianze.paths import data_root  # noqa: E402  M20：dev/安装双模式数据解析
 
 
 def knowledge_root() -> Path:
-    return _REPO / "knowledge"
+    return data_root()
 
 
 @lru_cache(maxsize=8)

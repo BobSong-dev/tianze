@@ -1,7 +1,7 @@
-# Tianze v0.2.0 Release Notes
+# Tianze v0.3.0 Release Notes
 
-- commit: `823476a1baff`（含未提交改动）
-- 当前版本 0.1.0 → 建议 v0.2.0（minor；规则：特性 commit → minor，否则 patch）
+- commit: `08c3bdc05b06`（含未提交改动）
+- 当前版本 0.2.0 → 建议 v0.3.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（26.3s / 17 步）
 
 ## 版本与规模
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（76）
+### 特性（77）
+- M19.10: ADR-054/055 + README M19 + final E2E/pytest/build verification
 - M19.4-5+7: parser long-block window, rescue 5-reading expansion, replay chain/decision excerpts + skip-reason classification
 - M19.3+9: AI eval compare tool + stale artifact detection + VERSIONING doc
 - M19.2: Web knowledge/quality dashboard complete

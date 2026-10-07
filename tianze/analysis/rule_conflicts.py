@@ -21,10 +21,12 @@ from tianze.domain.models import CamelizeModel
 
 __all__ = ["ConflictExplanation", "explain_conflicts", "CONFLICTS_PATH"]
 
-CONFLICTS_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-    "knowledge", "rules", "event", "conflicts.json",
-)
+def _conflicts_path() -> str:
+    from tianze.paths import data_root
+    return str(data_root() / "rules" / "event" / "conflicts.json")
+
+
+CONFLICTS_PATH = _conflicts_path()
 
 
 class ConflictExplanation(CamelizeModel):
@@ -51,9 +53,10 @@ class ConflictExplanation(CamelizeModel):
 @lru_cache(maxsize=1)
 def load_conflict_declarations() -> list[dict]:
     """pairwise 冲突声明：{ruleA, ruleB, resolution, note}（A/B 顺序无关）。"""
-    if not os.path.exists(CONFLICTS_PATH):
+    path = _conflicts_path()
+    if not os.path.exists(path):
         return []
-    payload = json.load(open(CONFLICTS_PATH, encoding="utf-8"))
+    payload = json.load(open(path, encoding="utf-8"))
     return payload.get("conflicts", [])
 
 
@@ -154,7 +157,7 @@ def explain_conflicts(hits: list, view_of_rule: dict[str, str] | None = None,
 
 @lru_cache(maxsize=1)
 def _load_graph() -> dict:
-    path = os.path.join(os.path.dirname(CONFLICTS_PATH), "conflict-graph.json")
+    path = os.path.join(os.path.dirname(_conflicts_path()), "conflict-graph.json")
     if not os.path.exists(path):
         return {"nodes": [], "edges": []}
     return json.load(open(path, encoding="utf-8"))

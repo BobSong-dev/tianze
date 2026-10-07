@@ -19,10 +19,12 @@ from functools import lru_cache
 
 __all__ = ["evaluate_rescues", "RESCUES_PATH", "get_rescue_declarations"]
 
-RESCUES_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-    "knowledge", "rules", "event", "rescues.json",
-)
+def _rescues_path() -> str:
+    from tianze.paths import data_root
+    return str(data_root() / "rules" / "event" / "rescues.json")
+
+
+RESCUES_PATH = _rescues_path()
 
 
 def _ten_god(dm: str, s: str) -> str:
@@ -168,9 +170,10 @@ RESCUE_PREDICATES = {
 @lru_cache(maxsize=1)
 def get_rescue_declarations() -> list[dict]:
     """救应声明：{id, target: ruleId, predicate: id, effect: weaken|flip-to-support, note}。"""
-    if not os.path.exists(RESCUES_PATH):
+    path = _rescues_path()
+    if not os.path.exists(path):
         return []
-    payload = json.load(open(RESCUES_PATH, encoding="utf-8"))
+    payload = json.load(open(path, encoding="utf-8"))
     return payload.get("rescues", [])
 
 

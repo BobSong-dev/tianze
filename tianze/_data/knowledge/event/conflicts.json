@@ -1,0 +1,36 @@
+{
+ "schemaVersion": "1.0.0",
+ "count": 4,
+ "conflicts": [
+  {
+   "ruleA": "EV-CAR-01",
+   "ruleB": "EV-CAR-03",
+   "resolution": "specific-over-general",
+   "specific": "EV-CAR-01",
+   "specificCondition": "cai_present",
+   "specificConditionNote": "伤官有财皆可见官（DTZ-39）——财救应成立时以官星支持为主要解释",
+   "note": "无救应条件时回落 keep-both：DTZ-39「可见/不可见」之辨需察财印有无"
+  },
+  {
+   "ruleA": "EV-WEA-01",
+   "ruleB": "EV-WEA-02",
+   "resolution": "specific-over-general",
+   "specific": "EV-WEA-01",
+   "specificCondition": "wealth_favorable",
+   "specificConditionNote": "财为喜神方向（SS-R10 前提）——身强口径下以财星支持为主要解释",
+   "note": "无强度条件时回落 keep-both：SS-R10「须察其配合，非可一例以推」"
+  },
+  {
+   "ruleA": "EV-REL-02",
+   "ruleB": "EV-REL-03",
+   "resolution": "keep-both",
+   "note": "MLD-18：配偶星临岁运（support）与夫妻宫逢冲（oppose）可同时成立；原文并注明「离婚非不可避免事」，方向相反只表示主题内张力"
+  },
+  {
+   "ruleA": "EV-CON-01",
+   "ruleB": "EV-WEA-02",
+   "resolution": "no-adjudication",
+   "note": "special_pattern 视角（从格顺势/破格两说）与 traditional 视角（比劫夺财）方向相反时属流派差异，不裁决"
+  }
+ ]
+}
