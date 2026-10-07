@@ -103,6 +103,11 @@ def main() -> int:
         if rescue_dep.get(rid, 0) >= 2:
             classifications["high_rescue_dep"].append(rid)
 
+    # 事件规则触发率补零（未触发=0.0，dead-rule 分析需要显式 0 而非缺席）
+    for r in rules:
+        if r.get("domain") == "event" and r["id"] not in rates:
+            rates[r["id"]] = 0.0
+
     payload = {
         "schemaVersion": AUDIT_SCHEMA_VERSION,
         "discipline": "全部分类进入 REVIEW 清单；不自动删除/调整任何规则",

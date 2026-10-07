@@ -76,7 +76,8 @@
   "EV-WEA-01": 0.165,
   "EV-WEA-02": 0.02,
   "EV-WEA-03": 0.02,
-  "EV-WEA-04": 0.09
+  "EV-WEA-04": 0.09,
+  "EV-FAM-01": 0.0
  },
  "replayOccurrences": {
   "EV-CAR-01": 32,

@@ -1,6 +1,6 @@
 # Tianze v0.2.0 Release Notes
 
-- commit: `04b0a8bee3c9`（含未提交改动）
+- commit: `b6ce49d14a22`（含未提交改动）
 - 当前版本 0.1.0 → 建议 v0.2.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（17.8s / 14 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **216**（{'event': 20, 'temporal': 14, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 513
+- 命例 1147；Replay 165；测试 515
 
 ## 质量状态
 
@@ -130,7 +130,8 @@
 - fix: newline escape corruption in history writer
 - fix: property fuzz test string corruption
 
-### 测试（9）
+### 测试（10）
+- test: coverage audit tests (recreated via Write tool)
 - test: accept medium confidence (inherited annual)
 - test: accept low-confidence partial spans
 - test: cleanup added to governance write-test
