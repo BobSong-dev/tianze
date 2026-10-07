@@ -45,7 +45,7 @@ def main() -> int:
     rates = evaluation.get("randomAudit", {}).get("ruleTriggerRate", {})
     replay = _load("regression/case-replay.json", {"replays": []})
     graph = _load("knowledge/rules/event/conflict-graph.json", {"edges": []})
-    rescues = _load("knowledge/rules/event/rescues.json", {"rescues": []})
+    rescues = _load("knowledge/rules/event/rescues.json", {"rescues": []}).get("rescues", [])
 
     # replay 覆盖（event 规则）：出现次数 + relation 分布（按规则主题）
     rule_occ: Counter = Counter()

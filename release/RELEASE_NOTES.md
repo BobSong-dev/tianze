@@ -1,6 +1,6 @@
 # Tianze v0.2.0 Release Notes
 
-- commit: `1208dfe9eebb`（含未提交改动）
+- commit: `5aa15c1f152e`（含未提交改动）
 - 当前版本 0.1.0 → 建议 v0.2.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（17.8s / 14 步）
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（72）
+### 特性（73）
+- M19.6: rule coverage / dead-rule analysis (216 rules classified)
 - M19.1: release automation (changelog/version-bump suggestion/notes/tag prep)
 - M18.10: ADR-051/052/053 + README M18 + final E2E/pytest verification
 - M18.5-7: version compatibility matrix tests + funnel endpoint + replay chain comparison
