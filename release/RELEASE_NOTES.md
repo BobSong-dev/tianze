@@ -1,8 +1,8 @@
 # Tianze v0.3.0 Release Notes
 
-- commit: `6e9b4c3a5683`（含未提交改动）
+- commit: `6a5d60690158`（含未提交改动）
 - 当前版本 0.2.0 → 建议 v0.3.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：FAIL（36.2s / 17 步）
+- 质量门：FAIL（61.4s / 18 步）
 
 ## 版本与规模
 
@@ -29,7 +29,7 @@
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.651,
+  "elapsedSeconds": 0.652,
   "perCaseMs": 0.62
  },
  "timeline80y": {
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（83）
+### 特性（84）
+- M20 final: quality gate ALL PASS + release_check ALL PASS + E2E 8 + build
 - M20.1: v0.2.0 release rehearsal + ADR-056/057
 - M20.9: README Quick Start (CLI/SDK/Web/dev commands) + .env.example
 - M20.3-4: Web AI evaluation compare view + Rule/Conflict/Rescue graph view

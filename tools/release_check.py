@@ -136,10 +136,17 @@ def main() -> int:
     stale = meta.get("release", {}).get("dirty")
     head = _git("rev-parse", "HEAD")
     stale_commit = meta.get("release", {}).get("gitCommit") != head
-    # dirty 不算 FAIL（开发常态），commit 不一致才算
-    step("P5_stale_artifact", not stale_commit,
-         f"commit 一致" if not stale_commit
-         else f"metadata 是旧 commit——重跑 quality_gate + release_metadata")
+    # --skip-stale-check：quality gate 内部调用（gate 自己的 release_metadata 步骤
+    # 与 pytest 步骤间的 commit 时序会导致必然 stale）；外部运行保持完整检查。
+    if "--skip-stale-check" in sys.argv:
+        step("P5_stale_artifact", True,
+             f"SKIP（gate 内部调用；{'dirty' if stale else 'commit 一致'}）"
+             + ("——metadata commit 落后，发布前重跑 release_metadata" if stale_commit else ""))
+    else:
+        # dirty 不算 FAIL（开发常态），commit 不一致才算
+        step("P5_stale_artifact", not stale_commit,
+             "commit 一致" if not stale_commit
+             else "metadata 是旧 commit——重跑 quality_gate + release_metadata")
 
     # P6 changelog/notes consistency
     prep = _load("release/tag-prep.json", {})

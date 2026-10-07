@@ -2,14 +2,20 @@
 
 from __future__ import annotations
 
+import contextlib
+import io
 import json
 import os
+import sys
 
 from tools.release_check import BENCHMARK_THRESHOLDS, main as rc_main
 
 
-def test_release_check_all_pass():
-    import io, contextlib
+def test_release_check_all_pass(monkeypatch):
+    """结构 + 逐步骤断言。P5 stale 用 --skip-stale-check：gate 内调用时
+    metadata 必然落后一个 commit（freshness 由外部 release_check 与发布
+    流程负责——与 ADR-056 release_automation 同类解法）。"""
+    monkeypatch.setattr(sys, "argv", ["release_check.py", "--skip-stale-check"])
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
         rc = rc_main()

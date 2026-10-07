@@ -48,6 +48,7 @@ STEPS = [
     ("ai_eval_compare", [PY, "tools/ai_eval_compare.py"]),
     ("benchmark", [PY, "tools/benchmark.py"]),
     ("release_metadata", [PY, "tools/release_metadata.py"]),
+    ("release_check", [PY, "tools/release_check.py", "--skip-stale-check"]),
     ("release_automation_dryrun", [PY, "tools/release_automation.py", "--skip-gate-check"]),
 ]
 

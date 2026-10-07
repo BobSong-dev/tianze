@@ -6,12 +6,12 @@
   {
    "step": "P0_quality_gate",
    "pass": true,
-   "detail": "WARN: 最近一次 quality summary 未 ALL PASS（pytest）——发布前请重跑 tools/quality_gate.py"
+   "detail": "18 步 ALL PASS"
   },
   {
    "step": "P1_package_build",
    "pass": true,
-   "detail": "tianze_bazi-0.2.0-py3-none-any.whl，4.2s"
+   "detail": "tianze_bazi-0.2.0-py3-none-any.whl，4.1s"
   },
   {
    "step": "P2_clean_install_smoke",

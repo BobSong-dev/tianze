@@ -1,6 +1,6 @@
 # Tianze Release Report
 
-- commit: `6e9b4c3a5683`（含未提交改动）
+- commit: `6a5d60690158`（含未提交改动）
 - engine: 0.2.0
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 
@@ -17,7 +17,7 @@
 - Case Regression：无变化
 - Temporal Regression：无变化
 - Event Evaluation problems：无
-- AI Evaluation：SKIPPED
+- AI Evaluation：mock
 
 ## 基准
 
@@ -30,7 +30,7 @@
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.651,
+  "elapsedSeconds": 0.652,
   "perCaseMs": 0.62
  },
  "timeline80y": {

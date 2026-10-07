@@ -1,19 +1,17 @@
 {
  "schemaVersion": "1.0.0",
- "allPass": false,
- "failed": [
-  "pytest"
- ],
- "totalSeconds": 36.2,
+ "allPass": true,
+ "failed": [],
+ "totalSeconds": 57.7,
  "steps": [
   {
    "step": "pytest",
-   "exitCode": 1,
-   "elapsedSeconds": 28.96,
+   "exitCode": 0,
+   "elapsedSeconds": 30.39,
    "tail": [
-    "=========================== short test summary info ===========================",
-    "FAILED tests/test_release_check.py::test_release_check_all_pass - assert 1 == 0",
-    "1 failed, 528 passed, 5 warnings in 28.53s"
+    "",
+    "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+    "529 passed, 5 warnings in 29.96s"
    ]
   },
   {
@@ -37,7 +35,7 @@
   {
    "step": "graph_audit",
    "exitCode": 0,
-   "elapsedSeconds": 0.66,
+   "elapsedSeconds": 0.65,
    "tail": [
     "Graph Audit：A1 UNVERIFIED=0 | A4 cycles=0 | A2 overActive=无 | heuristic-only 规则=0"
    ]
@@ -55,7 +53,7 @@
   {
    "step": "rule_audit",
    "exitCode": 0,
-   "elapsedSeconds": 0.06,
+   "elapsedSeconds": 0.05,
    "tail": [
     "Rule Audit：20 条规则；异常泛化信号 无"
    ]
@@ -63,7 +61,7 @@
   {
    "step": "case_regression",
    "exitCode": 0,
-   "elapsedSeconds": 0.65,
+   "elapsedSeconds": 0.63,
    "tail": [
     "  \"current\": 1147",
     " }",
@@ -73,7 +71,7 @@
   {
    "step": "temporal_regression",
    "exitCode": 0,
-   "elapsedSeconds": 0.31,
+   "elapsedSeconds": 0.3,
    "tail": [
     "Temporal Regression：{} → 报告 C:\\Project\\tianze\\regression\\temporal-report.md"
    ]
@@ -130,13 +128,13 @@
    "exitCode": 0,
    "elapsedSeconds": 0.05,
    "tail": [
-    "AI Eval Compare：160 条历史；回归信号 0"
+    "AI Eval Compare：177 条历史；回归信号 0"
    ]
   },
   {
    "step": "benchmark",
    "exitCode": 0,
-   "elapsedSeconds": 1.41,
+   "elapsedSeconds": 1.4,
    "tail": [
     "benchmark history signals: 无"
    ]
@@ -144,7 +142,7 @@
   {
    "step": "release_metadata",
    "exitCode": 0,
-   "elapsedSeconds": 1.03,
+   "elapsedSeconds": 1.04,
    "tail": [
     " }",
     "}",
@@ -152,11 +150,21 @@
    ]
   },
   {
+   "step": "release_check",
+   "exitCode": 0,
+   "elapsedSeconds": 20.17,
+   "tail": [
+    "  PASS P7_benchmark_regression（全部在阈值内（阈值：{\"caseChart1147.perCaseMs\": 5.0, \"replayCorpus.perCaseMs\": 5.0, \"timeline80y.elapsedSeconds\": 1.0}））",
+    "",
+    "Release Check：ALL PASS → release/release-check.md"
+   ]
+  },
+  {
    "step": "release_automation_dryrun",
    "exitCode": 0,
    "elapsedSeconds": 0.21,
    "tail": [
-    "Release Automation：0.2.0 → v0.3.0（minor）；commits {'features': 83, 'fixes': 8, 'tests': 10, 'docs': 6, 'chores': 6}；notes → release/RELEASE_NOTES.md",
+    "Release Automation：0.2.0 → v0.3.0（minor）；commits {'features': 84, 'fixes': 8, 'tests': 10, 'docs': 6, 'chores': 6}；notes → release/RELEASE_NOTES.md",
     "  tag：dry-run（未创建，不 push）"
    ]
   }
