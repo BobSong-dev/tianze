@@ -43,8 +43,8 @@
 
 ### ruleConflicts（7）
 
-- {"source": "event", "rules": ["EV-CAR-01", "EV-CAR-03"], "resolution": "keep-both", "note": "DTZ-39：伤官见官有「可见/不可见」之辨（有财化伤则可见官）；v1 执行器未判救应，因此两条规则可同盘反向命中——保留双方，sta
-- {"source": "event", "rules": ["EV-WEA-01", "EV-WEA-02"], "resolution": "keep-both", "note": "SS-R10 原书自注「须察其配合，非可一例以推」：财星支持与因财启争同盘并存"}
+- {"source": "event", "rules": ["EV-CAR-01", "EV-CAR-03"], "resolution": "specific-over-general", "note": "无救应条件时回落 keep-both：DTZ-39「可见/不可见」之辨需察财印有无"}
+- {"source": "event", "rules": ["EV-WEA-01", "EV-WEA-02"], "resolution": "specific-over-general", "note": "无强度条件时回落 keep-both：SS-R10「须察其配合，非可一例以推」"}
 - {"source": "event", "rules": ["EV-REL-02", "EV-REL-03"], "resolution": "keep-both", "note": "MLD-18：配偶星临岁运（support）与夫妻宫逢冲（oppose）可同时成立；原文并注明「离婚非不可避免事」，方向相反只表示主题
 - {"source": "event", "rules": ["EV-CON-01", "EV-WEA-02"], "resolution": "no-adjudication", "note": "special_pattern 视角（从格顺势/破格两说）与 traditional 视角（比劫夺财）方向相反时属流派差异
 - {"source": "tiaohou", "rules": ["QBT-甲-07", "QBT-甲-06"], "resolution": "specific-over-general", "note": "QBT-甲-06（五六月合论）与 QBT-甲-07（六月专论）覆盖重叠：specific-over-gener

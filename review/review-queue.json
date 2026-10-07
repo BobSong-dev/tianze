@@ -2619,8 +2619,8 @@
      "EV-CAR-01",
      "EV-CAR-03"
     ],
-    "resolution": "keep-both",
-    "note": "DTZ-39：伤官见官有「可见/不可见」之辨（有财化伤则可见官）；v1 执行器未判救应，因此两条规则可同盘反向命中——保留双方，status=DISPUTED"
+    "resolution": "specific-over-general",
+    "note": "无救应条件时回落 keep-both：DTZ-39「可见/不可见」之辨需察财印有无"
    },
    {
     "source": "event",
@@ -2628,8 +2628,8 @@
      "EV-WEA-01",
      "EV-WEA-02"
     ],
-    "resolution": "keep-both",
-    "note": "SS-R10 原书自注「须察其配合，非可一例以推」：财星支持与因财启争同盘并存"
+    "resolution": "specific-over-general",
+    "note": "无强度条件时回落 keep-both：SS-R10「须察其配合，非可一例以推」"
    },
    {
     "source": "event",

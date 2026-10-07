@@ -238,3 +238,23 @@
   DTZ-18「合≠化」警示，候选永不升级。
 - **Reason**：流派权重随上下文（日主阴阳）变化，这正是「上下文相关优先级」的实例。
 - **Tradeoff**：权重表述为文字依据而非数值——数值化需更多文献支撑，暂缓。
+
+## ADR-047 · 救应/例外是声明驱动的条件谓词，不是硬编码优先级（M16）
+
+- **Context**：伤官见官有财/印救应（DTZ-39/43）、财印不容有官星通关、比劫夺财须察
+  财为喜神（SS-R10）——「规则是否适用」取决于可判定的结构条件。
+- **Decision**：救应谓词（rescues.py）全部复用现有 Engine 事实（十神分布、weighted
+  verdict），一次评估多处引用；rescues.json 声明谁救谁；conflicts.json 的
+  specificCondition 引用谓词 → SPECIFIC_EXCEPTION 只在条件成立时启用，
+  否则回落 keep-both。ENGINEERING 映射（如 偏强→财为喜神方向）显式标注。
+- **Reason**：上下文相关优先级替代全局 A>B；命中仍保留（rescueApplied 随结果输出）。
+- **Tradeoff**：强度到「喜神」的映射是粗粒度 heuristic——需要更细时按规则逐条精化。
+
+## ADR-048 · Migration 不静默修改历史数据（M16）
+
+- **Context**：schema 版本增多（knowledge/analysis/delta/event/replay/interpretation），
+  直接改写规则文件会破坏可追溯性。
+- **Decision**：migrate_knowledge.py 默认 dry-run（只打印变更摘要）；--write 只产出
+  .migrated 副本，由人工确认后替换；迁移函数为纯函数且幂等（二次迁移 0 变更）。
+- **Reason**：机器流程不得伪造「历史即已如此」；审计要求新旧可对照。
+- **Tradeoff**：升级需要一步人工确认——刻意为之。
