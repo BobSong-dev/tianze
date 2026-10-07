@@ -1,0 +1,2018 @@
+{
+ "schemaVersion": "1.0.0",
+ "note": "只描述不调参：本报告不修改任何规则；relation 分布来自 replay 工件",
+ "reviewRules": [],
+ "ruleCount": 20,
+ "rules": [
+  {
+   "ruleId": "EV-CAR-01",
+   "label": "官星透岁运+官杀主题增强",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "正官",
+      "七杀"
+     ]
+    },
+    {
+     "field": "themeStrength.官杀",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.2,
+   "relationDistribution": {
+    "SOURCE_SILENT": 29,
+    "SOURCE_SUPPORTS": 3
+   },
+   "occurrenceCount": 32,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-03（明思宗·崇祯）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "辛亥",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-21（白崇禧）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "庚辰",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-30（女命无名例二·庚申年）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "庚申",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-35（女命无名例七·壬子红艳）",
+     "book": "命理一得",
+     "luck": "己酉",
+     "annual": null,
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-ZPZM-15（岳武穆命·阳刃格最著）",
+     "book": "子平真诠评注",
+     "luck": null,
+     "annual": "辛酉",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M05（日犯岁君无名例二）",
+     "book": "守素室丛谈",
+     "luck": "庚午",
+     "annual": "戊寅",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M08（刃头财无名例三）",
+     "book": "守素室丛谈",
+     "luck": "庚申",
+     "annual": "己卯",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M09（李国杰）",
+     "book": "守素室丛谈",
+     "luck": "丙申",
+     "annual": "己卯",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": "PARTIAL",
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-CAR-02",
+   "label": "官印相生（印化官杀）",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "正印",
+      "偏印"
+     ]
+    },
+    {
+     "field": "guanPresent",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.15,
+   "relationDistribution": {
+    "SOURCE_SILENT": 14,
+    "SOURCE_SUPPORTS": 1
+   },
+   "occurrenceCount": 15,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-19（阎锡山〔附商震、张人杰、张敬、萧世英等〕）",
+     "book": "命理一得",
+     "luck": "壬辰",
+     "annual": "癸酉",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-ZPZM-05（谭君造）",
+     "book": "子平真诠评注",
+     "luck": null,
+     "annual": "庚午",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M03（福星无名例）",
+     "book": "守素室丛谈",
+     "luck": "癸巳",
+     "annual": null,
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M09（李国杰）",
+     "book": "守素室丛谈",
+     "luck": "丙申",
+     "annual": "己卯",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": "PARTIAL",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M12（胡笔江）",
+     "book": "守素室丛谈",
+     "luck": "丙戌",
+     "annual": "戊寅",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": "PARTIAL",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-07（施再邨造·弃命从财）",
+     "book": "滴天髓补注",
+     "luck": "庚申",
+     "annual": null,
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-28（从革格女造·假从）",
+     "book": "滴天髓补注",
+     "luck": "己酉",
+     "annual": null,
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-36（伍朝枢造·财官印三重在印）",
+     "book": "滴天髓补注",
+     "luck": "辛丑",
+     "annual": "甲戌",
+     "theme": "career",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-CAR-03",
+   "label": "伤官见官（岁运伤官克官）",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "eq",
+     "value": "伤官"
+    },
+    {
+     "field": "guanClashed",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.03,
+   "relationDistribution": {
+    "SOURCE_SILENT": 5
+   },
+   "occurrenceCount": 5,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-08（徐世昌〔徐东海〕）",
+     "book": "命理一得",
+     "luck": "戊午",
+     "annual": "己卯",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-06（虞洽卿造·不能从煞）",
+     "book": "滴天髓补注",
+     "luck": "癸卯",
+     "annual": null,
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-55（癸未壬戌丁未戊申造·喜煞助官）",
+     "book": "滴天髓补注",
+     "luck": "戊午",
+     "annual": null,
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-62（瞿鸿玑造·木火伤官乃官印格）",
+     "book": "滴天髓补注",
+     "luck": "丙戌",
+     "annual": null,
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-95（杨增新造·源流而及身而止）",
+     "book": "滴天髓补注",
+     "luck": "庚午",
+     "annual": null,
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-WEA-01",
+   "label": "财星透岁运+财主题增强",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "正财",
+      "偏财"
+     ]
+    },
+    {
+     "field": "themeStrength.财星",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.165,
+   "relationDistribution": {
+    "SOURCE_SILENT": 43
+   },
+   "occurrenceCount": 43,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-25（周佛海）",
+     "book": "命理一得",
+     "luck": "辛丑",
+     "annual": "甲午",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-32（女命无名例四·庚子月）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "己卯",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-37（女命无名例九·己卯年）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "己卯",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M02（六阴朝阳无名例）",
+     "book": "守素室丛谈",
+     "luck": "甲寅",
+     "annual": null,
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M04（日犯岁君无名例一）",
+     "book": "守素室丛谈",
+     "luck": "丙寅",
+     "annual": "丁丑",
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M05（日犯岁君无名例二）",
+     "book": "守素室丛谈",
+     "luck": "庚午",
+     "annual": "戊寅",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M06（刃头财无名例一）",
+     "book": "守素室丛谈",
+     "luck": "乙酉",
+     "annual": "己卯",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M07（刃头财无名例二）",
+     "book": "守素室丛谈",
+     "luck": "乙亥",
+     "annual": "己卯",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-WEA-02",
+   "label": "刃头财/比劫夺财（因财启争）",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "renOrLuHeadCai",
+     "operator": "eq",
+     "value": true
+    },
+    {
+     "field": "orBijiePlusCai",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.02,
+   "relationDistribution": {
+    "SOURCE_SILENT": 15
+   },
+   "occurrenceCount": 15,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-25（周佛海）",
+     "book": "命理一得",
+     "luck": "辛丑",
+     "annual": "甲午",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-32（女命无名例四·庚子月）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "己卯",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-37（女命无名例九·己卯年）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "己卯",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M05（日犯岁君无名例二）",
+     "book": "守素室丛谈",
+     "luck": "庚午",
+     "annual": "戊寅",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M06（刃头财无名例一）",
+     "book": "守素室丛谈",
+     "luck": "乙酉",
+     "annual": "己卯",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M07（刃头财无名例二）",
+     "book": "守素室丛谈",
+     "luck": "乙亥",
+     "annual": "己卯",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M08（刃头财无名例三）",
+     "book": "守素室丛谈",
+     "luck": "庚申",
+     "annual": "己卯",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M13（孙景扬）",
+     "book": "守素室丛谈",
+     "luck": "甲子",
+     "annual": "丙子",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-WEA-03",
+   "label": "财库逢冲（两说并存）",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "caiKuClashed",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.02,
+   "relationDistribution": {
+    "SOURCE_SILENT": 4
+   },
+   "occurrenceCount": 4,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-29（女命无名例一·庚戌年）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "庚戌",
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-10（朱瑞造·三刑有气）",
+     "book": "滴天髓补注",
+     "luck": "甲子",
+     "annual": "丙辰",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-35（戴季陶造·财官格）",
+     "book": "滴天髓补注",
+     "luck": "壬辰",
+     "annual": null,
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-QBTM-丁-99",
+     "book": "穷通宝鉴评注",
+     "luck": "乙未",
+     "annual": null,
+     "theme": "wealth",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-REL-01",
+   "label": "夫妻宫（日支）逢岁运六合",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "dayBranchSixCombined",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.07,
+   "relationDistribution": {
+    "SOURCE_SILENT": 16
+   },
+   "occurrenceCount": 16,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-08（徐世昌〔徐东海〕）",
+     "book": "命理一得",
+     "luck": "戊午",
+     "annual": "己卯",
+     "theme": "relationship",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-19（阎锡山〔附商震、张人杰、张敬、萧世英等〕）",
+     "book": "命理一得",
+     "luck": "壬辰",
+     "annual": "癸酉",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M06（刃头财无名例一）",
+     "book": "守素室丛谈",
+     "luck": "乙酉",
+     "annual": "己卯",
+     "theme": "relationship",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M12（胡笔江）",
+     "book": "守素室丛谈",
+     "luck": "丙戌",
+     "annual": "戊寅",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-08（伍庭芳造·阴干从势）",
+     "book": "滴天髓补注",
+     "luck": "庚戌",
+     "annual": "壬戌",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-19（黄克强造·阳乘阳位无安顿）",
+     "book": "滴天髓补注",
+     "luck": "乙亥",
+     "annual": "甲寅",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-27（康熙造·上上格）",
+     "book": "滴天髓补注",
+     "luck": "己巳",
+     "annual": null,
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-30（蒋光造·气势团结）",
+     "book": "滴天髓补注",
+     "luck": "壬申",
+     "annual": null,
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-REL-02",
+   "label": "夫妻宫逢冲/夫星逢冲",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "dayBranchClashed",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.085,
+   "relationDistribution": {
+    "SOURCE_SILENT": 21
+   },
+   "occurrenceCount": 21,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-26（贺耀祖）",
+     "book": "命理一得",
+     "luck": "己丑",
+     "annual": "辛未",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-37（女命无名例九·己卯年）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "己卯",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M04（日犯岁君无名例一）",
+     "book": "守素室丛谈",
+     "luck": "丙寅",
+     "annual": "丁丑",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M05（日犯岁君无名例二）",
+     "book": "守素室丛谈",
+     "luck": "庚午",
+     "annual": "戊寅",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-10（朱瑞造·三刑有气）",
+     "book": "滴天髓补注",
+     "luck": "甲子",
+     "annual": "丙辰",
+     "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-14（两淮盐运使某君造·炎上格虚神）",
+     "book": "滴天髓补注",
+     "luck": "庚寅",
+     "annual": null,
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-21（赵秉钧造·坐长生三刑逢冲）",
+     "book": "滴天髓补注",
+     "luck": "戊辰",
+     "annual": "甲寅",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-26（杨毓造·日禄归时合起财官）",
+     "book": "滴天髓补注",
+     "luck": "丙午",
+     "annual": null,
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-REL-03",
+   "label": "配偶星临岁运（男财/女官）",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "gender",
+     "operator": "in",
+     "value": [
+      "male",
+      "female"
+     ]
+    },
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "__GENDER_CONDITIONAL__"
+     ]
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.185,
+   "relationDistribution": {
+    "SOURCE_SILENT": 13,
+    "SOURCE_SUPPORTS": 1
+   },
+   "occurrenceCount": 14,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-30（女命无名例二·庚申年）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "庚申",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-35（女命无名例七·壬子红艳）",
+     "book": "命理一得",
+     "luck": "己酉",
+     "annual": null,
+     "theme": "relationship",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-QBTM-丁-06",
+     "book": "穷通宝鉴评注",
+     "luck": "辛酉",
+     "annual": null,
+     "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-QBTM-丁-07",
+     "book": "穷通宝鉴评注",
+     "luck": null,
+     "annual": "辛亥",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-QBTM-丁-13",
+     "book": "穷通宝鉴评注",
+     "luck": "辛酉",
+     "annual": null,
+     "theme": "relationship",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-QBTM-丁-14",
+     "book": "穷通宝鉴评注",
+     "luck": "辛酉",
+     "annual": null,
+     "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-QBTM-丁-18",
+     "book": "穷通宝鉴评注",
+     "luck": "庚申",
+     "annual": null,
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-QBTM-丁-37",
+     "book": "穷通宝鉴评注",
+     "luck": null,
+     "annual": "庚午",
+     "theme": "relationship",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-REL-04",
+   "label": "咸池桃花临岁运",
+   "view": "shensha",
+   "conditions": [
+    {
+     "field": "xianchiBranchHit",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.13,
+   "relationDistribution": {
+    "SOURCE_SILENT": 31
+   },
+   "occurrenceCount": 31,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-08（徐世昌〔徐东海〕）",
+     "book": "命理一得",
+     "luck": "戊午",
+     "annual": "己卯",
+     "theme": "relationship",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-20（胡汉民）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "丙子",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-25（周佛海）",
+     "book": "命理一得",
+     "luck": "辛丑",
+     "annual": "甲午",
+     "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-32（女命无名例四·庚子月）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "己卯",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-35（女命无名例七·壬子红艳）",
+     "book": "命理一得",
+     "luck": "己酉",
+     "annual": null,
+     "theme": "relationship",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-ZPZM-04（癸巳丙辰壬申癸卯造）",
+     "book": "子平真诠评注",
+     "luck": null,
+     "annual": "癸酉",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-ZPZM-05（谭君造）",
+     "book": "子平真诠评注",
+     "luck": null,
+     "annual": "庚午",
+     "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-ZPZM-15（岳武穆命·阳刃格最著）",
+     "book": "子平真诠评注",
+     "luck": null,
+     "annual": "辛酉",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-STU-01",
+   "label": "印星临岁运+印主题增强",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "正印",
+      "偏印"
+     ]
+    },
+    {
+     "field": "themeStrength.印星",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.235,
+   "relationDistribution": {
+    "SOURCE_SILENT": 27
+   },
+   "occurrenceCount": 27,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-19（阎锡山〔附商震、张人杰、张敬、萧世英等〕）",
+     "book": "命理一得",
+     "luck": "壬辰",
+     "annual": "癸酉",
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-25（周佛海）",
+     "book": "命理一得",
+     "luck": "辛丑",
+     "annual": "甲午",
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-ZPZM-05（谭君造）",
+     "book": "子平真诠评注",
+     "luck": null,
+     "annual": "庚午",
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M03（福星无名例）",
+     "book": "守素室丛谈",
+     "luck": "癸巳",
+     "annual": null,
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M09（李国杰）",
+     "book": "守素室丛谈",
+     "luck": "丙申",
+     "annual": "己卯",
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M12（胡笔江）",
+     "book": "守素室丛谈",
+     "luck": "丙戌",
+     "annual": "戊寅",
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-07（施再邨造·弃命从财）",
+     "book": "滴天髓补注",
+     "luck": "庚申",
+     "annual": null,
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-26（杨毓造·日禄归时合起财官）",
+     "book": "滴天髓补注",
+     "luck": "丙午",
+     "annual": null,
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-MOB-01",
+   "label": "驿马临岁运/驿马逢冲",
+   "view": "shensha",
+   "conditions": [
+    {
+     "field": "yimaBranchHitOrClash",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.265,
+   "relationDistribution": {
+    "SOURCE_SILENT": 38,
+    "SOURCE_SUPPORTS": 2
+   },
+   "occurrenceCount": 40,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-03（明思宗·崇祯）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "辛亥",
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-30（女命无名例二·庚申年）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "庚申",
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M04（日犯岁君无名例一）",
+     "book": "守素室丛谈",
+     "luck": "丙寅",
+     "annual": "丁丑",
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M05（日犯岁君无名例二）",
+     "book": "守素室丛谈",
+     "luck": "庚午",
+     "annual": "戊寅",
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M07（刃头财无名例二）",
+     "book": "守素室丛谈",
+     "luck": "乙亥",
+     "annual": "己卯",
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M08（刃头财无名例三）",
+     "book": "守素室丛谈",
+     "luck": "庚申",
+     "annual": "己卯",
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M09（李国杰）",
+     "book": "守素室丛谈",
+     "luck": "丙申",
+     "annual": "己卯",
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M10（徐新六）",
+     "book": "守素室丛谈",
+     "luck": "庚寅",
+     "annual": "戊寅",
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-MOB-02",
+   "label": "岁运冲提纲（月令）",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "monthBranchClashed",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.08,
+   "relationDistribution": {
+    "SOURCE_SILENT": 15
+   },
+   "occurrenceCount": 15,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-29（女命无名例一·庚戌年）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "庚戌",
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-41（书2所附其他无名造·择要）",
+     "book": "命理一得",
+     "luck": "乙卯",
+     "annual": null,
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-ZPZM-15（岳武穆命·阳刃格最著）",
+     "book": "子平真诠评注",
+     "luck": null,
+     "annual": "辛酉",
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M12（胡笔江）",
+     "book": "守素室丛谈",
+     "luck": "丙戌",
+     "annual": "戊寅",
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-07（施再邨造·弃命从财）",
+     "book": "滴天髓补注",
+     "luck": "庚申",
+     "annual": null,
+     "theme": "mobility",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-65（张宗昌造·六壬趋艮归伤官）",
+     "book": "滴天髓补注",
+     "luck": "戊申",
+     "annual": null,
+     "theme": "mobility",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-74（浙西刘某造·真从）",
+     "book": "滴天髓补注",
+     "luck": "壬子",
+     "annual": null,
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-QBTM-丁-13",
+     "book": "穷通宝鉴评注",
+     "luck": "辛酉",
+     "annual": null,
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-FAM-01",
+   "label": "年柱/月柱被天克地冲（宫位引动）",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "familyPalaceTiankedi",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.0,
+   "relationDistribution": {
+    "SOURCE_SILENT": 16
+   },
+   "occurrenceCount": 16,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-41（书2所附其他无名造·择要）",
+     "book": "命理一得",
+     "luck": "乙卯",
+     "annual": null,
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M04（日犯岁君无名例一）",
+     "book": "守素室丛谈",
+     "luck": "丙寅",
+     "annual": "丁丑",
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M12（胡笔江）",
+     "book": "守素室丛谈",
+     "luck": "丙戌",
+     "annual": "戊寅",
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-05（韩复榘造·绝处逢生）",
+     "book": "滴天髓补注",
+     "luck": "乙酉",
+     "annual": null,
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-07（施再邨造·弃命从财）",
+     "book": "滴天髓补注",
+     "luck": "庚申",
+     "annual": null,
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-22（姜登选造·艮坤怕冲宜静）",
+     "book": "滴天髓补注",
+     "luck": "己亥",
+     "annual": null,
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-33（胡汉民〔胡展堂〕造·三奇格）",
+     "book": "滴天髓补注",
+     "luck": "癸酉",
+     "annual": null,
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-65（张宗昌造·六壬趋艮归伤官）",
+     "book": "滴天髓补注",
+     "luck": "戊申",
+     "annual": null,
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-SOC-01",
+   "label": "比劫临岁运/比劫主题增强",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "比肩",
+      "劫财"
+     ]
+    },
+    {
+     "field": "orThemeStrength.比劫",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.19,
+   "relationDistribution": {
+    "SOURCE_SILENT": 39,
+    "SOURCE_SUPPORTS": 1
+   },
+   "occurrenceCount": 40,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-06（清德宗·光绪）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "戊戌",
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-09（袁世凯）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "丙辰",
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-17（傅宗耀）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "庚辰",
+     "theme": "social",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-20（胡汉民）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "丙子",
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-26（贺耀祖）",
+     "book": "命理一得",
+     "luck": "己丑",
+     "annual": "辛未",
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-41（书2所附其他无名造·择要）",
+     "book": "命理一得",
+     "luck": "乙卯",
+     "annual": null,
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-ZPZM-04（癸巳丙辰壬申癸卯造）",
+     "book": "子平真诠评注",
+     "luck": null,
+     "annual": "癸酉",
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M06（刃头财无名例一）",
+     "book": "守素室丛谈",
+     "luck": "乙酉",
+     "annual": "己卯",
+     "theme": "social",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-CON-01",
+   "label": "从格/专旺岁运破格（顺势 vs 破格两说）",
+   "view": "special_pattern",
+   "conditions": [
+    {
+     "field": "specialCandidateBlocked",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.235,
+   "relationDistribution": {
+    "SOURCE_SILENT": 60,
+    "SOURCE_SUPPORTS": 1
+   },
+   "occurrenceCount": 61,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-06（清德宗·光绪）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "戊戌",
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-17（傅宗耀）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "庚辰",
+     "theme": "social",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-21（白崇禧）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "庚辰",
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-25（周佛海）",
+     "book": "命理一得",
+     "luck": "辛丑",
+     "annual": "甲午",
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-32（女命无名例四·庚子月）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "己卯",
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-35（女命无名例七·壬子红艳）",
+     "book": "命理一得",
+     "luck": "己酉",
+     "annual": null,
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-37（女命无名例九·己卯年）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "己卯",
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M02（六阴朝阳无名例）",
+     "book": "守素室丛谈",
+     "luck": "甲寅",
+     "annual": null,
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-CAR-04",
+   "label": "食神制杀（条件化）",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "eq",
+     "value": "食神"
+    },
+    {
+     "field": "shaPresent",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.035,
+   "relationDistribution": {
+    "SOURCE_SILENT": 4
+   },
+   "occurrenceCount": 4,
+   "samples": [
+    {
+     "caseId": "CASE-SS-M13（孙景扬）",
+     "book": "守素室丛谈",
+     "luck": "甲子",
+     "annual": "丙子",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-21（赵秉钧造·坐长生三刑逢冲）",
+     "book": "滴天髓补注",
+     "luck": "戊辰",
+     "annual": "甲寅",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": "PARTIAL",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-71（友人之子造·夏金从煞之凶）",
+     "book": "滴天髓补注",
+     "luck": "癸卯",
+     "annual": null,
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-QBTM-戊-40",
+     "book": "穷通宝鉴评注",
+     "luck": null,
+     "annual": "庚辰",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-CAR-05",
+   "label": "煞刃相合（身煞两停）",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "yangRenPresent",
+     "operator": "eq",
+     "value": true
+    },
+    {
+     "field": "temporalSha",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.015,
+   "relationDistribution": {
+    "SOURCE_SILENT": 1
+   },
+   "occurrenceCount": 1,
+   "samples": [
+    {
+     "caseId": "CASE-DTZM-20（席鹿笙造·喜用被冲）",
+     "book": "滴天髓补注",
+     "luck": null,
+     "annual": "甲寅",
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": "PARTIAL",
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-WEA-04",
+   "label": "食伤生财",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "食神",
+      "伤官"
+     ]
+    },
+    {
+     "field": "caiPresent",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.09,
+   "relationDistribution": {
+    "SOURCE_SILENT": 14
+   },
+   "occurrenceCount": 14,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-12（段祺瑞）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "丁丑",
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-MLYD-13（张作霖）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "戊辰",
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-SS-M13（孙景扬）",
+     "book": "守素室丛谈",
+     "luck": "甲子",
+     "annual": "丙子",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-03（友人某君造·同格不可用只可顺局）",
+     "book": "滴天髓补注",
+     "luck": "丁未",
+     "annual": "乙亥",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-08（伍庭芳造·阴干从势）",
+     "book": "滴天髓补注",
+     "luck": "庚戌",
+     "annual": "壬戌",
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": "PARTIAL",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-10（朱瑞造·三刑有气）",
+     "book": "滴天髓补注",
+     "luck": "甲子",
+     "annual": "丙辰",
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-11（萧耀南造·暗合）",
+     "book": "滴天髓补注",
+     "luck": "丁丑",
+     "annual": null,
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-36（伍朝枢造·财官印三重在印）",
+     "book": "滴天髓补注",
+     "luck": "辛丑",
+     "annual": "甲戌",
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-REL-05",
+   "label": "财印不容（关系张力）",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "正印",
+      "偏印"
+     ]
+    },
+    {
+     "field": "caiPresent",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "randomTriggerRate": 0.09,
+   "relationDistribution": {
+    "SOURCE_SILENT": 12
+   },
+   "occurrenceCount": 12,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-25（周佛海）",
+     "book": "命理一得",
+     "luck": "辛丑",
+     "annual": "甲午",
+     "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-ZPZM-05（谭君造）",
+     "book": "子平真诠评注",
+     "luck": null,
+     "annual": "庚午",
+     "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-07（施再邨造·弃命从财）",
+     "book": "滴天髓补注",
+     "luck": "庚申",
+     "annual": null,
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-36（伍朝枢造·财官印三重在印）",
+     "book": "滴天髓补注",
+     "luck": "辛丑",
+     "annual": "甲戌",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-40（张作霖造·财旺生官）",
+     "book": "滴天髓补注",
+     "luck": "丙子",
+     "annual": "戊辰",
+     "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-41（叶澄衷造·生成富造）",
+     "book": "滴天髓补注",
+     "luck": "丙戌",
+     "annual": null,
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-49（宋子文造·真正食神生财格）",
+     "book": "滴天髓补注",
+     "luck": "戊寅",
+     "annual": null,
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    },
+    {
+     "caseId": "CASE-DTZM-72（丁巳丁未壬寅壬寅女造·真化失时）",
+     "book": "滴天髓补注",
+     "luck": "庚戌",
+     "annual": null,
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "relation": "SOURCE_SILENT"
+    }
+   ],
+   "overGeneralizationSignal": false
+  }
+ ]
+}

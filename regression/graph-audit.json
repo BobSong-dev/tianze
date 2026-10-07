@@ -1,0 +1,58 @@
+{
+ "schemaVersion": "1.0.0",
+ "findings": {
+  "A1_specific_exception": [
+   {
+    "pair": [
+     "EV-CAR-03",
+     "EV-CAR-01"
+    ],
+    "specificCondition": "cai_present",
+    "conditionCount": {
+     "specific": 2,
+     "general": 2
+    },
+    "narrowerConditions": false,
+    "verdict": "OK"
+   },
+   {
+    "pair": [
+     "EV-WEA-02",
+     "EV-WEA-01"
+    ],
+    "specificCondition": "wealth_favorable",
+    "conditionCount": {
+     "specific": 2,
+     "general": 2
+    },
+    "narrowerConditions": false,
+    "verdict": "OK"
+   }
+  ],
+  "A4_specific_cycles": {
+   "cycles": [],
+   "pass": true
+  },
+  "A2_rescue_activation": {
+   "samples": 80,
+   "rates": {
+    "cai_present": 0.55,
+    "guan_bridges_cai_yin": 0.113,
+    "guan_sha_has_control": 0.412,
+    "sha_weak_body_strong": 0.15,
+    "wealth_favorable": 0.25,
+    "wealth_unfavorable": 0.438,
+    "yin_present": 0.588
+   },
+   "overActive REVIEW": {},
+   "neverActive": []
+  },
+  "A3_school_conflict": {
+   "pairs": 6,
+   "discipline": "运行时该类冲突只能产生 DISPUTED/UNRESOLVED（fuzz + 单测锁定）；静态无裁决路径"
+  }
+ },
+ "lists": {
+  "B1_heuristic_only_rules": []
+ }
+}
