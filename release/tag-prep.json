@@ -5,7 +5,7 @@
  "bumpKind": "minor",
  "commitGroups": {
   "features": 73,
-  "fixes": 6,
+  "fixes": 7,
   "tests": 9,
   "docs": 6,
   "chores": 6
