@@ -1,0 +1,47 @@
+{
+ "schemaVersion": "1.0.0",
+ "version": "0.2.0",
+ "allPass": true,
+ "steps": [
+  {
+   "step": "P0_quality_gate",
+   "pass": true,
+   "detail": "17 步"
+  },
+  {
+   "step": "P1_package_build",
+   "pass": true,
+   "detail": "tianze_bazi-0.2.0-py3-none-any.whl，4.4s"
+  },
+  {
+   "step": "P2_clean_install_smoke",
+   "pass": true,
+   "detail": "clean venv install → version/analyze"
+  },
+  {
+   "step": "P3_cli_smoke",
+   "pass": true,
+   "detail": "3/3"
+  },
+  {
+   "step": "P4_version_consistency",
+   "pass": true,
+   "detail": "0.2.0（dynamic single-source=True，metadata=0.2.0）"
+  },
+  {
+   "step": "P5_stale_artifact",
+   "pass": true,
+   "detail": "commit 一致"
+  },
+  {
+   "step": "P6_notes_consistency",
+   "pass": true,
+   "detail": "tag v0.3.0"
+  },
+  {
+   "step": "P7_benchmark_regression",
+   "pass": true,
+   "detail": "全部在阈值内（阈值：{\"caseChart1147.perCaseMs\": 5.0, \"replayCorpus.perCaseMs\": 5.0, \"timeline80y.elapsedSeconds\": 1.0}）"
+  }
+ ]
+}
