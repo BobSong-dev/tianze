@@ -1,0 +1,34 @@
+"""M19：Release Automation 测试（dry-run，不建 tag 不 push）。"""
+
+from __future__ import annotations
+
+import json
+import os
+import subprocess
+import sys
+
+from tools.release_automation import main as ra_main
+
+
+def test_release_notes_generated():
+    import io, contextlib
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        rc = ra_main()
+    assert rc == 0
+    d = json.load(open("release/tag-prep.json", encoding="utf-8"))
+    assert d["tagPrepared"]["created"] is False          # dry-run 默认
+    assert "不自动 push" in d["tagPrepared"]["push"]
+    assert d["bumpKind"] in ("minor", "patch")
+    md = open("release/RELEASE_NOTES.md", encoding="utf-8").read()
+    assert "Release Notes" in md
+    assert "SKIPPED，不伪造" in md or "AI Evaluation"
+    assert "Migration 要求" in md and "不静默改历史" in md
+    assert "命中率" not in md
+
+
+def test_no_tag_created():
+    """dry-run 不得创建任何 tag。"""
+    r = subprocess.run(["git", "tag", "-l"], capture_output=True, text=True,
+                       encoding="utf-8", cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    assert r.stdout.strip() == ""
