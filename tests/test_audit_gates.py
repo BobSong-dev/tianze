@@ -18,7 +18,7 @@ def test_all_gates_pass():
     assert rc == 0
     d = json.load(open("regression/audit-gates.json", encoding="utf-8"))
     assert d["allPass"] is True
-    assert set(d["gates"]) == {f"G{i}" for i in range(1, 11)}
+    assert {k.split("_")[0] for k in d["gates"]} == {f"G{i}" for i in range(1, 11)}
 
 
 def test_coverage_section():
