@@ -258,3 +258,21 @@
   .migrated 副本，由人工确认后替换；迁移函数为纯函数且幂等（二次迁移 0 变更）。
 - **Reason**：机器流程不得伪造「历史即已如此」；审计要求新旧可对照。
 - **Tradeoff**：升级需要一步人工确认——刻意为之。
+
+## ADR-049 · 多方法一致才启用强度类救应（M17）
+
+- **Context**：v1 的「财为喜神」是单一 weighted 布尔映射——任务书禁止把喜神简化成万能布尔量。
+- **Decision**：强度类谓词（wealth_favorable/wealth_unfavorable）收集全部可用旺衰读数
+  （weighted/fuyi/dimension 得势），全部同向才启用；读数分歧 → 救应不激活并如实记录
+  「口径分歧」，不裁决。两方向互斥。
+- **Reason**：项目核心纪律「多方法并列、不裁决」在救应层的直接推广。
+- **Tradeoff**：救应激活率下降（保守）——宁缺毋滥。
+
+## ADR-050 · Audit Gates 是常驻质量门（M17）
+
+- **Context**：规则/图/链路/状态纪律越来越多，靠人记不可靠。
+- **Decision**：10 个确定性门（candidate 引用、classical→source、rescue 边、图完整性、
+  evaluator↔JSON、未触发清单、异常触发、链路无断链、无 CONFIRMED、无机器 HUMAN）
+  每次构建出 regression/audit-gates.json；coverage 段供 Workbench。
+- **Reason**：断链/伪造在进入产出物之前被拦截。
+- **Tradeoff**：G6（未触发）是审计列表不是失败门——探针覆盖有限属正常。

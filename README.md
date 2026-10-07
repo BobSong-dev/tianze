@@ -4,7 +4,7 @@
 >
 > **取诸家之长，统一为 Tianze。** 基础计算直接复用；成熟实现优先借鉴；算法必须可解释；规则必须可追踪；流派差异必须保留；权重与 heuristic 必须公开；有争议的地方不伪装成唯一答案；LLM 不参与确定性计算。
 
-## 当前状态：M16 完成（救应/例外推理 / Rule Conflict Graph / 知识工作台 / Migration）
+## 当前状态：M17 完成（ExplanationChain 产品化 / Audit Gates / 原文 span 解析 / 基准）
 
 | 里程碑 | 内容 | 状态 |
 |---|---|---|
@@ -26,10 +26,11 @@
 | M14 | 事件主题层（Event Rule Framework / School-aware Reasoning / EventThemeCandidate / Confidence / Event Evaluation / Grounded AI / Web / 导出） | ✅ |
 | M15 | 成熟推理层（方向级 Rule Conflict / 从格专旺化气岁运专题 / Historical Case Replay / Real-provider AI Evaluation / 打印 HTML 报告 / Timeline memoization / Property-Fuzz 门 / Review Queue） | ✅ |
 | M16 | 条件化推理（救应谓词 / SPECIFIC_EXCEPTION 启用 / Rule-ID Conflict Graph / 全链路可解释性 / Knowledge Explorer API+Web / Review Queue API / AI Evaluation History / Schema Migration 1.1→1.2） | ✅ |
+| M17 | 产品化（ExplanationChain SDK/Web/HTML / 多方法一致救应 / 原文岁运 span 解析 / Audit Gates ×10 / Coverage Workbench / Migration governance / 真实规模 benchmark） | ✅ |
 
-**测试：471 项全绿**（Python）；E2E 8 项；可执行规则 216（tiaohou 182 + temporal 14 +
-event 20）；救应谓词 5 / 冲突边 4 / 流派冲突对 6；Case Replay 138 例；Review Queue 424 项；
-Conflict Graph 220 节点/14 边。详见 `docs/event/01-event-themes.md` 与 DECISIONS.md。
+**测试：490 项全绿**（Python）；E2E 8 项；可执行规则 216；救应谓词 7 / 冲突边 4 /
+流派冲突对 6；Case Replay 165 例（原文 span 解析 518 例/777 条）；Audit Gates 10 门全过；
+Conflict Graph 222 节点/16 边；基准 0.62ms/命例。详见 DECISIONS.md 与 `regression/benchmark.json`。
 
 ## Web 应用
 

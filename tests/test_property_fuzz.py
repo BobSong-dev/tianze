@@ -205,3 +205,44 @@ def test_review_queue_discipline():
     q = json.load(open("review/review-queue.json", encoding="utf-8"))
     assert q["discipline"] and "不产生任何人工状态" in q["discipline"]
     assert q["stats"].get("machineCurated", 0) >= 24  # temporal 14 + event 20 均 MACHINE_CURATED
+
+
+def test_migrated_semantic_compat_fuzz():
+    """随机规则 dict 迁移语义兼容（conditions/effects/provenance 恒不变）。"""
+    from tools.migrate_knowledge import migrate_rule_v1_1_to_1_2
+    rng = random.Random(21)
+    for _ in range(30):
+        rule = {
+            "id": f"X-{rng.randint(0, 999)}",
+            "domain": rng.choice(["tiaohou", "temporal", "event"]),
+            "conditions": [{"field": "f", "value": rng.randint(0, 9)}],
+            "effects": [{"kind": "note", "text": "t"}],
+            "provenance": [{"level": "PROJECT_REFERENCE"}],
+        }
+        new, _ = migrate_rule_v1_1_to_1_2(rule)
+        for key in ("id", "conditions", "effects", "provenance"):
+            assert new[key] == rule[key]
+
+
+def test_rescue_predicates_random_robust():
+    """救应谓词在随机盘上不崩溃且输出结构恒定（active/evidence/note）。"""
+    from tianze.analysis.rescues import RESCUE_PREDICATES, evaluate_rescues
+    from types import SimpleNamespace
+    rng = random.Random(31)
+    for _ in range(20):
+        dm = STEMS[rng.randint(0, 9)]
+        ectx = SimpleNamespace(
+            day_master=dm,
+            natal_stems=[STEMS[rng.randint(0, 9)] for _ in range(4)],
+            natal_branches=[BRANCHES[rng.randint(0, 11)] for _ in range(4)],
+            temporal_units=[{"layer": "annual", "stem": STEMS[rng.randint(0, 9)],
+                             "branch": BRANCHES[rng.randint(0, 11)]}],
+            strength_verdict=rng.choice([None, "偏强", "中和", "偏弱"]),
+            fuyi_verdict=rng.choice([None, "偏强", "中和"]),
+            dimension_de_shi=rng.choice([None, True, False]),
+        )
+        st = evaluate_rescues(ectx)
+        for pid, v in st.items():
+            assert isinstance(v["active"], bool)
+            assert isinstance(v["evidence"], list)
+            assert v["note"]
