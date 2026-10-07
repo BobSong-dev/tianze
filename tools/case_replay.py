@@ -66,13 +66,18 @@ def replay_case(case: dict, temporal_ref: dict | None,
     if not luck_gz and dayun:
         luck_gz = dayun[0].get("ganZhi")
         luck_src = "dayun[0]"
+    # M16 扩容：仅有流年提及（无大运）也可重放——annual-only 上下文
+    annual_only = False
     if not luck_gz:
-        return None
+        if not annual_gz:
+            return None
+        annual_only = True
+        luck_src = "annual-only"
     gender = (case.get("fact") or {}).get("gender")
 
     chart = build_case_chart(pillars, gender=gender)
 
-    luck = (luck_gz[0], luck_gz[1])
+    luck = (luck_gz[0], luck_gz[1]) if luck_gz else None
     annual = (annual_gz[0], annual_gz[1]) if annual_gz else None
 
     report = compute_event_themes(chart, luck=luck, annual=annual)
@@ -104,6 +109,7 @@ def replay_case(case: dict, temporal_ref: dict | None,
         "book": book,
         "luck": luck_gz,
         "luckSource": luck_src,
+        "annualOnly": annual_only,
         "annual": annual_gz,
         "claimThemes": claim_themes,
         "tianzeThemes": [

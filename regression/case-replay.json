@@ -5,57 +5,57 @@
   "status": "MACHINE_EXTRACTED",
   "sourceChecked": false
  },
- "count": 123,
+ "count": 138,
  "stats": {
   "totalCases": 1147,
-  "replayed": 123,
-  "skippedNoDayun": 1024,
+  "replayed": 138,
+  "skippedNoDayun": 1009,
   "relationCounts": {
-   "SOURCE_SILENT": 316,
-   "SOURCE_DIFFERS": 22,
-   "SOURCE_SUPPORTS": 5
+   "SOURCE_SILENT": 344,
+   "SOURCE_DIFFERS": 34,
+   "SOURCE_SUPPORTS": 9
   },
   "themeCoverage": {
-   "relationship": 116,
-   "social": 58,
-   "wealth": 43,
-   "career": 40,
-   "study": 16,
+   "relationship": 124,
+   "social": 67,
+   "wealth": 48,
+   "career": 43,
+   "study": 17,
    "family": 13,
-   "mobility": 35
+   "mobility": 41
   },
-  "unresolvedRate": 0.202,
-  "disagreementRate": 0.016,
+  "unresolvedRate": 0.184,
+  "disagreementRate": 0.017,
   "ruleHitCoverage": {
-   "EV-CAR-01": 27,
+   "EV-CAR-01": 29,
    "EV-CAR-02": 7,
    "EV-CAR-03": 3,
-   "EV-CAR-04": 1,
-   "EV-CON-01": 47,
+   "EV-CAR-04": 2,
+   "EV-CON-01": 52,
    "EV-FAM-01": 13,
-   "EV-MOB-01": 29,
-   "EV-MOB-02": 6,
-   "EV-REL-01": 11,
+   "EV-MOB-01": 33,
+   "EV-MOB-02": 8,
+   "EV-REL-01": 12,
    "EV-REL-02": 15,
-   "EV-REL-03": 8,
-   "EV-REL-04": 21,
+   "EV-REL-03": 12,
+   "EV-REL-04": 25,
    "EV-REL-05": 6,
-   "EV-SOC-01": 22,
-   "EV-STU-01": 16,
-   "EV-WEA-01": 30,
-   "EV-WEA-02": 1,
+   "EV-SOC-01": 26,
+   "EV-STU-01": 17,
+   "EV-WEA-01": 34,
+   "EV-WEA-02": 2,
    "EV-WEA-03": 2,
-   "EV-WEA-04": 9
+   "EV-WEA-04": 10
   },
   "statusDistribution": {
-   "CANDIDATE": 241,
+   "CANDIDATE": 271,
    "UNRESOLVED": 65,
-   "LIKELY": 10,
-   "DISPUTED": 5
+   "LIKELY": 11,
+   "DISPUTED": 6
   },
   "luckSourceCounts": {
    "dayun": 100,
-   "mention": 23
+   "mention": 38
   }
  },
  "replays": [
@@ -64,6 +64,7 @@
    "book": "守素室丛谈",
    "luck": "乙卯",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -120,6 +121,7 @@
    "book": "守素室丛谈",
    "luck": "癸巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -174,6 +176,7 @@
    "book": "守素室丛谈",
    "luck": "丙寅",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -256,6 +259,7 @@
    "book": "守素室丛谈",
    "luck": "庚午",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -296,6 +300,7 @@
    "book": "守素室丛谈",
    "luck": "乙酉",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -340,6 +345,7 @@
    "book": "守素室丛谈",
    "luck": "乙亥",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -394,6 +400,7 @@
    "book": "守素室丛谈",
    "luck": "庚申",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -448,6 +455,7 @@
    "book": "守素室丛谈",
    "luck": "丙申",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -502,6 +510,7 @@
    "book": "守素室丛谈",
    "luck": "庚寅",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -542,6 +551,7 @@
    "book": "守素室丛谈",
    "luck": "丁亥",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -624,6 +634,7 @@
    "book": "守素室丛谈",
    "luck": "癸亥",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -666,6 +677,7 @@
    "book": "滴天髓补注",
    "luck": "丁亥",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -720,6 +732,7 @@
    "book": "滴天髓补注",
    "luck": "癸卯",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -762,6 +775,7 @@
    "book": "滴天髓补注",
    "luck": "丁巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -802,6 +816,7 @@
    "book": "滴天髓补注",
    "luck": "庚戌",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -844,6 +859,7 @@
    "book": "滴天髓补注",
    "luck": "戊午",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -900,6 +916,7 @@
    "book": "滴天髓补注",
    "luck": "甲子",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -942,6 +959,7 @@
    "book": "滴天髓补注",
    "luck": "丁丑",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -982,6 +1000,7 @@
    "book": "滴天髓补注",
    "luck": "癸未",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1022,6 +1041,7 @@
    "book": "滴天髓补注",
    "luck": "乙巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1090,6 +1110,7 @@
    "book": "滴天髓补注",
    "luck": "庚寅",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1146,6 +1167,7 @@
    "book": "滴天髓补注",
    "luck": "乙亥",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1188,6 +1210,7 @@
    "book": "滴天髓补注",
    "luck": "戊辰",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1228,6 +1251,7 @@
    "book": "滴天髓补注",
    "luck": "己亥",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1296,6 +1320,7 @@
    "book": "滴天髓补注",
    "luck": "甲辰",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1322,6 +1347,7 @@
    "book": "滴天髓补注",
    "luck": "癸丑",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1348,6 +1374,7 @@
    "book": "滴天髓补注",
    "luck": "丙午",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1390,6 +1417,7 @@
    "book": "滴天髓补注",
    "luck": "己巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1432,6 +1460,7 @@
    "book": "滴天髓补注",
    "luck": "己酉",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1486,6 +1515,7 @@
    "book": "滴天髓补注",
    "luck": "庚申",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1526,6 +1556,7 @@
    "book": "滴天髓补注",
    "luck": "壬申",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1568,6 +1599,7 @@
    "book": "滴天髓补注",
    "luck": "乙丑",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1610,6 +1642,7 @@
    "book": "滴天髓补注",
    "luck": "戊子",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1652,6 +1685,7 @@
    "book": "滴天髓补注",
    "luck": "癸酉",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1708,6 +1742,7 @@
    "book": "滴天髓补注",
    "luck": "己巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1762,6 +1797,7 @@
    "book": "滴天髓补注",
    "luck": "壬辰",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1816,6 +1852,7 @@
    "book": "滴天髓补注",
    "luck": "甲辰",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1856,6 +1893,7 @@
    "book": "滴天髓补注",
    "luck": "丁亥",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1924,6 +1962,7 @@
    "book": "滴天髓补注",
    "luck": "庚子",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1978,6 +2017,7 @@
    "book": "滴天髓补注",
    "luck": "庚午",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2035,6 +2075,7 @@
    "book": "滴天髓补注",
    "luck": "丙子",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2077,6 +2118,7 @@
    "book": "滴天髓补注",
    "luck": "丙戌",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2133,6 +2175,7 @@
    "book": "滴天髓补注",
    "luck": "庚申",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2187,6 +2230,7 @@
    "book": "滴天髓补注",
    "luck": "戊午",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2243,6 +2287,7 @@
    "book": "滴天髓补注",
    "luck": "癸巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2283,6 +2328,7 @@
    "book": "滴天髓补注",
    "luck": "辛酉",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2351,6 +2397,7 @@
    "book": "滴天髓补注",
    "luck": "丁丑",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2391,6 +2438,7 @@
    "book": "滴天髓补注",
    "luck": "丁未",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2445,6 +2493,7 @@
    "book": "滴天髓补注",
    "luck": "己巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2487,6 +2536,7 @@
    "book": "滴天髓补注",
    "luck": "戊寅",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2558,6 +2608,7 @@
    "book": "滴天髓补注",
    "luck": "己未",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2612,6 +2663,7 @@
    "book": "滴天髓补注",
    "luck": "己未",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2654,6 +2706,7 @@
    "book": "滴天髓补注",
    "luck": "丁丑",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2694,6 +2747,7 @@
    "book": "滴天髓补注",
    "luck": "甲寅",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2734,6 +2788,7 @@
    "book": "滴天髓补注",
    "luck": "甲辰",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2790,6 +2845,7 @@
    "book": "滴天髓补注",
    "luck": "辛酉",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2844,6 +2900,7 @@
    "book": "滴天髓补注",
    "luck": "辛亥",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2912,6 +2969,7 @@
    "book": "滴天髓补注",
    "luck": "戊寅",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2952,6 +3010,7 @@
    "book": "滴天髓补注",
    "luck": "辛巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3008,6 +3067,7 @@
    "book": "滴天髓补注",
    "luck": "丁巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3048,6 +3108,7 @@
    "book": "滴天髓补注",
    "luck": "乙巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3088,6 +3149,7 @@
    "book": "滴天髓补注",
    "luck": "丙戌",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3128,6 +3190,7 @@
    "book": "滴天髓补注",
    "luck": "癸卯",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3182,6 +3245,7 @@
    "book": "滴天髓补注",
    "luck": "丁巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3236,6 +3300,7 @@
    "book": "滴天髓补注",
    "luck": "乙巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3276,6 +3341,7 @@
    "book": "滴天髓补注",
    "luck": "癸亥",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3344,6 +3410,7 @@
    "book": "滴天髓补注",
    "luck": "辛未",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3398,6 +3465,7 @@
    "book": "滴天髓补注",
    "luck": "戊午",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3468,6 +3536,7 @@
    "book": "滴天髓补注",
    "luck": "乙巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3522,6 +3591,7 @@
    "book": "滴天髓补注",
    "luck": "庚戌",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3578,6 +3648,7 @@
    "book": "滴天髓补注",
    "luck": "癸卯",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3634,6 +3705,7 @@
    "book": "滴天髓补注",
    "luck": "己酉",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3674,6 +3746,7 @@
    "book": "滴天髓补注",
    "luck": "庚午",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3716,6 +3789,7 @@
    "book": "滴天髓补注",
    "luck": "癸丑",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3742,6 +3816,7 @@
    "book": "滴天髓补注",
    "luck": "癸亥",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3782,6 +3857,7 @@
    "book": "滴天髓补注",
    "luck": "甲子",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3824,6 +3900,7 @@
    "book": "滴天髓补注",
    "luck": "乙巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3879,6 +3956,7 @@
    "book": "滴天髓补注",
    "luck": "己未",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3905,6 +3983,7 @@
    "book": "滴天髓补注",
    "luck": "壬戌",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3945,6 +4024,7 @@
    "book": "滴天髓补注",
    "luck": "丙子",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4002,6 +4082,7 @@
    "book": "滴天髓补注",
    "luck": "戊子",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4044,6 +4125,7 @@
    "book": "滴天髓补注",
    "luck": "己酉",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4084,6 +4166,7 @@
    "book": "滴天髓补注",
    "luck": "己未",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4110,6 +4193,7 @@
    "book": "滴天髓补注",
    "luck": "戊申",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4150,6 +4234,7 @@
    "book": "滴天髓补注",
    "luck": "庚辰",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4190,6 +4275,7 @@
    "book": "滴天髓补注",
    "luck": "庚辰",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4232,6 +4318,7 @@
    "book": "滴天髓补注",
    "luck": "丁未",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4286,6 +4373,7 @@
    "book": "滴天髓补注",
    "luck": "癸丑",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4326,6 +4414,7 @@
    "book": "滴天髓补注",
    "luck": "戊午",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4382,6 +4471,7 @@
    "book": "滴天髓补注",
    "luck": "甲子",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4425,6 +4515,7 @@
    "book": "滴天髓补注",
    "luck": "己巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4479,6 +4570,7 @@
    "book": "滴天髓补注",
    "luck": "庚午",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4533,6 +4625,7 @@
    "book": "滴天髓补注",
    "luck": "癸亥",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4603,6 +4696,7 @@
    "book": "滴天髓补注",
    "luck": "癸未",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4657,6 +4751,7 @@
    "book": "滴天髓补注",
    "luck": "己酉",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4725,6 +4820,7 @@
    "book": "滴天髓补注",
    "luck": "戊寅",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4779,6 +4875,7 @@
    "book": "滴天髓补注",
    "luck": "丙辰",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4805,6 +4902,7 @@
    "book": "滴天髓补注",
    "luck": "己未",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4859,6 +4957,7 @@
    "book": "滴天髓补注",
    "luck": "己巳",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4899,6 +4998,7 @@
    "book": "滴天髓补注",
    "luck": "庚辰",
    "luckSource": "dayun[0]",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4939,6 +5039,7 @@
    "book": "穷通宝鉴评注",
    "luck": "辛酉",
    "luckSource": "mention:辛酉运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career"
@@ -5000,10 +5101,82 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
+   "caseId": "CASE-QBTM-丁-07",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "辛亥",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-REL-03"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-WEA-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
    "caseId": "CASE-QBTM-丁-13",
    "book": "穷通宝鉴评注",
    "luck": "辛酉",
    "luckSource": "mention:辛酉运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career"
@@ -5096,6 +5269,7 @@
    "book": "穷通宝鉴评注",
    "luck": "辛酉",
    "luckSource": "mention:辛酉运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career"
@@ -5189,6 +5363,7 @@
    "book": "穷通宝鉴评注",
    "luck": "庚申",
    "luckSource": "mention:庚申运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career"
@@ -5248,10 +5423,78 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
+   "caseId": "CASE-QBTM-丁-37",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "庚午",
+   "claimThemes": [
+    "career",
+    "social"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "confidence": 1.0,
+     "rules": [
+      "EV-REL-03",
+      "EV-REL-04"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SUPPORTS",
+     "note": "status=CANDIDATE，支持证据 1 条"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
    "caseId": "CASE-QBTM-丁-51",
    "book": "穷通宝鉴评注",
    "luck": "壬辰",
    "luckSource": "mention:壬辰运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career"
@@ -5296,6 +5539,7 @@
    "book": "穷通宝鉴评注",
    "luck": "丁卯",
    "luckSource": "mention:丁卯运",
+   "annualOnly": false,
    "annual": "丙辰",
    "claimThemes": [
     "career"
@@ -5359,6 +5603,7 @@
    "book": "穷通宝鉴评注",
    "luck": "丁卯",
    "luckSource": "mention:丁卯运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career",
@@ -5396,10 +5641,48 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
+   "caseId": "CASE-QBTM-丁-88",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "壬辰",
+   "claimThemes": [
+    "career",
+    "study"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SUPPORTS",
+     "note": "status=CANDIDATE，支持证据 2 条"
+    },
+    {
+     "theme": "study",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
    "caseId": "CASE-QBTM-丁-99",
    "book": "穷通宝鉴评注",
    "luck": "乙未",
    "luckSource": "mention:乙未运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career"
@@ -5461,10 +5744,61 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
+   "caseId": "CASE-QBTM-戊-26",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "己卯",
+   "claimThemes": [
+    "career"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-REL-04"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
    "caseId": "CASE-QBTM-戊-27",
    "book": "穷通宝鉴评注",
    "luck": "甲寅",
    "luckSource": "mention:甲寅运",
+   "annualOnly": false,
    "annual": "戊寅",
    "claimThemes": [
     "career",
@@ -5539,6 +5873,7 @@
    "book": "穷通宝鉴评注",
    "luck": "丁丑",
    "luckSource": "mention:丁丑运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5567,6 +5902,7 @@
    "book": "穷通宝鉴评注",
    "luck": "壬戌",
    "luckSource": "mention:壬戌运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career",
@@ -5632,10 +5968,131 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
+   "caseId": "CASE-QBTM-戊-39",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "丙子",
+   "claimThemes": [
+    "career",
+    "family"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-02"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-REL-04"
+     ]
+    },
+    {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-STU-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "family",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-QBTM-戊-40",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "庚辰",
+   "claimThemes": [
+    "family"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-04"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "family",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
    "caseId": "CASE-QBTM-戊-50",
    "book": "穷通宝鉴评注",
    "luck": "癸亥",
    "luckSource": "mention:癸亥运",
+   "annualOnly": false,
    "annual": "丙子",
    "claimThemes": [
     "family"
@@ -5710,10 +6167,40 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
+   "caseId": "CASE-QBTM-戊-72",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "辛卯",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-WEA-04"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
    "caseId": "CASE-QBTM-戊-74",
    "book": "穷通宝鉴评注",
    "luck": "辛卯",
    "luckSource": "mention:辛卯运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career",
@@ -5752,10 +6239,54 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
+   "caseId": "CASE-QBTM-戊-83",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "戊寅",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
    "caseId": "CASE-QBTM-戊-97",
    "book": "穷通宝鉴评注",
    "luck": "丙申",
    "luckSource": "mention:丙申运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career"
@@ -5833,6 +6364,7 @@
    "book": "穷通宝鉴评注",
    "luck": "丙申",
    "luckSource": "mention:丙申运",
+   "annualOnly": false,
    "annual": "丙寅",
    "claimThemes": [
     "career"
@@ -5905,6 +6437,7 @@
    "book": "穷通宝鉴评注",
    "luck": "辛巳",
    "luckSource": "mention:辛巳运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "wealth"
@@ -5936,10 +6469,61 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
+   "caseId": "CASE-QBTM-己-12",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "己卯",
+   "claimThemes": [
+    "career"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-REL-04"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
    "caseId": "CASE-QBTM-己-20",
    "book": "穷通宝鉴评注",
    "luck": "癸酉",
    "luckSource": "mention:癸酉运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career",
@@ -6009,6 +6593,7 @@
    "book": "穷通宝鉴评注",
    "luck": "辛酉",
    "luckSource": "mention:辛酉运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career",
@@ -6050,6 +6635,7 @@
    "book": "穷通宝鉴评注",
    "luck": "庚辰",
    "luckSource": "mention:庚辰运",
+   "annualOnly": false,
    "annual": "庚申",
    "claimThemes": [
     "career"
@@ -6066,10 +6652,62 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
+   "caseId": "CASE-QBTM-己-61",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "戊寅",
+   "claimThemes": [
+    "career",
+    "mobility"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SUPPORTS",
+     "note": "status=CANDIDATE，支持证据 1 条"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
    "caseId": "CASE-QBTM-甲-62",
    "book": "穷通宝鉴评注",
    "luck": "戊辰",
    "luckSource": "mention:戊辰运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6154,6 +6792,7 @@
    "book": "穷通宝鉴评注",
    "luck": "丁卯",
    "luckSource": "mention:丁卯运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6192,10 +6831,74 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
+   "caseId": "CASE-QBTM-甲-85",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "丁丑",
+   "claimThemes": [
+    "career",
+    "mobility"
+   ],
+   "tianzeThemes": [],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-QBTM-乙-56",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "丁丑",
+   "claimThemes": [
+    "career"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
    "caseId": "CASE-QBTM-乙-70",
    "book": "穷通宝鉴评注",
    "luck": "甲辰",
    "luckSource": "mention:甲辰运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career"
@@ -6260,6 +6963,7 @@
    "book": "穷通宝鉴评注",
    "luck": "甲辰",
    "luckSource": "mention:甲辰运",
+   "annualOnly": false,
    "annual": null,
    "claimThemes": [
     "career"
@@ -6312,6 +7016,186 @@
     },
     {
      "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-QBTM-乙-89",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "戊申",
+   "claimThemes": [
+    "relationship"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-REL-03"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-WEA-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SUPPORTS",
+     "note": "status=CANDIDATE，支持证据 1 条"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-QBTM-乙-105",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "己未",
+   "claimThemes": [
+    "career"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-02"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-REL-03"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-WEA-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-QBTM-乙-111",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "庚申",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-01"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.3,
+     "rules": [
+      "EV-REL-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
