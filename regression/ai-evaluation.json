@@ -1,11 +1,83 @@
 {
  "schemaVersion": "1.0.0",
- "provider": "SKIPPED",
- "reason": "TIANZE_LLM_API_KEY 未设置：不伪造真实评估结果；CI 使用 --mock",
+ "provider": "mock",
  "summary": {
-  "total": 0,
-  "pass": 0,
-  "fail": 0
+  "total": 4,
+  "pass": 4,
+  "fail": 0,
+  "verdictScale": "real=PASS/FAIL（含 disagreement 覆盖）；mock=PIPELINE_OK/FAIL（仅管线检查）"
  },
- "results": []
+ "results": [
+  {
+   "case": "normal_pattern",
+   "covers": [
+    "普通格局",
+    "MACHINE_CURATED source（调候）"
+   ],
+   "provider": "mock",
+   "groundingPassed": true,
+   "groundingIssues": [],
+   "bannedLanguage": [],
+   "disagreementMissing": true,
+   "experimentalMentioned": false,
+   "statusVocabularyOk": true,
+   "sectionsCount": 1,
+   "claimRefsUsed": 0,
+   "verdict": "PIPELINE_OK"
+  },
+  {
+   "case": "disputed_career",
+   "covers": [
+    "DISPUTED",
+    "多流派",
+    "Event Theme",
+    "Temporal Delta"
+   ],
+   "provider": "mock",
+   "groundingPassed": true,
+   "groundingIssues": [],
+   "bannedLanguage": [],
+   "disagreementMissing": true,
+   "experimentalMentioned": false,
+   "statusVocabularyOk": true,
+   "sectionsCount": 1,
+   "claimRefsUsed": 0,
+   "verdict": "PIPELINE_OK"
+  },
+  {
+   "case": "multi_view_agree",
+   "covers": [
+    "多流派一致",
+    "从格岁运专题",
+    "CLASSICAL_EXPLICIT provenance"
+   ],
+   "provider": "mock",
+   "groundingPassed": true,
+   "groundingIssues": [],
+   "bannedLanguage": [],
+   "disagreementMissing": true,
+   "experimentalMentioned": false,
+   "statusVocabularyOk": true,
+   "sectionsCount": 1,
+   "claimRefsUsed": 0,
+   "verdict": "PIPELINE_OK"
+  },
+  {
+   "case": "event_themes_shensha",
+   "covers": [
+    "shensha view",
+    "Event Theme"
+   ],
+   "provider": "mock",
+   "groundingPassed": true,
+   "groundingIssues": [],
+   "bannedLanguage": [],
+   "disagreementMissing": true,
+   "experimentalMentioned": false,
+   "statusVocabularyOk": true,
+   "sectionsCount": 1,
+   "claimRefsUsed": 0,
+   "verdict": "PIPELINE_OK"
+  }
+ ]
 }
