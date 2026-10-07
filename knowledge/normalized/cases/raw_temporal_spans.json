@@ -5,20 +5,22 @@
   "status": "MACHINE_EXTRACTED",
   "sourceChecked": false
  },
- "count": 518,
+ "count": 534,
  "stats": {
   "totalCases": 1147,
-  "withSpans": 518,
-  "spanCount": 777,
+  "withSpans": 534,
+  "spanCount": 1206,
   "byKind": {
-   "annual": 214,
-   "luck": 150,
-   "unresolved": 413
+   "annual": 265,
+   "luck": 550,
+   "unresolved": 391
   },
   "byConfidence": {
-   "high": 364
+   "high": 364,
+   "low": 400,
+   "medium": 51
   },
-  "unresolved": 413
+  "unresolved": 391
  },
  "cases": [
   {
@@ -103,6 +105,40 @@
      "field": "body",
      "confidence": "high",
      "rawText": "甲申年"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-MLYD-04（清圣祖·康熙）",
+   "book": "命理一得",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "rawBlockId": "MLYD-04（清圣祖·康熙）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      290,
+      291
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      453,
+      454
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -218,6 +254,56 @@
      "field": "body",
      "confidence": "high",
      "rawText": "己卯年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      687,
+      688
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      733,
+      734
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "己卯",
+     "inheritsLuck": "戊午",
+     "span": [
+      721,
+      723
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "己卯年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "己卯",
+     "inheritsLuck": "戊午",
+     "span": [
+      740,
+      742
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "己卯年"
     }
    ]
   },
@@ -289,6 +375,32 @@
      "field": "body",
      "confidence": "high",
      "rawText": "甲戌运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      384,
+      385
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      400,
+      401
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -382,6 +494,40 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊辰年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      514,
+      515
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-MLYD-15（梁士诒）",
+   "book": "命理一得",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "rawBlockId": "MLYD-15（梁士诒）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      435,
+      436
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -552,6 +698,92 @@
      "field": "body",
      "confidence": "high",
      "rawText": "丙子年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      434,
+      435
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      484,
+      485
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛巳",
+     "inheritsLuck": "庚申",
+     "span": [
+      501,
+      503
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "辛巳年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "己卯",
+     "inheritsLuck": "庚申",
+     "span": [
+      509,
+      511
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "己卯年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "戊寅",
+     "inheritsLuck": "庚申",
+     "span": [
+      517,
+      519
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "戊寅年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "乙亥",
+     "inheritsLuck": "庚申",
+     "span": [
+      789,
+      791
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "乙亥年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙子",
+     "inheritsLuck": "庚申",
+     "span": [
+      799,
+      801
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "丙子年"
     }
    ]
   },
@@ -581,6 +813,31 @@
      ],
      "field": "body",
      "confidence": "high",
+     "rawText": "癸酉年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      668,
+      669
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "癸酉",
+     "inheritsLuck": "壬辰",
+     "span": [
+      670,
+      672
+     ],
+     "field": "body",
+     "confidence": "medium",
      "rawText": "癸酉年"
     }
    ]
@@ -642,6 +899,66 @@
      "field": "body",
      "confidence": "high",
      "rawText": "庚辰年"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-MLYD-22（张学良）",
+   "book": "命理一得",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "rawBlockId": "MLYD-22（张学良）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      401,
+      402
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      409,
+      410
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      583,
+      584
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      588,
+      589
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -727,6 +1044,92 @@
      "field": "body",
      "confidence": "high",
      "rawText": "辛巳年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      207,
+      208
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      583,
+      584
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "甲午",
+     "inheritsLuck": "辛丑",
+     "span": [
+      95,
+      97
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "甲午年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛未",
+     "inheritsLuck": "辛丑",
+     "span": [
+      369,
+      371
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "辛未年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛未",
+     "inheritsLuck": "辛丑",
+     "span": [
+      585,
+      587
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "辛未年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛未",
+     "inheritsLuck": "辛丑",
+     "span": [
+      673,
+      675
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "辛未年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛巳",
+     "inheritsLuck": "辛丑",
+     "span": [
+      683,
+      685
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "辛巳年"
     }
    ]
   },
@@ -767,6 +1170,57 @@
      ],
      "field": "body",
      "confidence": "high",
+     "rawText": "辛未年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      659,
+      660
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      719,
+      720
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      989,
+      990
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛未",
+     "inheritsLuck": "辛未",
+     "span": [
+      454,
+      456
+     ],
+     "field": "body",
+     "confidence": "medium",
      "rawText": "辛未年"
     }
    ]
@@ -850,6 +1304,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "甲辰年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      418,
+      419
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -888,6 +1355,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "乙卯运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      490,
+      491
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -907,6 +1387,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "己酉运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      365,
+      366
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -949,6 +1442,53 @@
    ]
   },
   {
+   "caseId": "CASE-MLYD-39（伯兄之造·官伤两停）",
+   "book": "命理一得",
+   "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+   "rawBlockId": "MLYD-39（伯兄之造·官伤两停）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      227,
+      228
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      372,
+      373
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      380,
+      381
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
    "caseId": "CASE-MLYD-41（书2所附其他无名造·择要）",
    "book": "命理一得",
    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
@@ -964,6 +1504,92 @@
      "field": "body",
      "confidence": "high",
      "rawText": "乙卯运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      624,
+      625
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      639,
+      640
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      1031,
+      1032
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-ZPZM-02（史某造·无冕帝王）",
+   "book": "子平真诠评注",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "rawBlockId": "ZPZM-02（史某造·无冕帝王）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      175,
+      176
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      317,
+      318
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      371,
+      372
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -994,6 +1620,32 @@
      "field": "body",
      "confidence": "high",
      "rawText": "癸酉年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      254,
+      255
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      307,
+      308
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1035,6 +1687,79 @@
      "field": "body",
      "confidence": "high",
      "rawText": "庚午年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      191,
+      192
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      318,
+      319
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      379,
+      380
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-ZPZM-11（论用神变化诸造）",
+   "book": "子平真诠评注",
+   "sourceFile": "09p-滴天髓补注/07-子平真诠评注知识库.md",
+   "rawBlockId": "ZPZM-11（论用神变化诸造）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      488,
+      489
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      726,
+      727
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1065,6 +1790,45 @@
      "field": "body",
      "confidence": "high",
      "rawText": "辛酉年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      117,
+      118
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      237,
+      238
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      300,
+      301
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1106,6 +1870,92 @@
      "field": "body",
      "confidence": "high",
      "rawText": "甲寅运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      183,
+      184
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      456,
+      457
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      552,
+      553
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-SS-M03（福星无名例）",
+   "book": "守素室丛谈",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "rawBlockId": "SS-M03（福星无名例）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      205,
+      206
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      442,
+      443
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      546,
+      547
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1232,6 +2082,32 @@
      "field": "body",
      "confidence": "high",
      "rawText": "己卯年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      220,
+      221
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      485,
+      486
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1262,6 +2138,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "己卯年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      161,
+      162
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1314,6 +2203,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊寅年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      155,
+      156
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1355,6 +2257,32 @@
      "field": "body",
      "confidence": "high",
      "rawText": "己卯年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      186,
+      187
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      501,
+      502
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1407,6 +2335,45 @@
      "field": "body",
      "confidence": "high",
      "rawText": "己卯年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      211,
+      212
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      481,
+      482
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      639,
+      640
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1459,6 +2426,84 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊寅年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      201,
+      202
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      467,
+      468
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      563,
+      564
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      599,
+      600
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      610,
+      611
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      751,
+      752
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1500,6 +2545,56 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊寅年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      157,
+      158
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      409,
+      410
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "戊寅",
+     "inheritsLuck": "丙戌",
+     "span": [
+      170,
+      172
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "戊寅年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "戊寅",
+     "inheritsLuck": "丙戌",
+     "span": [
+      498,
+      500
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "戊寅年"
     }
    ]
   },
@@ -1540,6 +2635,83 @@
      ],
      "field": "body",
      "confidence": "high",
+     "rawText": "丙子年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      180,
+      181
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      380,
+      381
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      392,
+      393
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      552,
+      553
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      647,
+      648
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙子",
+     "inheritsLuck": "乙丑",
+     "span": [
+      563,
+      565
+     ],
+     "field": "body",
+     "confidence": "medium",
      "rawText": "丙子年"
     }
    ]
@@ -1604,6 +2776,67 @@
      "field": "body",
      "confidence": "high",
      "rawText": "乙亥年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      481,
+      482
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "乙亥",
+     "inheritsLuck": "丁未",
+     "span": [
+      221,
+      223
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "乙亥年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "乙亥",
+     "inheritsLuck": "丁未",
+     "span": [
+      388,
+      390
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "乙亥年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "乙亥",
+     "inheritsLuck": "丁未",
+     "span": [
+      452,
+      454
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "乙亥年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "乙亥",
+     "inheritsLuck": "丁未",
+     "span": [
+      495,
+      497
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "乙亥年"
     }
    ]
   },
@@ -1623,6 +2856,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "乙酉运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      283,
+      284
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1664,6 +2910,45 @@
      "field": "body",
      "confidence": "high",
      "rawText": "庚申运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      232,
+      233
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      373,
+      374
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      483,
+      484
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1768,6 +3053,168 @@
      "field": "body",
      "confidence": "high",
      "rawText": "丙辰年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      177,
+      178
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      325,
+      326
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-DTZM-11（萧耀南造·暗合）",
+   "book": "滴天髓补注",
+   "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+   "rawBlockId": "DTZM-11（萧耀南造·暗合）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      812,
+      813
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      819,
+      820
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-DTZM-12（黄郛造·联珠拱贵）",
+   "book": "滴天髓补注",
+   "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+   "rawBlockId": "DTZM-12（黄郛造·联珠拱贵）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      799,
+      800
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      806,
+      807
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-DTZM-13（朱古薇造·冲去忌神）",
+   "book": "滴天髓补注",
+   "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+   "rawBlockId": "DTZM-13（朱古薇造·冲去忌神）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      39,
+      40
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      46,
+      47
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-DTZM-14（两淮盐运使某君造·炎上格虚神）",
+   "book": "滴天髓补注",
+   "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+   "rawBlockId": "DTZM-14（两淮盐运使某君造·炎上格虚神）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      16,
+      17
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      23,
+      24
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1787,6 +3234,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "甲寅年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      929,
+      930
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1806,6 +3266,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "甲寅年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      898,
+      899
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1825,6 +3298,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "甲寅年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      37,
+      38
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1844,6 +3330,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "辛酉运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      37,
+      38
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1863,6 +3362,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "壬辰运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      297,
+      298
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -1915,6 +3427,55 @@
      "field": "body",
      "confidence": "high",
      "rawText": "甲戌年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      345,
+      346
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "甲戌",
+     "inheritsLuck": "辛丑",
+     "span": [
+      362,
+      364
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "甲戌年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "甲戌",
+     "inheritsLuck": "辛丑",
+     "span": [
+      444,
+      446
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "甲戌年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "甲戌",
+     "inheritsLuck": "辛丑",
+     "span": [
+      471,
+      473
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "甲戌年"
     }
    ]
   },
@@ -1934,6 +3495,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊戌运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      345,
+      346
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2016,6 +3590,19 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊辰年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      315,
+      316
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2046,6 +3633,32 @@
      "field": "body",
      "confidence": "high",
      "rawText": "己未运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      304,
+      305
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      403,
+      404
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2076,6 +3689,58 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊午运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      189,
+      190
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      201,
+      202
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      324,
+      325
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      334,
+      335
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2106,6 +3771,71 @@
      "field": "body",
      "confidence": "high",
      "rawText": "乙亥运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      227,
+      228
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      248,
+      249
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      335,
+      336
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      360,
+      361
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      466,
+      467
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2125,6 +3855,45 @@
      "field": "body",
      "confidence": "high",
      "rawText": "丁巳运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      211,
+      212
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      303,
+      304
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      419,
+      420
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2144,6 +3913,58 @@
      "field": "body",
      "confidence": "high",
      "rawText": "辛丑运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      207,
+      208
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      351,
+      352
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      463,
+      464
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      471,
+      472
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2185,6 +4006,45 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊午运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      219,
+      220
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      322,
+      323
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      338,
+      339
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2215,6 +4075,71 @@
      "field": "body",
      "confidence": "high",
      "rawText": "己卯运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      178,
+      179
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      296,
+      297
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      308,
+      309
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      399,
+      400
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      408,
+      409
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2267,6 +4192,58 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊午运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      299,
+      300
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      309,
+      310
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      415,
+      416
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      428,
+      429
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2297,6 +4274,58 @@
      "field": "body",
      "confidence": "high",
      "rawText": "辛丑运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      216,
+      217
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      224,
+      225
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      331,
+      332
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      339,
+      340
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2327,6 +4356,84 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊午运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      237,
+      238
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      411,
+      412
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      423,
+      424
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      460,
+      461
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      543,
+      544
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      562,
+      563
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2368,6 +4475,84 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊申运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      229,
+      230
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      242,
+      243
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      357,
+      358
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      365,
+      366
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      464,
+      465
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      472,
+      473
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2409,6 +4594,84 @@
      "field": "body",
      "confidence": "high",
      "rawText": "甲子运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      271,
+      272
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      397,
+      398
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      413,
+      414
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      428,
+      429
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      521,
+      522
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      530,
+      531
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2450,6 +4713,84 @@
      "field": "body",
      "confidence": "high",
      "rawText": "己未运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      160,
+      161
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      189,
+      190
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      200,
+      201
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      276,
+      277
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      312,
+      313
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      405,
+      406
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2469,6 +4810,53 @@
      "field": "body",
      "confidence": "high",
      "rawText": "癸卯运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      414,
+      415
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-DTZM-73（丁未甲辰己酉戊辰造·真化有缺点）",
+   "book": "滴天髓补注",
+   "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+   "rawBlockId": "DTZM-73（丁未甲辰己酉戊辰造·真化有缺点）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      502,
+      503
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      614,
+      615
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2510,6 +4898,84 @@
      "field": "body",
      "confidence": "high",
      "rawText": "壬子运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      240,
+      241
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      258,
+      259
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      399,
+      400
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      412,
+      413
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      526,
+      527
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      532,
+      533
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2540,6 +5006,45 @@
      "field": "body",
      "confidence": "high",
      "rawText": "戊辰运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      484,
+      485
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      597,
+      598
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      662,
+      663
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2570,6 +5075,53 @@
      "field": "body",
      "confidence": "high",
      "rawText": "乙丑运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      403,
+      404
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      533,
+      534
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-DTZM-78（甲寅丁卯癸卯乙卯女造·从儿）",
+   "book": "滴天髓补注",
+   "sourceFile": "09p-滴天髓补注/09o-滴天髓补注_真假从化与顺逆.md",
+   "rawBlockId": "DTZM-78（甲寅丁卯癸卯乙卯女造·从儿）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      606,
+      607
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2622,6 +5174,105 @@
      "field": "body",
      "confidence": "high",
      "rawText": "丙子年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      219,
+      220
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      230,
+      231
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      505,
+      506
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      517,
+      518
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      634,
+      635
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-DTZM-83（乙亥己卯戊辰癸亥富商造·夫健怕妻取富）",
+   "book": "滴天髓补注",
+   "sourceFile": "09p-滴天髓补注/09q-滴天髓补注_母慈灭子夫健怕妻.md",
+   "rawBlockId": "DTZM-83（乙亥己卯戊辰癸亥富商造·夫健怕妻取富）",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      413,
+      414
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      525,
+      526
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2718,6 +5369,158 @@
      "field": "body",
      "confidence": "high",
      "rawText": "丙寅年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      178,
+      179
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      191,
+      192
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      236,
+      237
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      250,
+      251
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      354,
+      355
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      366,
+      367
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      504,
+      505
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      512,
+      513
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙寅",
+     "inheritsLuck": "庚申",
+     "span": [
+      193,
+      195
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "丙寅年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙寅",
+     "inheritsLuck": "庚申",
+     "span": [
+      374,
+      376
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "丙寅年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙寅",
+     "inheritsLuck": "庚申",
+     "span": [
+      482,
+      484
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "丙寅年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙寅",
+     "inheritsLuck": "庚申",
+     "span": [
+      514,
+      516
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "丙寅年"
     }
    ]
   },
@@ -2728,13 +5531,43 @@
    "rawBlockId": "QBTM-丁-02",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "酉",
+     "span": [
+      80,
+      81
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      167,
+      168
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "酉运。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      184,
+      185
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2757,6 +5590,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      114,
+      115
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "辛酉",
      "span": [
       178,
@@ -2768,6 +5614,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      179,
+      180
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "辛酉",
      "span": [
       224,
@@ -2776,6 +5635,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "辛酉运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      225,
+      226
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2808,6 +5680,32 @@
      "rawText": "辛亥年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      105,
+      106
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      168,
+      169
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "己酉",
      "span": [
@@ -2830,6 +5728,19 @@
      "rawText": "辛亥年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      234,
+      235
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "辛亥",
      "span": [
@@ -2848,6 +5759,19 @@
    "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_丁火.md",
    "rawBlockId": "QBTM-丁-09",
    "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      158,
+      159
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
     {
      "kind": "unresolved",
      "ganZhi": null,
@@ -2895,6 +5819,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      149,
+      150
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "辛酉",
      "span": [
       207,
@@ -2903,6 +5840,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "辛酉运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      208,
+      209
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2922,6 +5872,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "辛酉运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      164,
+      165
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -2978,6 +5941,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      95,
+      96
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "庚申",
      "span": [
       140,
@@ -2989,6 +5965,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      141,
+      142
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "庚申",
      "span": [
       170,
@@ -2997,6 +5986,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "庚申运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      171,
+      172
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -3024,13 +6026,43 @@
    "rawBlockId": "QBTM-丁-23",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "子",
+     "span": [
+      109,
+      110
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      178,
+      179
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      211,
+      212
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "子运。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -3178,13 +6210,56 @@
    "rawBlockId": "QBTM-丁-44",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "巳",
+     "span": [
+      99,
+      100
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      184,
+      185
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      238,
+      239
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "戊运、己运（巳运尽节死）。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      257,
+      258
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -3255,6 +6330,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "壬辰运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      188,
+      189
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -3322,6 +6410,44 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      117,
+      118
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      124,
+      125
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙辰",
+     "inheritsLuck": "丁卯",
+     "span": [
+      126,
+      128
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "medium",
+     "rawText": "丙辰年"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "丁卯",
      "span": [
       198,
@@ -3344,6 +6470,44 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      199,
+      200
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      209,
+      210
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙辰",
+     "inheritsLuck": "丁卯",
+     "span": [
+      211,
+      213
+     ],
+     "field": "分析步骤",
+     "confidence": "medium",
+     "rawText": "丙辰年"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "丁卯",
      "span": [
       247,
@@ -3362,6 +6526,44 @@
      ],
      "field": "大运/流年",
      "confidence": "high",
+     "rawText": "丙辰年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      248,
+      249
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      257,
+      258
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙辰",
+     "inheritsLuck": "丁卯",
+     "span": [
+      259,
+      261
+     ],
+     "field": "大运/流年",
+     "confidence": "medium",
      "rawText": "丙辰年"
     },
     {
@@ -3396,6 +6598,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      162,
+      163
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "丁卯",
      "span": [
       312,
@@ -3407,6 +6622,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      313,
+      314
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "丁卯",
      "span": [
       365,
@@ -3415,6 +6643,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "丁卯运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      366,
+      367
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -3459,13 +6700,69 @@
    "rawBlockId": "QBTM-丁-83",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "午",
+     "span": [
+      94,
+      95
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      139,
+      140
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      165,
+      166
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "午运（死）。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      184,
+      185
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      208,
+      209
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -3521,6 +6818,19 @@
      "rawText": "壬辰年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      113,
+      114
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "壬辰",
      "span": [
@@ -3532,6 +6842,19 @@
      "rawText": "壬辰年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      193,
+      194
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "壬辰",
      "span": [
@@ -3541,6 +6864,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "壬辰年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      240,
+      241
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -3602,13 +6938,108 @@
    "rawBlockId": "QBTM-丁-93",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "午",
+     "span": [
+      109,
+      110
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      116,
+      117
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      166,
+      167
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      173,
+      174
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      214,
+      215
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "甲运（大发）；午运（败家丧家）；未运（死）。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      223,
+      224
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      244,
+      245
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      251,
+      252
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -3665,6 +7096,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      100,
+      101
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "乙未",
      "span": [
       168,
@@ -3676,6 +7120,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      169,
+      170
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "乙未",
      "span": [
       219,
@@ -3684,6 +7141,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "乙未运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      220,
+      221
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -4225,6 +7695,32 @@
      "rawText": "辛巳年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      194,
+      195
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      213,
+      214
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "戊寅",
      "span": [
@@ -4237,6 +7733,32 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      322,
+      323
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      336,
+      337
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "甲寅",
      "span": [
       377,
@@ -4245,6 +7767,45 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "甲寅运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      378,
+      379
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      381,
+      382
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      384,
+      385
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     },
     {
      "kind": "annual",
@@ -4267,6 +7828,19 @@
      "field": "实际事件",
      "confidence": "high",
      "rawText": "辛巳年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      418,
+      419
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -4289,6 +7863,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      177,
+      178
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "丁丑",
      "span": [
       230,
@@ -4297,6 +7884,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "丁丑运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      231,
+      232
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -4381,6 +7981,45 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      169,
+      170
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      175,
+      176
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      183,
+      184
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "癸亥",
      "span": [
       260,
@@ -4400,6 +8039,45 @@
      "field": "分析步骤",
      "confidence": "high",
      "rawText": "壬戌运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      255,
+      256
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      261,
+      262
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      269,
+      270
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     },
     {
      "kind": "luck",
@@ -4425,6 +8103,45 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      306,
+      307
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      310,
+      311
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      314,
+      315
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "壬戌",
      "span": [
       333,
@@ -4433,6 +8150,32 @@
      "field": "实际事件",
      "confidence": "high",
      "rawText": "壬戌运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      328,
+      329
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      334,
+      335
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -4595,6 +8338,19 @@
      "rawText": "庚辰年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      119,
+      120
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "庚辰",
      "span": [
@@ -4604,6 +8360,32 @@
      "field": "分析步骤",
      "confidence": "high",
      "rawText": "庚辰年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      181,
+      182
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      220,
+      221
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     },
     {
      "kind": "annual",
@@ -4617,13 +8399,17 @@
      "rawText": "庚辰年"
     },
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
-     "field": "大运/流年",
-     "confidence": null,
-     "rawText": "子运之末；流年庚辰",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "partialBranch": "子",
+     "span": [
+      235,
+      236
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -4634,13 +8420,56 @@
    "rawBlockId": "QBTM-戊-41",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
-     "field": "大运/流年",
-     "confidence": null,
+     "partialBranch": "戌",
+     "span": [
+      148,
+      149
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
      "rawText": "戌运",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      220,
+      221
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      249,
+      250
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      257,
+      258
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -4810,6 +8639,31 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      126,
+      127
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙子",
+     "inheritsLuck": "癸亥",
+     "span": [
+      131,
+      133
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "medium",
+     "rawText": "丙子年"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "癸亥",
      "span": [
       188,
@@ -4828,6 +8682,31 @@
      ],
      "field": "分析步骤",
      "confidence": "high",
+     "rawText": "丙子年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      189,
+      190
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙子",
+     "inheritsLuck": "癸亥",
+     "span": [
+      194,
+      196
+     ],
+     "field": "分析步骤",
+     "confidence": "medium",
      "rawText": "丙子年"
     },
     {
@@ -4854,6 +8733,31 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      232,
+      233
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙子",
+     "inheritsLuck": "癸亥",
+     "span": [
+      235,
+      237
+     ],
+     "field": "大运/流年",
+     "confidence": "medium",
+     "rawText": "丙子年"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "癸亥",
      "span": [
       244,
@@ -4872,6 +8776,31 @@
      ],
      "field": "实际事件",
      "confidence": "high",
+     "rawText": "丙子年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      245,
+      246
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙子",
+     "inheritsLuck": "癸亥",
+     "span": [
+      250,
+      252
+     ],
+     "field": "实际事件",
+     "confidence": "medium",
      "rawText": "丙子年"
     }
    ]
@@ -5354,6 +9283,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      101,
+      102
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "辛卯",
      "span": [
       149,
@@ -5365,6 +9307,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      150,
+      151
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "辛卯",
      "span": [
       188,
@@ -5373,6 +9328,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "辛卯运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      189,
+      190
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     },
     {
      "kind": "luck",
@@ -5395,6 +9363,32 @@
      "field": "实际事件",
      "confidence": "high",
      "rawText": "辛卯运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      205,
+      206
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      235,
+      236
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -5824,6 +9818,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      109,
+      110
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "丙申",
      "span": [
       171,
@@ -5835,6 +9842,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      172,
+      173
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "丙申",
      "span": [
       228,
@@ -5843,6 +9863,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "丙申运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      229,
+      230
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -5893,6 +9926,31 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      116,
+      117
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙寅",
+     "inheritsLuck": "丙申",
+     "span": [
+      118,
+      120
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "medium",
+     "rawText": "丙寅年"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "丙申",
      "span": [
       167,
@@ -5915,6 +9973,31 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      168,
+      169
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙寅",
+     "inheritsLuck": "丙申",
+     "span": [
+      170,
+      172
+     ],
+     "field": "分析步骤",
+     "confidence": "medium",
+     "rawText": "丙寅年"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "丙申",
      "span": [
       204,
@@ -5923,6 +10006,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "丙申运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      205,
+      206
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     },
     {
      "kind": "luck",
@@ -5944,6 +10040,31 @@
      ],
      "field": "实际事件",
      "confidence": "high",
+     "rawText": "丙寅年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      224,
+      225
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "丙寅",
+     "inheritsLuck": "丙申",
+     "span": [
+      226,
+      228
+     ],
+     "field": "实际事件",
+     "confidence": "medium",
      "rawText": "丙寅年"
     }
    ]
@@ -5975,6 +10096,32 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "癸未运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "巳",
+     "span": [
+      259,
+      260
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "巳运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      266,
+      267
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -6019,13 +10166,43 @@
    "rawBlockId": "QBTM-己-04",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
-     "field": "大运/流年",
-     "confidence": null,
+     "partialBranch": "戌",
+     "span": [
+      142,
+      143
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
      "rawText": "戌运",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      238,
+      239
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      246,
+      247
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -6166,6 +10343,19 @@
      "rawText": "己卯年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      125,
+      126
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "己卯",
      "span": [
@@ -6175,6 +10365,32 @@
      "field": "分析步骤",
      "confidence": "high",
      "rawText": "己卯年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      188,
+      189
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      221,
+      222
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     },
     {
      "kind": "annual",
@@ -6188,13 +10404,17 @@
      "rawText": "己卯年"
     },
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
-     "field": "大运/流年",
-     "confidence": null,
-     "rawText": "酉运；流年己卯",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "partialBranch": "酉",
+     "span": [
+      242,
+      243
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -6333,6 +10553,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "癸酉运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      250,
+      251
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -6355,6 +10588,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      130,
+      131
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "辛酉",
      "span": [
       217,
@@ -6366,6 +10612,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      218,
+      219
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "辛酉",
      "span": [
       266,
@@ -6374,6 +10633,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "辛酉运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      267,
+      268
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -6917,6 +11189,31 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      138,
+      139
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "庚申",
+     "inheritsLuck": "庚辰",
+     "span": [
+      140,
+      142
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "medium",
+     "rawText": "庚申年"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "庚辰",
      "span": [
       213,
@@ -6939,6 +11236,31 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      214,
+      215
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "庚申",
+     "inheritsLuck": "庚辰",
+     "span": [
+      216,
+      218
+     ],
+     "field": "分析步骤",
+     "confidence": "medium",
+     "rawText": "庚申年"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "庚辰",
      "span": [
       251,
@@ -6947,6 +11269,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "庚辰运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      252,
+      253
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     },
     {
      "kind": "luck",
@@ -6968,6 +11303,31 @@
      ],
      "field": "实际事件",
      "confidence": "high",
+     "rawText": "庚申年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      273,
+      274
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "庚申",
+     "inheritsLuck": "庚辰",
+     "span": [
+      275,
+      277
+     ],
+     "field": "实际事件",
+     "confidence": "medium",
      "rawText": "庚申年"
     }
    ]
@@ -7126,6 +11486,19 @@
      "rawText": "戊寅年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      132,
+      133
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "戊寅",
      "span": [
@@ -7135,6 +11508,32 @@
      "field": "分析步骤",
      "confidence": "high",
      "rawText": "戊寅年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      223,
+      224
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      293,
+      294
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     },
     {
      "kind": "annual",
@@ -7148,13 +11547,17 @@
      "rawText": "戊寅年"
     },
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
-     "field": "大运/流年",
-     "confidence": null,
-     "rawText": "卯运；流年戊寅",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "partialBranch": "卯",
+     "span": [
+      319,
+      320
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -7732,6 +12135,31 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      82,
+      83
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛酉",
+     "inheritsLuck": "辛亥",
+     "span": [
+      85,
+      87
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "medium",
+     "rawText": "辛酉年"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "辛亥",
      "span": [
       168,
@@ -7754,6 +12182,31 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      169,
+      170
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛酉",
+     "inheritsLuck": "辛亥",
+     "span": [
+      179,
+      181
+     ],
+     "field": "分析步骤",
+     "confidence": "medium",
+     "rawText": "辛酉年"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "辛亥",
      "span": [
       223,
@@ -7772,6 +12225,31 @@
      ],
      "field": "大运/流年",
      "confidence": "high",
+     "rawText": "辛酉年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      224,
+      225
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛酉",
+     "inheritsLuck": "辛亥",
+     "span": [
+      227,
+      229
+     ],
+     "field": "大运/流年",
+     "confidence": "medium",
      "rawText": "辛酉年"
     },
     {
@@ -7811,13 +12289,82 @@
    "rawBlockId": "QBTM-甲-09",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "戌",
+     "span": [
+      105,
+      106
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      124,
+      125
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      133,
+      134
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      205,
+      206
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      244,
+      245
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "行乙亥、甲运（贵）；将入戌运（病逝）。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      273,
+      274
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -8083,13 +12630,56 @@
    "rawBlockId": "QBTM-甲-25",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "午",
+     "span": [
+      87,
+      88
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      235,
+      236
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      284,
+      285
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "行午运损目；后作乞写。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      301,
+      302
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -8389,13 +12979,82 @@
    "rawBlockId": "QBTM-甲-43",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "戌",
+     "span": [
+      91,
+      92
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      142,
+      143
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      215,
+      216
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      280,
+      281
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "行戌运连捷；庚运转侍郎。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      298,
+      299
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      334,
+      335
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -8406,13 +13065,69 @@
    "rawBlockId": "QBTM-甲-44",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "辰",
+     "span": [
+      82,
+      83
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      110,
+      111
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      164,
+      165
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      214,
+      215
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "辰运灾。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      227,
+      228
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -8440,13 +13155,43 @@
    "rawBlockId": "QBTM-甲-46",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "丑",
+     "span": [
+      78,
+      79
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      220,
+      221
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "丑运去官。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "丑",
+     "span": [
+      234,
+      235
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "丑运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -8735,6 +13480,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      148,
+      149
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "戊辰",
      "span": [
       218,
@@ -8746,6 +13504,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      219,
+      220
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "戊辰",
      "span": [
       267,
@@ -8754,6 +13525,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "戊辰运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      268,
+      269
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -9048,6 +13832,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      101,
+      102
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "丁卯",
      "span": [
       147,
@@ -9059,6 +13856,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      148,
+      149
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "丁卯",
      "span": [
       213,
@@ -9067,6 +13877,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "丁卯运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "卯",
+     "span": [
+      214,
+      215
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "卯运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -9173,6 +13996,19 @@
      "rawText": "丁丑年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      180,
+      181
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "丁丑",
      "span": [
@@ -9184,6 +14020,19 @@
      "rawText": "丁丑年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      299,
+      300
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "丁丑",
      "span": [
@@ -9193,6 +14042,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "丁丑年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "未",
+     "span": [
+      355,
+      356
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "未运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -9322,13 +14184,69 @@
    "rawBlockId": "QBTM-甲-93",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "申",
+     "span": [
+      85,
+      86
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      191,
+      192
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      289,
+      290
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      334,
+      335
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "行申运溺水而死。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      351,
+      352
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -9889,6 +14807,32 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      110,
+      111
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      157,
+      158
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "壬戌",
      "span": [
       234,
@@ -9900,6 +14844,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      235,
+      236
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "壬戌",
      "span": [
       295,
@@ -9908,6 +14865,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "壬戌运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      296,
+      297
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -10428,13 +15398,43 @@
    "rawBlockId": "QBTM-乙-48",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "子",
+     "span": [
+      138,
+      139
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      249,
+      250
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "子",
+     "span": [
+      291,
+      292
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "运行北方；最佳者为子运。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "子运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -10644,6 +15644,32 @@
      "rawText": "癸酉年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      105,
+      106
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      123,
+      124
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "癸酉",
      "span": [
@@ -10655,6 +15681,32 @@
      "rawText": "癸酉年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      202,
+      203
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      222,
+      223
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "癸酉",
      "span": [
@@ -10664,6 +15716,32 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "癸酉年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      264,
+      265
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      275,
+      276
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -10793,13 +15871,43 @@
    "rawBlockId": "QBTM-乙-66",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "酉",
+     "span": [
+      91,
+      92
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      167,
+      168
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      221,
+      222
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "十二岁行酉运连捷；行癸运入阁，位至尚书。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -10873,6 +15981,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      108,
+      109
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "甲辰",
      "span": [
       158,
@@ -10884,6 +16005,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      159,
+      160
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "甲辰",
      "span": [
       190,
@@ -10892,6 +16026,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "甲辰运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      191,
+      192
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -10914,6 +16061,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      112,
+      113
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "甲辰",
      "span": [
       173,
@@ -10925,6 +16085,19 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      174,
+      175
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "甲辰",
      "span": [
       223,
@@ -10933,6 +16106,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "甲辰运"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      224,
+      225
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -10960,13 +16146,43 @@
    "rawBlockId": "QBTM-乙-73",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "午",
+     "span": [
+      121,
+      122
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      243,
+      244
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      311,
+      312
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "至午运末丁火泄木生财。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -11243,6 +16459,19 @@
      "rawText": "戊申年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      129,
+      130
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "戊申",
      "span": [
@@ -11254,6 +16483,19 @@
      "rawText": "戊申年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      242,
+      243
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "戊申",
      "span": [
@@ -11263,6 +16505,32 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "戊申年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      327,
+      328
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "寅",
+     "span": [
+      360,
+      361
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "寅运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -11358,13 +16626,69 @@
    "rawBlockId": "QBTM-乙-95",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "申",
+     "span": [
+      94,
+      95
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      132,
+      133
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      168,
+      169
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "申运失国。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      187,
+      188
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "申",
+     "span": [
+      215,
+      216
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "申运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -11539,6 +16863,19 @@
      "rawText": "己未年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      138,
+      139
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "己未",
      "span": [
@@ -11550,6 +16887,19 @@
      "rawText": "己未年"
     },
     {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      240,
+      241
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
      "kind": "annual",
      "ganZhi": "己未",
      "span": [
@@ -11559,6 +16909,19 @@
      "field": "大运/流年",
      "confidence": "high",
      "rawText": "己未年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      285,
+      286
+     ],
+     "field": "大运/流年",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -11620,13 +16983,43 @@
    "rawBlockId": "QBTM-乙-109",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "午",
+     "span": [
+      131,
+      132
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      219,
+      220
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      273,
+      274
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "运行印地（印化煞生身，富甲一方）；至午运。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -11706,13 +17099,56 @@
    "rawBlockId": "QBTM-乙-112",
    "spans": [
     {
-     "kind": "unresolved",
+     "kind": "luck",
      "ganZhi": null,
-     "span": null,
+     "partialBranch": "酉",
+     "span": [
+      123,
+      124
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      197,
+      198
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      235,
+      236
+     ],
      "field": "大运/流年",
-     "confidence": null,
-     "rawText": "行酉运，遭暗杀命。",
-     "unresolvedReason": "描述性内容无可解析干支（不猜）"
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "酉",
+     "span": [
+      283,
+      284
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "酉运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -11742,6 +17178,31 @@
      ],
      "field": "徐乐吾最终判断",
      "confidence": "high",
+     "rawText": "辛酉年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      105,
+      106
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛酉",
+     "inheritsLuck": "辛亥",
+     "span": [
+      108,
+      110
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "medium",
      "rawText": "辛酉年"
     },
     {
@@ -11790,6 +17251,56 @@
     },
     {
      "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      190,
+      191
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      242,
+      243
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛酉",
+     "inheritsLuck": "辛亥",
+     "span": [
+      193,
+      195
+     ],
+     "field": "分析步骤",
+     "confidence": "medium",
+     "rawText": "辛酉年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛酉",
+     "inheritsLuck": "辛亥",
+     "span": [
+      248,
+      250
+     ],
+     "field": "分析步骤",
+     "confidence": "medium",
+     "rawText": "辛酉年"
+    },
+    {
+     "kind": "luck",
      "ganZhi": "辛亥",
      "span": [
       262,
@@ -11809,6 +17320,164 @@
      "field": "实际事件",
      "confidence": "high",
      "rawText": "辛酉年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "亥",
+     "span": [
+      263,
+      264
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "亥运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "辛酉",
+     "inheritsLuck": "辛亥",
+     "span": [
+      266,
+      268
+     ],
+     "field": "实际事件",
+     "confidence": "medium",
+     "rawText": "辛酉年"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-QBTM-甲-09@2",
+   "book": "穷通宝鉴评注",
+   "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md",
+   "rawBlockId": "QBTM-甲-09",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      145,
+      146
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      212,
+      213
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      247,
+      248
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      253,
+      254
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "戌",
+     "span": [
+      284,
+      285
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "戌运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    }
+   ]
+  },
+  {
+   "caseId": "CASE-QBTM-甲-25@2",
+   "book": "穷通宝鉴评注",
+   "sourceFile": "_知识库/_知识库/05-穷通宝鉴评注_甲木分部一.md",
+   "rawBlockId": "QBTM-甲-25",
+   "spans": [
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      131,
+      132
+     ],
+     "field": "徐乐吾最终判断",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      292,
+      293
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      330,
+      331
+     ],
+     "field": "分析步骤",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "午",
+     "span": [
+      361,
+      362
+     ],
+     "field": "实际事件",
+     "confidence": "low",
+     "rawText": "午运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
     }
    ]
   },
@@ -11882,6 +17551,81 @@
      ],
      "field": "body",
      "confidence": "high",
+     "rawText": "庚申年"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      167,
+      168
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      408,
+      409
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "luck",
+     "ganZhi": null,
+     "partialBranch": "辰",
+     "span": [
+      456,
+      457
+     ],
+     "field": "body",
+     "confidence": "low",
+     "rawText": "辰运",
+     "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "庚申",
+     "inheritsLuck": "庚辰",
+     "span": [
+      169,
+      171
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "庚申年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "庚申",
+     "inheritsLuck": "庚辰",
+     "span": [
+      424,
+      426
+     ],
+     "field": "body",
+     "confidence": "medium",
+     "rawText": "庚申年"
+    },
+    {
+     "kind": "annual",
+     "ganZhi": "庚申",
+     "inheritsLuck": "庚辰",
+     "span": [
+      458,
+      460
+     ],
+     "field": "body",
+     "confidence": "medium",
      "rawText": "庚申年"
     }
    ]

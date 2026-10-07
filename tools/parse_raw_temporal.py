@@ -149,10 +149,10 @@ def main() -> int:
     stats = {"totalCases": 0, "withSpans": 0, "spanCount": 0,
              "byKind": {}, "byConfidence": {}, "unresolved": 0}
     for f in sorted(glob.glob("knowledge/normalized/cases/*.json")):
-        if "temporal_refs" in f or "event_claims" in f:
+        if any(x in f for x in ("temporal_refs", "event_claims", "raw_temporal_spans")):
             continue
         data = json.load(open(f, encoding="utf-8"))
-        book = data["book"]
+        book = data.get("book", "")
         for c in data["cases"]:
             stats["totalCases"] += 1
             sf = c.get("sourceFile")
