@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { analyzeBirthInfo, getMeta, type AnalyzePayload } from "./api/tianze";
 import type { AnalyzeResponse } from "./types/tianze";
 
@@ -26,6 +26,7 @@ const tabs = [
   { id: "tiaohou", label: "调候" },
   { id: "advanced", label: "高级" },
   { id: "temporal", label: "时序" },
+  { id: "knowledge", label: "知识库" },
   { id: "ai", label: "AI 解读" },
 ];
 const expandedEvidence = ref<string | null>(null);
@@ -113,6 +114,37 @@ const pillarKeys = computed(() => {
 function toggleEvidence(id: string) {
   expandedEvidence.value = expandedEvidence.value === id ? null : id;
 }
+
+// ---------- M16 知识工作台 ----------
+const kbRules = ref<any[]>([]);
+const kbStats = ref<any>(null);
+const kbReview = ref<any[]>([]);
+const kbSearch = ref("");
+const kbDomain = ref("all");
+const kbLoaded = ref(false);
+
+async function loadKnowledge() {
+  if (kbLoaded.value) return;
+  const [r, st, rq] = await Promise.all([
+    fetch("/api/v1/knowledge/rules").then(x => x.json()),
+    fetch("/api/v1/knowledge/stats").then(x => x.json()),
+    fetch("/api/v1/knowledge/review-queue").then(x => x.json()),
+  ]);
+  kbRules.value = r.rules ?? [];
+  kbStats.value = st;
+  kbReview.value = (rq.items ?? []).slice(0, 60);
+  kbLoaded.value = true;
+}
+
+const kbFiltered = computed(() => {
+  const q = kbSearch.value.trim();
+  return kbRules.value.filter(r =>
+    (kbDomain.value === "all" || r.domain === kbDomain.value) &&
+    (!q || r.id.includes(q) || (r.label || "").includes(q) ||
+     (r.theme || "").includes(q) || (r.category || "").includes(q)));
+});
+
+watch(activeTab, (t) => { if (t === "knowledge") loadKnowledge(); });
 
 // ---------- M13 时序工作台 ----------
 
@@ -632,6 +664,48 @@ async function loadTemporal() {
             ⚠️ 所有内容为结构变化描述，不构成任何吉凶或事件预测。
           </div>
         </template>
+      </section>
+
+      <!-- M16 Knowledge Explorer -->
+      <section v-if="activeTab === 'knowledge'" class="panel">
+        <h2>知识工作台 <span class="note">Source ↔ Rule ↔ Conflict ↔ Case 只读导航；不复制推理逻辑</span></h2>
+        <div class="kb-stats" v-if="kbStats">
+          <span class="badge">executable {{ kbStats.executableTotal }}</span>
+          <span class="badge" v-for="(v, k) in kbStats.executableByDomain" :key="k">{{ k }}: {{ v }}</span>
+          <span class="note">candidates（556）与 executable（{{ kbStats.executableTotal }}）是不同口径</span>
+        </div>
+        <div class="temporal-controls">
+          <input v-model="kbSearch" placeholder="搜索 id/label/theme…" />
+          <select v-model="kbDomain">
+            <option value="all">全部 domain</option>
+            <option value="tiaohou">tiaohou</option>
+            <option value="temporal">temporal</option>
+            <option value="event">event</option>
+          </select>
+        </div>
+        <div v-for="r in kbFiltered" :key="r.id" class="candidate-block">
+          <strong>{{ r.id }}</strong>
+          <span class="badge">{{ r.domain }}</span>
+          <span v-if="r.view" class="badge">{{ r.view }}</span>
+          <span class="badge" v-for="lv in r.provenanceLevels" :key="lv"
+                :class="{ damage: lv === 'ENGINEERING_HEURISTIC' }">{{ lv }}</span>
+          <span class="badge">Q{{ r.quality }}</span>
+          <span class="badge">{{ r.verification?.status }}</span>
+          <div>{{ r.label }}</div>
+          <div v-if="r.conflictNeighbors.length" class="note">
+            冲突/救应邻接：{{ r.conflictNeighbors.map((c: any) => c.edgeType + (c.related ? '→' + c.related.join(',') : '')).join("；") }}
+          </div>
+          <div v-if="r.conflictNote" class="note">⚠ {{ r.conflictNote }}</div>
+        </div>
+        <p v-if="!kbFiltered.length" class="note">无匹配规则。</p>
+
+        <h3>Review Queue <span class="note">只读；HUMAN_VERIFIED 只能由真实人工产生</span></h3>
+        <div v-for="(it, i) in kbReview" :key="i" class="evidence-item">
+          <span class="badge" :class="{ damage: it.priority === 'P1' }">{{ it.priority }}</span>
+          <span class="badge">{{ it.section }}</span>
+          {{ it.id || it.caseId || it.text || '' }}
+          <span class="note">{{ (it.note || it.title || '').slice(0, 80) }}</span>
+        </div>
       </section>
 
       <!-- AI Interpretation -->

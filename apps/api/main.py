@@ -32,6 +32,11 @@ app.add_middleware(
     allow_headers=["Content-Type"],
 )
 
+from apps.api.knowledge_api import router as knowledge_router  # noqa: E402
+
+app.include_router(knowledge_router)
+
+
 app.add_exception_handler(TianzeError, tianze_error_handler)
 app.add_exception_handler(ApiError, api_error_handler)
 
