@@ -1,6 +1,6 @@
 # Tianze v0.3.0 Release Notes
 
-- commit: `6d5d5431b74d`（含未提交改动）
+- commit: `1dbcece4dee2`（含未提交改动）
 - 当前版本 0.2.0 → 建议 v0.3.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（26.3s / 17 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **216**（{'event': 20, 'temporal': 14, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 525
+- 命例 1147；Replay 165；测试 527
 
 ## 质量状态
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.753,
-  "perCaseMs": 0.72
+  "elapsedSeconds": 0.519,
+  "perCaseMs": 0.5
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.959,
-  "perCaseMs": 0.92
+  "elapsedSeconds": 0.706,
+  "perCaseMs": 0.68
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.024
+  "elapsedSeconds": 0.017
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（78）
+### 特性（79）
+- M20.10: release_check (P0-P7: quality-gate precondition, wheel build, clean-venv install smoke, CLI smoke, version single-source consistency, stale-artifact, notes consistency, transparent benchmark thresholds) — ALL PASS; 2 tests; 513 passing
 - M20.2: packaging + CLI
 - M19.10: ADR-054/055 + README M19 + final E2E/pytest/build verification
 - M19.4-5+7: parser long-block window, rescue 5-reading expansion, replay chain/decision excerpts + skip-reason classification

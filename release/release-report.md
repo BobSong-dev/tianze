@@ -1,6 +1,6 @@
 # Tianze Release Report
 
-- commit: `6d5d5431b74d`（含未提交改动）
+- commit: `1dbcece4dee2`（含未提交改动）
 - engine: 0.2.0
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 
@@ -9,7 +9,7 @@
 - ExecutableRule：**216**（{'event': 20, 'temporal': 14, 'tiaohou': 182}）
 - RuleCandidate：556（不同口径）
 - 命例：1147；Replay：165
-- 测试：527
+- 测试：528
 
 ## 质量状态
 
@@ -25,17 +25,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.753,
-  "perCaseMs": 0.72
+  "elapsedSeconds": 0.519,
+  "perCaseMs": 0.5
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.959,
-  "perCaseMs": 0.92
+  "elapsedSeconds": 0.706,
+  "perCaseMs": 0.68
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.024
+  "elapsedSeconds": 0.017
  },
  "explanationChains": {
   "themes": 2,

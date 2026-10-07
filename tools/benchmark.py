@@ -106,8 +106,37 @@ def main() -> int:
     results["note"] = "耗时供跨版本对比；节点/主题数是确定性计数（回归可用）"
     with open("regression/benchmark.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=1)
-    print(json.dumps(results, ensure_ascii=False, indent=1))
-    return 0
+
+    # M20：benchmark history（JSONL 追加）+ 回归信号（透明阈值 3 倍中位）
+    import subprocess
+    commit = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
+                            text=True, encoding="utf-8", errors="replace").stdout.strip()[:12]
+    import tianze
+    entry = {"schemaVersion": "1.0.0", "commit": commit,
+             "engine": tianze.__version__,
+             "metrics": {k: v for k, v in results.items() if k != "note"}}
+    hist_path = "regression/benchmark-history.jsonl"
+    prev = None
+    if os.path.exists(hist_path):
+        lines = open(hist_path, encoding="utf-8").read().strip().split(chr(10))
+        if lines and lines[-1]:
+            prev = json.loads(lines[-1])
+    signals = []
+    thresholds = {"caseChart1147.perCaseMs": 5.0, "replayCorpus.perCaseMs": 5.0,
+                  "timeline80y.elapsedSeconds": 1.0}
+    if prev:
+        for path, th in thresholds.items():
+            cur_val = entry["metrics"]
+            prev_val = prev.get("metrics", {})
+            for k in path.split("."):
+                cur_val = cur_val.get(k, {}) if isinstance(cur_val, dict) else {}
+                prev_val = prev_val.get(k, {}) if isinstance(prev_val, dict) else {}
+            if isinstance(cur_val, (int, float)) and isinstance(prev_val, (int, float))                     and cur_val > th and prev_val <= th:
+                signals.append(f"{path}: {prev_val} → {cur_val}（超阈值 {th}）")
+    entry["regressionSignals"] = signals
+    with open(hist_path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + chr(10))
+    print("benchmark history signals:", signals or "无")
 
 
 if __name__ == "__main__":

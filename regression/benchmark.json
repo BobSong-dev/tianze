@@ -1,17 +1,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.753,
-  "perCaseMs": 0.72
+  "elapsedSeconds": 0.519,
+  "perCaseMs": 0.5
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.959,
-  "perCaseMs": 0.92
+  "elapsedSeconds": 0.706,
+  "perCaseMs": 0.68
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.024
+  "elapsedSeconds": 0.017
  },
  "explanationChains": {
   "themes": 2,
