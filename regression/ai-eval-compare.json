@@ -1,0 +1,1432 @@
+{
+ "schemaVersion": "1.0.0",
+ "entryCount": 95,
+ "comparisons": [
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  },
+  {
+   "metrics": {
+    "provider": "mock",
+    "model": "mock",
+    "promptVersion": "1.1.0",
+    "caseSetHash": "7f14fdda918d",
+    "groundingIssueTotal": 0,
+    "bannedTotal": 0,
+    "disagreementMissingCount": 4,
+    "claimRefsUsedAvg": 0.0,
+    "verdictPass": 4,
+    "verdictTotal": 4
+   },
+   "regressionAgainstPrevious": {}
+  }
+ ],
+ "note": "仅确定性指标对比；verdict 口径见 quality gate（mock=PIPELINE_OK）"
+}

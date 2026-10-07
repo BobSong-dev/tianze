@@ -231,10 +231,36 @@ async def rule_audit() -> JSONResponse:
     return JSONResponse(d)
 
 
+def _stale_flags() -> dict:
+    """陈旧工件检测：工件记录的 gitCommit/引擎版本 vs 当前（M19 治理）。"""
+    import subprocess
+    meta = _load("release/release-metadata.json", None)
+    if not meta:
+        return {"stale": False, "reason": "无 metadata"}
+    try:
+        head = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
+                              text=True, encoding="utf-8", errors="replace",
+                              cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))
+                                                   + "/..") or ".").stdout.strip()
+    except Exception:
+        head = ""
+    dirty = bool(subprocess.run(["git", "status", "--porcelain"], capture_output=True,
+                                text=True, encoding="utf-8", errors="replace",
+                                cwd=".").stdout.strip()) if head else False
+    stale_commit = bool(head) and meta.get("release", {}).get("gitCommit") != head
+    return {
+        "stale": stale_commit or dirty,
+        "reasons": (["metadata gitCommit != HEAD"] if stale_commit else [])
+                   + (["工作区有未提交改动"] if dirty else []),
+        "artifactCommit": meta.get("release", {}).get("gitCommit"),
+    }
+
+
 @router.get("/release")
 async def release_metadata() -> JSONResponse:
-    """Release Metadata + quality summary（真实运行产物）。"""
+    """Release Metadata + quality summary（真实运行产物 + 陈旧检测）。"""
     return JSONResponse({
+        "stale": _stale_flags(),
         "metadata": _load("release/release-metadata.json", None),
         "qualitySummary": _load("release/quality-summary.json", None),
         "releaseNotes": (open(os.path.join(RELEASE_DIR, "RELEASE_NOTES.md"),
