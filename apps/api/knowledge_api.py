@@ -142,3 +142,16 @@ async def stats() -> JSONResponse:
         "provenanceDistribution": dict(prov),
         "note": "candidates 总数（556）与 executable 总数（216）是不同口径，勿混用",
     })
+
+
+@router.get("/coverage")
+async def coverage() -> JSONResponse:
+    """Coverage Workbench 数据：审计门 + 覆盖统计（未用候选/未触发规则/Rule→Case）。"""
+    audit = _load("regression/audit-gates.json", None)
+    if audit is None:
+        return JSONResponse({"error": {"code": "AUDIT_NOT_BUILT",
+                                       "message": "先运行 tools/audit_gates.py",
+                                       "details": {}}}, status_code=404)
+    return JSONResponse({"allPass": audit.get("allPass"),
+                         "gates": audit.get("gates", {}),
+                         "coverage": audit.get("coverage", {})})

@@ -1,0 +1,160 @@
+{
+ "schemaVersion": "1.0.0",
+ "allPass": true,
+ "gates": {
+  "G1_candidate_refs": {
+   "pass": true,
+   "violations": []
+  },
+  "G2_classical_source": {
+   "pass": true,
+   "violations": []
+  },
+  "G3_rescue_edges": {
+   "pass": true,
+   "violations": []
+  },
+  "G4_graph_integrity": {
+   "pass": true,
+   "violations": []
+  },
+  "G5_evaluator_mapping": {
+   "pass": true,
+   "violations": []
+  },
+  "G6_never_triggered": {
+   "pass": true,
+   "list": [
+    "EV-FAM-01"
+   ],
+   "note": "进审计列表（可能只是探针未覆盖，不判死刑）"
+  },
+  "G7_abnormal_trigger": {
+   "pass": true,
+   "rules": {},
+   "themes": {}
+  },
+  "G8_explanation_chain": {
+   "pass": true,
+   "violations": []
+  },
+  "G9_no_confirmed": {
+   "pass": true,
+   "violations": []
+  },
+  "G10_no_machine_human": {
+   "pass": true,
+   "violations": []
+  }
+ },
+ "coverage": {
+  "candidatesTotal": 556,
+  "candidatesUsedAsRules": 190,
+  "candidatesUnused": 366,
+  "unusedCandidateIds": [
+   "DTZ-00",
+   "DTZ-01",
+   "DTZ-02",
+   "DTZ-03",
+   "DTZ-05",
+   "DTZ-06",
+   "DTZ-07",
+   "DTZ-08",
+   "DTZ-10",
+   "DTZ-11",
+   "DTZ-12",
+   "DTZ-13",
+   "DTZ-14",
+   "DTZ-15",
+   "DTZ-16",
+   "DTZ-17",
+   "DTZ-19",
+   "DTZ-20",
+   "DTZ-21",
+   "DTZ-22",
+   "DTZ-23",
+   "DTZ-24",
+   "DTZ-26",
+   "DTZ-27",
+   "DTZ-28",
+   "DTZ-29",
+   "DTZ-30",
+   "DTZ-31",
+   "DTZ-32",
+   "DTZ-34",
+   "DTZ-36",
+   "DTZ-37",
+   "DTZ-38",
+   "DTZ-40",
+   "DTZ-41",
+   "DTZ-42",
+   "DTZ-43",
+   "DTZ-44",
+   "DTZ-45",
+   "DTZ-46",
+   "DTZ-47",
+   "DTZ-48",
+   "DTZ-49",
+   "DTZ-50",
+   "DTZ-51",
+   "DTZ-52",
+   "DTZ-53",
+   "DTZ-54",
+   "DTZ-55",
+   "DTZ-56",
+   "DTZ-57",
+   "DTZ-58",
+   "DTZ-59",
+   "DTZ-60",
+   "DTZ-61",
+   "DTZ-62",
+   "DTZ-63",
+   "DTZ-64",
+   "DTZ-65",
+   "DTZ-66",
+   "DTZ-67",
+   "DTZ-68",
+   "DTZ-69",
+   "DTZ-70",
+   "DTZ-71",
+   "DTZ-72",
+   "DTZ-73",
+   "DTZ-74",
+   "DTZ-75",
+   "DTZ-76",
+   "DTZ-77",
+   "MLD-01",
+   "MLD-02",
+   "MLD-03",
+   "MLD-04",
+   "MLD-05",
+   "MLD-07",
+   "MLD-08",
+   "MLD-09",
+   "MLD-10"
+  ],
+  "ruleCaseCoverage": {
+   "EV-CAR-01": 32,
+   "EV-CAR-02": 15,
+   "EV-CAR-03": 5,
+   "EV-CAR-04": 4,
+   "EV-CAR-05": 1,
+   "EV-CON-01": 61,
+   "EV-FAM-01": 16,
+   "EV-MOB-01": 40,
+   "EV-MOB-02": 15,
+   "EV-REL-01": 16,
+   "EV-REL-02": 21,
+   "EV-REL-03": 14,
+   "EV-REL-04": 31,
+   "EV-REL-05": 12,
+   "EV-SOC-01": 40,
+   "EV-STU-01": 27,
+   "EV-WEA-01": 43,
+   "EV-WEA-02": 15,
+   "EV-WEA-03": 4,
+   "EV-WEA-04": 14
+  },
+  "eventRulesNeverInReplay": []
+ }
+}
