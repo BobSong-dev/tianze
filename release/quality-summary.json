@@ -2,22 +2,22 @@
  "schemaVersion": "1.0.0",
  "allPass": true,
  "failed": [],
- "totalSeconds": 20.6,
+ "totalSeconds": 17.8,
  "steps": [
   {
    "step": "pytest",
    "exitCode": 0,
-   "elapsedSeconds": 12.33,
+   "elapsedSeconds": 9.69,
    "tail": [
     "",
     "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
-    "506 passed, 5 warnings in 11.46s"
+    "511 passed, 5 warnings in 8.99s"
    ]
   },
   {
    "step": "knowledge_validator",
    "exitCode": 0,
-   "elapsedSeconds": 0.09,
+   "elapsedSeconds": 0.1,
    "tail": [
     "}",
     "",
@@ -27,7 +27,7 @@
   {
    "step": "conflict_graph",
    "exitCode": 0,
-   "elapsedSeconds": 0.06,
+   "elapsedSeconds": 0.07,
    "tail": [
     "Conflict Graph：222 节点 / 16 边 {'conflict': 4, 'rescues': 6, 'school-conflict': 6}"
    ]
@@ -35,7 +35,7 @@
   {
    "step": "graph_audit",
    "exitCode": 0,
-   "elapsedSeconds": 0.78,
+   "elapsedSeconds": 0.87,
    "tail": [
     "Graph Audit：A1 UNVERIFIED=0 | A4 cycles=0 | A2 overActive=无 | heuristic-only 规则=0"
    ]
@@ -43,7 +43,7 @@
   {
    "step": "audit_gates",
    "exitCode": 0,
-   "elapsedSeconds": 0.25,
+   "elapsedSeconds": 0.28,
    "tail": [
     "  PASS G9_no_confirmed",
     "  PASS G10_no_machine_human",
@@ -53,7 +53,7 @@
   {
    "step": "rule_audit",
    "exitCode": 0,
-   "elapsedSeconds": 0.06,
+   "elapsedSeconds": 0.07,
    "tail": [
     "Rule Audit：20 条规则；异常泛化信号 无"
    ]
@@ -61,7 +61,7 @@
   {
    "step": "case_regression",
    "exitCode": 0,
-   "elapsedSeconds": 0.74,
+   "elapsedSeconds": 0.71,
    "tail": [
     "  \"current\": 1147",
     " }",
@@ -79,7 +79,7 @@
   {
    "step": "event_evaluation",
    "exitCode": 0,
-   "elapsedSeconds": 1.71,
+   "elapsedSeconds": 1.69,
    "tail": [
     "  随机盘主题触发率：{'career': 0.44, 'mobility': 0.315, 'relationship': 0.485, 'social': 0.335, 'study': 0.235, 'wealth': 0.27}",
     "  异常触发：{'rules': {}, 'themes': {}}",
@@ -89,7 +89,7 @@
   {
    "step": "case_replay",
    "exitCode": 0,
-   "elapsedSeconds": 0.58,
+   "elapsedSeconds": 0.57,
    "tail": [
     "  主题覆盖：{'career': 55, 'mobility': 53, 'relationship': 146, 'social': 82, 'wealth': 60, 'study': 27, 'family': 16}",
     "  status 分布：{'CANDIDATE': 327, 'UNRESOLVED': 69, 'LIKELY': 20, 'DISPUTED': 23}",
@@ -99,7 +99,7 @@
   {
    "step": "ai_evaluation_mock",
    "exitCode": 0,
-   "elapsedSeconds": 0.49,
+   "elapsedSeconds": 0.46,
    "tail": [
     "  PIPELINE_OK disputed_career issues=0 banned=[] disputeMissing=True",
     "  PIPELINE_OK multi_view_agree issues=0 banned=[] disputeMissing=True",
@@ -118,7 +118,7 @@
   {
    "step": "benchmark",
    "exitCode": 0,
-   "elapsedSeconds": 1.68,
+   "elapsedSeconds": 1.54,
    "tail": [
     " },",
     " \"note\": \"耗时供跨版本对比；节点/主题数是确定性计数（回归可用）\"",
@@ -128,7 +128,7 @@
   {
    "step": "release_metadata",
    "exitCode": 0,
-   "elapsedSeconds": 1.4,
+   "elapsedSeconds": 1.32,
    "tail": [
     " }",
     "}",

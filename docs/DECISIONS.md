@@ -276,3 +276,28 @@
   每次构建出 regression/audit-gates.json；coverage 段供 Workbench。
 - **Reason**：断链/伪造在进入产出物之前被拦截。
 - **Tradeoff**：G6（未触发）是审计列表不是失败门——探针覆盖有限属正常。
+
+## ADR-051 · Graph/Rule Audit 只报告不调参（M18）
+
+- **Context**：SPECIFIC_EXCEPTION 声明可能名不副实、救应可能过度激活、规则可能异常泛化。
+- **Decision**：graph-audit（A1 specificity 佐证/A4 specific 链循环/A2 救应激活率 80 随机盘/
+  B1 heuristic-only 规则）与 rule-audit（逐规则 replay 样本/relation 分布/异常泛化信号）
+  只生成报告；发现信号进 REVIEW 清单，绝不据此自动调参迎合历史。
+- **Reason**：任务书「禁止根据历史案例自动调参」。
+- **Tradeoff**：信号需要人读——正是 Review Queue 的用途。
+
+## ADR-052 · 一键质量门是发布前置条件（M18）
+
+- **Context**：质量栈 14 步靠手工执行容易漏。
+- **Decision**：quality_gate.py 顺序运行全部步骤并产出 quality-summary.json/md；
+  回归步骤 exit 1 特判（无 BREAKING 的 REVIEW 级变化视为通过）；任一硬失败 → 退出码 1。
+- **Reason**：发布前可重复、可审计的一键入口。
+- **Tradeoff**：summary 本身不入 git 历史的语义（每次运行覆盖）——history 由各工件自带。
+
+## ADR-053 · Release Metadata 全部来自真实运行（M18）
+
+- **Context**：人工统计 commit/规则数/测试数容易出错且会过期。
+- **Decision**：release_metadata.py 从 git、模块常量、真实 pytest 采集、工具工件读取，
+  生成 release-metadata.json + release-report.md；无任何硬编码统计。
+- **Reason**：「所有统计都来自真实数据」原则的发布维度落地。
+- **Tradeoff**：生成需数秒（pytest 采集）——可接受。
