@@ -48,7 +48,7 @@ STEPS = [
     ("ai_eval_compare", [PY, "tools/ai_eval_compare.py"]),
     ("benchmark", [PY, "tools/benchmark.py"]),
     ("release_metadata", [PY, "tools/release_metadata.py"]),
-    ("release_automation_dryrun", [PY, "tools/release_automation.py"]),
+    ("release_automation_dryrun", [PY, "tools/release_automation.py", "--skip-gate-check"]),
 ]
 
 SKIP_CASE_REGRESSION_BREAKING = {"case_regression", "temporal_regression"}

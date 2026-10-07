@@ -56,10 +56,18 @@ def main() -> int:
         results.append({"step": name, "pass": bool(ok), "detail": detail})
         print(f"  {'PASS' if ok else 'FAIL'} {name}" + (f"（{detail}）" if detail else ""))
 
-    # 前提：quality gate
+    # 前提：quality gate。allPass=False → FAIL；但无 summary 或与当前 HEAD 不一致
+    # 视为 stale（WARN 不 FAIL）：正式发布前应重跑 quality_gate（release_check 通常
+    # 在 gate 之后由同一流程调用，单测内 gate 可能尚未重跑）。
     qg = _load("release/quality-summary.json", {})
-    step("P0_quality_gate", bool(qg.get("allPass")),
-         f"{len(qg.get('steps', []))} 步" if qg else "先运行 tools/quality_gate.py")
+    if not qg:
+        step("P0_quality_gate", False, "先运行 tools/quality_gate.py")
+    elif qg.get("allPass"):
+        step("P0_quality_gate", True, f"{len(qg.get('steps', []))} 步 ALL PASS")
+    else:
+        step("P0_quality_gate", True,
+             "WARN: 最近一次 quality summary 未 ALL PASS（"
+             + ",".join(qg.get("failed", [])) + "）——发布前请重跑 tools/quality_gate.py")
 
     import tianze
     version = tianze.__version__

@@ -317,3 +317,29 @@
   release_automation_dryrun）；release_automation 默认 dry-run（不建 tag 不 push）。
 - **Reason**：发布链路（metadata→notes→tag-prep）纳入一键验证。
 - **Tradeoff**：总时长 ~26s——可接受。
+
+## ADR-056 · Release Chain 的自指死锁与解法（M20）
+
+- **Context**：quality gate 内的 pytest 会运行读取 quality-summary 的测试；
+  gate 内的 release_automation 要求 summary ALL PASS——而 gate 尚未完成，
+  形成「门必须先通过才能通过」的死锁（实测连续两轮 FAIL 才暴露）。
+- **Decision**：
+  - test_quality_gate 只验 summary 结构，不断言 allPass（freshness 由
+    release_check P0 与发布流程负责）；
+  - release_automation 增加 `--skip-gate-check`，quality_gate 内部调用时使用，
+    外部用户运行仍强制要求 ALL PASS summary；
+  - release_check P0 对 stale summary 只 WARN 不 FAIL（发布前重跑 gate）。
+- **Reason**：门内自证与门外验证的职责分离。
+- **Tradeoff**：release_check P0 可能放过 stale summary——由显式 WARN 与
+  VERSIONING 文档约束。
+
+## ADR-057 · 数据路径双模式与单一版本事实源（M20）
+
+- **Context**：loader 用 `Path(__file__).parents[2]` 定位数据，安装到
+  site-packages 后失效；pyproject version 0.1.0 与 `__version__` 0.2.0 并存
+  （release automation 真实暴露的不一致）。
+- **Decision**：`tianze/paths.py` 统一解析（TIANZE_DATA_DIR → repo knowledge/ →
+  打包副本 tianze/_data/knowledge，manifest 哈希自检）；全部 loader 改延迟函数；
+  pyproject `dynamic = ["version"]` 绑定 `tianze.__version__` 为唯一事实源。
+- **Reason**：可安装性与版本一致性。
+- **Tradeoff**：发布前必须运行 sync_package_data.py（已入 release_check P1 流程）。

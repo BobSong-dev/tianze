@@ -1,8 +1,8 @@
 # Tianze v0.3.0 Release Notes
 
-- commit: `132920a2b547`（含未提交改动）
+- commit: `f4cc0b2a2828`（含未提交改动）
 - 当前版本 0.2.0 → 建议 v0.3.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（26.3s / 17 步）
+- 质量门：ALL PASS（35.9s / 17 步）
 
 ## 版本与规模
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.519,
-  "perCaseMs": 0.5
+  "elapsedSeconds": 0.475,
+  "perCaseMs": 0.45
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.706,
-  "perCaseMs": 0.68
+  "elapsedSeconds": 0.639,
+  "perCaseMs": 0.61
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.017
+  "elapsedSeconds": 0.015
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（81）
+### 特性（82）
+- M20.9: README Quick Start (CLI/SDK/Web/dev commands) + .env.example
 - M20.3-4: Web AI evaluation compare view + Rule/Conflict/Rescue graph view
 - M20.5: benchmark history (JSONL with commit/engine/regressionSignals, transparent thresholds) + release-check re-verified ALL PASS
 - M20.10: release_check (P0-P7: quality-gate precondition, wheel build, clean-venv install smoke, CLI smoke, version single-source consistency, stale-artifact, notes consistency, transparent benchmark thresholds) — ALL PASS; 2 tests; 513 passing

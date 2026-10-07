@@ -6,12 +6,12 @@
   {
    "step": "P0_quality_gate",
    "pass": true,
-   "detail": "17 步"
+   "detail": "17 步 ALL PASS"
   },
   {
    "step": "P1_package_build",
    "pass": true,
-   "detail": "tianze_bazi-0.2.0-py3-none-any.whl，4.3s"
+   "detail": "tianze_bazi-0.2.0-py3-none-any.whl，4.1s"
   },
   {
    "step": "P2_clean_install_smoke",

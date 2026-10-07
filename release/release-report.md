@@ -1,6 +1,6 @@
 # Tianze Release Report
 
-- commit: `132920a2b547`（含未提交改动）
+- commit: `f4cc0b2a2828`（含未提交改动）
 - engine: 0.2.0
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 
@@ -25,17 +25,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.519,
-  "perCaseMs": 0.5
+  "elapsedSeconds": 0.475,
+  "perCaseMs": 0.45
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.706,
-  "perCaseMs": 0.68
+  "elapsedSeconds": 0.639,
+  "perCaseMs": 0.61
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.017
+  "elapsedSeconds": 0.015
  },
  "explanationChains": {
   "themes": 2,

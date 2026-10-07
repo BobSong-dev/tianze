@@ -4,7 +4,7 @@
  "suggestedTag": "v0.3.0",
  "bumpKind": "minor",
  "commitGroups": {
-  "features": 81,
+  "features": 82,
   "fixes": 8,
   "tests": 10,
   "docs": 6,

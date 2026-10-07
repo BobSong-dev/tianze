@@ -10,8 +10,11 @@ import sys
 from tools.release_automation import main as ra_main
 
 
-def test_release_notes_generated():
+def test_release_notes_generated(monkeypatch):
+    """notes/tag-prep 生成验证；--skip-gate-check（gate 内测试运行时
+    summary 尚未刷新，gate 依赖检查由 release_check P0 负责）。"""
     import io, contextlib
+    monkeypatch.setattr(sys, "argv", ["release_automation.py", "--skip-gate-check"])
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
         rc = ra_main()

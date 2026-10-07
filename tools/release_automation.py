@@ -18,6 +18,8 @@ import re
 import subprocess
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AUTOMATION_SCHEMA_VERSION = "1.0.0"
 
@@ -41,10 +43,12 @@ def _pyproject_version() -> str:
 
 
 def main() -> int:
+    # --skip-gate-check：质量门内部调用（gate 的 summary 尚未写出，无法自证 ALL PASS）
     summary = _load("release/quality-summary.json", None)
-    if not summary or not summary.get("allPass"):
-        print("BLOCKED：quality summary 不存在或未 ALL PASS——先运行 tools/quality_gate.py")
-        return 2
+    if "--skip-gate-check" not in sys.argv:
+        if not summary or not summary.get("allPass"):
+            print("BLOCKED：quality summary 不存在或未 ALL PASS——先运行 tools/quality_gate.py")
+            return 2
     metadata = _load("release/release-metadata.json", None)
     if not metadata:
         print("BLOCKED：release metadata 缺失")
