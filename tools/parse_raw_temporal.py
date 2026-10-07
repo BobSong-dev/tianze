@@ -69,6 +69,14 @@ def parse_block(block: str) -> list[dict]:
             for m in pat.finditer(text):
                 gz = m.group(1)
                 if not _valid_gz(gz):
+                    # OCR 容错：奇偶不合的「干支」如实记录为 UNRESOLVED，不猜
+                    out.append({
+                        "kind": "unresolved", "ganZhi": None,
+                        "span": [seg_start + m.start(1), seg_start + m.end(1)],
+                        "field": field, "confidence": None,
+                        "rawText": m.group(0),
+                        "unresolvedReason": "干支奇偶不合（OCR 疑误），不猜",
+                    })
                     continue
                 out.append({
                     "kind": kind, "ganZhi": gz,
@@ -77,7 +85,32 @@ def parse_block(block: str) -> list[dict]:
                     "confidence": "high" if conf_high else "medium",
                     "rawText": m.group(0),
                 })
+        # M18：干支省略（「午运」「行酉运」——仅支，无干）
+        for m in re.finditer(r"([子丑寅卯辰巳午未申酉戌亥])运", text):
+            out.append({
+                "kind": "luck", "ganZhi": None, "partialBranch": m.group(1),
+                "span": [seg_start + m.start(1), seg_start + m.end(1)],
+                "field": field, "confidence": "low",
+                "rawText": m.group(0),
+                "unresolvedReason": "仅支无干：干支省略（供规则研究，不可直接排盘）",
+            })
         # 年龄→干支关联（同句）
+        # M18：一运多年——同段内先出现 X运，后续 X年继承该运（上下文继承，medium）
+        seg_luck = None
+        for m in RE_YUN.finditer(text):
+            if _valid_gz(m.group(1)):
+                seg_luck = m.group(1)
+        if seg_luck:
+            for m in RE_NIAN.finditer(text):
+                gz = m.group(1)
+                if _valid_gz(gz):
+                    out.append({
+                        "kind": "annual", "ganZhi": gz, "inheritsLuck": seg_luck,
+                        "span": [seg_start + m.start(1), seg_start + m.end(1)],
+                        "field": field, "confidence": "medium",
+                        "rawText": m.group(0),
+                    })
+
         for am in list(RE_AGE.finditer(text)) + list(re.finditer(RE_AGE_CN, text)):
             age = cn_to_int(am.group(1))
             if age is None:
