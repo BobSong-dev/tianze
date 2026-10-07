@@ -172,6 +172,34 @@ def main() -> int:
     result = run(provider, use_real)
     with open("regression/ai-evaluation.json", "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=1)
+
+    # M16.6：评估历史版本化（追加 JSONL；允许跨 provider/model/prompt 比较；
+    # LLM-as-judge 不替代确定性检查——历史只记录确定性评估结果）
+    provider_name = getattr(provider, "provider_name", "unknown")
+    model = os.environ.get("TIANZE_LLM_MODEL", "mock" if not use_real else "unknown")
+    from tianze.ai.models import PROMPT_VERSION
+    history_entry = {
+        "schemaVersion": EVAL_SCHEMA_VERSION,
+        "provider": provider_name,
+        "model": model,
+        "promptVersion": PROMPT_VERSION,
+        "interpretationSchemaVersion": "1.1.0",
+        "caseSet": [c["name"] for c in CANONICAL_CASES],
+        "caseSetHash": __import__("hashlib").md5(
+            json.dumps(CANONICAL_CASES, sort_keys=True, ensure_ascii=False).encode()
+        ).hexdigest()[:12],
+        "summary": result["summary"],
+        "perCase": [{"case": r["case"], "verdict": r["verdict"],
+                     "groundingIssues": len(r["groundingIssues"]),
+                     "banned": r["bannedLanguage"],
+                     "disagreementMissing": r["disagreementMissing"],
+                     "claimRefsUsed": r["claimRefsUsed"]} for r in result["results"]],
+    }
+    if use_real:
+        history_entry["latencySeconds"] = None  # provider 层计时（后续接入）
+    with open("regression/ai-evaluation-history.jsonl", "a", encoding="utf-8") as f:
+        f.write(json.dumps(history_entry, ensure_ascii=False) + "
+")
     print(f"AI Evaluation（{result['provider']}）：{result['summary']}")
     for r in result["results"]:
         print(f"  {r['verdict']} {r['case']} issues={len(r['groundingIssues'])} "
