@@ -1,8 +1,8 @@
 # Tianze v0.2.0 Release Notes
 
-- commit: `4a330c5aa6c7`（含未提交改动）
+- commit: `823476a1baff`（含未提交改动）
 - 当前版本 0.1.0 → 建议 v0.2.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（17.8s / 14 步）
+- 质量门：ALL PASS（26.3s / 17 步）
 
 ## 版本与规模
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.546,
-  "perCaseMs": 0.52
+  "elapsedSeconds": 0.753,
+  "perCaseMs": 0.72
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.693,
-  "perCaseMs": 0.66
+  "elapsedSeconds": 0.959,
+  "perCaseMs": 0.92
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.017
+  "elapsedSeconds": 0.024
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（75）
+### 特性（76）
+- M19.4-5+7: parser long-block window, rescue 5-reading expansion, replay chain/decision excerpts + skip-reason classification
 - M19.3+9: AI eval compare tool + stale artifact detection + VERSIONING doc
 - M19.2: Web knowledge/quality dashboard complete
 - M19.6: rule coverage / dead-rule analysis (216 rules classified)

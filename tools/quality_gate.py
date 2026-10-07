@@ -32,6 +32,7 @@ PY = os.path.join(REPO, ".venv", "Scripts", "python.exe")
 
 STEPS = [
     ("pytest", [PY, "-m", "pytest", "tests", "apps/api/tests", "-q"]),
+    # M19：版本兼容矩阵/治理测试包含在 pytest 内
     ("knowledge_validator", [PY, "tools/validate_knowledge.py"]),
     ("conflict_graph", [PY, "tools/build_conflict_graph.py"]),
     ("graph_audit", [PY, "tools/graph_audit.py"]),
@@ -43,8 +44,11 @@ STEPS = [
     ("case_replay", [PY, "tools/case_replay.py"]),
     ("ai_evaluation_mock", [PY, "tools/ai_evaluation.py", "--mock"]),
     ("review_queue", [PY, "tools/review_queue.py"]),
+    ("rule_coverage_audit", [PY, "tools/rule_coverage_audit.py"]),
+    ("ai_eval_compare", [PY, "tools/ai_eval_compare.py"]),
     ("benchmark", [PY, "tools/benchmark.py"]),
     ("release_metadata", [PY, "tools/release_metadata.py"]),
+    ("release_automation_dryrun", [PY, "tools/release_automation.py"]),
 ]
 
 SKIP_CASE_REGRESSION_BREAKING = {"case_regression", "temporal_regression"}

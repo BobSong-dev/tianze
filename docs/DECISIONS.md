@@ -301,3 +301,19 @@
   生成 release-metadata.json + release-report.md；无任何硬编码统计。
 - **Reason**：「所有统计都来自真实数据」原则的发布维度落地。
 - **Tradeoff**：生成需数秒（pytest 采集）——可接受。
+
+## ADR-054 · 救应谓词五读数一致（M19）
+
+- **Context**：v2 救应强度读数为 weighted/fuyi/得势 三路；得令/得地同样是 Engine 事实。
+- **Decision**：读数扩展为五路（weighted/fuyi/得势/得令/得地），仍要求全部同向才启用；
+  分歧 → 不激活并记录。EventContext 复用 chart.strength 全部输出，不重算。
+- **Reason**：更少依赖单一 weighted verdict 映射（任务书：减少过粗映射）。
+- **Tradeoff**：五路全同向更保守；激活率下降是刻意选择。
+
+## ADR-055 · 质量门 17 步（M19）
+
+- **Context**：coverage/dead-rule 分析、评估历史对比、release automation 就绪但未入质量门。
+- **Decision**：质量门 14→17 步（+rule_coverage_audit/ai_eval_compare/
+  release_automation_dryrun）；release_automation 默认 dry-run（不建 tag 不 push）。
+- **Reason**：发布链路（metadata→notes→tag-prep）纳入一键验证。
+- **Tradeoff**：总时长 ~26s——可接受。
