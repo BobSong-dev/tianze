@@ -42,7 +42,8 @@ def _claim_themes(event_claims: dict, case_id: str) -> list[str]:
 
 
 def replay_case(case: dict, temporal_ref: dict | None,
-                claim_themes: list[str], book: str | None = None) -> dict | None:
+                claim_themes: list[str], book: str | None = None,
+                raw_spans: list[dict] | None = None) -> dict | None:
     """单命例重放。缺结构化大运 → 跳过（scope 限制如实报告）。"""
     pillars = (case.get("fact") or {}).get("pillars") or {}
     if not all(pillars.get(k) for k in ("year", "month", "day", "hour")):
@@ -63,10 +64,19 @@ def replay_case(case: dict, temporal_ref: dict | None,
             luck_src = f"mention:{m.get('rawText', '')}"
         if m.get("kind") == "annual" and m.get("ganZhi") and not annual_gz:
             annual_gz = m["ganZhi"]
+    # M17：原文 span 源（confidence=high 才采用；UNRESOLVED 不猜）
+    for sp in (raw_spans or []):
+        if sp.get("confidence") != "high":
+            continue
+        if sp["kind"] == "luck" and not luck_gz:
+            luck_gz = sp["ganZhi"]
+            luck_src = f"raw-span:{sp.get('field')}"
+        elif sp["kind"] == "annual" and not annual_gz:
+            annual_gz = sp["ganZhi"]
     if not luck_gz and dayun:
         luck_gz = dayun[0].get("ganZhi")
         luck_src = "dayun[0]"
-    # M16 扩容：仅有流年提及（无大运）也可重放——annual-only 上下文
+    # 仅有流年提及（无大运）也可重放——annual-only 上下文
     annual_only = False
     if not luck_gz:
         if not annual_gz:
@@ -128,13 +138,18 @@ def replay_case(case: dict, temporal_ref: dict | None,
 def main() -> int:
     books = []
     for f in sorted(os.listdir("knowledge/normalized/cases")):
-        if f.endswith(".json") and "temporal_refs" not in f and "event_claims" not in f:
+        if f.endswith(".json") and not any(x in f for x in ("temporal_refs", "event_claims", "raw_temporal_spans")):
             books.append(json.load(open(f"knowledge/normalized/cases/{f}", encoding="utf-8")))
     temporal_refs = json.load(open("knowledge/normalized/cases/temporal_refs.json",
                                    encoding="utf-8"))
     event_claims = json.load(open("knowledge/normalized/cases/event_claims.json",
                                   encoding="utf-8"))
     ref_by_id = {c["caseId"]: c for c in temporal_refs["cases"]}
+    raw_spans_path = "knowledge/normalized/cases/raw_temporal_spans.json"
+    spans_by_id = {}
+    if os.path.exists(raw_spans_path):
+        raw_spans = json.load(open(raw_spans_path, encoding="utf-8"))
+        spans_by_id = {c["caseId"]: c.get("spans", []) for c in raw_spans.get("cases", [])}
 
     replays = []
     stats = {
@@ -153,7 +168,8 @@ def main() -> int:
             stats["totalCases"] += 1
             cid = case["caseId"]
             r = replay_case(case, ref_by_id.get(cid),
-                            _claim_themes(event_claims, cid), book_name)
+                            _claim_themes(event_claims, cid), book_name,
+                            raw_spans=spans_by_id.get(cid, []))
             if r is None:
                 stats["skippedNoDayun"] += 1
                 continue

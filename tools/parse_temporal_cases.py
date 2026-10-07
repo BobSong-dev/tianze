@@ -160,7 +160,8 @@ def parse_mentions(events: list[dict], dayun_text: str | None = None
 
 def main() -> int:
     case_files = sorted(glob.glob("knowledge/normalized/cases/*.json"))
-    case_files = [f for f in case_files if "temporal_refs" not in f]
+    case_files = [f for f in case_files
+                 if not any(x in f for x in ("temporal_refs", "event_claims", "raw_temporal_spans"))]
     refs: list[dict] = []
     stats = {
         "totalCases": 0, "withSourceDayun": 0, "dayunConsistent": 0,

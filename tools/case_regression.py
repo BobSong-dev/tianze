@@ -39,7 +39,7 @@ def compute_snapshots() -> list[dict]:
 
     snapshots = []
     for path in sorted(CASES.glob("*.json")):
-        if "temporal_refs" in path.name or "event_claims" in path.name:
+        if any(x in path.name for x in ("temporal_refs", "event_claims", "raw_temporal_spans")):
             continue  # M13 TemporalCaseReference 工具产物，非命例书册
         data = json.loads(path.read_text(encoding="utf-8"))
         for case in data["cases"]:

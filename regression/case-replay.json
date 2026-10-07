@@ -5,67 +5,615 @@
   "status": "MACHINE_EXTRACTED",
   "sourceChecked": false
  },
- "count": 138,
+ "count": 165,
  "stats": {
   "totalCases": 1147,
-  "replayed": 138,
-  "skippedNoDayun": 1009,
+  "replayed": 165,
+  "skippedNoDayun": 982,
   "relationCounts": {
-   "SOURCE_SILENT": 344,
-   "SOURCE_DIFFERS": 34,
+   "SOURCE_SILENT": 430,
+   "SOURCE_DIFFERS": 36,
    "SOURCE_SUPPORTS": 9
   },
   "themeCoverage": {
-   "relationship": 124,
-   "social": 67,
-   "wealth": 48,
-   "career": 43,
-   "study": 17,
-   "family": 13,
-   "mobility": 41
+   "career": 55,
+   "mobility": 53,
+   "relationship": 146,
+   "social": 82,
+   "wealth": 60,
+   "study": 27,
+   "family": 16
   },
-  "unresolvedRate": 0.184,
-  "disagreementRate": 0.017,
+  "unresolvedRate": 0.157,
+  "disagreementRate": 0.052,
   "ruleHitCoverage": {
-   "EV-CAR-01": 29,
-   "EV-CAR-02": 7,
-   "EV-CAR-03": 3,
-   "EV-CAR-04": 2,
-   "EV-CON-01": 52,
-   "EV-FAM-01": 13,
-   "EV-MOB-01": 33,
-   "EV-MOB-02": 8,
-   "EV-REL-01": 12,
-   "EV-REL-02": 15,
-   "EV-REL-03": 12,
-   "EV-REL-04": 25,
-   "EV-REL-05": 6,
-   "EV-SOC-01": 26,
-   "EV-STU-01": 17,
-   "EV-WEA-01": 34,
-   "EV-WEA-02": 2,
-   "EV-WEA-03": 2,
-   "EV-WEA-04": 10
+   "EV-CAR-01": 32,
+   "EV-CAR-02": 15,
+   "EV-CAR-03": 5,
+   "EV-CAR-04": 4,
+   "EV-CAR-05": 1,
+   "EV-CON-01": 61,
+   "EV-FAM-01": 16,
+   "EV-MOB-01": 40,
+   "EV-MOB-02": 15,
+   "EV-REL-01": 16,
+   "EV-REL-02": 21,
+   "EV-REL-03": 14,
+   "EV-REL-04": 31,
+   "EV-REL-05": 12,
+   "EV-SOC-01": 40,
+   "EV-STU-01": 27,
+   "EV-WEA-01": 43,
+   "EV-WEA-02": 15,
+   "EV-WEA-03": 4,
+   "EV-WEA-04": 14
   },
   "statusDistribution": {
-   "CANDIDATE": 271,
-   "UNRESOLVED": 65,
-   "LIKELY": 11,
-   "DISPUTED": 6
+   "CANDIDATE": 327,
+   "UNRESOLVED": 69,
+   "LIKELY": 20,
+   "DISPUTED": 23
   },
   "luckSourceCounts": {
-   "dayun": 100,
-   "mention": 38
+   "mention": 92,
+   "dayun": 73
   }
  },
  "replays": [
   {
-   "caseId": "CASE-SS-M02（六阴朝阳无名例）",
-   "book": "守素室丛谈",
-   "luck": "乙卯",
-   "luckSource": "dayun[0]",
+   "caseId": "CASE-MLYD-03（明思宗·崇祯）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "辛亥",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-01"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-06（清德宗·光绪）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "戊戌",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-08（徐世昌〔徐东海〕）",
+   "book": "命理一得",
+   "luck": "戊午",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
-   "annual": null,
+   "annual": "己卯",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": [
+      "EV-CAR-03"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "confidence": 0.975,
+     "rules": [
+      "EV-REL-01",
+      "EV-REL-04"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-09（袁世凯）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "丙辰",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-12（段祺瑞）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "丁丑",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
+    },
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-WEA-04"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-13（张作霖）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "戊辰",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
+    },
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-WEA-04"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-17（傅宗耀）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "庚辰",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
+    },
+    {
+     "theme": "social",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "confidence": 1.0,
+     "rules": [
+      "EV-SOC-01",
+      "EV-CON-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-19（阎锡山〔附商震、张人杰、张敬、萧世英等〕）",
+   "book": "命理一得",
+   "luck": "壬辰",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": "癸酉",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-02"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.3,
+     "rules": [
+      "EV-REL-01"
+     ]
+    },
+    {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-STU-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-20（胡汉民）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "丙子",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-REL-04"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-21（白崇禧）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "庚辰",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
+    },
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-25（周佛海）",
+   "book": "命理一得",
+   "luck": "辛丑",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": "甲午",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-REL-04",
+      "EV-REL-05"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-STU-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-26（贺耀祖）",
+   "book": "命理一得",
+   "luck": "己丑",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": "辛未",
    "claimThemes": [],
    "tianzeThemes": [
     {
@@ -76,6 +624,549 @@
      "rules": [
       "EV-REL-02"
      ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-29（女命无名例一·庚戌年）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "庚戌",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-02"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-WEA-03"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-30（女命无名例二·庚申年）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "庚申",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-01"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-REL-03"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-32（女命无名例四·庚子月）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "己卯",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-REL-04"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-35（女命无名例七·壬子红艳）",
+   "book": "命理一得",
+   "luck": "己酉",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": null,
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "confidence": 1.0,
+     "rules": [
+      "EV-REL-03",
+      "EV-REL-04"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-36（女命无名例八·壬子年庚金）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "壬子",
+   "claimThemes": [],
+   "tianzeThemes": [],
+   "matches": [],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-37（女命无名例九·己卯年）",
+   "book": "命理一得",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "己卯",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": [
+      "EV-REL-02"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-MLYD-41（书2所附其他无名造·择要）",
+   "book": "命理一得",
+   "luck": "乙卯",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": null,
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-FAM-01"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-02"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "family",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-ZPZM-04（癸巳丙辰壬申癸卯造）",
+   "book": "子平真诠评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "癸酉",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-REL-04"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-ZPZM-05（谭君造）",
+   "book": "子平真诠评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "庚午",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-02"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-REL-04",
+      "EV-REL-05"
+     ]
+    },
+    {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-STU-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-ZPZM-15（岳武穆命·阳刃格最著）",
+   "book": "子平真诠评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "辛酉",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-01"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-02"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-REL-04"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-SS-M02（六阴朝阳无名例）",
+   "book": "守素室丛谈",
+   "luck": "甲寅",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": null,
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
     },
     {
      "theme": "social",
@@ -177,7 +1268,7 @@
    "luck": "丙寅",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "丁丑",
    "claimThemes": [],
    "tianzeThemes": [
     {
@@ -200,10 +1291,12 @@
     },
     {
      "theme": "relationship",
-     "status": "UNRESOLVED",
+     "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.0,
-     "rules": []
+     "rules": [
+      "EV-REL-02"
+     ]
     },
     {
      "theme": "social",
@@ -260,7 +1353,7 @@
    "luck": "庚午",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "戊寅",
    "claimThemes": [],
    "tianzeThemes": [
     {
@@ -273,11 +1366,32 @@
      ]
     },
     {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
      "theme": "relationship",
-     "status": "UNRESOLVED",
+     "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.0,
-     "rules": []
+     "rules": [
+      "EV-REL-02"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02"
+     ]
     }
    ],
    "matches": [
@@ -287,7 +1401,17 @@
      "note": "Tianze 有候选，原书 claim 未提及"
     },
     {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
      "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -301,7 +1425,7 @@
    "luck": "乙酉",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
     {
@@ -323,6 +1447,16 @@
       "EV-SOC-01",
       "EV-CON-01"
      ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02"
+     ]
     }
    ],
    "matches": [
@@ -333,6 +1467,11 @@
     },
     {
      "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -346,7 +1485,7 @@
    "luck": "乙亥",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
     {
@@ -373,6 +1512,16 @@
      "rules": [
       "EV-SOC-01"
      ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02"
+     ]
     }
    ],
    "matches": [
@@ -390,6 +1539,11 @@
      "theme": "social",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
     }
    ],
    "specialFindings": 0,
@@ -401,7 +1555,7 @@
    "luck": "庚申",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
     {
@@ -428,6 +1582,16 @@
      "agreement": null,
      "confidence": 0.0,
      "rules": []
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02"
+     ]
     }
    ],
    "matches": [
@@ -443,6 +1607,11 @@
     },
     {
      "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -456,121 +1625,17 @@
    "luck": "丙申",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
     {
      "theme": "career",
      "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
+     "agreement": "PARTIAL",
+     "confidence": 1.0,
      "rules": [
-      "EV-CAR-01"
-     ]
-    },
-    {
-     "theme": "mobility",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-MOB-01"
-     ]
-    },
-    {
-     "theme": "relationship",
-     "status": "UNRESOLVED",
-     "agreement": null,
-     "confidence": 0.0,
-     "rules": []
-    }
-   ],
-   "matches": [
-    {
-     "theme": "career",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "mobility",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "relationship",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    }
-   ],
-   "specialFindings": 0,
-   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
-  },
-  {
-   "caseId": "CASE-SS-M10（徐新六）",
-   "book": "守素室丛谈",
-   "luck": "庚寅",
-   "luckSource": "dayun[0]",
-   "annualOnly": false,
-   "annual": null,
-   "claimThemes": [],
-   "tianzeThemes": [
-    {
-     "theme": "mobility",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-MOB-01"
-     ]
-    },
-    {
-     "theme": "relationship",
-     "status": "UNRESOLVED",
-     "agreement": null,
-     "confidence": 0.0,
-     "rules": []
-    }
-   ],
-   "matches": [
-    {
-     "theme": "mobility",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "relationship",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    }
-   ],
-   "specialFindings": 0,
-   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
-  },
-  {
-   "caseId": "CASE-SS-M12（胡笔江）",
-   "book": "守素室丛谈",
-   "luck": "丁亥",
-   "luckSource": "dayun[0]",
-   "annualOnly": false,
-   "annual": null,
-   "claimThemes": [],
-   "tianzeThemes": [
-    {
-     "theme": "career",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-CAR-01"
-     ]
-    },
-    {
-     "theme": "family",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-FAM-01"
+      "EV-CAR-01",
+      "EV-CAR-02"
      ]
     },
     {
@@ -597,6 +1662,165 @@
      "rules": [
       "EV-CON-01"
      ]
+    },
+    {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-STU-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-SS-M10（徐新六）",
+   "book": "守素室丛谈",
+   "luck": "庚寅",
+   "luckSource": "dayun[0]",
+   "annualOnly": false,
+   "annual": "戊寅",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-SS-M12（胡笔江）",
+   "book": "守素室丛谈",
+   "luck": "丙戌",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": "戊寅",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": "PARTIAL",
+     "confidence": 1.0,
+     "rules": [
+      "EV-CAR-01",
+      "EV-CAR-02"
+     ]
+    },
+    {
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-FAM-01"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-02"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.3,
+     "rules": [
+      "EV-REL-01"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-STU-01"
+     ]
     }
    ],
    "matches": [
@@ -624,6 +1848,11 @@
      "theme": "social",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
     }
    ],
    "specialFindings": 0,
@@ -632,53 +1861,10 @@
   {
    "caseId": "CASE-SS-M13（孙景扬）",
    "book": "守素室丛谈",
-   "luck": "癸亥",
-   "luckSource": "dayun[0]",
+   "luck": "甲子",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
-   "annual": null,
-   "claimThemes": [],
-   "tianzeThemes": [
-    {
-     "theme": "relationship",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.3,
-     "rules": [
-      "EV-REL-01"
-     ]
-    },
-    {
-     "theme": "social",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-SOC-01"
-     ]
-    }
-   ],
-   "matches": [
-    {
-     "theme": "relationship",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "social",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    }
-   ],
-   "specialFindings": 0,
-   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
-  },
-  {
-   "caseId": "CASE-DTZM-05（韩复榘造·绝处逢生）",
-   "book": "滴天髓补注",
-   "luck": "丁亥",
-   "luckSource": "dayun[0]",
-   "annualOnly": false,
-   "annual": null,
+   "annual": "丙子",
    "claimThemes": [],
    "tianzeThemes": [
     {
@@ -687,9 +1873,71 @@
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-CAR-01"
+      "EV-CAR-04"
      ]
     },
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 1.0,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02",
+      "EV-WEA-04"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-DTZM-03（友人某君造·同格不可用只可顺局）",
+   "book": "滴天髓补注",
+   "luck": "丁未",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": "乙亥",
+   "claimThemes": [],
+   "tianzeThemes": [
     {
      "theme": "mobility",
      "status": "CANDIDATE",
@@ -705,14 +1953,29 @@
      "agreement": null,
      "confidence": 0.0,
      "rules": []
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 1.0,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02",
+      "EV-WEA-04"
+     ]
     }
    ],
    "matches": [
-    {
-     "theme": "career",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
     {
      "theme": "mobility",
      "relation": "SOURCE_SILENT",
@@ -720,6 +1983,72 @@
     },
     {
      "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-DTZM-05（韩复榘造·绝处逢生）",
+   "book": "滴天髓补注",
+   "luck": "乙酉",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": null,
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-FAM-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "family",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -773,37 +2102,96 @@
   {
    "caseId": "CASE-DTZM-07（施再邨造·弃命从财）",
    "book": "滴天髓补注",
-   "luck": "丁巳",
-   "luckSource": "dayun[0]",
+   "luck": "庚申",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
     {
-     "theme": "relationship",
-     "status": "UNRESOLVED",
-     "agreement": null,
-     "confidence": 0.0,
-     "rules": []
-    },
-    {
-     "theme": "wealth",
+     "theme": "career",
      "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-WEA-01"
+      "EV-CAR-02"
+     ]
+    },
+    {
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-FAM-01"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "confidence": 1.0,
+     "rules": [
+      "EV-MOB-01",
+      "EV-MOB-02"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": [
+      "EV-REL-05"
+     ]
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-STU-01"
      ]
     }
    ],
    "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "family",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
     {
      "theme": "relationship",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
     {
-     "theme": "wealth",
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -817,7 +2205,7 @@
    "luck": "庚戌",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "壬戌",
    "claimThemes": [],
    "tianzeThemes": [
     {
@@ -832,9 +2220,10 @@
     {
      "theme": "wealth",
      "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
+     "agreement": "PARTIAL",
+     "confidence": 1.0,
      "rules": [
+      "EV-WEA-01",
       "EV-WEA-04"
      ]
     }
@@ -917,15 +2306,16 @@
    "luck": "甲子",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "丙辰",
    "claimThemes": [],
    "tianzeThemes": [
     {
      "theme": "relationship",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
      "rules": [
+      "EV-REL-02",
       "EV-REL-04"
      ]
     },
@@ -937,6 +2327,18 @@
      "rules": [
       "EV-CON-01"
      ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 1.0,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02",
+      "EV-WEA-03",
+      "EV-WEA-04"
+     ]
     }
    ],
    "matches": [
@@ -947,6 +2349,11 @@
     },
     {
      "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -1168,9 +2575,18 @@
    "luck": "乙亥",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "甲寅",
    "claimThemes": [],
    "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
     {
      "theme": "relationship",
      "status": "CANDIDATE",
@@ -1192,6 +2608,11 @@
    ],
    "matches": [
     {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
      "theme": "relationship",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
@@ -1206,21 +2627,31 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
-   "caseId": "CASE-DTZM-21（赵秉钧造·坐长生三刑逢冲）",
+   "caseId": "CASE-DTZM-20（席鹿笙造·喜用被冲）",
    "book": "滴天髓补注",
-   "luck": "戊辰",
-   "luckSource": "dayun[0]",
-   "annualOnly": false,
-   "annual": null,
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "甲寅",
    "claimThemes": [],
    "tianzeThemes": [
     {
      "theme": "career",
      "status": "CANDIDATE",
+     "agreement": "PARTIAL",
+     "confidence": 1.0,
+     "rules": [
+      "EV-CAR-01",
+      "EV-CAR-05"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-CAR-01"
+      "EV-MOB-01"
      ]
     },
     {
@@ -1234,6 +2665,69 @@
    "matches": [
     {
      "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-DTZM-21（赵秉钧造·坐长生三刑逢冲）",
+   "book": "滴天髓补注",
+   "luck": "戊辰",
+   "luckSource": "dayun[0]",
+   "annualOnly": false,
+   "annual": "甲寅",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": "PARTIAL",
+     "confidence": 1.0,
+     "rules": [
+      "EV-CAR-01",
+      "EV-CAR-04"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": [
+      "EV-REL-02"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "mobility",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
@@ -1513,21 +3007,12 @@
   {
    "caseId": "CASE-DTZM-29（稼穑格某造·晦火无光）",
    "book": "滴天髓补注",
-   "luck": "庚申",
-   "luckSource": "dayun[0]",
+   "luck": "辛酉",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
-    {
-     "theme": "mobility",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-MOB-01"
-     ]
-    },
     {
      "theme": "relationship",
      "status": "UNRESOLVED",
@@ -1537,11 +3022,6 @@
     }
    ],
    "matches": [
-    {
-     "theme": "mobility",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
     {
      "theme": "relationship",
      "relation": "SOURCE_SILENT",
@@ -1796,7 +3276,7 @@
    "caseId": "CASE-DTZM-35（戴季陶造·财官格）",
    "book": "滴天髓补注",
    "luck": "壬辰",
-   "luckSource": "dayun[0]",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
@@ -1850,18 +3330,39 @@
   {
    "caseId": "CASE-DTZM-36（伍朝枢造·财官印三重在印）",
    "book": "滴天髓补注",
-   "luck": "甲辰",
-   "luckSource": "dayun[0]",
+   "luck": "辛丑",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
-   "annual": null,
+   "annual": "甲戌",
    "claimThemes": [],
    "tianzeThemes": [
     {
+     "theme": "career",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "confidence": 1.0,
+     "rules": [
+      "EV-CAR-02",
+      "EV-CON-01"
+     ]
+    },
+    {
      "theme": "relationship",
-     "status": "UNRESOLVED",
+     "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.0,
-     "rules": []
+     "rules": [
+      "EV-REL-05"
+     ]
+    },
+    {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-STU-01"
+     ]
     },
     {
      "theme": "wealth",
@@ -1875,7 +3376,17 @@
    ],
    "matches": [
     {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
      "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
@@ -1960,51 +3471,25 @@
   {
    "caseId": "CASE-DTZM-38（韩国钧造·官印格）",
    "book": "滴天髓补注",
-   "luck": "庚子",
-   "luckSource": "dayun[0]",
+   "luck": "戊戌",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
     {
      "theme": "relationship",
-     "status": "UNRESOLVED",
+     "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.0,
-     "rules": []
-    },
-    {
-     "theme": "social",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
      "rules": [
-      "EV-CON-01"
-     ]
-    },
-    {
-     "theme": "wealth",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-WEA-01"
+      "EV-REL-02"
      ]
     }
    ],
    "matches": [
     {
      "theme": "relationship",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "social",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "wealth",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -2018,9 +3503,18 @@
    "luck": "庚午",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "丁巳",
    "claimThemes": [],
    "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
     {
      "theme": "relationship",
      "status": "CANDIDATE",
@@ -2032,10 +3526,11 @@
     },
     {
      "theme": "social",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "confidence": 1.0,
      "rules": [
+      "EV-SOC-01",
       "EV-CON-01"
      ]
     },
@@ -2051,6 +3546,11 @@
     }
    ],
    "matches": [
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
     {
      "theme": "relationship",
      "relation": "SOURCE_SILENT",
@@ -2076,25 +3576,36 @@
    "luck": "丙子",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "戊辰",
    "claimThemes": [],
    "tianzeThemes": [
     {
      "theme": "career",
      "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
+     "agreement": "PARTIAL",
+     "confidence": 1.0,
      "rules": [
-      "EV-CAR-01"
+      "EV-CAR-01",
+      "EV-CAR-02"
      ]
     },
     {
      "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-REL-04",
+      "EV-REL-05"
+     ]
+    },
+    {
+     "theme": "study",
      "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-REL-04"
+      "EV-STU-01"
      ]
     }
    ],
@@ -2106,6 +3617,11 @@
     },
     {
      "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -2173,21 +3689,12 @@
   {
    "caseId": "CASE-DTZM-42（巨商某富翁造·归禄财格）",
    "book": "滴天髓补注",
-   "luck": "庚申",
-   "luckSource": "dayun[0]",
+   "luck": "己未",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
-    {
-     "theme": "mobility",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-MOB-01"
-     ]
-    },
     {
      "theme": "relationship",
      "status": "UNRESOLVED",
@@ -2196,28 +3703,23 @@
      "rules": []
     },
     {
-     "theme": "wealth",
+     "theme": "social",
      "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-WEA-04"
+      "EV-SOC-01"
      ]
     }
    ],
    "matches": [
-    {
-     "theme": "mobility",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
     {
      "theme": "relationship",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
     {
-     "theme": "wealth",
+     "theme": "social",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -2326,8 +3828,8 @@
   {
    "caseId": "CASE-DTZM-45（冯煦造·身煞两停用印调候）",
    "book": "滴天髓补注",
-   "luck": "辛酉",
-   "luckSource": "dayun[0]",
+   "luck": "戊午",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
@@ -2338,16 +3840,7 @@
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-CAR-04"
-     ]
-    },
-    {
-     "theme": "family",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-FAM-01"
+      "EV-CON-01"
      ]
     },
     {
@@ -2358,12 +3851,12 @@
      "rules": []
     },
     {
-     "theme": "wealth",
+     "theme": "social",
      "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-WEA-04"
+      "EV-SOC-01"
      ]
     }
    ],
@@ -2374,17 +3867,12 @@
      "note": "Tianze 有候选，原书 claim 未提及"
     },
     {
-     "theme": "family",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
      "theme": "relationship",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
     {
-     "theme": "wealth",
+     "theme": "social",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -2395,12 +3883,21 @@
   {
    "caseId": "CASE-DTZM-46（萧耀南造·煞刃相合格）",
    "book": "滴天髓补注",
-   "luck": "丁丑",
-   "luckSource": "dayun[0]",
+   "luck": "乙亥",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
     {
      "theme": "relationship",
      "status": "UNRESOLVED",
@@ -2409,23 +3906,28 @@
      "rules": []
     },
     {
-     "theme": "wealth",
+     "theme": "social",
      "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-WEA-04"
+      "EV-SOC-01"
      ]
     }
    ],
    "matches": [
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
     {
      "theme": "relationship",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
     {
-     "theme": "wealth",
+     "theme": "social",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -2606,19 +4108,19 @@
   {
    "caseId": "CASE-DTZM-50（洪承畴造·杂气财官引出）",
    "book": "滴天髓补注",
-   "luck": "己未",
-   "luckSource": "dayun[0]",
+   "luck": "丁巳",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
     {
-     "theme": "career",
+     "theme": "mobility",
      "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-CAR-01"
+      "EV-MOB-01"
      ]
     },
     {
@@ -2636,11 +4138,20 @@
      "rules": [
       "EV-CON-01"
      ]
+    },
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-WEA-01"
+     ]
     }
    ],
    "matches": [
     {
-     "theme": "career",
+     "theme": "mobility",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
@@ -2651,6 +4162,11 @@
     },
     {
      "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -2786,65 +4302,8 @@
   {
    "caseId": "CASE-DTZM-54（丁酉丙午辛酉戊子造·官煞混杂用印化）",
    "book": "滴天髓补注",
-   "luck": "甲辰",
-   "luckSource": "dayun[0]",
-   "annualOnly": false,
-   "annual": null,
-   "claimThemes": [],
-   "tianzeThemes": [
-    {
-     "theme": "relationship",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.3,
-     "rules": [
-      "EV-REL-01"
-     ]
-    },
-    {
-     "theme": "social",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-CON-01"
-     ]
-    },
-    {
-     "theme": "wealth",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-WEA-01"
-     ]
-    }
-   ],
-   "matches": [
-    {
-     "theme": "relationship",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "social",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "wealth",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    }
-   ],
-   "specialFindings": 0,
-   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
-  },
-  {
-   "caseId": "CASE-DTZM-55（癸未壬戌丁未戊申造·喜煞助官）",
-   "book": "滴天髓补注",
-   "luck": "辛酉",
-   "luckSource": "dayun[0]",
+   "luck": "辛丑",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
@@ -2862,16 +4321,7 @@
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-CON-01"
-     ]
-    },
-    {
-     "theme": "wealth",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-WEA-01"
+      "EV-SOC-01"
      ]
     }
    ],
@@ -2885,9 +4335,47 @@
      "theme": "social",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-DTZM-55（癸未壬戌丁未戊申造·喜煞助官）",
+   "book": "滴天髓补注",
+   "luck": "戊午",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": null,
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": [
+      "EV-CAR-03"
+     ]
     },
     {
-     "theme": "wealth",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.3,
+     "rules": [
+      "EV-REL-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -2967,21 +4455,12 @@
   {
    "caseId": "CASE-DTZM-57（黎元洪造·伤官伤尽）",
    "book": "滴天髓补注",
-   "luck": "戊寅",
-   "luckSource": "dayun[0]",
+   "luck": "己卯",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
-    {
-     "theme": "mobility",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-MOB-01"
-     ]
-    },
     {
      "theme": "relationship",
      "status": "UNRESOLVED",
@@ -2991,11 +4470,6 @@
     }
    ],
    "matches": [
-    {
-     "theme": "mobility",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
     {
      "theme": "relationship",
      "relation": "SOURCE_SILENT",
@@ -3066,7 +4540,7 @@
    "caseId": "CASE-DTZM-59（曹锟造·飞天禄马填实破格）",
    "book": "滴天髓补注",
    "luck": "丁巳",
-   "luckSource": "dayun[0]",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
@@ -3188,51 +4662,37 @@
   {
    "caseId": "CASE-DTZM-63（金绍曾造·木火伤官调候）",
    "book": "滴天髓补注",
-   "luck": "癸卯",
-   "luckSource": "dayun[0]",
+   "luck": "辛丑",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-01"
+     ]
+    },
     {
      "theme": "relationship",
      "status": "UNRESOLVED",
      "agreement": null,
      "confidence": 0.0,
      "rules": []
-    },
-    {
-     "theme": "social",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-CON-01"
-     ]
-    },
-    {
-     "theme": "study",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-STU-01"
-     ]
     }
    ],
    "matches": [
     {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
      "theme": "relationship",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "social",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "study",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -3243,108 +4703,21 @@
   {
    "caseId": "CASE-DTZM-64（康有为造·水木伤官财官两见）",
    "book": "滴天髓补注",
-   "luck": "丁巳",
-   "luckSource": "dayun[0]",
+   "luck": "庚申",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
     {
-     "theme": "relationship",
-     "status": "UNRESOLVED",
-     "agreement": null,
-     "confidence": 0.0,
-     "rules": []
-    },
-    {
-     "theme": "social",
+     "theme": "career",
      "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-CON-01"
+      "EV-CAR-02"
      ]
     },
-    {
-     "theme": "wealth",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-WEA-01"
-     ]
-    }
-   ],
-   "matches": [
-    {
-     "theme": "relationship",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "social",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "wealth",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    }
-   ],
-   "specialFindings": 0,
-   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
-  },
-  {
-   "caseId": "CASE-DTZM-65（张宗昌造·六壬趋艮归伤官）",
-   "book": "滴天髓补注",
-   "luck": "乙巳",
-   "luckSource": "dayun[0]",
-   "annualOnly": false,
-   "annual": null,
-   "claimThemes": [],
-   "tianzeThemes": [
-    {
-     "theme": "relationship",
-     "status": "UNRESOLVED",
-     "agreement": null,
-     "confidence": 0.0,
-     "rules": []
-    },
-    {
-     "theme": "social",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-CON-01"
-     ]
-    }
-   ],
-   "matches": [
-    {
-     "theme": "relationship",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "social",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    }
-   ],
-   "specialFindings": 0,
-   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
-  },
-  {
-   "caseId": "CASE-DTZM-66（戊寅庚申己丑甲子造·财化并存）",
-   "book": "滴天髓补注",
-   "luck": "癸亥",
-   "luckSource": "dayun[0]",
-   "annualOnly": false,
-   "annual": null,
-   "claimThemes": [],
-   "tianzeThemes": [
     {
      "theme": "mobility",
      "status": "CANDIDATE",
@@ -3362,6 +4735,87 @@
      "rules": []
     },
     {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-STU-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-DTZM-65（张宗昌造·六壬趋艮归伤官）",
+   "book": "滴天髓补注",
+   "luck": "戊申",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": null,
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-01"
+     ]
+    },
+    {
+     "theme": "family",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-FAM-01"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "confidence": 1.0,
+     "rules": [
+      "EV-MOB-01",
+      "EV-MOB-02"
+     ]
+    },
+    {
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": [
+      "EV-REL-02"
+     ]
+    },
+    {
      "theme": "social",
      "status": "CANDIDATE",
      "agreement": null,
@@ -3369,18 +4823,19 @@
      "rules": [
       "EV-CON-01"
      ]
-    },
-    {
-     "theme": "wealth",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-WEA-01"
-     ]
     }
    ],
    "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "family",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
     {
      "theme": "mobility",
      "relation": "SOURCE_SILENT",
@@ -3395,9 +4850,47 @@
      "theme": "social",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-DTZM-66（戊寅庚申己丑甲子造·财化并存）",
+   "book": "滴天髓补注",
+   "luck": "甲子",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": null,
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "career",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-CAR-01"
+     ]
     },
     {
-     "theme": "wealth",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.3,
+     "rules": [
+      "EV-REL-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "relationship",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -3463,8 +4956,8 @@
   {
    "caseId": "CASE-DTZM-68（戊子丙辰辛酉壬辰造·印制护官）",
    "book": "滴天髓补注",
-   "luck": "戊午",
-   "luckSource": "dayun[0]",
+   "luck": "己未",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
@@ -3479,22 +4972,11 @@
      ]
     },
     {
-     "theme": "family",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-FAM-01"
-     ]
-    },
-    {
      "theme": "relationship",
-     "status": "CANDIDATE",
+     "status": "UNRESOLVED",
      "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-REL-04"
-     ]
+     "confidence": 0.0,
+     "rules": []
     },
     {
      "theme": "study",
@@ -3509,11 +4991,6 @@
    "matches": [
     {
      "theme": "career",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "family",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
@@ -3534,19 +5011,19 @@
   {
    "caseId": "CASE-DTZM-71（友人之子造·夏金从煞之凶）",
    "book": "滴天髓补注",
-   "luck": "乙巳",
-   "luckSource": "dayun[0]",
+   "luck": "癸卯",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
     {
-     "theme": "mobility",
+     "theme": "career",
      "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-MOB-01"
+      "EV-CAR-04"
      ]
     },
     {
@@ -3562,13 +5039,13 @@
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-WEA-01"
+      "EV-WEA-04"
      ]
     }
    ],
    "matches": [
     {
-     "theme": "mobility",
+     "theme": "career",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
@@ -3703,19 +5180,28 @@
   {
    "caseId": "CASE-DTZM-74（浙西刘某造·真从）",
    "book": "滴天髓补注",
-   "luck": "己酉",
-   "luckSource": "dayun[0]",
+   "luck": "壬子",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
     {
-     "theme": "career",
+     "theme": "family",
      "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-CAR-01"
+      "EV-FAM-01"
+     ]
+    },
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-02"
      ]
     },
     {
@@ -3724,16 +5210,35 @@
      "agreement": null,
      "confidence": 0.0,
      "rules": []
+    },
+    {
+     "theme": "social",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-SOC-01"
+     ]
     }
    ],
    "matches": [
     {
-     "theme": "career",
+     "theme": "family",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "mobility",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
     {
      "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "social",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -3744,39 +5249,37 @@
   {
    "caseId": "CASE-DTZM-75（吴星垣造·假从，与许世英对照）",
    "book": "滴天髓补注",
-   "luck": "庚午",
-   "luckSource": "dayun[0]",
+   "luck": "戊辰",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
     {
-     "theme": "career",
-     "status": "CANDIDATE",
+     "theme": "relationship",
+     "status": "UNRESOLVED",
      "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-CAR-01"
-     ]
+     "confidence": 0.0,
+     "rules": []
     },
     {
-     "theme": "relationship",
+     "theme": "wealth",
      "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-REL-04"
+      "EV-WEA-01"
      ]
     }
    ],
    "matches": [
     {
-     "theme": "career",
+     "theme": "relationship",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
     {
-     "theme": "relationship",
+     "theme": "wealth",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -3814,37 +5317,53 @@
   {
    "caseId": "CASE-DTZM-77（戊子辛酉丙申己丑造·丙辛从化＋引入沟渠）",
    "book": "滴天髓补注",
-   "luck": "癸亥",
-   "luckSource": "dayun[0]",
+   "luck": "乙丑",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
     {
-     "theme": "career",
+     "theme": "relationship",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": [
+      "EV-REL-05"
+     ]
+    },
+    {
+     "theme": "social",
      "status": "CANDIDATE",
      "agreement": null,
      "confidence": 0.6,
      "rules": [
-      "EV-CAR-01"
+      "EV-CON-01"
      ]
     },
     {
-     "theme": "relationship",
-     "status": "UNRESOLVED",
+     "theme": "study",
+     "status": "CANDIDATE",
      "agreement": null,
-     "confidence": 0.0,
-     "rules": []
+     "confidence": 0.6,
+     "rules": [
+      "EV-STU-01"
+     ]
     }
    ],
    "matches": [
     {
-     "theme": "career",
+     "theme": "relationship",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
     {
-     "theme": "relationship",
+     "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -3984,7 +5503,7 @@
    "luck": "壬戌",
    "luckSource": "dayun[0]",
    "annualOnly": false,
-   "annual": null,
+   "annual": "丙子",
    "claimThemes": [],
    "tianzeThemes": [
     {
@@ -3996,11 +5515,22 @@
     },
     {
      "theme": "social",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "confidence": 1.0,
      "rules": [
-      "EV-SOC-01"
+      "EV-SOC-01",
+      "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02"
      ]
     }
    ],
@@ -4012,6 +5542,11 @@
     },
     {
      "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -4623,67 +6158,55 @@
   {
    "caseId": "CASE-DTZM-96（李经羲造·财印交叉用官煞）",
    "book": "滴天髓补注",
-   "luck": "癸亥",
-   "luckSource": "dayun[0]",
+   "luck": "庚申",
+   "luckSource": "raw-span:body",
    "annualOnly": false,
-   "annual": null,
+   "annual": "丙寅",
    "claimThemes": [],
    "tianzeThemes": [
-    {
-     "theme": "career",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-CAR-01"
-     ]
-    },
-    {
-     "theme": "mobility",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
-     "rules": [
-      "EV-MOB-01"
-     ]
-    },
     {
      "theme": "relationship",
      "status": "CANDIDATE",
      "agreement": null,
-     "confidence": 0.0,
+     "confidence": 0.3,
      "rules": [
-      "EV-REL-02"
+      "EV-REL-01"
      ]
     },
     {
      "theme": "social",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
+     "status": "LIKELY",
+     "agreement": "HIGH",
+     "confidence": 1.0,
      "rules": [
+      "EV-SOC-01",
       "EV-CON-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
+     "rules": [
+      "EV-WEA-01",
+      "EV-WEA-02"
      ]
     }
    ],
    "matches": [
     {
-     "theme": "career",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
-     "theme": "mobility",
-     "relation": "SOURCE_SILENT",
-     "note": "Tianze 有候选，原书 claim 未提及"
-    },
-    {
      "theme": "relationship",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
     {
      "theme": "social",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     }
@@ -6167,6 +7690,106 @@
    "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
   },
   {
+   "caseId": "CASE-QBTM-戊-68",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "丙寅",
+   "claimThemes": [
+    "career"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
+     "theme": "study",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-STU-01"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "study",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-QBTM-戊-69",
+   "book": "穷通宝鉴评注",
+   "luck": null,
+   "luckSource": "annual-only",
+   "annualOnly": true,
+   "annual": "庚寅",
+   "claimThemes": [
+    "career"
+   ],
+   "tianzeThemes": [
+    {
+     "theme": "mobility",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-MOB-01"
+     ]
+    },
+    {
+     "theme": "wealth",
+     "status": "CANDIDATE",
+     "agreement": null,
+     "confidence": 0.6,
+     "rules": [
+      "EV-WEA-04"
+     ]
+    }
+   ],
+   "matches": [
+    {
+     "theme": "career",
+     "relation": "SOURCE_DIFFERS",
+     "note": "claim 有主题，Tianze 无该主题候选"
+    },
+    {
+     "theme": "mobility",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    },
+    {
+     "theme": "wealth",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
    "caseId": "CASE-QBTM-戊-72",
    "book": "穷通宝鉴评注",
    "luck": null,
@@ -7194,6 +8817,33 @@
      "relation": "SOURCE_SILENT",
      "note": "Tianze 有候选，原书 claim 未提及"
     },
+    {
+     "theme": "relationship",
+     "relation": "SOURCE_SILENT",
+     "note": "Tianze 有候选，原书 claim 未提及"
+    }
+   ],
+   "specialFindings": 0,
+   "note": "原书大运/流年按原书记载重放（无出生年份，无法重算起运）；对照不裁决谁对"
+  },
+  {
+   "caseId": "CASE-ZHY-M06（李纯）",
+   "book": "造化元钥评注",
+   "luck": "庚辰",
+   "luckSource": "raw-span:body",
+   "annualOnly": false,
+   "annual": "庚申",
+   "claimThemes": [],
+   "tianzeThemes": [
+    {
+     "theme": "relationship",
+     "status": "UNRESOLVED",
+     "agreement": null,
+     "confidence": 0.0,
+     "rules": []
+    }
+   ],
+   "matches": [
     {
      "theme": "relationship",
      "relation": "SOURCE_SILENT",
