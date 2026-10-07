@@ -99,3 +99,14 @@ def test_sdk_explanations_deterministic():
                                  include_explanations=True)).model_dump()
     assert r1["temporal"]["eventThemes"]["explanations"] == \
         r2["temporal"]["eventThemes"]["explanations"]
+
+
+def test_html_release_sections():
+    """HTML 报告渲染 audit/evaluation/graph/replay 摘要段 + PDF 路径声明。"""
+    from tianze.export_html import to_html
+    html = to_html(_result())
+    assert "Audit Gates" in html and "PASS" in html
+    assert "AI Evaluation History" in html
+    assert "Conflict / Rescue Graph" in html
+    assert "Case Replay" in html
+    assert "不做「命中率」" in html

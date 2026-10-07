@@ -192,6 +192,9 @@ def to_html(result: dict) -> str:
                                if h.get("quote") else "")
                             for h in hits]))
 
+    # M18：发布级摘要段（audit/evaluation/graph——从真实工件读取，缺失则跳过）
+    _append_release_sections(body, sec)
+
     # 警告
     warnings = (result.get("warnings") or []) + (result.get("fallbacks") or [])
     if warnings:
@@ -212,3 +215,60 @@ def to_html(result: dict) -> str:
         "Reasoning 保留分歧，AI 负责解释，历史命例负责对照——而不是证明命理「正确」。</p>"
         "</body></html>"
     )
+
+
+# ---- M18 发布级摘要段（只读工件；不重算推理） ----
+
+def _append_release_sections(body: list, sec) -> None:
+    """审计/评估历史/冲突图摘要。工件缺失时静默跳过（报告仍完整）。"""
+    def _load(rel, default):
+        path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), rel)
+        if not os.path.exists(path):
+            return None
+        return json.load(open(path, encoding="utf-8"))
+
+    audit = _load("regression/audit-gates.json", None)
+    if audit:
+        sec("audit", "Audit Gates（推理质量门）")
+        rows = "".join(
+            f"<tr><td>{_esc(k)}</td><td>{'PASS' if v.get('pass') else 'FAIL'}</td></tr>"
+            for k, v in audit.get("gates", {}).items())
+        body.append("<table><tr><th>门</th><th>状态</th></tr>" + rows + "</table>")
+
+    hist = _load("regression/ai-evaluation-history.jsonl", None)
+    if hist:
+        entries = [json.loads(x) for x in hist.strip().split(chr(10)) if x]
+        if entries:
+            sec("evaluation", "AI Evaluation History（确定性指标）")
+            rows = "".join(
+                f"<tr><td>{_esc(e.get('provider'))}/{_esc(e.get('model'))}</td>"
+                f"<td>{_esc(e.get('promptVersion'))}</td>"
+                f"<td>{e.get('summary', {}).get('pass', 0)}/{e.get('summary', {}).get('total', 0)}</td></tr>"
+                for e in entries[-5:])
+            body.append("<table><tr><th>provider/model</th><th>prompt</th>"
+                        "<th>pass/total</th></tr>" + rows + "</table>")
+            body.append('<p class="note">无 API Key 时评估 SKIPPED，不伪造结果；'
+                        '比较仅限确定性指标，不做「算命准确率」。</p>')
+
+    graph = _load("knowledge/rules/event/conflict-graph.json", None)
+    if graph:
+        sec("graph", "Rule Conflict / Rescue Graph 摘要")
+        body.append(_ul([
+            f"节点 {graph.get('nodeCount')}（规则+救应谓词）；边 {graph.get('edgeCount')}"
+            f"（{graph.get('edgeTypes')}）",
+            "每条边有声明出处（conflicts.json/rescues.json）；反查见 Knowledge 工作台",
+        ]))
+
+    replay = _load("regression/case-replay.json", None)
+    if replay:
+        stats = replay.get("stats", {})
+        sec("replay", "Case Replay 摘要")
+        body.append(_ul([
+            f"重放 {replay.get('count')} 例；对照分布 {stats.get('relationCounts')}",
+            f"unresolved 率 {stats.get('unresolvedRate')}；disagreement 率 {stats.get('disagreementRate')}",
+            "历史事件不是 truth；本报告不做「命中率」类统计",
+        ]))
+
+
+import json  # noqa: E402
+import os  # noqa: E402
