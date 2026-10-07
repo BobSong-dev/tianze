@@ -34,15 +34,76 @@
 冲突边 4 / 流派冲突对 6；Case Replay 165 例；Audit Gates 10 门全过；一键质量门 17 步
 26s；发布产物 RELEASE_NOTES/tag-prep。治理：`docs/VERSIONING.md`。详见 DECISIONS.md。
 
-## Web 应用
+
+## Quick Start
+
+### 安装
 
 ```bash
-# 启动 API
-cd apps/api && uvicorn main:app --reload --port 8000
-
-# 启动前端（另一个终端）
-cd apps/web && npm run dev
+# 从仓库安装（含 CLI）
+pip install -e .
+tianze version
 ```
+
+### CLI
+
+```bash
+# 原局分析（JSON）
+tianze analyze --date 2003-08-18 --time 14:30 --gender male
+
+# 聚焦岁运分析（大运→流年→流月）+ 事件主题
+tianze timeline --date 1984-02-05 --time 10:30 --gender male   --year 2026 --month 1 --event-themes
+
+# 导出 Markdown / HTML 报告
+tianze export --date 2003-08-18 --time 14:30 --gender male --format md --out report.md
+
+# 版本信息 / 知识库校验
+tianze version
+tianze validate
+```
+
+错误以 `CODE: message` 输出到 stderr（退出码 1），如 `INVALID_BIRTH_INFO: ...`。
+
+### Python SDK
+
+```python
+from tianze import analyze, AnalysisOptions
+
+result = analyze({"date": "2003-08-18", "time": "14:30", "gender": "male"})
+print(result.pillars["day"]["stem"])          # 癸
+
+# 岁运 + 事件主题 + 解释链
+r = analyze({"date": "1984-02-05", "time": "10:30", "gender": "male"},
+            AnalysisOptions(include_temporal=True, target_year=2026,
+                            include_event_themes=True, include_explanations=True))
+for theme in r.temporal["eventThemes"]["themes"]:
+    print(theme["themeCn"], theme["status"], theme["confidence"])
+```
+
+### Web / API
+
+```bash
+pip install -e ".[api]"
+.venv/Scripts/python -m uvicorn apps.api.main:app --port 8000   # API :8000
+cd apps/web && npm install && npm run dev                        # Web :5173
+```
+
+配置 AI 解读：复制 `.env.example` 并设置 `TIANZE_LLM_API_KEY`（可选）。
+
+### 开发
+
+```bash
+pip install -e ".[dev]"
+python -m pytest tests apps/api/tests -q        # 测试
+python tools/quality_gate.py                    # 一键质量门（17 步）
+python tools/release_check.py                   # 发布前检查（构建/安装/一致性）
+python tools/release_automation.py              # 发布演练（dry-run，不 push/tag）
+```
+
+数据目录：开发模式用仓库 `knowledge/`；安装模式用打包副本 `tianze/_data/knowledge`；
+可用 `TIANZE_DATA_DIR` 覆盖（见 `docs/VERSIONING.md`）。
+
+
 
 打开浏览器 → `http://localhost:5173` → 输入出生信息 → 查看完整分析。
 每个结论可展开"为什么"→ 查看规则来源 → 古籍原文 → 页码 → 验证状态。
