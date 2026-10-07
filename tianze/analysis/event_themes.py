@@ -84,6 +84,7 @@ class EventRuleHit(CamelizeModel):
     view: SchoolView
     evidence: list[str] = []
     provenanceLevels: list[str] = []
+    rescueApplied: dict[str, Any] | None = None   # M16：救应命中（id/effect/evidence/note）
     refId: str | None = None
 
     def model_post_init(self, __context: Any) -> None:
@@ -137,6 +138,8 @@ class EventContext(CamelizeModel):
     relations: list[dict[str, Any]] = []      # temporal relations（dict 形态）
     structures: list[dict[str, Any]] = []
     special_events: list[dict[str, Any]] = [] # special Delta（candidate 状态迁移/BLOCKED）
+    strength_verdict: str | None = None       # weighted verdict（救应谓词复用，不另造算法）
+    weighted_score: float | None = None
     context_ref: str = ""                     # 岁运链描述（temporal:chain:...）
 
 
@@ -578,9 +581,20 @@ def build_event_context(
         gender = "male"
     elif chart.birth.gender == M.Gender.FEMALE:
         gender = "female"
+    strength_verdict = None
+    weighted_score = None
+    if chart.strength is not None:
+        for m in chart.strength.methods:
+            if m.score is not None:
+                weighted_score = m.score
+            if m.verdict and m.verdict != "UNCERTAIN":
+                strength_verdict = m.verdict
+                break
     return EventContext(
         day_master=chart.day_master.stem,
         gender=gender,
+        strength_verdict=strength_verdict,
+        weighted_score=weighted_score,
         natal_stems=[chart.pillars.year.stem, chart.pillars.month.stem,
                      chart.pillars.day.stem,
                      chart.pillars.hour.stem if chart.pillars.hour else None],
@@ -606,7 +620,8 @@ def _temporal_stems_or_units(ctx: TemporalContext):
 def _aggregate(theme_key: str, hits: list[EventRuleHit],
                unresolved: bool,
                unresolved_notes: list[str] | None = None,
-               rule_meta: dict[str, dict] | None = None) -> EventThemeCandidate:
+               rule_meta: dict[str, dict] | None = None,
+               rescue_state: dict | None = None) -> EventThemeCandidate:
     sup = [h for h in hits if h.direction == EventDirection.SUPPORT]
     opp = [h for h in hits if h.direction == EventDirection.OPPOSE]
     blk = [h for h in hits if h.direction == EventDirection.BLOCK]
@@ -663,6 +678,7 @@ def _aggregate(theme_key: str, hits: list[EventRuleHit],
         view_of_rule={rid: m["view"] for rid, m in meta.items()},
         label_of_rule={rid: m["label"] for rid, m in meta.items()},
         prov_of_rule={rid: m["provenanceLevels"] for rid, m in meta.items()},
+        rescue_state=rescue_state or {},
     )]
 
     return EventThemeCandidate(
@@ -719,6 +735,11 @@ def compute_event_themes(
 
     ectx = build_event_context(chart, temporal_ctx, delta_report, relations, structures)
 
+    # M16：救应谓词一次评估（rescues.json 与 conflicts.json 共用）
+    from tianze.analysis.rescues import evaluate_rescues, get_rescue_declarations
+    rescue_state = evaluate_rescues(ectx)
+    rescue_decls = get_rescue_declarations()
+
     rules = _load_event_rules()
     hits_by_theme: dict[str, list[EventRuleHit]] = {}
     unresolved_themes: set[str] = set()
@@ -749,6 +770,17 @@ def compute_event_themes(
             evidence=ev,
             provenanceLevels=[p["level"] for p in r.get("provenance", [])],
         )
+        # M16：救应声明应用（对命中命中标记 rescueApplied；效果 weaken 保留方向）
+        for d in rescue_decls:
+            if d.get("target") != rid:
+                continue
+            st = rescue_state.get(d.get("predicate", ""), {})
+            if st.get("active"):
+                hit = hit.model_copy(update={"rescueApplied": {
+                    "id": d["id"], "predicate": d["predicate"],
+                    "effect": d.get("effect", "weaken"),
+                    "evidence": st.get("evidence", []), "note": st.get("note", ""),
+                }})
         hits_by_theme.setdefault(eff_theme, []).append(hit)
 
     rule_meta = {r["id"]: {"view": r.get("view", "traditional"),
@@ -758,7 +790,7 @@ def compute_event_themes(
     all_themes = sorted(set(hits_by_theme) | set(unresolved_themes))
     themes = [_aggregate(t, hits_by_theme.get(t, []),
                          t in unresolved_themes and not hits_by_theme.get(t),
-                         unresolved_notes.get(t, []), rule_meta)
+                         unresolved_notes.get(t, []), rule_meta, rescue_state)
               for t in all_themes]
 
     units = temporal_ctx.temporal_units()

@@ -371,14 +371,35 @@ def main() -> int:
         ),
     ]
 
+    rescues = [
+        {"id": "RSC-SHANGGUAN-YIN", "target": "EV-CAR-03", "predicate": "yin_present",
+         "effect": "weaken",
+         "note": "伤官见官的印救应（DTZ-43：以印制伤护官）——命中时 oppose 被削弱"},
+        {"id": "RSC-SHANGGUAN-CAI", "target": "EV-CAR-03", "predicate": "cai_present",
+         "effect": "weaken",
+         "note": "伤官见官的财救应（DTZ-39：伤官有财皆可见官）——命中时 oppose 被削弱"},
+        {"id": "RSC-CAI-YIN-GUAN", "target": "EV-REL-05", "predicate": "guan_bridges_cai_yin",
+         "effect": "weaken",
+         "note": "财印不容的官星通关（财生官、官生印，贪生忘克）——命中时 oppose 被削弱"},
+        {"id": "RSC-BIJIE-WEALTH", "target": "EV-WEA-02", "predicate": "wealth_favorable",
+         "effect": "weaken",
+         "note": "比劫夺财的条件差异（SS-R10 前提：财为喜神方向时该反向结构不成立）"},
+    ]
+    with open(os.path.join(OUT, "rescues.json"), "w", encoding="utf-8") as f:
+        json.dump({"schemaVersion": "1.0.0", "count": len(rescues),
+                   "rescues": rescues}, f, ensure_ascii=False, indent=1)
+
     conflicts = [
         {"ruleA": "EV-CAR-01", "ruleB": "EV-CAR-03",
-         "resolution": "keep-both",
-         "note": "DTZ-39：伤官见官有「可见/不可见」之辨（有财化伤则可见官）；"
-                 "v1 执行器未判救应，因此两条规则可同盘反向命中——保留双方，status=DISPUTED"},
+         "resolution": "specific-over-general", "specific": "EV-CAR-01",
+         "specificCondition": "cai_present",
+         "specificConditionNote": "伤官有财皆可见官（DTZ-39）——财救应成立时以官星支持为主要解释",
+         "note": "无救应条件时回落 keep-both：DTZ-39「可见/不可见」之辨需察财印有无"},
         {"ruleA": "EV-WEA-01", "ruleB": "EV-WEA-02",
-         "resolution": "keep-both",
-         "note": "SS-R10 原书自注「须察其配合，非可一例以推」：财星支持与因财启争同盘并存"},
+         "resolution": "specific-over-general", "specific": "EV-WEA-01",
+         "specificCondition": "wealth_favorable",
+         "specificConditionNote": "财为喜神方向（SS-R10 前提）——身强口径下以财星支持为主要解释",
+         "note": "无强度条件时回落 keep-both：SS-R10「须察其配合，非可一例以推」"},
         {"ruleA": "EV-REL-02", "ruleB": "EV-REL-03",
          "resolution": "keep-both",
          "note": "MLD-18：配偶星临岁运（support）与夫妻宫逢冲（oppose）可同时成立；"

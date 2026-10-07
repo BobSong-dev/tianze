@@ -67,7 +67,8 @@ def _lookup_pair(a: str, b: str) -> dict | None:
 
 def explain_conflicts(hits: list, view_of_rule: dict[str, str] | None = None,
                       label_of_rule: dict[str, str] | None = None,
-                      prov_of_rule: dict[str, list[str]] | None = None) -> list[ConflictExplanation]:
+                      prov_of_rule: dict[str, list[str]] | None = None,
+                      rescue_state: dict | None = None) -> list[ConflictExplanation]:
     """对同一主题内方向相反的规则命中生成上下文相关解释。
 
     hits: EventRuleHit 列表（已按主题聚合）；
@@ -92,13 +93,17 @@ def explain_conflicts(hits: list, view_of_rule: dict[str, str] | None = None,
             provs = sorted(set(prov_of.get(a.ruleId, []) + prov_of.get(b.ruleId, [])))
             decl = _lookup_pair(a.ruleId, b.ruleId)
 
-            if decl and decl.get("resolution") == "specific-over-general":
-                # 声明中 specific 的一方为主要解释（方向与命中方向对齐）
+            # M16：specificCondition（救应谓词）成立 → SPECIFIC_EXCEPTION 真实启用；
+            # 不成立 → 回落 keep-both/no-adjudication（上下文相关优先级，非全局 A>B）
+            cond_id = (decl or {}).get("specificCondition")
+            cond_active = bool(cond_id) and bool((rescue_state or {}).get(cond_id, {}).get("active"))
+            if decl and decl.get("resolution") == "specific-over-general" and cond_id and cond_active:
                 specific = decl.get("specific")
                 general = decl.get("ruleA") if specific == decl.get("ruleB") else decl.get("ruleB")
                 if specific in (a.ruleId, b.ruleId) and general in (a.ruleId, b.ruleId):
                     main = a if a.ruleId == specific else b
                     other = b if main is a else a
+                    cond_note = (rescue_state or {}).get(cond_id, {})
                     explanations.append(ConflictExplanation(
                         kind="SPECIFIC_EXCEPTION",
                         ruleA=general, ruleB=specific,
@@ -106,12 +111,16 @@ def explain_conflicts(hits: list, view_of_rule: dict[str, str] | None = None,
                         directionA=a.direction.value if a.ruleId == general else b.direction.value,
                         directionB=b.direction.value if b.ruleId == specific else a.direction.value,
                         resolution="specific-over-general",
-                        explanation=(f"{specific}（{decl.get('specificNote', '更具体的例外条件')}）"
-                                     f"是 {general} 的例外条件：当前保留 {specific} 为主要解释，"
-                                     f"同时记录 {general}（不删除）"),
+                        explanation=(
+                            f"{general} 命中，但 {specific} 的更具体条件/救应在本上下文成立"
+                            f"（{decl.get('specificConditionNote', cond_id)}；"
+                            f"依据：{'；'.join(cond_note.get('evidence', [])[:2]) or cond_note.get('note', '')}）"
+                            f"——以 {specific} 为主要解释，{general} 保留为背景证据（不删除）"),
                         provenanceLevels=provs,
                     ))
                     continue
+            # specificCondition 存在但不成立（或无 condition 的旧式声明）→ 不启用
+            # SPECIFIC_EXCEPTION，回落到 SCHOOL_DIFFERENCE / CONDITION_OVERLAP。
 
             if va and vb and va != vb:
                 explanations.append(ConflictExplanation(
