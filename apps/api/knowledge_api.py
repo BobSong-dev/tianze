@@ -135,13 +135,40 @@ async def stats() -> JSONResponse:
     for r in rules:
         for lv in r["provenanceLevels"]:
             prov[lv] += 1
+    from tianze import __version__
+    from tianze.knowledge.models import KNOWLEDGE_SCHEMA_VERSION, CASE_SCHEMA_VERSION
+    from tianze.ai.models import INTERPRETATION_SCHEMA_VERSION, PROMPT_VERSION
+    from tianze.analysis.temporal_delta import DELTA_SCHEMA_VERSION
+    from tianze.analysis.event_themes import EVENT_THEME_SCHEMA_VERSION
     return JSONResponse({
         "executableTotal": len(rules),
         "executableByDomain": dict(by_domain),
         "qualityDistribution": {k: v for k, v in by_quality.items() if k},
         "provenanceDistribution": dict(prov),
+        "versionDependencies": {
+            "knowledge": KNOWLEDGE_SCHEMA_VERSION,
+            "case": CASE_SCHEMA_VERSION,
+            "analysis": "1.0.0",
+            "delta": DELTA_SCHEMA_VERSION,
+            "event": EVENT_THEME_SCHEMA_VERSION,
+            "interpretation": INTERPRETATION_SCHEMA_VERSION,
+            "prompt": PROMPT_VERSION,
+            "engine": __version__,
+        },
         "note": "candidates 总数（556）与 executable 总数（216）是不同口径，勿混用",
     })
+
+
+@router.get("/evaluation-history")
+async def evaluation_history() -> JSONResponse:
+    """AI Evaluation History（只读；确定性指标，无 LLM-as-judge 评分）。"""
+    path = "regression/ai-evaluation-history.jsonl"
+    if not os.path.exists(path):
+        return JSONResponse({"count": 0, "entries": [],
+                             "note": "尚无评估记录（真实 provider 运行后写入）"})
+    entries = [json.loads(line) for line in
+               open(path, encoding="utf-8").read().strip().split(chr(10)) if line]
+    return JSONResponse({"count": len(entries), "entries": entries})
 
 
 @router.get("/coverage")

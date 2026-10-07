@@ -79,9 +79,24 @@ def main() -> int:
               f"变更 {dict(changes) or '{}'}")
         if write:
             out_path = f.replace(".json", ".migrated.json")
+            migrated["migrationMeta"] = {
+                "migratedFrom": payload.get("schemaVersion"),
+                "target": TARGET,
+                "rollback": f"恢复原文件即可（原文件未动；本副本可删除）",
+                "changedRules": changes.get("rules", 0),
+            }
             with open(out_path, "w", encoding="utf-8") as fh:
                 json.dump(migrated, fh, ensure_ascii=False, indent=1)
             print(f"    → 写入 {out_path}（原文件未动；人工确认后替换）")
+            # migration history（JSONL 追加；供治理审计）
+            with open("regression/migration-history.jsonl", "a", encoding="utf-8") as hf:
+                hf.write(json.dumps({
+                    "file": f, "from": payload.get("schemaVersion"), "to": TARGET,
+                    "changed": dict(changes), "mode": "write-copy",
+                    "sourceSha256": __import__("hashlib").sha256(
+                        json.dumps(payload, sort_keys=True, ensure_ascii=False).encode()
+                    ).hexdigest()[:16],
+                }, ensure_ascii=False) + chr(10))
 
     print(f"Migration dry-run 完成（{'写入 .migrated 副本' if write else '未写盘'}）；"
           f"总变更 {dict(total_changed) or '{}'}")

@@ -1,0 +1,1447 @@
+{
+ "domain": "event",
+ "schemaVersion": "1.2.0",
+ "count": 20,
+ "description": "事件主题规则（M14）：Source→Quote→RuleCandidate→ExecutableRule(domain=event)→EventThemeCandidate；view（流派视角）显式保留，效果只输出主题方向",
+ "rules": [
+  {
+   "id": "EV-CAR-01",
+   "candidateId": "DTZ-33",
+   "domain": "event",
+   "theme": "career",
+   "view": "traditional",
+   "label": "官星透岁运+官杀主题增强",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "正官",
+      "七杀"
+     ]
+    },
+    {
+     "field": "themeStrength.官杀",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "career"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": "官星透干本身只是结构事实；与主题增强同时出现才给 support。",
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "滴天髓补注·偏官七煞制化（DTZ-33：假煞为权/食神制煞/印化）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（官杀制化框架）",
+     "note": "偏官，即七煞也——一位而清名偏官，多而杂名七煞。用煞之法不外制与化：制用食神，化用印绶。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "「官杀主题增强」= StructuralTheme 增量（temporal delta 十神主题）"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-CAR-02",
+   "candidateId": "DTZ-33",
+   "domain": "event",
+   "theme": "career",
+   "view": "traditional",
+   "label": "官印相生（印化官杀）",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "正印",
+      "偏印"
+     ]
+    },
+    {
+     "field": "guanPresent",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "career"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "滴天髓补注·化煞用印（DTZ-33）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（化煞用印绶）",
+     "note": "用煞之法不外制与化：制用食神，化用印绶。"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-CAR-03",
+   "candidateId": "DTZ-39",
+   "domain": "event",
+   "theme": "career",
+   "view": "traditional",
+   "label": "伤官见官（岁运伤官克官）",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "eq",
+     "value": "伤官"
+    },
+    {
+     "field": "guanClashed",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "career"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": "伤官见官有「可见/不可见」之辨（有财则可见官）；v1 规则不判救应，因此输出为 oppose 方向但保留该 conflictNote，不伪装成定论。",
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "滴天髓补注·伤官见官（DTZ-39/43：以财化伤生官、以印制伤护官）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（伤官见官之辨）",
+     "note": "原文口诀「伤官见官最难辨，官有可见不可见」。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "只判「岁运伤官干克官星干」的最简结构；救应（财/印并见）v1 不展开，在 evidence 中如实说明"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-WEA-01",
+   "candidateId": "ZPZ-12",
+   "domain": "event",
+   "theme": "wealth",
+   "view": "traditional",
+   "label": "财星透岁运+财主题增强",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "正财",
+      "偏财"
+     ]
+    },
+    {
+     "field": "themeStrength.财星",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "wealth"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "子平真诠·财格（ZPZ-12：身强方能任财；喜根深不宜太露）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（财格框架）",
+     "note": "财格——身强方能任财；喜根深不宜太露；用财诸局。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "「财星主题增强」= StructuralTheme 增量"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "子平真诠评注",
+    "sourceFile": "_知识库/_知识库/03-子平真诠评注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（评注）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-WEA-02",
+   "candidateId": "SS-R10",
+   "domain": "event",
+   "theme": "wealth",
+   "view": "traditional",
+   "label": "刃头财/比劫夺财（因财启争）",
+   "conditions": [
+    {
+     "field": "renOrLuHeadCai",
+     "operator": "eq",
+     "value": true
+    },
+    {
+     "field": "orBijiePlusCai",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "wealth"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": "SS-R10 原书即注明「须察其配合，非可一例以推」；oppose 方向是结构提示，不是破财断言。",
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "守素室丛谈·刃头财/禄头财（SS-R10）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（刃头财/禄头财流年断）",
+     "note": "刃头财者，支逢阳刃、干见财星也，名销镕煞……流年遇之，皆主因财启争。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "比劫主题增强+财星并见 的组合判定"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "守素室丛谈",
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（原著）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-WEA-03",
+   "candidateId": "DTZ-35",
+   "domain": "event",
+   "theme": "wealth",
+   "view": "traditional",
+   "label": "财库逢冲（两说并存）",
+   "conditions": [
+    {
+     "field": "caiKuClashed",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "wealth"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": "「冲开财库得财」与「冲不可靠（DTZ-35）」两说并存：规则给 support 方向但 conflictNote 强制保留两说，聚合层因此可能出 DISPUTED。",
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "滴天髓补注·杂气财官（DTZ-35）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（喜冲不可靠之辨）",
+     "note": "至于杂气财官喜冲之说极不可靠……用神所在必不可损伤，冲而损伤岂不为害？"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "财库 = 我克五行之墓库（木未/火戌/金丑/水辰）；冲 = 六冲表"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-REL-01",
+   "candidateId": "TIANZE-ENGINEERING-11",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "traditional",
+   "label": "夫妻宫（日支）逢岁运六合",
+   "conditions": [
+    {
+     "field": "dayBranchSixCombined",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "relationship"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "传统命理通说",
+     "concept": "日支为夫妻宫；合主结合/引动（Tianze 知识库无直接引文，如实标注）"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "六合表判定（R10 相关口径）"
+    }
+   ],
+   "source": {
+    "sourceKind": "TIANZE_HEURISTIC",
+    "book": "Tianze",
+    "chapter": "event_themes.py 结构检测",
+    "confidence": "unverified"
+   },
+   "quality": "C",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-REL-02",
+   "candidateId": "MLD-18",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "traditional",
+   "label": "夫妻宫逢冲/夫星逢冲",
+   "conditions": [
+    {
+     "field": "dayBranchClashed",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "relationship"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": "MLD-18 原文明言「离婚非不可避免事」且随时代变迁——oppose 方向只是「关系主题有冲突结构」，绝不可输出关系破裂断言。",
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "命理一得·离婚之微象（MLD-18：财为妻星、日支为夫宫）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（夫宫/夫星逢冲）",
+     "note": "财为妻星、日支为夫宫……盖女命以官为夫星……更见财星冲之，决然合（离）。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "宫位映射（日支=配偶宫）为通行口径"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "命理一得",
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-REL-03",
+   "candidateId": "MLD-18",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "traditional",
+   "label": "配偶星临岁运（男财/女官）",
+   "conditions": [
+    {
+     "field": "gender",
+     "operator": "in",
+     "value": [
+      "male",
+      "female"
+     ]
+    },
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "__GENDER_CONDITIONAL__"
+     ]
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "relationship"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": "value __GENDER_CONDITIONAL__ 由执行器按性别解析为 [正财,偏财]（男）或 [正官,七杀]（女）；性别未知时输出 UNRESOLVED。",
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "命理一得（MLD-18：财为妻星、女命以官为夫星）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（妻星/夫星定义）",
+     "note": "财为妻星，日支为夫宫……女命以官为夫星。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "性别未知 → 规则 UNRESOLVED（不猜）"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "命理一得",
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-REL-04",
+   "candidateId": "MLD-21",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "shensha",
+   "label": "咸池桃花临岁运",
+   "conditions": [
+    {
+     "field": "xianchiBranchHit",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "relationship"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": "SS-R22 引滴天髓「咸池驿马半推详」、子平法尽删神煞——神煞视角的support 必须带该反对声音（shensha view 单独记录，不与传统 view 合并）。",
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "命理一得·桃花名目（MLD-21）+ 守素室丛谈·神煞去取（SS-R22）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（桃花名目与四时起例）",
+     "note": "桃花名目甚多……正桃花-巳亥，咸池桃花，红艳桃花，桃花马……"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "v1 只用通行咸池起例（三合沐浴位）；MLD-21 名目繁多且有分歧"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "命理一得",
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾"
+   },
+   "quality": "C",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-STU-01",
+   "candidateId": "DTZ-33",
+   "domain": "event",
+   "theme": "study",
+   "view": "traditional",
+   "label": "印星临岁运+印主题增强",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "正印",
+      "偏印"
+     ]
+    },
+    {
+     "field": "themeStrength.印星",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "study"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "滴天髓补注·印绶（DTZ-33 化煞）+ 印主文书/资格（通说）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（印绶化煞）",
+     "note": "身弱煞强则宜用印以化之。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "「印=学习/考试/资格」为通说映射（Tianze 知识库无直接考试引文）"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
+   "quality": "C",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-MOB-01",
+   "candidateId": "SS-R22",
+   "domain": "event",
+   "theme": "mobility",
+   "view": "shensha",
+   "label": "驿马临岁运/驿马逢冲",
+   "conditions": [
+    {
+     "field": "yimaBranchHitOrClash",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "mobility"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": "SS-R22 明言驿马「不能尽验」且子平法尽删神煞——本规则属 shensha view，confidence 权重低，且不得与其他 view 合并成强结论。",
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "守素室丛谈·神煞去取（SS-R22 引滴天髓）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（神煞去取原则）",
+     "note": "神煞之名盈千，重复伪造者十居七八……即驿马咸池亦不能尽验。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "驿马起例 = 年支/日支三合马位；逢冲为「马逢冲则动」通说"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "守素室丛谈",
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（原著）"
+   },
+   "quality": "C",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-MOB-02",
+   "candidateId": "DTZ-09",
+   "domain": "event",
+   "theme": "mobility",
+   "view": "traditional",
+   "label": "岁运冲提纲（月令）",
+   "conditions": [
+    {
+     "field": "monthBranchClashed",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "mobility"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "滴天髓补注·支神只以冲为重（DTZ-09）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（冲为重）",
+     "note": "支神只以冲为重，刑与穿兮动不动。……刑、冲、害三者之中以冲为重。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "冲提纲→环境/根基引动为通说映射（TR-DTZ-09 同源）"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-FAM-01",
+   "candidateId": "DTZ-09",
+   "domain": "event",
+   "theme": "family",
+   "view": "traditional",
+   "label": "年柱/月柱被天克地冲（宫位引动）",
+   "conditions": [
+    {
+     "field": "familyPalaceTiankedi",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "family"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "传统命理通说",
+     "concept": "年柱=祖上/父母宫、月柱=父母兄弟宫（通说映射，知识库无直接引文）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（冲重框架，来自 DTZ-09）",
+     "note": "支神只以冲为重，刑与穿兮动不动。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "复用 temporal structures（fanyin/tiankedi）中涉及 natal:year/month 者"
+    }
+   ],
+   "source": {
+    "sourceKind": "TIANZE_HEURISTIC",
+    "book": "Tianze",
+    "chapter": "event_themes.py 结构检测",
+    "confidence": "unverified"
+   },
+   "quality": "C",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-SOC-01",
+   "candidateId": "MLD-06",
+   "domain": "event",
+   "theme": "social",
+   "view": "traditional",
+   "label": "比劫临岁运/比劫主题增强",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "比肩",
+      "劫财"
+     ]
+    },
+    {
+     "field": "orThemeStrength.比劫",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "social"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "传统命理通说",
+     "concept": "比劫=同辈/朋友/竞争（MLD-06 六神框架）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（六神框架）",
+     "note": "神煞者：天干六神（财官食印比劫及本身为六），地支会合刑冲。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "主题增强 = StructuralTheme 增量"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "命理一得",
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾"
+   },
+   "quality": "C",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-CON-01",
+   "candidateId": "DTZ-04",
+   "domain": "event",
+   "theme": "social",
+   "view": "special_pattern",
+   "label": "从格/专旺岁运破格（顺势 vs 破格两说）",
+   "conditions": [
+    {
+     "field": "specialCandidateBlocked",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "social"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": "岁运破从格：顺势说（岁运助从）与破格说（印比生扶不从）并存；本规则只记录 blocked 事件并给出两说，不裁决。",
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "滴天髓补注·从格（DTZ-04/05/06：阳干从气不从势、阴干从势无情义、绝处逢生/有印不从）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（从与不从之辨）",
+     "note": "阳干性质刚健……非至本气休囚死绝之地不能言从；或虽临死绝而见印相生，仍为绝处逢生，亦不能从。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "岁运引入印比 → 从格 candidate BLOCKED（复用 M13 special delta）；主题归属按从格类型映射（从财→wealth 等）"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-CAR-04",
+   "candidateId": "SS-R05",
+   "domain": "event",
+   "theme": "career",
+   "view": "traditional",
+   "label": "食神制杀（条件化）",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "eq",
+     "value": "食神"
+    },
+    {
+     "field": "shaPresent",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "career"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": "SS-R05：身强煞浅则假煞为权不可制——本规则 support 以「身煞强弱未判」为前提，与 EV-CAR-01（官杀透出）同盘时可能同向叠加。",
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "守素室丛谈·煞有可制不可制（SS-R05）+ 滴天髓补注·制用食神（DTZ-33）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（制杀框架）",
+     "note": "煞有可制不可制：身强煞弱→煞化为官……用食神以节制之。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "v1 不判身强弱：support 方向附带「身强煞浅不可制」前提保留"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "守素室丛谈",
+    "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（原著）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-CAR-05",
+   "candidateId": "DTZ-33",
+   "domain": "event",
+   "theme": "career",
+   "view": "traditional",
+   "label": "煞刃相合（身煞两停）",
+   "conditions": [
+    {
+     "field": "yangRenPresent",
+     "operator": "eq",
+     "value": true
+    },
+    {
+     "field": "temporalSha",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "career"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "滴天髓补注·七煞（DTZ-33）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（煞刃相合）",
+     "note": "身煞两停（如阳刃七煞之类）最宜煞刃相合，不合亦须用印以和之。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "阳刃取 YANG_STEM_REN 表（R24，阴干无刃）"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-WEA-04",
+   "candidateId": "ZPZ-12",
+   "domain": "event",
+   "theme": "wealth",
+   "view": "traditional",
+   "label": "食伤生财",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "食神",
+      "伤官"
+     ]
+    },
+    {
+     "field": "caiPresent",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "wealth"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "子平真诠·财格（ZPZ-12：用财诸局）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（财格框架）",
+     "note": "财格——身强方能任财；喜根深不宜太露；用财诸局。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "食伤生财 = 岁运食伤干 + 命/岁财星并见"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "子平真诠评注",
+    "sourceFile": "_知识库/_知识库/03-子平真诠评注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（评注）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  },
+  {
+   "id": "EV-REL-05",
+   "candidateId": "MLD-18",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "traditional",
+   "label": "财印不容（关系张力）",
+   "conditions": [
+    {
+     "field": "temporalStemTenGod",
+     "operator": "in",
+     "value": [
+      "正印",
+      "偏印"
+     ]
+    },
+    {
+     "field": "caiPresent",
+     "operator": "eq",
+     "value": true
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "relationship"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": "MLD-18 原文明言「离婚非不可避免事」且随时代变迁；oppose 方向仅为关系主题张力，绝非关系破裂断言。",
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "命理一得·离婚之微象（MLD-18）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（财印不容）",
+     "note": "更见财星冲之，决然合（离），财印不相容势必（分）飞也。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "岁运印干 + 命/岁财星并见的最简结构判定"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "命理一得",
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   },
+   "schemaVersion": "1.2.0",
+   "migrationTag": "1.1->1.2"
+  }
+ ],
+ "migrationMeta": {
+  "migratedFrom": "1.0.0",
+  "target": "1.2.0",
+  "rollback": "恢复原文件即可（原文件未动；本副本可删除）",
+  "changedRules": 20
+ }
+}
