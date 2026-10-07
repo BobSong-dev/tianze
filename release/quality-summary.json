@@ -1,23 +1,25 @@
 {
  "schemaVersion": "1.0.0",
- "allPass": true,
- "failed": [],
- "totalSeconds": 35.9,
+ "allPass": false,
+ "failed": [
+  "pytest"
+ ],
+ "totalSeconds": 36.2,
  "steps": [
   {
    "step": "pytest",
-   "exitCode": 0,
-   "elapsedSeconds": 28.62,
+   "exitCode": 1,
+   "elapsedSeconds": 28.96,
    "tail": [
-    "",
-    "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
-    "529 passed, 5 warnings in 28.18s"
+    "=========================== short test summary info ===========================",
+    "FAILED tests/test_release_check.py::test_release_check_all_pass - assert 1 == 0",
+    "1 failed, 528 passed, 5 warnings in 28.53s"
    ]
   },
   {
    "step": "knowledge_validator",
    "exitCode": 0,
-   "elapsedSeconds": 0.07,
+   "elapsedSeconds": 0.06,
    "tail": [
     "}",
     "",
@@ -27,7 +29,7 @@
   {
    "step": "conflict_graph",
    "exitCode": 0,
-   "elapsedSeconds": 0.07,
+   "elapsedSeconds": 0.05,
    "tail": [
     "Conflict Graph：222 节点 / 16 边 {'conflict': 4, 'rescues': 6, 'school-conflict': 6}"
    ]
@@ -35,7 +37,7 @@
   {
    "step": "graph_audit",
    "exitCode": 0,
-   "elapsedSeconds": 0.67,
+   "elapsedSeconds": 0.66,
    "tail": [
     "Graph Audit：A1 UNVERIFIED=0 | A4 cycles=0 | A2 overActive=无 | heuristic-only 规则=0"
    ]
@@ -53,7 +55,7 @@
   {
    "step": "rule_audit",
    "exitCode": 0,
-   "elapsedSeconds": 0.05,
+   "elapsedSeconds": 0.06,
    "tail": [
     "Rule Audit：20 条规则；异常泛化信号 无"
    ]
@@ -61,7 +63,7 @@
   {
    "step": "case_regression",
    "exitCode": 0,
-   "elapsedSeconds": 0.63,
+   "elapsedSeconds": 0.65,
    "tail": [
     "  \"current\": 1147",
     " }",
@@ -79,7 +81,7 @@
   {
    "step": "event_evaluation",
    "exitCode": 0,
-   "elapsedSeconds": 1.49,
+   "elapsedSeconds": 1.48,
    "tail": [
     "  随机盘主题触发率：{'career': 0.44, 'mobility': 0.315, 'relationship': 0.485, 'social': 0.335, 'study': 0.235, 'wealth': 0.27}",
     "  异常触发：{'rules': {}, 'themes': {}}",
@@ -89,7 +91,7 @@
   {
    "step": "case_replay",
    "exitCode": 0,
-   "elapsedSeconds": 0.49,
+   "elapsedSeconds": 0.5,
    "tail": [
     "  主题覆盖：{'career': 55, 'mobility': 53, 'relationship': 146, 'social': 82, 'wealth': 60, 'study': 27, 'family': 16}",
     "  status 分布：{'CANDIDATE': 327, 'UNRESOLVED': 69, 'LIKELY': 20, 'DISPUTED': 23}",
@@ -118,7 +120,7 @@
   {
    "step": "rule_coverage_audit",
    "exitCode": 0,
-   "elapsedSeconds": 0.07,
+   "elapsedSeconds": 0.06,
    "tail": [
     "Rule Coverage Audit：216 条规则 → {'high_conflict': 5, 'high_rescue_dep': 1, 'low_trigger': 1, 'no_case_coverage': 16, 'only_silent': 13}"
    ]
@@ -128,13 +130,13 @@
    "exitCode": 0,
    "elapsedSeconds": 0.05,
    "tail": [
-    "AI Eval Compare：155 条历史；回归信号 0"
+    "AI Eval Compare：160 条历史；回归信号 0"
    ]
   },
   {
    "step": "benchmark",
    "exitCode": 0,
-   "elapsedSeconds": 1.4,
+   "elapsedSeconds": 1.41,
    "tail": [
     "benchmark history signals: 无"
    ]
@@ -142,7 +144,7 @@
   {
    "step": "release_metadata",
    "exitCode": 0,
-   "elapsedSeconds": 1.05,
+   "elapsedSeconds": 1.03,
    "tail": [
     " }",
     "}",
@@ -152,9 +154,9 @@
   {
    "step": "release_automation_dryrun",
    "exitCode": 0,
-   "elapsedSeconds": 0.2,
+   "elapsedSeconds": 0.21,
    "tail": [
-    "Release Automation：0.2.0 → v0.3.0（minor）；commits {'features': 82, 'fixes': 8, 'tests': 10, 'docs': 6, 'chores': 6}；notes → release/RELEASE_NOTES.md",
+    "Release Automation：0.2.0 → v0.3.0（minor）；commits {'features': 83, 'fixes': 8, 'tests': 10, 'docs': 6, 'chores': 6}；notes → release/RELEASE_NOTES.md",
     "  tag：dry-run（未创建，不 push）"
    ]
   }

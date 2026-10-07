@@ -1,8 +1,8 @@
 # Tianze v0.3.0 Release Notes
 
-- commit: `f4cc0b2a2828`（含未提交改动）
+- commit: `6e9b4c3a5683`（含未提交改动）
 - 当前版本 0.2.0 → 建议 v0.3.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（35.9s / 17 步）
+- 质量门：FAIL（36.2s / 17 步）
 
 ## 版本与规模
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.475,
-  "perCaseMs": 0.45
+  "elapsedSeconds": 0.478,
+  "perCaseMs": 0.46
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.639,
-  "perCaseMs": 0.61
+  "elapsedSeconds": 0.651,
+  "perCaseMs": 0.62
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.015
+  "elapsedSeconds": 0.016
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（82）
+### 特性（83）
+- M20.1: v0.2.0 release rehearsal + ADR-056/057
 - M20.9: README Quick Start (CLI/SDK/Web/dev commands) + .env.example
 - M20.3-4: Web AI evaluation compare view + Rule/Conflict/Rescue graph view
 - M20.5: benchmark history (JSONL with commit/engine/regressionSignals, transparent thresholds) + release-check re-verified ALL PASS

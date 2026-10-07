@@ -4,8 +4,8 @@
 
 | step | 状态 | detail |
 |---|---|---|
-| P0_quality_gate | PASS | 17 步 ALL PASS |
-| P1_package_build | PASS | tianze_bazi-0.2.0-py3-none-any.whl，4.1s |
+| P0_quality_gate | PASS | WARN: 最近一次 quality summary 未 ALL PASS（pytest）——发布前请重跑 tools/quality_gate.py |
+| P1_package_build | PASS | tianze_bazi-0.2.0-py3-none-any.whl，4.2s |
 | P2_clean_install_smoke | PASS | clean venv install → version/analyze |
 | P3_cli_smoke | PASS | 3/3 |
 | P4_version_consistency | PASS | 0.2.0（dynamic single-source=True，metadata=0.2.0） |
