@@ -35,7 +35,7 @@ VALID_SUPPORT = {"SUPPORTED", "EXPERIMENTAL", "UNSUPPORTED"}
 VALID_KIND = {"added", "removed", "strengthened", "weakened", "status_changed",
               "blocked", "unblocked", "disagreement_changed"}
 
-N_RANDOM = 60
+N_RANDOM = 120
 
 
 def _random_charts(n: int, seed: int = 2026):
@@ -130,6 +130,55 @@ def test_grounding_intercepts_fake_refs():
     types = {i.type for i in issues}
     assert GroundingIssueType.UNKNOWN_EVIDENCE_ID in types
     assert GroundingIssueType.UNKNOWN_SOURCE_ID in types
+
+
+def test_conflict_graph_live_integrity():
+    """图完整性（运行时）：全部边端点存在；每条 event 规则可反查。"""
+    import glob as _glob
+    g = json.load(open("knowledge/rules/event/conflict-graph.json", encoding="utf-8"))
+    node_ids = {n["id"] for n in g["nodes"]}
+    for e in g["edges"]:
+        ids = e.get("between") or [x for x in (e.get("from"), e.get("to")) if x]
+        assert all(x in node_ids for x in ids), e
+        if len(ids) >= 2:
+            assert ids[0] != ids[1], e
+    from tianze.analysis.rule_conflicts import explain_rule
+    for f in _glob.glob("knowledge/rules/event/rules.json"):
+        for r in json.load(open(f, encoding="utf-8"))["rules"]:
+            info = explain_rule(r["id"])
+            assert info["rule"]["id"] == r["id"]
+
+
+def test_case_chart_replay_robustness():
+    """随机四柱 → case chart 不崩溃；不完整四柱 → ValueError（显式拒绝）。"""
+    from tianze.analysis.case_chart import build_case_chart
+    rng = random.Random(11)
+    ok = 0
+    for _ in range(30):
+        pillars = {}
+        for pos in ("year", "month", "day", "hour"):
+            i = rng.randint(0, 59)
+            pillars[pos] = STEMS[i % 10] + BRANCHES[i % 12]
+        chart = build_case_chart(pillars)
+        assert chart.day_master.stem == pillars["day"][0]
+        ok += 1
+    assert ok == 30
+    with pytest.raises(ValueError):
+        build_case_chart({"year": "甲子", "day": "甲子"})
+
+
+def test_cache_correctness_random():
+    """进程内缓存正确性：随机同参调用输出一致（缓存不改变结果）。"""
+    from tianze.analysis.temporal_extended import _analyze_temporal_cached
+    rng = random.Random(13)
+    for _ in range(20):
+        natal = tuple(STEMS[rng.randint(0, 9)] for _ in range(4))
+        natal_b = tuple(BRANCHES[rng.randint(0, 11)] for _ in range(4))
+        layer = lambda: (STEMS[rng.randint(0, 9)], BRANCHES[rng.randint(0, 11)])
+        args = ((natal, natal_b), natal[2], layer(), layer(), layer(), layer())
+        r1 = _analyze_temporal_cached(*args)
+        r2 = _analyze_temporal_cached(*args)
+        assert r1.model_dump_json(by_alias=True) == r2.model_dump_json(by_alias=True)
 
 
 def test_month_windows_continuity_random_years():
