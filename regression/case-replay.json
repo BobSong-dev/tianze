@@ -57,6 +57,10 @@
   "luckSourceCounts": {
    "mention": 92,
    "dayun": 73
+  },
+  "skipReasons": {
+   "incompletePillars": 982,
+   "note": "跳过 = 无结构化大运且无 high-confidence 干支 span 且无流年提及（不猜）"
   }
  },
  "replays": [
@@ -75,6 +79,11 @@
      "EV-MOB-01"
     ],
     "relationship": []
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "辛亥",
    "claimThemes": [],
@@ -141,6 +150,11 @@
      "EV-CON-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "戊戌",
    "claimThemes": [],
    "tianzeThemes": [
@@ -206,6 +220,10 @@
      "EV-REL-04"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
@@ -257,6 +275,10 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "丙辰",
    "claimThemes": [],
    "tianzeThemes": [
@@ -304,6 +326,10 @@
     "wealth": [
      "EV-WEA-04"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "丁丑",
    "claimThemes": [],
@@ -353,6 +379,10 @@
      "EV-WEA-04"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "戊辰",
    "claimThemes": [],
    "tianzeThemes": [
@@ -401,6 +431,10 @@
      "EV-CON-01",
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "庚辰",
    "claimThemes": [],
@@ -455,6 +489,11 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "癸酉",
    "claimThemes": [],
@@ -522,6 +561,10 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "丙子",
    "claimThemes": [],
    "tianzeThemes": [
@@ -574,6 +617,11 @@
     "wealth": [
      "EV-CON-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "庚辰",
    "claimThemes": [],
@@ -646,6 +694,12 @@
      "EV-WEA-01",
      "EV-WEA-02"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "甲午",
    "claimThemes": [],
@@ -729,6 +783,10 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "辛未",
    "claimThemes": [],
    "tianzeThemes": [
@@ -780,6 +838,10 @@
     "wealth": [
      "EV-WEA-03"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "庚戌",
    "claimThemes": [],
@@ -835,6 +897,11 @@
     "relationship": [
      "EV-REL-03"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "庚申",
    "claimThemes": [],
@@ -905,6 +972,11 @@
      "EV-WEA-01",
      "EV-WEA-02"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "己卯",
    "claimThemes": [],
@@ -977,6 +1049,11 @@
      "EV-CON-01"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1037,6 +1114,7 @@
    "annualOnly": true,
    "temporalChain": "natal→壬子",
    "ruleChains": {},
+   "explanationExcerpt": {},
    "annual": "壬子",
    "claimThemes": [],
    "tianzeThemes": [],
@@ -1062,6 +1140,11 @@
      "EV-WEA-01",
      "EV-WEA-02"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "己卯",
    "claimThemes": [],
@@ -1133,6 +1216,11 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1199,6 +1287,10 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "癸酉",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1254,6 +1346,11 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "庚午",
    "claimThemes": [],
@@ -1325,6 +1422,11 @@
      "EV-REL-04"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "辛酉",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1392,6 +1494,11 @@
      "EV-WEA-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1456,6 +1563,11 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -1529,6 +1641,13 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "丁丑",
    "claimThemes": [],
@@ -1631,6 +1750,12 @@
      "EV-WEA-02"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "戊寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1718,6 +1843,11 @@
      "EV-WEA-02"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1791,6 +1921,12 @@
      "EV-WEA-01",
      "EV-WEA-02"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "己卯",
    "claimThemes": [],
@@ -1875,6 +2011,12 @@
      "EV-WEA-01",
      "EV-WEA-02"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "己卯",
    "claimThemes": [],
@@ -1962,6 +2104,13 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "己卯",
    "claimThemes": [],
@@ -2057,6 +2206,11 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "戊寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -2133,6 +2287,14 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "戊寅",
    "claimThemes": [],
@@ -2249,6 +2411,12 @@
      "EV-WEA-04"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "丙子",
    "claimThemes": [],
    "tianzeThemes": [
@@ -2335,6 +2503,12 @@
      "EV-WEA-04"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "乙亥",
    "claimThemes": [],
    "tianzeThemes": [
@@ -2417,6 +2591,11 @@
      "EV-WEA-02"
     ]
    },
+   "explanationExcerpt": {
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2482,6 +2661,10 @@
      "EV-REL-04"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2546,6 +2729,14 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -2657,6 +2848,10 @@
      "EV-WEA-04"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "壬戌",
    "claimThemes": [],
    "tianzeThemes": [
@@ -2712,6 +2907,11 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -2786,6 +2986,11 @@
      "EV-WEA-04"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "丙辰",
    "claimThemes": [],
    "tianzeThemes": [
@@ -2854,6 +3059,10 @@
      "EV-WEA-04"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2901,6 +3110,10 @@
      "EV-CAR-01"
     ],
     "relationship": []
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -2955,6 +3168,12 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -3037,6 +3256,11 @@
      "EV-WEA-01"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3106,6 +3330,11 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "甲寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -3173,6 +3402,11 @@
      "EV-MOB-01"
     ],
     "relationship": []
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "甲寅",
    "claimThemes": [],
@@ -3242,6 +3476,11 @@
     "relationship": [
      "EV-REL-02"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "甲寅",
    "claimThemes": [],
@@ -3313,6 +3552,12 @@
     "social": [
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -3387,6 +3632,9 @@
    "ruleChains": {
     "relationship": []
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3417,6 +3665,9 @@
    "temporalChain": "natal→癸丑",
    "ruleChains": {
     "relationship": []
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -3453,6 +3704,10 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -3506,6 +3761,10 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3558,6 +3817,11 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -3618,6 +3882,9 @@
    "ruleChains": {
     "relationship": []
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3653,6 +3920,10 @@
     "relationship": [
      "EV-REL-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -3706,6 +3977,10 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3757,6 +4032,10 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -3812,6 +4091,11 @@
     "relationship": [
      "EV-REL-04"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -3880,6 +4164,11 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3944,6 +4233,11 @@
     "wealth": [
      "EV-WEA-03"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -4015,6 +4309,12 @@
     "wealth": [
      "EV-WEA-04"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "甲戌",
    "claimThemes": [],
@@ -4101,6 +4401,12 @@
      "EV-CON-01"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4176,6 +4482,9 @@
      "EV-REL-02"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4221,6 +4530,12 @@
      "EV-WEA-01",
      "EV-WEA-02"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "丁巳",
    "claimThemes": [],
@@ -4309,6 +4624,11 @@
      "EV-STU-01"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "戊辰",
    "claimThemes": [],
    "tianzeThemes": [
@@ -4380,6 +4700,11 @@
      "EV-STU-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4444,6 +4769,10 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4496,6 +4825,11 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -4561,6 +4895,10 @@
     ],
     "relationship": []
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4611,6 +4949,11 @@
     "social": [
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -4677,6 +5020,11 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4742,6 +5090,11 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4806,6 +5159,10 @@
      "EV-REL-01"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4864,6 +5221,12 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -4950,6 +5313,12 @@
      "EV-WEA-01"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5028,6 +5397,10 @@
      "EV-REL-02"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5078,6 +5451,10 @@
     ],
     "relationship": []
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5126,6 +5503,10 @@
      "EV-WEA-04"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5173,6 +5554,10 @@
     "social": [
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -5223,6 +5608,10 @@
     "relationship": [
      "EV-REL-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -5279,6 +5668,12 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -5353,6 +5748,9 @@
    "ruleChains": {
     "relationship": []
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5391,6 +5789,11 @@
     "social": [
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -5456,6 +5859,10 @@
     ],
     "relationship": []
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5503,6 +5910,10 @@
      "EV-CAR-01"
     ],
     "relationship": []
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -5552,6 +5963,10 @@
     ],
     "relationship": []
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5599,6 +6014,10 @@
      "EV-CAR-01"
     ],
     "relationship": []
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -5653,6 +6072,12 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -5741,6 +6166,13 @@
     "social": [
      "EV-CON-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -5837,6 +6269,10 @@
      "EV-REL-01"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5889,6 +6325,11 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -5955,6 +6396,11 @@
      "EV-STU-01"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6019,6 +6465,11 @@
     "wealth": [
      "EV-WEA-04"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -6086,6 +6537,11 @@
     "wealth": [
      "EV-CON-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -6156,6 +6612,11 @@
      "EV-WEA-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6225,6 +6686,12 @@
     "social": [
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -6302,6 +6769,10 @@
      "EV-WEA-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6347,6 +6818,9 @@
    "ruleChains": {
     "relationship": []
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6385,6 +6859,11 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -6452,6 +6931,10 @@
      "EV-WEA-04"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6505,6 +6988,11 @@
      "EV-CON-01",
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -6566,6 +7054,9 @@
    "ruleChains": {
     "relationship": []
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6604,6 +7095,11 @@
      "EV-WEA-01",
      "EV-WEA-02"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "丙子",
    "claimThemes": [],
@@ -6675,6 +7171,11 @@
      "EV-STU-01"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6742,6 +7243,10 @@
      "EV-REL-04"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6792,6 +7297,10 @@
     ],
     "relationship": []
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6837,6 +7346,9 @@
    "ruleChains": {
     "relationship": []
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6870,6 +7382,10 @@
      "EV-MOB-01"
     ],
     "relationship": []
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -6918,6 +7434,10 @@
      "EV-CAR-01"
     ],
     "relationship": []
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -6968,6 +7488,10 @@
     "relationship": [
      "EV-REL-02"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -7021,6 +7545,11 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -7084,6 +7613,10 @@
      "EV-WEA-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -7136,6 +7669,11 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -7204,6 +7742,10 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -7257,6 +7799,11 @@
     "social": [
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -7322,6 +7869,11 @@
      "EV-FAM-01"
     ],
     "relationship": []
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -7392,6 +7944,11 @@
      "EV-WEA-02"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "丙寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -7461,6 +8018,11 @@
      "EV-WEA-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -7528,6 +8090,12 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -7608,6 +8176,11 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -7667,6 +8240,9 @@
    "ruleChains": {
     "relationship": []
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -7703,6 +8279,11 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -7766,6 +8347,10 @@
      "EV-CON-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -7813,6 +8398,10 @@
      "EV-CAR-01"
     ],
     "relationship": []
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -7868,6 +8457,11 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [
@@ -7949,6 +8543,12 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "辛亥",
    "claimThemes": [],
@@ -8039,6 +8639,13 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [
@@ -8153,6 +8760,13 @@
      "EV-WEA-01"
     ]
    },
+   "explanationExcerpt": {
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -8259,6 +8873,11 @@
      "EV-WEA-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -8337,6 +8956,11 @@
      "EV-WEA-02"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "庚午",
    "claimThemes": [
     "career",
@@ -8413,6 +9037,10 @@
      "EV-REL-01"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -8469,6 +9097,11 @@
     "social": [
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "丙辰",
    "claimThemes": [
@@ -8540,6 +9173,9 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [
     "career",
@@ -8587,6 +9223,9 @@
     "career": [
      "EV-CAR-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "壬辰",
    "claimThemes": [
@@ -8638,6 +9277,11 @@
      "EV-CON-01",
      "EV-WEA-03"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [
@@ -8714,6 +9358,10 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "己卯",
    "claimThemes": [
     "career"
@@ -8778,6 +9426,12 @@
     "social": [
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "戊寅",
    "claimThemes": [
@@ -8860,6 +9514,9 @@
      "EV-STU-01"
     ]
    },
+   "explanationExcerpt": {
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -8900,6 +9557,11 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [
@@ -8983,6 +9645,11 @@
      "EV-STU-01"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "丙子",
    "claimThemes": [
     "career",
@@ -9062,6 +9729,10 @@
      "EV-CON-01"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "庚辰",
    "claimThemes": [
     "family"
@@ -9127,6 +9798,12 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "丙子",
    "claimThemes": [
@@ -9216,6 +9893,10 @@
      "EV-STU-01"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "丙寅",
    "claimThemes": [
     "career"
@@ -9275,6 +9956,10 @@
      "EV-WEA-04"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "庚寅",
    "claimThemes": [
     "career"
@@ -9331,6 +10016,9 @@
      "EV-WEA-04"
     ]
    },
+   "explanationExcerpt": {
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "辛卯",
    "claimThemes": [],
    "tianzeThemes": [
@@ -9366,6 +10054,9 @@
      "EV-REL-01",
      "EV-REL-04"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [
@@ -9418,6 +10109,10 @@
     "social": [
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "戊寅",
    "claimThemes": [],
@@ -9476,6 +10171,12 @@
     "study": [
      "EV-STU-01"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [
@@ -9570,6 +10271,12 @@
      "EV-STU-01"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "study": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "丙寅",
    "claimThemes": [
     "career"
@@ -9649,6 +10356,9 @@
      "EV-MOB-01"
     ]
    },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [
     "wealth"
@@ -9693,6 +10403,10 @@
     "social": [
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "己卯",
    "claimThemes": [
@@ -9755,6 +10469,11 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [
@@ -9832,6 +10551,9 @@
      "EV-REL-02"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [
     "career",
@@ -9876,6 +10598,7 @@
    "annualOnly": false,
    "temporalChain": "natal→庚辰→庚申",
    "ruleChains": {},
+   "explanationExcerpt": {},
    "annual": "庚申",
    "claimThemes": [
     "career"
@@ -9905,6 +10628,10 @@
     "social": [
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "戊寅",
    "claimThemes": [
@@ -9974,6 +10701,13 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [],
@@ -10069,6 +10803,10 @@
      "EV-WEA-04"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -10114,6 +10852,7 @@
    "annualOnly": true,
    "temporalChain": "natal→丁丑",
    "ruleChains": {},
+   "explanationExcerpt": {},
    "annual": "丁丑",
    "claimThemes": [
     "career",
@@ -10146,6 +10885,9 @@
     "social": [
      "EV-CON-01"
     ]
+   },
+   "explanationExcerpt": {
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "丁丑",
    "claimThemes": [
@@ -10195,6 +10937,11 @@
      "EV-CON-01",
      "EV-SOC-01"
     ]
+   },
+   "explanationExcerpt": {
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": null,
    "claimThemes": [
@@ -10274,6 +11021,11 @@
      "EV-SOC-01"
     ]
    },
+   "explanationExcerpt": {
+    "family": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -10351,6 +11103,11 @@
      "EV-WEA-01"
     ]
    },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "social": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "戊申",
    "claimThemes": [
     "relationship"
@@ -10421,6 +11178,11 @@
     "wealth": [
      "EV-WEA-01"
     ]
+   },
+   "explanationExcerpt": {
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "wealth": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "己未",
    "claimThemes": [
@@ -10498,6 +11260,11 @@
      "EV-REL-01"
     ]
    },
+   "explanationExcerpt": {
+    "career": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "mobility": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。",
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
+   },
    "annual": "庚申",
    "claimThemes": [],
    "tianzeThemes": [
@@ -10558,6 +11325,9 @@
    "temporalChain": "natal→庚辰→庚申",
    "ruleChains": {
     "relationship": []
+   },
+   "explanationExcerpt": {
+    "relationship": "事件主题是结构层面的「值得关注」提示，不是现实事件预测。"
    },
    "annual": "庚申",
    "claimThemes": [],

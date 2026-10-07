@@ -142,6 +142,8 @@ class EventContext(CamelizeModel):
     strength_verdict: str | None = None       # weighted verdict（救应谓词复用，不另造算法）
     fuyi_verdict: str | None = None           # fuyi verdict（多方法读数，M17）
     dimension_de_shi: bool | None = None      # dimension 得势（多方法读数，M17）
+    dimension_de_ling: bool | None = None     # dimension 得令（M19 读数扩展）
+    dimension_de_di: bool | None = None       # dimension 得地（M19 读数扩展）
     weighted_score: float | None = None
     context_ref: str = ""                     # 岁运链描述（temporal:chain:...）
 
@@ -598,12 +600,16 @@ def build_event_context(
                 fuyi_verdict = m.verdict
             if m.strength_evidence is not None:
                 dimension_de_shi = m.strength_evidence.de_shi.result
+                dimension_de_ling = m.strength_evidence.de_ling.result
+                dimension_de_di = m.strength_evidence.de_di.result
     return EventContext(
         day_master=chart.day_master.stem,
         gender=gender,
         strength_verdict=strength_verdict,
         fuyi_verdict=fuyi_verdict,
         dimension_de_shi=dimension_de_shi,
+        dimension_de_ling=dimension_de_ling,
+        dimension_de_di=dimension_de_di,
         weighted_score=weighted_score,
         natal_stems=[chart.pillars.year.stem, chart.pillars.month.stem,
                      chart.pillars.day.stem,

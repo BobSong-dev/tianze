@@ -166,7 +166,7 @@ def main() -> int:
             i = raw.find(rb.split("（")[0])
             if i < 0:
                 continue
-            block = raw[i:i + 1200]
+            block = raw[i:i + 2400]  # M19：长块（多段落分析）
             j = block.find("## 命例ID", 10)
             block = block[:j] if j > 0 else block
             spans = parse_block(block)

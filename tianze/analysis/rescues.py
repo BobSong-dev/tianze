@@ -70,7 +70,7 @@ def _p_cai_present(ectx):
 
 
 def _strength_readings(ectx) -> list[tuple[str, str]]:
-    """收集全部可用的旺衰判定（weighted/fuyi/dimension得势）——复用 Engine 输出。"""
+    """收集全部可用的旺衰判定（weighted/fuyi/dimension 三维）——复用 Engine 输出。"""
     readings: list[tuple[str, str]] = []
     if getattr(ectx, "strength_verdict", None):
         readings.append(("weighted", ectx.strength_verdict))
@@ -78,6 +78,10 @@ def _strength_readings(ectx) -> list[tuple[str, str]]:
         readings.append(("fuyi", ectx.fuyi_verdict))
     if getattr(ectx, "dimension_de_shi", None) is not None:
         readings.append(("dimension 得势", "偏强向" if ectx.dimension_de_shi else "偏弱向"))
+    if getattr(ectx, "dimension_de_ling", None) is not None:
+        readings.append(("dimension 得令", "偏强向" if ectx.dimension_de_ling else "偏弱向"))
+    if getattr(ectx, "dimension_de_di", None) is not None:
+        readings.append(("dimension 得地", "偏强向" if ectx.dimension_de_di else "偏弱向"))
     return readings
 
 

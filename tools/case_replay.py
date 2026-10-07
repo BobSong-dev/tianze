@@ -126,6 +126,10 @@ def replay_case(case: dict, temporal_ref: dict | None,
         "temporalChain": temporal_chain,
         "ruleChains": {t.theme.value: sorted(h.ruleId for h in t.triggeredRules)
                        for t in report.themes},
+        "explanationExcerpt": {
+            t.theme.value: (t.warnings[0] if t.warnings else "")
+            for t in report.themes
+        },
         "annual": annual_gz,
         "claimThemes": claim_themes,
         "tianzeThemes": [
@@ -198,6 +202,11 @@ def main() -> int:
             replays.append(r)
 
     stats["luckSourceCounts"] = dict(stats.get("luckSourceCounts", {}))
+    # M19：skip 原因分类（replay 覆盖边界透明化）
+    stats["skipReasons"] = {
+        "incompletePillars": stats["skippedNoDayun"],
+        "note": "跳过 = 无结构化大运且无 high-confidence 干支 span 且无流年提及（不猜）",
+    }
     stats["relationCounts"] = dict(stats["relationCounts"])
     stats["themeCoverage"] = dict(stats["themeCoverage"])
     stats["ruleHitCoverage"] = dict(sorted(stats["ruleHitCoverage"].items()))
