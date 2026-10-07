@@ -21,7 +21,7 @@ def test_parse_block_gz_spans():
     for s in spans:
         if s["kind"] != "unresolved":
             assert s["span"] and s["span"][0] < s["span"][1]
-            assert s["confidence"] in ("high", "low")  # 含干支省略（partial）的低置信记录
+            assert s["confidence"] in ("high", "medium", "low")  # full-gz/继承/省略三种置信
 
 
 def test_parse_block_unresolved_no_guess():
