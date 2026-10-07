@@ -66,6 +66,16 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→辛亥",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": []
+   },
    "annual": "辛亥",
    "claimThemes": [],
    "tianzeThemes": [
@@ -121,6 +131,16 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→戊戌",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ],
+    "wealth": [
+     "EV-CON-01"
+    ]
+   },
    "annual": "戊戌",
    "claimThemes": [],
    "tianzeThemes": [
@@ -176,6 +196,16 @@
    "luck": "戊午",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→戊午→己卯",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-03"
+    ],
+    "relationship": [
+     "EV-REL-01",
+     "EV-REL-04"
+    ]
+   },
    "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
@@ -220,6 +250,13 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→丙辰",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "丙辰",
    "claimThemes": [],
    "tianzeThemes": [
@@ -261,6 +298,13 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→丁丑",
+   "ruleChains": {
+    "relationship": [],
+    "wealth": [
+     "EV-WEA-04"
+    ]
+   },
    "annual": "丁丑",
    "claimThemes": [],
    "tianzeThemes": [
@@ -302,6 +346,13 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→戊辰",
+   "ruleChains": {
+    "relationship": [],
+    "wealth": [
+     "EV-WEA-04"
+    ]
+   },
    "annual": "戊辰",
    "claimThemes": [],
    "tianzeThemes": [
@@ -343,6 +394,14 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→庚辰",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-CON-01",
+     "EV-SOC-01"
+    ]
+   },
    "annual": "庚辰",
    "claimThemes": [],
    "tianzeThemes": [
@@ -385,6 +444,18 @@
    "luck": "壬辰",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→壬辰→癸酉",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02"
+    ],
+    "relationship": [
+     "EV-REL-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": "癸酉",
    "claimThemes": [],
    "tianzeThemes": [
@@ -442,6 +513,15 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→丙子",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "丙子",
    "claimThemes": [],
    "tianzeThemes": [
@@ -485,6 +565,16 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→庚辰",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": [],
+    "wealth": [
+     "EV-CON-01"
+    ]
+   },
    "annual": "庚辰",
    "claimThemes": [],
    "tianzeThemes": [
@@ -540,6 +630,23 @@
    "luck": "辛丑",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→辛丑→甲午",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04",
+     "EV-REL-05"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": "甲午",
    "claimThemes": [],
    "tianzeThemes": [
@@ -613,6 +720,15 @@
    "luck": "己丑",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→己丑→辛未",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "辛未",
    "claimThemes": [],
    "tianzeThemes": [
@@ -656,6 +772,15 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→庚戌",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "wealth": [
+     "EV-WEA-03"
+    ]
+   },
    "annual": "庚戌",
    "claimThemes": [],
    "tianzeThemes": [
@@ -699,6 +824,18 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→庚申",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-03"
+    ]
+   },
    "annual": "庚申",
    "claimThemes": [],
    "tianzeThemes": [
@@ -756,6 +893,19 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→己卯",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
@@ -814,6 +964,19 @@
    "luck": "己酉",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→己酉",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": [
+     "EV-REL-03",
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -872,6 +1035,8 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→壬子",
+   "ruleChains": {},
    "annual": "壬子",
    "claimThemes": [],
    "tianzeThemes": [],
@@ -885,6 +1050,19 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→己卯",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
@@ -943,6 +1121,18 @@
    "luck": "乙卯",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→乙卯",
+   "ruleChains": {
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1000,6 +1190,15 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→癸酉",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "癸酉",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1043,6 +1242,19 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→庚午",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02"
+    ],
+    "relationship": [
+     "EV-REL-04",
+     "EV-REL-05"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": "庚午",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1101,6 +1313,18 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→辛酉",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "relationship": [
+     "EV-REL-04"
+    ]
+   },
    "annual": "辛酉",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1158,6 +1382,16 @@
    "luck": "甲寅",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→甲寅",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1213,6 +1447,16 @@
    "luck": "癸巳",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→癸巳",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02"
+    ],
+    "relationship": [],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -1268,6 +1512,24 @@
    "luck": "丙寅",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丙寅→丁丑",
+   "ruleChains": {
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": "丁丑",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1353,6 +1615,22 @@
    "luck": "庚午",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→庚午→戊寅",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": "戊寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1425,6 +1703,21 @@
    "luck": "乙酉",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→乙酉→己卯",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-01",
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01",
+     "EV-SOC-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1485,6 +1778,20 @@
    "luck": "乙亥",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→乙亥→己卯",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1555,6 +1862,20 @@
    "luck": "庚申",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→庚申→己卯",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1625,6 +1946,23 @@
    "luck": "丙申",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丙申→己卯",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01",
+     "EV-CAR-02"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": "己卯",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1709,6 +2047,16 @@
    "luck": "庚寅",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→庚寅→戊寅",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "戊寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1764,6 +2112,28 @@
    "luck": "丙戌",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→丙戌→戊寅",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01",
+     "EV-CAR-02"
+    ],
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "relationship": [
+     "EV-REL-01"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": "戊寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1864,6 +2234,21 @@
    "luck": "甲子",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→甲子→丙子",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-04"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02",
+     "EV-WEA-04"
+    ]
+   },
    "annual": "丙子",
    "claimThemes": [],
    "tianzeThemes": [
@@ -1935,6 +2320,21 @@
    "luck": "丁未",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→丁未→乙亥",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02",
+     "EV-WEA-04"
+    ]
+   },
    "annual": "乙亥",
    "claimThemes": [],
    "tianzeThemes": [
@@ -2006,6 +2406,17 @@
    "luck": "乙酉",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→乙酉",
+   "ruleChains": {
+    "family": [
+     "EV-FAM-01"
+    ],
+    "relationship": [],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2062,6 +2473,15 @@
    "luck": "癸卯",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→癸卯",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-03"
+    ],
+    "relationship": [
+     "EV-REL-04"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2105,6 +2525,28 @@
    "luck": "庚申",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→庚申",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02"
+    ],
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-01",
+     "EV-MOB-02"
+    ],
+    "relationship": [
+     "EV-REL-05"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2205,6 +2647,16 @@
    "luck": "庚戌",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→庚戌→壬戌",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-04"
+    ]
+   },
    "annual": "壬戌",
    "claimThemes": [],
    "tianzeThemes": [
@@ -2249,6 +2701,18 @@
    "luck": "戊午",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→戊午",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2306,6 +2770,22 @@
    "luck": "甲子",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→甲子→丙辰",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-02",
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02",
+     "EV-WEA-03",
+     "EV-WEA-04"
+    ]
+   },
    "annual": "丙辰",
    "claimThemes": [],
    "tianzeThemes": [
@@ -2367,6 +2847,13 @@
    "luck": "丁丑",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丁丑",
+   "ruleChains": {
+    "relationship": [],
+    "wealth": [
+     "EV-WEA-04"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2408,6 +2895,13 @@
    "luck": "癸未",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→癸未",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2449,6 +2943,19 @@
    "luck": "乙巳",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→乙巳",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2518,6 +3025,18 @@
    "luck": "庚寅",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→庚寅",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2575,6 +3094,18 @@
    "luck": "乙亥",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→乙亥→甲寅",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-01"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "甲寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -2632,6 +3163,17 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→甲寅",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01",
+     "EV-CAR-05"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": []
+   },
    "annual": "甲寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -2688,6 +3230,19 @@
    "luck": "戊辰",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→戊辰→甲寅",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01",
+     "EV-CAR-04"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-02"
+    ]
+   },
    "annual": "甲寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -2746,6 +3301,19 @@
    "luck": "己亥",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己亥",
+   "ruleChains": {
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2815,6 +3383,10 @@
    "luck": "甲辰",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→甲辰",
+   "ruleChains": {
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2842,6 +3414,10 @@
    "luck": "癸丑",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→癸丑",
+   "ruleChains": {
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2869,6 +3445,15 @@
    "luck": "丙午",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丙午",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2912,6 +3497,15 @@
    "luck": "己巳",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己巳",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-01"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -2955,6 +3549,16 @@
    "luck": "己酉",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己酉",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02"
+    ],
+    "relationship": [],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3010,6 +3614,10 @@
    "luck": "辛酉",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→辛酉",
+   "ruleChains": {
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3037,6 +3645,15 @@
    "luck": "壬申",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→壬申",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": [
+     "EV-REL-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3080,6 +3697,15 @@
    "luck": "乙丑",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→乙丑",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3123,6 +3749,15 @@
    "luck": "戊子",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→戊子",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3166,6 +3801,18 @@
    "luck": "癸酉",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→癸酉",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "family": [
+     "EV-FAM-01"
+    ],
+    "relationship": [
+     "EV-REL-04"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3223,6 +3870,16 @@
    "luck": "己巳",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己巳",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3278,6 +3935,16 @@
    "luck": "壬辰",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→壬辰",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ],
+    "wealth": [
+     "EV-WEA-03"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3333,6 +4000,22 @@
    "luck": "辛丑",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→辛丑→甲戌",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02",
+     "EV-CON-01"
+    ],
+    "relationship": [
+     "EV-REL-05"
+    ],
+    "study": [
+     "EV-STU-01"
+    ],
+    "wealth": [
+     "EV-WEA-04"
+    ]
+   },
    "annual": "甲戌",
    "claimThemes": [],
    "tianzeThemes": [
@@ -3405,6 +4088,19 @@
    "luck": "丁亥",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丁亥",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ],
+    "wealth": [
+     "EV-CON-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3474,6 +4170,12 @@
    "luck": "戊戌",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→戊戌",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-02"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3503,6 +4205,23 @@
    "luck": "庚午",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→庚午→丁巳",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01",
+     "EV-SOC-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": "丁巳",
    "claimThemes": [],
    "tianzeThemes": [
@@ -3576,6 +4295,20 @@
    "luck": "丙子",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丙子→戊辰",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01",
+     "EV-CAR-02"
+    ],
+    "relationship": [
+     "EV-REL-04",
+     "EV-REL-05"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": "戊辰",
    "claimThemes": [],
    "tianzeThemes": [
@@ -3635,6 +4368,18 @@
    "luck": "丙戌",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丙戌",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-05"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3692,6 +4437,13 @@
    "luck": "己未",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→己未",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3733,6 +4485,18 @@
    "luck": "戊午",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→戊午",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3790,6 +4554,13 @@
    "luck": "癸巳",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→癸巳",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3831,6 +4602,16 @@
    "luck": "戊午",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→戊午",
+   "ruleChains": {
+    "career": [
+     "EV-CON-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3886,6 +4667,16 @@
    "luck": "乙亥",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→乙亥",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3941,6 +4732,16 @@
    "luck": "丁未",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丁未",
+   "ruleChains": {
+    "career": [
+     "EV-CON-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -3996,6 +4797,15 @@
    "luck": "己巳",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己巳",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": [
+     "EV-REL-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4039,6 +4849,22 @@
    "luck": "戊寅",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→戊寅",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02",
+     "EV-CON-01"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-05"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4111,6 +4937,19 @@
    "luck": "丁巳",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→丁巳",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4180,6 +5019,15 @@
    "luck": "己未",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己未",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": [
+     "EV-REL-02"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4223,6 +5071,13 @@
    "luck": "丁丑",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丁丑",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4264,6 +5119,13 @@
    "luck": "甲寅",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→甲寅",
+   "ruleChains": {
+    "relationship": [],
+    "wealth": [
+     "EV-WEA-04"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4305,6 +5167,13 @@
    "luck": "辛丑",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→辛丑",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4346,6 +5215,15 @@
    "luck": "戊午",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→戊午",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-03"
+    ],
+    "relationship": [
+     "EV-REL-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4389,6 +5267,19 @@
    "luck": "辛亥",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→辛亥",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4458,6 +5349,10 @@
    "luck": "己卯",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→己卯",
+   "ruleChains": {
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4485,6 +5380,18 @@
    "luck": "辛巳",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→辛巳",
+   "ruleChains": {
+    "career": [
+     "EV-CON-01"
+    ],
+    "relationship": [
+     "EV-REL-01"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4542,6 +5449,13 @@
    "luck": "丁巳",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→丁巳",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4583,6 +5497,13 @@
    "luck": "乙巳",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→乙巳",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4624,6 +5545,13 @@
    "luck": "丙戌",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丙戌",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-03"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4665,6 +5593,13 @@
    "luck": "辛丑",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→辛丑",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4706,6 +5641,19 @@
    "luck": "庚申",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→庚申",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4775,6 +5723,25 @@
    "luck": "戊申",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→戊申",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-01",
+     "EV-MOB-02"
+    ],
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "social": [
+     "EV-CON-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4861,6 +5828,15 @@
    "luck": "甲子",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→甲子",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": [
+     "EV-REL-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4904,6 +5880,16 @@
    "luck": "辛未",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→辛未",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -4959,6 +5945,16 @@
    "luck": "己未",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→己未",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02"
+    ],
+    "relationship": [],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5014,6 +6010,16 @@
    "luck": "癸卯",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→癸卯",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-04"
+    ],
+    "relationship": [],
+    "wealth": [
+     "EV-WEA-04"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5069,6 +6075,18 @@
    "luck": "庚戌",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→庚戌",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-05"
+    ],
+    "study": [
+     "EV-STU-01"
+    ],
+    "wealth": [
+     "EV-CON-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5126,6 +6144,18 @@
    "luck": "癸卯",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→癸卯",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5183,6 +6213,19 @@
    "luck": "壬子",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→壬子",
+   "ruleChains": {
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5252,6 +6295,13 @@
    "luck": "戊辰",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→戊辰",
+   "ruleChains": {
+    "relationship": [],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5293,6 +6343,10 @@
    "luck": "癸丑",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→癸丑",
+   "ruleChains": {
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5320,6 +6374,18 @@
    "luck": "乙丑",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→乙丑",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-05"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5377,6 +6443,15 @@
    "luck": "甲子",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→甲子",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "wealth": [
+     "EV-WEA-04"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5420,6 +6495,17 @@
    "luck": "乙巳",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→乙巳",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-CON-01",
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5476,6 +6562,10 @@
    "luck": "己未",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己未",
+   "ruleChains": {
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5503,6 +6593,18 @@
    "luck": "壬戌",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→壬戌→丙子",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-CON-01",
+     "EV-SOC-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": "丙子",
    "claimThemes": [],
    "tianzeThemes": [
@@ -5560,6 +6662,19 @@
    "luck": "丙子",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丙子",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02"
+    ],
+    "relationship": [
+     "EV-REL-04",
+     "EV-REL-05"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5618,6 +6733,15 @@
    "luck": "戊子",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→戊子",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": [
+     "EV-REL-04"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5661,6 +6785,13 @@
    "luck": "己酉",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己酉",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5702,6 +6833,10 @@
    "luck": "己未",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己未",
+   "ruleChains": {
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5729,6 +6864,13 @@
    "luck": "戊申",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→戊申",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5770,6 +6912,13 @@
    "luck": "庚辰",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→庚辰",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5811,6 +6960,15 @@
    "luck": "庚辰",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→庚辰",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": [
+     "EV-REL-02"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5854,6 +7012,16 @@
    "luck": "丁未",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丁未",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5909,6 +7077,13 @@
    "luck": "癸丑",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→癸丑",
+   "ruleChains": {
+    "relationship": [],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -5950,6 +7125,18 @@
    "luck": "戊午",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→戊午",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6007,6 +7194,16 @@
    "luck": "甲子",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→甲子",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01",
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6051,6 +7248,16 @@
    "luck": "己巳",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己巳",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6106,6 +7313,16 @@
    "luck": "庚午",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→庚午",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-03"
+    ],
+    "family": [
+     "EV-FAM-01"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6161,6 +7378,20 @@
    "luck": "庚申",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→庚申→丙寅",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-01"
+    ],
+    "social": [
+     "EV-CON-01",
+     "EV-SOC-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": "丙寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -6220,6 +7451,16 @@
    "luck": "癸未",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→癸未",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6275,6 +7516,19 @@
    "luck": "己酉",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己酉",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6344,6 +7598,16 @@
    "luck": "戊寅",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→戊寅",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6399,6 +7663,10 @@
    "luck": "丙辰",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→丙辰",
+   "ruleChains": {
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6426,6 +7694,16 @@
    "luck": "己未",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己未",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6481,6 +7759,13 @@
    "luck": "己巳",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→己巳",
+   "ruleChains": {
+    "relationship": [],
+    "social": [
+     "EV-CON-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6522,6 +7807,13 @@
    "luck": "庚辰",
    "luckSource": "dayun[0]",
    "annualOnly": false,
+   "temporalChain": "natal→庚辰",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": []
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -6563,6 +7855,20 @@
    "luck": "辛酉",
    "luckSource": "mention:辛酉运",
    "annualOnly": false,
+   "temporalChain": "natal→辛酉",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-02",
+     "EV-REL-03",
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -6629,6 +7935,21 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→辛亥",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-03"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": "辛亥",
    "claimThemes": [],
    "tianzeThemes": [
@@ -6700,6 +8021,25 @@
    "luck": "辛酉",
    "luckSource": "mention:辛酉运",
    "annualOnly": false,
+   "temporalChain": "natal→辛酉",
+   "ruleChains": {
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "relationship": [
+     "EV-REL-03",
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -6793,6 +8133,26 @@
    "luck": "辛酉",
    "luckSource": "mention:辛酉运",
    "annualOnly": false,
+   "temporalChain": "natal→辛酉",
+   "ruleChains": {
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "relationship": [
+     "EV-REL-02",
+     "EV-REL-03",
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -6887,6 +8247,18 @@
    "luck": "庚申",
    "luckSource": "mention:庚申运",
    "annualOnly": false,
+   "temporalChain": "natal→庚申",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-03"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -6951,6 +8323,20 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→庚午",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-03",
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01",
+     "EV-WEA-02"
+    ]
+   },
    "annual": "庚午",
    "claimThemes": [
     "career",
@@ -7018,6 +8404,15 @@
    "luck": "壬辰",
    "luckSource": "mention:壬辰运",
    "annualOnly": false,
+   "temporalChain": "natal→壬辰",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "relationship": [
+     "EV-REL-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -7063,6 +8458,18 @@
    "luck": "丁卯",
    "luckSource": "mention:丁卯运",
    "annualOnly": false,
+   "temporalChain": "natal→丁卯→丙辰",
+   "ruleChains": {
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "丙辰",
    "claimThemes": [
     "career"
@@ -7127,6 +8534,12 @@
    "luck": "丁卯",
    "luckSource": "mention:丁卯运",
    "annualOnly": false,
+   "temporalChain": "natal→丁卯",
+   "ruleChains": {
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career",
@@ -7169,6 +8582,12 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→壬辰",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ]
+   },
    "annual": "壬辰",
    "claimThemes": [
     "career",
@@ -7206,6 +8625,20 @@
    "luck": "乙未",
    "luckSource": "mention:乙未运",
    "annualOnly": false,
+   "temporalChain": "natal→乙未",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-02",
+     "EV-REL-05"
+    ],
+    "study": [
+     "EV-STU-01"
+    ],
+    "wealth": [
+     "EV-CON-01",
+     "EV-WEA-03"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -7272,6 +8705,15 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→己卯",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "己卯",
    "claimThemes": [
     "career"
@@ -7322,6 +8764,21 @@
    "luck": "甲寅",
    "luckSource": "mention:甲寅运",
    "annualOnly": false,
+   "temporalChain": "natal→甲寅→戊寅",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "戊寅",
    "claimThemes": [
     "career",
@@ -7397,6 +8854,12 @@
    "luck": "丁丑",
    "luckSource": "mention:丁丑运",
    "annualOnly": false,
+   "temporalChain": "natal→丁丑",
+   "ruleChains": {
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -7426,6 +8889,18 @@
    "luck": "壬戌",
    "luckSource": "mention:壬戌运",
    "annualOnly": false,
+   "temporalChain": "natal→壬戌",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-03"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career",
@@ -7496,6 +8971,18 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→丙子",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": "丙子",
    "claimThemes": [
     "career",
@@ -7566,6 +9053,15 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→庚辰",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-04"
+    ],
+    "social": [
+     "EV-CON-01"
+    ]
+   },
    "annual": "庚辰",
    "claimThemes": [
     "family"
@@ -7616,6 +9112,22 @@
    "luck": "癸亥",
    "luckSource": "mention:癸亥运",
    "annualOnly": false,
+   "temporalChain": "natal→癸亥→丙子",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-03",
+     "EV-REL-05"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": "丙子",
    "claimThemes": [
     "family"
@@ -7695,6 +9207,15 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→丙寅",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": "丙寅",
    "claimThemes": [
     "career"
@@ -7745,6 +9266,15 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→庚寅",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "wealth": [
+     "EV-WEA-04"
+    ]
+   },
    "annual": "庚寅",
    "claimThemes": [
     "career"
@@ -7795,6 +9325,12 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→辛卯",
+   "ruleChains": {
+    "wealth": [
+     "EV-WEA-04"
+    ]
+   },
    "annual": "辛卯",
    "claimThemes": [],
    "tianzeThemes": [
@@ -7824,6 +9360,13 @@
    "luck": "辛卯",
    "luckSource": "mention:辛卯运",
    "annualOnly": false,
+   "temporalChain": "natal→辛卯",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-01",
+     "EV-REL-04"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career",
@@ -7867,6 +9410,15 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→戊寅",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "戊寅",
    "claimThemes": [],
    "tianzeThemes": [
@@ -7910,6 +9462,21 @@
    "luck": "丙申",
    "luckSource": "mention:丙申运",
    "annualOnly": false,
+   "temporalChain": "natal→丙申",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -7988,6 +9555,21 @@
    "luck": "丙申",
    "luckSource": "mention:丙申运",
    "annualOnly": false,
+   "temporalChain": "natal→丙申→丙寅",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-02"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-02"
+    ],
+    "study": [
+     "EV-STU-01"
+    ]
+   },
    "annual": "丙寅",
    "claimThemes": [
     "career"
@@ -8061,6 +9643,12 @@
    "luck": "辛巳",
    "luckSource": "mention:辛巳运",
    "annualOnly": false,
+   "temporalChain": "natal→辛巳",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "wealth"
@@ -8097,6 +9685,15 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→己卯",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "己卯",
    "claimThemes": [
     "career"
@@ -8147,6 +9744,18 @@
    "luck": "癸酉",
    "luckSource": "mention:癸酉运",
    "annualOnly": false,
+   "temporalChain": "natal→癸酉",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-03"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career",
@@ -8217,6 +9826,12 @@
    "luck": "辛酉",
    "luckSource": "mention:辛酉运",
    "annualOnly": false,
+   "temporalChain": "natal→辛酉",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-02"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career",
@@ -8259,6 +9874,8 @@
    "luck": "庚辰",
    "luckSource": "mention:庚辰运",
    "annualOnly": false,
+   "temporalChain": "natal→庚辰→庚申",
+   "ruleChains": {},
    "annual": "庚申",
    "claimThemes": [
     "career"
@@ -8280,6 +9897,15 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→戊寅",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "social": [
+     "EV-SOC-01"
+    ]
+   },
    "annual": "戊寅",
    "claimThemes": [
     "career",
@@ -8331,6 +9957,24 @@
    "luck": "戊辰",
    "luckSource": "mention:戊辰运",
    "annualOnly": false,
+   "temporalChain": "natal→戊辰",
+   "ruleChains": {
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "relationship": [
+     "EV-REL-03"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -8416,6 +10060,15 @@
    "luck": "丁卯",
    "luckSource": "mention:丁卯运",
    "annualOnly": false,
+   "temporalChain": "natal→丁卯",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-04"
+    ],
+    "wealth": [
+     "EV-WEA-04"
+    ]
+   },
    "annual": null,
    "claimThemes": [],
    "tianzeThemes": [
@@ -8459,6 +10112,8 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→丁丑",
+   "ruleChains": {},
    "annual": "丁丑",
    "claimThemes": [
     "career",
@@ -8486,6 +10141,12 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→丁丑",
+   "ruleChains": {
+    "social": [
+     "EV-CON-01"
+    ]
+   },
    "annual": "丁丑",
    "claimThemes": [
     "career"
@@ -8522,6 +10183,19 @@
    "luck": "甲辰",
    "luckSource": "mention:甲辰运",
    "annualOnly": false,
+   "temporalChain": "natal→甲辰",
+   "ruleChains": {
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "social": [
+     "EV-CON-01",
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -8587,6 +10261,19 @@
    "luck": "甲辰",
    "luckSource": "mention:甲辰运",
    "annualOnly": false,
+   "temporalChain": "natal→甲辰",
+   "ruleChains": {
+    "family": [
+     "EV-FAM-01"
+    ],
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "social": [
+     "EV-CON-01",
+     "EV-SOC-01"
+    ]
+   },
    "annual": null,
    "claimThemes": [
     "career"
@@ -8652,6 +10339,18 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→戊申",
+   "ruleChains": {
+    "relationship": [
+     "EV-REL-03"
+    ],
+    "social": [
+     "EV-CON-01"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": "戊申",
    "claimThemes": [
     "relationship"
@@ -8711,6 +10410,18 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→己未",
+   "ruleChains": {
+    "mobility": [
+     "EV-MOB-02"
+    ],
+    "relationship": [
+     "EV-REL-03"
+    ],
+    "wealth": [
+     "EV-WEA-01"
+    ]
+   },
    "annual": "己未",
    "claimThemes": [
     "career"
@@ -8775,6 +10486,18 @@
    "luck": null,
    "luckSource": "annual-only",
    "annualOnly": true,
+   "temporalChain": "natal→庚申",
+   "ruleChains": {
+    "career": [
+     "EV-CAR-01"
+    ],
+    "mobility": [
+     "EV-MOB-01"
+    ],
+    "relationship": [
+     "EV-REL-01"
+    ]
+   },
    "annual": "庚申",
    "claimThemes": [],
    "tianzeThemes": [
@@ -8832,6 +10555,10 @@
    "luck": "庚辰",
    "luckSource": "raw-span:body",
    "annualOnly": false,
+   "temporalChain": "natal→庚辰→庚申",
+   "ruleChains": {
+    "relationship": []
+   },
    "annual": "庚申",
    "claimThemes": [],
    "tianzeThemes": [

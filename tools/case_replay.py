@@ -114,12 +114,18 @@ def replay_case(case: dict, temporal_ref: dict | None,
         matches.append({"theme": th, "relation": "SOURCE_SILENT",
                         "note": "Tianze 有候选，原书 claim 未提及"})
 
+    # M18：链对照（temporal chain / rule chain 顶层摘要，供 Report/审计引用）
+    temporal_chain = "natal" + (f"→{luck_gz}" if luck_gz else "") + (f"→{annual_gz}" if annual_gz else "")
+
     return {
         "caseId": case["caseId"],
         "book": book,
         "luck": luck_gz,
         "luckSource": luck_src,
         "annualOnly": annual_only,
+        "temporalChain": temporal_chain,
+        "ruleChains": {t.theme.value: sorted(h.ruleId for h in t.triggeredRules)
+                       for t in report.themes},
         "annual": annual_gz,
         "claimThemes": claim_themes,
         "tianzeThemes": [

@@ -182,3 +182,27 @@ async def coverage() -> JSONResponse:
     return JSONResponse({"allPass": audit.get("allPass"),
                          "gates": audit.get("gates", {}),
                          "coverage": audit.get("coverage", {})})
+
+
+@router.get("/funnel")
+async def funnel() -> JSONResponse:
+    """Knowledge 漏斗与密度（Quality Dashboard 数据源）。"""
+    audit = _load("regression/audit-gates.json", {"coverage": {}})
+    cov = audit.get("coverage", {})
+    rules = _all_rules()
+    graph = _load("knowledge/rules/event/conflict-graph.json", {"nodeCount": 0, "edgeCount": 0})
+    candidates = cov.get("candidatesTotal", 556)
+    from collections import Counter
+    domains = Counter(r["domain"] for r in rules)
+    return JSONResponse({
+        "funnel": {
+            "sources": 8,               # knowledge/normalized 书册数（固定盘）
+            "candidates": candidates,
+            "executable": len(rules),
+        },
+        "candidatesUnused": cov.get("candidatesUnused", 0),
+        "neverTriggered": len(audit.get("gates", {}).get("G6_never_triggered", {}).get("list", [])),
+        "conflictDensity": round(graph.get("edgeCount", 0) / max(1, graph.get("nodeCount", 1)), 3),
+        "domainCoverage": dict(domains),
+        "ruleCaseCoverage": cov.get("ruleCaseCoverage", {}),
+    })
