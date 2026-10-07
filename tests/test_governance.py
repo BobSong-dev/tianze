@@ -32,6 +32,10 @@ def test_migration_history_on_write(tmp_path, monkeypatch):
     if os.path.exists(hist_path):
         last = json.loads(open(hist_path, encoding="utf-8").read().strip().split("\n")[-1])
         assert last["mode"] == "write-copy" and last["sourceSha256"]
+    # 清理副本（不污染 dry-run 断言与仓库）
+    import glob as _glob
+    for f in _glob.glob("knowledge/rules/*/rules.migrated.json"):
+        os.remove(f)
 
 
 def test_migrated_copy_semantic_compatibility():
