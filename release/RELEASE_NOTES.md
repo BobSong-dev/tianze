@@ -1,6 +1,6 @@
 # Tianze v0.2.0 Release Notes
 
-- commit: `2af239ebdbb1`（含未提交改动）
+- commit: `1208dfe9eebb`（含未提交改动）
 - 当前版本 0.1.0 → 建议 v0.2.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（17.8s / 14 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **216**（{'event': 20, 'temporal': 14, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 511
+- 命例 1147；Replay 165；测试 513
 
 ## 质量状态
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（71）
+### 特性（72）
+- M19.1: release automation (changelog/version-bump suggestion/notes/tag prep)
 - M18.10: ADR-051/052/053 + README M18 + final E2E/pytest verification
 - M18.5-7: version compatibility matrix tests + funnel endpoint + replay chain comparison
 - M18.8: HTML report release sections + PDF path decision
