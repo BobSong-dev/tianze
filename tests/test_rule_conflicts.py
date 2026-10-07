@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import datetime
+import json
 
 import pytest
 
@@ -230,3 +231,40 @@ def test_rescue_predicates_engineering_label():
         assert "ENGINEERING" in st[pid]["note"]
     assert st["wealth_favorable"]["active"] is True
     assert st["cai_present"]["active"] is True   # 戊 = 甲之偏财（甲克戊）
+
+
+# ---------- M16.2 Rule-ID Conflict Graph ----------
+
+def test_conflict_graph_integrity():
+    """图完整性：节点引用存在、无自环、specific/specificCondition 引用有效。"""
+    import subprocess, sys, os
+    r = subprocess.run([sys.executable, "tools/build_conflict_graph.py"],
+                       capture_output=True, text=True, encoding="utf-8",
+                       cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    assert r.returncode == 0, r.stdout + r.stderr
+    g = json.load(open("knowledge/rules/event/conflict-graph.json", encoding="utf-8"))
+    assert g["problems"] == []
+    assert g["edgeTypes"]["conflict"] == 4
+    assert g["edgeTypes"]["rescues"] == 4
+    assert g["edgeTypes"]["school-conflict"] >= 1
+
+
+def test_explain_rule_reverse_lookup():
+    """反查：EV-CAR-03 → 冲突对 + 救应谓词 + 可能改变结果的条件。"""
+    from tianze.analysis.rule_conflicts import explain_rule
+    info = explain_rule("EV-CAR-03")
+    assert info["rule"]["id"] == "EV-CAR-03"
+    types = {e["edgeType"] for e in info["related"]}
+    assert "conflict" in types and "rescues" in types
+    rescue_edges = [e for e in info["related"] if e["edgeType"] == "rescues"]
+    assert any(e["mayChangeResult"] for e in rescue_edges)
+    # specificCondition 反查可见
+    conflict_edges = [e for e in info["related"] if e["edgeType"] == "conflict"]
+    assert any(e.get("specificCondition") for e in conflict_edges)
+
+
+def test_explain_rule_unknown_raises():
+    import pytest
+    from tianze.analysis.rule_conflicts import explain_rule
+    with pytest.raises(KeyError):
+        explain_rule("EV-NOT-EXIST")

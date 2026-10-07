@@ -1,0 +1,3198 @@
+{
+ "schemaVersion": "1.0.0",
+ "nodeCount": 220,
+ "edgeCount": 14,
+ "edgeTypes": {
+  "conflict": 4,
+  "rescues": 4,
+  "school-conflict": 6
+ },
+ "problems": [],
+ "nodes": [
+  {
+   "type": "rule",
+   "id": "EV-CAR-01",
+   "domain": "event",
+   "theme": "career",
+   "view": "traditional",
+   "label": "官星透岁运+官杀主题增强",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-33"
+  },
+  {
+   "type": "rule",
+   "id": "EV-CAR-02",
+   "domain": "event",
+   "theme": "career",
+   "view": "traditional",
+   "label": "官印相生（印化官杀）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-33"
+  },
+  {
+   "type": "rule",
+   "id": "EV-CAR-03",
+   "domain": "event",
+   "theme": "career",
+   "view": "traditional",
+   "label": "伤官见官（岁运伤官克官）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-39"
+  },
+  {
+   "type": "rule",
+   "id": "EV-WEA-01",
+   "domain": "event",
+   "theme": "wealth",
+   "view": "traditional",
+   "label": "财星透岁运+财主题增强",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "ZPZ-12"
+  },
+  {
+   "type": "rule",
+   "id": "EV-WEA-02",
+   "domain": "event",
+   "theme": "wealth",
+   "view": "traditional",
+   "label": "刃头财/比劫夺财（因财启争）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "SS-R10"
+  },
+  {
+   "type": "rule",
+   "id": "EV-WEA-03",
+   "domain": "event",
+   "theme": "wealth",
+   "view": "traditional",
+   "label": "财库逢冲（两说并存）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-35"
+  },
+  {
+   "type": "rule",
+   "id": "EV-REL-01",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "traditional",
+   "label": "夫妻宫（日支）逢岁运六合",
+   "provenanceLevels": [
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "TIANZE-ENGINEERING-11"
+  },
+  {
+   "type": "rule",
+   "id": "EV-REL-02",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "traditional",
+   "label": "夫妻宫逢冲/夫星逢冲",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "MLD-18"
+  },
+  {
+   "type": "rule",
+   "id": "EV-REL-03",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "traditional",
+   "label": "配偶星临岁运（男财/女官）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "MLD-18"
+  },
+  {
+   "type": "rule",
+   "id": "EV-REL-04",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "shensha",
+   "label": "咸池桃花临岁运",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "MLD-21"
+  },
+  {
+   "type": "rule",
+   "id": "EV-STU-01",
+   "domain": "event",
+   "theme": "study",
+   "view": "traditional",
+   "label": "印星临岁运+印主题增强",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-33"
+  },
+  {
+   "type": "rule",
+   "id": "EV-MOB-01",
+   "domain": "event",
+   "theme": "mobility",
+   "view": "shensha",
+   "label": "驿马临岁运/驿马逢冲",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "SS-R22"
+  },
+  {
+   "type": "rule",
+   "id": "EV-MOB-02",
+   "domain": "event",
+   "theme": "mobility",
+   "view": "traditional",
+   "label": "岁运冲提纲（月令）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-09"
+  },
+  {
+   "type": "rule",
+   "id": "EV-FAM-01",
+   "domain": "event",
+   "theme": "family",
+   "view": "traditional",
+   "label": "年柱/月柱被天克地冲（宫位引动）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-09"
+  },
+  {
+   "type": "rule",
+   "id": "EV-SOC-01",
+   "domain": "event",
+   "theme": "social",
+   "view": "traditional",
+   "label": "比劫临岁运/比劫主题增强",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "MLD-06"
+  },
+  {
+   "type": "rule",
+   "id": "EV-CON-01",
+   "domain": "event",
+   "theme": "social",
+   "view": "special_pattern",
+   "label": "从格/专旺岁运破格（顺势 vs 破格两说）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-04"
+  },
+  {
+   "type": "rule",
+   "id": "EV-CAR-04",
+   "domain": "event",
+   "theme": "career",
+   "view": "traditional",
+   "label": "食神制杀（条件化）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "SS-R05"
+  },
+  {
+   "type": "rule",
+   "id": "EV-CAR-05",
+   "domain": "event",
+   "theme": "career",
+   "view": "traditional",
+   "label": "煞刃相合（身煞两停）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-33"
+  },
+  {
+   "type": "rule",
+   "id": "EV-WEA-04",
+   "domain": "event",
+   "theme": "wealth",
+   "view": "traditional",
+   "label": "食伤生财",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "ZPZ-12"
+  },
+  {
+   "type": "rule",
+   "id": "EV-REL-05",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "traditional",
+   "label": "财印不容（关系张力）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "MLD-18"
+  },
+  {
+   "type": "rule",
+   "id": "TR-SS-R09",
+   "domain": "temporal",
+   "theme": "suijun",
+   "view": null,
+   "label": "日犯岁君（流年干为日主所克）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "SS-R09"
+  },
+  {
+   "type": "rule",
+   "id": "TR-SS-R10A",
+   "domain": "temporal",
+   "theme": "ren tou cai",
+   "view": null,
+   "label": "刃头财（流年支阳刃+干财星）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "SS-R10"
+  },
+  {
+   "type": "rule",
+   "id": "TR-SS-R10B",
+   "domain": "temporal",
+   "theme": "lu tou cai",
+   "view": null,
+   "label": "禄头财（流年支禄位+干财星）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "SS-R10"
+  },
+  {
+   "type": "rule",
+   "id": "TR-DTZ-35",
+   "domain": "temporal",
+   "theme": "chong yue ling",
+   "view": null,
+   "label": "杂气财官运程引出候选",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-35"
+  },
+  {
+   "type": "rule",
+   "id": "TR-DTZ-09",
+   "domain": "temporal",
+   "theme": "chong yue ling",
+   "view": null,
+   "label": "岁运冲提纲/三刑全备观察",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-09"
+  },
+  {
+   "type": "rule",
+   "id": "TR-SPZY-28",
+   "domain": "temporal",
+   "theme": "taisui",
+   "view": null,
+   "label": "流年即太岁（术语框架）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "SPZY-28"
+  },
+  {
+   "type": "rule",
+   "id": "TR-FUYIN-01",
+   "domain": "temporal",
+   "theme": "fuyin",
+   "view": null,
+   "label": "伏吟（岁运柱与原局柱相同）",
+   "provenanceLevels": [
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "TIANZE-ENGINEERING-01"
+  },
+  {
+   "type": "rule",
+   "id": "TR-FANYIN-01",
+   "domain": "temporal",
+   "theme": "fanyin",
+   "view": null,
+   "label": "反吟（岁运柱天克地冲原局柱）",
+   "provenanceLevels": [
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "TIANZE-ENGINEERING-02"
+  },
+  {
+   "type": "rule",
+   "id": "TR-BINGLIN-01",
+   "domain": "temporal",
+   "theme": "binglin",
+   "view": null,
+   "label": "岁运并临（大运=流年干支）",
+   "provenanceLevels": [
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "TIANZE-ENGINEERING-03"
+  },
+  {
+   "type": "rule",
+   "id": "TR-TIANKEDI-01",
+   "domain": "temporal",
+   "theme": "tiankedi",
+   "view": null,
+   "label": "天克地冲（流年克冲大运）",
+   "provenanceLevels": [
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "TIANZE-ENGINEERING-04"
+  },
+  {
+   "type": "rule",
+   "id": "TR-SP-01",
+   "domain": "temporal",
+   "theme": "special-pattern",
+   "view": null,
+   "label": "从格顺势观察",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-04"
+  },
+  {
+   "type": "rule",
+   "id": "TR-SP-02",
+   "domain": "temporal",
+   "theme": "special-pattern",
+   "view": null,
+   "label": "从格岁运印比：破格两说（分阴阳）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-04"
+  },
+  {
+   "type": "rule",
+   "id": "TR-SP-03",
+   "domain": "temporal",
+   "theme": "special-pattern",
+   "view": null,
+   "label": "专旺岁运：生扶/克神两说",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-25"
+  },
+  {
+   "type": "rule",
+   "id": "TR-SP-04",
+   "domain": "temporal",
+   "theme": "special-pattern",
+   "view": null,
+   "label": "化气岁运：引化候选（合≠化）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-18"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-01-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-01-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-01"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-02@2-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-02@2-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-02@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-02@3-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-02@3-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-02@3"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-02-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-02-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-02"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-04@2-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-04@2-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-04@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-07@2-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-07@2-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-07@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-04-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-04-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-04"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-10@2-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-10@2-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-10@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-01@3-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-01@3-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-01@3"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-05-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-05-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-05"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-13@2-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-13@2-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-13@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-06@3-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-06@3-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-06@3"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-06-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-06-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-06"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-12@2-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-12@2-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-12@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-16-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-16-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-16"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-07-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-07-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-07"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-06-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-06-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-06"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-08-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-08-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-08"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-23-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-23-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-23"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-25-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-25-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-25"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-09-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-09-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-09"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-26-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-26-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-26"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-27-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-27-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-27"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-10-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-10-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-10"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-28-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-28-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-28"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-29-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-29-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-29"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-11-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-11-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-11"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-33-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-33-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-33"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-34-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-34-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-34"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-12-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-12-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-12"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-35-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-35-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-35"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-36-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-36-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-36"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-13-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-13-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-13"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-37-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-37-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-37"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-甲-38-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-甲-38-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-甲-38"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-01-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-01-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-01"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-01@2-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-01@2-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-01@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-02@2-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-02@2-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-02@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-02-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-02-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-02"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-04@2-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-04@2-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-04@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-05@2-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-05@2-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-05@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-03-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-03-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-03"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-06@2-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-06@2-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-06@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-07@2-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-07@2-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-07@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-04-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-04-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-04"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-11@2-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-11@2-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-11@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-05-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-05-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-05"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-12@2-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-12@2-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-12@2"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-13-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-13-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-13"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-06-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-06-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-06"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-14-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-14-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-14"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-15-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-15-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-15"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-07-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-07-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-07"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-19-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-19-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-19"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-20-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-20-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-20"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-08-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-08-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-08"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-21-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-21-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-21"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-22-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-22-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-22"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-09-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-09-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-09"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-24-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-24-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-24"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-25-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-25-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-25"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-10-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-10-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-10"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-26-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-26-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-26"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-27-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-27-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-27"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-11-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-11-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-11"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-28-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-28-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-28"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-29-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-29-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-29"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-12-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-12-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-12"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-乙-31-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-乙-31-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-乙-31"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-01-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-01-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-01"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-02-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-02-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-02"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-03-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-03-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-03"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-04-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-04-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-04"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-05-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-05-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-05"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-06-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-06-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-06"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-07-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-07-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-07"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-08-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-08-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-08"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-09-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-09-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-09"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-10-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-10-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-10"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-11-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-11-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-11"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丙-12-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丙-12-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丙-12"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-01-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-01-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-01"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-02-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-02-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-02"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-03-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-03-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-03"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-04-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-04-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-04"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-05-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-05-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-05"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-06-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-06-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-06"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-07-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-07-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-07"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-08-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-08-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-08"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-09-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-09-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-09"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-10-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-10-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-10"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-11-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-11-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-11"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-12-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-12-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-12"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-13-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-13-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-13"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-14-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-14-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-14"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-15-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-15-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-15"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-16-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-16-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-16"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-13-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-13-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-13"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-丁-16-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-丁-16-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-丁-16"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-01-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-01-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-01"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-02-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-02-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-02"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-03-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-03-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-03"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-04-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-04-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-04"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-05-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-05-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-05"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-06-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-06-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-06"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-07-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-07-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-07"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-08-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-08-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-08"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-09-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-09-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-09"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-10-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-10-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-10"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-11-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-11-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-11"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-12-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-12-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-12"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-13-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-13-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-13"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-12-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-12-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-12"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-戊-14-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-戊-14-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-戊-14"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-01-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-01-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-01"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-02-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-02-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-02"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-03-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-03-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-03"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-04-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-04-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-04"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-05-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-05-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-05"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-06-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-06-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-06"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-07-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-07-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-07"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-05-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-05-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-05"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-08-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-08-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-08"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-10-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-10-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-10"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-09-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-09-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-09"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-11-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-11-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-11"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-09-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-09-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-09"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-12-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-12-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-12"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-13-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-13-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-13"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-14-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-14-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-14"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-13-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-13-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-13"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-15-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-15-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-15"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-13-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-13-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-13"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-己-16-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-己-16-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-己-16"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-01-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-01-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-01"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-02-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-02-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-02"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-03-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-03-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-03"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-04-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-04-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-04"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-05-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-05-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-05"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-06-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-06-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-06"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-07-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-07-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-07"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-08-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-08-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-08"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-09-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-09-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-09"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-10-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-10-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-10"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-11-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-11-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-11"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-庚-12-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-庚-12-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-庚-12"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-01-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-01-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-01"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-02-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-02-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-02"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-03-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-03-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-03"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-04-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-04-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-04"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-05-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-05-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-05"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-06-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-06-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-06"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-07-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-07-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-07"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-08-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-08-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-08"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-09-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-09-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-09"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-10-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-10-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-10"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-11-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-11-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-11"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-辛-12-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-辛-12-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-辛-12"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-01-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-01-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-01"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-02-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-02-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-02"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-03-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-03-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-03"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-04-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-04-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-04"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-05-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-05-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-05"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-06-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-06-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-06"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-07-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-07-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-07"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-08-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-08-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-08"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-09-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-09-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-09"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-10-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-10-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-10"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-11-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-11-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-11"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-壬-12-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-壬-12-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-壬-12"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-01-寅",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-01-寅",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-01"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-02-卯",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-02-卯",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-02"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-03-辰",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-03-辰",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-03"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-04-巳",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-04-巳",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-04"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-05-午",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-05-午",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-05"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-06-未",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-06-未",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-06"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-07-申",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-07-申",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-07"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-08-酉",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-08-酉",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-08"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-09-戌",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-09-戌",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-09"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-10-亥",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-10-亥",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-10"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-11-子",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-11-子",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-11"
+  },
+  {
+   "type": "rule",
+   "id": "TH-QBT-癸-12-丑",
+   "domain": "tiaohou",
+   "theme": null,
+   "view": null,
+   "label": "TH-QBT-癸-12-丑",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "candidateId": "QBT-癸-12"
+  },
+  {
+   "type": "predicate",
+   "id": "cai_present"
+  },
+  {
+   "type": "predicate",
+   "id": "guan_bridges_cai_yin"
+  },
+  {
+   "type": "predicate",
+   "id": "wealth_favorable"
+  },
+  {
+   "type": "predicate",
+   "id": "yin_present"
+  }
+ ],
+ "edges": [
+  {
+   "type": "conflict",
+   "between": [
+    "EV-CAR-01",
+    "EV-CAR-03"
+   ],
+   "resolution": "specific-over-general",
+   "specific": "EV-CAR-01",
+   "specificCondition": "cai_present",
+   "note": "无救应条件时回落 keep-both：DTZ-39「可见/不可见」之辨需察财印有无"
+  },
+  {
+   "type": "conflict",
+   "between": [
+    "EV-WEA-01",
+    "EV-WEA-02"
+   ],
+   "resolution": "specific-over-general",
+   "specific": "EV-WEA-01",
+   "specificCondition": "wealth_favorable",
+   "note": "无强度条件时回落 keep-both：SS-R10「须察其配合，非可一例以推」"
+  },
+  {
+   "type": "conflict",
+   "between": [
+    "EV-REL-02",
+    "EV-REL-03"
+   ],
+   "resolution": "keep-both",
+   "specific": null,
+   "specificCondition": null,
+   "note": "MLD-18：配偶星临岁运（support）与夫妻宫逢冲（oppose）可同时成立；原文并注明「离婚非不可避免事」，方向相反只表示主题内张力"
+  },
+  {
+   "type": "conflict",
+   "between": [
+    "EV-CON-01",
+    "EV-WEA-02"
+   ],
+   "resolution": "no-adjudication",
+   "specific": null,
+   "specificCondition": null,
+   "note": "special_pattern 视角（从格顺势/破格两说）与 traditional 视角（比劫夺财）方向相反时属流派差异，不裁决"
+  },
+  {
+   "type": "rescues",
+   "from": "yin_present",
+   "to": "EV-CAR-03",
+   "effect": "weaken",
+   "note": "伤官见官的印救应（DTZ-43：以印制伤护官）——命中时 oppose 被削弱"
+  },
+  {
+   "type": "rescues",
+   "from": "cai_present",
+   "to": "EV-CAR-03",
+   "effect": "weaken",
+   "note": "伤官见官的财救应（DTZ-39：伤官有财皆可见官）——命中时 oppose 被削弱"
+  },
+  {
+   "type": "rescues",
+   "from": "guan_bridges_cai_yin",
+   "to": "EV-REL-05",
+   "effect": "weaken",
+   "note": "财印不容的官星通关（财生官、官生印，贪生忘克）——命中时 oppose 被削弱"
+  },
+  {
+   "type": "rescues",
+   "from": "wealth_favorable",
+   "to": "EV-WEA-02",
+   "effect": "weaken",
+   "note": "比劫夺财的条件差异（SS-R10 前提：财为喜神方向时该反向结构不成立）"
+  },
+  {
+   "type": "school-conflict",
+   "between": [
+    "EV-MOB-01",
+    "EV-MOB-02"
+   ],
+   "views": [
+    "shensha",
+    "traditional"
+   ],
+   "theme": "mobility",
+   "note": "同主题不同流派视角：方向冲突时保持 DISPUTED，不裁决"
+  },
+  {
+   "type": "school-conflict",
+   "between": [
+    "EV-REL-01",
+    "EV-REL-04"
+   ],
+   "views": [
+    "traditional",
+    "shensha"
+   ],
+   "theme": "relationship",
+   "note": "同主题不同流派视角：方向冲突时保持 DISPUTED，不裁决"
+  },
+  {
+   "type": "school-conflict",
+   "between": [
+    "EV-REL-02",
+    "EV-REL-04"
+   ],
+   "views": [
+    "traditional",
+    "shensha"
+   ],
+   "theme": "relationship",
+   "note": "同主题不同流派视角：方向冲突时保持 DISPUTED，不裁决"
+  },
+  {
+   "type": "school-conflict",
+   "between": [
+    "EV-REL-03",
+    "EV-REL-04"
+   ],
+   "views": [
+    "traditional",
+    "shensha"
+   ],
+   "theme": "relationship",
+   "note": "同主题不同流派视角：方向冲突时保持 DISPUTED，不裁决"
+  },
+  {
+   "type": "school-conflict",
+   "between": [
+    "EV-REL-04",
+    "EV-REL-05"
+   ],
+   "views": [
+    "shensha",
+    "traditional"
+   ],
+   "theme": "relationship",
+   "note": "同主题不同流派视角：方向冲突时保持 DISPUTED，不裁决"
+  },
+  {
+   "type": "school-conflict",
+   "between": [
+    "EV-SOC-01",
+    "EV-CON-01"
+   ],
+   "views": [
+    "traditional",
+    "special_pattern"
+   ],
+   "theme": "social",
+   "note": "同主题不同流派视角：方向冲突时保持 DISPUTED，不裁决"
+  }
+ ]
+}

@@ -148,3 +148,46 @@ def explain_conflicts(hits: list, view_of_rule: dict[str, str] | None = None,
                 provenanceLevels=provs,
             ))
     return explanations
+
+
+# ---- 反查：任意规则 → 冲突/救应/例外邻接（Rule Explorer 数据源） ----
+
+@lru_cache(maxsize=1)
+def _load_graph() -> dict:
+    path = os.path.join(os.path.dirname(CONFLICTS_PATH), "conflict-graph.json")
+    if not os.path.exists(path):
+        return {"nodes": [], "edges": []}
+    return json.load(open(path, encoding="utf-8"))
+
+
+def explain_rule(rule_id: str) -> dict:
+    """从任意规则反查：它与哪些规则冲突、为什么、哪些条件可能改变结果。"""
+    g = _load_graph()
+    node = next((n for n in g["nodes"] if n.get("id") == rule_id), None)
+    if node is None:
+        raise KeyError(f"规则 {rule_id} 不在 conflict graph 中")
+    related = []
+    for e in g["edges"]:
+        involved = None
+        if e.get("between") and rule_id in e["between"]:
+            involved = [x for x in e["between"] if x != rule_id]
+        elif e.get("to") == rule_id:
+            involved = [e["from"]]
+        elif e.get("from") == rule_id:
+            involved = [e["to"]]
+        if involved is None:
+            continue
+        related.append({
+            "edgeType": e["type"],
+            "related": involved,
+            "resolution": e.get("resolution"),
+            "effect": e.get("effect"),
+            "specificCondition": e.get("specificCondition"),
+            "note": e.get("note", ""),
+            "mayChangeResult": bool(e.get("specificCondition") or e.get("effect")),
+        })
+    return {
+        "rule": node,
+        "related": related,
+        "note": "反向导航数据源（Rule Explorer）；边均有声明出处，无运行时猜测",
+    }
