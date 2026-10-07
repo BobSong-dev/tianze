@@ -72,3 +72,25 @@ def test_html_export_printable():
     assert "非概率" in html
     assert "CONFIRMED" not in html
     assert to_html(_result()) == to_html(_result())  # 确定性
+
+
+def test_html_explanation_chains():
+    """HTML 报告渲染解释链（支持/反对链 + 原文引注）。"""
+    from tianze.export_html import to_html
+    r = _result(include_temporal=True, target_year=2026,
+                include_temporal_delta=True, include_event_themes=True,
+                include_explanations=True)
+    html = to_html(r)
+    assert "解释链" in html
+    assert "支持链" in html and "反对链" in html
+    assert "原文：" in html  # quote 渲染
+    assert "滴天髓补注" in html or "守素室丛谈" in html or "命理一得" in html
+
+
+def test_sdk_explanations_deterministic():
+    r1 = _result(include_temporal=True, target_year=2026,
+                 include_event_themes=True, include_explanations=True)
+    r2 = _result(include_temporal=True, target_year=2026,
+                 include_event_themes=True, include_explanations=True)
+    assert r1["temporal"]["eventThemes"]["explanations"] == \
+        r2["temporal"]["eventThemes"]["explanations"]

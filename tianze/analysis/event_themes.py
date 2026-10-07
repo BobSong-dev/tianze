@@ -123,6 +123,7 @@ class EventThemeReport(CamelizeModel):
     themes: list[EventThemeCandidate] = []
     unmatchedRules: list[str] = []        # 参与判定但未命中的规则 id（可审计）
     params: dict[str, Any] = {}           # confidence 参数（透明、ENGINEERING_HEURISTIC）
+    explanations: dict[str, Any] = {}     # M17：theme → 全链路解释（with_explanations 时）
     warnings: list[str] = []
 
 
@@ -709,10 +710,12 @@ def compute_event_themes(
     temporal_ctx: TemporalContext | None = None,
     relations: Sequence[Any] | None = None,
     structures: Sequence[Any] | None = None,
+    with_explanations: bool = False,
 ) -> EventThemeReport:
     """岁运上下文 → 事件主题候选报告（惰性：只在被选节点调用）。
 
     复用 TemporalDelta/StructuralTheme 作为证据源（传 None 时内部重算）。
+    with_explanations=True 时附带全链路解释（M17 ExplanationChain 产品化）。
     """
     from tianze.analysis.temporal import analyze_temporal
     from tianze.analysis.temporal_delta import compute_temporal_delta
@@ -798,12 +801,19 @@ def compute_event_themes(
     if units:
         ctx_desc["layers"] = [{"layer": l, "stem": s, "branch": b} for l, s, b in units]
 
+    explanations: dict[str, Any] = {}
+    if with_explanations:
+        from tianze.analysis.explain import build_explanation_chains
+        explanations = build_explanation_chains(
+            type("ReportShim", (), {"themes": themes}), rescue_state)
+
     return EventThemeReport(
         eventSchemaVersion=EVENT_THEME_SCHEMA_VERSION,
         context=ctx_desc,
         themes=themes,
         unmatchedRules=unmatched,
         params=dict(CONFIDENCE_PARAMS),
+        explanations=explanations,
         warnings=["EventTheme 为结构主题候选，不是现实事件预测；不输出确定性事件结论。",
                   "confidence 为透明 ENGINEERING_HEURISTIC，不是概率。"],
     )

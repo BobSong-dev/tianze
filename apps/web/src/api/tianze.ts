@@ -29,6 +29,7 @@ export interface AnalyzePayload {
     targetMonth?: number | null; targetDay?: string | null;
     includeTemporalDelta?: boolean;
     includeEventThemes?: boolean;
+    includeExplanations?: boolean;
   };
 }
 

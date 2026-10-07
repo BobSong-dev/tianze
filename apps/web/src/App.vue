@@ -191,6 +191,10 @@ const deltaByAnalysis = computed(() => {
   return groups;
 });
 
+function explanationFor(theme: string): any {
+  return (temporalData.value?.eventThemes?.explanations ?? {})[theme] ?? null;
+}
+
 function statusBadgeClass(status: string): string {
   return { LIKELY: "rescue", DISPUTED: "conflict", BLOCKED: "damage",
            UNRESOLVED: "", CANDIDATE: "" }[status] ?? "";
@@ -654,6 +658,26 @@ async function loadTemporal() {
                 <summary>冲突解释（上下文相关，无全局优先级）</summary>
                 <div v-for="(c, i) in t.conflictExplanations" :key="'c' + i" class="evidence-item">
                   <span class="badge">{{ c.kind }}</span> {{ c.explanation }}
+                </div>
+              </details>
+              <details v-if="explanationFor(t.theme)"
+                       class="chain-details">
+                <summary>解释链（Event Theme → Rule → 救应 → Evidence → Quote → Source）</summary>
+                <div class="chain-verdict">{{ explanationFor(t.theme).reasoning.verdictStatement }}</div>
+                <h4>支持链</h4>
+                <div v-for="h in explanationFor(t.theme).reasoning.supportingChain" :key="h.ruleId" class="evidence-item rescue">
+                  <strong>{{ h.ruleId }}</strong>（{{ h.view }}）
+                  <span v-if="h.rescueApplied" class="badge rescue">救应：{{ h.rescueApplied.id }}</span>
+                  <div v-for="(e, i) in h.evidence" :key="'e' + i" class="note">{{ e }}</div>
+                  <div v-if="h.quote" class="quote">原文：{{ h.quote }}（{{ h.source?.book }}）</div>
+                  <div v-if="h.rescueApplied" class="note">{{ h.rescueApplied.note }}</div>
+                </div>
+                <h4>反对链</h4>
+                <div v-for="h in explanationFor(t.theme).reasoning.opposingChain" :key="'o' + h.ruleId" class="evidence-item damage">
+                  <strong>{{ h.ruleId }}</strong>（{{ h.view }}）
+                  <span v-if="h.rescueApplied" class="badge rescue">被救应削弱：{{ h.rescueApplied.id }}</span>
+                  <div v-for="(e, i) in h.evidence" :key="'oe' + i" class="note">{{ e }}</div>
+                  <div v-if="h.quote" class="quote">原文：{{ h.quote }}（{{ h.source?.book }}）</div>
                 </div>
               </details>
             </div>

@@ -116,6 +116,7 @@ class AnalysisOptions(BaseModel):
     target_day: str | None = None         # M13：流日（"YYYY-MM-DD"，公历）
     include_temporal_delta: bool = False  # M13：完整 Temporal Delta（strength/pattern/tiaohou/special/...）
     include_event_themes: bool = False    # M14：事件主题候选（career/wealth/...，非事件预测）
+    include_explanations: bool = False    # M17：全链路解释链（theme → rule → rescue → source）
 
 
 # ---- 输出模型 ----
@@ -303,6 +304,7 @@ def analyze(
                 chart, luck=luck_pair, annual=annual_pair,
                 monthly=monthly_pair, daily=daily_pair,
                 delta_report=delta_report,
+                with_explanations=options.include_explanations,
             )
             temporal["eventThemes"] = event_report.model_dump(by_alias=True, exclude_none=True)
 

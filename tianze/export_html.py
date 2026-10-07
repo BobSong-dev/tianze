@@ -171,6 +171,27 @@ def to_html(result: dict) -> str:
                     body.append(_ul([f"冲突解释：{c.get('kind')}——{c.get('explanation', '')}"
                                      for c in t["conflictExplanations"]]))
 
+        # M17：全链路解释（折叠式 details，打印时自动展开由浏览器决定）
+        exps = ev.get("explanations") or {}
+        if exps:
+            sec("explanations", "解释链（主题 → 规则 → 救应 → 证据 → 原文 → 来源）")
+            for theme_key, ch in exps.items():
+                body.append(f"<h3>{_esc(ch.get('themeCn') or theme_key)}"
+                            f"（{_esc(ch.get('status'))}）</h3>")
+                body.append(f"<p>{_esc(ch['reasoning'].get('verdictStatement', ''))}</p>")
+                for side, cn in (("supportingChain", "支持链"), ("opposingChain", "反对链")):
+                    hits = ch["reasoning"].get(side) or []
+                    if hits:
+                        body.append(f"<p><b>{cn}</b></p>")
+                        body.append(_ul([
+                            f"{h['ruleId']}（{h['view']}）"
+                            + (f"［救应：{h['rescueApplied'].get('id')}］"
+                               if h.get("rescueApplied") else "")
+                            + "：" + "；".join(h.get("evidence", [])[:2])
+                            + (f"——原文：{h['quote']}（{_esc((h.get('source') or {}).get('book', ''))}）"
+                               if h.get("quote") else "")
+                            for h in hits]))
+
     # 警告
     warnings = (result.get("warnings") or []) + (result.get("fallbacks") or [])
     if warnings:

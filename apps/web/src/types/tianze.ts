@@ -247,12 +247,32 @@ export interface EventThemeCandidateData {
                           refId: string | null }[];
 }
 
+export interface ExplanationHitData {
+  ruleId: string; label: string; view: string; direction: string;
+  evidence: string[]; engineFacts: string[]; quote: string | null;
+  source: Record<string, unknown> | null; provenanceLevels: string[];
+  rescueApplied: Record<string, unknown> | null;
+  mayChangeResultConditions: Record<string, unknown>[];
+  conflictNeighbors: Record<string, unknown>[];
+}
+
+export interface ExplanationChainData {
+  theme: string; themeCn: string; status: string; agreement: string | null;
+  confidence: number; confidenceBasis: string[];
+  reasoning: { supportingChain: ExplanationHitData[];
+               opposingChain: ExplanationHitData[];
+               conflictExplanations: Record<string, unknown>[];
+               verdictStatement: string };
+  warnings: string[]; refId: string | null;
+}
+
 export interface EventThemeReportData {
   eventSchemaVersion: string;
   context: Record<string, unknown>;
   themes: EventThemeCandidateData[];
   unmatchedRules: string[];
   params: Record<string, unknown>;
+  explanations: Record<string, ExplanationChainData>;
   warnings: string[];
 }
 
