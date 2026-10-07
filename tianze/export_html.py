@@ -235,10 +235,14 @@ def _append_release_sections(body: list, sec) -> None:
             for k, v in audit.get("gates", {}).items())
         body.append("<table><tr><th>门</th><th>状态</th></tr>" + rows + "</table>")
 
-    hist = _load("regression/ai-evaluation-history.jsonl", None)
-    if hist:
-        entries = [json.loads(x) for x in hist.strip().split(chr(10)) if x]
-        if entries:
+    hist_path = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "regression", "ai-evaluation-history.jsonl")
+    entries = None
+    if os.path.exists(hist_path):
+        entries = [json.loads(x) for x in
+                   open(hist_path, encoding="utf-8").read().strip().split(chr(10)) if x]
+    if entries:
             sec("evaluation", "AI Evaluation History（确定性指标）")
             rows = "".join(
                 f"<tr><td>{_esc(e.get('provider'))}/{_esc(e.get('model'))}</td>"
