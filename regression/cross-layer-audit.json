@@ -7,14 +7,16 @@
   "C2": [],
   "C3": [],
   "C4": [],
-  "C5": []
+  "C5": [],
+  "C6": []
  },
  "violationCounts": {
   "C1": 0,
   "C2": 0,
   "C3": 0,
   "C4": 0,
-  "C5": 0
+  "C5": 0,
+  "C6": 0
  },
  "totalViolations": 0,
  "stats": {
@@ -31,6 +33,7 @@
   "C2": "化候选 ⟸ stem_combination 关系同现",
   "C3": "化候选 CANDIDATE ⟹ 邻位+月令（DTZ-47）",
   "C4": "特殊格局永不 CONFIRMED；cong BLOCKED 必带阻断",
-  "C5": "暗合 ⟹ SPZY-34 表内 + 贴邻"
+  "C5": "暗合 ⟹ SPZY-34 表内 + 贴邻",
+  "C6": "Evidence 完整化：关系键无重复 + 解释链数 == relations+blocked（M30）"
  }
 }

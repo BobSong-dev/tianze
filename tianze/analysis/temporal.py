@@ -391,7 +391,7 @@ def analyze_temporal(
                 pair = natal_arch_targets[ba]
                 relations.append(TemporalRelation(
                     kind="arch_unfill",
-                    label=f"岁运{label_b}冲去填实字{ba}"
+                    label=f"岁运{_LAYER_CN.get(label_b, label_b)}冲去填实字{ba}"
                           f"（{''.join(pair)}拱{ba}）",
                     members=sorted({pair[0], pair[1], ba, bb}),
                     positions=[label_a, label_b],

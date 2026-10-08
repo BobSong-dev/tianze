@@ -752,3 +752,68 @@ def test_xunkong_differential_against_lunar_python():
             if upstream != mine:
                 mismatches.append((pos, p.stem + p.branch, upstream, mine))
     assert not mismatches, mismatches[:5]
+
+
+# ---------- M30 · 逐层岁运状态机（temporal_replay） ----------
+
+def test_replay_layered_states():
+    """逐层回放：natal 基线无事件；每层事件归属其触发层；再次填实自然涌现。"""
+    from tianze.analysis.temporal_replay import replay_temporal
+    r = replay_temporal(
+        natal_stems=["癸", "己", "甲", "乙"], natal_branches=["亥", "丑", "巳", "卯"],
+        day_master="癸", luck=("壬", "子"), annual=("庚", "午"), monthly=("戊", "子"))
+    assert [s.layer for s in r.steps] == ["natal", "luck", "annual", "monthly"]
+    assert r.steps[0].snapshotKeys == []  # natal 基线无岁运事件
+    luck_step = r.steps[1]
+    assert any(a["kind"] == "arch_fill" and "大运子" in a["label"] for a in luck_step.added)
+    annual_step = r.steps[2]
+    assert any(a["kind"] == "arch_unfill" for a in annual_step.added)  # 午冲去填实字
+    monthly_step = r.steps[3]
+    assert any(a["kind"] == "arch_fill" and "流月子" in a["label"]
+               for a in monthly_step.added)  # 再次填实
+
+
+def test_replay_deterministic_and_layer_cn():
+    """回放确定 + unfill 标签用中文层名（不残留英文层标签）。"""
+    from tianze.analysis.temporal_replay import replay_temporal
+    args = dict(natal_stems=["癸", "己", "甲", "乙"], natal_branches=["亥", "丑", "巳", "卯"],
+                day_master="癸", luck=("壬", "子"), annual=("庚", "午"))
+    r1 = replay_temporal(**args)
+    r2 = replay_temporal(**args)
+    assert r1 == r2
+    blob = r1.model_dump_json(by_alias=True)
+    assert "岁运annual" not in blob and "岁运luck" not in blob
+
+
+def test_replay_reduced_layers():
+    """只给部分层时回放仍然成立（按需计算）。"""
+    from tianze.analysis.temporal_replay import replay_temporal
+    r = replay_temporal(natal_stems=["癸", "己", "甲", "乙"],
+                        natal_branches=["亥", "丑", "巳", "卯"],
+                        day_master="癸", annual=("庚", "午"))
+    assert [s.layer for s in r.steps] == ["natal", "annual"]
+
+
+# ---------- M30 · 合去×根气联动 / 跨层 C6 ----------
+
+def test_sp_cg_e3_hequ_root_combo():
+    """E1×E2 同现 → SP-CG-E3 组合两说（微根→真从说权重升；强根→假从不从权重升）。"""
+    from tianze.analysis.case_chart import build_case_chart
+    c = build_case_chart({"year": "壬寅", "month": "丁未", "day": "己卯", "hour": "乙亥"})
+    x = next(x for x in c.advancedAnalysis["specialPattern"]["cong"] if x["type"] == "从财")
+    e3 = next(e for e in x["exceptions"] if e["ruleId"] == "SP-CG-E3")
+    assert "强根（本气）" in e3["text"] and "不足以动摇" in e3["text"]
+    assert x["status"] == "DISPUTED"  # 状态映射不变
+
+
+def test_special_findings_labels_complete():
+    """specialFindings 全部携带非空 label（M29 additive 字段的完备性）。"""
+    import datetime as dt
+    from tianze.pipeline import build_chart
+    from tianze.domain.models import BirthInfo, Gender
+    from tianze.analysis.temporal_delta import compute_temporal_delta
+    chart = build_chart(BirthInfo(date=dt.date(1983, 2, 15),
+                                  time=dt.time(20, 0), gender=Gender.FEMALE))
+    rep = compute_temporal_delta(chart, annual=("壬", "子"))
+    assert rep.specialFindings
+    assert all(f.get("label") for f in rep.specialFindings)

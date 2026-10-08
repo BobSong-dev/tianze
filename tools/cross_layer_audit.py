@@ -36,7 +36,7 @@ def main() -> int:
                 x in f for x in ("temporal_refs", "event_claims", "raw_temporal_spans")):
             books.append(json.load(open(f"knowledge/normalized/cases/{f}", encoding="utf-8")))
 
-    violations: dict[str, list[str]] = {f"C{i}": [] for i in range(1, 6)}
+    violations: dict[str, list[str]] = {f"C{i}": [] for i in range(1, 7)}
     stats = Counter()
     total = 0
 
@@ -107,6 +107,17 @@ def main() -> int:
                     if r.adjacency is not None and r.adjacency.value != "ADJACENT":
                         violations["C5"].append(f"{cid}: 暗合 {r.label} 非贴邻")
 
+            # C6 Evidence 完整化（M30）：无重复关系键；解释链覆盖 relations+blocked
+            keys = [(r.kind.value, r.label, tuple(r.positions)) for r in rels]
+            if len(keys) != len(set(keys)):
+                violations["C6"].append(f"{cid}: 关系 (kind,label,positions) 重复")
+            from tianze.analysis.relation_explain import build_relation_explanations
+            exps = build_relation_explanations(chart)
+            if len(exps) != len(rels) + len(chart.blocked_relations):
+                violations["C6"].append(
+                    f"{cid}: 解释链 {len(exps)} != relations {len(rels)} + blocked "
+                    f"{len(chart.blocked_relations)}")
+
     total_violations = sum(len(v) for v in violations.values())
     payload = {
         "schemaVersion": "1.0.0",
@@ -123,6 +134,7 @@ def main() -> int:
             "C3": "化候选 CANDIDATE ⟹ 邻位+月令（DTZ-47）",
             "C4": "特殊格局永不 CONFIRMED；cong BLOCKED 必带阻断",
             "C5": "暗合 ⟹ SPZY-34 表内 + 贴邻",
+            "C6": "Evidence 完整化：关系键无重复 + 解释链数 == relations+blocked（M30）",
         },
     }
     with open(OUT_JSON, "w", encoding="utf-8") as f:

@@ -222,6 +222,20 @@ def analyze_cong(
                 f"假从说：日主{grade}、{helper_txt}（DTZ-49 假从定义）——从势可成但岁运敏感"
                 f"（「未交运前寒素、运过复初」；从财食伤不透/从官煞官煞不透亦假从；"
                 f"{'微根被合去/受制则近真从，两说' if grade.startswith('微根') else '明根以上假从迹近不立，与 BLOCKED 判定互证'}）"))
+        # M30 · 合去×根气联动（E1 印比合去 × E2 根气分级 同现 → 组合两说证据；
+        # 只组合既有证据文本，不改状态映射）
+        if has_helper and (has_root or has_helper):
+            e1 = any(f.rule_id == "SP-CG-E1" for f in cand.exceptions)
+            e2 = any(f.rule_id == "SP-CG-E2" for f in cand.exceptions)
+            if e1 and e2:
+                grade = _root_grade(day_master_roots_evidence or [])
+                near = ("微根且印比被合去——生助近乎失效，真从说权重升"
+                        if grade.startswith("微根") or grade == "无根"
+                        else "明根以上根气自立——合去印比不足以动摇，假从/不从权重升")
+                cand.exceptions.append(Factor(
+                    "exception", "SP-CG-E3",
+                    f"合去×根气联动：{grade}、印比合去（E1×E2）——{near}；"
+                    "「合而不化仍有意」的保留说并存（不因单一关系改判真从）"))
         # 状态映射（永不 CONFIRMED）
         if analyzer_conflict:
             cand.status = SpecialStatus.DISPUTED

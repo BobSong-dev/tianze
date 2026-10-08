@@ -1,0 +1,17 @@
+{
+ "schemaVersion": "1.0.0",
+ "description": "命例状态回放统计（M30）：natal→大运→流年 逐层虚神事件迁移；只做分布与一致性，不做事件拟合",
+ "totalCases": 1045,
+ "replayed": 100,
+ "errors": 0,
+ "note": "流年层未回放：命例仅载起运年龄（无出生年可回推干支），回推会编造年份——natal→大运 两层先行；流年层待有可靠年份锚点",
+ "layerAdded": {
+  "luck:arch": 45,
+  "luck:hidden_combination": 39,
+  "luck:arch_broken": 16,
+  "luck:arch_fill": 5
+ },
+ "layerRemoved": {},
+ "refillAfterUnfillCases": 0,
+ "orderViolations": 0
+}

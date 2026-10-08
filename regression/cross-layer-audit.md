@@ -7,3 +7,4 @@
 - C3（化候选 CANDIDATE ⟹ 邻位+月令（DTZ-47））：0 条
 - C4（特殊格局永不 CONFIRMED；cong BLOCKED 必带阻断）：0 条
 - C5（暗合 ⟹ SPZY-34 表内 + 贴邻）：0 条
+- C6（Evidence 完整化：关系键无重复 + 解释链数 == relations+blocked（M30））：0 条
