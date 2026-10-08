@@ -1,8 +1,8 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `a461abdd8d61`（含未提交改动）
+- commit: `c43115aa3955`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（88.1s / 20 步）
+- 质量门：ALL PASS（81.8s / 20 步）
 
 ## 版本与规模
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.574,
-  "perCaseMs": 0.55
+  "elapsedSeconds": 0.534,
+  "perCaseMs": 0.51
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.735,
-  "perCaseMs": 0.7
+  "elapsedSeconds": 0.665,
+  "perCaseMs": 0.64
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.02
+  "elapsedSeconds": 0.017
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,10 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（18）
+### 特性（21）
+- M24.5b: release metadata/history refreshed at HEAD (P5 commit 一致)
+- M24.5: HTML 报告关系注记/未成立候选 + Web Evaluation compare 筛选（provider/仅回归，趋势随筛选联动）
+- M24.4: blockedRelations 未成立拱夹候选（拱而不成·靶支在场，DTZ-10 拱实不若拱虚）— pipeline/sdk/Web(未成立候选 section)/export 全链，与 relations 严格分离；gate ALL PASS
 - M24.3: 命例×虚神联动 — build_case_chart 挂关系层（与 pipeline 同一 analyze_relations），case_replay 增 xushiRelations 摘要与统计（165 例重放中 109 例含拱夹/暗合：arch 155/暗合 51）
 - M24.2: regression baselines refreshed (M24.1 documented engine change) + ADR-062 拱夹虚神候选关系边界 + README M24 + gate 20步/release_check/web build/E2E ALL PASS
 - M24.1: 拱夹/虚神(arch)与暗合(hidden_combination)关系引擎 — DTZ-10/ZP-05/SPZY-34 引文级；temporal 层 arch_fill/arch/hidden_combination；TR-DTZ-10 评估器只读关系层；cong 印比合去两说(SP-CG-E1)；arch members canonical
