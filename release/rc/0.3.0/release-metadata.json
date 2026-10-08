@@ -1,0 +1,75 @@
+{
+ "schemaVersion": "1.0.0",
+ "release": {
+  "gitCommit": "0bf44fe5cb4ae1c6bef0b7078705d25a90ff7414",
+  "gitBranch": "main",
+  "dirty": true,
+  "generatedBy": "tools/release_metadata.py（全部数据来自真实运行）"
+ },
+ "engineVersion": "0.3.0",
+ "versions": {
+  "knowledge": "1.1.0",
+  "case": "1.0.0",
+  "analysis": "1.0.0",
+  "delta": "1.0.0",
+  "event": "1.0.0",
+  "interpretation": "1.1.0",
+  "prompt": "1.1.0",
+  "python": "3.14.7"
+ },
+ "counts": {
+  "executableRules": 218,
+  "rulesByDomain": {
+   "event": 20,
+   "temporal": 16,
+   "tiaohou": 182
+  },
+  "ruleCandidates": 556,
+  "cases": 1147,
+  "replays": 165,
+  "tests": 539
+ },
+ "quality": {
+  "auditGates": {
+   "G1_candidate_refs": true,
+   "G2_classical_source": true,
+   "G3_rescue_edges": true,
+   "G4_graph_integrity": true,
+   "G5_evaluator_mapping": true,
+   "G6_never_triggered": true,
+   "G7_abnormal_trigger": true,
+   "G8_explanation_chain": true,
+   "G9_no_confirmed": true,
+   "G10_no_machine_human": true
+  },
+  "allGatesPass": true,
+  "caseRegressionSeverity": {},
+  "temporalRegressionSeverity": {},
+  "eventEvaluationProblems": []
+ },
+ "benchmark": {
+  "caseChart1147": {
+   "count": 1045,
+   "elapsedSeconds": 0.502,
+   "perCaseMs": 0.48
+  },
+  "replayCorpus": {
+   "count": 1045,
+   "elapsedSeconds": 0.721,
+   "perCaseMs": 0.69
+  },
+  "timeline80y": {
+   "nodes": 87,
+   "elapsedSeconds": 0.016
+  },
+  "explanationChains": {
+   "themes": 2,
+   "avgMs": 0.03
+  },
+  "note": "耗时供跨版本对比；节点/主题数是确定性计数（回归可用）"
+ },
+ "governance": {
+  "migrationRanBefore": true,
+  "aiEvaluationStatus": "SKIPPED"
+ }
+}

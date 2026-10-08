@@ -1,0 +1,22 @@
+{
+ "schemaVersion": "1.0.0",
+ "currentVersion": "0.3.0",
+ "suggestedTag": "v0.4.0",
+ "bumpKind": "minor",
+ "commitGroups": {
+  "features": 7,
+  "fixes": 0,
+  "tests": 2,
+  "docs": 0,
+  "chores": 0
+ },
+ "tagPrepared": {
+  "tag": "v0.4.0",
+  "created": false,
+  "command": "git tag -a v0.4.0 -m 'Tianze v0.4.0'",
+  "push": "不自动 push（人工执行 git push origin v0.4.0）"
+ },
+ "qualityGate": {
+  "allPass": true
+ }
+}

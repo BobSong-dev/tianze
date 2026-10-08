@@ -72,9 +72,15 @@ def main() -> int:
         else:
             groups["chores"].append(line)
 
-    # version bump 建议（透明规则）
+    # version bump 建议（透明规则；PEP 440 dev 线感知）
     current = _pyproject_version()
-    if groups["features"]:
+    if ".dev" in current:
+        # 0.4.0.dev0 的下一个 tag 就是 v0.4.0：dev 线本身承载本次特性工作，
+        # 不再 +1（PEP 440 序 0.4.0.dev0 < 0.4.0，tag 仍是真实前进）。
+        kind = "minor" if groups["features"] else "patch"
+        base = current.split(".dev")[0]
+        suggested = base
+    elif groups["features"]:
         kind = "minor"
         parts = current.split(".")
         suggested = f"{parts[0]}.{int(parts[1]) + 1}.0"

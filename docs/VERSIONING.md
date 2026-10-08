@@ -4,7 +4,7 @@
 
 | 域 | 当前 | 位置 |
 |---|---|---|
-| engine | 0.1.0 | pyproject.toml（release automation 建议 bump） |
+| engine | 0.4.0.dev0 | `tianze.__version__`（pyproject dynamic 绑定，单一事实源；已发布 tag v0.3.0 冻结于 5821c84） |
 | knowledge | 1.1.0 | KNOWLEDGE_SCHEMA_VERSION |
 | case | 1.0.0 | CASE_SCHEMA_VERSION |
 | analysis | 1.0.0 | AnalysisSchemaVersion |

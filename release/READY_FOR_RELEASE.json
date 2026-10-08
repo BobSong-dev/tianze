@@ -3,21 +3,23 @@
  "status": "READY_FOR_RELEASE",
  "version": "0.3.0",
  "tag": "v0.3.0",
+ "tagCommit": "5821c84",
+ "tagFrozen": true,
  "tagCreatedLocally": true,
  "blockedActions": [
   "git push origin v0.3.0（需要远端权限——人工执行）",
   "GitHub Release 创建（需要远端权限——人工执行）"
  ],
- "artifacts": [
-  "release/release-metadata.json",
-  "release/release-report.md",
-  "release/quality-summary.json",
-  "release/release-check.json",
-  "release/RELEASE_NOTES.md",
-  "release/tag-prep.json",
-  "dist/tianze_bazi-0.3.0-py3-none-any.whl"
+ "rcArtifactsArchived": [
+  "release/rc/0.3.0/tianze_bazi-0.3.0-py3-none-any.whl",
+  "release/rc/0.3.0/tianze_bazi-0.3.0.tar.gz",
+  "release/rc/0.3.0/release-metadata.json",
+  "release/rc/0.3.0/release-check.json",
+  "release/rc/0.3.0/quality-summary.json",
+  "release/rc/0.3.0/RELEASE_NOTES.md",
+  "release/rc/0.3.0/tag-prep.json"
  ],
- "note": "push/GitHub Release 为外部权限动作；全部本地工件已校验（quality gate 19 步 + release_check P0-P7 ALL PASS）",
+ "note": "push/GitHub Release 为外部权限动作。v0.3.0 RC 工件已归档至 release/rc/0.3.0/；tag v0.3.0 冻结指向 5821c84 不随 HEAD 移动。仓库开发线已进入 0.4.0.dev0（ADR-060）：滚动工件（release/*）与 dist/ 现在反映 0.4.0.dev0，不代表已发布状态。",
  "gateEvidenceAtRc": {
   "note": "RC 创建时点的门状态（quality-summary 是滚动文件，可能被后续运行覆盖；此处为 RC 时点快照）",
   "qualityGateAllPass": true,

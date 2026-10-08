@@ -10,7 +10,7 @@ from tianze.pipeline import build_chart
 
 
 def test_version():
-    assert tianze.__version__ == "0.3.0"
+    assert tianze.__version__ == "0.4.0.dev0"
     assert tianze.ENGINE_STAGE in {"M2", "M3", "M4", "M5"}
 
 

@@ -362,3 +362,20 @@
   反向误判（weighted 明确偏弱却激活喜神方向）由测试锁定为 0。
 - **Reason**：R19 多方法并列不裁决在救应层的自然结果；宁缺毋滥。
 - **Tradeoff**：救应覆盖面小——用 rule-audit/rescue-coverage 报告持续观察。
+
+## ADR-060 · Tag 冻结与 dev 线版本纪律（M23）
+
+- **Context**：v0.3.0 tag 指向 5821c84（RC 审计点），而 HEAD 已含 4+ 个后续 commit
+  且同为 0.3.0——滚动工件（release/*、dist/）会被门流程不断刷新，若版本号不动，
+  新代码会"冒充"已审计的 RC 状态；同时 release_automation 的 bump 规则对
+  PEP 440 dev 版本会算错（0.4.0.dev0 minor → 0.5.0）。
+- **Decision**：
+  - tag v0.3.0 冻结（tagFrozen=true，永不移动）；RC 全套工件快照归档
+    `release/rc/0.3.0/`（wheel/sdist/metadata/check/notes/tag-prep）；
+  - 开发线进入 `__version__ = "0.4.0.dev0"`：滚动工件明确反映"未发布"状态；
+  - release_automation 感知 dev 线：`.dev` 版本的下一个 tag 即
+    `v{major}.{minor}.{patch}`（0.4.0.dev0 → v0.4.0，PEP 440 序 dev < 正式）；
+  - READY_FOR_RELEASE.json 保留 RC 证据（gateEvidenceAtRc）并注明归档位置。
+- **Reason**：发布工件的可追溯性——任何 wheel 都必须能对应到确定的 commit 与门状态。
+- **Tradeoff**：开发期 release-check/metadata 显示 0.4.0.dev0 属预期（非回归）；
+  正式 v0.4.0 发布时重跑全套门流程产出最终工件。

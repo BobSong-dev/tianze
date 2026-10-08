@@ -37,7 +37,7 @@ def main() -> int:
     # 1) import + version
     import tianze
     check("import", True)
-    check("version", tianze.__version__ == "0.3.0", tianze.__version__)
+    check("version", tianze.__version__ == "0.4.0.dev0", tianze.__version__)
 
     # 2) package-data：loader 在安装/源码两种模式下都能加载 216 规则
     from tianze.knowledge.event_rules import load_event_rules

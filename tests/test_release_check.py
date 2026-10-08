@@ -53,9 +53,10 @@ def test_release_history_and_ready_marker():
         r = subprocess.run([py, tool], capture_output=True, encoding="utf-8",
                            errors="replace", cwd=root)
         assert r.returncode == 0, f"{tool}: {r.stdout[-200:]}"
+    import tianze
     hist = [json.loads(x) for x in open("release/release-history.jsonl", encoding="utf-8")]
     last = hist[-1]
-    assert last["version"] == "0.3.0" and last["commit"]
+    assert last["version"] == tianze.__version__ and last["commit"]
     assert last["releaseCheck"]["allPass"] is True
     assert "qualityGate" in last   # quality-summary 是滚动文件，可能 stale（结构断言）
     ready = json.load(open("release/READY_FOR_RELEASE.json", encoding="utf-8"))
