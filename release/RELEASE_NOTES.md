@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `a9b2b58665d7`（含未提交改动）
+- commit: `af2b3cb834de`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（86.8s / 23 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **222**（{'event': 21, 'temporal': 19, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 597
+- 命例 1147；Replay 165；测试 602
 
 ## 质量状态
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.623,
-  "perCaseMs": 0.6
+  "elapsedSeconds": 0.565,
+  "perCaseMs": 0.54
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.77,
-  "perCaseMs": 0.74
+  "elapsedSeconds": 0.701,
+  "perCaseMs": 0.67
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.03
+  "elapsedSeconds": 0.026
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（39）
+### 特性（40）
+- M30.1: 统一岁运状态机 temporal_replay（natal→运→年→月→日 逐层快照+迁移原因，固定层序；再次填实自然涌现）+ SP-CG-E3 合去×根气联动两说 + 跨层审计 C6 Evidence 完整化（1045 例全 0）+ 命例状态回放统计（原书大运层 100 例，流年层待可靠年锚如实注记）+ unfill 中文层名
 - M29 final: gate 23 步/release_check ALL PASS（工件刷新于 HEAD a9b2b58+）
 - M29.1: 旬空差分验证（300盘×4柱 vs lunar-python 全一致）+ TR-SP-08 微根受制两说 + SpecialTemporalFinding.label（additive）+ 假从根气分布审计 + 触发率透明化（随机成拱46.5%/暗合41.5%/拱破17.5%/填实4.5% vs 语料69%）
 - M28 final: ADR-066 + README M28 + RC 本地构建验证（wheel/sdist）+ gate 23 步/release_check ALL PASS
