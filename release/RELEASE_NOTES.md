@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `0afa16ee0bad`（含未提交改动）
+- commit: `4434f0d42b74`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（94.0s / 23 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **222**（{'event': 21, 'temporal': 19, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 605
+- 命例 1147；Replay 165；测试 609
 
 ## 质量状态
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.567,
-  "perCaseMs": 0.54
+  "elapsedSeconds": 0.614,
+  "perCaseMs": 0.59
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.694,
-  "perCaseMs": 0.66
+  "elapsedSeconds": 0.777,
+  "perCaseMs": 0.74
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.027
+  "elapsedSeconds": 0.03
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（44）
+### 特性（45）
+- M32.1: Replay Theme Delta（逐层复用 delta 主题层+replay-theme:* refs，入 AI Context/Web/报告）+ Markdown/HTML 回放章节 + html ev-None 潜伏 bug 修复 + 命例年锚候选集（4 例干支年×10 候选全 UNRESOLVED，流年层维持 BLOCKED）
 - M31 final: ADR-069 + README M31 + gate 23 步/release_check ALL PASS
 - M31.2: AI 评测新增 temporal_replay 用例（caseSet 4→5，replay:* refId Grounding 回归测试直连 SDK+validate_grounding）
 - M31.1: Temporal Replay 全链路产品化 — AnalysisOptions.includeTemporalReplay（SDK 按需计算）+ CLI timeline --replay（human 摘要）+ /analyze 透传 + Web 状态回放时间轴（步骤+/-事件）+ AI Context replay:* claimRefs 与 prompt 铁律 11 扩展 + fuzz 不变量

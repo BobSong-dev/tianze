@@ -555,3 +555,20 @@
     （validate_grounding 零问题）。
 - **Tradeoff**：replay 每层重算 analyze_temporal（引擎缓存兜底）；默认关闭，
   Web 工作台显式开关，避免无目标岁运时的无意义计算。
+
+## ADR-070 · Replay Theme Delta 与命例年锚候选集（M32）
+
+- **Context**：M31 的回放只展示虚神事件层；目标要求每层解释结构主题新增/增强/减弱；
+  命例流年回放需要出生年锚，而 caseId 干支年（如「·庚申年」）60 年周期必然多解。
+- **Decision**：
+  - Theme Delta：`replay_temporal(include_themes=True)` 逐层复用 compute_temporal_delta
+    的 StructuralTheme 层（不重算业务规则），diff 输出新增/变化主题并附
+    `replay-theme:*` 确定性 refId；进 SDK/AI Context（claim_refs）/Web/markdown/HTML。
+    时间先后仅用于归因展示，报告显式声明「不构成因果证明」；
+  - 年锚候选集：caseId 干支年 → 1500-2100 候选年列表（本语料 4 例 ×10 候选）——
+    多解即 UNRESOLVED，流年层回放维持 BLOCKED（state_replay_audit 如实记录），
+    待原文出现唯一年份（年号/公历）方可锚定；绝不回推编造；
+  - 顺手修复 export_html 潜伏 bug：eventThemes 未启用时 `ev.get()` 于 None 崩溃
+    （此前所有启用 delta 的导出未触发该组合）。
+- **Tradeoff**：include_themes 每层一次 delta 计算（按需开启）；年锚不进入任何
+  推理路径（纯审计标注）。
