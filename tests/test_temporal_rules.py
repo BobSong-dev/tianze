@@ -20,7 +20,7 @@ def rules():
 
 
 def test_rules_load(rules):
-    assert len(rules) == 16
+    assert len(rules) == 17
     ids = [r["id"] for r in rules]
     assert len(ids) == len(set(ids))
     for r in rules:
@@ -33,7 +33,8 @@ def test_rules_load(rules):
 def test_provenance_discipline(rules):
     """有引文的规则必须带 CLASSICAL_EXPLICIT；无引文的只能是 PROJECT_REFERENCE/ENGINEERING_HEURISTIC。"""
     by_id = {r["id"]: r for r in rules}
-    for rid in ("TR-SS-R09", "TR-SS-R10A", "TR-SS-R10B", "TR-DTZ-35", "TR-DTZ-09", "TR-SPZY-28"):
+    for rid in ("TR-SS-R09", "TR-SS-R10A", "TR-SS-R10B", "TR-DTZ-35", "TR-DTZ-09",
+                "TR-DTZ-11", "TR-SPZY-28"):
         levels = {p["level"] for p in by_id[rid]["provenance"]}
         assert "CLASSICAL_EXPLICIT" in levels, f"{rid} 有原文链必须标 CLASSICAL_EXPLICIT"
     for rid in ("TR-FUYIN-01", "TR-FANYIN-01", "TR-BINGLIN-01", "TR-TIANKEDI-01"):
@@ -165,10 +166,59 @@ def test_rule_triggers_in_analyze_temporal():
         natal_branches=["子", "寅", "戌", "卯"],
         day_master="甲", annual_stem="戊", annual_branch="辰",
     )
-    assert len(ta.ruleTriggers) == 10
+    assert len(ta.ruleTriggers) == 11
     blob = ta.model_dump_json(by_alias=True, exclude_none=True)
     # 观察项/结论层不得出现吉凶断语；古籍引文仅允许存在于 provenance 引文注记中
     for t_ in ta.ruleTriggers:
         for banned in ("发财", "大凶", "必有灾", "灾殃"):
             assert banned not in t_.label + " ".join(t_.observations)
     assert "灾殃" in blob  # 原书引文（provenance 注记）保留原貌，属 source 数据
+
+
+# ---------- M23 · TR-DTZ-11 旺者冲衰 ----------
+
+def test_dtz11_water_dominant_annual_huo():
+    """水营多 → 岁运午（火端）为衰神冲旺者子（旺者发）。"""
+    ta = analyze_temporal(
+        natal_stems=["庚", "丙", "甲", "甲"],
+        natal_branches=["申", "酉", "子", "辰"],
+        day_master="甲", annual_stem="壬", annual_branch="午",
+    )
+    ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-11")
+    assert ev.matched
+    assert any("衰神冲旺" in o and "旺者发" in o for o in ev.observations)
+
+
+def test_dtz11_fire_dominant_annual_huo():
+    """火营多 → 岁运午（火端）为旺者冲衰者子（衰者拔）。"""
+    ta = analyze_temporal(
+        natal_stems=["丙", "丁", "甲", "乙"],
+        natal_branches=["寅", "卯", "午", "子"],
+        day_master="甲", annual_stem="庚", annual_branch="午",
+    )
+    ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-11")
+    assert ev.matched
+    assert any("旺者冲衰" in o and "衰者拔" in o for o in ev.observations)
+
+
+def test_dtz11_tie_undecided():
+    """两营计数持平 → 旺衰不定（两说保留，不裁决）。"""
+    ta = analyze_temporal(
+        natal_stems=["己", "癸", "甲", "甲"],
+        natal_branches=["未", "酉", "子"],
+        day_master="甲", annual_stem="壬", annual_branch="午",
+    )
+    ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-11")
+    assert ev.matched
+    assert any("旺衰不定" in o for o in ev.observations)
+
+
+def test_dtz11_non_fire_water_not_matched():
+    """非水火之冲（寅申）不触发本规则（阵营量化未立）。"""
+    ta = analyze_temporal(
+        natal_stems=["庚", "丙", "甲", "甲"],
+        natal_branches=["寅", "卯", "午", "戌"],
+        day_master="甲", annual_stem="庚", annual_branch="申",
+    )
+    ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-11")
+    assert not ev.matched

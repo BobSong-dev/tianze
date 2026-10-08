@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "discipline": "全部分类进入 REVIEW 清单；不自动删除/调整任何规则",
- "ruleCount": 218,
+ "ruleCount": 219,
  "classifications": {
   "high_conflict": [
    "EV-CON-01",
@@ -21,6 +21,7 @@
    "TH-QBT-壬-10-亥",
    "TR-BINGLIN-01",
    "TR-DTZ-09",
+   "TR-DTZ-11",
    "TR-DTZ-35",
    "TR-FANYIN-01",
    "TR-FUYIN-01",
@@ -56,7 +57,7 @@
   "high_conflict": 5,
   "high_rescue_dep": 1,
   "low_trigger": 1,
-  "no_case_coverage": 18,
+  "no_case_coverage": 19,
   "only_silent": 13
  },
  "triggerRates": {

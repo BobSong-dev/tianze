@@ -181,6 +181,36 @@ def main() -> int:
             quality="B",
         ),
         build_rule(
+            "TR-DTZ-11", "DTZ-11", "chong wangshuai", "旺者冲衰衰者拔，衰神冲旺旺者发（旺衰以全局气势言）",
+            conditions=[{"field": "temporalBranchClashesNatalBranchFireWater",
+                         "operator": "eq", "value": True}],
+            effects=[{"kind": "note",
+                      "text": "对水火之冲（子午/巳亥）按徐注阵营计数输出旺/衰结构比较；"
+                              "吉凶随喜忌（R19 不判喜忌），仅输出旺衰两端"}],
+            source={"sourceKind": "COMMENTARY", "book": "滴天髓补注",
+                    "chapter": "旺衰", "pages": [],
+                    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（补注）"},
+            provenance=[
+                {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库（用户提供 zip）",
+                 "concept": "滴天髓补注·旺者冲衰节（DTZ-11）"},
+                {"level": "CLASSICAL_EXPLICIT", "project": None,
+                 "concept": "古籍原文引文（旺者冲衰衰者拔，衰神冲旺旺者发；徐注例证："
+                            "子午冲，原局寅卯巳未戌之神多则午旺子衰，辰申酉亥丑多则子旺午衰）",
+                 "note": _quote_note("旺者冲衰衰者拔，衰神冲旺旺者发。……旺衰以全局之气势言。"
+                                     "衰者为喜神，则冲而去之为祸；衰者为忌神，冲而去之为吉。"
+                                     "旺者为喜神，则冲而发为吉；旺者为忌神，冲而发为祸。")},
+                {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+                 "concept": "阵营计数口径（M23）：火营=寅卯巳午未戌、水营=申酉亥子辰丑"
+                            "（徐注支持者例证 + 冲端本身入营）；计数含原局+岁运全部可见支，"
+                            "平局不裁决；非水火之冲的阵营量化未立——不触发本规则"},
+            ],
+            quality="B",
+            normalization_notes="「衰者为喜冲去为祸……」为喜忌层面的吉凶断语，Tianze 不判喜忌，"
+                                "仅输出冲两端的结构旺衰比较（旺者冲衰/衰神冲旺/平局不定）；"
+                                "阵营映射只对水火之冲成立（徐注例证范围），其余六冲不量化。",
+        ),
+        build_rule(
             "TR-SPZY-28", "SPZY-28", "taisui", "流年即太岁（术语框架）",
             conditions=[{"field": "annualStem", "operator": "exists", "value": None}],
             effects=[{"kind": "note",

@@ -1,14 +1,14 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `889abb485f17`（含未提交改动）
+- commit: `68049824310a`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（96.2s / 20 步）
 
 ## 版本与规模
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
-- ExecutableRule: **218**（{'event': 20, 'temporal': 16, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 539
+- ExecutableRule: **219**（{'event': 20, 'temporal': 17, 'tiaohou': 182}）；candidates 556（不同口径）
+- 命例 1147；Replay 165；测试 551
 
 ## 质量状态
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（9）
+### 特性（10）
+- M23.2: DTZ-47 真化条件精细化 — 隔位不合/印比透干阻化/逢龙而运记录 + DTZ-06 许世英(印透不从)/伍庭芳(DISPUTED保留) 经典造回归；transformation 增 chenPresent/adjacentToDayMaster (CLASSICAL_EXPLICIT)
 - M23.1: tag v0.3.0 frozen + RC artifacts archived to release/rc/0.3.0/; dev line 0.4.0.dev0; release_automation dev-aware (ADR-060)
 - M22 final: ADR-058/059 + README M22 + full gate (20 steps) + release check + E2E + build ALL PASS
 - M22.3: telemetry trend in Web evaluation compare

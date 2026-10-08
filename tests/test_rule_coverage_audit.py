@@ -13,7 +13,7 @@ def test_classification_complete():
     with contextlib.redirect_stdout(buf):
         rca_main()
     d = json.load(open("regression/rule-coverage-audit.json", encoding="utf-8"))
-    assert d["ruleCount"] == 218
+    assert d["ruleCount"] == 219
     classified = set()
     for ids in d["classifications"].values():
         classified.update(ids)

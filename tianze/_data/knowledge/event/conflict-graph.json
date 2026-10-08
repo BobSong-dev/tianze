@@ -1,6 +1,6 @@
 {
  "schemaVersion": "1.0.0",
- "nodeCount": 224,
+ "nodeCount": 225,
  "edgeCount": 16,
  "edgeTypes": {
   "conflict": 4,
@@ -356,6 +356,20 @@
     "PROJECT_REFERENCE"
    ],
    "candidateId": "DTZ-09"
+  },
+  {
+   "type": "rule",
+   "id": "TR-DTZ-11",
+   "domain": "temporal",
+   "theme": "chong wangshuai",
+   "view": null,
+   "label": "旺者冲衰衰者拔，衰神冲旺旺者发（旺衰以全局气势言）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-11"
   },
   {
    "type": "rule",

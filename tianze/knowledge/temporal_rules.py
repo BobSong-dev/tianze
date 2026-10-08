@@ -55,6 +55,13 @@ _SAN_XING: tuple[frozenset[str], ...] = (
 # 墓库四支（DTZ-35 杂气）
 _MU_KU = {"辰", "戌", "丑", "未"}
 
+# DTZ-11 徐注阵营表（例证引文原样）：火营=寅卯巳未戌，水营=申酉亥子辰丑。
+# 「旺衰以全局之气势言」——如冲者为子午，原局寅卯巳未戌之神多则午旺子衰；
+# 辰申酉亥丑多则子旺午衰。仅覆盖水火之冲（徐注例证范围）。
+_FIRE_CAMP = frozenset("寅卯巳午未戌")
+_WATER_CAMP = frozenset("申酉亥子辰丑")
+_FIRE_WATER_CLASHES = (frozenset({"子", "午"}), frozenset({"巳", "亥"}))
+
 
 @lru_cache(maxsize=1)
 def load_temporal_rules() -> list[dict]:
@@ -201,6 +208,49 @@ def _evaluate_tr_dtz_09(ctx: TemporalContext,
     return bool(obs), obs
 
 
+def _evaluate_tr_dtz_11(ctx: TemporalContext,
+                        relations: list[TemporalRelation],
+                        structures: list[TemporalStructure]) -> tuple[bool, list[str]]:
+    """旺者冲衰衰者拔，衰神冲旺旺者发（DTZ-11）：水火之冲的全局气势比较。
+
+    口径（徐注例证原样）：火营=寅卯巳未戌、水营=申酉亥子辰丑；计数含原局
+    与岁运全部可见支。火营多 → 火端旺；水营多 → 水端旺；平局 → 不定（两说保留）。
+    吉凶随喜忌（衰者喜冲去为祸……）——Tianze 不判喜忌，仅输出旺衰结构比较。
+    非水火之冲（寅申/卯酉/辰戌/丑未）阵营量化未立，不触发本规则（冲事本身
+    由 relations 层与 TR-DTZ-09 覆盖）。
+    """
+    temporal_branches = [(label, b) for label, _s, b in ctx.temporal_units() if b]
+    if not temporal_branches:
+        return False, []
+    all_branches = [b for b in ctx.natal_branches if b] + [b for _l, b in temporal_branches]
+    obs: list[str] = []
+    for label, tb in temporal_branches:
+        for nb in ctx.natal_branches:
+            if not nb or not _branch_chong(tb, nb):
+                continue
+            if frozenset({tb, nb}) not in _FIRE_WATER_CLASHES:
+                continue
+            fire = sum(1 for b in all_branches if b in _FIRE_CAMP)
+            water = sum(1 for b in all_branches if b in _WATER_CAMP)
+            tb_fire = tb in _FIRE_CAMP
+            strong_is_temporal = None
+            if (fire > water and tb_fire) or (water > fire and not tb_fire):
+                strong_is_temporal = True
+            elif (fire > water and not tb_fire) or (water > fire and tb_fire):
+                strong_is_temporal = False
+            camp_cn, other_cn = ("火", "水") if tb_fire else ("水", "火")
+            sc, oc = (fire, water) if tb_fire else (water, fire)
+            base = (f"岁运{_CN_LAYER[label]}支{tb}冲原局{nb}（{camp_cn}营 {sc} 字 vs "
+                    f"{other_cn}营 {oc} 字；DTZ-11：旺衰以全局气势言）")
+            if strong_is_temporal is True:
+                obs.append(base + f"——{tb}为旺者冲衰者{nb}（旺者冲衰衰者拔）")
+            elif strong_is_temporal is False:
+                obs.append(base + f"——{tb}为衰神冲旺者{nb}（衰神冲旺旺者发）")
+            else:
+                obs.append(base + "——两营计数持平，旺衰不定（两说保留，不裁决）")
+    return bool(obs), obs
+
+
 def _evaluate_tr_fuyin(ctx: TemporalContext,
                        relations: list[TemporalRelation],
                        structures: list[TemporalStructure]) -> tuple[bool, list[str]]:
@@ -251,6 +301,7 @@ _EVALUATORS = {
     "TR-SS-R10B": _evaluate_tr_ss_r10b,
     "TR-DTZ-35": _evaluate_tr_dtz_35,
     "TR-DTZ-09": _evaluate_tr_dtz_09,
+    "TR-DTZ-11": _evaluate_tr_dtz_11,
     "TR-FUYIN-01": _evaluate_tr_fuyin,
     "TR-FANYIN-01": _evaluate_tr_fanyin,
     "TR-BINGLIN-01": _evaluate_tr_binglin,
