@@ -142,15 +142,30 @@ def test_schema_version_export():
 
 # ---------- M22：TR-SP-05 化神所忌 / TR-SP-07 从格所从受克 ----------
 
+_chart83 = None
+
+
+def _c83():
+    """1983-02-15 女命（甲日主）chart，模块级惰性构建。"""
+    global _chart83
+    if _chart83 is None:
+        import datetime
+        from tianze.domain.models import BirthInfo, Gender
+        from tianze.pipeline import build_chart
+        _chart83 = build_chart(BirthInfo(date=datetime.date(1983, 2, 15),
+                                         time=datetime.time(20, 0), gender=Gender.FEMALE))
+    return _chart83
+
+
 def test_sp05_hua_taboo_per_pair():
     """DTZ-48 逐干所忌：丁壬候选 + 岁运庚 → 受阻观察；岁运辛 → 不触发（引文只忌庚）。"""
     from types import SimpleNamespace
     ctx = SimpleNamespace(temporal_units=lambda: [("annual", "庚", "子")])
     cands = {("transformation", "丁壬"): {"status": "CANDIDATE", "temporal_only": False}}
-    out = _sp_hua_taboo(chart, ctx, cands)
+    out = _sp_hua_taboo(_c83(), ctx, cands)
     assert out and "化神所忌" in out[0][5] and "庚" in out[0][5]
     ctx2 = SimpleNamespace(temporal_units=lambda: [("annual", "辛", "丑")])
-    assert _sp_hua_taboo(chart, ctx2, cands) == []   # 辛不在丁壬所忌
+    assert _sp_hua_taboo(_c83(), ctx2, cands) == []   # 辛不在丁壬所忌
 
 
 def test_sp07_cong_ke_shen():
@@ -158,7 +173,7 @@ def test_sp07_cong_ke_shen():
     from types import SimpleNamespace
     ctx = SimpleNamespace(temporal_units=lambda: [("annual", "甲", "辰")])
     cands = {("cong", "从财"): {"status": "CANDIDATE", "temporal_only": False}}
-    out = st_mod._sp_cong_ke(chart, ctx, cands)
+    out = st_mod._sp_cong_ke(_c83(), ctx, cands)
     assert out and "克所从之财" in out[0][5]
     assert set(out[0][6]) == {"破格说", "顺势说（保留）"}
 

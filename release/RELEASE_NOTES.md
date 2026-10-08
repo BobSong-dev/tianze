@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `1a4bdb2edb82`（含未提交改动）
+- commit: `be57003d3615`（含未提交改动）
 - 当前版本 0.3.0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（114.7s / 20 步）
 
@@ -52,6 +52,9 @@
 - M22.1: v0.3.0 RC audit — refreshed all artifacts at HEAD, wheel+sdist built, release_check P1 extended with wheel content verification (7 data files + manifest + cli/paths); RC evidence: tag v0.3.0→5821c84, gate+check ALL PASS
 - M21 final: gate 20 steps ALL PASS + external release_check + E2E + RC discipline fixes
 - M21.7: release history tool + READY_FOR_RELEASE marker + local v0.3.0 tag
+
+### 测试（1）
+- test: fix imports in special temporal expansion tests
 
 ## Migration 要求
 
