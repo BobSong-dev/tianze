@@ -588,3 +588,41 @@ def test_fuzz_zhenghe_transformation_obstruction():
     pairs = [t for t in ts if t.stem_pair == ("甲", "己")]
     assert pairs
     assert any(t.obstructions for t in pairs)
+
+
+# ---------- M27 · 三要件条件化 / 去填复现 ----------
+
+def test_liuyi_shugui_three_conditions():
+    """SS-R16 三要件：见合（子丑合）→ support；无合 → blocker；午冲子 → blocker。"""
+    from tianze.analysis.case_chart import build_case_chart
+    # 丑在场 → 子丑合（见合满足）；无午 → 无冲破 blocker
+    c = build_case_chart({"year": "丙子", "month": "丁丑", "day": "乙卯", "hour": "丙子"})
+    m = next(x for x in c.advancedAnalysis["specialPattern"]["xushiOuter"]
+             if "六乙鼠贵" in x["type"])
+    texts = [s["text"] for s in m["supports"]]
+    assert any("见合" in t for t in texts)
+    assert any("交互得" in t for t in texts)  # 待核注记
+    assert not any("无冲破」不满足" in b["text"] for b in m["blockers"])
+    # 午在场 → 冲破 blocker
+    c2 = build_case_chart({"year": "丙子", "month": "戊午", "day": "乙卯", "hour": "丙子"})
+    m2 = next(x for x in c2.advancedAnalysis["specialPattern"]["xushiOuter"]
+              if "六乙鼠贵" in x["type"])
+    assert any("无冲破」不满足" in b["text"] for b in m2["blockers"])
+
+
+def test_arch_unfill_multi_layer():
+    """大运子填实 + 流年午冲子 → arch_unfill（去填说 vs 填实不破说）。"""
+    from tianze.analysis.temporal import analyze_temporal
+    ta = analyze_temporal(natal_stems=["癸", "己", "甲", "乙"],
+                          natal_branches=["亥", "丑", "巳", "卯"],
+                          day_master="癸", luck_stem="壬", luck_branch="子",
+                          annual_stem="庚", annual_branch="午")
+    kinds = [r.kind for r in ta.relations]
+    assert "arch_fill" in kinds and "arch_unfill" in kinds
+    ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-10")
+    assert any("去填" in o and "填实不破" in o for o in ev.observations)
+    # 无填实时不得报 unfill
+    ta2 = analyze_temporal(natal_stems=["癸", "己", "甲", "乙"],
+                           natal_branches=["亥", "丑", "巳", "卯"],
+                           day_master="癸", annual_stem="庚", annual_branch="午")
+    assert not any(r.kind == "arch_unfill" for r in ta2.relations)

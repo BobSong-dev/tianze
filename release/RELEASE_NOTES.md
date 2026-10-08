@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（31）
+### 特性（32）
+- M27.1: TR-SP-08 假从/假化岁运敏感（DTZ-49 行运之别）— 假从+岁运根气/印比→逆旺气破格两说 vs 顺势与真从无别；假化+岁运泄气→假化敏感；executable 221→222, temporal 19, graph 228
 - M26 final: ADR-064 + README M26 + release metadata refreshed
 - M26.3: gate 22 步 ALL PASS（含 cross_layer_audit）+ release_check ALL PASS
 - M26.2: 跨层一致性审计（1045例 C1-C5 全 0，入质量门 22 步）+ 命例专题 v2（Engine 719 vs 标注提及 0/重叠 0，raw OCR BLOCKED；日主×拱型分布：拱贵 167 次居次）+ 真从/假从两说 SP-CG-E2（DTZ-49）+ Web cong 例外渲染 + 引文→图谱跳转 + fuzz（重复支/arch_broken 不变量/争合）+ 伏吟自对修复

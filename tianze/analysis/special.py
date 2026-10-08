@@ -540,6 +540,27 @@ def analyze_xushi_outer(
                           concept="天乙贵人起例与成格三要件（见合/交互得/生旺无冲破）")]
         cand.supports.append(Factor("support", "SP-XO-S6",
                                     "时支子为日元乙之天乙贵人（SS-R17 起例），印煞滋生之地"))
+        # M27 · SS-R16 三要件条件化：见合 / 交互得 / 生旺无冲破
+        from tianze.relation.tables import SIX_COMBINATIONS
+        he_hits = [b for b in present if b != "子"
+                   and frozenset({"子", b}) in SIX_COMBINATIONS]
+        chong_hits = [b for b in present if b == "午"]
+        if he_hits:
+            cand.supports.append(Factor(
+                "support", "SP-XO-S7",
+                f"第一要件「见合」：子与{'、'.join(he_hits)}六合（SS-R16：贵人必须见合方为有用）"))
+        else:
+            cand.blockers.append(Factor(
+                "blocker", "SP-XO-B7",
+                "第一要件「见合」不满足：子无六合（SS-R16：无合又非交互得＝庸常点缀）"))
+        cand.supports.append(Factor(
+            "support", "SP-XO-S8",
+            "第二要件「交互得」：两贵人（子/申）交互临柱与日主——量化口径未立，"
+            "仅记录待核（SS-R16：非交互得者不论）"))
+        if chong_hits:
+            cand.blockers.append(Factor(
+                "blocker", "SP-XO-B8",
+                "第三要件「无冲破」不满足：午冲子（SS-R16：无死绝冲破空亡方为上格）"))
         for st in visible_stems:
             if st != day_master and ten_god(day_master, st).value in guansha_gods:
                 cand.blockers.append(Factor(

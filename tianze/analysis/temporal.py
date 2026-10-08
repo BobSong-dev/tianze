@@ -378,6 +378,34 @@ def analyze_temporal(
             if tgt and tgt not in natal_branch_set:
                 natal_arch_targets[tgt] = (natal_b_list[x], natal_b_list[y])
     _san_xing_sets = (frozenset({"寅", "巳", "申"}), frozenset({"丑", "戌", "未"}))
+    # M27 · 去填/复现：多个岁运层同现时，填实字被另一层冲去 → 虚神复现两说
+    # （去填说：填实字被冲则不以填实论；填实不破说：填实已立不受单冲改判）
+    if len(temporal_branches) >= 2:
+        for label_a, ba in temporal_branches:
+            if ba not in natal_arch_targets:
+                continue
+            from tianze.relation.tables import SIX_CLASHES as _SC
+            for label_b, bb in temporal_branches:
+                if label_b == label_a or frozenset({ba, bb}) not in _SC:
+                    continue
+                pair = natal_arch_targets[ba]
+                relations.append(TemporalRelation(
+                    kind="arch_unfill",
+                    label=f"岁运{label_b}冲去填实字{ba}"
+                          f"（{''.join(pair)}拱{ba}）",
+                    members=sorted({pair[0], pair[1], ba, bb}),
+                    positions=[label_a, label_b],
+                    sources=[_src(label_a), _src(label_b)],
+                    is_new=True,
+                    note="填实字逢冲：去填说（填实被冲去，虚神复现、不以填实论）vs "
+                         "填实不破说（填实已立，一冲不去）——两说并存（DTZ-10 凡冲必动，"
+                         "喜忌不判）",
+                ))
+                evidence.append(
+                    f"填实字{ba}（{label_a}）被{_LAYER_CN.get(label_b, label_b)}{bb}冲"
+                    f"——去填/填实不破两说")
+                break
+
     # M24 · 岁运成拱/暗合（原局支 × 岁运支；与 fill/broken 同一虚神层）
     for label, br in temporal_branches:
         for i, nb in enumerate(ctx.natal_branches):

@@ -223,7 +223,7 @@ def _evaluate_tr_dtz_10(ctx: TemporalContext,
     """
     obs: list[str] = []
     for rel in relations:
-        if rel.kind in ("arch_fill", "arch_broken", "arch", "hidden_combination"):
+        if rel.kind in ("arch_fill", "arch_broken", "arch_unfill", "arch", "hidden_combination"):
             obs.append(f"{rel.label}——{rel.note}")
     return bool(obs), obs
 
