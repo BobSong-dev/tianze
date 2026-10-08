@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `36e7b56dcc9e`（含未提交改动）
+- commit: `126ef61b21cc`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（102.5s / 23 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **222**（{'event': 21, 'temporal': 19, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 591
+- 命例 1147；Replay 165；测试 595
 
 ## 质量状态
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.558,
-  "perCaseMs": 0.53
+  "elapsedSeconds": 0.673,
+  "perCaseMs": 0.64
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.743,
-  "perCaseMs": 0.71
+  "elapsedSeconds": 0.806,
+  "perCaseMs": 0.77
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.026
+  "elapsedSeconds": 0.032
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（35）
+### 特性（36）
+- M28.1: 旬空引擎（六旬公版表 xun_kong_of，SS-R16 第三要件空亡 blocker 落地六乙鼠贵，日柱口径/年柱两说）+ 根气强度分级（微根/明根/强根）入假从说 SP-CG-E2 + 命例审计空亡贵人统计（贵人落日空 378/1045）+ Web 节点条件层直展
 - M27 final: ADR-065 + README M27 + gate 23 步/release_check ALL PASS
 - M27.3: 知识来源治理 tools/source_coverage.py（raw 语料 556/556 缺失 → status=BLOCKED 如实记录；引文注册表一致性 issue 0；入质量门 23 步）+ Web 节点→重放命例/随机触发率导航 + fuzz（贵人表完整性/外格状态词汇/缓存一致性）
 - M27.2: 六乙鼠贵 SS-R16 三要件条件化（见合 support/无合 blocker/交互得待核/午冲子 blocker）+ arch_unfill 去填复现状态（去填说 vs 填实不破说，DTZ-10）入 TR-DTZ-10
