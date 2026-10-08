@@ -83,7 +83,13 @@ def to_html(result: dict) -> str:
     if rel:
         sec("relations", "关系")
         body.append(_ul([f"{r.get('label', '')}（{'/'.join(r.get('positions', []))}）"
+                         + (f"〔{r['subType']}〕" if r.get('subType') else "")
+                         + (f"——{r['note']}" if r.get('note') else "")
                          for r in rel]))
+    blocked = result.get("blockedRelations") or []
+    if blocked:
+        sec("blocked_relations", "未成立的关系候选（解释用，不参与推理）")
+        body.append(_ul([f"{r.get('label', '')}——{r.get('note', '')}" for r in blocked]))
 
     # 旺衰
     sr = result.get("strength")

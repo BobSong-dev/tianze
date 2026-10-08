@@ -290,8 +290,18 @@ const chainJumpThemes = computed<string[]>(() => {
 function jumpToChain() { activeTab.value = "temporal"; }
 
 // M23 · 遥测趋势 sparkline：确定性指标（pass 率/grounding）+ 遥测 latency 的历史折线
-const evalTrend = computed(() => {
+const evalFilterProvider = ref("");
+const evalOnlyRegression = ref(false);
+const evalComparisonsFiltered = computed(() => {
   const cs: any[] = kbEvalCompare.value?.comparisons ?? [];
+  const q = evalFilterProvider.value.trim();
+  return cs.filter(c =>
+    (!q || `${c.metrics?.provider ?? ""}/${c.metrics?.model ?? ""}`.includes(q)) &&
+    (!evalOnlyRegression.value || Object.keys(c.regressionAgainstPrevious ?? {}).length > 0));
+});
+
+const evalTrend = computed(() => {
+  const cs: any[] = evalComparisonsFiltered.value;
   const tail = cs.slice(-40);
   if (tail.length < 2) return null;
   const n = tail.length;
@@ -1029,6 +1039,10 @@ async function loadTemporal() {
         </div>
         <div v-if="kbEvalCompare?.comparisons?.length" class="candidate-block">
           <strong>AI Evaluation Compare <span class="note">确定性指标回归对比（无 LLM-as-judge）</span></strong>
+          <div class="temporal-controls">
+            <input v-model="evalFilterProvider" placeholder="过滤 provider/model…" />
+            <label class="checkbox"><input type="checkbox" v-model="evalOnlyRegression" /> 仅显示有回归信号的运行</label>
+          </div>
           <div v-if="evalTrend" class="trend-box">
             <div class="note">趋势（最近 {{ evalTrend.n }} 次运行）：pass 率（蓝）· grounding 问题数（红）
               <span v-if="evalTrend.latencyLine">· latency ms（绿，max {{ evalTrend.latencyMax }}）</span></div>
@@ -1040,7 +1054,7 @@ async function loadTemporal() {
                         stroke="#27ae60" stroke-width="1.5" stroke-dasharray="4 3" />
             </svg>
           </div>
-          <details v-for="(c, i) in kbEvalCompare.comparisons" :key="i">
+          <details v-for="(c, i) in evalComparisonsFiltered" :key="i">
             <summary>
               {{ c.metrics.provider }}/{{ c.metrics.model }}（prompt {{ c.metrics.promptVersion }}）
               — pass {{ c.metrics.verdictPass }}/{{ c.metrics.verdictTotal }}
