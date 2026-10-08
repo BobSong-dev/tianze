@@ -1,6 +1,6 @@
 # Tianze Release Report
 
-- commit: `83ebb6a92338`（含未提交改动）
+- commit: `b60ca83010f6`（含未提交改动）
 - engine: 0.4.0.dev0
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 
@@ -17,7 +17,7 @@
 - Case Regression：无变化
 - Temporal Regression：无变化
 - Event Evaluation problems：无
-- AI Evaluation：mock
+- AI Evaluation：SKIPPED
 
 ## 基准
 

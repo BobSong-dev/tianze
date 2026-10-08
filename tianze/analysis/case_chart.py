@@ -14,6 +14,7 @@ from typing import Any
 
 from tianze.ganzhi import tables as G
 from tianze.analysis import (collect_roots, compute_month_command, count_elements)
+from tianze.relation.relations import analyze_relations
 from tianze.analysis.strength import StrengthFacts, default_run
 from tianze.analysis.pattern import analyze_pattern
 from tianze.analysis.tiaohou import analyze_tiaohou
@@ -93,6 +94,9 @@ def build_case_chart(pillars: dict[str, str], gender: str | None = None) -> Any:
         element_counts=ec,
     )
 
+    # M24：关系层（拱夹/暗合等）进命例研究——与 pipeline 同一 analyze_relations
+    relations = analyze_relations(stems, branches, positions, day_master=day_master)
+
     return SimpleNamespace(
         day_master=SimpleNamespace(stem=day_master),
         pillars=SimpleNamespace(**pillar_ns),
@@ -104,4 +108,5 @@ def build_case_chart(pillars: dict[str, str], gender: str | None = None) -> Any:
         tiaohou=tiaohou,
         element_counts=element_counts,
         advancedAnalysis=advanced,
+        relations=relations,
     )

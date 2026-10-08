@@ -126,6 +126,12 @@ def replay_case(case: dict, temporal_ref: dict | None,
         "temporalChain": temporal_chain,
         "ruleChains": {t.theme.value: sorted(h.ruleId for h in t.triggeredRules)
                        for t in report.themes},
+        "xushiRelations": [
+            {"kind": r.kind.value, "label": r.label, "subType": r.sub_type,
+             "note": r.note}
+            for r in getattr(chart, "relations", [])
+            if r.kind.value in ("arch", "hidden_combination")
+        ],
         "explanationExcerpt": {
             t.theme.value: (t.warnings[0] if t.warnings else "")
             for t in report.themes
@@ -199,6 +205,11 @@ def main() -> int:
                     disputed_themes += 1
                 for rid in t["rules"]:
                     stats["ruleHitCoverage"][rid] += 1
+            for x in r.get("xushiRelations") or []:
+                stats["xushiKindCounts"] = stats.get("xushiKindCounts", Counter())
+                stats["xushiKindCounts"][x["kind"]] += 1
+            if r.get("xushiRelations"):
+                stats["casesWithXushi"] = stats.get("casesWithXushi", 0) + 1
             replays.append(r)
 
     stats["luckSourceCounts"] = dict(stats.get("luckSourceCounts", {}))
@@ -232,6 +243,9 @@ def main() -> int:
     print(f"  主题覆盖：{stats['themeCoverage']}")
     print(f"  status 分布：{stats['statusDistribution']}")
     print(f"  unresolved 率：{stats['unresolvedRate']} | disagreement 率：{stats['disagreementRate']}")
+    if stats.get("xushiKindCounts"):
+        print(f"  虚神/暗合（M24）：{dict(stats['xushiKindCounts'])}"
+              f"，覆盖 {stats.get('casesWithXushi', 0)} 例")
     return 0
 
 

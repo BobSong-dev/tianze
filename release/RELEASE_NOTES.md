@@ -2,7 +2,7 @@
 
 - commit: `83ebb6a92338`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（103.1s / 20 步）
+- 质量门：ALL PASS（88.1s / 20 步）
 
 ## 版本与规模
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（16）
+### 特性（17）
+- M24.2: regression baselines refreshed (M24.1 documented engine change) + ADR-062 拱夹虚神候选关系边界 + README M24 + gate 20步/release_check/web build/E2E ALL PASS
 - M24.1: 拱夹/虚神(arch)与暗合(hidden_combination)关系引擎 — DTZ-10/ZP-05/SPZY-34 引文级；temporal 层 arch_fill/arch/hidden_combination；TR-DTZ-10 评估器只读关系层；cong 印比合去两说(SP-CG-E1)；arch members canonical
 - M23 final: README M23 status + gate 20 steps ALL PASS + release_check ALL PASS (dev wheel 0.4.0.dev0, P5 commit 一致)
 - M23.6: Web Graph pan/zoom (viewBox 滚轮缩放+拖拽平移+重置) + 规则→ExplanationChain 跳转 + AI Evaluation 趋势 sparkline (pass率/grounding/latency)
