@@ -1,14 +1,14 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `4fcb44c13df9`（含未提交改动）
+- commit: `1a4bdb2edb82`（含未提交改动）
 - 当前版本 0.3.0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（114.7s / 20 步）
 
 ## 版本与规模
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
-- ExecutableRule: **216**（{'event': 20, 'temporal': 14, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 534
+- ExecutableRule: **218**（{'event': 20, 'temporal': 16, 'tiaohou': 182}）；candidates 556（不同口径）
+- 命例 1147；Replay 165；测试 535
 
 ## 质量状态
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（3）
+### 特性（4）
+- M22.2: Rule Graph interactive SVG canvas
 - M22.1: v0.3.0 RC audit — refreshed all artifacts at HEAD, wheel+sdist built, release_check P1 extended with wheel content verification (7 data files + manifest + cli/paths); RC evidence: tag v0.3.0→5821c84, gate+check ALL PASS
 - M21 final: gate 20 steps ALL PASS + external release_check + E2E + RC discipline fixes
 - M21.7: release history tool + READY_FOR_RELEASE marker + local v0.3.0 tag

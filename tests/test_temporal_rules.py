@@ -20,7 +20,7 @@ def rules():
 
 
 def test_rules_load(rules):
-    assert len(rules) == 14
+    assert len(rules) == 16
     ids = [r["id"] for r in rules]
     assert len(ids) == len(set(ids))
     for r in rules:

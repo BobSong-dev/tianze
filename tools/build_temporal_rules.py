@@ -267,6 +267,13 @@ def main() -> int:
     _Q_TR_SP_02 = _Q_TR_SP_01
     _Q_TR_SP_03 = "变格重在形象气势，约分六格：专旺、从强、从财、官煞、从儿、化气。"
     _Q_TR_SP_04 = "天合地者，地旺宜静。……合与化不同，今人见合皆作化论殊误。"
+    _DTZ_SOURCE = {"sourceKind": "COMMENTARY", "book": "滴天髓补注",
+                   "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+                   "confidence": "unverified", "commentator": "徐乐吾（补注）"}
+
+    _Q_TR_SP_05 = ("乙庚化金，不忌甲乙寅卯，而忌丙丁已午；丙辛化水，忌见戊土；"
+                   "丁壬化木，忌见庚金；戊葵化火，忌见壬癸，其理一也。")
+    _Q_TR_SP_07 = "若克抑则万不能用——盖从化皆以全局气势偏于一方，不能不顺其气势而行。"
 
     rules += [
         build_rule(
@@ -345,6 +352,43 @@ def main() -> int:
             quality="B",
         ),
 
+    ]
+
+    rules += [
+        build_rule(
+            "TR-SP-05", "DTZ-48", "special-pattern", "化神所忌（岁运逆化神旺气）",
+            conditions=[{"field": "transformationCandidate", "operator": "exists", "value": None},
+                        {"field": "temporalHuaTabooStem", "operator": "exists", "value": None}],
+            effects=[{"kind": "note",
+                      "text": "岁运遇化神所忌之干 → 化气受阻观察（受阻说/保留两说，候选不改判）"}],
+            source=_DTZ_SOURCE,
+            provenance=[
+                {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库",
+                 "concept": "滴天髓补注·化神所忌（DTZ-48）"},
+                {"level": "CLASSICAL_EXPLICIT", "project": None,
+                 "concept": "古籍原文（逐干所忌）", "note": _quote_note(_Q_TR_SP_05)},
+                {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+                 "concept": "逐干禁忌映射表 _HUA_TABOO_STEMS（直接译自引文）；支藏干仅乙庚取巳午"},
+            ],
+            quality="B",
+        ),
+        build_rule(
+            "TR-SP-07", "DTZ-48", "special-pattern", "从格所从之神受克（破格两说）",
+            conditions=[{"field": "congCandidate", "operator": "exists", "value": None},
+                        {"field": "temporalKeShen", "operator": "exists", "value": None}],
+            effects=[{"kind": "note",
+                      "text": "岁运克所从之神 → 破格说（克抑则万不能用）与顺势说并存，不裁决"}],
+            source=_DTZ_SOURCE,
+            provenance=[
+                {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库",
+                 "concept": "滴天髓补注·从化总纲（DTZ-48）"},
+                {"level": "CLASSICAL_EXPLICIT", "project": None,
+                 "concept": "古籍原文（克抑不能用）", "note": _quote_note(_Q_TR_SP_07)},
+                {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+                 "concept": "所从之神受克映射：从财忌比劫/从官杀忌食伤/从儿忌印（十神表）"},
+            ],
+            quality="B",
+        ),
     ]
 
     os.makedirs(OUT, exist_ok=True)

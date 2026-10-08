@@ -56,6 +56,20 @@ _HUA_ELEMENT: dict[str, str] = {
     "丁壬": "WOOD", "戊癸": "FIRE",
 }
 
+# 化神所忌（DTZ-48 逐干引文）：逆化神旺气之岁运干
+# 甲己化土→忌甲乙寅卯（逆土旺气，还原非大忌）；乙庚化金→忌丙丁巳午；
+# 丙辛化水→忌戊土；丁壬化木→忌庚金；戊癸化火→忌壬癸
+_HUA_TABOO_STEMS: dict[str, set[str]] = {
+    "甲己": {"甲", "乙"},
+    "乙庚": {"丙", "丁"},
+    "丙辛": {"戊"},
+    "丁壬": {"庚"},
+    "戊癸": {"壬", "癸"},
+}
+_HUA_TABOO_BRANCH_STEMS: dict[str, set[str]] = {   # 支藏干引申（巳午藏丙丁等）
+    "乙庚": {"丙", "丁"},
+}
+
 
 class SpecialTemporalFinding(CamelizeModel):
     """特殊格局候选在岁运中的状态变化 + 流派观察（候选级，非定论）。"""
@@ -237,11 +251,73 @@ def _sp_hua(chart, ctx, candidates):
     return out
 
 
+def _sp_hua_taboo(chart, ctx, candidates):
+    """TR-SP-05 化神所忌（DTZ-48 逐干引文）：岁运遇禁忌之干/支藏干 → 化气受阻观察。"""
+    out = []
+    dm = chart.day_master.stem
+    for (group, ctype), info in candidates.items():
+        if group != "transformation" or ctype not in _HUA_TABOO_STEMS:
+            continue
+        if info["status"] in ("BLOCKED",):
+            continue
+        note_suffix = "" if not info.get("temporal_only") else "（岁运上下文新增候选）"
+        ev = []
+        for l, st in _temporal_stems(ctx):
+            if st in _HUA_TABOO_STEMS[ctype]:
+                ev.append(f"岁运{_cn(l)}干{st}为化神所忌"
+                          f"（DTZ-48 逐干引文；逆旺气，非还原之忌）")
+        for l, br in _temporal_branches(ctx):
+            for h in _hidden_of(br):
+                if h in _HUA_TABOO_STEMS[ctype] and br in _HUA_TABOO_BRANCH_STEMS.get(ctype, set()):
+                    ev.append(f"岁运{_cn(l)}支{br}（藏{h}）为化神所忌")
+                    break
+        if ev:
+            out.append((ctype, "transformation", info["status"], "化神所忌", "school-split",
+                        f"化气候选 {ctype}（natal={info['status']}{note_suffix}）："
+                        + "；".join(ev), {"受阻说": "逆化神旺气（DTZ-48）",
+                                          "保留": "候选状态不因单条岁运引文改判"}))
+    return out
+
+
+def _sp_cong_ke(  chart, ctx, candidates):
+    """TR-SP-07 从格所从之神受克（DTZ-48：克抑则万不能用）→ 破格观察两说。"""
+    out = []
+    dm = chart.day_master.stem
+    for (group, ctype), info in candidates.items():
+        if group != "cong" or ctype not in _CONG_GODS:
+            continue
+        if info["status"] in ("BLOCKED", "UNRESOLVED"):
+            continue
+        note_suffix = "" if not info.get("temporal_only") else "（岁运上下文新增候选）"
+        gods = _CONG_GODS[ctype]
+        ke_hits = []
+        for l, s_ in _temporal_stems(ctx):
+            god = ten_god(dm, s_).value
+            # 岁运干为官杀而所从为财 → 官杀克身破从？口径：克「所从之神」——
+            # 从财（所从=财）忌比劫克财；从官杀忌食伤克官杀；从儿忌印克食伤
+            if ctype == "从财" and god in ("比肩", "劫财"):
+                ke_hits.append(f"{_cn(l)}干{s_}（{god}）克所从之财")
+            elif ctype == "从官杀" and god in ("食神", "伤官"):
+                ke_hits.append(f"{_cn(l)}干{s_}（{god}）克所从之官杀")
+            elif ctype == "从儿" and god in ("正印", "偏印"):
+                ke_hits.append(f"{_cn(l)}干{s_}（{god}）克所从之食伤")
+        if ke_hits:
+            out.append((ctype, "cong", info["status"], "所从受克", "school-split",
+                        f"{ctype}候选（natal={info['status']}{note_suffix}）："
+                        + "；".join(ke_hits)
+                        + "（DTZ-48：克抑则万不能用——破格说；顺势说仍保留）",
+                        {"破格说": "DTZ-48「若克抑则万不能用」（逆所从旺势）",
+                         "顺势说（保留）": "岁运克神力量与全局气势须并察，不单条裁决"}))
+    return out
+
+
 _SPECIAL_EVALUATORS = {
     "TR-SP-01": _sp_cong_shunshi,
     "TR-SP-02": _sp_cong_break,
     "TR-SP-03": _sp_zw,
     "TR-SP-04": _sp_hua,
+    "TR-SP-05": _sp_hua_taboo,
+    "TR-SP-07": _sp_cong_ke,
 }
 
 

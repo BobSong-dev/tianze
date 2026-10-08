@@ -156,7 +156,7 @@ async def stats() -> JSONResponse:
             "prompt": PROMPT_VERSION,
             "engine": __version__,
         },
-        "note": "candidates 总数（556）与 executable 总数（216）是不同口径，勿混用",
+        "note": "candidates 总数与 executable 总数是不同口径，勿混用（数字见 executableByDomain）",
     })
 
 

@@ -1,6 +1,6 @@
 {
  "schemaVersion": "1.0.0",
- "nodeCount": 222,
+ "nodeCount": 224,
  "edgeCount": 16,
  "edgeTypes": {
   "conflict": 4,
@@ -477,6 +477,34 @@
     "PROJECT_REFERENCE"
    ],
    "candidateId": "DTZ-18"
+  },
+  {
+   "type": "rule",
+   "id": "TR-SP-05",
+   "domain": "temporal",
+   "theme": "special-pattern",
+   "view": null,
+   "label": "化神所忌（岁运逆化神旺气）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-48"
+  },
+  {
+   "type": "rule",
+   "id": "TR-SP-07",
+   "domain": "temporal",
+   "theme": "special-pattern",
+   "view": null,
+   "label": "从格所从之神受克（破格两说）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-48"
   },
   {
    "type": "rule",

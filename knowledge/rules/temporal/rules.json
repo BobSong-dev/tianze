@@ -1,7 +1,7 @@
 {
  "domain": "temporal",
  "schemaVersion": "1.1.0",
- "count": 14,
+ "count": 16,
  "description": "岁运规则（M13）：Source→Quote→RuleCandidate→ExecutableRule(domain=temporal)→TemporalEvidence",
  "rules": [
   {
@@ -936,6 +936,146 @@
      "level": "ENGINEERING_HEURISTIC",
      "project": "Tianze",
      "concept": "化神五行映射（甲己土/乙庚金/丙辛水/丁壬木/戊癸火）"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_temporal_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
+  },
+  {
+   "id": "TR-SP-05",
+   "candidateId": "DTZ-48",
+   "domain": "temporal",
+   "category": "special-pattern",
+   "label": "化神所忌（岁运逆化神旺气）",
+   "conditions": [
+    {
+     "field": "transformationCandidate",
+     "operator": "exists",
+     "value": null
+    },
+    {
+     "field": "temporalHuaTabooStem",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "effects": [
+    {
+     "kind": "note",
+     "text": "岁运遇化神所忌之干 → 化气受阻观察（受阻说/保留两说，候选不改判）"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "滴天髓补注·化神所忌（DTZ-48）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（逐干所忌）",
+     "note": "乙庚化金，不忌甲乙寅卯，而忌丙丁已午；丙辛化水，忌见戊土；丁壬化木，忌见庚金；戊葵化火，忌见壬癸，其理一也。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "逐干禁忌映射表 _HUA_TABOO_STEMS（直接译自引文）；支藏干仅乙庚取巳午"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "滴天髓补注",
+    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾（补注）"
+   },
+   "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_temporal_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
+  },
+  {
+   "id": "TR-SP-07",
+   "candidateId": "DTZ-48",
+   "domain": "temporal",
+   "category": "special-pattern",
+   "label": "从格所从之神受克（破格两说）",
+   "conditions": [
+    {
+     "field": "congCandidate",
+     "operator": "exists",
+     "value": null
+    },
+    {
+     "field": "temporalKeShen",
+     "operator": "exists",
+     "value": null
+    }
+   ],
+   "effects": [
+    {
+     "kind": "note",
+     "text": "岁运克所从之神 → 破格说（克抑则万不能用）与顺势说并存，不裁决"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": null,
+   "conflictNote": null,
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "滴天髓补注·从化总纲（DTZ-48）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（克抑不能用）",
+     "note": "若克抑则万不能用——盖从化皆以全局气势偏于一方，不能不顺其气势而行。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "所从之神受克映射：从财忌比劫/从官杀忌食伤/从儿忌印（十神表）"
     }
    ],
    "source": {

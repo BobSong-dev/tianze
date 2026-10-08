@@ -138,3 +138,42 @@ def test_no_fortune_language(chart_1983):
 
 def test_schema_version_export():
     assert SPECIAL_TEMPORAL_SCHEMA_VERSION == "1.0.0"
+
+
+# ---------- M22：TR-SP-05 化神所忌 / TR-SP-07 从格所从受克 ----------
+
+def test_sp05_hua_taboo_per_pair():
+    """DTZ-48 逐干所忌：丁壬候选 + 岁运庚 → 受阻观察；岁运辛 → 不触发（引文只忌庚）。"""
+    from types import SimpleNamespace
+    ctx = SimpleNamespace(temporal_units=lambda: [("annual", "庚", "子")])
+    cands = {("transformation", "丁壬"): {"status": "CANDIDATE", "temporal_only": False}}
+    out = _sp_hua(chart, ctx, cands)  # 占位避免误用
+    from tianze.analysis.special_temporal import _sp_hua_taboo
+    out = _sp_hua_taboo(chart, ctx, cands)
+    assert out and "化神所忌" in out[0][5] and "庚" in out[0][5]
+    ctx2 = SimpleNamespace(temporal_units=lambda: [("annual", "辛", "丑")])
+    assert _sp_hua_taboo(chart, ctx2, cands) == []   # 辛不在丁壬所忌
+
+
+def test_sp07_cong_ke_shen():
+    """DTZ-48 克抑不能用：从财候选 + 岁运比劫 → 破格说/顺势说两说并存。"""
+    from types import SimpleNamespace
+    ctx = SimpleNamespace(temporal_units=lambda: [("annual", "甲", "辰")])
+    cands = {("cong", "从财"): {"status": "CANDIDATE", "temporal_only": False}}
+    out = st_mod._sp_cong_ke(chart, ctx, cands)
+    assert out and "克所从之财" in out[0][5]
+    assert set(out[0][6]) == {"破格说", "顺势说（保留）"}
+
+
+def test_sp05_07_in_gate_rules():
+    from tianze.knowledge.temporal_rules import load_temporal_rules
+    ids = {r["id"] for r in load_temporal_rules()}
+    assert {"TR-SP-05", "TR-SP-07"} <= ids
+    # 均有 CLASSICAL 引文
+    for r in load_temporal_rules():
+        if r["id"] in ("TR-SP-05", "TR-SP-07"):
+            assert any(p["level"] == "CLASSICAL_EXPLICIT" for p in r["provenance"])
+
+
+import tianze.analysis.special_temporal as st_mod  # noqa: E402
+from tianze.analysis.special_temporal import _sp_hua  # noqa: E402

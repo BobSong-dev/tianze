@@ -1,15 +1,15 @@
 # Tianze Release Report
 
-- commit: `9e9a25aa05e3`（含未提交改动）
+- commit: `1a4bdb2edb82`（含未提交改动）
 - engine: 0.3.0
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 
 ## 规模
 
-- ExecutableRule：**216**（{'event': 20, 'temporal': 14, 'tiaohou': 182}）
+- ExecutableRule：**218**（{'event': 20, 'temporal': 16, 'tiaohou': 182}）
 - RuleCandidate：556（不同口径）
 - 命例：1147；Replay：165
-- 测试：535
+- 测试：538
 
 ## 质量状态
 
