@@ -5,7 +5,7 @@
 
 from __future__ import annotations
 
-from tianze.ganzhi.tables import Element
+from tianze.ganzhi.tables import BRANCHES, Element
 
 FS = frozenset
 
@@ -90,3 +90,40 @@ PUNISHMENT_TRIO_ORDER: dict[FS[str], tuple[str, str, str]] = {
 PUNISHMENT_ZIMAO: FS[str] = FS({"子", "卯"})
 ZIMAO_NAME = "无礼之刑"
 SELF_PUNISHMENT: frozenset[str] = frozenset({"辰", "午", "酉", "亥"})
+
+
+# ---- M24 · 暗合（SPZY-34 逐对引文）----
+# 「干与干相遇为明合，地支所藏人元之用相遇为暗合——两支毗连、各取其禄旺之气」；
+# 值 = 参与暗合的藏干对（evidence 用）；「凡命造之佳者必多合，非以化论也」——
+# 暗合永远不产生化气候选（transform_candidate 恒为 None）。
+HIDDEN_COMBINATIONS: dict[FS[str], list[tuple[str, str]]] = {
+    FS({"子", "巳"}): [("癸", "戊")],                 # 子中癸水得禄、巳中戊土得禄——戊癸合
+    FS({"寅", "丑"}): [("甲", "己")],
+    FS({"寅", "未"}): [("甲", "己")],
+    FS({"卯", "申"}): [("乙", "庚")],
+    FS({"辰", "子"}): [("戊", "癸")],
+    FS({"戌", "子"}): [("戊", "癸")],
+    FS({"巳", "丑"}): [("丙", "辛"), ("戊", "癸")],   # 原注：巳酉会局不以合论
+    FS({"午", "亥"}): [("丁", "壬"), ("甲", "己")],
+}
+# 巳丑的会局例外：原局见酉时以 note 保留两读（不删关系、不判化）
+HIDDEN_COMBO_EXCEPTIONS: dict[FS[str], tuple[str, str]] = {
+    FS({"巳", "丑"}): ("酉", "巳酉会局不以合论（SPZY-34 原注）"),
+}
+
+
+def arch_target(a: str, b: str) -> str | None:
+    """拱夹定位（DTZ-10/ZP-05）：两支在地支环上恰隔一支 → 返回被拱之支。
+
+    寅↔辰 拱卯、亥↔丑 拱子（跨年界）。同支、不相隔或相隔 >2 → None。
+    结构注记：三合局成员相隔四位（长生-中神-墓），隔二缺一的拱对不可能
+    同属一个三合局——拱只可能指向三会方中支、日主禄位或泛夹位。
+    """
+    if a not in BRANCHES or b not in BRANCHES or a == b:
+        return None
+    ia, ib = BRANCHES.index(a), BRANCHES.index(b)
+    if (ib - ia) % 12 == 2:
+        return BRANCHES[(ia + 1) % 12]
+    if (ia - ib) % 12 == 2:
+        return BRANCHES[(ib + 1) % 12]
+    return None

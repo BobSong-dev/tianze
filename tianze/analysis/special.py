@@ -164,6 +164,22 @@ def analyze_cong(
                 "blocker", "SP-CG-B2",
                 f"印比透干（{'、'.join(helper_stems)}）——逆从格之势",
             ))
+            # M24 · 印比合去/合绊两说（伍庭芳造口径：丁壬合，徐断「弃命相从」）——
+            # 印比与**非印比**之干天干相合 → 真从说（合去不能生身，从势成立）与
+            # 保留说（合而不化仍有意）并存；只加证据，不改状态映射（不调参）。
+            helper_set = set(helper_stems)
+            for h in helper_stems:
+                for s2 in stems:
+                    if not s2 or s2 == day_master or s2 == h or s2 in helper_set:
+                        continue
+                    if tuple(sorted((h, s2), key=stem_index)) in _STEM_PAIR_TRANSFORM:
+                        cand.exceptions.append(Factor(
+                            "exception", "SP-CG-E1",
+                            f"印比{h}与{s2}天干相合——合去（不能生身，真从说，"
+                            "伍庭芳造丁壬合丁印而弃命相从）vs 合绊（合而不化仍有意，"
+                            "保留说）两说并存（DTZ-06：能从与否须察干支配合之趋向）",
+                        ))
+                        break
         if analyzer_conflict:
             cand.conflicts.append(Factor(
                 "conflict", "SP-CG-C1",

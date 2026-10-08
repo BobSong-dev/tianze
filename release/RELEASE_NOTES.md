@@ -1,14 +1,14 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `643dc26f3483`（含未提交改动）
+- commit: `314517eb4c03`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（96.2s / 20 步）
+- 质量门：ALL PASS（103.1s / 20 步）
 
 ## 版本与规模
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
-- ExecutableRule: **220**（{'event': 21, 'temporal': 17, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 554
+- ExecutableRule: **221**（{'event': 21, 'temporal': 18, 'tiaohou': 182}）；candidates 556（不同口径）
+- 命例 1147；Replay 165；测试 558
 
 ## 质量状态
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 4}
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（14）
+### 特性（15）
+- M23 final: README M23 status + gate 20 steps ALL PASS + release_check ALL PASS (dev wheel 0.4.0.dev0, P5 commit 一致)
 - M23.6: Web Graph pan/zoom (viewBox 滚轮缩放+拖拽平移+重置) + 规则→ExplanationChain 跳转 + AI Evaluation 趋势 sparkline (pass率/grounding/latency)
 - M23.5: ADR-061 神煞主从与去取纪律（MLD-06/SS-R22/MLD-21 治理固化；红艳/桃花马等 OCR 残缺名目保持 UNRESOLVED 不落地）
 - M23.4: EV-REL-06 婚变之微（MLD-18 女命夫宫坐伤官，gender-aware；男命口径 OCR 残缺不入可执行条件）+ EV-REL-03↔06 keep-both 冲突声明；event 20→21, executable 220, graph 226/18

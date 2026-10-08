@@ -368,6 +368,82 @@ def analyze_temporal(
     from tianze.relation.tables import THREE_HARMONIES
     natal_branch_set = {b for b in ctx.natal_branches if b}
     from tianze.ganzhi.tables import BRANCHES as _BR
+
+    # M24 · 拱夹/暗合/填实（DTZ-10/ZP-05/SPZY-34）：岁运 × 原局虚神
+    # 口径：复用 relation.tables 的 arch_target / HIDDEN_COMBINATIONS（不重复实现）。
+    # - 岁运支 == 原局拱位虚神 → 填实（ZP-05：忌刑冲填实之凶——结构观察，不判吉凶）
+    # - 岁运支 + 原局支 隔二缺一成新拱（虚神原局岁运均不见）→ EXPERIMENTAL（岁运能否入拱两说）
+    # - 岁运支 + 原局支 暗合（SPZY-34 逐对）→ 岁运引入暗合
+    from tianze.relation.tables import arch_target, HIDDEN_COMBINATIONS, HIDDEN_COMBO_EXCEPTIONS
+    temporal_branches = [(label, b) for label, _s, b in ctx.temporal_units() if b]
+    temporal_branch_set = {b for _l, b in temporal_branches}
+    natal_arch_targets: dict[str, tuple[str, str]] = {}
+    natal_b_list = [b for b in ctx.natal_branches if b]
+    for x in range(len(natal_b_list)):
+        for y in range(x + 1, len(natal_b_list)):
+            tgt = arch_target(natal_b_list[x], natal_b_list[y])
+            if tgt and tgt not in natal_branch_set:
+                natal_arch_targets[tgt] = (natal_b_list[x], natal_b_list[y])
+    for label, br in temporal_branches:
+        filled = natal_arch_targets.get(br)
+        if filled:
+            relations.append(TemporalRelation(
+                kind="arch_fill",
+                label=f"岁运{_LAYER_CN.get(label, label)}{br}填实拱位（{''.join(filled)}拱{br}）",
+                members=[filled[0], filled[1], br],
+                positions=[f"natal:{_pos(ctx.natal_branches.index(filled[0]))}",
+                           f"natal:{_pos(ctx.natal_branches.index(filled[1]))}", label],
+                sources=[TemporalSource.NATAL, _src(label)],
+                is_new=True,
+                note="虚神被填（ZP-05：拱禄拱贵忌刑冲填实之凶——原典禁则，候选级观察，不判吉凶）",
+            ))
+            evidence.append(
+                f"岁运{_LAYER_CN.get(label, label)}支{br}为原局拱位虚神"
+                f"（{''.join(filled)}拱{br}）——填实（忌刑冲填实之凶，ZP-05）")
+            continue
+        for i, nb in enumerate(ctx.natal_branches):
+            if not nb:
+                continue
+            tgt = arch_target(nb, br)
+            if tgt and tgt not in natal_branch_set and tgt not in temporal_branch_set:
+                meeting_cn = ""
+                from tianze.relation.tables import THREE_MEETINGS
+                for trio, (direction, _el) in THREE_MEETINGS.items():
+                    if tgt in trio and nb in trio and br in trio:
+                        meeting_cn = f"（{direction}中支——暗会口径）"
+                        break
+                relations.append(TemporalRelation(
+                    kind="arch",
+                    label=f"{nb}{br}拱{tgt}（岁运成拱）",
+                    members=[nb, br, tgt],
+                    positions=[f"natal:{_pos(i)}", label],
+                    sources=[TemporalSource.NATAL, _src(label)],
+                    is_new=True,
+                    note=f"岁运与原局隔二缺一成拱{meeting_cn}；岁运能否入拱两说（EXPERIMENTAL）——"
+                         "候选关系，非格局（DTZ-26/36）",
+                ))
+                evidence.append(
+                    f"岁运{_LAYER_CN.get(label, label)}支{br}与原局{_pos(i)}支{nb}"
+                    f"隔二缺一，拱虚神{tgt}（DTZ-10：拱实不若拱虚）")
+            pair_hs = HIDDEN_COMBINATIONS.get(frozenset({nb, br}))
+            if pair_hs and frozenset({nb, br}) not in SIX_COMBINATIONS:
+                combo_cn = "、".join(f"{a}{b}合" for a, b in pair_hs)
+                note = f"岁运引入暗合：藏干{combo_cn}（SPZY-34）；暗合非化"
+                exc = HIDDEN_COMBO_EXCEPTIONS.get(frozenset({nb, br}))
+                if exc and exc[0] in natal_branch_set:
+                    note += f"；另有{exc[1]}——两读保留"
+                relations.append(TemporalRelation(
+                    kind="hidden_combination",
+                    label=f"{nb}{br}暗合（岁运）",
+                    members=sorted([nb, br]),
+                    positions=[f"natal:{_pos(i)}", label],
+                    sources=[TemporalSource.NATAL, _src(label)],
+                    is_new=True, note=note,
+                ))
+                evidence.append(
+                    f"岁运{_LAYER_CN.get(label, label)}支{br}与原局{_pos(i)}支{nb}暗合"
+                    f"（{combo_cn}；SPZY-34，非化）")
+
     for trio, elem in THREE_HARMONIES.items():
         # 集合迭代序受 PYTHONHASHSEED 影响 → 按地支序确定性排序（回归稳定性）
         natal_members = sorted({b for b in ctx.natal_branches if b and b in trio},

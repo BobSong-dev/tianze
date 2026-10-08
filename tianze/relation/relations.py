@@ -12,7 +12,7 @@ from __future__ import annotations
 from typing import Sequence
 
 from tianze.domain.models import Adjacency, Interaction, Position, RelationKind
-from tianze.ganzhi.tables import BRANCHES, branch_index, stem_index
+from tianze.ganzhi.tables import BRANCHES, BRANCH_ELEMENT, STEMS, STEM_ELEMENT, branch_index, stem_index
 from tianze.relation import tables as T
 
 
@@ -47,6 +47,7 @@ def analyze_relations(
     stems: Sequence[str | None],
     branches: Sequence[str | None],
     positions: Sequence[Position],
+    day_master: str | None = None,
 ) -> list[Interaction]:
     if not (len(stems) == len(branches) == len(positions)):
         raise ValueError("stems/branches/positions 长度不一致")
@@ -195,5 +196,84 @@ def analyze_relations(
                 month_involved=_month_involved(positions, idxs),
                 transform_candidate=elem, convention_id="R9",
             ))
+
+    # —— 拱夹/虚神（M24：DTZ-10/ZP-05/DTZ-26/DTZ-36）——
+    # 隔二缺一且被拱之支原局不见（拱虚，「拱实不若拱虚」）；见则不报（明字已有
+    # 关系层覆盖，虚神不存在）。边界（DTZ-26/36 原文）：拱夹「不成为格」「非格局
+    # 亦非用神——只是精神所寄」——本引擎只输出候选关系，绝不升格、不取用神。
+    # 分层（sub_type）：拱三会方（暗会）> 拱禄（需日主）> 泛拱夹；
+    # 「集于一点」（两柱天干相同或天干暗合，ZP-05）为成立强度证据，不作格。
+    from tianze.ganzhi.tables import STEM_LU
+    lu_branch = STEM_LU.get(day_master) if day_master else None
+    for i in range(n):
+        for j in range(i + 1, n):
+            b1, b2 = branches[i], branches[j]
+            if not b1 or not b2:
+                continue
+            target = T.arch_target(b1, b2)
+            if target is None or target in present:
+                continue
+            meeting_name = None
+            for trio, (direction, _elem) in T.THREE_MEETINGS.items():
+                if target in trio and b1 in trio and b2 in trio:
+                    meeting_name = direction
+                    break
+            if meeting_name:
+                sub = f"拱三会方（{meeting_name}·暗会）"
+                if lu_branch and target == lu_branch:
+                    notes_need_lu = True
+                else:
+                    notes_need_lu = False
+            elif lu_branch and target == lu_branch:
+                sub = "拱禄"
+                notes_need_lu = False
+            else:
+                sub = "拱夹"
+                notes_need_lu = False
+            s1, s2 = stems[i], stems[j]
+            notes = []
+            if s1 and s2:
+                if s1 == s2:
+                    notes.append(f"两柱天干同{ s1 }，集于一点（ZP-05）")
+                elif T.FS({s1, s2}) in T.STEM_COMBINATIONS:
+                    notes.append(f"两柱天干{s1}{s2}暗合，集于一点（ZP-05）")
+            if sub == "拱禄":
+                notes.append(f"拱日元{day_master}之禄{target}（ZP-05：忌刑冲填实之凶）")
+            elif notes_need_lu:
+                notes.append(f"{target}亦为日元{day_master}之禄（拱禄同见）")
+            notes.append("暗冲暗会两说并存（DTZ-10：我冲彼冲皆冲起）；候选关系，非格局（DTZ-26/36）")
+            pa, pb = sorted((b1, b2), key=branch_index)
+            append(Interaction(
+                kind=RelationKind.ARCH, label=f"{pa}{pb}拱{target}",
+                members=[pa, pb, target], positions=[positions[i], positions[j]],
+                adjacency=Adjacency.ADJACENT if j - i == 1 else Adjacency.SEPARATED,
+                month_involved=_month_involved(positions, (i, j)),
+                sub_type=sub, note="；".join(notes), convention_id="DTZ-10",
+            ))
+
+    # —— 暗合（M24：SPZY-34 逐对引文）——
+    # 「两支毗连、各取其禄旺之气」——限贴邻柱；暗合非化（transform_candidate 恒 None）。
+    for i in range(n - 1):
+        j = i + 1
+        b1, b2 = branches[i], branches[j]
+        if not b1 or not b2:
+            continue
+        pair = T.FS({b1, b2})
+        pairs_hs = T.HIDDEN_COMBINATIONS.get(pair)
+        if pairs_hs is None or pair in T.SIX_COMBINATIONS:
+            continue
+        combo_cn = "、".join(f"{a}{b}合" for a, b in pairs_hs)
+        notes = [f"藏干{combo_cn}（两支毗连、各取禄旺之气，SPZY-34）",
+                 "暗合非化（SPZY-34：凡命造之佳者必多合，非以化论也）"]
+        exc = T.HIDDEN_COMBO_EXCEPTIONS.get(pair)
+        if exc and exc[0] in present:
+            notes.append(f"另有{exc[1]}——两读保留")
+        append(Interaction(
+            kind=RelationKind.HIDDEN_COMBINATION,
+            label=f"{b1}{b2}暗合",
+            members=[b1, b2], positions=[positions[i], positions[j]],
+            adjacency=Adjacency.ADJACENT, month_involved=_month_involved(positions, (i, j)),
+            note="；".join(notes), convention_id="SPZY-34",
+        ))
 
     return out

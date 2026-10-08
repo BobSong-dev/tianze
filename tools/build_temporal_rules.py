@@ -211,6 +211,38 @@ def main() -> int:
                                 "阵营映射只对水火之冲成立（徐注例证范围），其余六冲不量化。",
         ),
         build_rule(
+            "TR-DTZ-10", "DTZ-10", "an chong an hui", "暗冲暗会/拱夹/暗合/填实（岁运 × 虚神）",
+            conditions=[{"field": "temporalXushiInteraction", "operator": "in",
+                         "value": ["arch", "arch_fill", "hidden_combination"]}],
+            effects=[{"kind": "note",
+                      "text": "岁运与原局虚神的候选级交互观察：成拱/填实/暗合；"
+                              "非格局不取用（DTZ-26/36），不判吉凶"}],
+            source={"sourceKind": "COMMENTARY", "book": "滴天髓补注",
+                    "chapter": "暗冲暗会", "pages": [],
+                    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（补注）"},
+            provenance=[
+                {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库（用户提供 zip）",
+                 "concept": "滴天髓补注·暗冲暗会节（DTZ-10）+ 子平真诠（拱禄拱贵，ZP-05）"
+                            "+ 子平粹言（暗合，SPZY-34）"},
+                {"level": "CLASSICAL_EXPLICIT", "project": None,
+                 "concept": "古籍原文引文（暗冲暗会尤为喜，我冲彼冲皆冲起——拱实不若拱虚；"
+                            "拱禄拱贵忌刑冲填实之凶；干与干相遇为明合，地支所藏人元之用"
+                            "相遇为暗合）",
+                 "note": _quote_note("暗冲暗会尤为喜，我冲彼冲皆冲起。……刑冲破害以冲为重，"
+                                     "三会六合以会为重……拱夹包承，为不见之形，即是暗会；"
+                                     "拱实不若拱虚，故尤为喜也。")},
+                {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+                 "concept": "拱定位 = 地支环隔二缺一且被拱支不见（M24 relation.tables）；"
+                            "暗合 = SPZY-34 逐对表（贴邻限制、巳酉会局例外 note）；"
+                            "填实 = 岁运支命中拱位虚神；评估器只读关系引擎结果，不重复检测"},
+            ],
+            quality="B",
+            normalization_notes="「忌刑冲填实之凶」为原典禁则语境——Tianze 仅输出填实结构事件，"
+                                "不判吉凶；拱夹暗合非格局非用神（DTZ-26/36），永不升格；"
+                                "暗合非化（SPZY-34：非以化论也）。",
+        ),
+        build_rule(
             "TR-SPZY-28", "SPZY-28", "taisui", "流年即太岁（术语框架）",
             conditions=[{"field": "annualStem", "operator": "exists", "value": None}],
             effects=[{"kind": "note",

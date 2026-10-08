@@ -169,7 +169,7 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
     branches: list[str | None] = [pillar_year.branch, pillar_month.branch, pillar_day.branch,
                                   pillar_hour.branch if pillar_hour else None]
     positions: list[M.Position] = ["year", "month", "day", "hour"]
-    relations = analyze_relations(stems, branches, positions)
+    relations = analyze_relations(stems, branches, positions, day_master=day_master)
 
     # 结构事实（M3）：月令 / 通根 / 透干 / 五行统计（不加权，R15-R18）
     month_command = compute_month_command(month_gz[1], day_master, stems)

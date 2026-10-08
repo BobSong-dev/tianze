@@ -25,8 +25,7 @@
   "G6_never_triggered": {
    "pass": true,
    "list": [
-    "EV-FAM-01",
-    "EV-REL-06"
+    "EV-FAM-01"
    ],
    "note": "进审计列表（可能只是探针未覆盖，不判死刑）"
   },
@@ -50,8 +49,8 @@
  },
  "coverage": {
   "candidatesTotal": 556,
-  "candidatesUsedAsRules": 192,
-  "candidatesUnused": 364,
+  "candidatesUsedAsRules": 193,
+  "candidatesUnused": 363,
   "unusedCandidateIds": [
    "DTZ-00",
    "DTZ-01",
@@ -61,7 +60,6 @@
    "DTZ-06",
    "DTZ-07",
    "DTZ-08",
-   "DTZ-10",
    "DTZ-12",
    "DTZ-13",
    "DTZ-14",
@@ -132,7 +130,8 @@
    "MLD-09",
    "MLD-10",
    "MLD-11",
-   "MLD-12"
+   "MLD-12",
+   "MLD-13"
   ],
   "ruleCaseCoverage": {
    "EV-CAR-01": 32,

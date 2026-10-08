@@ -2036,7 +2036,7 @@
     "PROJECT_REFERENCE",
     "TIANZE_NORMALIZATION"
    ],
-   "randomTriggerRate": 0.0,
+   "randomTriggerRate": 0.03,
    "relationDistribution": {
     "SOURCE_SILENT": 1
    },

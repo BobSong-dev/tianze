@@ -1,6 +1,6 @@
 {
  "schemaVersion": "1.0.0",
- "nodeCount": 226,
+ "nodeCount": 227,
  "edgeCount": 18,
  "edgeTypes": {
   "conflict": 5,
@@ -385,6 +385,20 @@
     "PROJECT_REFERENCE"
    ],
    "candidateId": "DTZ-11"
+  },
+  {
+   "type": "rule",
+   "id": "TR-DTZ-10",
+   "domain": "temporal",
+   "theme": "an chong an hui",
+   "view": null,
+   "label": "暗冲暗会/拱夹/暗合/填实（岁运 × 虚神）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-10"
   },
   {
    "type": "rule",

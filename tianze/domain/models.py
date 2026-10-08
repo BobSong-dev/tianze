@@ -157,6 +157,8 @@ class RelationKind(str, Enum):
     THREE_HARMONY = "three_harmony"          # 三合局（三支全）
     THREE_HARMONY_HALF = "three_harmony_half"  # 半三合（R10：须含中神）
     THREE_MEETING = "three_meeting"          # 三会方
+    ARCH = "arch"                            # 拱夹/虚神（M24：隔二缺一且被拱支不见；DTZ-10）
+    HIDDEN_COMBINATION = "hidden_combination"  # 暗合（M24：支藏干禄旺之气相合，非化；SPZY-34）
 
 
 class Interaction(CamelizeModel):

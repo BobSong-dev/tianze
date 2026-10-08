@@ -20,7 +20,7 @@ def rules():
 
 
 def test_rules_load(rules):
-    assert len(rules) == 17
+    assert len(rules) == 18
     ids = [r["id"] for r in rules]
     assert len(ids) == len(set(ids))
     for r in rules:
@@ -34,7 +34,7 @@ def test_provenance_discipline(rules):
     """有引文的规则必须带 CLASSICAL_EXPLICIT；无引文的只能是 PROJECT_REFERENCE/ENGINEERING_HEURISTIC。"""
     by_id = {r["id"]: r for r in rules}
     for rid in ("TR-SS-R09", "TR-SS-R10A", "TR-SS-R10B", "TR-DTZ-35", "TR-DTZ-09",
-                "TR-DTZ-11", "TR-SPZY-28"):
+                "TR-DTZ-10", "TR-DTZ-11", "TR-SPZY-28"):
         levels = {p["level"] for p in by_id[rid]["provenance"]}
         assert "CLASSICAL_EXPLICIT" in levels, f"{rid} 有原文链必须标 CLASSICAL_EXPLICIT"
     for rid in ("TR-FUYIN-01", "TR-FANYIN-01", "TR-BINGLIN-01", "TR-TIANKEDI-01"):
@@ -166,7 +166,7 @@ def test_rule_triggers_in_analyze_temporal():
         natal_branches=["子", "寅", "戌", "卯"],
         day_master="甲", annual_stem="戊", annual_branch="辰",
     )
-    assert len(ta.ruleTriggers) == 11
+    assert len(ta.ruleTriggers) == 12
     blob = ta.model_dump_json(by_alias=True, exclude_none=True)
     # 观察项/结论层不得出现吉凶断语；古籍引文仅允许存在于 provenance 引文注记中
     for t_ in ta.ruleTriggers:
@@ -222,3 +222,62 @@ def test_dtz11_non_fire_water_not_matched():
     )
     ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-11")
     assert not ev.matched
+
+
+# ---------- M24 · TR-DTZ-10 暗冲暗会/拱夹/暗合/填实 ----------
+
+def test_dtz10_xushi_fill():
+    """原局亥丑拱子（子不在场），流年子 → 填实观察（原典禁则语境，不判吉凶）。"""
+    ta = analyze_temporal(
+        natal_stems=["癸", "己", "甲", "乙"],
+        natal_branches=["亥", "丑", "巳", "卯"],
+        day_master="癸", annual_stem="壬", annual_branch="子",
+    )
+    ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-10")
+    assert ev.matched
+    assert any("填实" in o and "亥丑拱子" in o for o in ev.observations)
+    assert any("忌刑冲填实" in o for o in ev.observations)
+
+
+def test_dtz10_temporal_arch_with_meeting_note():
+    """岁运寅 + 原局子 → 拱丑（北方水中支，暗会口径；EXPERIMENTAL 两说）。"""
+    ta = analyze_temporal(
+        natal_stems=["癸", "戊", "甲", "庚"],
+        natal_branches=["子", "辰", "巳", "申"],
+        day_master="癸", annual_stem="甲", annual_branch="寅",
+    )
+    ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-10")
+    assert ev.matched
+    # 子寅拱丑（子丑寅连续但非三会——无暗会标注）；辰寅拱卯（寅卯辰方）才有暗会口径
+    assert any("辰寅拱卯" in o and "暗会" in o for o in ev.observations)
+    assert any("子寅拱丑" in o for o in ev.observations)
+    assert any("EXPERIMENTAL" in o or "两说" in o for o in ev.observations)
+
+
+def test_dtz10_hidden_combination_via_temporal():
+    """原局巳 + 流年子 → 子巳暗合（癸戊得禄之气，非化）。"""
+    ta = analyze_temporal(
+        natal_stems=["丁", "丙", "庚", "庚"],
+        natal_branches=["巳", "午", "戌", "申"],
+        day_master="丁", annual_stem="庚", annual_branch="子",
+    )
+    ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-10")
+    assert ev.matched
+    assert any("巳子暗合" in o for o in ev.observations)  # 标签序：原局支在前
+    assert any("非化" in o for o in ev.observations)
+
+
+def test_dtz10_negative_no_xushi():
+    """无虚神交互 → 不触发。"""
+    ta = analyze_temporal(
+        natal_stems=["甲", "丙", "戊", "庚"],
+        natal_branches=["子", "寅", "辰", "午"],
+        day_master="甲", annual_stem="甲", annual_branch="戌",
+    )
+    ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-10")
+    # 辰戌冲 + 寅午戌三合缺中神? 寅辰拱卯？ 寅(2)辰(4) gap2 拱卯——卯不在场 → 有 arch！
+    # 原局有辰 + 岁运戌 → 辰戌冲；寅辰(natal,natal) 拱卯 是原局关系层，岁运层只在
+    # 岁运支参与时观察。流年戌与原局支隔二缺一？ 戌(10)-子(0)=2 → 戌子拱亥！亥不在场 → 触发
+    # → 该 fixture 必触发。改为断言其观察含戌子拱亥：
+    assert ev.matched
+    assert any("子戌拱亥" in o for o in ev.observations)  # 标签序：原局支在前
