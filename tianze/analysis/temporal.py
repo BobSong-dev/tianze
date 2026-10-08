@@ -450,6 +450,8 @@ def analyze_temporal(
             for member in (pair_a, pair_b):
                 if fired_broken:
                     break
+                if member == br:
+                    continue  # 岁运支即拱位成员本身＝伏吟，非刑冲
                 pair_fs = frozenset({br, member})
                 hit_kind = None
                 if pair_fs in SIX_CLASHES:

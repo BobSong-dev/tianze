@@ -38,6 +38,13 @@ def main() -> int:
     per_book: dict[str, dict] = {}
     errors = 0
 
+    # M26 · 分布研究维度
+    arch_by_daymaster: Counter = Counter()   # 日主×拱夹 sub_type（top 泛化审计）
+    arch_by_sub_daymaster_top: Counter = Counter()
+    hidden_by_monthbranch: Counter = Counter()
+    engine_vs_claims = {"engineCases": 0, "claimsMentionXushi": 0, "overlap": 0}
+    XUSHI_KEYWORDS = ("拱", "暗合", "虚神", "邀")
+
     for book in books:
         for case in book.get("cases", []):
             pillars = (case.get("fact") or {}).get("pillars") or {}
@@ -49,6 +56,7 @@ def main() -> int:
                 errors += 1
                 continue
             total += 1
+            day_master_key = chart.day_master.stem
             bname = case.get("book", "?")
             slot = per_book.setdefault(
                 bname, {"cases": 0, "withXushi": 0, "arch": 0, "hidden": 0,
@@ -60,11 +68,14 @@ def main() -> int:
                     arch_total += 1
                     slot["arch"] += 1
                     arch_by_sub[r.sub_type or "拱夹"] += 1
+                    arch_by_daymaster[day_master_key + "|" + (r.sub_type or "拱夹")] += 1
                     has = True
                 elif r.kind.value == "hidden_combination":
                     hidden_total += 1
                     slot["hidden"] += 1
                     hidden_by_pair[r.label] += 1
+                    hidden_by_monthbranch[(chart.month_command.month_branch if chart.month_command else "?")
+                                          + "|" + r.label] += 1
                     has = True
             blocked_total += len(chart.blocked_relations)
             slot["blocked"] += len(chart.blocked_relations)
@@ -80,6 +91,34 @@ def main() -> int:
                 cases_with += 1
                 slot["withXushi"] += 1
 
+    # M26 · Engine 检出 vs 原书标注提及（claims 文本为 MACHINE_EXTRACTED 摘要，
+    # 非原文——结果只作粗对照，不等同原书明确采用；raw OCR 语料不在仓库，BLOCKED）
+    claims_data = json.load(open("knowledge/normalized/cases/event_claims.json",
+                                 encoding="utf-8"))
+    engine_case_ids = set()
+    # 重扫一遍拿 engine 检出的 caseId（与上面循环同口径）
+    for book in books:
+        for case in book.get("cases", []):
+            pillars = (case.get("fact") or {}).get("pillars") or {}
+            if not all(pillars.get(k) for k in ("year", "month", "day", "hour")):
+                continue
+            try:
+                ch = build_case_chart(pillars)
+            except Exception:
+                continue
+            if (any(r.kind.value in ("arch", "hidden_combination") for r in ch.relations)
+                    or ch.blocked_relations):
+                engine_case_ids.add(case["caseId"])
+    for c in claims_data.get("cases", []):
+        text = " ".join(cl.get("text", "") for cl in c.get("claims", []))
+        mentioned = any(k in text for k in XUSHI_KEYWORDS)
+        if mentioned:
+            engine_vs_claims["claimsMentionXushi"] += 1
+        if c["caseId"] in engine_case_ids:
+            engine_vs_claims["engineCases"] += 1
+            if mentioned:
+                engine_vs_claims["overlap"] += 1
+
     payload = {
         "schemaVersion": "1.0.0",
         "description": "命例×虚神专题审计（M25）：分布描述，不做事件拟合",
@@ -94,12 +133,23 @@ def main() -> int:
         "xushiOuterTotal": outer_total,
         "xushiOuterByTypeStatus": dict(outer_by_type),
         "perBook": per_book,
+        "archByDayMasterTop": dict(arch_by_daymaster.most_common(12)),
+        "hiddenByMonthBranchTop": dict(hidden_by_monthbranch.most_common(10)),
+        "engineVsClaims": dict(engine_vs_claims),
+        "engineVsClaimsCaveat": "claims 文本为 MACHINE_EXTRACTED 摘要，仅作粗对照；"
+                                "「原书明确采用」需对照 raw OCR 语料（不在仓库，BLOCKED）",
         "discipline": "历史断语只用于对照；本审计不输出任何吉凶或事件结论",
     }
     with open(OUT_JSON, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=1)
 
-    md = ["# 命例×虚神专题审计（M25）", "",
+    md = ["# 命例×虚神专题审计（M25/M26）", "",
+          f"- Engine 检出 vs 原书标注提及（MACHINE_EXTRACTED 粗对照）："
+          f"engine {engine_vs_claims['engineCases']} 例 / 标注提及 "
+          f"{engine_vs_claims['claimsMentionXushi']} 例 / 重叠 {engine_vs_claims['overlap']} 例",
+          f"- 高频泛化审计（日主×拱型 top）："
+          f"{dict(arch_by_daymaster.most_common(6))}",
+          "",
           f"- 解析 {total} 例（错误 {errors}）；含拱夹/暗合/未成立候选/外格候选的命例 "
           f"**{cases_with}** 例",
           f"- 拱夹 {arch_total} 次（{dict(arch_by_sub.most_common(6))}）",

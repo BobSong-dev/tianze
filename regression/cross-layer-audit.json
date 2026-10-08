@@ -1,0 +1,36 @@
+{
+ "schemaVersion": "1.0.0",
+ "description": "跨层一致性审计（M26）：关系层/格局层/特殊格局层逻辑一致性；violation 期望全 0（关系存在不等于格局成立，仅查内部矛盾）",
+ "totalCases": 1045,
+ "violations": {
+  "C1": [],
+  "C2": [],
+  "C3": [],
+  "C4": [],
+  "C5": []
+ },
+ "violationCounts": {
+  "C1": 0,
+  "C2": 0,
+  "C3": 0,
+  "C4": 0,
+  "C5": 0
+ },
+ "totalViolations": 0,
+ "stats": {
+  "transformation:UNRESOLVED": 563,
+  "cong:DISPUTED": 92,
+  "cong:LIKELY": 349,
+  "cong:BLOCKED": 702,
+  "cong:CANDIDATE": 392,
+  "cong:UNRESOLVED": 29,
+  "transformation:CANDIDATE": 11
+ },
+ "checks": {
+  "C1": "arch 靶支不在场 + 井栏叉⟺arch(刃) 同现 + 庚日限定",
+  "C2": "化候选 ⟸ stem_combination 关系同现",
+  "C3": "化候选 CANDIDATE ⟹ 邻位+月令（DTZ-47）",
+  "C4": "特殊格局永不 CONFIRMED；cong BLOCKED 必带阻断",
+  "C5": "暗合 ⟹ SPZY-34 表内 + 贴邻"
+ }
+}

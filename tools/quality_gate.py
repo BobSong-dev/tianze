@@ -43,6 +43,7 @@ STEPS = [
     ("event_evaluation", [PY, "tools/event_evaluation.py"]),
     ("case_replay", [PY, "tools/case_replay.py"]),
     ("xushi_case_audit", [PY, "tools/xushi_case_audit.py"]),
+    ("cross_layer_audit", [PY, "tools/cross_layer_audit.py"]),
     ("ai_evaluation_mock", [PY, "tools/ai_evaluation.py", "--mock"]),
     ("review_queue", [PY, "tools/review_queue.py"]),
     ("rule_coverage_audit", [PY, "tools/rule_coverage_audit.py"]),

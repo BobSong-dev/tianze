@@ -14,7 +14,7 @@ def test_quality_gate_summary():
     断言 allPass 会造成"门必须先通过才能通过"的自指死锁——freshness
     由 release_check P0 与发布流程负责。"""
     d = json.load(open("release/quality-summary.json", encoding="utf-8"))
-    assert len(d["steps"]) == 21  # M25: +xushi_case_audit（M21: +rescue_coverage +release_history）
+    assert len(d["steps"]) == 22  # M26: +cross_layer_audit（M25: +xushi_case_audit）
     assert {"failed", "totalSeconds"} <= set(d)
     steps = {s["step"] for s in d["steps"]}
     assert {"pytest", "audit_gates", "case_regression", "benchmark",

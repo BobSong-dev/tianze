@@ -131,6 +131,7 @@ export interface TiaoHouResult {
 export interface AdvancedAnalysis {
   specialPattern: {
     cong: { type: string; school: string; status: string; prerequisites: string[];
+            exceptions?: { ruleId: string; text: string }[];
             supports: { kind: string; ruleId: string; text: string }[];
             blockers: { kind: string; ruleId: string; text: string }[];
             conflicts: { kind: string; ruleId: string; text: string }[];

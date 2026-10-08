@@ -3,11 +3,12 @@
  "description": "命例×虚神专题审计（M25）：分布描述，不做事件拟合",
  "totalCasesParsed": 1045,
  "parseErrors": 0,
- "casesWithXushi": 722,
+ "casesWithXushi": 727,
  "archTotal": 911,
  "archBySubType": {
   "拱三会方（南方火·暗会）": 41,
-  "拱夹": 572,
+  "拱贵（天乙贵人位）": 167,
+  "拱夹": 405,
   "拱三会方（北方水·暗会）": 64,
   "拱三会方（西方金·暗会）": 53,
   "拱禄": 54,
@@ -33,11 +34,13 @@
   "午亥暗合": 7
  },
  "blockedCandidatesTotal": 144,
- "xushiOuterTotal": 15,
+ "xushiOuterTotal": 33,
  "xushiOuterByTypeStatus": {
   "飞天禄马（子暗冲午）:CANDIDATE": 1,
   "井栏叉（拱刃酉）:CANDIDATE": 4,
   "飞天禄马（子暗冲午）:BLOCKED": 5,
+  "六乙鼠贵（乙日子时）:CANDIDATE": 12,
+  "六乙鼠贵（乙日子时）:BLOCKED": 6,
   "井栏叉（拱刃酉）:BLOCKED": 3,
   "刑合（寅刑巳邀戊禄）:BLOCKED": 1,
   "刑合（寅刑巳邀戊禄）:CANDIDATE": 1
@@ -45,12 +48,44 @@
  "perBook": {
   "?": {
    "cases": 1045,
-   "withXushi": 722,
+   "withXushi": 727,
    "arch": 911,
    "hidden": 308,
    "blocked": 144,
-   "xushiOuter": 15
+   "xushiOuter": 33
   }
  },
+ "archByDayMasterTop": {
+  "丁|拱夹": 82,
+  "乙|拱夹": 63,
+  "己|拱夹": 63,
+  "甲|拱夹": 56,
+  "甲|拱贵（天乙贵人位）": 52,
+  "戊|拱贵（天乙贵人位）": 43,
+  "甲|拱三会方（东方木·暗会）": 37,
+  "戊|拱三会方（东方木·暗会）": 35,
+  "戊|拱夹": 34,
+  "丙|拱夹": 30,
+  "戊|拱禄": 28,
+  "庚|拱夹": 23
+ },
+ "hiddenByMonthBranchTop": {
+  "戌|戌子暗合": 16,
+  "辰|辰子暗合": 14,
+  "丑|丑巳暗合": 13,
+  "戌|子戌暗合": 11,
+  "子|辰子暗合": 11,
+  "丑|丑寅暗合": 11,
+  "未|未寅暗合": 10,
+  "辰|子辰暗合": 9,
+  "未|寅未暗合": 9,
+  "丑|寅丑暗合": 9
+ },
+ "engineVsClaims": {
+  "engineCases": 719,
+  "claimsMentionXushi": 0,
+  "overlap": 0
+ },
+ "engineVsClaimsCaveat": "claims 文本为 MACHINE_EXTRACTED 摘要，仅作粗对照；「原书明确采用」需对照 raw OCR 语料（不在仓库，BLOCKED）",
  "discipline": "历史断语只用于对照；本审计不输出任何吉凶或事件结论"
 }

@@ -185,6 +185,17 @@ def analyze_cong(
                 "conflict", "SP-CG-C1",
                 "旺衰分析器冲突：weighted 与 fuyi 方向相反——DISPUTED，不判从",
             ))
+        # M26 · 真从/假从两说（DTZ-49 逐条定义；证据层注记，不改状态映射）
+        if not has_root and not has_helper and both_extremely_weak:
+            cand.exceptions.append(Factor(
+                "exception", "SP-CG-E2",
+                "真从说：日主孤弱、无根无印（DTZ-49「真从之家有几人」）——格局纯粹，"
+                "行运只要不逆旺气即无失败之虑"))
+        elif has_root or has_helper:
+            cand.exceptions.append(Factor(
+                "exception", "SP-CG-E2",
+                "假从说：日主有微根或印生助（DTZ-49 假从定义）——从势可成但岁运敏感"
+                "（「未交运前寒素、运过复初」；从财食伤不透/从官煞官煞不透亦假从）"))
         # 状态映射（永不 CONFIRMED）
         if analyzer_conflict:
             cand.status = SpecialStatus.DISPUTED

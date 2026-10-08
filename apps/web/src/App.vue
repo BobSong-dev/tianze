@@ -289,6 +289,14 @@ const chainJumpThemes = computed<string[]>(() => {
 
 function jumpToChain() { activeTab.value = "temporal"; }
 
+// M26：关系引文 → 知识图谱跳转（切 tab + 搜索 + 聚焦节点）
+function jumpToGraph(candidateId: string) {
+  activeTab.value = "knowledge";
+  kbSearch.value = candidateId;
+  void loadGraph();
+  selectedNodeId.value = candidateId;
+}
+
 // M23 · 遥测趋势 sparkline：确定性指标（pass 率/grounding）+ 遥测 latency 的历史折线
 const evalFilterProvider = ref("");
 const evalOnlyRegression = ref(false);
@@ -595,6 +603,8 @@ async function loadTemporal() {
             <div v-for="(c2, ki) in relationExplanation(r.label).citations" :key="'c' + ki" class="evidence-item">
               <span class="badge">{{ c2.candidateId }}</span> {{ c2.book }}《{{ c2.title }}》——{{ c2.quote }}
               <span v-if="c2.ocrRisk" class="badge damage">OCR 风险</span>
+              <button v-if="c2.sourceKind === 'CLASSICAL_EXPLICIT'" class="link"
+                      @click="jumpToGraph(c2.candidateId)">在知识图谱查看</button>
             </div>
           </details>
         </div>
@@ -751,9 +761,11 @@ async function loadTemporal() {
         <div v-for="c in result.advancedAnalysis.specialPattern?.cong || []" :key="c.type" class="candidate-block">
           <strong>{{ c.type }}</strong>
           <span class="badge" :class="c.status.toLowerCase()">{{ c.status }}</span>
-          <details><summary>Supports / Blockers</summary>
+          <details><summary>Supports / Blockers / 例外与两说</summary>
             <div v-for="s in c.supports" :key="s.ruleId" class="evidence-item">+ {{ s.text }}</div>
             <div v-for="b in c.blockers" :key="b.ruleId" class="evidence-item damage">− {{ b.text }}</div>
+            <div v-for="e in c.exceptions || []" :key="'e' + e.ruleId" class="evidence-item">◎ {{ e.text }}</div>
+            <div v-for="cf in c.conflicts || []" :key="'cf' + cf.ruleId" class="evidence-item conflict">⚠ {{ cf.text }}</div>
           </details>
           <details v-if="c.schoolVariants"><summary>流派差异</summary>
             <div v-for="(v, k) in c.schoolVariants" :key="k" class="evidence-item">{{ k }}: {{ v }}</div>

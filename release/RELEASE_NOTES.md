@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（27）
+### 特性（28）
+- M26.1: 拱贵（天乙贵人 SS-R17 起例并集表+拱贵 sub_type+双注记）+ arch_broken（拱位逢刑冲：拱破说 vs 拱动说 DTZ-10 两说）+ 六乙鼠贵候选（ZP-06，SS-R16 三要件两说）+ TR-DTZ-10 扩展；citations 13→16
 - M25 final: ADR-063 关系解释链三态与外格泛化纪律 + README M25 + gate 21 步/release_check ALL PASS
 - M25.3b: gate 21 步 ALL PASS（summary 收敛后 pytest 步自指解除）
 - M25.3: StructuralTheme 虚神填实主题 + 命例×虚神专题审计(gate 21步; 1045例: 拱911/暗合308/未成立144/外格15) + 泛化审计结论落地（井栏叉限庚日、子邀巳不落地引擎） + 全拱对×在场矩阵 fuzz

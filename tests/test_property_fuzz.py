@@ -523,3 +523,68 @@ def test_liuyi_shugui_candidate():
     assert m["status"] == "BLOCKED"  # 庚官透
     assert any("SS-R16" in k or "三要件" in sv
                for k, sv in m["schoolVariants"].items())
+
+
+# ---------- M26 · 重复支 / arch_broken / 争合 fuzz ----------
+
+def test_fuzz_duplicate_branches_arch():
+    """重复支（两亥两丑类）：多拱对并存不崩溃、targets 全部不在场、顺序确定。"""
+    import random
+    from tianze.relation.relations import analyze_relations
+    rng = random.Random(2626)
+    pos = ["year", "month", "day", "hour"]
+    pool = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
+    for _ in range(200):
+        branches = [rng.choice(pool) for _ in range(4)]
+        stems = [rng.choice(list("甲乙丙丁戊己庚辛壬癸")) for _ in range(4)]
+        rs1 = [r.model_dump(by_alias=True) for r in
+               analyze_relations(stems, branches, pos, stems[2])]
+        rs2 = [r.model_dump(by_alias=True) for r in
+               analyze_relations(stems, branches, pos, stems[2])]
+        assert rs1 == rs2
+        present = {b for b in branches if b}
+        for r in rs1:
+            if r["kind"] == "arch":
+                assert r["members"][2] not in present
+
+
+def test_fuzz_arch_broken_requires_natal_arch():
+    """不变量：arch_broken 仅当原局存在拱位虚神且岁运刑/冲其成员。"""
+    import random
+    from tianze.analysis.temporal import analyze_temporal
+    from tianze.relation.tables import arch_target, SIX_CLASHES
+    rng = random.Random(2727)
+    pool = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
+    trios = (frozenset({"寅", "巳", "申"}), frozenset({"丑", "戌", "未"}))
+    for _ in range(150):
+        branches = [rng.choice(pool) for _ in range(4)]
+        stems = [rng.choice(list("甲乙丙丁戊己庚辛壬癸")) for _ in range(4)]
+        annual = rng.choice(pool)
+        ta = analyze_temporal(natal_stems=stems, natal_branches=branches,
+                              day_master=stems[2], annual_stem="甲", annual_branch=annual)
+        natal = [b for b in branches if b]
+        targets = {}
+        for x in range(len(natal)):
+            for y in range(x + 1, len(natal)):
+                t = arch_target(natal[x], natal[y])
+                if t and t not in set(natal):
+                    targets[t] = (natal[x], natal[y])
+        broken = [r for r in ta.relations if r.kind == "arch_broken"]
+        if broken:
+            assert targets, "无拱位却报 arch_broken"
+            for r in broken:
+                members = set(r.members)
+                pair_hit = any({annual, m} in SIX_CLASHES
+                               or {annual, m} == frozenset({"子", "卯"})
+                               or any({annual, m} <= trio for trio in trios)
+                               for m in members if m != annual)
+                assert pair_hit, (branches, annual, r.label)
+
+
+def test_fuzz_zhenghe_transformation_obstruction():
+    """争合：二己二甲 → 甲己候选必带争合 obstruction（或被邻位规则阻断）。"""
+    from tianze.analysis.special import analyze_transformation
+    ts = analyze_transformation("甲", "子", ["己", "己", "甲", "甲"], ["子", "子", "亥", "卯"])
+    pairs = [t for t in ts if t.stem_pair == ("甲", "己")]
+    assert pairs
+    assert any(t.obstructions for t in pairs)
