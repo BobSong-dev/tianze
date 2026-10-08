@@ -1,13 +1,14 @@
 {
  "schemaVersion": "1.0.0",
  "discipline": "全部分类进入 REVIEW 清单；不自动删除/调整任何规则",
- "ruleCount": 219,
+ "ruleCount": 220,
  "classifications": {
   "high_conflict": [
    "EV-CON-01",
    "EV-REL-02",
    "EV-REL-03",
    "EV-REL-04",
+   "EV-REL-06",
    "EV-WEA-02"
   ],
   "high_rescue_dep": [
@@ -17,6 +18,7 @@
    "EV-CAR-05"
   ],
   "no_case_coverage": [
+   "EV-REL-06",
    "TH-QBT-丙-10-亥",
    "TH-QBT-壬-10-亥",
    "TR-BINGLIN-01",
@@ -54,10 +56,10 @@
   ]
  },
  "classificationCounts": {
-  "high_conflict": 5,
+  "high_conflict": 6,
   "high_rescue_dep": 1,
   "low_trigger": 1,
-  "no_case_coverage": 19,
+  "no_case_coverage": 20,
   "only_silent": 13
  },
  "triggerRates": {
@@ -80,7 +82,8 @@
   "EV-WEA-02": 0.02,
   "EV-WEA-03": 0.02,
   "EV-WEA-04": 0.09,
-  "EV-FAM-01": 0.0
+  "EV-FAM-01": 0.0,
+  "EV-REL-06": 0.0
  },
  "replayOccurrences": {
   "EV-CAR-01": 32,

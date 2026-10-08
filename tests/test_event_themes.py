@@ -241,3 +241,39 @@ def _dm_chart(dm: str):
     return build_chart(BirthInfo(date=_dt.date(y, m, d),
                                  time=_dt.time(20 if dm == "甲" else 10, 0),
                                  gender=gender))
+
+
+# ---------- M23 · EV-REL-06 婚变之微（MLD-18 女命夫宫坐伤官） ----------
+
+@pytest.fixture(scope="module")
+def chart_fangguan():
+    """1988-02-09 女：日柱甲午——夫宫（日支午）藏干本气丁为伤官。"""
+    return build_chart(BirthInfo(date=datetime.date(1988, 2, 9),
+                                 time=datetime.time(10, 0), gender=Gender.FEMALE))
+
+
+def test_ev_rel06_fangguan_shangguan_triggers(chart_fangguan):
+    """女命夫宫坐伤官 → relationship opposingEvidence 含婚变之微。"""
+    rep = compute_event_themes(chart_fangguan, annual=("庚", "申"))
+    rel = next(t for t in rep.themes if t.theme == EventTheme.RELATIONSHIP)
+    assert any("婚变之微" in e for e in rel.opposingEvidence), rel.opposingEvidence
+    assert any("离婚非不可避免" in e for e in rel.opposingEvidence)
+
+
+def test_ev_rel06_male_not_triggered():
+    """同日男命：MLD-18 男命口径 OCR 残缺不入可执行条件 → 不触发。"""
+    c = build_chart(BirthInfo(date=datetime.date(1988, 2, 9),
+                              time=datetime.time(10, 0), gender=Gender.MALE))
+    rep = compute_event_themes(c, annual=("庚", "申"))
+    assert "婚变之微" not in rep.model_dump_json(by_alias=True)
+
+
+def test_ev_rel06_gender_unknown_unresolved(chart_fangguan):
+    """性别未知 → EV-REL-06 UNRESOLVED（不猜性别）。"""
+    chart_u = chart_fangguan.model_copy(update={
+        "birth": chart_fangguan.birth.model_copy(update={"gender": Gender.UNKNOWN})})
+    rep = compute_event_themes(chart_u, annual=("庚", "申"))
+    blob = rep.model_dump_json(by_alias=True)
+    assert "UNRESOLVED" in blob or "婚变之微" not in blob
+    rel = next(t for t in rep.themes if t.theme == EventTheme.RELATIONSHIP)
+    assert not any("婚变之微" in e for e in rel.opposingEvidence)

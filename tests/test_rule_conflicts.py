@@ -22,9 +22,9 @@ def chart():
 
 def test_conflict_declarations_loaded():
     decls = load_conflict_declarations()
-    assert len(decls) == 4
+    assert len(decls) == 5
     pairs = {frozenset({d["ruleA"], d["ruleB"]}) for d in decls}
-    assert len(pairs) == 4  # 无重复对
+    assert len(pairs) == 5  # 无重复对
     for d in decls:
         assert d["resolution"] in ("keep-both", "no-adjudication", "specific-over-general")
         assert d.get("note"), "每条声明必须带透明 note"
@@ -244,7 +244,7 @@ def test_conflict_graph_integrity():
     assert r.returncode == 0, r.stdout + r.stderr
     g = json.load(open("knowledge/rules/event/conflict-graph.json", encoding="utf-8"))
     assert g["problems"] == []
-    assert g["edgeTypes"]["conflict"] == 4
+    assert g["edgeTypes"]["conflict"] == 5
     assert g["edgeTypes"]["rescues"] == 6
     assert g["edgeTypes"]["school-conflict"] >= 1
 

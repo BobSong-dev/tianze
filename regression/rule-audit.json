@@ -2,7 +2,7 @@
  "schemaVersion": "1.0.0",
  "note": "只描述不调参：本报告不修改任何规则；relation 分布来自 replay 工件",
  "reviewRules": [],
- "ruleCount": 20,
+ "ruleCount": 21,
  "rules": [
   {
    "ruleId": "EV-CAR-01",
@@ -2012,6 +2012,34 @@
      "relation": "SOURCE_SILENT"
     }
    ],
+   "overGeneralizationSignal": false
+  },
+  {
+   "ruleId": "EV-REL-06",
+   "label": "婚变之微（女命夫宫坐伤官）",
+   "view": "traditional",
+   "conditions": [
+    {
+     "field": "gender",
+     "operator": "eq",
+     "value": "female"
+    },
+    {
+     "field": "dayBranchHiddenMainTenGod",
+     "operator": "eq",
+     "value": "伤官"
+    }
+   ],
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
+   ],
+   "randomTriggerRate": 0.0,
+   "relationDistribution": {},
+   "occurrenceCount": 0,
+   "samples": [],
    "overGeneralizationSignal": false
   }
  ]

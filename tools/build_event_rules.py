@@ -369,6 +369,28 @@ def main() -> int:
             conflict_note="MLD-18 原文明言「离婚非不可避免事」且随时代变迁；oppose 方向"
                           "仅为关系主题张力，绝非关系破裂断言。",
         ),
+        build_rule(
+            "EV-REL-06", "MLD-18", "relationship", "traditional", "婚变之微（女命夫宫坐伤官）",
+            [{"field": "gender", "operator": "eq", "value": "female"},
+             {"field": "dayBranchHiddenMainTenGod", "operator": "eq", "value": "伤官"}],
+            [{"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库",
+              "concept": "命理一得·离婚之命（MLD-18）"},
+             {"level": "CLASSICAL_EXPLICIT", "project": None,
+              "concept": "古籍原文（女命以官为夫星，坐下伤官克官）",
+              "note": _q("盖女命以官为夫星，坐下（伤官克官）……而又身强气旺，亦为（离）婚之微。")},
+             {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+              "concept": "日支藏干本气十神 == 伤官（夫宫坐伤官）；身强（weighted/fuyi 任一"
+                         "偏强以上）作为加重观察，不作为触发前提"},
+             {"level": "TIANZE_NORMALIZATION", "project": "Tianze",
+              "concept": "原文同段男命口径（财为妻星……）OCR 残缺（（离）/（分）飞等"
+                         "为整理者补字），不入可执行条件——仅女命口径结构化"}],
+            _MLD, "C",
+            normalization_notes="「决然合（离）」为原书吉凶断语；Tianze 仅输出婚变之微的"
+                                "候选张力（oppose），不作任何现实关系断言。性别未知时不"
+                                "触发（不猜性别，与 EV-REL-03 同口径）。",
+            conflict_note="MLD-18 原文明言「离婚非不可避免事」；夫宫伤官为结构之微，"
+                          "oppose 仅为关系主题张力。",
+        ),
     ]
 
     rescues = [
@@ -410,6 +432,11 @@ def main() -> int:
          "resolution": "keep-both",
          "note": "MLD-18：配偶星临岁运（support）与夫妻宫逢冲（oppose）可同时成立；"
                  "原文并注明「离婚非不可避免事」，方向相反只表示主题内张力"},
+        {"ruleA": "EV-REL-03", "ruleB": "EV-REL-06",
+         "resolution": "keep-both",
+         "note": "同一 MLD-18 段落：配偶星临岁运（support）与夫宫坐伤官（oppose）"
+                 "可同时成立——「微象」与「临岁运」分属不同结构层面，方向相反只"
+                 "表示关系主题内张力；原文注明离婚非不可避免事"},
         {"ruleA": "EV-CON-01", "ruleB": "EV-WEA-02",
          "resolution": "no-adjudication",
          "note": "special_pattern 视角（从格顺势/破格两说）与 traditional 视角（比劫夺财）"

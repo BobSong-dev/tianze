@@ -21,7 +21,7 @@ from typing import Any, Sequence
 
 from tianze.domain import models as M
 from tianze.domain.models import CamelizeModel
-from tianze.ganzhi.tables import BRANCHES, STEMS, ten_god
+from tianze.ganzhi.tables import BRANCHES, HIDDEN_STEMS, STEMS, ten_god
 from tianze.analysis.temporal import AnalysisSupport, TemporalContext
 from tianze.analysis.temporal_delta import TemporalDeltaReport
 
@@ -498,6 +498,36 @@ def _ev_rel_cai_yin(ctx: EventContext):
     return (None, [])
 
 
+def _ev_rel_hunbian(ctx: EventContext):
+    """婚变之微（MLD-18）：女命夫宫（日支）坐伤官 → 伤官克夫星，婚变之微。
+
+    结构口径：日支藏干本气十神 == 伤官 且性别为女（MLD-18 明言「女命以官为夫星」）。
+    「身强气旺」为原文加重观察：weighted/fuyi 任一偏强以上时证据加强（不作触发前提）。
+    原文同段男命口径 OCR 残缺，不入可执行条件（知识层保留）。
+    """
+    if ctx.gender != "female":
+        return None, []
+    if not ctx.natal_branches or len(ctx.natal_branches) < 3:
+        return None, []
+    day_br = ctx.natal_branches[2]
+    if not day_br:
+        return None, []
+    hidden = HIDDEN_STEMS.get(day_br) or []
+    if not hidden:
+        return None, []
+    main_stem = hidden[0][0]
+    if ten_god(ctx.day_master, main_stem).value != "伤官":
+        return None, []
+    ev = [f"女命夫宫（日支{day_br}）藏干本气{main_stem}为伤官：伤官克夫星（官）——"
+          "婚变之微（MLD-18）"]
+    strong = (ctx.strength_verdict in ("偏强", "极强")
+              or ctx.fuyi_verdict in ("偏强", "极强"))
+    if strong:
+        ev.append("旺衰读数偏强以上：身强气旺，加重该微象（MLD-18：而又身强气旺）")
+    ev.append("边界保留：MLD-18 原文明言「离婚非不可避免事」——方向仅为关系主题张力")
+    return EventDirection.OPPOSE, ev
+
+
 # 本模块只导出评估器注册表；规则元数据（theme/view/label/provenance）在 rules.json
 EVALUATORS = {
     "EV-CAR-01": _ev_car_guan,
@@ -520,9 +550,10 @@ EVALUATORS = {
     "EV-CAR-05": _ev_car_sharen,
     "EV-WEA-04": _ev_wea_shishang_shengcai,
     "EV-REL-05": _ev_rel_cai_yin,
+    "EV-REL-06": _ev_rel_hunbian,
 }
 
-_UNRESOLVED_RULES = {"EV-REL-03"}   # 性别未知时输出 UNRESOLVED 候选的规则
+_UNRESOLVED_RULES = {"EV-REL-03", "EV-REL-06"}   # 性别未知时输出 UNRESOLVED 候选的规则
 
 # confidence 参数（ENGINEERING_HEURISTIC，全透明、随结果输出）
 CONFIDENCE_PARAMS = {

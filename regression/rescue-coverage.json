@@ -1,6 +1,6 @@
 {
  "schemaVersion": "1.0.0",
- "ruleCount": 20,
+ "ruleCount": 21,
  "rescuedRules": {
   "EV-CAR-01": [
    {
@@ -45,18 +45,19 @@
  },
  "rescueCoverage": {
   "rescued": 5,
-  "total": 20,
-  "ratio": 0.25
+  "total": 21,
+  "ratio": 0.238
  },
  "heuristicConditionPredicates": [
   "wealth_favorable"
  ],
  "keepBothConflicts": [
-  "EV-REL-02×EV-REL-03"
+  "EV-REL-02×EV-REL-03",
+  "EV-REL-03×EV-REL-06"
  ],
  "resolutionDistribution": {
   "specific-over-general": 2,
-  "keep-both": 1,
+  "keep-both": 2,
   "no-adjudication": 1
  },
  "unstructuredClassicalExceptions": [],

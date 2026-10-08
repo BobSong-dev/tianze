@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "release": {
-  "gitCommit": "68049824310a7a3914bf5be8bca3b5c96830b8ee",
+  "gitCommit": "941561f89f1b1a93c95caad25bf4673ea99aff58",
   "gitBranch": "main",
   "dirty": true,
   "generatedBy": "tools/release_metadata.py（全部数据来自真实运行）"
@@ -18,16 +18,16 @@
   "python": "3.14.7"
  },
  "counts": {
-  "executableRules": 219,
+  "executableRules": 220,
   "rulesByDomain": {
-   "event": 20,
+   "event": 21,
    "temporal": 17,
    "tiaohou": 182
   },
   "ruleCandidates": 556,
   "cases": 1147,
   "replays": 165,
-  "tests": 551
+  "tests": 554
  },
  "quality": {
   "auditGates": {

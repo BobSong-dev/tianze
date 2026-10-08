@@ -30,7 +30,7 @@ def test_rule_audit_shape():
     with contextlib.redirect_stdout(buf):
         rule_audit_main()
     d = json.load(open("regression/rule-audit.json", encoding="utf-8"))
-    assert d["ruleCount"] == 20
+    assert d["ruleCount"] == 21
     by_id = {r["ruleId"]: r for r in d["rules"]}
     ev = by_id["EV-CAR-01"]
     assert ev["conditions"]                      # 什么条件触发

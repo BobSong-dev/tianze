@@ -1,7 +1,7 @@
 {
  "domain": "event",
  "schemaVersion": "1.0.0",
- "count": 20,
+ "count": 21,
  "description": "事件主题规则（M14）：Source→Quote→RuleCandidate→ExecutableRule(domain=event)→EventThemeCandidate；view（流派视角）显式保留，效果只输出主题方向",
  "rules": [
   {
@@ -1381,6 +1381,82 @@
     "commentator": "徐乐吾"
    },
    "quality": "B",
+   "status": "active",
+   "verification": {
+    "status": "MACHINE_CURATED",
+    "verifiedBy": "tianze-pipeline:build_event_rules.py",
+    "verifiedAt": null,
+    "method": "ai_curation",
+    "sourceChecked": true,
+    "notes": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   "accuracyMatrix": {
+    "traceability": "PASS",
+    "textAccuracy": "UNVERIFIED",
+    "interpretationAccuracy": "MACHINE_CURATED",
+    "engineAccuracy": "TESTED"
+   }
+  },
+  {
+   "id": "EV-REL-06",
+   "candidateId": "MLD-18",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "traditional",
+   "label": "婚变之微（女命夫宫坐伤官）",
+   "conditions": [
+    {
+     "field": "gender",
+     "operator": "eq",
+     "value": "female"
+    },
+    {
+     "field": "dayBranchHiddenMainTenGod",
+     "operator": "eq",
+     "value": "伤官"
+    }
+   ],
+   "effects": [
+    {
+     "kind": "eventTheme",
+     "theme": "relationship"
+    }
+   ],
+   "exceptions": [],
+   "modifiers": [],
+   "normalizationNotes": "「决然合（离）」为原书吉凶断语；Tianze 仅输出婚变之微的候选张力（oppose），不作任何现实关系断言。性别未知时不触发（不猜性别，与 EV-REL-03 同口径）。",
+   "conflictNote": "MLD-18 原文明言「离婚非不可避免事」；夫宫伤官为结构之微，oppose 仅为关系主题张力。",
+   "provenance": [
+    {
+     "level": "PROJECT_REFERENCE",
+     "project": "徐乐吾八字知识库",
+     "concept": "命理一得·离婚之命（MLD-18）"
+    },
+    {
+     "level": "CLASSICAL_EXPLICIT",
+     "project": null,
+     "concept": "古籍原文（女命以官为夫星，坐下伤官克官）",
+     "note": "盖女命以官为夫星，坐下（伤官克官）……而又身强气旺，亦为（离）婚之微。"
+    },
+    {
+     "level": "ENGINEERING_HEURISTIC",
+     "project": "Tianze",
+     "concept": "日支藏干本气十神 == 伤官（夫宫坐伤官）；身强（weighted/fuyi 任一偏强以上）作为加重观察，不作为触发前提"
+    },
+    {
+     "level": "TIANZE_NORMALIZATION",
+     "project": "Tianze",
+     "concept": "原文同段男命口径（财为妻星……）OCR 残缺（（离）/（分）飞等为整理者补字），不入可执行条件——仅女命口径结构化"
+    }
+   ],
+   "source": {
+    "sourceKind": "COMMENTARY",
+    "book": "命理一得",
+    "sourceFile": "_知识库/_知识库/04-命理一得知识库.md",
+    "confidence": "unverified",
+    "commentator": "徐乐吾"
+   },
+   "quality": "C",
    "status": "active",
    "verification": {
     "status": "MACHINE_CURATED",

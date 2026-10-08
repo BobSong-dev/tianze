@@ -13,7 +13,7 @@ def test_rescue_coverage_shape():
     with contextlib.redirect_stdout(buf):
         rcm()
     d = json.load(open("regression/rescue-coverage.json", encoding="utf-8"))
-    assert d["ruleCount"] == 20
+    assert d["ruleCount"] == 21
     assert d["rescueCoverage"]["rescued"] == 5
     # 全部 rescue 目标真实存在（与 audit gate G3 一致）
     for rid in d["rescuedRules"]:

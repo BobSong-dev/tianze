@@ -1,11 +1,11 @@
 {
  "schemaVersion": "1.0.0",
- "nodeCount": 225,
- "edgeCount": 16,
+ "nodeCount": 226,
+ "edgeCount": 18,
  "edgeTypes": {
-  "conflict": 4,
+  "conflict": 5,
   "rescues": 6,
-  "school-conflict": 6
+  "school-conflict": 7
  },
  "problems": [],
  "nodes": [
@@ -284,6 +284,21 @@
     "CLASSICAL_EXPLICIT",
     "ENGINEERING_HEURISTIC",
     "PROJECT_REFERENCE"
+   ],
+   "candidateId": "MLD-18"
+  },
+  {
+   "type": "rule",
+   "id": "EV-REL-06",
+   "domain": "event",
+   "theme": "relationship",
+   "view": "traditional",
+   "label": "婚变之微（女命夫宫坐伤官）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE",
+    "TIANZE_NORMALIZATION"
    ],
    "candidateId": "MLD-18"
   },
@@ -3130,6 +3145,17 @@
   {
    "type": "conflict",
    "between": [
+    "EV-REL-03",
+    "EV-REL-06"
+   ],
+   "resolution": "keep-both",
+   "specific": null,
+   "specificCondition": null,
+   "note": "同一 MLD-18 段落：配偶星临岁运（support）与夫宫坐伤官（oppose）可同时成立——「微象」与「临岁运」分属不同结构层面，方向相反只表示关系主题内张力；原文注明离婚非不可避免事"
+  },
+  {
+   "type": "conflict",
+   "between": [
     "EV-CON-01",
     "EV-WEA-02"
    ],
@@ -3237,6 +3263,19 @@
    "between": [
     "EV-REL-04",
     "EV-REL-05"
+   ],
+   "views": [
+    "shensha",
+    "traditional"
+   ],
+   "theme": "relationship",
+   "note": "同主题不同流派视角：方向冲突时保持 DISPUTED，不裁决"
+  },
+  {
+   "type": "school-conflict",
+   "between": [
+    "EV-REL-04",
+    "EV-REL-06"
    ],
    "views": [
     "shensha",

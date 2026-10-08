@@ -25,7 +25,8 @@
   "G6_never_triggered": {
    "pass": true,
    "list": [
-    "EV-FAM-01"
+    "EV-FAM-01",
+    "EV-REL-06"
    ],
    "note": "进审计列表（可能只是探针未覆盖，不判死刑）"
   },
@@ -155,6 +156,8 @@
    "EV-WEA-03": 4,
    "EV-WEA-04": 14
   },
-  "eventRulesNeverInReplay": []
+  "eventRulesNeverInReplay": [
+   "EV-REL-06"
+  ]
  }
 }

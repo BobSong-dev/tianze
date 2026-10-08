@@ -48,7 +48,7 @@
    "neverActive": []
   },
   "A3_school_conflict": {
-   "pairs": 6,
+   "pairs": 7,
    "discipline": "运行时该类冲突只能产生 DISPUTED/UNRESOLVED（fuzz + 单测锁定）；静态无裁决路径"
   }
  },
