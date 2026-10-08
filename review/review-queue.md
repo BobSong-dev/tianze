@@ -1,7 +1,7 @@
 # Tianze Review Queue
 
-- total items: 424
-- stats: {'ocrRisk': 163, 'machineCurated': 216, 'sensitiveClaims': 38, 'ruleConflicts': 7}
+- total items: 426
+- stats: {'ocrRisk': 163, 'machineCurated': 218, 'sensitiveClaims': 38, 'ruleConflicts': 7}
 
 ## 分区
 
@@ -17,7 +17,7 @@
 - {"id": "DTZ-13", "book": "DTZ", "title": "土居中央寄于四隅——寅申巳亥同藏戊土，午藏己土；亥子之土名存实亡"}
 - …（其余 155 条见 JSON）
 
-### machineCuratedRules（216）
+### machineCuratedRules（218）
 
 - {"id": "EV-CAR-01", "domain": "event", "label": "官星透岁运+官杀主题增强", "method": "ai_curation", "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件
 - {"id": "EV-CAR-02", "domain": "event", "label": "官印相生（印化官杀）", "method": "ai_curation", "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言
@@ -27,7 +27,7 @@
 - {"id": "EV-WEA-03", "domain": "event", "label": "财库逢冲（两说并存）", "method": "ai_curation", "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言
 - {"id": "EV-REL-01", "domain": "event", "label": "夫妻宫（日支）逢岁运六合", "method": "ai_curation", "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件
 - {"id": "EV-REL-02", "domain": "event", "label": "夫妻宫逢冲/夫星逢冲", "method": "ai_curation", "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言
-- …（其余 208 条见 JSON）
+- …（其余 210 条见 JSON）
 
 ### sensitiveClaims（38）
 

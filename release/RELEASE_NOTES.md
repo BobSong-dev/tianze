@@ -1,8 +1,8 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `9590ce3df838`（含未提交改动）
+- commit: `0bf44fe5cb4a`（含未提交改动）
 - 当前版本 0.3.0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（114.7s / 20 步）
+- 质量门：ALL PASS（96.2s / 20 步）
 
 ## 版本与规模
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.631,
-  "perCaseMs": 0.6
+  "elapsedSeconds": 0.502,
+  "perCaseMs": 0.48
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.712,
-  "perCaseMs": 0.68
+  "elapsedSeconds": 0.721,
+  "perCaseMs": 0.69
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.019
+  "elapsedSeconds": 0.016
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（6）
+### 特性（7）
+- M22.3: telemetry trend in Web evaluation compare
 - M22.5-6: H5 empirical lock + H6 replay samples in Rule Explorer
 - M22.4: knowledge expansion — TR-SP-05 化神所忌 + TR-SP-07 从格所从受克
 - M22.2: Rule Graph interactive SVG canvas

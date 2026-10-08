@@ -5,11 +5,11 @@
  "generatedBy": "tools/review_queue.py",
  "stats": {
   "ocrRisk": 163,
-  "machineCurated": 216,
+  "machineCurated": 218,
   "sensitiveClaims": 38,
   "ruleConflicts": 7
  },
- "totalItems": 424,
+ "totalItems": 426,
  "queue": {
   "ocrRiskRules": [
    {
@@ -1064,6 +1064,20 @@
     "id": "TR-SP-04",
     "domain": "temporal",
     "label": "化气岁运：引化候选（合≠化）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-SP-05",
+    "domain": "temporal",
+    "label": "化神所忌（岁运逆化神旺气）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-SP-07",
+    "domain": "temporal",
+    "label": "从格所从之神受克（破格两说）",
     "method": "ai_curation",
     "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
    },
