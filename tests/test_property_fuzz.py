@@ -862,3 +862,22 @@ def test_sdk_replay_option_roundtrip():
     r2 = analyze(b, AnalysisOptions(include_temporal=True, target_luck_index=0,
                                     target_year=2024))
     assert "replay" not in (r2.temporal or {})
+
+
+def test_ai_eval_replay_case_grounding():
+    """AI 评测 replay 用例：context 含 replay:* refId 且 grounding 零问题。"""
+    from tianze.sdk import analyze, AnalysisOptions, SimplifiedBirthInfo
+    from tianze.ai.context_builder import build_interpretation_context
+    from tianze.ai.interpret import MockInterpretationProvider, interpret, validate_grounding
+    b = SimplifiedBirthInfo.model_validate({"date": "1984-02-05", "time": "10:30",
+                                            "gender": "male"})
+    r = analyze(b, AnalysisOptions(include_temporal=True, target_luck_index=0,
+                                   target_year=2024, include_temporal_delta=True,
+                                   include_temporal_replay=True))
+    ctx = build_interpretation_context(r.model_dump(by_alias=True))
+    replay_refs = [c for c in ctx.claim_refs if c.startswith("replay:")]
+    assert replay_refs, "replay 用例必须提供 replay:* refId"
+    import asyncio
+    interp, _meta = asyncio.run(interpret(ctx, MockInterpretationProvider()))
+    issues = validate_grounding(interp, ctx)
+    assert issues == [], issues

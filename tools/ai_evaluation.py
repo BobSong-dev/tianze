@@ -57,6 +57,10 @@ CANONICAL_CASES = [
      "options": {"include_temporal": True, "target_year": 2026, "target_month": 1,
                  "include_temporal_delta": True, "include_event_themes": True},
      "covers": ["shensha view", "Event Theme"]},
+    {"name": "temporal_replay", "birth": {"date": "1984-02-05", "time": "10:30", "gender": "male"},
+     "options": {"include_temporal": True, "target_luck_index": 0, "target_year": 2024,
+                 "include_temporal_delta": True, "include_temporal_replay": True},
+     "covers": ["逐层状态回放", "replay refId Grounding"]},
 ]
 
 

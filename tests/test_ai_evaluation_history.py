@@ -19,7 +19,7 @@ def test_history_entry_appended(tmp_path):
     assert entry["provider"] == "mock"
     assert entry["promptVersion"]
     assert len(entry["caseSetHash"]) == 12
-    assert entry["summary"]["total"] == 4
+    assert entry["summary"]["total"] == 5  # M31: +temporal_replay 用例
     for pc in entry["perCase"]:
         assert pc["verdict"] in ("PASS", "FAIL", "PIPELINE_OK")
 
