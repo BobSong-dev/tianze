@@ -1,17 +1,17 @@
 {
  "schemaVersion": "1.0.0",
- "version": "0.2.0",
+ "version": "0.3.0",
  "allPass": true,
  "steps": [
   {
    "step": "P0_quality_gate",
    "pass": true,
-   "detail": "18 步 ALL PASS"
+   "detail": "19 步 ALL PASS"
   },
   {
    "step": "P1_package_build",
    "pass": true,
-   "detail": "tianze_bazi-0.2.0-py3-none-any.whl，5.4s"
+   "detail": "tianze_bazi-0.2.0-py3-none-any.whl，5.5s"
   },
   {
    "step": "P2_clean_install_smoke",
@@ -26,17 +26,17 @@
   {
    "step": "P4_version_consistency",
    "pass": true,
-   "detail": "0.2.0（dynamic single-source=True，metadata=0.2.0）"
+   "detail": "0.3.0（dynamic single-source=True，metadata=0.3.0）"
   },
   {
    "step": "P5_stale_artifact",
    "pass": true,
-   "detail": "SKIP（gate 内部调用；dirty）——metadata commit 落后，发布前重跑 release_metadata"
+   "detail": "commit 一致"
   },
   {
    "step": "P6_notes_consistency",
    "pass": true,
-   "detail": "tag v0.3.0"
+   "detail": "tag v0.4.0"
   },
   {
    "step": "P7_benchmark_regression",

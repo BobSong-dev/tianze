@@ -1,7 +1,7 @@
 # Tianze Release Report
 
-- commit: `c9f47ae075b0`（含未提交改动）
-- engine: 0.2.0
+- commit: `0e46f2b61b2d`（含未提交改动）
+- engine: 0.3.0
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 
 ## 规模
@@ -25,17 +25,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.478,
-  "perCaseMs": 0.46
+  "elapsedSeconds": 0.451,
+  "perCaseMs": 0.43
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.652,
-  "perCaseMs": 0.62
+  "elapsedSeconds": 0.607,
+  "perCaseMs": 0.58
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.016
+  "elapsedSeconds": 0.015
  },
  "explanationChains": {
   "themes": 2,

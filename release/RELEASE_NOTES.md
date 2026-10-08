@@ -1,14 +1,14 @@
-# Tianze v0.3.0 Release Notes
+# Tianze v0.4.0 Release Notes
 
-- commit: `0f1cec2d7ce8`（含未提交改动）
-- 当前版本 0.2.0 → 建议 v0.3.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（57.7s / 18 步）
+- commit: `0e46f2b61b2d`（含未提交改动）
+- 当前版本 0.3.0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
+- 质量门：ALL PASS（67.5s / 19 步）
 
 ## 版本与规模
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **216**（{'event': 20, 'temporal': 14, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 532
+- 命例 1147；Replay 165；测试 533
 
 ## 质量状态
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.478,
-  "perCaseMs": 0.46
+  "elapsedSeconds": 0.451,
+  "perCaseMs": 0.43
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.652,
-  "perCaseMs": 0.62
+  "elapsedSeconds": 0.607,
+  "perCaseMs": 0.58
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.016
+  "elapsedSeconds": 0.015
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（87）
+### 特性（88）
+- M21.6: rescue/exception coverage audit
 - M21.5: CLI human-readable format + bad-input UX
 - M21.2-3: multi-platform CI matrix + provider observability
 - M20 final: gate 18 steps (incl. release_check) ALL PASS + external release_check ALL PASS (stale integrity enforced externally) + E2E 8 + build - fixed gate/release_check self-reference deadlock (P5 stale flag for   gate-internal calls, structure-only summary assertions, step count 18)
