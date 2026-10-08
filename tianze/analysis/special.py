@@ -304,6 +304,9 @@ class TransformationCandidate:
     competing_relations: list[str]
     status: SpecialStatus
     provenance: list[ProvenanceRef] = field(default_factory=list)
+    # DTZ-47 真化条件结构化（M23）：逢龙而运（原局见辰）与日主邻位合
+    chen_present: bool = False
+    adjacent_to_day_master: bool | None = None
 
     def to_dict(self) -> dict:
         return {
@@ -312,8 +315,20 @@ class TransformationCandidate:
             "obstructions": self.obstructions,
             "competingRelations": self.competing_relations,
             "status": self.status.value,
+            "chenPresent": self.chen_present,
+            "adjacentToDayMaster": self.adjacent_to_day_master,
             "provenance": [p.model_dump(by_alias=True) for p in self.provenance],
         }
+
+
+# DTZ-47（真化条件）——化格以日干与月/时之干相合为正：
+# 「须月时之干相合（若年干己土相隔太远不能合化）」——年干与日干之间隔月干，不相邻。
+_DAY_POS = 2          # stems 固定 year,month,day,hour 序（岁运扩展干附加其后）
+_NATAL_LEN = 4
+
+# DTZ-47：「壬癸印绶也、甲乙比劫也，均不可见」——印生身、比劫帮身，
+# 日干气势不衰绝则不能真化。泛化：日主之印/比劫透干即阻化。
+_HELPER_GODS_HUA = ("正印", "偏印", "比肩", "劫财")
 
 
 def analyze_transformation(
@@ -322,13 +337,25 @@ def analyze_transformation(
     stems: list[str | None],
     branches: list[str | None],
 ) -> list[TransformationCandidate]:
-    """化气候选框架（M8.3）：默认"干合 ≠ 化"，只报候选；大量 UNRESOLVED 是正确行为。"""
+    """化气候选框架（M8.3）：默认"干合 ≠ 化"，只报候选；大量 UNRESOLVED 是正确行为。
+
+    M23 真化条件精细化（DTZ-47，CLASSICAL_EXPLICIT）：
+    - 位置约束：化格以日干与月/时之干相合为正；年干与日干相隔太远不能合化；
+      非日主参与之干合（如年月合）不构成化格候选。岁运扩展干（位置 ≥4）不受
+      原局邻位约束（岁运与日干之合不因距离失效），仅记录。
+    - 印比阻化：日主之印绶/比劫透干 → 日干气势不衰绝，阻化（原注引文逐神）。
+    - 争合：他干与合干争合 → 阻化（既有口径保留）。
+    - 逢龙而运：原局见辰 → 记录 chenPresent（化气元神之地的柱位遁干判定
+      属工程未实现部分，仅如实记录辰之有无）。
+    """
     from tianze.ganzhi.tables import  HIDDEN_STEMS
     out: list[TransformationCandidate] = []
     present = [(i, s_) for i, s_ in enumerate(stems) if s_]
+    chen_present = any(b == "辰" for b in branches if b)
     for a in range(len(present)):
         for b in range(a + 1, len(present)):
-            s1, s2 = present[a][1], present[b][1]
+            ia, s1 = present[a]
+            ib, s2 = present[b]
             pair = (s1, s2) if stem_index(s1) < stem_index(s2) else (s2, s1)
             target = _STEM_PAIR_TRANSFORM.get(pair)
             if target is None:
@@ -338,12 +365,38 @@ def analyze_transformation(
                 any(STEM_ELEMENT[h] == target for h, _r in HIDDEN_STEMS.get(br, []))
                 for br in branches if br)
             obstructions = []
-            others = [st for idx, st in present if idx not in (present[a][0], present[b][0])]
-            for st in others:
+            others = [(idx, st) for idx, st in present
+                      if idx not in (ia, ib)]
+            day_idx = _DAY_POS if stems[_DAY_POS] == day_master else None
+            pair_has_day_natal = (
+                day_idx is not None and day_idx in (ia, ib)
+                and ia < _NATAL_LEN and ib < _NATAL_LEN)
+            adjacent = bool(pair_has_day_natal and abs(ia - ib) == 1)
+            # 争合（DTZ-47）：只计原局争合——岁运再遇合神不破真化
+            # （DTZ-48：烈女不事二夫；岁运争合由 TR-SP-04 合神再现另行观察）
+            natal_others = [(idx, st) for idx, st in others if idx < _NATAL_LEN]
+            for _idx, st in natal_others:
                 for partner in pair:
                     op = tuple(sorted((st, partner), key=stem_index))
                     if op in _STEM_PAIR_TRANSFORM:
                         obstructions.append(f"{st} 与合干 {partner} 争合")
+            # 位置约束（DTZ-47）：仅对原局位置（0-3）判定
+            if day_idx is not None and ia < _NATAL_LEN and ib < _NATAL_LEN:
+                if not pair_has_day_natal:
+                    obstructions.append(
+                        "非日主之合（DTZ-47：化格以日干与月/时之干相合为正）——隔位不合")
+                elif not adjacent:
+                    obstructions.append(
+                        "合干与日干相隔太远（DTZ-47：年干相隔太远不能合化）")
+            # 印比阻化（DTZ-47 原注：印绶/比劫均不可见；日干本身不计）。
+            # 与争合同口径：只计原局印比——岁运再遇不破原局真化（DTZ-48 烈女不事二夫）；
+            # 岁运印比之阻由岁运专题（TR-SP-02/05/07）另行观察。
+            helper_hits = [st for idx, st in natal_others
+                           if idx != _DAY_POS and ten_god(day_master, st).value in _HELPER_GODS_HUA]
+            if helper_hits:
+                obstructions.append(
+                    f"印绶/比劫透干（{'、'.join(helper_hits)}）——日干气势不衰绝，"
+                    "不能真化（DTZ-47：印绶比劫均不可见）")
             status = (SpecialStatus.CANDIDATE if season_support and not obstructions
                       else SpecialStatus.UNRESOLVED)
             out.append(TransformationCandidate(
@@ -351,10 +404,18 @@ def analyze_transformation(
                 root_support=root_support, obstructions=obstructions,
                 competing_relations=[f"{pair[0]}{pair[1]}合（化{ELEM_CN[target]}候选）"],
                 status=status,
-                provenance=[ProvenanceRef(level=RuleLevel.PROJECT_REFERENCE, project="Tianze/jiwenxu",
-                                          concept="化气候选框架；干合≠化"),
-                            ProvenanceRef(level=RuleLevel.ENGINEERING_HEURISTIC, project="Tianze",
-                                          concept="状态映射，不裁决真化")],
+                chen_present=chen_present,
+                adjacent_to_day_master=(adjacent if pair_has_day_natal else None),
+                provenance=[
+                    ProvenanceRef(level=RuleLevel.PROJECT_REFERENCE, project="Tianze/jiwenxu",
+                                  concept="化气候选框架；干合≠化"),
+                    ProvenanceRef(level=RuleLevel.CLASSICAL_EXPLICIT,
+                                  project="滴天髓·化得真者只论化（DTZ-47，徐注）",
+                                  concept="真化条件：乘旺秉令/日干衰绝/逢龙而运/月时相合/"
+                                          "印比不见/重见争合"),
+                    ProvenanceRef(level=RuleLevel.ENGINEERING_HEURISTIC, project="Tianze",
+                                  concept="状态映射，不裁决真化"),
+                ],
             ))
     return out
 

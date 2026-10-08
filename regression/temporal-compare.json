@@ -8,7 +8,7 @@
    "count": 6
   },
   "current": {
-   "engineVersion": "0.3.0",
+   "engineVersion": "0.4.0.dev0",
    "engineStage": "M4",
    "deltaSchemaVersion": "1.0.0"
   }

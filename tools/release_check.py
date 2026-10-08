@@ -78,6 +78,9 @@ def main() -> int:
     r = subprocess.run([PY, "-m", "pip", "wheel", "--no-deps", "-w", dist_dir, REPO],
                        capture_output=True, encoding="utf-8", errors="replace", cwd=REPO)
     wheels = glob.glob(os.path.join(dist_dir, "*.whl"))
+    import tianze as _tz
+    _matched = [w for w in wheels if _tz.__version__ in os.path.basename(w)]
+    wheels = _matched or []
     detail = os.path.basename(wheels[0]) if wheels else (r.stderr or "")[-100:]
     artifacts_ok = False
     if wheels:

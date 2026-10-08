@@ -1,7 +1,7 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `0bf44fe5cb4a`（含未提交改动）
-- 当前版本 0.3.0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
+- commit: `889abb485f17`（含未提交改动）
+- 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（96.2s / 20 步）
 
 ## 版本与规模
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -46,7 +46,9 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（7）
+### 特性（9）
+- M23.1: tag v0.3.0 frozen + RC artifacts archived to release/rc/0.3.0/; dev line 0.4.0.dev0; release_automation dev-aware (ADR-060)
+- M22 final: ADR-058/059 + README M22 + full gate (20 steps) + release check + E2E + build ALL PASS
 - M22.3: telemetry trend in Web evaluation compare
 - M22.5-6: H5 empirical lock + H6 replay samples in Rule Explorer
 - M22.4: knowledge expansion — TR-SP-05 化神所忌 + TR-SP-07 从格所从受克

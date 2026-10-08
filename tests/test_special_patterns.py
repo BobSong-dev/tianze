@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import pytest
 
+from tianze.analysis.case_chart import build_case_chart
 from tianze.analysis.special import (
     SpecialPatternCandidate,
     SpecialStatus,
@@ -204,3 +205,96 @@ def test_analyze_all_special_integration():
     assert "specialPattern" in r and "bingYao" in r and "tongGuan" in r
     assert "cong" in r["specialPattern"] and "zhuanwang" in r["specialPattern"]
     assert "transformation" in r["specialPattern"]
+
+
+# ---------- M23 · DTZ-47 真化条件精细化 ----------
+
+def test_dtz47_adjacent_pair_candidate():
+    """DTZ-47 邻位合：日干与月干相合、月令化神、印比不见、原局见辰 → CANDIDATE。"""
+    ts = analyze_transformation("甲", "未", ["丙", "己", "甲", "庚"], ["辰", "未", "戌", "申"])
+    t = next(x for x in ts if x.stem_pair == ("甲", "己"))
+    assert t.status == SpecialStatus.CANDIDATE
+    assert t.obstructions == []
+    assert t.adjacent_to_day_master is True
+    assert t.chen_present is True  # 逢龙而运（化气元神之地）
+
+
+def test_dtz47_year_stem_too_far():
+    """DTZ-47：年干与日干相隔太远不能合化 → UNRESOLVED + 位置阻断证据。"""
+    ts = analyze_transformation("甲", "未", ["己", "丙", "甲", "庚"], ["辰", "午", "戌", "申"])
+    t = next(x for x in ts if x.stem_pair == ("甲", "己"))
+    assert t.status == SpecialStatus.UNRESOLVED
+    assert any("相隔太远" in o for o in t.obstructions)
+    assert t.adjacent_to_day_master is False
+
+
+def test_dtz47_non_day_pair_not_hua():
+    """DTZ-47：非日主之合（年月合）不构成化格候选依据 → UNRESOLVED。"""
+    ts = analyze_transformation("壬", "未", ["己", "甲", "壬", "庚"], ["辰", "午", "子", "申"])
+    t = next(x for x in ts if x.stem_pair == ("甲", "己"))
+    assert t.status == SpecialStatus.UNRESOLVED
+    assert any("非日主之合" in o for o in t.obstructions)
+    assert t.adjacent_to_day_master is None
+
+
+def test_dtz47_yin_bijie_blocks_hua():
+    """DTZ-47 原注：印绶/比劫均不可见——壬印透干 → 日干不衰绝，阻化。"""
+    ts = analyze_transformation("甲", "未", ["壬", "己", "甲", "庚"], ["辰", "未", "戌", "申"])
+    t = next(x for x in ts if x.stem_pair == ("甲", "己"))
+    assert t.status == SpecialStatus.UNRESOLVED
+    assert any("印绶" in o and "比劫" in o for o in t.obstructions)
+
+
+def test_dtz47_temporal_stems_not_position_blocked():
+    """岁运扩展干与日干之合不受原局邻位约束（位置约束只判原局 0-3 位）。"""
+    natal = ["丙", "己", "甲", "庚"]
+    ext = natal + ["己", "甲"]  # 岁运再遇甲/己（DTZ-48：烈女不事二夫场景）
+    ts = analyze_transformation("甲", "未", ext, ["辰", "未", "戌", "申"])
+    t = next(x for x in ts if x.stem_pair == ("甲", "己") and x.adjacent_to_day_master is not None)
+    # day-month 邻位候选仍在，且不被岁运干的位置规则阻断
+    assert t.status == SpecialStatus.CANDIDATE
+
+
+def test_dtz47_dict_has_new_fields():
+    """to_dict 输出 chenPresent / adjacentToDayMaster（additive Schema 字段）。"""
+    ts = analyze_transformation("甲", "未", ["丙", "己", "甲", "庚"], ["辰", "未", "戌", "申"])
+    d = ts[0].to_dict()
+    assert "chenPresent" in d and "adjacentToDayMaster" in d
+    assert d["provenance"][1]["level"] == "CLASSICAL_EXPLICIT"
+
+
+# ---------- M23 · DTZ-06 从格经典造回归（结构分类，非事件拟合） ----------
+
+def _special_of(pillars: dict[str, str]) -> dict:
+    chart = build_case_chart(pillars)
+    adv = chart.advancedAnalysis["specialPattern"]
+    return adv
+
+
+def test_dtz06_xu_shiying_yin_transparent_blocks_cong():
+    """许世英造（癸酉 辛酉 乙丑 辛巳）：乙木生金旺月、两辛并透，
+    然癸水偏印透干生身 → 不作从煞论（从官杀候选受阻，不得 LIKELY）。"""
+    adv = _special_of({"year": "癸酉", "month": "辛酉", "day": "乙丑", "hour": "辛巳"})
+    cong_sha = next((c for c in adv["cong"] if c["type"] == "从官杀"), None)
+    assert cong_sha is not None, "金势成局应有从官杀候选"
+    assert cong_sha["status"] in ("CANDIDATE", "BLOCKED", "DISPUTED", "UNRESOLVED")
+    assert cong_sha["status"] != "LIKELY", "印透生身（DTZ-06）：不作从煞论"
+    assert any("印比" in b["text"] or "印" in b["text"] for b in cong_sha["blockers"])
+
+
+def test_dtz06_wu_tingfang_follows_the_dominant():
+    """伍庭芳造（壬寅 丁未 己卯 乙亥）：己土虽未月通根，然亥卯未会局、
+    乙木透、丁壬合木——徐断「弃命相从，从势无情义」。
+
+    Tianze 口径：weighted（未月通根）与 fuyi（势旺）真实分歧 → DISPUTED
+    保留两读（R19 不裁决），不因历史名造调参迎合徐断（ADR-059 同纪律）。
+    测试锁定：从格候选存在、非 BLOCKED、且分歧以 supports 文本透明记录。
+    """
+    adv = _special_of({"year": "壬寅", "month": "丁未", "day": "己卯", "hour": "乙亥"})
+    cong = adv["cong"]
+    assert cong, "木势成局应有从格候选"
+    for c in cong:
+        assert c["status"] in ("LIKELY", "CANDIDATE", "DISPUTED"), c["type"] + ":" + c["status"]
+    sha = next(c for c in cong if c["type"] == "从官杀")
+    assert sha["status"] == "DISPUTED", "weighted/fuyi 分歧必须如实保留"
+    assert any("weighted" in s["text"] and "fuyi" in s["text"] for s in sha["supports"])

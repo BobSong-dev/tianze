@@ -1,6 +1,6 @@
 {
  "schemaVersion": "1.0.0",
- "version": "0.3.0",
+ "version": "0.4.0.dev0",
  "allPass": true,
  "steps": [
   {
@@ -11,7 +11,7 @@
   {
    "step": "P1_package_build",
    "pass": true,
-   "detail": "tianze_bazi-0.3.0-py3-none-any.whl，5.2s"
+   "detail": "tianze_bazi-0.4.0.dev0-py3-none-any.whl，4.8s"
   },
   {
    "step": "P2_clean_install_smoke",
@@ -26,7 +26,7 @@
   {
    "step": "P4_version_consistency",
    "pass": true,
-   "detail": "0.3.0（dynamic single-source=True，metadata=0.3.0）"
+   "detail": "0.4.0.dev0（dynamic single-source=True，metadata=0.4.0.dev0）"
   },
   {
    "step": "P5_stale_artifact",

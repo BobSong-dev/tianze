@@ -15,6 +15,11 @@ def test_release_check_all_pass(monkeypatch):
     """结构 + 逐步骤断言。P5 stale 用 --skip-stale-check：gate 内调用时
     metadata 必然落后一个 commit（freshness 由外部 release_check 与发布
     流程负责——与 ADR-056 release_automation 同类解法）。"""
+    # 版本 bump 后 metadata 可能 stale（P4 读 engineVersion）——先刷新
+    import subprocess
+    subprocess.run([sys.executable, "tools/release_metadata.py"],
+                   capture_output=True, encoding="utf-8", errors="replace",
+                   cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     monkeypatch.setattr(sys, "argv", ["release_check.py", "--skip-stale-check"])
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
