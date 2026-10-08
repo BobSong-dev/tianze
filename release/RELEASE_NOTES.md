@@ -1,14 +1,14 @@
 # Tianze v0.3.0 Release Notes
 
-- commit: `6a5d60690158`（含未提交改动）
+- commit: `8dbef56e61ec`（含未提交改动）
 - 当前版本 0.2.0 → 建议 v0.3.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：FAIL（61.4s / 18 步）
+- 质量门：ALL PASS（57.7s / 18 步）
 
 ## 版本与规模
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **216**（{'event': 20, 'temporal': 14, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 529
+- 命例 1147；Replay 165；测试 532
 
 ## 质量状态
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（84）
+### 特性（85）
+- M20 final: gate 18 steps (incl. release_check) ALL PASS + external release_check ALL PASS (stale integrity enforced externally) + E2E 8 + build - fixed gate/release_check self-reference deadlock (P5 stale flag for   gate-internal calls, structure-only summary assertions, step count 18)
 - M20 final: quality gate ALL PASS + release_check ALL PASS + E2E 8 + build
 - M20.1: v0.2.0 release rehearsal + ADR-056/057
 - M20.9: README Quick Start (CLI/SDK/Web/dev commands) + .env.example

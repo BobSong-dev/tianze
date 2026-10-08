@@ -2,20 +2,97 @@ name: CI
 
 on:
   push:
+    branches: [main, master]
+    tags: ["v*"]
   pull_request:
 
 jobs:
   test:
+    name: ${{ matrix.os }} · py${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.12", "3.13"]
+        exclude:
+          # 合理组合：macos 只测 3.12（避免矩阵爆炸；3.13 行为由 ubuntu/win 覆盖）
+          - os: macos-latest
+            python-version: "3.13"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install package + deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+          pip install fastapi uvicorn httpx || true
+
+      - name: Version consistency
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python -c "import tianze; assert tianze.__version__ == '0.3.0'"
+
+      - name: Tests（tests/ 含打包路径/CLI/UTF-8 冒烟）
+        env:
+          PYTHONIOENCODING: utf-8
+          PYTHONUTF8: "1"
+        run: python -m pytest tests -q
+
+      - name: Install smoke（CLI/SDK parity/UTF-8/时区/闰日/package-data/path）
+        env:
+          PYTHONIOENCODING: utf-8
+          PYTHONUTF8: "1"
+        run: python tools/install_smoke.py
+
+  build:
+    name: build wheel · ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python: ["3.12", "3.13"]
-    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python }}
-      - run: pip install -e ".[dev]"
-      - run: pytest -q
+          python-version: "3.12"
+      - name: Build wheel（package-data 含 _data/knowledge）
+        run: |
+          python -m pip install --upgrade pip build
+          python tools/sync_package_data.py
+          python -m pip wheel --no-deps -w dist .
+      - name: Wheel install + CLI smoke（bash，Linux/macOS/Windows 通用）
+        shell: bash
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          python -m venv smoke-venv
+          if [ -f smoke-venv/Scripts/python.exe ]; then SP=smoke-venv/Scripts/python.exe; else SP=smoke-venv/bin/python; fi
+          "$SP" -m pip install --quiet dist/*.whl
+          "$SP" -m tianze.cli version
+          "$SP" -m tianze.cli analyze --date 2003-08-18 --time 14:30 --gender male > out.json
+          grep -q '"stem": "癸"' out.json || grep -q '癸' out.json
+      - uses: actions/upload-artifact@v4
+        if: matrix.os == 'ubuntu-latest'
+        with:
+          name: wheel
+          path: dist/*.whl
+
+  web:
+    name: web build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Build web
+        working-directory: apps/web
+        run: |
+          npm install
+          npm run build

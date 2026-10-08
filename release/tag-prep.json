@@ -4,7 +4,7 @@
  "suggestedTag": "v0.3.0",
  "bumpKind": "minor",
  "commitGroups": {
-  "features": 84,
+  "features": 85,
   "fixes": 8,
   "tests": 10,
   "docs": 6,
@@ -17,6 +17,6 @@
   "push": "不自动 push（人工执行 git push origin v0.3.0）"
  },
  "qualityGate": {
-  "allPass": false
+  "allPass": true
  }
 }

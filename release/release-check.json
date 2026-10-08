@@ -11,7 +11,7 @@
   {
    "step": "P1_package_build",
    "pass": true,
-   "detail": "tianze_bazi-0.2.0-py3-none-any.whl，4.1s"
+   "detail": "tianze_bazi-0.2.0-py3-none-any.whl，4.4s"
   },
   {
    "step": "P2_clean_install_smoke",
@@ -31,7 +31,7 @@
   {
    "step": "P5_stale_artifact",
    "pass": true,
-   "detail": "commit 一致"
+   "detail": "SKIP（gate 内部调用；dirty）"
   },
   {
    "step": "P6_notes_consistency",

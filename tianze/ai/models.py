@@ -170,4 +170,8 @@ class InterpretationMetadata(CamelizeModel):
     analysis_schema_version: str
     prompt_tokens: int | None = None
     completion_tokens: int | None = None
+    total_tokens: int | None = None       # provider 上报的总量（缺省 = prompt+completion）
+    latency_ms: int | None = None         # complete() 端到端耗时（M21 observability）
+    retry_count: int = 0                  # 非 retry 逻辑本身：provider 层网络重试次数
+    error_category: str | None = None     # network / http_4xx / http_5xx / parse / none
     attempt_count: int = 1

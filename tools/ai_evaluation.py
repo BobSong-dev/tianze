@@ -95,6 +95,10 @@ def _evaluate_output(interp, ctx) -> dict:
         "statusVocabularyOk": status_ok,
         "sectionsCount": len(interp.sections),
         "claimRefsUsed": len({c.ref_id for s in interp.sections for c in s.claims}),
+        "latencyMs": getattr(ctx, "_last_latency_ms", None),
+        "totalTokens": None,
+        "retries": getattr(ctx, "_last_retries", 0),
+        "errorCategory": getattr(ctx, "_last_error_category", "none"),
     }
 
 
@@ -134,6 +138,11 @@ def run(provider, use_real: bool) -> dict:
             knowledge_version=KNOWLEDGE_SCHEMA_VERSION, analysis_schema_version="1.0.0")
         interp, meta = asyncio.run(interpret(ctx, provider, engine_version=__version__))
         ev = _evaluate_output(interp, ctx)
+        # M21 遥测：从 metadata 回填（provider 层上报；mock 为 0/None）
+        ev["latencyMs"] = meta.latency_ms
+        ev["totalTokens"] = meta.total_tokens
+        ev["retries"] = meta.retry_count
+        ev["errorCategory"] = meta.error_category
         ev["verdict"] = _verdict(ev, use_real)
         results.append({"case": case["name"], "covers": case["covers"],
                         "provider": meta.provider_name if hasattr(meta, "provider_name") else "mock",
@@ -145,8 +154,17 @@ def run(provider, use_real: bool) -> dict:
         "fail": sum(1 for r in results if r["verdict"] == "FAIL"),
         "verdictScale": "real=PASS/FAIL（含 disagreement 覆盖）；mock=PIPELINE_OK/FAIL（仅管线检查）",
     }
+    telemetry = {
+        "latencyMsTotal": sum(r.get("latencyMs") or 0 for r in results),
+        "latencyMsAvg": round(sum(r.get("latencyMs") or 0 for r in results)
+                              / max(1, len(results)), 1),
+        "tokensTotal": sum(r.get("totalTokens") or 0 for r in results),
+        "retriesTotal": sum(r.get("retries", 0) for r in results),
+        "errorCategories": sorted({r.get("errorCategory") for r in results
+                                   if r.get("errorCategory")}),
+    }
     result = {"schemaVersion": EVAL_SCHEMA_VERSION, "provider": "real" if use_real else "mock",
-              "summary": summary, "results": results}
+              "summary": summary, "telemetry": telemetry, "results": results}
 
     # M16.6：评估历史版本化（追加 JSONL；确定性评估结果；无 LLM-as-judge 字段）
     provider_name = getattr(provider, "provider_name", "unknown")
@@ -168,6 +186,7 @@ def run(provider, use_real: bool) -> dict:
                      "banned": r["bannedLanguage"],
                      "disagreementMissing": r["disagreementMissing"],
                      "claimRefsUsed": r["claimRefsUsed"]} for r in results],
+        "telemetry": telemetry,
     }
     with open("regression/ai-evaluation-history.jsonl", "a", encoding="utf-8") as f:
         f.write(json.dumps(history_entry, ensure_ascii=False) + chr(10))

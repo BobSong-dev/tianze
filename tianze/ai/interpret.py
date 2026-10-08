@@ -71,6 +71,9 @@ class OpenAICompatibleProvider(InterpretationProvider):
         self.model = model
 
     async def complete(self, system_prompt: str, user_prompt: str) -> tuple[str, dict]:
+        """带 latency/token/网络重试遥测（usage dict；不含任何请求体/密钥）。"""
+        import time
+
         import httpx
         url = f"{self.base_url}/chat/completions"
         headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
@@ -80,13 +83,40 @@ class OpenAICompatibleProvider(InterpretationProvider):
                          {"role": "user", "content": user_prompt}],
             "temperature": 0.3,
         }
+        started = time.perf_counter()
+        retries = 0
+        error_category = None
+        data = None
         async with httpx.AsyncClient(timeout=30) as client:
-            r = await client.post(url, json=payload, headers=headers)
-            r.raise_for_status()
-            data = r.json()
+            for attempt in range(3):   # 最多 3 次（网络/5xx 指数退避）
+                try:
+                    r = await client.post(url, json=payload, headers=headers)
+                    if r.status_code >= 500 and attempt < 2:
+                        retries += 1
+                        error_category = "http_5xx"
+                        await __import__("asyncio").sleep(0.5 * (attempt + 1))
+                        continue
+                    r.raise_for_status()
+                    data = r.json()
+                    error_category = None
+                    break
+                except httpx.TransportError:
+                    retries += 1
+                    error_category = "network"
+                    if attempt == 2:
+                        raise
+                    await __import__("asyncio").sleep(0.5 * (attempt + 1))
+        latency_ms = int((time.perf_counter() - started) * 1000)
         text = data["choices"][0]["message"]["content"]
         usage = data.get("usage", {})
-        return text, {"prompt_tokens": usage.get("prompt_tokens"), "completion_tokens": usage.get("completion_tokens")}
+        return text, {
+            "prompt_tokens": usage.get("prompt_tokens"),
+            "completion_tokens": usage.get("completion_tokens"),
+            "total_tokens": usage.get("total_tokens"),
+            "latency_ms": latency_ms,
+            "retries": retries,
+            "error_category": error_category or "none",
+        }
 
     @property
     def provider_name(self) -> str:
@@ -289,5 +319,9 @@ async def interpret(
         analysis_schema_version=analysis_schema_version,
         prompt_tokens=usage.get("prompt_tokens"),
         completion_tokens=usage.get("completion_tokens"),
+        total_tokens=usage.get("total_tokens"),
+        latency_ms=usage.get("latency_ms"),
+        retry_count=usage.get("retries", 0),
+        error_category=usage.get("error_category", "none"),
     )
     return result, metadata
