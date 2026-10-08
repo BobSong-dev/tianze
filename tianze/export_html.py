@@ -102,7 +102,11 @@ def to_html(result: dict) -> str:
         items = []
         for st in replay.get("steps", []):
             line = f"{st.get('layer', '')} {st.get('ganzhi', '')}——{st.get('note', '')}"
-            evs = [f"+ {a.get('kind')}：{a.get('label')}" for a in st.get("added", [])] +                   [f"− {rm.get('kind')}：{rm.get('label')}" for rm in st.get("removed", [])] +                   [f"主题：{t.get('theme')}（{t.get('direction')}）" for t in st.get("themeDelta", [])]
+            evs = [f"+ {a.get('kind')}：{a.get('label')}" for a in st.get("added", [])] +                   [f"− {rm.get('kind')}：{rm.get('label')}" for rm in st.get("removed", [])] +                   [f"主题：{t.get('theme')}（{t.get('direction')}）← "
+                   + "、".join(t.get("relatedEvents") or t.get("basisRefs") or [])
+                   if (t.get("relatedEvents") or t.get("basisRefs")) else
+                   f"主题：{t.get('theme')}（{t.get('direction')}）"
+                   for t in st.get("themeDelta", [])]
             items.append(line + ("；" + "；".join(evs) if evs else ""))
         body.append(_ul(items))
 

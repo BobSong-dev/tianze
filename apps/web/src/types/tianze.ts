@@ -229,7 +229,8 @@ export interface TimelineNodeData {
                       added: { kind: string; label: string; refId?: string }[];
                       removed: { kind: string; label: string }[];
                       themeDelta?: { theme: string; label?: string; direction: string;
-                                     refId?: string }[];
+                                     refId?: string; relatedEvents?: string[];
+                                     basisRefs?: string[] }[];
                       snapshotKeys: string[]; relationCount: number }[];
            replaySchemaVersion: string; warnings: string[] };
   structures: TemporalStructureData[]; tenGodTheme: Record<string, number>;

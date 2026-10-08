@@ -854,6 +854,8 @@ async function loadTemporal() {
               </div>
               <div v-for="(t, ti) in st.themeDelta || []" :key="'t' + ti" class="note">
                 主题：{{ t.theme }}（{{ t.direction }}）
+                <span v-if="(t.relatedEvents || []).length">← {{ t.relatedEvents.join('、') }}</span>
+                <span v-else-if="(t.basisRefs || []).length">← {{ t.basisRefs.join('、') }}</span>
               </div>
             </div>
             <div class="note">结构候选事件回放，不构成吉凶或事件预测</div>

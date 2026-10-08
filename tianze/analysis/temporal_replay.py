@@ -31,6 +31,10 @@ _XUSHI_KINDS = ("arch", "arch_fill", "arch_broken", "arch_unfill", "hidden_combi
 
 _LAYER_CN = {"luck": "大运", "annual": "流年", "monthly": "流月", "daily": "流日"}
 
+_THEME_OF_GOD = {"正财": "财星", "偏财": "财星", "正官": "官杀", "七杀": "官杀",
+                 "正印": "印星", "偏印": "印星", "食神": "食伤", "伤官": "食伤",
+                 "比肩": "比劫", "劫财": "比劫"}
+
 
 class ReplayStep(CamelizeModel):
     layer: str                        # natal / luck / annual / monthly / daily
@@ -108,7 +112,7 @@ def replay_temporal(
     steps: list[ReplayStep] = []
     prev_keys: dict[str, dict] = {}
 
-    def _run(ctx_layers: list[tuple[str, tuple[str | None, str | None] | None]]) -> tuple[dict, int]:
+    def _run(ctx_layers: list[tuple[str, tuple[str | None, str | None] | None]]):
         kw: dict[str, Any] = dict(natal_stems=list(natal_stems),
                                   natal_branches=list(natal_branches),
                                   day_master=day_master)
@@ -116,10 +120,10 @@ def replay_temporal(
             if pair and (pair[0] or pair[1]):
                 kw[f"{name}_stem"], kw[f"{name}_branch"] = pair[0], pair[1]
         ta = analyze_temporal(**kw)
-        return _event_keys(ta.relations), len(ta.relations)
+        return _event_keys(ta.relations), len(ta.relations), ta.relations
 
     # 第 0 步：natal
-    keys0, cnt0 = _run([])
+    keys0, cnt0, _rels0 = _run([])
     steps.append(ReplayStep(
         layer="natal", ganzhi="", added=[], removed=[],
         snapshotKeys=sorted(keys0), relationCount=cnt0,
@@ -135,7 +139,7 @@ def replay_temporal(
         if not (pair and (pair[0] or pair[1])):
             continue
         active = active + [(name, pair)]
-        keys, cnt = _run(active)
+        keys, cnt, rels = _run(active)
         added = [keys[k] for k in sorted(set(keys) - set(prev_keys))]
         removed = [prev_keys[k] for k in sorted(set(prev_keys) - set(keys))]
         gz = (pair[0] or "") + (pair[1] or "")
@@ -143,6 +147,31 @@ def replay_temporal(
         if include_themes and chart is not None:
             cur_themes = _themes_of_chart(chart, active)
             theme_delta = _theme_diff(cur_themes, prev_themes)
+            # M33 · 主题→事件反查（确定性映射：相关非因果）
+            layer_events = [f"{a['kind']}:{a['label']}" for a in added]
+            new_conflicts = sorted({f"{r.kind}:{r.label}" for r in rels
+                                    if r.is_new and r.kind in ("clash", "harm", "break",
+                                                               "stem_opposition")})
+            layer_stem = pair[0]
+            for t in theme_delta:
+                theme = t.get("theme", "")
+                if theme == "虚神填实":
+                    t["relatedEvents"] = [k for k in layer_events
+                                          if k.startswith("arch_fill:")]
+                elif theme == "冲突关系":
+                    t["relatedEvents"] = list(new_conflicts)
+                elif theme in _THEME_OF_GOD.values():
+                    from tianze.ganzhi.tables import ten_god as _tg
+                    god = _tg(day_master, layer_stem).value if layer_stem else ""
+                    t["relatedEvents"] = ([f"stem:{_LAYER_CN.get(name, name)}{gz}（{god}）"]
+                                          if _THEME_OF_GOD.get(god) == theme else [])
+                else:  # 结构波动等聚合主题：关联本层全部事件（相关非因果）
+                    t["relatedEvents"] = list(layer_events)
+                # 映射为空时回退：从主题自身 basis 提取 delta refId（basis→真实事件反查）
+                if not t.get("relatedEvents"):
+                    import re as _re
+                    t["basisRefs"] = sorted({ref for b in t.get("basis", [])
+                                             for ref in _re.findall(r"temporal:[^\s（）]+", b)})
             prev_themes = cur_themes
         steps.append(ReplayStep(
             layer=name, ganzhi=gz, added=added, removed=removed,

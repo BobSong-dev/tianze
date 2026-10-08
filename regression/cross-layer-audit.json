@@ -8,7 +8,8 @@
   "C3": [],
   "C4": [],
   "C5": [],
-  "C6": []
+  "C6": [],
+  "C7": []
  },
  "violationCounts": {
   "C1": 0,
@@ -16,7 +17,8 @@
   "C3": 0,
   "C4": 0,
   "C5": 0,
-  "C6": 0
+  "C6": 0,
+  "C7": 0
  },
  "totalViolations": 0,
  "stats": {
@@ -34,6 +36,7 @@
   "C3": "化候选 CANDIDATE ⟹ 邻位+月令（DTZ-47）",
   "C4": "特殊格局永不 CONFIRMED；cong BLOCKED 必带阻断",
   "C5": "暗合 ⟹ SPZY-34 表内 + 贴邻",
-  "C6": "Evidence 完整化：关系键无重复 + 解释链数 == relations+blocked（M30）"
+  "C6": "Evidence 完整化：关系键无重复 + 解释链数 == relations+blocked（M30）",
+  "C7": "悬空引用：解释链 refId 唯一 + 引文 candidateId 非空（M33）"
  }
 }

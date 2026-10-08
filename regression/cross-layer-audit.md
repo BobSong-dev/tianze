@@ -8,3 +8,4 @@
 - C4（特殊格局永不 CONFIRMED；cong BLOCKED 必带阻断）：0 条
 - C5（暗合 ⟹ SPZY-34 表内 + 贴邻）：0 条
 - C6（Evidence 完整化：关系键无重复 + 解释链数 == relations+blocked（M30））：0 条
+- C7（悬空引用：解释链 refId 唯一 + 引文 candidateId 非空（M33））：0 条

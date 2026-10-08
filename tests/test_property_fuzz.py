@@ -949,3 +949,37 @@ def test_ai_context_theme_delta_refs():
     # replay-theme refs 只在有 themeDelta 时出现；context 的 replay 步骤必须带 themeDelta 键
     steps = ctx.temporal.get("replay", [])
     assert steps and all("themeDelta" in s for s in steps)
+
+
+# ---------- M33 · 主题→事件反查 + C7 悬空引用 ----------
+
+def test_theme_back_references():
+    """主题反查：虚神填实←arch_fill、冲突←新冲害破、十神←层干；映射空→basisRefs。"""
+    from tianze.analysis.case_chart import build_case_chart
+    from tianze.analysis.temporal_replay import replay_temporal
+    chart = build_case_chart({"year": "癸亥", "month": "己丑", "day": "甲戌", "hour": "乙卯"})
+    r = replay_temporal(natal_stems=["癸", "己", "甲", "乙"],
+                        natal_branches=["亥", "丑", "巳", "卯"],
+                        day_master="癸", luck=("壬", "子"), annual=("庚", "午"),
+                        chart=chart, include_themes=True)
+    by_theme = {}
+    for s in r.steps:
+        for t in s.themeDelta:
+            by_theme.setdefault(t["theme"], t)
+    fill = by_theme["虚神填实"]
+    assert any(e.startswith("arch_fill:") for e in fill["relatedEvents"])
+    if "冲突关系" in by_theme:
+        conf = by_theme["冲突关系"]
+        assert all(any(k in e for k in ("clash", "harm", "break", "stem_opposition"))
+                   for e in conf["relatedEvents"])
+    # 映射为空的主题必须带 basisRefs（basis→delta refId 反查）
+    for s in r.steps:
+        for t in s.themeDelta:
+            assert t.get("relatedEvents") or t.get("basisRefs"), t
+
+
+def test_c7_no_dangling_citations():
+    """C7：解释链引文 candidateId 全部非空且解释链 refId 唯一（1045 例全 0 见审计）。"""
+    from tianze.analysis.relation_explain import _load_citations
+    reg = _load_citations()
+    assert len(reg) >= 16

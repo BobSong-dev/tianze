@@ -94,7 +94,9 @@ def to_markdown(result: dict[str, Any]) -> str:
             for rm in st.get("removed", []):
                 out.append(f"  - − {rm.get('kind', '')}：{rm.get('label', '')}")
             for t in st.get("themeDelta", []):
-                out.append(f"  - 主题：{t.get('theme', '')}（{t.get('direction', '')}）")
+                back = (t.get("relatedEvents") or t.get("basisRefs") or [])
+                out.append(f"  - 主题：{t.get('theme', '')}（{t.get('direction', '')}）"
+                           + (f"← {'、'.join(back)}" if back else ""))
 
     blocked = result.get("blockedRelations") or []
     if blocked:
