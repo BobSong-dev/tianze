@@ -465,3 +465,61 @@ def test_relation_explanations_deterministic():
     assert a.relationExplanations == b.relationExplanations
     # 与 relations 一一对应（每条关系都有解释）
     assert len(a.relationExplanations) == len(a.relations) + len(a.blockedRelations)
+
+
+# ---------- M26 · 拱贵（天乙贵人）/ arch_broken（拱位刑冲两说）/ 六乙鼠贵 ----------
+
+def test_arch_noble_subtype():
+    """庚日 子寅拱丑：丑为庚之天乙贵人 → 拱贵 sub_type（SS-R17 起例）。"""
+    from tianze.relation.relations import analyze_relations
+    pos = ["year", "month", "day", "hour"]
+    rs = analyze_relations(["庚", None, "庚", None], ["子", None, "寅", None], pos, "庚")
+    a = next(r for r in rs if r.kind.value == "arch")
+    assert a.sub_type == "拱贵（天乙贵人位）"
+    assert "天乙贵人" in a.note
+
+
+def test_arch_noble_meeting_priority():
+    """拱三会方优先级高于拱贵；贵/禄同见时双注记。"""
+    from tianze.relation.relations import analyze_relations
+    pos = ["year", "month", "day", "hour"]
+    # 己日：亥丑拱子——子∈亥子丑（三会方）且子为己贵（乙己鼠猴乡）→ 三会方 + 拱贵同见
+    rs = analyze_relations(["己", None, None, None], ["亥", None, "丑", None], pos, "己")
+    a = next(r for r in rs if r.kind.value == "arch")
+    assert a.sub_type.startswith("拱三会方")
+    assert "天乙贵人" in a.note
+
+
+def test_temporal_arch_broken_clash():
+    """原局亥丑拱子；流年未冲丑 → arch_broken（拱破/拱动两说，不判吉凶）。"""
+    from tianze.analysis.temporal import analyze_temporal
+    ta = analyze_temporal(natal_stems=["癸", "己", "甲", "乙"],
+                          natal_branches=["亥", "丑", "巳", "卯"],
+                          day_master="癸", annual_stem="己", annual_branch="未")
+    kinds = [r.kind for r in ta.relations]
+    assert "arch_broken" in kinds
+    ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-10")
+    assert ev.matched and any("拱破" in o and "拱动" in o for o in ev.observations)
+
+
+def test_temporal_arch_broken_xing():
+    """原局巳未拱午；流年申刑巳（寅巳申三刑部分）→ arch_broken 刑说。"""
+    from tianze.analysis.temporal import analyze_temporal
+    ta = analyze_temporal(natal_stems=["戊", "甲", "甲", "庚"],
+                          natal_branches=["巳", "未", "丑", "亥"],
+                          day_master="甲", annual_stem="戊", annual_branch="申")
+    kinds = [r.kind for r in ta.relations]
+    assert "arch_broken" in kinds
+    brk = next(r for r in ta.relations if r.kind == "arch_broken")
+    assert "刑" in brk.label and "拱破" in brk.note
+
+
+def test_liuyi_shugui_candidate():
+    """六乙鼠贵（ZP-06）：乙日子时 → 候选；官煞透 → BLOCKED。"""
+    from tianze.analysis.case_chart import build_case_chart
+    c = build_case_chart({"year": "丙子", "month": "丁亥", "day": "乙卯", "hour": "庚子"})
+    xo = c.advancedAnalysis["specialPattern"]["xushiOuter"]
+    m = next(x for x in xo if "六乙鼠贵" in x["type"])
+    assert m["status"] == "BLOCKED"  # 庚官透
+    assert any("SS-R16" in k or "三要件" in sv
+               for k, sv in m["schoolVariants"].items())

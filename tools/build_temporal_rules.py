@@ -213,9 +213,9 @@ def main() -> int:
         build_rule(
             "TR-DTZ-10", "DTZ-10", "an chong an hui", "暗冲暗会/拱夹/暗合/填实（岁运 × 虚神）",
             conditions=[{"field": "temporalXushiInteraction", "operator": "in",
-                         "value": ["arch", "arch_fill", "hidden_combination"]}],
+                         "value": ["arch", "arch_fill", "arch_broken", "hidden_combination"]}],
             effects=[{"kind": "note",
-                      "text": "岁运与原局虚神的候选级交互观察：成拱/填实/暗合；"
+                      "text": "岁运与原局虚神的候选级交互观察：成拱/填实/拱位刑冲/暗合；"
                               "非格局不取用（DTZ-26/36），不判吉凶"}],
             source={"sourceKind": "COMMENTARY", "book": "滴天髓补注",
                     "chapter": "暗冲暗会", "pages": [],

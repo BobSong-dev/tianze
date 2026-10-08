@@ -218,18 +218,24 @@ def analyze_relations(
                 if target in trio and b1 in trio and b2 in trio:
                     meeting_name = direction
                     break
+            from tianze.relation.tables import TIAN_YI_NOBLE
+            noble_hit = day_master in TIAN_YI_NOBLE and target in TIAN_YI_NOBLE[day_master]
             if meeting_name:
                 sub = f"拱三会方（{meeting_name}·暗会）"
-                if lu_branch and target == lu_branch:
-                    notes_need_lu = True
-                else:
-                    notes_need_lu = False
+                notes_need_lu = bool(lu_branch and target == lu_branch)
+                notes_need_noble = noble_hit
             elif lu_branch and target == lu_branch:
                 sub = "拱禄"
                 notes_need_lu = False
+                notes_need_noble = noble_hit
+            elif noble_hit:
+                sub = "拱贵（天乙贵人位）"
+                notes_need_lu = False
+                notes_need_noble = True
             else:
                 sub = "拱夹"
                 notes_need_lu = False
+                notes_need_noble = False
             s1, s2 = stems[i], stems[j]
             notes = []
             if s1 and s2:
@@ -241,6 +247,8 @@ def analyze_relations(
                 notes.append(f"拱日元{day_master}之禄{target}（ZP-05：忌刑冲填实之凶）")
             elif notes_need_lu:
                 notes.append(f"{target}亦为日元{day_master}之禄（拱禄同见）")
+            if notes_need_noble:
+                notes.append(f"{target}亦为日元{day_master}之天乙贵人（拱贵同见，SS-R17 起例）")
             notes.append("暗冲暗会两说并存（DTZ-10：我冲彼冲皆冲起）；候选关系，非格局（DTZ-26/36）")
             pa, pb = sorted((b1, b2), key=branch_index)
             append(Interaction(

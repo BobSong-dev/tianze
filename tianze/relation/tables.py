@@ -112,6 +112,20 @@ HIDDEN_COMBO_EXCEPTIONS: dict[FS[str], tuple[str, str]] = {
 }
 
 
+# 天乙贵人（SS-R17 阳贵阴贵起例并集；歌诀「甲戊庚牛羊，乙己鼠猴乡。丙丁猪鸡位，
+# 壬癸兔蛇藏。六辛逢马虎，此是贵人方」逐字）。值 = 该日主的天乙贵人支集合
+# （阳贵/阴贵各一，SS-R17 逐日推演）。用途限定：拱贵 sub_type（ZP-05）与六乙鼠贵
+# 候选（ZP-06）——SS-R16 三要件（见合/交互得/生旺无冲破）意味着裸贵人临命本身
+# 不构成可执行结论（「若干支无合又不交互，乃庸常者流」），故不输出独立神煞事实。
+TIAN_YI_NOBLE: dict[str, frozenset[str]] = {
+    "甲": frozenset({"丑", "未"}), "戊": frozenset({"丑", "未"}), "庚": frozenset({"丑", "未"}),
+    "乙": frozenset({"子", "申"}), "己": frozenset({"子", "申"}),
+    "丙": frozenset({"亥", "酉"}), "丁": frozenset({"亥", "酉"}),
+    "壬": frozenset({"卯", "巳"}), "癸": frozenset({"巳", "卯"}),
+    "辛": frozenset({"午", "寅"}),
+}
+
+
 def arch_target(a: str, b: str) -> str | None:
     """拱夹定位（DTZ-10/ZP-05）：两支在地支环上恰隔一支 → 返回被拱之支。
 

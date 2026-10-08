@@ -29,6 +29,9 @@ CITATION_SOURCES = {
     "ZP-07": "刑合格起例与争议（OCR 残缺）",
     "ZP-11": "子邀巳虚神邀合（OCR 残缺）",
     "ZP-12": "井栏叉/倒冲格（庚日得禄之地，OCR 残缺）",
+    "SS-R17": "天乙贵人阳贵阴贵起例（歌诀逐字）",
+    "SS-R16": "天乙贵人成格三要件（见合/交互得/生旺无冲破）",
+    "ZP-06": "六乙鼠贵（印煞临天乙，忌官煞刑冲）",
 }
 
 CANONICAL_TABLES = {
@@ -51,7 +54,7 @@ def _load(book: str) -> dict[str, dict]:
 
 def main() -> int:
     books = {}
-    for book in ("DTZ", "ZP", "SPZY"):
+    for book in ("DTZ", "ZP", "SPZY", "SS"):
         books.update(_load(book))
     citations = {}
     for cid, purpose in CITATION_SOURCES.items():

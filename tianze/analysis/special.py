@@ -519,6 +519,30 @@ def analyze_xushi_outer(
                            else SpecialStatus.CANDIDATE)
             out.append(cand)
 
+    # 六乙鼠贵（ZP-06：乙日子时，印煞临天乙贵人；忌官煞刑冲；ocrRisk=True）
+    if day_master == "乙" and len(branches) >= 4 and branches[3] == "子":
+        cand = SpecialPatternCandidate(type="六乙鼠贵（乙日子时）")
+        cand.prerequisites = ["乙日子时（子为乙之天乙贵人，六乙遁干丙子）",
+                              "忌官煞刑冲（喜忌篇：乙木独遇子时不见官煞）"]
+        cand.provenance = prov + [
+            ProvenanceRef(level=RuleLevel.PROJECT_REFERENCE, project="守素室丛谈（SS-R16/17）",
+                          concept="天乙贵人起例与成格三要件（见合/交互得/生旺无冲破）")]
+        cand.supports.append(Factor("support", "SP-XO-S6",
+                                    "时支子为日元乙之天乙贵人（SS-R17 起例），印煞滋生之地"))
+        for st in visible_stems:
+            if st != day_master and ten_god(day_master, st).value in guansha_gods:
+                cand.blockers.append(Factor(
+                    "blocker", "SP-XO-B6",
+                    f"官煞{st}透干——ZP-06：柱有官煞不喜（泥途说，OCR 残缺）"))
+        cand.schoolVariants = {
+            "外格说": "六乙鼠贵：印煞临天乙（ZP-06，quality B / ocrRisk）",
+            "SS-R16 三要件口径": "贵人须见合、交互得、生旺无冲破方为有用——"
+                              "单取时支贵人属窄口径，两说并存",
+        }
+        cand.status = (SpecialStatus.BLOCKED if cand.blockers
+                       else SpecialStatus.CANDIDATE)
+        out.append(cand)
+
     # 刑合（ZP-07：癸日暗合戊，时甲寅以寅刑巳邀戊禄——OCR 残缺，重争议）
     if day_master == "癸" and len(branches) >= 4 and branches[3] == "寅"             and "巳" not in present:
         cand = SpecialPatternCandidate(type="刑合（寅刑巳邀戊禄）")

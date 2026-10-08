@@ -456,6 +456,7 @@
      "value": [
       "arch",
       "arch_fill",
+      "arch_broken",
       "hidden_combination"
      ]
     }
@@ -463,7 +464,7 @@
    "effects": [
     {
      "kind": "note",
-     "text": "岁运与原局虚神的候选级交互观察：成拱/填实/暗合；非格局不取用（DTZ-26/36），不判吉凶"
+     "text": "岁运与原局虚神的候选级交互观察：成拱/填实/拱位刑冲/暗合；非格局不取用（DTZ-26/36），不判吉凶"
     }
    ],
    "exceptions": [],

@@ -1,7 +1,7 @@
 {
  "domain": "relations",
  "schemaVersion": "1.0.0",
- "count": 13,
+ "count": 16,
  "description": "关系级解释链引文注册表（M25）：由 tools/build_relation_citations.py 从 normalized 候选机械生成，引文逐字可回溯；禁止手写引文",
  "citations": {
   "DTZ-10": {
@@ -100,6 +100,39 @@
    "quote": "（井栏叉格：庚辰、庚申、丁丑…）",
    "sourceFile": "09p-滴天髓补注/06-子平一得知识库.md",
    "quality": "C",
+   "ocrRisk": true,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "SS-R17": {
+   "candidateId": "SS-R17",
+   "book": "SS",
+   "title": "天乙贵人阳贵阴贵起例释义",
+   "purpose": "天乙贵人阳贵阴贵起例（歌诀逐字）",
+   "quote": "甲戊庚牛羊，乙巳鼠猴乡。丙丁鸡猪位，壬癸兔蛇藏。六辛逢马虎，此是贵人方。",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "quality": "C",
+   "ocrRisk": false,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "SS-R16": {
+   "candidateId": "SS-R16",
+   "book": "SS",
+   "title": "天乙贵人成格三要件（见合、交互得、生旺无冲破）",
+   "purpose": "天乙贵人成格三要件（见合/交互得/生旺无冲破）",
+   "quote": "天乙贵人本起于五合，故第一必须见合，方为有用。第二须交互得之……日主生旺，无死绝冲破空亡，加以喜用配合适宜，则上格必居极品之贵，次格亦居清华秘要之选，下格则为正郎员监，或州县官，若带死绝，为鄙吝煞，以次递减，且多难无福，但总不失一命之荣。",
+   "sourceFile": "_知识库/_知识库/02-守素室丛谈知识库.md",
+   "quality": "C",
+   "ocrRisk": false,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "ZP-06": {
+   "candidateId": "ZP-06",
+   "book": "ZP",
+   "title": "六乙鼠贵——印煞临子（天乙），忌见官煞刑冲",
+   "purpose": "六乙鼠贵（印煞临天乙，忌官煞刑冲）",
+   "quote": "按六乙鼠贵者，（食伤印煞财是）不相戾以成格也。日元恃印煞滋生，而印煞临天乙贵人。六乙遁干（在）丙子…为六乙鼠贵之地…六乙鼠贵爱见食神（时）…支配合适宜…柱有官煞，贫臭下贱，（泥途）不喜刑冲。",
+   "sourceFile": "09p-滴天髓补注/06-子平一得知识库.md",
+   "quality": "B",
    "ocrRisk": true,
    "sourceKind": "CLASSICAL_EXPLICIT"
   },

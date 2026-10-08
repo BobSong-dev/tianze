@@ -38,7 +38,7 @@ _CANDIDATE_KINDS = {"arch", "hidden_combination", "arch_fill"}
 
 # kind → 引文注册表键（引用链：关系类型 → 候选 id）
 _KIND_CITATIONS: dict[str, list[str]] = {
-    "arch": ["DTZ-10", "ZP-05", "DTZ-26", "DTZ-36"],
+    "arch": ["DTZ-10", "ZP-05", "SS-R17", "SS-R16", "DTZ-26", "DTZ-36"],
     "arch_fill": ["DTZ-10", "ZP-05", "DTZ-41"],
     "hidden_combination": ["SPZY-34", "DTZ-36"],
     "clash": ["R9"], "harm": ["R9"], "break": ["R9"],

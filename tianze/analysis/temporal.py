@@ -366,17 +366,8 @@ def analyze_temporal(
                         is_new=True,
                     ))
 
-    # 三合补齐检测：原局有 2 支 + 岁运补第 3 支
-    from tianze.relation.tables import THREE_HARMONIES
-    natal_branch_set = {b for b in ctx.natal_branches if b}
-    from tianze.ganzhi.tables import BRANCHES as _BR
-
-    # M24 · 拱夹/暗合/填实（DTZ-10/ZP-05/SPZY-34）：岁运 × 原局虚神
-    # 口径：复用 relation.tables 的 arch_target / HIDDEN_COMBINATIONS（不重复实现）。
-    # - 岁运支 == 原局拱位虚神 → 填实（ZP-05：忌刑冲填实之凶——结构观察，不判吉凶）
-    # - 岁运支 + 原局支 隔二缺一成新拱（虚神原局岁运均不见）→ EXPERIMENTAL（岁运能否入拱两说）
-    # - 岁运支 + 原局支 暗合（SPZY-34 逐对）→ 岁运引入暗合
     from tianze.relation.tables import arch_target, HIDDEN_COMBINATIONS, HIDDEN_COMBO_EXCEPTIONS
+    natal_branch_set = {b for b in ctx.natal_branches if b}
     temporal_branches = [(label, b) for label, _s, b in ctx.temporal_units() if b]
     temporal_branch_set = {b for _l, b in temporal_branches}
     natal_arch_targets: dict[str, tuple[str, str]] = {}
@@ -386,23 +377,9 @@ def analyze_temporal(
             tgt = arch_target(natal_b_list[x], natal_b_list[y])
             if tgt and tgt not in natal_branch_set:
                 natal_arch_targets[tgt] = (natal_b_list[x], natal_b_list[y])
+    _san_xing_sets = (frozenset({"寅", "巳", "申"}), frozenset({"丑", "戌", "未"}))
+    # M24 · 岁运成拱/暗合（原局支 × 岁运支；与 fill/broken 同一虚神层）
     for label, br in temporal_branches:
-        filled = natal_arch_targets.get(br)
-        if filled:
-            relations.append(TemporalRelation(
-                kind="arch_fill",
-                label=f"岁运{_LAYER_CN.get(label, label)}{br}填实拱位（{''.join(filled)}拱{br}）",
-                members=[filled[0], filled[1], br],
-                positions=[f"natal:{_pos(ctx.natal_branches.index(filled[0]))}",
-                           f"natal:{_pos(ctx.natal_branches.index(filled[1]))}", label],
-                sources=[TemporalSource.NATAL, _src(label)],
-                is_new=True,
-                note="虚神被填（ZP-05：拱禄拱贵忌刑冲填实之凶——原典禁则，候选级观察，不判吉凶）",
-            ))
-            evidence.append(
-                f"岁运{_LAYER_CN.get(label, label)}支{br}为原局拱位虚神"
-                f"（{''.join(filled)}拱{br}）——填实（忌刑冲填实之凶，ZP-05）")
-            continue
         for i, nb in enumerate(ctx.natal_branches):
             if not nb:
                 continue
@@ -446,6 +423,75 @@ def analyze_temporal(
                     f"岁运{_LAYER_CN.get(label, label)}支{br}与原局{_pos(i)}支{nb}暗合"
                     f"（{combo_cn}；SPZY-34，非化）")
 
+    for label, br in temporal_branches:
+        filled = natal_arch_targets.get(br)
+        if filled:
+            relations.append(TemporalRelation(
+                kind="arch_fill",
+                label=f"岁运{_LAYER_CN.get(label, label)}{br}填实拱位（{''.join(filled)}拱{br}）",
+                members=[filled[0], filled[1], br],
+                positions=[f"natal:{_pos(ctx.natal_branches.index(filled[0]))}",
+                           f"natal:{_pos(ctx.natal_branches.index(filled[1]))}", label],
+                sources=[TemporalSource.NATAL, _src(label)],
+                is_new=True,
+                note="虚神被填（ZP-05：拱禄拱贵忌刑冲填实之凶——原典禁则，候选级观察，不判吉凶）",
+            ))
+            evidence.append(
+                f"岁运{_LAYER_CN.get(label, label)}支{br}为原局拱位虚神"
+                f"（{''.join(filled)}拱{br}）——填实（忌刑冲填实之凶，ZP-05）")
+            continue
+        # M26：拱位成员被岁运刑/冲 → 拱破/拱动两说（忌刑冲之「刑冲」部分；
+        # DTZ-10「凡冲必动，动则喜忌见」——喜忌层面不判）
+        from tianze.relation.tables import SIX_CLASHES
+        fired_broken = False
+        for pair_a, pair_b in set(natal_arch_targets.values()):
+            if fired_broken:
+                break
+            for member in (pair_a, pair_b):
+                if fired_broken:
+                    break
+                pair_fs = frozenset({br, member})
+                hit_kind = None
+                if pair_fs in SIX_CLASHES:
+                    hit_kind = "冲"
+                elif pair_fs == frozenset({"子", "卯"}):
+                    hit_kind = "刑"
+                else:
+                    for trio in _san_xing_sets:
+                        if {br, member} <= trio:
+                            hit_kind = "刑"
+                            break
+                if hit_kind is None:
+                    continue
+                target_branch = next(k for k, v in natal_arch_targets.items()
+                                     if v == (pair_a, pair_b))
+                relations.append(TemporalRelation(
+                    kind="arch_broken",
+                    label=f"岁运{_LAYER_CN.get(label, label)}{br}{hit_kind}拱位成员{member}"
+                          f"（{''.join(sorted((pair_a, pair_b)))}拱{target_branch}）",
+                    members=sorted({pair_a, pair_b, br}),
+                    positions=[f"natal:{_pos(ctx.natal_branches.index(pair_a))}",
+                               f"natal:{_pos(ctx.natal_branches.index(pair_b))}", label],
+                    sources=[TemporalSource.NATAL, _src(label)],
+                    is_new=True,
+                    note=f"拱位成员{member}逢{hit_kind}：拱破说（ZP-05：忌刑冲）vs 拱动说"
+                         "（DTZ-10：凡冲必动，动则喜忌见——喜忌不判）两说并存",
+                ))
+                evidence.append(
+                    f"岁运{_LAYER_CN.get(label, label)}支{br}{hit_kind}拱位成员{member}"
+                    f"——拱破/拱动两说（候选级，不判吉凶）")
+                fired_broken = True
+
+    # 三合补齐检测：原局有 2 支 + 岁运补第 3 支
+    from tianze.relation.tables import THREE_HARMONIES
+    natal_branch_set = {b for b in ctx.natal_branches if b}
+    from tianze.ganzhi.tables import BRANCHES as _BR
+
+    # M24 · 拱夹/暗合/填实（DTZ-10/ZP-05/SPZY-34）：岁运 × 原局虚神
+    # 口径：复用 relation.tables 的 arch_target / HIDDEN_COMBINATIONS（不重复实现）。
+    # - 岁运支 == 原局拱位虚神 → 填实（ZP-05：忌刑冲填实之凶——结构观察，不判吉凶）
+    # - 岁运支 + 原局支 隔二缺一成新拱（虚神原局岁运均不见）→ EXPERIMENTAL（岁运能否入拱两说）
+    # - 岁运支 + 原局支 暗合（SPZY-34 逐对）→ 岁运引入暗合
     for trio, elem in THREE_HARMONIES.items():
         # 集合迭代序受 PYTHONHASHSEED 影响 → 按地支序确定性排序（回归稳定性）
         natal_members = sorted({b for b in ctx.natal_branches if b and b in trio},

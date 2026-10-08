@@ -213,16 +213,17 @@ def _evaluate_tr_dtz_10(ctx: TemporalContext,
                         structures: list[TemporalStructure]) -> tuple[bool, list[str]]:
     """暗冲暗会/拱夹/暗合/填实（DTZ-10 + ZP-05 + SPZY-34）：岁运 × 虚神交互观察。
 
-    读取关系引擎已判定的候选关系（kind ∈ arch/arch_fill/hidden_combination），
+    读取关系引擎已判定的候选关系（kind ∈ arch/arch_fill/arch_broken/hidden_combination），
     不重复实现检测逻辑：
     - arch_fill：虚神被岁运填实（ZP-05：拱禄拱贵忌刑冲填实之凶——原典禁则，不判吉凶）
+    - arch_broken：拱位成员逢岁运刑/冲（拱破说 vs 拱动说 DTZ-10 两说并存）
     - arch：岁运与原局隔二缺一成拱（DTZ-10：拱实不若拱虚；岁运入拱两说）
     - hidden_combination：岁运引入暗合（SPZY-34 逐对；非以化论也）
     边界（DTZ-26/36 原文）：拱夹暗合「不成为格」「非格局亦非用神」——永不升格、不取用。
     """
     obs: list[str] = []
     for rel in relations:
-        if rel.kind in ("arch_fill", "arch", "hidden_combination"):
+        if rel.kind in ("arch_fill", "arch_broken", "arch", "hidden_combination"):
             obs.append(f"{rel.label}——{rel.note}")
     return bool(obs), obs
 
