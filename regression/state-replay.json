@@ -13,5 +13,14 @@
  },
  "layerRemoved": {},
  "refillAfterUnfillCases": 0,
+ "yearAnchorStats": {
+  "casesWithYearGz": 4,
+  "unresolvedMulti": 4,
+  "candidatesCountHistogram": {
+   "10": 4
+  },
+  "status": "UNRESOLVED",
+  "note": "60 年周期必然多解——流年层回放维持 BLOCKED，待原文提供唯一年份（如帝王年号/公历年）方可锚定"
+ },
  "orderViolations": 0
 }

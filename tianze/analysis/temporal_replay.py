@@ -40,6 +40,7 @@ class ReplayStep(CamelizeModel):
     snapshotKeys: list[str] = []      # 该层累计事件键（kind:label）
     relationCount: int = 0
     note: str = ""
+    themeDelta: list[dict[str, Any]] = []  # M32：该层结构主题新增/变化（复用 delta 主题层）
 
 
 class TemporalReplay(CamelizeModel):
@@ -56,6 +57,32 @@ def _event_keys(relations: list) -> dict[str, dict]:
             for r in relations if r.kind in _XUSHI_KINDS}
 
 
+def _themes_of_chart(chart: Any, active: list[tuple[str, tuple[str | None, str | None] | None]]) -> list[dict]:
+    """复用 compute_temporal_delta 的结构主题层（不重算业务规则）。"""
+    from tianze.analysis.temporal_delta import compute_temporal_delta
+
+    kw: dict[str, Any] = {}
+    for name, pair in active:
+        if pair and (pair[0] or pair[1]):
+            kw[name] = pair
+    rep = compute_temporal_delta(chart, **kw)
+    return [t.model_dump(by_alias=True, exclude_none=True) for t in rep.themes]
+
+
+def _theme_diff(cur: list[dict], prev: list[dict]) -> list[dict]:
+    """主题 Delta：本层新增（prev 无）或方向变化的主题，附确定性引用键。"""
+    def key(t: dict) -> str:
+        return f"{t.get('theme')}:{t.get('direction')}"
+
+    prev_keys = {key(t) for t in prev}
+    return [{
+        "theme": t.get("theme"), "label": t.get("label"),
+        "direction": t.get("direction"),
+        "basis": list(t.get("basis") or []),
+        "refId": f"replay-theme:{key(t)}",
+    } for t in cur if key(t) not in prev_keys]
+
+
 def replay_temporal(
     natal_stems: list[str | None],
     natal_branches: list[str | None],
@@ -64,10 +91,15 @@ def replay_temporal(
     annual: tuple[str | None, str | None] | None = None,
     monthly: tuple[str | None, str | None] | None = None,
     daily: tuple[str | None, str | None] | None = None,
+    chart: Any | None = None,
+    include_themes: bool = False,
 ) -> TemporalReplay:
     """逐层推演：natal → luck → annual → monthly → daily（固定层序）。
 
     每层复用 analyze_temporal（统一引擎）重算并 diff 虚神事件集合。
+    include_themes=True 时逐层复用 compute_temporal_delta 的结构主题层并输出
+    Theme Delta（不重算业务规则；成本为每层一次 delta 计算，按需开启）。
+    时间先后仅用于归因展示，不构成因果证明。
     """
     layers: list[tuple[str, tuple[str | None, str | None] | None]] = [
         ("luck", luck), ("annual", annual),
@@ -96,6 +128,9 @@ def replay_temporal(
     prev_keys = keys0
 
     active: list[tuple[str, tuple[str | None, str | None] | None]] = []
+    prev_themes: list[dict] = []
+    if include_themes and chart is not None:
+        prev_themes = _themes_of_chart(chart, [])
     for name, pair in layers:
         if not (pair and (pair[0] or pair[1])):
             continue
@@ -104,10 +139,16 @@ def replay_temporal(
         added = [keys[k] for k in sorted(set(keys) - set(prev_keys))]
         removed = [prev_keys[k] for k in sorted(set(prev_keys) - set(keys))]
         gz = (pair[0] or "") + (pair[1] or "")
+        theme_delta: list[dict] = []
+        if include_themes and chart is not None:
+            cur_themes = _themes_of_chart(chart, active)
+            theme_delta = _theme_diff(cur_themes, prev_themes)
+            prev_themes = cur_themes
         steps.append(ReplayStep(
             layer=name, ganzhi=gz, added=added, removed=removed,
             snapshotKeys=sorted(keys), relationCount=cnt,
             note=f"加入{_LAYER_CN[name]}{gz}：+{len(added)}/-{len(removed)} 虚神事件",
+            themeDelta=theme_delta,
         ))
         prev_keys = keys
 

@@ -881,3 +881,71 @@ def test_ai_eval_replay_case_grounding():
     interp, _meta = asyncio.run(interpret(ctx, MockInterpretationProvider()))
     issues = validate_grounding(interp, ctx)
     assert issues == [], issues
+
+
+# ---------- M32 · Theme Delta / 报告 / 年锚 ----------
+
+def test_replay_theme_delta():
+    """Theme Delta：逐层复用 delta 主题层（不重算业务规则）；虚神填实主题随层出现。"""
+    from tianze.analysis.case_chart import build_case_chart
+    from tianze.analysis.temporal_replay import replay_temporal
+    chart = build_case_chart({"year": "癸亥", "month": "己丑", "day": "甲戌", "hour": "乙卯"})
+    r = replay_temporal(natal_stems=["癸", "己", "甲", "乙"],
+                        natal_branches=["亥", "丑", "巳", "卯"],
+                        day_master="癸", luck=("壬", "子"), annual=("庚", "午"),
+                        chart=chart, include_themes=True)
+    luck = r.steps[1]
+    kinds = {(t["theme"], t["direction"]) for t in luck.themeDelta}
+    assert ("虚神填实", "increased") in kinds  # 大运子填实 → 填实主题
+    assert ("印星", "increased") in kinds      # 壬印主题
+    assert all(t["refId"].startswith("replay-theme:") for s in r.steps
+               for t in s.themeDelta)
+
+
+def test_replay_theme_deterministic_and_off_by_default():
+    """include_themes=False 时无 themeDelta；开启时两次一致。"""
+    from tianze.analysis.case_chart import build_case_chart
+    from tianze.analysis.temporal_replay import replay_temporal
+    chart = build_case_chart({"year": "癸亥", "month": "己丑", "day": "甲戌", "hour": "乙卯"})
+    kw = dict(natal_stems=["癸", "己", "甲", "乙"], natal_branches=["亥", "丑", "巳", "卯"],
+              day_master="癸", luck=("壬", "子"))
+    r_off = replay_temporal(**kw)
+    assert all(s.themeDelta == [] for s in r_off.steps)
+    r1 = replay_temporal(**kw, chart=chart, include_themes=True)
+    r2 = replay_temporal(**kw, chart=chart, include_themes=True)
+    assert r1.model_dump() == r2.model_dump()
+
+
+def test_reports_contain_replay_and_guard_ev_none():
+    """Markdown/HTML 报告含回放章节；eventThemes 缺席不再触发 ev-None（M32 修复）。"""
+    from tianze.sdk import analyze, AnalysisOptions, SimplifiedBirthInfo
+    from tianze.export import to_markdown
+    from tianze.export_html import to_html
+    b = SimplifiedBirthInfo.model_validate({"date": "1984-02-05", "time": "10:30",
+                                            "gender": "male"})
+    r = analyze(b, AnalysisOptions(include_temporal=True, target_luck_index=0,
+                                   target_year=2024, include_temporal_delta=True,
+                                   include_temporal_replay=True))
+    d = r.model_dump(by_alias=True)
+    md = to_markdown(d)
+    html = to_html(d)
+    assert "逐层状态回放" in md and "逐层状态回放" in html
+    assert "不构成因果" in md
+    # eventThemes 未启用时 HTML 仍可导出（ev-None 守卫）
+    r2 = analyze(b, AnalysisOptions(include_temporal=True, target_luck_index=0,
+                                    target_year=2024, include_temporal_replay=True))
+    assert "逐层状态回放" in to_html(r2.model_dump(by_alias=True))
+
+
+def test_ai_context_theme_delta_refs():
+    """AI Context：themeDelta refId（replay-theme:*）进入 claim_refs。"""
+    from tianze.sdk import analyze, AnalysisOptions, SimplifiedBirthInfo
+    from tianze.ai.context_builder import build_interpretation_context
+    b = SimplifiedBirthInfo.model_validate({"date": "1984-02-05", "time": "10:30",
+                                            "gender": "male"})
+    r = analyze(b, AnalysisOptions(include_temporal=True, target_luck_index=0,
+                                   target_year=2024, include_temporal_replay=True))
+    ctx = build_interpretation_context(r.model_dump(by_alias=True))
+    # replay-theme refs 只在有 themeDelta 时出现；context 的 replay 步骤必须带 themeDelta 键
+    steps = ctx.temporal.get("replay", [])
+    assert steps and all("themeDelta" in s for s in steps)

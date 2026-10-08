@@ -852,6 +852,9 @@ async function loadTemporal() {
               <div v-for="(rm, ri) in st.removed" :key="'r' + ri" class="evidence-item damage">
                 − {{ rm.kind }}：{{ rm.label }}
               </div>
+              <div v-for="(t, ti) in st.themeDelta || []" :key="'t' + ti" class="note">
+                主题：{{ t.theme }}（{{ t.direction }}）
+              </div>
             </div>
             <div class="note">结构候选事件回放，不构成吉凶或事件预测</div>
           </div>

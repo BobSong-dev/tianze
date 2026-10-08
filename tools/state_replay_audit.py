@@ -41,6 +41,23 @@ def main() -> int:
                           encoding="utf-8"))
     ref_by_id = {c["caseId"]: c for c in refs.get("cases", [])}
 
+    # M32 · 出生年干支锚（caseId 载「·XX年」者）：60 年周期必然多解 →
+    # 输出候选集并标 UNRESOLVED，绝不唯一化、不回推编造年份。
+    from tianze.ganzhi.tables import STEMS, BRANCHES
+
+    def _year_candidates(gz: str, lo: int = 1500, hi: int = 2100) -> list[int]:
+        if len(gz) < 2 or gz[0] not in STEMS or gz[1] not in BRANCHES:
+            return []
+        si, bi = STEMS.index(gz[0]), BRANCHES.index(gz[1])
+        if (si % 2) != (bi % 2):
+            return []
+        base = next(y for y in range(4, hi)
+                    if STEMS[(y - 4) % 10] == gz[0] and BRANCHES[(y - 4) % 12] == gz[1])
+        return [y for y in range(base, hi, 60) if y >= lo]
+
+    import re as _re
+    year_anchor_stats = {"casesWithYearGz": 0, "unresolvedMulti": 0, "candidatesHistogram": Counter()}
+
     for book in books:
         for case in book.get("cases", []):
             pillars = (case.get("fact") or {}).get("pillars") or {}
@@ -48,6 +65,14 @@ def main() -> int:
                 continue
             total += 1
             cid = case["caseId"]
+            # 年锚候选统计（全量；多解即 UNRESOLVED，不参与回放）
+            m = _re.search(r"[·•]\s*([甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥])年", cid)
+            if m:
+                year_anchor_stats["casesWithYearGz"] += 1
+                cands = _year_candidates(m.group(1))
+                year_anchor_stats["candidatesHistogram"][len(cands)] += 1
+                if len(cands) > 1:
+                    year_anchor_stats["unresolvedMulti"] += 1
             ref = ref_by_id.get(cid) or {}
             dayun = (ref.get("sourceTemporal") or {}).get("dayun") or []
             if not dayun:
@@ -106,6 +131,13 @@ def main() -> int:
         "layerAdded": dict(layer_added.most_common()),
         "layerRemoved": dict(layer_removed.most_common()),
         "refillAfterUnfillCases": refill_cases,
+        "yearAnchorStats": {
+            **{k: v for k, v in year_anchor_stats.items() if k != "candidatesHistogram"},
+            "candidatesCountHistogram": dict(year_anchor_stats["candidatesHistogram"]),
+            "status": "UNRESOLVED",
+            "note": "60 年周期必然多解——流年层回放维持 BLOCKED，"
+                    "待原文提供唯一年份（如帝王年号/公历年）方可锚定",
+        },
         "orderViolations": order_violations,
     }
     with open(OUT_JSON, "w", encoding="utf-8") as f:

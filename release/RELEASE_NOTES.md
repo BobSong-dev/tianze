@@ -1,8 +1,8 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `af405977e9b7`（含未提交改动）
+- commit: `0afa16ee0bad`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（102.2s / 23 步）
+- 质量门：ALL PASS（94.0s / 23 步）
 
 ## 版本与规模
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（43）
+### 特性（44）
+- M31 final: ADR-069 + README M31 + gate 23 步/release_check ALL PASS
 - M31.2: AI 评测新增 temporal_replay 用例（caseSet 4→5，replay:* refId Grounding 回归测试直连 SDK+validate_grounding）
 - M31.1: Temporal Replay 全链路产品化 — AnalysisOptions.includeTemporalReplay（SDK 按需计算）+ CLI timeline --replay（human 摘要）+ /analyze 透传 + Web 状态回放时间轴（步骤+/-事件）+ AI Context replay:* claimRefs 与 prompt 铁律 11 扩展 + fuzz 不变量
 - M30 final: ADR-068 + README M30 + gate 23 步/release_check ALL PASS

@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "release": {
-  "gitCommit": "af405977e9b7e23d9388b87081c04ef5fdeefe60",
+  "gitCommit": "0afa16ee0bad30f526f4a6fdccbe74774dd6252d",
   "gitBranch": "main",
   "dirty": true,
   "generatedBy": "tools/release_metadata.py（全部数据来自真实运行）"
@@ -27,7 +27,7 @@
   "ruleCandidates": 556,
   "cases": 1147,
   "replays": 165,
-  "tests": 605
+  "tests": 609
  },
  "quality": {
   "auditGates": {
@@ -73,6 +73,6 @@
  },
  "governance": {
   "migrationRanBefore": true,
-  "aiEvaluationStatus": "mock"
+  "aiEvaluationStatus": "SKIPPED"
  }
 }

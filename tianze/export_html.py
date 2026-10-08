@@ -96,6 +96,16 @@ def to_html(result: dict) -> str:
             + ("；引文：" + "、".join(c.get("candidateId", "") for c in e.get("citations", []))
                if e.get("citations") else "")
             for e in explanations]))
+    replay = ((result.get("temporal") or {}).get("replay")) or None
+    if replay:
+        sec("temporal_replay", "逐层状态回放（结构候选事件；时间先后不构成因果证明）")
+        items = []
+        for st in replay.get("steps", []):
+            line = f"{st.get('layer', '')} {st.get('ganzhi', '')}——{st.get('note', '')}"
+            evs = [f"+ {a.get('kind')}：{a.get('label')}" for a in st.get("added", [])] +                   [f"− {rm.get('kind')}：{rm.get('label')}" for rm in st.get("removed", [])] +                   [f"主题：{t.get('theme')}（{t.get('direction')}）" for t in st.get("themeDelta", [])]
+            items.append(line + ("；" + "；".join(evs) if evs else ""))
+        body.append(_ul(items))
+
     blocked = result.get("blockedRelations") or []
     if blocked:
         sec("blocked_relations", "未成立的关系候选（解释用，不参与推理）")
@@ -188,7 +198,8 @@ def to_html(result: dict) -> str:
                                      for c in t["conflictExplanations"]]))
 
         # M17：全链路解释（折叠式 details，打印时自动展开由浏览器决定）
-        exps = ev.get("explanations") or {}
+        # ev 可能为 None（未启用 event themes）——与上方 isinstance 守卫同口径（M32 修复）
+        exps = (ev or {}).get("explanations") or {}
         if exps:
             sec("explanations", "解释链（主题 → 规则 → 救应 → 证据 → 原文 → 来源）")
             for theme_key, ch in exps.items():

@@ -228,6 +228,8 @@ export interface TimelineNodeData {
   replay?: { steps: { layer: string; ganzhi: string; note: string;
                       added: { kind: string; label: string; refId?: string }[];
                       removed: { kind: string; label: string }[];
+                      themeDelta?: { theme: string; label?: string; direction: string;
+                                     refId?: string }[];
                       snapshotKeys: string[]; relationCount: number }[];
            replaySchemaVersion: string; warnings: string[] };
   structures: TemporalStructureData[]; tenGodTheme: Record<string, number>;

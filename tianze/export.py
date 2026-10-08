@@ -80,6 +80,22 @@ def to_markdown(result: dict[str, Any]) -> str:
                        + (f"；引文：{cites}" if cites else "")
                        + (f"；{e.get('boundary', '')}" if e.get("boundary") else ""))
 
+    replay = ((result.get("temporal") or {}).get("replay")) or None
+    if replay:
+        out.append("")
+        out.append(_h(3, "逐层状态回放（M31/M32）"))
+        out.append("")
+        out.append("> 结构候选事件回放；时间先后仅用于归因展示，不构成因果或吉凶判断。")
+        out.append("")
+        for st in replay.get("steps", []):
+            out.append(f"- **{st.get('layer', '')}** {st.get('ganzhi', '')}——{st.get('note', '')}")
+            for a in st.get("added", []):
+                out.append(f"  - + {a.get('kind', '')}：{a.get('label', '')}")
+            for rm in st.get("removed", []):
+                out.append(f"  - − {rm.get('kind', '')}：{rm.get('label', '')}")
+            for t in st.get("themeDelta", []):
+                out.append(f"  - 主题：{t.get('theme', '')}（{t.get('direction', '')}）")
+
     blocked = result.get("blockedRelations") or []
     if blocked:
         out.append("")

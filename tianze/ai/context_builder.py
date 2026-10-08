@@ -267,7 +267,9 @@ def build_interpretation_context(
                  "added": [{"kind": a.get("kind"), "label": a.get("label"),
                             "refId": a.get("refId")} for a in st.get("added", [])],
                  "removed": [{"kind": rm.get("kind"), "label": rm.get("label")}
-                             for rm in st.get("removed", [])]}
+                             for rm in st.get("removed", [])],
+                 "themeDelta": [{"theme": t.get("theme"), "direction": t.get("direction"),
+                                 "refId": t.get("refId")} for t in st.get("themeDelta", [])]}
                 for st in (tp.get("replay") or {}).get("steps", [])
             ],
         }
@@ -277,6 +279,9 @@ def build_interpretation_context(
                 if ad.get("refId"):
                     claim_refs.append(ad["refId"])
                     claim_refs.append(f"replayLayer:{ad['refId']}:{st.get('layer')}")
+            for t in st.get("themeDelta", []):
+                if t.get("refId"):
+                    claim_refs.append(t["refId"])
         for t in matched_rules:
             if t.get("refId"):
                 claim_refs.append(t["refId"])

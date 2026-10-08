@@ -294,6 +294,7 @@ def analyze(
                 day_master=temporal_result.context.day_master,
                 luck=_pair("luckStem"), annual=_pair("annualStem"),
                 monthly=_pair("monthlyStem"), daily=_pair("dailyStem"),
+                chart=chart, include_themes=True,
             )
             temporal["replay"] = replay.model_dump(by_alias=True, exclude_none=True)
 
