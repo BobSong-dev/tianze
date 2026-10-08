@@ -72,15 +72,28 @@ def main() -> int:
     import tianze
     version = tianze.__version__
 
-    # P1 build
+    # P1 build（wheel + 内容校验：package-data 完整性）
     t0 = time.perf_counter()
     dist_dir = os.path.join(REPO, "dist-release")
     r = subprocess.run([PY, "-m", "pip", "wheel", "--no-deps", "-w", dist_dir, REPO],
                        capture_output=True, encoding="utf-8", errors="replace", cwd=REPO)
     wheels = glob.glob(os.path.join(dist_dir, "*.whl"))
-    step("P1_package_build", r.returncode == 0 and bool(wheels),
-         f"{os.path.basename(wheels[0]) if wheels else (r.stderr or '')[-100:]}，"
-         f"{round(time.perf_counter() - t0, 1)}s")
+    detail = os.path.basename(wheels[0]) if wheels else (r.stderr or "")[-100:]
+    artifacts_ok = False
+    if wheels:
+        import zipfile
+        with zipfile.ZipFile(wheels[0]) as z:
+            names = z.namelist()
+            rules = [n for n in names if "_data/knowledge" in n
+                     and n.endswith(".json") and "manifest" not in n]
+            artifacts_ok = (len(rules) == 7
+                            and any("manifest.json" in n for n in names)
+                            and any(n.endswith("cli.py") for n in names)
+                            and any(n.endswith("paths.py") for n in names))
+            if not artifacts_ok:
+                detail += f"；wheel 数据不完整（rules={len(rules)}）"
+    step("P1_package_build", r.returncode == 0 and bool(wheels) and artifacts_ok,
+         f"{detail}，{round(time.perf_counter() - t0, 1)}s")
 
     # P2 clean-install smoke
     if wheels:

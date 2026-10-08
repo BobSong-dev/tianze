@@ -1,8 +1,8 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `b89c07b85dfd`（含未提交改动）
+- commit: `4fcb44c13df9`（含未提交改动）
 - 当前版本 0.3.0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：FAIL（66.8s / 20 步）
+- 质量门：ALL PASS（89.2s / 20 步）
 
 ## 版本与规模
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.493,
-  "perCaseMs": 0.47
+  "elapsedSeconds": 0.631,
+  "perCaseMs": 0.6
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.627,
-  "perCaseMs": 0.6
+  "elapsedSeconds": 0.712,
+  "perCaseMs": 0.68
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.016
+  "elapsedSeconds": 0.019
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（1）
+### 特性（2）
+- M21 final: gate 20 steps ALL PASS + external release_check + E2E + RC discipline fixes
 - M21.7: release history tool + READY_FOR_RELEASE marker + local v0.3.0 tag
 
 ## Migration 要求
