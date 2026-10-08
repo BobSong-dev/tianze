@@ -690,6 +690,17 @@ def _compute_structural_themes(
             note="岁运引入的冲/害/破关系计数，结构层面摩擦面增加，不构成吉凶判断。",
         ))
 
+    # M25：虚神填实主题（岁运命中原局拱位虚神 → 结构事件主题，非吉凶）
+    fill_rels = [r for r in relations if getattr(r, "kind", "") == "arch_fill"]
+    if fill_rels:
+        themes.append(StructuralTheme(
+            theme="虚神填实", label="拱位虚神被填实", direction="increased",
+            basis=[f"{r.label}（{'、'.join(r.positions)}）" for r in fill_rels],
+            supportLevel=AnalysisSupport.SUPPORTED,
+            note="岁运支命中原局拱位虚神（ZP-05「忌刑冲填实之凶」为原典禁则语境）——"
+                 "结构事件，不判吉凶。",
+        ))
+
     if total_change_score >= _VOLATILITY_SCORE_THRESHOLD:
         themes.append(StructuralTheme(
             theme="结构波动", label="结构变化剧烈", direction="increased",

@@ -472,7 +472,8 @@ def analyze_xushi_outer(
     for x in range(len(present)):
         for y in range(x + 1, len(present)):
             tgt = arch_target(present[x], present[y])
-            if tgt and tgt not in present and ren and tgt == ren:
+            if (tgt and tgt not in present and ren and tgt == ren
+                    and day_master == "庚"):  # ZP-12 起例：井栏叉专指庚日（辰申拱酉之属）
                 cand = SpecialPatternCandidate(type=f"井栏叉（拱刃{ren}）")
                 cand.prerequisites = [f"日主{day_master}之阳刃{ren}为拱位虚神",
                                       "拱位支原局不见（拱虚）"]
@@ -538,20 +539,9 @@ def analyze_xushi_outer(
                        else SpecialStatus.CANDIDATE)
         out.append(cand)
 
-    # 子邀巳（ZP-11：癸禄在子、戊禄在巳，子巳暗合邀巳中丙戊）
-    if "子" in present and "巳" not in present:
-        cand = SpecialPatternCandidate(type="子邀巳（邀巳中丙戊）")
-        cand.prerequisites = ["子在场、巳不在场（虚神邀合）"]
-        cand.provenance = prov
-        cand.supports.append(Factor("support", "SP-XO-S5",
-                                    "子巳暗合（SPZY-34）之邀合方向：以实字邀虚字"))
-        cand.schoolVariants = {
-            "外格说": "子邀己格，取印星太旺为用（ZP-11，OCR 残缺）",
-            "保留": "候选仅供参考（DTZ-36：夹拱遥合非格局非用神）",
-        }
-        cand.status = SpecialStatus.CANDIDATE
-        out.append(cand)
-
+    # 子邀巳（ZP-11）：OCR 残缺（取印为用口径缺失）且子在场巳不在场覆盖 ~27% 命例——
+    # 泛化过高，不落地为引擎候选（M25 审计结论）；ZP-11 保留在引文注册表与知识层，
+    # 结构上的子巳邀合方向已由 SPZY-34 暗合关系层承载。
     return out
 
 

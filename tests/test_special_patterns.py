@@ -330,9 +330,10 @@ def test_xushi_outer_xinghe_zInvite():
     xo = chart.advancedAnalysis["specialPattern"]["xushiOuter"]
     assert any("刑合" in x["type"] for x in xo)
     assert any("假名刑合" in sv or "伤官说" in k for x in xo for k, sv in x["schoolVariants"].items())
+    # 子邀巳（ZP-11）不落地为引擎候选（OCR 残缺 + 泛化 ~27%，M25 审计结论）
     chart2 = build_case_chart({"year": "甲子", "month": "丙寅", "day": "戊午", "hour": "壬子"})
-    assert any("子邀巳" in x["type"] for x in
-               chart2.advancedAnalysis["specialPattern"]["xushiOuter"])
+    assert not any("子邀巳" in x["type"] for x in
+                   chart2.advancedAnalysis["specialPattern"]["xushiOuter"])
 
 
 def test_xushi_outer_never_confirmed_and_target_presence_blocks():

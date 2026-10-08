@@ -94,8 +94,10 @@ def build_case_chart(pillars: dict[str, str], gender: str | None = None) -> Any:
         element_counts=ec,
     )
 
-    # M24：关系层（拱夹/暗合等）进命例研究——与 pipeline 同一 analyze_relations
+    # M24/M25：关系层（拱夹/暗合等）+ 未成立候选进命例研究——与 pipeline 同一函数
     relations = analyze_relations(stems, branches, positions, day_master=day_master)
+    from tianze.relation.relations import analyze_blocked_arches
+    blocked_relations = analyze_blocked_arches(stems, branches, positions, day_master=day_master)
 
     return SimpleNamespace(
         day_master=SimpleNamespace(stem=day_master),
@@ -109,4 +111,5 @@ def build_case_chart(pillars: dict[str, str], gender: str | None = None) -> Any:
         element_counts=element_counts,
         advancedAnalysis=advanced,
         relations=relations,
+        blocked_relations=blocked_relations,
     )

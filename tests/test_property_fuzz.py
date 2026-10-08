@@ -415,3 +415,43 @@ def test_ai_context_blocked_grounding():
     blocked = [e for e in ctx.relation_explanations if e["status"] == "BLOCKED"]
     assert blocked, "BLOCKED 解释应进入 AI 上下文"
     assert all("未成立" in e["boundary"] for e in blocked)
+
+
+# ---------- M25 · 拱对全矩阵 + 外格候选泛化审计 ----------
+
+def test_fuzz_arch_full_pair_matrix():
+    """全拱对×在场矩阵：12×12 中所有 gap-2 对，靶支在场/不在场两分支。"""
+    from tianze.relation.tables import arch_target, BRANCHES
+    from tianze.relation.relations import analyze_relations, analyze_blocked_arches
+    pos = ["year", "month", "day", "hour"]
+    found_pairs = 0
+    for i in range(12):
+        for j in range(12):
+            a, b = BRANCHES[i], BRANCHES[j]
+            tgt = arch_target(a, b)
+            if tgt is None:
+                continue
+            found_pairs += 1
+            # 靶支不在场 → arch 关系成立
+            branches = [a, b, None, None]
+            rels = analyze_relations([None] * 4, branches, pos)
+            assert any(r.kind.value == "arch" and r.members[2] == tgt for r in rels), (a, b)
+            assert not analyze_blocked_arches([None] * 4, branches, pos)
+            # 靶支在场 → 无 arch 关系，报未成立候选
+            branches2 = [a, b, tgt, None]
+            rels2 = analyze_relations([None] * 4, branches2, pos)
+            assert not any(r.kind.value == "arch" for r in rels2), (a, b, tgt)
+            blk = analyze_blocked_arches([None] * 4, branches2, pos)
+            assert any(x.members[2] == tgt for x in blk), (a, b, tgt)
+    assert found_pairs == 24  # 每对双向定位 = 12 个无序对 × 2 个有向 hit
+
+
+def test_xushi_outer_not_overgeneralized():
+    """泛化审计锁定：井栏叉限庚日；子邀巳不落地（M25 审计结论）。"""
+    from tianze.analysis.case_chart import build_case_chart
+    # 甲日 卯刃拱（亥卯? 卯=甲刃：寅辰拱卯 → 甲日不得名井栏叉）
+    chart = build_case_chart({"year": "丙寅", "month": "庚辰", "day": "甲申" if False else "甲戌", "hour": "丁卯"})
+    for x in chart.advancedAnalysis["specialPattern"]["xushiOuter"]:
+        assert "井栏叉" not in x["type"] or chart.day_master.stem == "庚"
+    blob = str(chart.advancedAnalysis)
+    assert "子邀巳" not in blob

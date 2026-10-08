@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **221**（{'event': 21, 'temporal': 18, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 568
+- 命例 1147；Replay 165；测试 573
 
 ## 质量状态
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（23）
+### 特性（24）
+- M25.2: 关系级 ExplanationChain（ESTABLISHED/CANDIDATE/BLOCKED 三态）— citations.json 机械引文注册表(13条) + relation_explain 统一解释器 + pipeline/SDK/temporal/AI(铁律13:候选不得升级/BLOCKED不得描述为成立)/Web解释链details/markdown+HTML报告；wheel 数据 7→8
 - M25.1: 外格虚神候选 xushiOuter（飞天禄马/井栏叉拱刃/刑合/子邀巳）— ZP-05/07/11/12+DTZ-41，候选永不成格，外格说vs伤官变格说两注记；AI context refs + Web 候选区 + delta UNSUPPORTED note
 - M24 final: README + gate 20 steps ALL PASS at HEAD (artifacts refreshed)
 - M24.5b: release metadata/history refreshed at HEAD (P5 commit 一致)

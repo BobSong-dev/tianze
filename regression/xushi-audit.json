@@ -1,0 +1,56 @@
+{
+ "schemaVersion": "1.0.0",
+ "description": "命例×虚神专题审计（M25）：分布描述，不做事件拟合",
+ "totalCasesParsed": 1045,
+ "parseErrors": 0,
+ "casesWithXushi": 722,
+ "archTotal": 911,
+ "archBySubType": {
+  "拱三会方（南方火·暗会）": 41,
+  "拱夹": 572,
+  "拱三会方（北方水·暗会）": 64,
+  "拱三会方（西方金·暗会）": 53,
+  "拱禄": 54,
+  "拱三会方（东方木·暗会）": 127
+ },
+ "hiddenTotal": 308,
+ "hiddenByPair": {
+  "辰子暗合": 29,
+  "未寅暗合": 28,
+  "子戌暗合": 27,
+  "戌子暗合": 27,
+  "子辰暗合": 26,
+  "丑巳暗合": 25,
+  "丑寅暗合": 20,
+  "寅丑暗合": 19,
+  "申卯暗合": 18,
+  "巳丑暗合": 18,
+  "寅未暗合": 15,
+  "卯申暗合": 15,
+  "巳子暗合": 14,
+  "子巳暗合": 12,
+  "亥午暗合": 8,
+  "午亥暗合": 7
+ },
+ "blockedCandidatesTotal": 144,
+ "xushiOuterTotal": 15,
+ "xushiOuterByTypeStatus": {
+  "飞天禄马（子暗冲午）:CANDIDATE": 1,
+  "井栏叉（拱刃酉）:CANDIDATE": 4,
+  "飞天禄马（子暗冲午）:BLOCKED": 5,
+  "井栏叉（拱刃酉）:BLOCKED": 3,
+  "刑合（寅刑巳邀戊禄）:BLOCKED": 1,
+  "刑合（寅刑巳邀戊禄）:CANDIDATE": 1
+ },
+ "perBook": {
+  "?": {
+   "cases": 1045,
+   "withXushi": 722,
+   "arch": 911,
+   "hidden": 308,
+   "blocked": 144,
+   "xushiOuter": 15
+  }
+ },
+ "discipline": "历史断语只用于对照；本审计不输出任何吉凶或事件结论"
+}

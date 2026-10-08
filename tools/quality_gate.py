@@ -42,6 +42,7 @@ STEPS = [
     ("temporal_regression", [PY, "tools/temporal_regression.py", "compare"]),
     ("event_evaluation", [PY, "tools/event_evaluation.py"]),
     ("case_replay", [PY, "tools/case_replay.py"]),
+    ("xushi_case_audit", [PY, "tools/xushi_case_audit.py"]),
     ("ai_evaluation_mock", [PY, "tools/ai_evaluation.py", "--mock"]),
     ("review_queue", [PY, "tools/review_queue.py"]),
     ("rule_coverage_audit", [PY, "tools/rule_coverage_audit.py"]),
