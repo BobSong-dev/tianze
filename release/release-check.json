@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "version": "0.4.0.dev0",
- "allPass": false,
+ "allPass": true,
  "steps": [
   {
    "step": "P0_quality_gate",
@@ -11,7 +11,7 @@
   {
    "step": "P1_package_build",
    "pass": true,
-   "detail": "tianze_bazi-0.4.0.dev0-py3-none-any.whl，4.5s"
+   "detail": "tianze_bazi-0.4.0.dev0-py3-none-any.whl，4.3s"
   },
   {
    "step": "P2_clean_install_smoke",
@@ -30,8 +30,8 @@
   },
   {
    "step": "P5_stale_artifact",
-   "pass": false,
-   "detail": "metadata 是旧 commit——重跑 quality_gate + release_metadata"
+   "pass": true,
+   "detail": "commit 一致"
   },
   {
    "step": "P6_notes_consistency",
