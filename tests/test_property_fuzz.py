@@ -455,3 +455,13 @@ def test_xushi_outer_not_overgeneralized():
         assert "井栏叉" not in x["type"] or chart.day_master.stem == "庚"
     blob = str(chart.advancedAnalysis)
     assert "子邀巳" not in blob
+
+
+def test_relation_explanations_deterministic():
+    """确定性：同盘两次 analyze → relationExplanations JSON 完全一致。"""
+    from tianze.sdk import analyze
+    a = analyze({"date": "1990-01-01", "time": "03:00", "gender": "male"})
+    b = analyze({"date": "1990-01-01", "time": "03:00", "gender": "male"})
+    assert a.relationExplanations == b.relationExplanations
+    # 与 relations 一一对应（每条关系都有解释）
+    assert len(a.relationExplanations) == len(a.relations) + len(a.blockedRelations)
