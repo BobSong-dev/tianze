@@ -55,7 +55,9 @@ def main() -> int:
                     regression[k] = f"{prev[k]} → {metrics[k]}（恶化）"
                 if worse == "less" and metrics[k] < prev[k]:
                     regression[k] = f"{prev[k]} → {metrics[k]}（恶化）"
-        comparisons.append({"metrics": metrics, "regressionAgainstPrevious": regression})
+        comparisons.append({"metrics": metrics,
+                            "telemetry": e.get("telemetry"),
+                            "regressionAgainstPrevious": regression})
         prev = metrics
 
     payload = {

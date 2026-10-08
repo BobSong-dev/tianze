@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（5）
+### 特性（6）
+- M22.5-6: H5 empirical lock + H6 replay samples in Rule Explorer
 - M22.4: knowledge expansion — TR-SP-05 化神所忌 + TR-SP-07 从格所从受克
 - M22.2: Rule Graph interactive SVG canvas
 - M22.1: v0.3.0 RC audit — refreshed all artifacts at HEAD, wheel+sdist built, release_check P1 extended with wheel content verification (7 data files + manifest + cli/paths); RC evidence: tag v0.3.0→5821c84, gate+check ALL PASS

@@ -943,6 +943,10 @@ async function loadTemporal() {
               disagreementMissing {{ c.metrics.disagreementMissingCount }} ·
               claimRefs {{ c.metrics.claimRefsUsedAvg }}
             </div>
+            <div v-if="c.telemetry" class="note">
+              遥测：latency {{ c.telemetry.latencyMsAvg }}ms · tokens {{ c.telemetry.tokensTotal }} ·
+              retries {{ c.telemetry.retriesTotal }} · errors {{ (c.telemetry.errorCategories || []).join(',') || '无' }}
+            </div>
             <div v-for="(v, k) in c.regressionAgainstPrevious" :key="k" class="evidence-item damage">
               {{ k }}: {{ v }}
             </div>
