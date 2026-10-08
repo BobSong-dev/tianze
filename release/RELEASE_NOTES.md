@@ -2,7 +2,7 @@
 
 - commit: `4fcb44c13df9`（含未提交改动）
 - 当前版本 0.3.0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（89.2s / 20 步）
+- 质量门：ALL PASS（114.7s / 20 步）
 
 ## 版本与规模
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（2）
+### 特性（3）
+- M22.1: v0.3.0 RC audit — refreshed all artifacts at HEAD, wheel+sdist built, release_check P1 extended with wheel content verification (7 data files + manifest + cli/paths); RC evidence: tag v0.3.0→5821c84, gate+check ALL PASS
 - M21 final: gate 20 steps ALL PASS + external release_check + E2E + RC discipline fixes
 - M21.7: release history tool + READY_FOR_RELEASE marker + local v0.3.0 tag
 

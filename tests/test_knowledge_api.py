@@ -69,3 +69,17 @@ def test_evaluation_compare_endpoint():
     d = r.json()
     assert d["entryCount"] >= 1
     assert all("regressionAgainstPrevious" in c for c in d["comparisons"])
+
+
+def test_graph_data_shape_for_svg():
+    """SVG 画布数据契约：节点含 id/label（或 domain），边含 between/type。"""
+    g = client.get("/api/v1/knowledge/graph").json()
+    for n in g["nodes"]:
+        assert "id" in n
+        assert "type" in n and n["type"] in ("rule", "predicate")
+    for e in g["edges"]:
+        assert e["type"] in ("conflict", "rescues", "school-conflict")
+        if e["type"] == "rescues":
+            assert e.get("from") and e.get("to")
+        else:
+            assert len(e.get("between", [])) == 2

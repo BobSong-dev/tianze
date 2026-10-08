@@ -147,6 +147,91 @@ async function loadKnowledge() {
 const kbEvalCompare = ref<any>(null);
 const kbGraph = ref<any>(null);
 const graphFilter = ref("");
+const graphTypeFilter = ref("all");
+const selectedNodeId = ref<string | null>(null);
+
+function loadGraphAndRender() {
+  void loadGraph();  // graphSvg computed 随 kbGraph 自动重算
+}
+
+// 确定性环形布局：规则按 domain 分环，谓词内环——纯展示布局，不含推理
+function graphLayout(): { nodes: any[]; width: number; height: number } {
+  const g = kbGraph.value;
+  if (!g) return { nodes: [], width: 0, height: 0 };
+  const nodes: any[] = [];
+  const rings: Record<string, any[]> = { event: [], temporal: [], tiaohou: [], predicate: [] };
+  for (const n of g.nodes ?? []) {
+    const ring = n.type === "predicate" ? "predicate" : (n.domain ?? n.theme ? (n.domain || "event") : "predicate");
+    (rings[n.type === "predicate" ? "predicate" : (n.domain ?? "event")] ??= []).push(n);
+  }
+  const cx = 420, cy = 320;
+  const radii: Record<string, number> = { predicate: 90, event: 190, temporal: 280, tiaohou: 360 };
+  for (const [ring, ns] of Object.entries(rings)) {
+    const radius = radii[ring] ?? 280;
+    ns.forEach((n, i) => {
+      const angle = (2 * Math.PI * i) / Math.max(1, ns.length) - Math.PI / 2;
+      nodes.push({ ...n, ring, x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) });
+    });
+  }
+  return { nodes, width: 840, height: 640 };
+}
+
+const graphSvg = computed(() => {
+  const g = kbGraph.value;
+  if (!g) return null;
+  const layout = graphLayout();
+  const pos = new Map(layout.nodes.map(n => [n.id, n]));
+  const sel = selectedNodeId.value;
+  const neighbors = new Set<string>();
+  if (sel) {
+    for (const e of g.edges ?? []) {
+      const ids = e.between ?? [e.from, e.to].filter(Boolean);
+      if (ids.includes(sel)) ids.forEach((x: string) => x !== sel && neighbors.add(x));
+    }
+  }
+  const edges = ((g.edges ?? []) as any[]).filter((e: any) => {
+    if (graphTypeFilter.value !== "all" && e.type !== graphTypeFilter.value) return false;
+    if (!sel) return true;
+    const ids = e.between ?? [e.from, e.to].filter(Boolean);
+    return ids.includes(sel);
+  }).map(e => {
+    const ids = e.between ?? [e.from, e.to].filter(Boolean);
+    if (ids.length === 2 && pos.has(ids[0]) && pos.has(ids[1])) {
+      const a = pos.get(ids[0]); const b = pos.get(ids[1]);
+      return { ...e, x1: a.x, y1: a.y, x2: b.x, y2: b.y,
+               dim: sel ? !(ids.includes(sel)) : false };
+    }
+    return null;
+  }).filter(Boolean);
+  const showNodes = layout.nodes.filter(n => {
+    if (graphTypeFilter.value === "all") return true;
+    if (n.type === "predicate") return graphTypeFilter.value === "rescues";
+    return ((g.edges ?? []) as any[]).some((e: any) => e.type === graphTypeFilter.value &&
+      (e.between ?? []).includes(n.id));
+  });
+  return { ...layout, edges, nodes: showNodes.map(n => ({
+    ...n, selected: n.id === sel,
+    highlighted: sel ? neighbors.has(n.id) : false,
+  })) };
+});
+
+function nodeColor(n: any): string {
+  if (n.type === "predicate") return "#8e44ad";
+  return ({ event: "#e67e22", temporal: "#2980b9", tiaohou: "#27ae60" } as Record<string, string>)[n.domain] ?? "#7f8c8d";
+}
+
+function nodeLabel(n: any): string {
+  return n.label ? String(n.label).slice(0, 10) : String(n.id).slice(0, 12);
+}
+
+function selectNode(id: string | null) {
+  selectedNodeId.value = id === selectedNodeId.value ? null : id;
+}
+
+const selectedNodeDetail = computed(() => {
+  if (!selectedNodeId.value || !kbRules.value.length) return null;
+  return kbRules.value.find(r => r.id === selectedNodeId.value) ?? null;
+});
 
 async function loadGraph() {
   if (kbGraph.value) return;
@@ -758,17 +843,54 @@ async function loadTemporal() {
         </h3>
         <div class="temporal-controls">
           <input v-model="graphFilter" placeholder="过滤 type/规则 id…" @focus="loadGraph" />
-          <button class="link" @click="loadGraph">加载图</button>
+          <button class="link" @click="loadGraphAndRender">加载图</button>
         </div>
         <div v-if="kbGraph" class="note">
           节点 {{ kbGraph.nodeCount }} · 边 {{ kbGraph.edgeCount }}（{{ kbGraph.edgeTypes }}）
         </div>
+        <div class="temporal-controls">
+          <select v-model="graphTypeFilter">
+            <option value="all">全部边型</option>
+            <option value="conflict">conflict（冲突声明）</option>
+            <option value="rescues">rescues（救应）</option>
+            <option value="school-conflict">school-conflict（流派）</option>
+          </select>
+          <span class="note">点击节点聚焦邻居；再点取消。颜色：橙=event 蓝=temporal 绿=tiaohou 紫=救应谓词</span>
+        </div>
+        <svg v-if="graphSvg" :viewBox="`0 0 ${graphSvg.width} ${graphSvg.height}`"
+             class="graph-svg" role="img" aria-label="Rule Conflict/Rescue Graph">
+          <line v-for="(e, i) in graphSvg.edges" :key="'e' + i"
+                :x1="e.x1" :y1="e.y1" :x2="e.x2" :y2="e.y2"
+                :stroke="e.type === 'conflict' ? '#c0392b' : e.type === 'rescues' ? '#8e44ad' : '#95a5a6'"
+                :stroke-width="e.dim ? 0.5 : 1.6"
+                :stroke-dasharray="e.type === 'school-conflict' ? '6 4' : e.type === 'rescues' ? '2 3' : undefined"
+                :opacity="e.dim ? 0.15 : 0.75" />
+          <g v-for="n in graphSvg.nodes" :key="n.id"
+             :transform="`translate(${n.x},${n.y})`"
+             class="graph-node" @click="selectNode(n.id)"
+             :opacity="selectedNodeId && !n.selected && !n.highlighted ? 0.35 : 1">
+            <circle :r="n.type === 'predicate' ? 7 : n.selected ? 11 : 9"
+                    :fill="nodeColor(n)"
+                    :stroke="n.selected ? '#1a1a1a' : '#fff'" stroke-width="2" />
+            <text :y="n.type === 'predicate' ? 22 : 24" text-anchor="middle" class="graph-label">
+              {{ nodeLabel(n) }}</text>
+          </g>
+        </svg>
+        <div v-if="selectedNodeDetail" class="candidate-block">
+          <strong>{{ selectedNodeDetail.id }}</strong>
+          <span class="badge">{{ selectedNodeDetail.domain }}</span>
+          <span v-if="selectedNodeDetail.view" class="badge">{{ selectedNodeDetail.view }}</span>
+          <div>{{ selectedNodeDetail.label }}</div>
+          <div class="note">
+            来源：{{ selectedNodeDetail.source?.book || '—' }}
+            · provenance {{ (selectedNodeDetail.provenanceLevels || []).join('/') }}
+          </div>
+          <div v-if="selectedNodeDetail.conflictNote" class="note">⚠ {{ selectedNodeDetail.conflictNote }}</div>
+        </div>
         <div v-for="(e, i) in graphEdges" :key="i" class="evidence-item">
           <span class="badge" :class="{ damage: e.type === 'conflict' }">{{ e.type }}</span>
           {{ (e.between ?? [e.from, e.to]).join(' ↔ ') }}
-          <span v-if="e.views" class="note">（{{ e.views.join(' vs ') }}）</span>
           <span v-if="e.resolution" class="badge">{{ e.resolution }}</span>
-          <span v-if="e.effect" class="badge">{{ e.effect }}</span>
           <span v-if="e.specificCondition" class="badge rescue">condition: {{ e.specificCondition }}</span>
           <div class="note">{{ e.note }}</div>
         </div>
@@ -967,5 +1089,9 @@ summary { cursor: pointer; color: #3498db; font-size: 0.85rem; }
 .ctx-chip.daily { background: #fdedec; color: #b03a2e; }
 .arrow { color: #95a5a6; font-weight: 700; }
 .error-text { color: #e74c3c; font-size: 0.9rem; }
+.graph-svg { width: 100%; height: auto; background: #fafafa; border: 1px solid #eee; border-radius: 6px; margin: 0.5rem 0; }
+.graph-node { cursor: pointer; }
+.graph-node:hover circle { stroke: #3498db; }
+.graph-label { font-size: 9px; fill: #555; pointer-events: none; }
 @media (max-width: 600px) { .pillars { grid-template-columns: repeat(2, 1fr); } .form-grid { grid-template-columns: 1fr; } }
 </style>
