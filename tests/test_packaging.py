@@ -46,7 +46,7 @@ def test_cli_version_and_analyze():
     d = json.loads(r.stdout)
     assert d["engine"] == "0.2.0"
     r2 = subprocess.run([py, "-m", "tianze.cli", "analyze", "--date", "2003-08-18",
-                         "--time", "14:30", "--gender", "male"],
+                         "--time", "14:30", "--gender", "male", "--format", "json"],
                         capture_output=True, encoding="utf-8", errors="replace",
                         cwd=os.path.dirname(os.path.abspath(__file__)) + "/..")
     assert r2.returncode == 0

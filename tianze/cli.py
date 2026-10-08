@@ -47,7 +47,9 @@ def _build_birth(a) -> dict:
 
 
 def _emit(payload: dict, fmt: str, out: str | None) -> int:
-    if fmt == "json":
+    if fmt == "human":
+        text = _human_summary(payload)
+    elif fmt == "json":
         text = json.dumps(payload, ensure_ascii=False, indent=1)
     elif fmt == "html":
         from tianze.export_html import to_html
@@ -63,6 +65,48 @@ def _emit(payload: dict, fmt: str, out: str | None) -> int:
         sys.stdout.buffer.write(text.encode("utf-8"))
         sys.stdout.buffer.write(b"\n")
     return 0
+
+
+def _human_summary(payload: dict) -> str:
+    """终端友好摘要：四柱/旺衰/格局/岁运主题一行式；详细内容仍用 md/json。"""
+    p = payload.get("pillars") or {}
+    dm = payload.get("dayMaster") or {}
+    lines = ["Tianze 结构分析摘要", ""]
+    gz = "  ".join(f"{cn}:{p[pos]['stem']}{p[pos]['branch']}"
+                   for pos, cn in (("year", "年"), ("month", "月"), ("day", "日"),
+                                   ("hour", "时")) if p.get(pos))
+    lines.append(f"四柱  {gz}")
+    lines.append(f"日主  {dm.get('stem', '')}（{dm.get('element', '')}·{dm.get('yinYang', '')}）")
+    sr = payload.get("strength") or {}
+    if sr:
+        verdicts = "  ".join(
+            f"{m.get('name')}:{m.get('verdict') or '定性'}"
+            + (f"({m['score']:.3f})" if m.get("score") is not None else "")
+            for m in sr.get("methods") or [])
+        lines.append(f"旺衰  {verdicts}  agreement={sr.get('agreement') or 'N/A'}（多方法并列，不裁决）")
+    pa = payload.get("pattern") or {}
+    if pa and pa.get("candidates"):
+        names = "、".join(c.get("name", "") for c in pa["candidates"])
+        st = (pa.get("evaluation") or {}).get("status")
+        lines.append(f"格局  {names}（候选≠结论）" + (f" 首选评估：{st}" if st else ""))
+    luck = payload.get("luck")
+    if luck:
+        fwd = "顺行" if luck.get("forward") else "逆行"
+        first = next((d for d in luck.get("daYun") or [] if d.get("ganZhi")), None)
+        lines.append(f"大运  {fwd}，起运 {luck.get('startYears')}年{luck.get('startMonths')}月"
+                     + (f"，首运 {first['ganZhi']}（{first['startYear']}）" if first else ""))
+    tp = payload.get("temporal") or {}
+    ev = (tp.get("eventThemes") or {}).get("themes") or []
+    if ev:
+        lines.append("事件主题（候选，非事件预测）：")
+        for t in ev:
+            status = str(t.get("status", "")).rsplit(".", 1)[-1]
+            lines.append(f"  · {t.get('themeCn') or t.get('theme')}：{status}"
+                         f"（confidence={t.get('confidence')}·非概率）")
+    lines.append("")
+    lines.append("详细内容：--format md / html / json")
+    lines.append("本报告仅为结构分析，不构成任何吉凶或人生事件预测。")
+    return chr(10).join(lines)
 
 
 def cmd_analyze(a) -> int:
@@ -149,7 +193,7 @@ def main(argv: list[str] | None = None) -> int:
     _birth_args(pa); _temporal_args(pa)
     pa.add_argument("--event-themes", action="store_true")
     pa.add_argument("--explanations", action="store_true")
-    pa.add_argument("--format", choices=["json", "md", "html"], default="json")
+    pa.add_argument("--format", choices=["human", "json", "md", "html"], default="human")
     pa.add_argument("--out", default=None)
     pa.set_defaults(func=cmd_analyze)
 
@@ -157,7 +201,7 @@ def main(argv: list[str] | None = None) -> int:
     _birth_args(pt); _temporal_args(pt)
     pt.add_argument("--event-themes", action="store_true")
     pt.add_argument("--explanations", action="store_true")
-    pt.add_argument("--format", choices=["json", "md", "html"], default="json")
+    pt.add_argument("--format", choices=["human", "json", "md", "html"], default="human")
     pt.add_argument("--out", default=None)
     pt.set_defaults(func=cmd_timeline)
 
@@ -173,6 +217,9 @@ def main(argv: list[str] | None = None) -> int:
     pver = sub.add_parser("version", help="版本信息")
     pver.set_defaults(func=cmd_version)
 
+    if argv is None and len(sys.argv) == 1:
+        p.print_help()
+        return 2
     a = p.parse_args(argv)
     try:
         return a.func(a)

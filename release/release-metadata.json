@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "release": {
-  "gitCommit": "8dbef56e61ecafc53d9bc940f650ca80d422b24a",
+  "gitCommit": "0f1cec2d7ce85a2fa7ec29a089bec2ce8e2a06d6",
   "gitBranch": "main",
   "dirty": true,
   "generatedBy": "tools/release_metadata.py（全部数据来自真实运行）"

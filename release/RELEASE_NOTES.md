@@ -1,6 +1,6 @@
 # Tianze v0.3.0 Release Notes
 
-- commit: `8dbef56e61ec`（含未提交改动）
+- commit: `0f1cec2d7ce8`（含未提交改动）
 - 当前版本 0.2.0 → 建议 v0.3.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（57.7s / 18 步）
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（85）
+### 特性（86）
+- M21.2-3: multi-platform CI matrix + provider observability
 - M20 final: gate 18 steps (incl. release_check) ALL PASS + external release_check ALL PASS (stale integrity enforced externally) + E2E 8 + build - fixed gate/release_check self-reference deadlock (P5 stale flag for   gate-internal calls, structure-only summary assertions, step count 18)
 - M20 final: quality gate ALL PASS + release_check ALL PASS + E2E 8 + build
 - M20.1: v0.2.0 release rehearsal + ADR-056/057

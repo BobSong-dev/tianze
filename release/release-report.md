@@ -1,6 +1,6 @@
 # Tianze Release Report
 
-- commit: `8dbef56e61ec`（含未提交改动）
+- commit: `0f1cec2d7ce8`（含未提交改动）
 - engine: 0.2.0
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 

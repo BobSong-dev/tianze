@@ -94,7 +94,7 @@ def main() -> int:
                                 capture_output=True, encoding="utf-8", errors="replace")
             ra = subprocess.run(
                 [venv_py, "-m", "tianze.cli", "analyze", "--date", "2003-08-18",
-                 "--time", "14:30", "--gender", "male"],
+                 "--time", "14:30", "--gender", "male", "--format", "json"],
                 capture_output=True, encoding="utf-8", errors="replace")
             clean_ok = False
             if rv.returncode == 0 and ra.returncode == 0:
