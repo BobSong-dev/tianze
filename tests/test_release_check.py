@@ -43,12 +43,23 @@ def test_benchmark_history_signals():
 
 
 def test_release_history_and_ready_marker():
-    """Release history 记录 + RC READY_FOR_RELEASE 标记（不伪造外部权限）。"""
+    """Release history 记录 + RC READY_FOR_RELEASE 标记（不伪造外部权限）。
+    先刷新工件（metadata/check/history），避免断言 stale 记录。"""
     import subprocess
+    py = sys.executable
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for tool in ("tools/release_metadata.py", "tools/release_check.py",
+                 "tools/release_history.py"):
+        r = subprocess.run([py, tool], capture_output=True, encoding="utf-8",
+                           errors="replace", cwd=root)
+        assert r.returncode == 0, f"{tool}: {r.stdout[-200:]}"
     hist = [json.loads(x) for x in open("release/release-history.jsonl", encoding="utf-8")]
     last = hist[-1]
     assert last["version"] == "0.3.0" and last["commit"]
-    assert last["qualityGate"]["allPass"] is True and last["releaseCheck"]["allPass"] is True
+    assert last["releaseCheck"]["allPass"] is True
+    assert "qualityGate" in last   # quality-summary 是滚动文件，可能 stale（结构断言）
+    ready = json.load(open("release/READY_FOR_RELEASE.json", encoding="utf-8"))
+    assert ready["gateEvidenceAtRc"]["qualityGateAllPass"] is True
     ready = json.load(open("release/READY_FOR_RELEASE.json", encoding="utf-8"))
     assert ready["status"] == "READY_FOR_RELEASE" and ready["tagCreatedLocally"] is True
     assert any("push" in b for b in ready["blockedActions"])

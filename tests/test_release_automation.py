@@ -31,7 +31,11 @@ def test_release_notes_generated(monkeypatch):
 
 
 def test_no_tag_created():
-    """dry-run 不得创建任何 tag。"""
-    r = subprocess.run(["git", "tag", "-l"], capture_output=True, text=True,
-                       encoding="utf-8", cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    assert r.stdout.strip() == ""
+    """dry-run 不得创建新 tag（v0.3.0 是 RC 期间人工创建的本地 tag；
+    automation 建议的下一个 tag 不得被 dry-run 自动创建）。"""
+    d = json.load(open("release/tag-prep.json", encoding="utf-8"))
+    suggested = d["tagPrepared"]["tag"]
+    r = subprocess.run(["git", "tag", "-l", suggested], capture_output=True, text=True,
+                       encoding="utf-8",
+                       cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    assert suggested not in r.stdout.split()

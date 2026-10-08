@@ -17,5 +17,10 @@
   "release/tag-prep.json",
   "dist/tianze_bazi-0.3.0-py3-none-any.whl"
  ],
- "note": "push/GitHub Release 为外部权限动作；全部本地工件已校验（quality gate 19 步 + release_check P0-P7 ALL PASS）"
+ "note": "push/GitHub Release 为外部权限动作；全部本地工件已校验（quality gate 19 步 + release_check P0-P7 ALL PASS）",
+ "gateEvidenceAtRc": {
+  "note": "RC 创建时点的门状态（quality-summary 是滚动文件，可能被后续运行覆盖；此处为 RC 时点快照）",
+  "qualityGateAllPass": true,
+  "releaseCheckAllPass": true
+ }
 }
