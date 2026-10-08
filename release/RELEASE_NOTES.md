@@ -1,8 +1,8 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `126ef61b21cc`（含未提交改动）
+- commit: `2fddbda96976`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（102.5s / 23 步）
+- 质量门：ALL PASS（91.2s / 23 步）
 
 ## 版本与规模
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（36）
+### 特性（37）
+- M28 final: ADR-066 + README M28 + RC 本地构建验证（wheel/sdist）+ gate 23 步/release_check ALL PASS
 - M28.1: 旬空引擎（六旬公版表 xun_kong_of，SS-R16 第三要件空亡 blocker 落地六乙鼠贵，日柱口径/年柱两说）+ 根气强度分级（微根/明根/强根）入假从说 SP-CG-E2 + 命例审计空亡贵人统计（贵人落日空 378/1045）+ Web 节点条件层直展
 - M27 final: ADR-065 + README M27 + gate 23 步/release_check ALL PASS
 - M27.3: 知识来源治理 tools/source_coverage.py（raw 语料 556/556 缺失 → status=BLOCKED 如实记录；引文注册表一致性 issue 0；入质量门 23 步）+ Web 节点→重放命例/随机触发率导航 + fuzz（贵人表完整性/外格状态词汇/缓存一致性）

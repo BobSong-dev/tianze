@@ -234,3 +234,17 @@ def test_trsp08_jiahua_drain():
           and x["group"] == "transformation"]
     if jh:  # 该盘若有化气候选则必须带假化敏感两说
         assert "假化" in jh[0]["label"] or "假化" in jh[0]["evidence"][0]
+
+
+def test_trsp08_weakened_root_constrained():
+    """微根受制：假从要件微根被岁运刑冲 → 条件变化两说（不升级候选）。"""
+    import datetime as dt
+    chart = build_chart(BirthInfo(date=dt.date(1980, 1, 3),
+                                  time=dt.time(10, 0), gender=Gender.MALE))
+    rep = compute_temporal_delta(chart, annual=("甲", "丑"))  # 丑冲微根所在支未
+    hits = [x for x in rep.specialFindings if x["ruleId"] == "TR-SP-08"
+            and x["label"] == "微根受制"]
+    assert hits, [x["evidence"][0][:50] for x in rep.specialFindings if x["ruleId"] == "TR-SP-08"]
+    assert "条件变化说" in hits[0]["schoolSplit"]
+    assert "保守说" in hits[0]["schoolSplit"]
+    assert all(x["status"] == "CANDIDATE" for x in hits)  # 永不升级

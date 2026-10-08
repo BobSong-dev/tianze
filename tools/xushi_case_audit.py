@@ -43,7 +43,9 @@ def main() -> int:
     arch_by_sub_daymaster_top: Counter = Counter()
     hidden_by_monthbranch: Counter = Counter()
     engine_vs_claims = {"engineCases": 0, "claimsMentionXushi": 0, "overlap": 0}
-    # M28 · 空亡/贵人统计
+    # M29 · 假从根气分级分布（SP-CG-E2 文本特征统计）
+    grade_dist: Counter = Counter()
+    
     kong_stats = {"nobleInDayKong": 0, "nobleInYearKong": 0, "nobleCases": 0,
                   "shuguiKongBlocked": 0, "shuguiTotal": 0}
     XUSHI_KEYWORDS = ("拱", "暗合", "虚神", "邀")
@@ -103,6 +105,14 @@ def main() -> int:
                     kong_stats["nobleInDayKong"] += 1
                 if yk and (nobles & yk):
                     kong_stats["nobleInYearKong"] += 1
+            for c in chart.advancedAnalysis.get("specialPattern", {}).get("cong", []):
+                for e in c.get("exceptions", []):
+                    t = e.get("text", "")
+                    if "SP-CG-E2" in (e.get("ruleId") or ""):
+                        for g in ("强根（本气）", "明根（中气）", "微根（余气/墓库）", "无根"):
+                            if g in t:
+                                grade_dist[g] += 1
+                                break
             for x in xo:
                 if "六乙鼠贵" in x["type"]:
                     kong_stats["shuguiTotal"] += 1
@@ -159,6 +169,7 @@ def main() -> int:
         "hiddenByMonthBranchTop": dict(hidden_by_monthbranch.most_common(10)),
         "engineVsClaims": dict(engine_vs_claims),
         "nobleKongStats": kong_stats,
+        "jiacongGradeDistribution": dict(grade_dist),
         "engineVsClaimsCaveat": "claims 文本为 MACHINE_EXTRACTED 摘要，仅作粗对照；"
                                 "「原书明确采用」需对照 raw OCR 语料（不在仓库，BLOCKED）",
         "discipline": "历史断语只用于对照；本审计不输出任何吉凶或事件结论",

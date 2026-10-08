@@ -74,6 +74,7 @@ _HUA_TABOO_BRANCH_STEMS: dict[str, set[str]] = {   # 支藏干引申（巳午藏
 class SpecialTemporalFinding(CamelizeModel):
     """特殊格局候选在岁运中的状态变化 + 流派观察（候选级，非定论）。"""
     ruleId: str
+    label: str = ""                        # 观察类型（顺势观察/破格两说/假从岁运敏感…）
     candidateType: str                    # 从财 / 曲直 / 甲己 …
     group: str                            # cong / zhuanwang / transformation
     natalStatus: str | None = None
@@ -342,6 +343,28 @@ def _sp_jia_cong_hua_sensitive(chart, ctx, candidates):
                              "顺势说（保留）": "行从化旺乡与真从无别，一样取富贵——"
                                               "「未交运前寒素、运过复初」属行运先后叙事，"
                                               "不构成结构判定"}))
+            # M29 · 微根受制：假从成立要件（微根）被岁运刑冲 → 条件变化观察
+            # （DTZ-49：微根是假从的成立要件；其受制属条件变化——是否「近真从」两说，
+            #   不单方面升级候选状态）
+            e2_text = next((e.get("text", "") for e in natal_cong[ctype].get("exceptions", [])
+                            if "SP-CG-E2" in (e.get("ruleId") or "")), "")
+            if "微根" in e2_text:
+                from tianze.relation.tables import SIX_CLASHES as _SC6
+                weak_branches = {r.branch for r in (getattr(chart, "roots", None) or [])
+                                 if getattr(r, "is_day_master", False)
+                                 and getattr(getattr(r, "depth", None), "value", None) == "weak"}
+                if weak_branches:
+                    constrained = [(l, b) for l, b in _temporal_branches(ctx)
+                                   for wb in weak_branches
+                                   if frozenset({b, wb}) in _SC6 or b == wb]
+                    if constrained:
+                        det2 = "、".join(f"{_cn(l)}支{b}" for l, b in constrained)
+                        out.append((ctype, "cong", info["status"], "微根受制", "school-split",
+                                    f"假从候选 {ctype}（natal={info['status']}{note_suffix}）："
+                                    f"成立要件微根（{'、'.join(sorted(weak_branches))}）被岁运{det2}"
+                                    "冲制/伏吟",
+                                    {"条件变化说": "微根受制则假从要件动摇——是否近真从两说",
+                                     "保守说": "微根虚伏仍在，不因单次岁运刑冲改判候选"}))
         if group == "transformation" and info["status"] not in ("BLOCKED", "UNRESOLVED"):
             # 假化：岁运见化神之克/泄（克神=所忌已在 TR-SP-05；此处补「泄气」半边）
             ctype_str = ctype
@@ -441,7 +464,7 @@ def analyze_special_temporal(chart, delta_report) -> list[SpecialTemporalFinding
             transition = transition_map.get(tr["kind"], "unchanged") if tr else "unchanged"
             temporal_status = tr.get("temporal") if tr else None
             findings.append(SpecialTemporalFinding(
-                ruleId=rid, candidateType=ctype, group=group,
+                ruleId=rid, label=label, candidateType=ctype, group=group,
                 natalStatus=natal_status, temporalStatus=temporal_status,
                 transition=transition,
                 schoolSplit=school,

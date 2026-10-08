@@ -726,3 +726,29 @@ def test_arch_unfill_multi_layer_coexist():
     assert "并存" in unfill.note or "两说" in unfill.note
     fills = [r for r in ta.relations if r.kind == "arch_fill"]
     assert len(fills) >= 1  # 大运子与流日子各产生 fill
+
+
+# ---------- M29 · 旬空差分验证（独立表 vs lunar-python 上游） ----------
+
+def test_xunkong_differential_against_lunar_python():
+    """差分：随机日期盘 → 六旬表 xun_kong_of 与 lunar-python 柱 xunKong 逐一一致。"""
+    import datetime as dt
+    import random
+    from tianze.pipeline import build_chart
+    from tianze.domain.models import BirthInfo
+    from tianze.relation.tables import xun_kong_of
+    rng = random.Random(2929)
+    mismatches = []
+    for _ in range(300):
+        d = dt.date(1900, 1, 1) + dt.timedelta(days=rng.randrange(0, 50000))
+        t = dt.time(rng.randrange(0, 24), rng.randrange(0, 60))
+        chart = build_chart(BirthInfo(date=d, time=t, gender="male"))
+        for pos in ("year", "month", "day", "hour"):
+            p = getattr(chart.pillars, pos)
+            if not p:
+                continue
+            upstream = frozenset(p.xun_kong) if p.xun_kong else None
+            mine = xun_kong_of(p.stem + p.branch)
+            if upstream != mine:
+                mismatches.append((pos, p.stem + p.branch, upstream, mine))
+    assert not mismatches, mismatches[:5]

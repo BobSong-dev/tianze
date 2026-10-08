@@ -93,6 +93,12 @@
   "shuguiKongBlocked": 4,
   "shuguiTotal": 18
  },
+ "jiacongGradeDistribution": {
+  "明根（中气）": 283,
+  "无根": 416,
+  "强根（本气）": 611,
+  "微根（余气/墓库）": 167
+ },
  "engineVsClaimsCaveat": "claims 文本为 MACHINE_EXTRACTED 摘要，仅作粗对照；「原书明确采用」需对照 raw OCR 语料（不在仓库，BLOCKED）",
  "discipline": "历史断语只用于对照；本审计不输出任何吉凶或事件结论"
 }
