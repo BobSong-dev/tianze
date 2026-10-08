@@ -572,3 +572,18 @@
     （此前所有启用 delta 的导出未触发该组合）。
 - **Tradeoff**：include_themes 每层一次 delta 计算（按需开启）；年锚不进入任何
   推理路径（纯审计标注）。
+
+## ADR-071 · 主题→事件反查与悬空引用审计（M33）
+
+- **Context**：M32 的 Theme Delta basis 引用 delta refId 而非 replay 事件，
+  「从主题到 Engine Fact 的完整追溯」缺最后一跳；refId 悬空无程序化检测。
+- **Decision**：
+  - themeDelta 增 `relatedEvents`（确定性映射：虚神填实←arch_fill 事件、
+    冲突关系←本层新增冲/害/破/干冲、十神主题←本层天干十神、聚合主题←本层全部
+    事件——相关非因果）；映射为空时回退 `basisRefs`（从主题 basis 文本提取
+    `temporal:*` refId，直连真实 Delta 条目）；进 Web/Markdown/HTML 反查展示；
+  - 跨层审计 C7（七项）：解释链 refId 唯一性 + 引文 candidateId 非空
+    （1045 例全 0）；
+  - 事件关联语义固定为「本层相关事件」：不宣称因果，展示即归因边界。
+- **Tradeoff**：十神映射取本层唯一天干（多层天干并存时各层各自映射）；聚合主题
+  关联全部层内事件（粒度粗但无遗漏、无虚构）。
