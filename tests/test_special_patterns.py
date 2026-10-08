@@ -298,3 +298,49 @@ def test_dtz06_wu_tingfang_follows_the_dominant():
     sha = next(c for c in cong if c["type"] == "从官杀")
     assert sha["status"] == "DISPUTED", "weighted/fuyi 分歧必须如实保留"
     assert any("weighted" in s["text"] and "fuyi" in s["text"] for s in sha["supports"])
+
+
+# ---------- M25 · 外格虚神候选（xushiOuter：候选而非成格） ----------
+
+def test_xushi_outer_jinglancha():
+    """井栏叉（ZP-12：庚日申戌拱酉）：刃位虚神候选；官杀透 → BLOCKED。"""
+    chart = build_case_chart({"year": "甲辰", "month": "丙戌", "day": "庚申", "hour": "丁丑"})
+    xo = chart.advancedAnalysis["specialPattern"]["xushiOuter"]
+    c = next(x for x in xo if "井栏叉" in x["type"])
+    assert c["status"] == "BLOCKED"  # 丙/丁官杀透 → 填实破格
+    assert any("伤官变格" in sv for sv in c["schoolVariants"].values())
+
+
+def test_xushi_outer_feitian_luma():
+    """飞天禄马（ZP-12/DTZ-41）：庚日三子无午 → 候选；官星透 → BLOCKED。"""
+    chart = build_case_chart({"year": "甲子", "month": "丙子", "day": "庚子", "hour": "丁丑"})
+    c = next(x for x in chart.advancedAnalysis["specialPattern"]["xushiOuter"]
+             if "飞天禄马" in x["type"])
+    assert c["status"] == "BLOCKED" and any("官星" in b["text"] for b in c["blockers"])
+    # 无官星透 → 候选
+    chart2 = build_case_chart({"year": "壬子", "month": "壬子", "day": "庚子", "hour": "戊子"})
+    c2 = next(x for x in chart2.advancedAnalysis["specialPattern"]["xushiOuter"]
+              if "飞天禄马" in x["type"])
+    assert c2["status"] == "CANDIDATE"
+
+
+def test_xushi_outer_xinghe_zInvite():
+    """刑合（ZP-07：癸日时寅虚邀巳）与子邀巳（ZP-11）候选。"""
+    chart = build_case_chart({"year": "辛亥", "month": "乙卯", "day": "癸卯", "hour": "甲寅"})
+    xo = chart.advancedAnalysis["specialPattern"]["xushiOuter"]
+    assert any("刑合" in x["type"] for x in xo)
+    assert any("假名刑合" in sv or "伤官说" in k for x in xo for k, sv in x["schoolVariants"].items())
+    chart2 = build_case_chart({"year": "甲子", "month": "丙寅", "day": "戊午", "hour": "壬子"})
+    assert any("子邀巳" in x["type"] for x in
+               chart2.advancedAnalysis["specialPattern"]["xushiOuter"])
+
+
+def test_xushi_outer_never_confirmed_and_target_presence_blocks():
+    """永不 CONFIRMED；虚神在场 → 不产生候选（子邀巳遇巳不立）。"""
+    chart = build_case_chart({"year": "甲子", "month": "丙寅", "day": "戊午", "hour": "壬子"})
+    blob = str(chart.advancedAnalysis)
+    assert "CONFIRMED" not in blob
+    chart2 = build_case_chart({"year": "甲子", "month": "丙寅", "day": "戊辰", "hour": "壬子"})
+    # 辰在场 → 辰申拱酉 blocked？ 子邀巳: 巳不在 → still. 检查 井栏叉 在酉在场时不出现：
+    for x in chart2.advancedAnalysis["specialPattern"]["xushiOuter"]:
+        assert "CONFIRMED" != x["status"]

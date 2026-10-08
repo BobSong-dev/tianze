@@ -138,6 +138,7 @@ export interface AdvancedAnalysis {
             provenance: { level: string; concept: string }[];
           }[];
     zhuanwang: { type: string; status: string; supports: unknown[]; blockers: unknown[]; schoolVariants: Record<string, string> }[];
+    xushiOuter?: { type: string; status: string; supports: unknown[]; blockers: unknown[]; schoolVariants: Record<string, string> }[];
     transformation: { stemPair: string[]; targetElement: string; status: string;
                       seasonSupport: boolean | null; obstructions: string[] }[];
   };

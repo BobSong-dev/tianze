@@ -191,6 +191,14 @@ def build_interpretation_context(
             claim_refs.append(f"transformation:{pair}:{te}:{tstatus}")
             if tstatus == "UNRESOLVED":
                 ctx.unresolved.append(f"化气 {pair} 证据不足")
+        for xo in sp.get("xushiOuter") or []:
+            xt = xo.get("type", "")
+            xs = xo.get("status", "")
+            ctx.advanced.setdefault("xushiOuter", []).append({"type": xt, "status": xs})
+            claim_refs.append(f"xushiOuter:{xt}")
+            claim_refs.append(f"xushiOuter:{xt}:{xs}")
+            if xs == "BLOCKED":
+                ctx.unresolved.append(f"外格候选 {xt} 被阻断（填实/官星现）")
         for p in adv.get("bingYao", {}).get("problems") or []:
             claim_refs.append(f"bingyao:{p.get('target', '')}")
         for b in adv.get("tongGuan", {}).get("bridges") or []:

@@ -729,6 +729,15 @@ async function loadTemporal() {
         <div v-for="z in result.advancedAnalysis.specialPattern?.zhuanwang || []" :key="z.type" class="candidate-block">
           <strong>{{ z.type }}</strong> <span class="badge">{{ z.status }}</span>
         </div>
+        <!-- M25 外格虚神候选 -->
+        <template v-if="result.advancedAnalysis.specialPattern?.xushiOuter?.length">
+          <h3>外格虚神候选 <span class="note">飞天禄马/井栏叉/刑合/子邀巳——候选仅供参考，非格局（DTZ-26/36）</span></h3>
+          <div v-for="x in result.advancedAnalysis.specialPattern.xushiOuter" :key="x.type" class="candidate-block">
+            <strong>{{ x.type }}</strong> <span class="badge">{{ x.status }}</span>
+            <div v-for="(sv, k) in x.schoolVariants" :key="k" class="note">{{ k }}：{{ sv }}</div>
+            <div v-for="(b, i) in (x.blockers || [])" :key="'b' + i" class="evidence-item damage">阻断：{{ b.text }}</div>
+          </div>
+        </template>
         <!-- BingYao -->
         <h3>病药结构 <span class="note">（"病药"指命局结构中的失衡与制衡关系，不是医学诊断）</span></h3>
         <div v-for="p in result.advancedAnalysis.bingYao?.problems || []" :key="p.target" class="evidence-item damage">

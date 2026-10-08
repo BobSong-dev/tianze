@@ -1,8 +1,8 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `c43115aa3955`（含未提交改动）
+- commit: `0209aaeef61e`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（81.8s / 20 步）
+- 质量门：ALL PASS（77.6s / 20 步）
 
 ## 版本与规模
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（21）
+### 特性（22）
+- M24 final: README + gate 20 steps ALL PASS at HEAD (artifacts refreshed)
 - M24.5b: release metadata/history refreshed at HEAD (P5 commit 一致)
 - M24.5: HTML 报告关系注记/未成立候选 + Web Evaluation compare 筛选（provider/仅回归，趋势随筛选联动）
 - M24.4: blockedRelations 未成立拱夹候选（拱而不成·靶支在场，DTZ-10 拱实不若拱虚）— pipeline/sdk/Web(未成立候选 section)/export 全链，与 relations 严格分离；gate ALL PASS

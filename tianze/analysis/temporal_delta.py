@@ -588,6 +588,12 @@ def compute_temporal_delta(
 
     strength_ctx = _strength_delta(chart, ctx, units, items)
     _pattern_delta(chart, ctx, units, items, unsupported)
+    if (chart.advancedAnalysis or {}).get("specialPattern", {}).get("xushiOuter"):
+        unsupported.append(
+            "xushiOuter：外格虚神候选（飞天禄马/井栏叉/刑合/子邀巳）不参与岁运重算"
+            "（外格本身存争议、岁运是否成外格两说更大——DTZ-41/ZP-12；"
+            "岁运填实/冲邀由 TR-DTZ-10 候选级观察覆盖）。"
+        )
     _tiaohou_delta(chart, ctx, units, items)
     _special_delta(chart, ctx, units, items, strength_ctx)
     _tengod_delta(chart, ctx, units, items)

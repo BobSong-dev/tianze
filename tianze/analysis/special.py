@@ -436,6 +436,125 @@ def analyze_transformation(
     return out
 
 
+
+
+# ---------- M25 · 外格虚神候选（ZP-05/07/11/12 + DTZ-41） ----------
+
+def analyze_xushi_outer(
+    day_master: str,
+    month_branch: str,
+    stems: list[str | None],
+    branches: list[str | None],
+) -> list[SpecialPatternCandidate]:
+    """外格虚神候选：飞天禄马/井栏叉（拱刃）/刑合/子邀巳。
+
+    纪律（ZP-05「忌刑冲填实之凶」、DTZ-41「遇官星填实破格」、DTZ-26/36「不成为格」）：
+    - 只产候选（CANDIDATE/BLOCKED/UNRESOLVED），永不认定成格；
+    - 填实/官星透干 = 阻断证据而非吉凶断语；
+    - 每条带「外格说 vs 徐辨伤官变格说」流派注记（schoolVariants）。
+    """
+    from tianze.ganzhi.tables import YANG_STEM_REN
+    from tianze.relation.tables import arch_target
+    out: list[SpecialPatternCandidate] = []
+    present = [b for b in branches if b]
+    visible_stems = [s for s in stems if s]
+    prov = [
+        ProvenanceRef(level=RuleLevel.PROJECT_REFERENCE,
+                      project="子平真诠（ZP-05/07/11/12）+ 滴天髓补注（DTZ-41）",
+                      concept="拱禄拱贵/刑合/子邀巳/井栏叉倒冲——外格虚神"),
+        ProvenanceRef(level=RuleLevel.ENGINEERING_HEURISTIC, project="Tianze",
+                      concept="起例结构化与阻断判定（M25）；OCR 残缺处以争议注记保留"),
+    ]
+    guansha_gods = ("正官", "七杀")
+
+    # 井栏叉（拱刃类，ZP-12：庚日地支辰申拱酉）——由 arch 检测派生：拱位 = 日主阳刃
+    ren = YANG_STEM_REN.get(day_master)
+    for x in range(len(present)):
+        for y in range(x + 1, len(present)):
+            tgt = arch_target(present[x], present[y])
+            if tgt and tgt not in present and ren and tgt == ren:
+                cand = SpecialPatternCandidate(type=f"井栏叉（拱刃{ren}）")
+                cand.prerequisites = [f"日主{day_master}之阳刃{ren}为拱位虚神",
+                                      "拱位支原局不见（拱虚）"]
+                cand.provenance = prov
+                cand.supports.append(Factor("support", "SP-XO-S1",
+                                            f"{present[x]}{present[y]}隔二缺一拱{ren}（刃位虚神）"))
+                for st in visible_stems:
+                    if st != day_master and ten_god(day_master, st).value in guansha_gods:
+                        cand.blockers.append(Factor(
+                            "blocker", "SP-XO-B1",
+                            f"官杀{st}透干——填实/官星现（DTZ-41：遇官星填实破格）"))
+                cand.schoolVariants = {
+                    "外格说": "井栏叉以拱邀刃，虚神得用（ZP-12）",
+                    "徐辨（伤官变格说）": "DTZ-41：其实为伤官变格，不必以外格附会",
+                }
+                cand.status = (SpecialStatus.BLOCKED if cand.blockers
+                               else SpecialStatus.CANDIDATE)
+                out.append(cand)
+
+    # 飞天禄马/倒冲（ZP-12：以冲邀虚神；DTZ-41 张勋/曹锟造辨正）——庚日之子暗冲午
+    if day_master == "庚":
+        zi_count = sum(1 for b in present if b == "子")
+        if zi_count >= 2 and "午" not in present:
+            cand = SpecialPatternCandidate(type="飞天禄马（子暗冲午）")
+            cand.prerequisites = ["庚日地支多子（暗冲午中丁己官星）", "午不见（填实则破）"]
+            cand.provenance = prov
+            cand.supports.append(Factor("support", "SP-XO-S2",
+                                        f"子×{zi_count}（虚神邀合之冲势）"))
+            cand.blockers.append(Factor(
+                "blocker", "SP-XO-B2",
+                f"子数门槛二/三两说（现 {zi_count} 子）——传统起例多以三子，二子说保留"))
+            for st in visible_stems:
+                if st != day_master and ten_god(day_master, st).value in guansha_gods:
+                    cand.blockers.append(Factor(
+                        "blocker", "SP-XO-B3",
+                        f"官星{st}透干——填实破格（DTZ-41）"))
+            cand.schoolVariants = {
+                "外格说": "倒冲格：以冲邀虚官（ZP-12）",
+                "徐辨（伤官变格说）": "DTZ-41：曹锟造「其实亦是伤官变格」——金水伤官喜见官",
+            }
+            cand.status = (SpecialStatus.BLOCKED
+                           if any("官星" in b.text for b in cand.blockers)
+                           else SpecialStatus.CANDIDATE)
+            out.append(cand)
+
+    # 刑合（ZP-07：癸日暗合戊，时甲寅以寅刑巳邀戊禄——OCR 残缺，重争议）
+    if day_master == "癸" and len(branches) >= 4 and branches[3] == "寅"             and "巳" not in present:
+        cand = SpecialPatternCandidate(type="刑合（寅刑巳邀戊禄）")
+        cand.prerequisites = ["癸日时柱寅", "巳不见（虚邀戊禄之地）",
+                              "岁运/原局忌戊己透（喜忌篇：岁月怕戊己二方）"]
+        cand.provenance = prov
+        cand.supports.append(Factor("support", "SP-XO-S3", "癸日甲寅时，寅刑巳虚邀戊土官星"))
+        for st in visible_stems:
+            if st != day_master and ten_god(day_master, st).value in ("正官", "七杀", "正印", "偏印"):
+                cand.blockers.append(Factor(
+                    "blocker", "SP-XO-B4",
+                    f"{st}（{ten_god(day_master, st).value}）透干——喜忌篇忌戊己官煞及枭印"))
+        cand.schoolVariants = {
+            "外格说": "刑合格：寅刑巳邀戊（ZP-07）",
+            "神峰通考辨（伤官说）": "「假名刑合亦非真」——月令子位实为伤官格（ZP-07 徐按）",
+        }
+        cand.status = (SpecialStatus.BLOCKED if cand.blockers
+                       else SpecialStatus.CANDIDATE)
+        out.append(cand)
+
+    # 子邀巳（ZP-11：癸禄在子、戊禄在巳，子巳暗合邀巳中丙戊）
+    if "子" in present and "巳" not in present:
+        cand = SpecialPatternCandidate(type="子邀巳（邀巳中丙戊）")
+        cand.prerequisites = ["子在场、巳不在场（虚神邀合）"]
+        cand.provenance = prov
+        cand.supports.append(Factor("support", "SP-XO-S5",
+                                    "子巳暗合（SPZY-34）之邀合方向：以实字邀虚字"))
+        cand.schoolVariants = {
+            "外格说": "子邀己格，取印星太旺为用（ZP-11，OCR 残缺）",
+            "保留": "候选仅供参考（DTZ-36：夹拱遥合非格局非用神）",
+        }
+        cand.status = SpecialStatus.CANDIDATE
+        out.append(cand)
+
+    return out
+
+
 # ---------- M8.4 病药 ----------
 
 def analyze_bingyao(element_counts: dict[str, dict[str, int]]) -> dict:
@@ -539,6 +658,7 @@ def analyze_all_special(
     zhuanwang = analyze_zhuanwang(day_master, month_branch, stems, branches, element_counts,
                                   strength_verdicts)
     transformation = analyze_transformation(day_master, month_branch, stems, branches)
+    xushi_outer = analyze_xushi_outer(day_master, month_branch, stems, branches)
     bingyao = analyze_bingyao(element_counts)
     tongguan = analyze_tongguan(element_counts)
     return {
@@ -546,6 +666,7 @@ def analyze_all_special(
             "cong": [c.to_dict() for c in cong],
             "zhuanwang": [c.to_dict() for c in zhuanwang],
             "transformation": [c.to_dict() for c in transformation],
+            "xushiOuter": [c.to_dict() for c in xushi_outer],
         },
         "bingYao": bingyao,
         "tongGuan": tongguan,
