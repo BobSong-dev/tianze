@@ -352,3 +352,66 @@ def test_blocked_arch_sdk_passthrough():
     labels = [x["label"] for x in r.blockedRelations]
     assert any("不成" in x for x in labels), labels
     assert not any("不成" in x["label"] for x in r.relations)
+
+
+# ---------- M25 · 关系级解释链 ----------
+
+def test_relation_explanations_three_states():
+    """三态：结构事实 / 候选 / 未成立，引用链指向 citations 注册表。"""
+    from tianze.sdk import analyze
+    r = analyze({"date": "1984-01-05", "time": "10:30", "gender": "male"})
+    exs = r.relationExplanations
+    statuses = {e["status"] for e in exs}
+    assert "ESTABLISHED" in statuses
+    assert "CANDIDATE" in statuses      # 子戌暗合
+    assert "BLOCKED" in statuses        # 子戌拱亥（不成）
+    cand = next(e for e in exs if e["status"] == "CANDIDATE")
+    assert any(c["candidateId"] == "SPZY-34" for c in cand["citations"])
+    blk = next(e for e in exs if e["status"] == "BLOCKED")
+    assert any("拱实不若拱虚" in c["text"] for c in blk["conditions"])
+    assert "未成立" in blk["boundary"]
+
+
+def test_relation_explanations_blocked_not_established():
+    """Grounding 不变量：BLOCKED 解释不得混入 relations，status 词汇固定。"""
+    from tianze.sdk import analyze
+    r = analyze({"date": "1984-01-05", "time": "10:30", "gender": "male"})
+    labels = [x["label"] for x in r.relations]
+    for e in r.relationExplanations:
+        if e["status"] == "BLOCKED":
+            assert e["label"] not in labels or "（不成）" in e["label"]
+        assert e["status"] in ("ESTABLISHED", "CANDIDATE", "BLOCKED")
+
+
+def test_relation_explanations_temporal_fill():
+    """temporal 层：填实解释带 ZP-05 禁则语境边界。"""
+    from tianze.analysis.temporal import analyze_temporal
+    ta = analyze_temporal(natal_stems=["癸", "己", "甲", "乙"],
+                          natal_branches=["亥", "丑", "巳", "卯"],
+                          day_master="癸", annual_stem="壬", annual_branch="子")
+    fills = [e for e in ta.relationExplanations if e["status"] == "CANDIDATE"
+             and e["kind"] == "arch_fill"]
+    assert fills and "忌刑冲填实" in fills[0]["boundary"]
+    assert any(c["candidateId"] == "ZP-05" for c in fills[0]["citations"])
+
+
+def test_relation_citations_registry_complete():
+    """引文注册表完备：citations.json 可载入、逐条带 sourceFile、引文非空。"""
+    import json
+    d = json.load(open("knowledge/rules/relations/citations.json", encoding="utf-8"))
+    assert d["count"] >= 13
+    for cid, c in d["citations"].items():
+        assert c["quote"], cid
+        assert c["sourceFile"], cid
+        assert c["sourceKind"] in ("CLASSICAL_EXPLICIT", "CANONICAL_TABLE")
+
+
+def test_ai_context_blocked_grounding():
+    """AI Context：解释链进入 claim_refs；BLOCKED 条目带边界（不得描述为成立）。"""
+    from tianze.sdk import analyze
+    from tianze.ai.context_builder import build_interpretation_context
+    r = analyze({"date": "1984-01-05", "time": "10:30", "gender": "male"})
+    ctx = build_interpretation_context(r.model_dump(by_alias=True))
+    blocked = [e for e in ctx.relation_explanations if e["status"] == "BLOCKED"]
+    assert blocked, "BLOCKED 解释应进入 AI 上下文"
+    assert all("未成立" in e["boundary"] for e in blocked)

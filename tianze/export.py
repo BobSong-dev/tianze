@@ -64,6 +64,22 @@ def to_markdown(result: dict[str, Any]) -> str:
             out.append(f"- {r.get('label', '')}（{'/'.join(r.get('positions', []))}）"
                        + (f"——{r['note']}" if r.get("note") else ""))
 
+    explanations = result.get("relationExplanations") or []
+    if explanations:
+        out.append("")
+        out.append(_h(3, "关系解释链（M25）"))
+        out.append("")
+        for e in explanations:
+            status_cn = {"ESTABLISHED": "结构事实", "CANDIDATE": "候选关系",
+                         "BLOCKED": "未成立候选"}.get(e.get("status", ""), e.get("status", ""))
+            conds = "；".join(f"{'✓' if c.get('satisfied') else '✗'}{c.get('text', '')}"
+                              for c in e.get("conditions", []))
+            cites = "；".join(c.get("candidateId", "") for c in e.get("citations", []))
+            out.append(f"- {e.get('label', '')}（{status_cn}）"
+                       + (f"——条件：{conds}" if conds else "")
+                       + (f"；引文：{cites}" if cites else "")
+                       + (f"；{e.get('boundary', '')}" if e.get("boundary") else ""))
+
     blocked = result.get("blockedRelations") or []
     if blocked:
         out.append("")

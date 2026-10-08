@@ -396,6 +396,17 @@ const deltaByAnalysis = computed(() => {
   return groups;
 });
 
+function relationExplanation(label: string): any {
+  // M25：按关系 label 查解释链（解释链与关系同 label 生成）
+  const exs: any[] = result.value?.relationExplanations ?? [];
+  return exs.find((e: any) => e.label === label && e.status !== "BLOCKED") ?? null;
+}
+
+function explanationForBlocked(label: string): any {
+  const exs: any[] = result.value?.relationExplanations ?? [];
+  return exs.find((e: any) => e.label === label && e.status === "BLOCKED") ?? null;
+}
+
 function explanationFor(theme: string): any {
   return (temporalData.value?.eventThemes?.explanations ?? {})[theme] ?? null;
 }
@@ -564,7 +575,7 @@ async function loadTemporal() {
 
       <!-- Relations -->
       <section v-if="activeTab === 'relations' && result.relations.length" class="panel">
-        <h2>干支关系</h2>
+        <h2>干支关系 <span class="note">点开任意关系查看成立条件、流派注记与古籍引文（M25 解释链）</span></h2>
         <div v-for="r in result.relations" :key="r.label + r.positions.join()" class="relation-item">
           <strong>{{ r.label }}</strong>
           <span class="pos">{{ r.positions.join(" · ") }}</span>
@@ -573,6 +584,19 @@ async function loadTemporal() {
           <span v-if="r.subType" class="badge">{{ r.subType }}</span>
           <span v-if="r.transformCandidate" class="badge">化 {{ r.transformCandidate }}（候选）</span>
           <span v-if="r.note" class="note">{{ r.note }}</span>
+          <details v-if="relationExplanation(r.label)">
+            <summary>解释链（{{ relationExplanation(r.label).status === 'ESTABLISHED' ? '结构事实' : '候选关系' }}）</summary>
+            <div class="note">{{ relationExplanation(r.label).boundary }}</div>
+            <div v-for="(c, ci) in relationExplanation(r.label).conditions" :key="ci" class="evidence-item"
+                 :class="c.satisfied ? 'rescue' : 'damage'">
+              {{ c.satisfied ? '✓' : '✗' }} {{ c.text }}
+            </div>
+            <div v-for="(sn, si) in relationExplanation(r.label).schoolNotes" :key="'s' + si" class="note">流派：{{ sn }}</div>
+            <div v-for="(c2, ki) in relationExplanation(r.label).citations" :key="'c' + ki" class="evidence-item">
+              <span class="badge">{{ c2.candidateId }}</span> {{ c2.book }}《{{ c2.title }}》——{{ c2.quote }}
+              <span v-if="c2.ocrRisk" class="badge damage">OCR 风险</span>
+            </div>
+          </details>
         </div>
         <template v-if="result.blockedRelations && result.blockedRelations.length">
           <h3>未成立的关系候选 <span class="note">「为什么不成立」——仅解释，不参与推理</span></h3>
@@ -581,6 +605,15 @@ async function loadTemporal() {
             <span class="pos">{{ r.positions.join(" · ") }}</span>
             <span class="badge">{{ r.subType }}</span>
             <span class="note">{{ r.note }}</span>
+            <details v-if="explanationForBlocked(r.label)">
+              <summary>为什么未成立</summary>
+              <div class="note">{{ explanationForBlocked(r.label).boundary }}</div>
+              <div v-for="(c, ci) in explanationForBlocked(r.label).conditions" :key="ci" class="evidence-item"
+                   :class="c.satisfied ? 'rescue' : 'damage'">{{ c.satisfied ? '✓' : '✗' }} {{ c.text }}</div>
+              <div v-for="(c2, ki) in explanationForBlocked(r.label).citations" :key="'c' + ki" class="evidence-item">
+                <span class="badge">{{ c2.candidateId }}</span> {{ c2.book }}——{{ c2.quote }}
+              </div>
+            </details>
           </div>
         </template>
       </section>

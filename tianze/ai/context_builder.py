@@ -55,6 +55,16 @@ def build_interpretation_context(
         claim_refs.append(f"fact:pillar:{pos}")
 
     # ---- Relations ----
+    # M25：关系级解释链（三态）进入 Context；BLOCKED 条目仅供"为什么未成立"解释
+    for e in result.get("relationExplanations") or []:
+        ctx.relation_explanations.append({
+            "refId": e.get("refId", ""), "kind": e.get("kind", ""), "kindCn": e.get("kindCn", ""),
+            "status": e.get("status", ""), "label": e.get("label", ""),
+            "boundary": e.get("boundary", ""),
+        })
+        claim_refs.append(f"{e.get('refId', '')}")
+        claim_refs.append(f"relationStatus:{e.get('refId', '')}:{e.get('status', '')}")
+
     for r in result.get("relations") or []:
         ctx.relations.append(ContextFact(
             category="relations", fact_type=FactType.DERIVED_FACT,

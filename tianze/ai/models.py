@@ -120,6 +120,7 @@ class InterpretationContext(BaseModel):
     meta: dict[str, Any] = {}
     chart_facts: list[ContextFact] = []
     relations: list[ContextFact] = []
+    relation_explanations: list[dict[str, Any]] = []  # M25 关系解释链（三态）
     structure: list[ContextFact] = []
     strength_methods: list[ContextMethodResult] = []
     strength_agreement: str | None = None

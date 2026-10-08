@@ -86,6 +86,16 @@ def to_html(result: dict) -> str:
                          + (f"〔{r['subType']}〕" if r.get('subType') else "")
                          + (f"——{r['note']}" if r.get('note') else "")
                          for r in rel]))
+    explanations = result.get("relationExplanations") or []
+    if explanations:
+        sec("relation_explanations", "关系解释链（M25：结构事实/候选/未成立）")
+        body.append(_ul([
+            f"{e.get('label', '')}〔{e.get('status', '')}〕"
+            + ("；".join(f"{'✓' if c.get('satisfied') else '✗'}{c.get('text', '')}"
+                         for c in e.get("conditions", [])))
+            + ("；引文：" + "、".join(c.get("candidateId", "") for c in e.get("citations", []))
+               if e.get("citations") else "")
+            for e in explanations]))
     blocked = result.get("blockedRelations") or []
     if blocked:
         sec("blocked_relations", "未成立的关系候选（解释用，不参与推理）")

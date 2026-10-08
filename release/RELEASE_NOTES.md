@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `0209aaeef61e`（含未提交改动）
+- commit: `4030fd258875`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（77.6s / 20 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **221**（{'event': 21, 'temporal': 18, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 564
+- 命例 1147；Replay 165；测试 568
 
 ## 质量状态
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（22）
+### 特性（23）
+- M25.1: 外格虚神候选 xushiOuter（飞天禄马/井栏叉拱刃/刑合/子邀巳）— ZP-05/07/11/12+DTZ-41，候选永不成格，外格说vs伤官变格说两注记；AI context refs + Web 候选区 + delta UNSUPPORTED note
 - M24 final: README + gate 20 steps ALL PASS at HEAD (artifacts refreshed)
 - M24.5b: release metadata/history refreshed at HEAD (P5 commit 一致)
 - M24.5: HTML 报告关系注记/未成立候选 + Web Evaluation compare 筛选（provider/仅回归，趋势随筛选联动）

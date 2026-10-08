@@ -89,7 +89,7 @@ def main() -> int:
             names = z.namelist()
             rules = [n for n in names if "_data/knowledge" in n
                      and n.endswith(".json") and "manifest" not in n]
-            artifacts_ok = (len(rules) == 7
+            artifacts_ok = (len(rules) == 8
                             and any("manifest.json" in n for n in names)
                             and any(n.endswith("cli.py") for n in names)
                             and any(n.endswith("paths.py") for n in names))

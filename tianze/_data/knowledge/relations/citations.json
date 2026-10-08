@@ -1,0 +1,151 @@
+{
+ "domain": "relations",
+ "schemaVersion": "1.0.0",
+ "count": 13,
+ "description": "关系级解释链引文注册表（M25）：由 tools/build_relation_citations.py 从 normalized 候选机械生成，引文逐字可回溯；禁止手写引文",
+ "citations": {
+  "DTZ-10": {
+   "candidateId": "DTZ-10",
+   "book": "DTZ",
+   "title": "暗冲暗会尤为喜，我冲彼冲皆冲起——拱实不若拱虚",
+   "purpose": "arch 主引文（暗冲暗会/拱实不若拱虚）",
+   "quote": "暗冲暗会尤为喜，我冲彼冲皆冲起。",
+   "sourceFile": "09p-滴天髓补注/09c-滴天髓补注_地支与总论干支.md",
+   "quality": "C",
+   "ocrRisk": false,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "ZP-05": {
+   "candidateId": "ZP-05",
+   "book": "ZP",
+   "title": "拱禄拱贵——两支拱虚必须\"集于一点\"",
+   "purpose": "拱禄拱贵条件与填实禁则（集于一点/忌刑冲填实）",
+   "quote": "（拱禄拱贵格）必须两支拱（虚），而天干相同，或天干暗合，（集）于一点…（若干）与全局亦无相涉之（关系），何足以成格。",
+   "sourceFile": "09p-滴天髓补注/06-子平一得知识库.md",
+   "quality": "B",
+   "ocrRisk": true,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "SPZY-34": {
+   "candidateId": "SPZY-34",
+   "book": "SPZY",
+   "title": "干与干相遇为明合，地支所藏人元之用相遇为暗合",
+   "purpose": "暗合逐对表（两支毗连各取禄旺之气/非以化论）",
+   "quote": "干与干相遇为明合，地支所藏人元之用相遇为暗合。两支毗连，各取其禄旺之气，如子已（巳）相合，（子中癸水得禄，已（巳）中戊土得禄。）即戊癸合也。寅丑或寅未相合，（甲己）卯申相合（乙庚）辰子或戌子相合，（戊癸）已（巳）丑相合，（丙辛戊癸，已（巳）酉会局，不以合论。）午亥相合，（丁壬甲己）凡两支有合，互相勾联，气势藉以团结。凡命造之佳者必多合，非以化论也。",
+   "sourceFile": "09p-滴天髓补注/08g-子平粹言_合非化与六合.md",
+   "quality": "C",
+   "ocrRisk": false,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "DTZ-26": {
+   "candidateId": "DTZ-26",
+   "book": "DTZ",
+   "title": "拱夹联珠、干支一气、暗冲遥合之类不成为格",
+   "purpose": "拱夹联珠暗冲遥合不成为格（边界）",
+   "quote": "三、拱夹、联珠，干支一气、暗冲、遥合之类，乃干支配合之关系，为一种看法，气势因是而和协，四柱因是而顺粹，不成为格。臂如拱贵夹印等格，能以拱夹为用而论休咎乎？用神另取，仍属于正格。此不待言而明也。",
+   "sourceFile": "09p-滴天髓补注/09g-滴天髓补注_杂气财官与正官.md",
+   "quality": "C",
+   "ocrRisk": true,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "DTZ-36": {
+   "candidateId": "DTZ-36",
+   "book": "DTZ",
+   "title": "夹拱遥合非格局亦非用神——只是精神所寄，可以取贵",
+   "purpose": "夹拱遥合非格局非用神（边界）",
+   "quote": "影响遥系者，夹拱、遥合等类是也。夹拱、遥合既非格局，亦不能取以为用，不过为八字顺遂精粹之一，可以取贵而已（见上干支总论）。认为格局者误，一概弃置不论，亦未免因壹（噎）废食也。",
+   "sourceFile": "09p-滴天髓补注/09k-滴天髓补注_影响遥系官煞伤官.md",
+   "quality": "C",
+   "ocrRisk": true,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "DTZ-41": {
+   "candidateId": "DTZ-41",
+   "book": "DTZ",
+   "title": "井栏叉、飞天禄马、金神——遇官星填实破格，其实为伤官变格",
+   "purpose": "填实破格与伤官变格辨正（外格边界）",
+   "quote": "此张勋命造，俗称井栏。丙火官星填实破格，其实为伤官变格之一。金水伤官，喜见官星，运行南方，威镇江北。",
+   "sourceFile": "09p-滴天髓补注/09l-滴天髓补注_五类伤官.md",
+   "quality": "C",
+   "ocrRisk": true,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "ZP-07": {
+   "candidateId": "ZP-07",
+   "book": "ZP",
+   "title": "刑合格——癸日暗合戊，时甲寅刑巳成格",
+   "purpose": "刑合格起例与争议（OCR 残缺）",
+   "quote": "按刑合格，以癸日暗合戊土，戊（禄）在巳，而时甲寅，以寅刑巳以成格，似与（子邀己格）巳相同…用（伤官）故忌见戊已官煞、及枭印食（神）。六癸日而无（戊）土，得甲寅时，寅刑巳格尤奇。",
+   "sourceFile": "09p-滴天髓补注/06-子平一得知识库.md",
+   "quality": "B",
+   "ocrRisk": true,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "ZP-11": {
+   "candidateId": "ZP-11",
+   "book": "ZP",
+   "title": "子邀己格（丑邀巳附）——子巳相合、以虚神邀巳中丙戊",
+   "purpose": "子邀巳虚神邀合（OCR 残缺）",
+   "quote": "（子邀己格、丑邀巳附）…皆取印星太（旺）…已者，合巳中丙戊也，癸禄于子，戊禄于巳，子巳相合也…辛以丑土为印，癸以丑中辛金为（印）…",
+   "sourceFile": "09p-滴天髓补注/06-子平一得知识库.md",
+   "quality": "C",
+   "ocrRisk": true,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "ZP-12": {
+   "candidateId": "ZP-12",
+   "book": "ZP",
+   "title": "井栏叉格与倒冲格（庚日得禄之地）",
+   "purpose": "井栏叉/倒冲格（庚日得禄之地，OCR 残缺）",
+   "quote": "（井栏叉格：庚辰、庚申、丁丑…）",
+   "sourceFile": "09p-滴天髓补注/06-子平一得知识库.md",
+   "quality": "C",
+   "ocrRisk": true,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "R9": {
+   "candidateId": "R9",
+   "book": "Tianze 关系表（relation/tables.py）",
+   "title": "公版关系表",
+   "purpose": "关系口径 R9",
+   "quote": "冲/害/破/刑/三合三会逐对公版口径（多重关系并存不裁决）",
+   "sourceFile": "tianze/relation/tables.py",
+   "quality": "-",
+   "ocrRisk": false,
+   "sourceKind": "CANONICAL_TABLE"
+  },
+  "R10": {
+   "candidateId": "R10",
+   "book": "Tianze 关系表（relation/tables.py）",
+   "title": "公版关系表",
+   "purpose": "关系口径 R10",
+   "quote": "三合半合须含中神",
+   "sourceFile": "tianze/relation/tables.py",
+   "quality": "-",
+   "ocrRisk": false,
+   "sourceKind": "CANONICAL_TABLE"
+  },
+  "R13": {
+   "candidateId": "R13",
+   "book": "Tianze 关系表（relation/tables.py）",
+   "title": "公版关系表",
+   "purpose": "关系口径 R13",
+   "quote": "干合/六合只报化气候选，不判化气成立",
+   "sourceFile": "tianze/relation/tables.py",
+   "quality": "-",
+   "ocrRisk": false,
+   "sourceKind": "CANONICAL_TABLE"
+  },
+  "R14": {
+   "candidateId": "R14",
+   "book": "Tianze 关系表（relation/tables.py）",
+   "title": "公版关系表",
+   "purpose": "关系口径 R14",
+   "quote": "天干四冲（戊己土居中不冲）",
+   "sourceFile": "tianze/relation/tables.py",
+   "quality": "-",
+   "ocrRisk": false,
+   "sourceKind": "CANONICAL_TABLE"
+  }
+ }
+}

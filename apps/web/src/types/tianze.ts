@@ -138,7 +138,7 @@ export interface AdvancedAnalysis {
             provenance: { level: string; concept: string }[];
           }[];
     zhuanwang: { type: string; status: string; supports: unknown[]; blockers: unknown[]; schoolVariants: Record<string, string> }[];
-    xushiOuter?: { type: string; status: string; supports: unknown[]; blockers: unknown[]; schoolVariants: Record<string, string> }[];
+    xushiOuter?: { type: string; status: string; supports: unknown[]; blockers: { text: string }[]; schoolVariants: Record<string, string> }[];
     transformation: { stemPair: string[]; targetElement: string; status: string;
                       seasonSupport: boolean | null; obstructions: string[] }[];
   };
@@ -155,6 +155,7 @@ export interface AnalyzeResponse {
   dayMaster: { stem: string; element: string; yinYang: string };
   relations: RelationData[];
   blockedRelations?: RelationData[];
+  relationExplanations?: RelationExplanationData[];
   roots: RootData[];
   visibility: VisibilityData[];
   monthCommand: MonthCommandData | null;
@@ -306,4 +307,22 @@ export interface MetaResponse {
 
 export interface ApiError {
   error: { code: string; message: string; details: Record<string, unknown> };
+}
+
+export interface RelationExplanationData {
+  refId: string;
+  kind: string;
+  kindCn: string;
+  status: string;
+  label: string;
+  members: string[];
+  positions: string[];
+  conditions: { text: string; satisfied: boolean }[];
+  schoolNotes: string[];
+  exceptions: string[];
+  citations: { candidateId: string; book: string; title: string; quote: string;
+               sourceFile: string; quality: string; ocrRisk: boolean; sourceKind: string }[];
+  evidence: string[];
+  boundary: string;
+  relationSchemaVersion: string;
 }

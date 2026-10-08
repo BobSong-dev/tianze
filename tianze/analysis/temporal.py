@@ -111,6 +111,7 @@ class TemporalRelation(CamelizeModel):
     completes_harmony: bool = False     # 岁运补齐三合/三会
     transform_candidate: str | None = None  # 合化候选五行
     note: str | None = None
+    blocked: bool = False                  # M25：未成立候选（仅 blockedRelations 场景）
 
 
 class TemporalStructure(CamelizeModel):
@@ -151,6 +152,7 @@ class TemporalAnalysis(CamelizeModel):
     deltas: list[TemporalDelta] = []
     evidence: list[str] = []
     ruleTriggers: list[TemporalEvidence] = []
+    relationExplanations: list[Any] = []   # M25 关系级解释链（dict 形态）
     warnings: list[str] = []
 
 
@@ -484,9 +486,19 @@ def analyze_temporal(
     from tianze.knowledge.temporal_rules import evaluate_temporal_rules
     rule_triggers = evaluate_temporal_rules(ctx, relations, structures)
 
+    # M25：关系级解释链（岁运引入的候选关系/填实等，复用统一解释器）
+    from tianze.analysis.relation_explain import explain_relation_generic
+    relation_explanations = [
+        e.model_dump(by_alias=True, exclude_none=True) for e in (
+            explain_relation_generic(r.kind, r.label, r.members, r.positions, r.note,
+                                     blocked=getattr(r, "blocked", False))
+            for r in relations)
+    ]
+
     return TemporalAnalysis(
         context=ctx, relations=relations, structures=structures,
         evidence=evidence, ruleTriggers=rule_triggers,
+        relationExplanations=relation_explanations,
         warnings=["M12/M13 岁运分析为结构变化检测，不构成任何吉凶预测。"],
     )
 
