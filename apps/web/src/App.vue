@@ -225,12 +225,92 @@ function nodeLabel(n: any): string {
 }
 
 function selectNode(id: string | null) {
+  if (graphMoved.value) return;  // 拖拽平移结束不当作点击
   selectedNodeId.value = id === selectedNodeId.value ? null : id;
 }
 
 const selectedNodeDetail = computed(() => {
   if (!selectedNodeId.value || !kbRules.value.length) return null;
   return kbRules.value.find(r => r.id === selectedNodeId.value) ?? null;
+});
+
+// M23 · Graph pan/zoom：viewBox 平移缩放（纯展示交互，不影响图数据）
+const graphView = ref({ x: 0, y: 0, w: 840, h: 640 });
+const graphViewBox = computed(() =>
+  `${graphView.value.x} ${graphView.value.y} ${graphView.value.w} ${graphView.value.h}`);
+const graphMoved = ref(false);
+let graphDrag: { px: number; py: number } | null = null;
+
+function onGraphWheel(e: WheelEvent) {
+  const v = graphView.value;
+  const scale = e.deltaY > 0 ? 1.12 : 1 / 1.12;
+  const nw = Math.min(2400, Math.max(180, v.w * scale));
+  const k = nw / v.w;
+  const svg = e.currentTarget as SVGElement;
+  const rect = svg.getBoundingClientRect();
+  const mx = v.x + ((e.clientX - rect.left) / rect.width) * v.w;
+  const my = v.y + ((e.clientY - rect.top) / rect.height) * v.h;
+  graphView.value = { x: mx - (mx - v.x) * k, y: my - (my - v.y) * k, w: nw, h: v.h * k };
+}
+
+function onGraphDown(e: PointerEvent) {
+  graphDrag = { px: e.clientX, py: e.clientY };
+  graphMoved.value = false;
+  (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
+}
+
+function onGraphMove(e: PointerEvent) {
+  if (!graphDrag) return;
+  const svg = e.currentTarget as SVGElement;
+  const rect = svg.getBoundingClientRect();
+  const dx = ((e.clientX - graphDrag.px) / rect.width) * graphView.value.w;
+  const dy = ((e.clientY - graphDrag.py) / rect.height) * graphView.value.h;
+  if (Math.abs(e.clientX - graphDrag.px) + Math.abs(e.clientY - graphDrag.py) > 3)
+    graphMoved.value = true;
+  graphView.value = { ...graphView.value, x: graphView.value.x - dx, y: graphView.value.y - dy };
+  graphDrag = { px: e.clientX, py: e.clientY };
+}
+
+function onGraphUp() { graphDrag = null; }
+
+function resetGraphView() { graphView.value = { x: 0, y: 0, w: 840, h: 640 }; graphMoved.value = false; }
+
+// M23 · 规则 → ExplanationChain 跳转：当前分析的哪个主题链引用了选中规则
+const chainJumpThemes = computed<string[]>(() => {
+  const id = selectedNodeId.value;
+  const ex = (temporalData.value?.eventThemes?.explanations ?? {}) as Record<string, any>;
+  if (!id) return [];
+  return Object.keys(ex).filter(theme => {
+    const r = ex[theme]?.reasoning ?? {};
+    return [...(r.supportingChain ?? []), ...(r.opposingChain ?? [])]
+      .some((h: any) => h?.ruleId === id);
+  });
+});
+
+function jumpToChain() { activeTab.value = "temporal"; }
+
+// M23 · 遥测趋势 sparkline：确定性指标（pass 率/grounding）+ 遥测 latency 的历史折线
+const evalTrend = computed(() => {
+  const cs: any[] = kbEvalCompare.value?.comparisons ?? [];
+  const tail = cs.slice(-40);
+  if (tail.length < 2) return null;
+  const n = tail.length;
+  const px = (i: number) => 34 + (i * 556) / Math.max(1, n - 1);
+  const line = (vals: number[], lo: number, hi: number) => {
+    const span = hi - lo || 1;
+    return vals.map((v, i) => `${px(i).toFixed(1)},${(86 - ((v - lo) / span) * 72).toFixed(1)}`).join(" ");
+  };
+  const rates = tail.map(c => (c.metrics?.verdictTotal ? c.metrics.verdictPass / c.metrics.verdictTotal : 0));
+  const grounds = tail.map(c => c.metrics?.groundingIssueTotal ?? 0);
+  const latencies = tail.map(c => c.telemetry?.latencyMsAvg).filter((x: any) => typeof x === "number") as number[];
+  return {
+    n,
+    rateLine: line(rates, Math.min(...rates), Math.max(...rates, 1)),
+    groundLine: line(grounds, 0, Math.max(...grounds, 1)),
+    latencyLine: latencies.length >= 2 ? line(latencies, Math.min(...latencies), Math.max(...latencies)) : null,
+    latencyMax: latencies.length ? Math.max(...latencies) : null,
+    groundMax: Math.max(...grounds),
+  };
 });
 
 async function loadGraph() {
@@ -867,10 +947,13 @@ async function loadTemporal() {
             <option value="rescues">rescues（救应）</option>
             <option value="school-conflict">school-conflict（流派）</option>
           </select>
-          <span class="note">点击节点聚焦邻居；再点取消。颜色：橙=event 蓝=temporal 绿=tiaohou 紫=救应谓词</span>
+          <button class="link" @click="resetGraphView">重置视图</button>
+          <span class="note">滚轮缩放 · 拖拽平移 · 点击节点聚焦邻居（再点取消）。颜色：橙=event 蓝=temporal 绿=tiaohou 紫=救应谓词</span>
         </div>
-        <svg v-if="graphSvg" :viewBox="`0 0 ${graphSvg.width} ${graphSvg.height}`"
-             class="graph-svg" role="img" aria-label="Rule Conflict/Rescue Graph">
+        <svg v-if="graphSvg" :viewBox="graphViewBox"
+             class="graph-svg" role="img" aria-label="Rule Conflict/Rescue Graph"
+             @wheel.prevent="onGraphWheel" @pointerdown="onGraphDown"
+             @pointermove="onGraphMove" @pointerup="onGraphUp" @pointerleave="onGraphUp">
           <line v-for="(e, i) in graphSvg.edges" :key="'e' + i"
                 :x1="e.x1" :y1="e.y1" :x2="e.x2" :y2="e.y2"
                 :stroke="e.type === 'conflict' ? '#c0392b' : e.type === 'rescues' ? '#8e44ad' : '#95a5a6'"
@@ -898,6 +981,10 @@ async function loadTemporal() {
             · provenance {{ (selectedNodeDetail.provenanceLevels || []).join('/') }}
           </div>
           <div v-if="selectedNodeDetail.conflictNote" class="note">⚠ {{ selectedNodeDetail.conflictNote }}</div>
+          <div v-if="chainJumpThemes.length" class="note">
+            当前分析的解释链引用了该规则（{{ chainJumpThemes.join('、') }} 主题）：
+            <button class="link" @click="jumpToChain">跳转解释链</button>
+          </div>
         </div>
         <div v-for="(e, i) in graphEdges" :key="i" class="evidence-item">
           <span class="badge" :class="{ damage: e.type === 'conflict' }">{{ e.type }}</span>
@@ -932,6 +1019,17 @@ async function loadTemporal() {
         </div>
         <div v-if="kbEvalCompare?.comparisons?.length" class="candidate-block">
           <strong>AI Evaluation Compare <span class="note">确定性指标回归对比（无 LLM-as-judge）</span></strong>
+          <div v-if="evalTrend" class="trend-box">
+            <div class="note">趋势（最近 {{ evalTrend.n }} 次运行）：pass 率（蓝）· grounding 问题数（红）
+              <span v-if="evalTrend.latencyLine">· latency ms（绿，max {{ evalTrend.latencyMax }}）</span></div>
+            <svg viewBox="0 0 600 96" class="trend-svg" role="img" aria-label="evaluation trend">
+              <polyline :points="evalTrend.rateLine" fill="none" stroke="#2980b9" stroke-width="2" />
+              <polyline :points="evalTrend.groundLine" fill="none" stroke="#c0392b" stroke-width="1.5"
+                        :opacity="evalTrend.groundMax ? 1 : 0.15" />
+              <polyline v-if="evalTrend.latencyLine" :points="evalTrend.latencyLine" fill="none"
+                        stroke="#27ae60" stroke-width="1.5" stroke-dasharray="4 3" />
+            </svg>
+          </div>
           <details v-for="(c, i) in kbEvalCompare.comparisons" :key="i">
             <summary>
               {{ c.metrics.provider }}/{{ c.metrics.model }}（prompt {{ c.metrics.promptVersion }}）
@@ -1108,6 +1206,9 @@ summary { cursor: pointer; color: #3498db; font-size: 0.85rem; }
 .graph-svg { width: 100%; height: auto; background: #fafafa; border: 1px solid #eee; border-radius: 6px; margin: 0.5rem 0; }
 .graph-node { cursor: pointer; }
 .graph-node:hover circle { stroke: #3498db; }
+.graph-svg { touch-action: none; user-select: none; }
+.trend-box { margin: 0.4rem 0; }
+.trend-svg { width: 100%; max-width: 640px; height: auto; background: #fafafa; border: 1px solid #eee; border-radius: 6px; }
 .graph-label { font-size: 9px; fill: #555; pointer-events: none; }
 @media (max-width: 600px) { .pillars { grid-template-columns: repeat(2, 1fr); } .form-grid { grid-template-columns: 1fr; } }
 </style>
