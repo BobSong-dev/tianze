@@ -2,16 +2,16 @@
  "schemaVersion": "1.0.0",
  "allPass": true,
  "failed": [],
- "totalSeconds": 88.1,
+ "totalSeconds": 81.8,
  "steps": [
   {
    "step": "pytest",
    "exitCode": 0,
-   "elapsedSeconds": 58.47,
+   "elapsedSeconds": 53.68,
    "tail": [
     "",
     "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
-    "562 passed, 5 warnings in 57.55s"
+    "564 passed, 5 warnings in 53.11s"
    ]
   },
   {
@@ -61,7 +61,7 @@
   {
    "step": "case_regression",
    "exitCode": 0,
-   "elapsedSeconds": 0.65,
+   "elapsedSeconds": 0.68,
    "tail": [
     "  \"current\": 1147",
     " }",
@@ -71,7 +71,7 @@
   {
    "step": "temporal_regression",
    "exitCode": 0,
-   "elapsedSeconds": 0.32,
+   "elapsedSeconds": 0.36,
    "tail": [
     "Temporal Regression：{} → 报告 C:\\Project\\tianze\\regression\\temporal-report.md"
    ]
@@ -79,7 +79,7 @@
   {
    "step": "event_evaluation",
    "exitCode": 0,
-   "elapsedSeconds": 1.52,
+   "elapsedSeconds": 1.58,
    "tail": [
     "  随机盘主题触发率：{'career': 0.44, 'mobility': 0.315, 'relationship': 0.495, 'social': 0.335, 'study': 0.235, 'wealth': 0.27}",
     "  异常触发：{'rules': {}, 'themes': {}}",
@@ -89,17 +89,17 @@
   {
    "step": "case_replay",
    "exitCode": 0,
-   "elapsedSeconds": 0.64,
+   "elapsedSeconds": 0.59,
    "tail": [
-    "  主题覆盖：{'career': 55, 'mobility': 53, 'relationship': 146, 'social': 82, 'wealth': 60, 'study': 27, 'family': 16}",
     "  status 分布：{'CANDIDATE': 326, 'UNRESOLVED': 69, 'LIKELY': 20, 'DISPUTED': 24}",
-    "  unresolved 率：0.157 | disagreement 率：0.055"
+    "  unresolved 率：0.157 | disagreement 率：0.055",
+    "  虚神/暗合（M24）：{'hidden_combination': 51, 'arch': 155}，覆盖 109 例"
    ]
   },
   {
    "step": "ai_evaluation_mock",
    "exitCode": 0,
-   "elapsedSeconds": 0.5,
+   "elapsedSeconds": 0.49,
    "tail": [
     "  PIPELINE_OK disputed_career issues=0 banned=[] disputeMissing=True",
     "  PIPELINE_OK multi_view_agree issues=0 banned=[] disputeMissing=True",
@@ -109,7 +109,7 @@
   {
    "step": "review_queue",
    "exitCode": 0,
-   "elapsedSeconds": 0.09,
+   "elapsedSeconds": 0.08,
    "tail": [
     "Review Queue：430 项 → review/review-queue.json",
     "  {'ocrRisk': 163, 'machineCurated': 221, 'sensitiveClaims': 38, 'ruleConflicts': 8}"
@@ -118,7 +118,7 @@
   {
    "step": "rule_coverage_audit",
    "exitCode": 0,
-   "elapsedSeconds": 0.07,
+   "elapsedSeconds": 0.08,
    "tail": [
     "Rule Coverage Audit：221 条规则 → {'high_conflict': 6, 'high_rescue_dep': 1, 'low_trigger': 1, 'no_case_coverage': 20, 'only_silent': 13}"
    ]
@@ -126,7 +126,7 @@
   {
    "step": "rescue_coverage",
    "exitCode": 0,
-   "elapsedSeconds": 0.05,
+   "elapsedSeconds": 0.07,
    "tail": [
     "Rescue Coverage：5/21 规则有救应；heuristic 谓词 ['wealth_favorable']；keep-both 2；未结构化经典例外 0"
    ]
@@ -134,15 +134,15 @@
   {
    "step": "ai_eval_compare",
    "exitCode": 0,
-   "elapsedSeconds": 0.07,
+   "elapsedSeconds": 0.08,
    "tail": [
-    "AI Eval Compare：387 条历史；回归信号 0"
+    "AI Eval Compare：397 条历史；回归信号 0"
    ]
   },
   {
    "step": "benchmark",
    "exitCode": 0,
-   "elapsedSeconds": 1.56,
+   "elapsedSeconds": 1.67,
    "tail": [
     "benchmark history signals: 无"
    ]
@@ -150,7 +150,7 @@
   {
    "step": "release_metadata",
    "exitCode": 0,
-   "elapsedSeconds": 1.19,
+   "elapsedSeconds": 1.31,
    "tail": [
     " }",
     "}",
@@ -160,7 +160,7 @@
   {
    "step": "release_check",
    "exitCode": 0,
-   "elapsedSeconds": 21.31,
+   "elapsedSeconds": 19.55,
    "tail": [
     "  PASS P7_benchmark_regression（全部在阈值内（阈值：{\"caseChart1147.perCaseMs\": 5.0, \"replayCorpus.perCaseMs\": 5.0, \"timeline80y.elapsedSeconds\": 1.0}））",
     "",
@@ -170,18 +170,18 @@
   {
    "step": "release_automation_dryrun",
    "exitCode": 0,
-   "elapsedSeconds": 0.25,
+   "elapsedSeconds": 0.22,
    "tail": [
-    "Release Automation：0.4.0.dev0 → v0.4.0（minor）；commits {'features': 16, 'fixes': 0, 'tests': 2, 'docs': 0, 'chores': 0}；notes → release/RELEASE_NOTES.md",
+    "Release Automation：0.4.0.dev0 → v0.4.0（minor）；commits {'features': 18, 'fixes': 0, 'tests': 2, 'docs': 0, 'chores': 0}；notes → release/RELEASE_NOTES.md",
     "  tag：dry-run（未创建，不 push）"
    ]
   },
   {
    "step": "release_history",
    "exitCode": 0,
-   "elapsedSeconds": 0.22,
+   "elapsedSeconds": 0.2,
    "tail": [
-    "Release History：v0.4.0.dev0 @ 83ebb6a92338 已记录 → release-history.jsonl"
+    "Release History：v0.4.0.dev0 @ a461abdd8d61 已记录 → release-history.jsonl"
    ]
   }
  ]

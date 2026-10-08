@@ -19,7 +19,7 @@ from tianze.calendar.time_resolution import resolve_time
 from tianze.domain import models as M
 from tianze.ganzhi import tables as G
 from tianze.ganzhi.tables import ten_god
-from tianze.relation.relations import analyze_relations
+from tianze.relation.relations import analyze_blocked_arches, analyze_relations
 
 _LUNAR_PYTHON_VERSION = _pkg_version("lunar_python")
 
@@ -170,6 +170,7 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
                                   pillar_hour.branch if pillar_hour else None]
     positions: list[M.Position] = ["year", "month", "day", "hour"]
     relations = analyze_relations(stems, branches, positions, day_master=day_master)
+    blocked_relations = analyze_blocked_arches(stems, branches, positions, day_master=day_master)
 
     # 结构事实（M3）：月令 / 通根 / 透干 / 五行统计（不加权，R15-R18）
     month_command = compute_month_command(month_gz[1], day_master, stems)
@@ -232,6 +233,7 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
         special_points=special,
         luck=luck,
         relations=relations,
+        blocked_relations=blocked_relations,
         roots=roots,
         visibility=visibility,
         month_command=month_command,

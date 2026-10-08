@@ -277,3 +277,42 @@ def analyze_relations(
         ))
 
     return out
+
+
+def analyze_blocked_arches(
+    stems: Sequence[str | None],
+    branches: Sequence[str | None],
+    positions: Sequence[Position],
+    day_master: str | None = None,
+) -> list[Interaction]:
+    """未成立的拱夹候选（M24 可解释性）：隔二缺一但被拱之支**在场**——拱而不成。
+
+    DTZ-10「拱实不若拱虚」：虚神在场即为实字，不构成拱夹关系；本函数只产出
+    「为什么不成立」的解释条目（blockedRelations），不是关系本身——调用方必须
+    与 analyze_relations 输出分开呈现，不得混入关系列表。
+    """
+    from tianze.ganzhi.tables import STEM_LU
+    out: list[Interaction] = []
+    present = {b for b in branches if b}
+    n = len(positions)
+    for i in range(n):
+        for j in range(i + 1, n):
+            b1, b2 = branches[i], branches[j]
+            if not b1 or not b2:
+                continue
+            target = T.arch_target(b1, b2)
+            if target is None or target not in present:
+                continue
+            where = "/".join(positions[k] for k, b in enumerate(branches) if b == target)
+            pa, pb = sorted((b1, b2), key=branch_index)
+            out.append(Interaction(
+                kind=RelationKind.ARCH, label=f"{pa}{pb}拱{target}（不成）",
+                members=[pa, pb, target], positions=[positions[i], positions[j]],
+                adjacency=Adjacency.ADJACENT if j - i == 1 else Adjacency.SEPARATED,
+                month_involved=_month_involved(positions, (i, j)),
+                sub_type="拱而不成（靶支在场）",
+                note=f"被拱之支{target}已见于{where}——实字非虚神（DTZ-10：拱实不若拱虚），"
+                     "不构成拱夹关系；不报为关系、不参与推理，仅作「为什么未成立」解释",
+                convention_id="DTZ-10",
+            ))
+    return out

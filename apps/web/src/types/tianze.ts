@@ -153,6 +153,7 @@ export interface AnalyzeResponse {
   pillars: { year: PillarData; month: PillarData; day: PillarData; hour?: PillarData };
   dayMaster: { stem: string; element: string; yinYang: string };
   relations: RelationData[];
+  blockedRelations?: RelationData[];
   roots: RootData[];
   visibility: VisibilityData[];
   monthCommand: MonthCommandData | null;

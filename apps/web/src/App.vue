@@ -560,9 +560,19 @@ async function loadTemporal() {
           <span class="pos">{{ r.positions.join(" · ") }}</span>
           <span v-if="r.adjacency" class="badge">{{ r.adjacency === "ADJACENT" ? "贴邻" : "隔柱" }}</span>
           <span v-if="r.monthInvolved" class="badge">月令</span>
+          <span v-if="r.subType" class="badge">{{ r.subType }}</span>
           <span v-if="r.transformCandidate" class="badge">化 {{ r.transformCandidate }}（候选）</span>
           <span v-if="r.note" class="note">{{ r.note }}</span>
         </div>
+        <template v-if="result.blockedRelations && result.blockedRelations.length">
+          <h3>未成立的关系候选 <span class="note">「为什么不成立」——仅解释，不参与推理</span></h3>
+          <div v-for="r in result.blockedRelations" :key="'b' + r.label + r.positions.join()" class="relation-item">
+            <strong>{{ r.label }}</strong>
+            <span class="pos">{{ r.positions.join(" · ") }}</span>
+            <span class="badge">{{ r.subType }}</span>
+            <span class="note">{{ r.note }}</span>
+          </div>
+        </template>
       </section>
 
       <!-- Structure (roots/visibility/month) -->

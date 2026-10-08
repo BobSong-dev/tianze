@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `83ebb6a92338`（含未提交改动）
+- commit: `a461abdd8d61`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（88.1s / 20 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **221**（{'event': 21, 'temporal': 18, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 562
+- 命例 1147；Replay 165；测试 564
 
 ## 质量状态
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.528,
-  "perCaseMs": 0.51
+  "elapsedSeconds": 0.574,
+  "perCaseMs": 0.55
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.722,
-  "perCaseMs": 0.69
+  "elapsedSeconds": 0.735,
+  "perCaseMs": 0.7
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.021
+  "elapsedSeconds": 0.02
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（17）
+### 特性（18）
+- M24.3: 命例×虚神联动 — build_case_chart 挂关系层（与 pipeline 同一 analyze_relations），case_replay 增 xushiRelations 摘要与统计（165 例重放中 109 例含拱夹/暗合：arch 155/暗合 51）
 - M24.2: regression baselines refreshed (M24.1 documented engine change) + ADR-062 拱夹虚神候选关系边界 + README M24 + gate 20步/release_check/web build/E2E ALL PASS
 - M24.1: 拱夹/虚神(arch)与暗合(hidden_combination)关系引擎 — DTZ-10/ZP-05/SPZY-34 引文级；temporal 层 arch_fill/arch/hidden_combination；TR-DTZ-10 评估器只读关系层；cong 印比合去两说(SP-CG-E1)；arch members canonical
 - M23 final: README M23 status + gate 20 steps ALL PASS + release_check ALL PASS (dev wheel 0.4.0.dev0, P5 commit 一致)

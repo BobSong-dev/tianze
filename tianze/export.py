@@ -64,6 +64,15 @@ def to_markdown(result: dict[str, Any]) -> str:
             out.append(f"- {r.get('label', '')}（{'/'.join(r.get('positions', []))}）"
                        + (f"——{r['note']}" if r.get("note") else ""))
 
+    blocked = result.get("blockedRelations") or []
+    if blocked:
+        out.append("")
+        out.append(_h(3, "未成立的关系候选（解释用）"))
+        out.append("")
+        for r in blocked:
+            out.append(f"- {r.get('label', '')}（{'/'.join(r.get('positions', []))}）"
+                       + f"——{r.get('note', '')}")
+
     # ---- 旺衰 ----
     sr = result.get("strength")
     if sr:

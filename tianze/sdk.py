@@ -141,6 +141,7 @@ class SimplifiedResult(BaseModel):
     pillars: dict
     dayMaster: dict
     relations: list = []
+    blockedRelations: list = []
     roots: list = []
     visibility: list = []
     monthCommand: dict | None = None
@@ -341,6 +342,7 @@ def analyze(
         pillars=d.get("pillars") or {},
         dayMaster=d.get("dayMaster") or {},
         relations=d.get("relations") or [] if options.include_relations else [],
+        blockedRelations=(d.get("blockedRelations") or []) if options.include_relations else [],
         roots=d.get("roots") or [] if options.include_element_counts else [],
         visibility=d.get("visibility") or [],
         monthCommand=d.get("monthCommand") if options.include_strength else None,

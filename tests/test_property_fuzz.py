@@ -326,3 +326,29 @@ def test_mld12_zhouxi_chart_arch():
     # 丑亥子 ⊆ 亥子丑（亥在场）→ 拱三会方（北方水·暗会）；丁禄在午，非拱禄
     assert a.sub_type == "拱三会方（北方水·暗会）"
     assert "暗冲暗会两说" in a.note
+
+
+# ---------- M24 · 未成立拱夹候选（blockedRelations） ----------
+
+def test_blocked_arch_target_present():
+    """亥丑对 target 子在场 → blockedRelations 报「拱而不成」，且不入 relations。"""
+    from tianze.relation.relations import analyze_blocked_arches, analyze_relations
+    pos = ["year", "month", "day", "hour"]
+    stems = ["癸", "癸", "丁", "辛"]
+    branches = ["亥", "子", "丑", "巳"]
+    rels = analyze_relations(stems, branches, pos, "癸")
+    assert not any(r.kind.value == "arch" for r in rels), "靶支在场不得报 arch 关系"
+    blocked = analyze_blocked_arches(stems, branches, pos, "癸")
+    assert any(r.label == "丑亥拱子（不成）" for r in blocked), [r.label for r in blocked]
+    b = next(r for r in blocked if r.label == "丑亥拱子（不成）")
+    assert b.sub_type == "拱而不成（靶支在场）"
+    assert "拱实不若拱虚" in b.note
+
+
+def test_blocked_arch_sdk_passthrough():
+    """blockedRelations 进 SDK 结果（additive），且与 relations 严格分离。"""
+    from tianze.sdk import analyze
+    r = analyze({"date": "1984-01-05", "time": "10:30", "gender": "male"})
+    labels = [x["label"] for x in r.blockedRelations]
+    assert any("不成" in x for x in labels), labels
+    assert not any("不成" in x["label"] for x in r.relations)

@@ -461,6 +461,7 @@ class BaziChart(CamelizeModel):
     special_points: SpecialPoints | None = None
     luck: LuckInfo | None = None
     relations: list[Interaction] = []
+    blocked_relations: list[Interaction] = []    # M24 未成立的拱夹候选（解释用，非关系）
     roots: list[RootEvidence] = []               # M3.1
     visibility: list[StemVisibility] = []        # M3.2
     month_command: MonthCommand | None = None    # M3.3
