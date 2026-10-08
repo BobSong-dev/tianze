@@ -835,6 +835,18 @@ async function loadTemporal() {
             冲突/救应邻接：{{ r.conflictNeighbors.map((c: any) => c.edgeType + (c.related ? '→' + c.related.join(',') : '')).join("；") }}
           </div>
           <div v-if="r.conflictNote" class="note">⚠ {{ r.conflictNote }}</div>
+          <details v-if="r.replaySamples?.length">
+            <summary>典型案例回放（{{ r.replaySamples.length }}）</summary>
+            <div v-for="(rp, i) in r.replaySamples" :key="i" class="evidence-item note">
+              {{ rp.caseId }}（{{ rp.book }}）{{ rp.luck ? '· 运 ' + rp.luck : '' }}{{ rp.annual ? '· 年 ' + rp.annual : '' }}
+              — {{ rp.theme }}/{{ rp.status }}
+              <span v-if="rp.relation" :class="{ rescue: rp.relation === 'SOURCE_SUPPORTS', damage: rp.relation === 'SOURCE_DIFFERS' }">
+                [{{ rp.relation }}]</span>
+            </div>
+            <div v-if="Object.keys(r.relationDistribution || {}).length" class="note">
+              分布：{{ Object.entries(r.relationDistribution).map(([k, v]) => k + ':' + v).join('、') }}
+            </div>
+          </details>
         </div>
         <p v-if="!kbFiltered.length" class="note">无匹配规则。</p>
 

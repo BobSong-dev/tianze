@@ -47,3 +47,44 @@ def test_history_no_secrets():
         assert set(e.keys()) <= {"schemaVersion", "provider", "model", "promptVersion",
                                  "interpretationSchemaVersion", "caseSet", "caseSetHash",
                                  "summary", "perCase", "telemetry"}
+
+
+def test_five_reading_consistency_empirical():
+    """H5 实证：五读数 mixed 占多数是真实方法论分歧（weighted 全局计分 vs
+    得令纯月令）——救应保守激活是 ADR-049 的正确行为，非映射错误。
+    锁定：全同向（激活可用）+ 分歧（不激活）+ 无反向误判。"""
+    import datetime
+    import random
+    from types import SimpleNamespace
+    from tianze.domain.models import BirthInfo, Gender
+    from tianze.pipeline import build_chart
+    from tianze.analysis.rescues import evaluate_rescues
+    from tianze.analysis.event_themes import build_event_context
+    from tianze.analysis.temporal import analyze_temporal
+    from tianze.ganzhi.tables import STEMS, BRANCHES
+    rng = random.Random(99)
+    wrong_direction = 0
+    for _ in range(40):
+        y, mo, d = rng.randint(1940, 2015), rng.randint(1, 12), rng.randint(1, 28)
+        chart = build_chart(BirthInfo(date=datetime.date(y, mo, d),
+                                      time=datetime.time(rng.randint(0, 23), 30),
+                                      gender=Gender(rng.choice(["male", "female"]))))
+        ai = rng.randint(0, 59)
+        ta = analyze_temporal(
+            natal_stems=[chart.pillars.year.stem, chart.pillars.month.stem,
+                         chart.pillars.day.stem, chart.pillars.hour.stem],
+            natal_branches=[chart.pillars.year.branch, chart.pillars.month.branch,
+                            chart.pillars.day.branch, chart.pillars.hour.branch],
+            day_master=chart.day_master.stem,
+            annual_stem=STEMS[ai % 10], annual_branch=BRANCHES[ai % 12])
+        ectx = build_event_context(chart, ta.context, None, ta.relations, ta.structures)
+        st = evaluate_rescues(ectx)
+        wf = st["wealth_favorable"]
+        # 反向误判检查：weighted 明确偏弱时绝不允许激活「财为喜神方向」
+        wv = next((m.verdict for m in chart.strength.methods
+                   if "weighted" in (m.analyzer_id or "") and m.verdict), None)
+        if wv in ("偏弱", "极弱") and wf["active"]:
+            wrong_direction += 1
+        assert "分歧" not in wf["note"] or not wf["active"], \
+            "分歧状态下救应必须不激活"
+    assert wrong_direction == 0

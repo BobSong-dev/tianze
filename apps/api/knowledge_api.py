@@ -79,9 +79,17 @@ async def rules() -> JSONResponse:
                 "effect": e.get("effect"),
                 "specificCondition": e.get("specificCondition"),
             })
+    # M22：Rule↔Case 联动——replay 典型样本（每规则最多 3 条）与 relation 分布
+    audit = _load("regression/rule-audit.json", {"rules": []})
+    audit_by_id = {r.get("ruleId"): r for r in audit.get("rules", [])}
     out = []
     for r in _all_rules():
         r["conflictNeighbors"] = adjacency.get(r["id"], [])
+        ra = audit_by_id.get(r["id"])
+        if ra:
+            r["replaySamples"] = (ra.get("samples") or [])[:3]
+            r["relationDistribution"] = ra.get("relationDistribution", {})
+            r["randomTriggerRate"] = ra.get("randomTriggerRate")
         out.append(r)
     return JSONResponse({"count": len(out), "rules": out})
 

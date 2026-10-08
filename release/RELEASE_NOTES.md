@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `be57003d3615`（含未提交改动）
+- commit: `9590ce3df838`（含未提交改动）
 - 当前版本 0.3.0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（114.7s / 20 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **218**（{'event': 20, 'temporal': 16, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 538
+- 命例 1147；Replay 165；测试 539
 
 ## 质量状态
 
@@ -53,7 +53,8 @@
 - M21 final: gate 20 steps ALL PASS + external release_check + E2E + RC discipline fixes
 - M21.7: release history tool + READY_FOR_RELEASE marker + local v0.3.0 tag
 
-### 测试（1）
+### 测试（2）
+- test: lazy chart fixture for expansion tests
 - test: fix imports in special temporal expansion tests
 
 ## Migration 要求
