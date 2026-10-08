@@ -1055,6 +1055,17 @@ async function loadTemporal() {
             · provenance {{ (selectedNodeDetail.provenanceLevels || []).join('/') }}
           </div>
           <div v-if="selectedNodeDetail.conflictNote" class="note">⚠ {{ selectedNodeDetail.conflictNote }}</div>
+          <details v-if="(selectedNodeDetail.replaySamples || []).length">
+            <summary>重放命例（Rule→Case，最多 3 条）</summary>
+            <div v-for="(rc, ri) in selectedNodeDetail.replaySamples" :key="ri" class="evidence-item">
+              {{ rc.caseId }}（{{ rc.book }}·{{ rc.luck || '原局' }}{{ rc.annual ? '→' + rc.annual : '' }}）
+              <span class="badge">{{ rc.theme }}</span>
+              <span class="badge">{{ rc.relation }}</span>
+            </div>
+          </details>
+          <div v-if="selectedNodeDetail.randomTriggerRate != null" class="note">
+            随机盘触发率 {{ (selectedNodeDetail.randomTriggerRate * 100).toFixed(1) }}%
+          </div>
           <div v-if="chainJumpThemes.length" class="note">
             当前分析的解释链引用了该规则（{{ chainJumpThemes.join('、') }} 主题）：
             <button class="link" @click="jumpToChain">跳转解释链</button>

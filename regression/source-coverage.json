@@ -1,0 +1,55 @@
+{
+ "schemaVersion": "1.0.0",
+ "status": "BLOCKED",
+ "blockedReason": "raw OCR 语料文件缺失 556/556 （知识库 zip 由用户提供、未提交仓库）——引用可回溯到 sourceFile 路径与页码，但原文核对需用户提供语料；本工具不补造原文",
+ "candidatesTotal": 556,
+ "classicalCitations": 556,
+ "classicalSourceFileMissing": 556,
+ "byBook": {
+  "DTZ": {
+   "candidates": 78,
+   "classical": 78,
+   "missingSourceFile": 78
+  },
+  "MLD": {
+   "candidates": 33,
+   "classical": 33,
+   "missingSourceFile": 33
+  },
+  "QBT": {
+   "candidates": 213,
+   "classical": 213,
+   "missingSourceFile": 213
+  },
+  "SPZY": {
+   "candidates": 102,
+   "classical": 102,
+   "missingSourceFile": 102
+  },
+  "SS": {
+   "candidates": 22,
+   "classical": 22,
+   "missingSourceFile": 22
+  },
+  "ZHY": {
+   "candidates": 66,
+   "classical": 66,
+   "missingSourceFile": 66
+  },
+  "ZPZ": {
+   "candidates": 20,
+   "classical": 20,
+   "missingSourceFile": 20
+  },
+  "ZP": {
+   "candidates": 22,
+   "classical": 22,
+   "missingSourceFile": 22
+  }
+ },
+ "citationsRegistry": {
+  "entries": 16,
+  "issues": []
+ },
+ "discipline": "只报告，不修改数据，不补造原文；raw 语料到位后重跑即转 OK"
+}

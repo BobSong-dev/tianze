@@ -626,3 +626,50 @@ def test_arch_unfill_multi_layer():
                            natal_branches=["亥", "丑", "巳", "卯"],
                            day_master="癸", annual_stem="庚", annual_branch="午")
     assert not any(r.kind == "arch_unfill" for r in ta2.relations)
+
+
+# ---------- M27 · 贵人表 / 外格状态词汇 / 缓存一致性 ----------
+
+def test_tianyi_table_integrity():
+    """SS-R17 起例完整性：每干两贵人、互异；歌诀抽样核对。"""
+    from tianze.relation.tables import TIAN_YI_NOBLE
+    assert set(TIAN_YI_NOBLE) == set("甲乙丙丁戊己庚辛壬癸")
+    for stem, nobles in TIAN_YI_NOBLE.items():
+        assert len(nobles) == 2 and "辰戌" not in "".join(nobles), stem  # 辰戌为天罗地纲贵人不临
+    # 歌诀抽样：甲戊庚牛羊（丑未）、六辛逢马虎（午寅）、壬癸兔蛇藏（卯巳）
+    assert TIAN_YI_NOBLE["甲"] == frozenset({"丑", "未"})
+    assert TIAN_YI_NOBLE["辛"] == frozenset({"午", "寅"})
+    assert TIAN_YI_NOBLE["壬"] == frozenset({"卯", "巳"})
+    assert TIAN_YI_NOBLE["癸"] == frozenset({"巳", "卯"})
+
+
+def test_fuzz_xushi_outer_status_vocabulary():
+    """随机盘 xushiOuter：状态 ∈ CANDIDATE/BLOCKED/UNRESOLVED；井栏叉限庚日。"""
+    import random
+    from tianze.analysis.case_chart import build_case_chart
+    rng = random.Random(2828)
+    pool = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
+    for _ in range(120):
+        pillars = {"year": rng.choice("甲乙丙丁戊己庚辛壬癸") + rng.choice(pool),
+                   "month": rng.choice("甲乙丙丁戊己庚辛壬癸") + rng.choice(pool),
+                   "day": rng.choice("甲乙丙丁戊己庚辛壬癸") + rng.choice(pool),
+                   "hour": rng.choice("甲乙丙丁戊己庚辛壬癸") + rng.choice(pool)}
+        try:
+            chart = build_case_chart(pillars)
+        except Exception:
+            continue
+        for x in chart.advancedAnalysis["specialPattern"]["xushiOuter"]:
+            assert x["status"] in ("CANDIDATE", "BLOCKED", "UNRESOLVED")
+            if "井栏叉" in x["type"]:
+                assert chart.day_master.stem == "庚"
+
+
+def test_temporal_cache_with_new_kinds():
+    """缓存一致性：新增关系种类后同参数两次 analyze_temporal 结果逐字段一致。"""
+    from tianze.analysis.temporal import analyze_temporal
+    args = dict(natal_stems=["癸", "己", "甲", "乙"], natal_branches=["亥", "丑", "巳", "卯"],
+                day_master="癸", luck_stem="壬", luck_branch="子",
+                annual_stem="庚", annual_branch="午")
+    a = [r.model_dump(by_alias=True) for r in analyze_temporal(**args).relations]
+    b = [r.model_dump(by_alias=True) for r in analyze_temporal(**args).relations]
+    assert a == b

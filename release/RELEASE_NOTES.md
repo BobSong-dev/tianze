@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `907fce99948b`（含未提交改动）
+- commit: `c1254b460e42`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（100.0s / 22 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **222**（{'event': 21, 'temporal': 19, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 584
+- 命例 1147；Replay 165；测试 591
 
 ## 质量状态
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（32）
+### 特性（33）
+- M27.2: 六乙鼠贵 SS-R16 三要件条件化（见合 support/无合 blocker/交互得待核/午冲子 blocker）+ arch_unfill 去填复现状态（去填说 vs 填实不破说，DTZ-10）入 TR-DTZ-10
 - M27.1: TR-SP-08 假从/假化岁运敏感（DTZ-49 行运之别）— 假从+岁运根气/印比→逆旺气破格两说 vs 顺势与真从无别；假化+岁运泄气→假化敏感；executable 221→222, temporal 19, graph 228
 - M26 final: ADR-064 + README M26 + release metadata refreshed
 - M26.3: gate 22 步 ALL PASS（含 cross_layer_audit）+ release_check ALL PASS
