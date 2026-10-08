@@ -79,9 +79,12 @@ def build_case_chart(pillars: dict[str, str], gender: str | None = None) -> Any:
 
     ec = {k: {"visible": v.visible, "hidden": v.hidden}
           for k, v in element_counts.elements.items()}
+    from tianze.relation.tables import xun_kong_of
     advanced = analyze_all_special(
         day_master=day_master, month_branch=month_branch,
         stems=stems, branches=branches,
+        day_xun_kong=xun_kong_of(day_gz),
+        year_xun_kong=xun_kong_of(pillars.get("year") or ""),
         strength_verdicts={
             "dimension": strength.methods[0].verdict if len(strength.methods) > 0 else None,
             "weighted": strength.methods[1].verdict if len(strength.methods) > 1 else None,
@@ -92,6 +95,7 @@ def build_case_chart(pillars: dict[str, str], gender: str | None = None) -> Any:
         helper_stems=[s for s in stems if s and s != day_master and
                       ten_god(day_master, s).value in ("比肩", "劫财", "正印", "偏印")],
         element_counts=ec,
+        day_master_roots_evidence=list(dm_roots),
     )
 
     # M24/M25：关系层（拱夹/暗合等）+ 未成立候选进命例研究——与 pipeline 同一函数

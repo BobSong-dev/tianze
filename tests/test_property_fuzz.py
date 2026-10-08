@@ -673,3 +673,56 @@ def test_temporal_cache_with_new_kinds():
     a = [r.model_dump(by_alias=True) for r in analyze_temporal(**args).relations]
     b = [r.model_dump(by_alias=True) for r in analyze_temporal(**args).relations]
     assert a == b
+
+
+# ---------- M28 · 旬空 / 根气分级 / 多层去填并存 ----------
+
+def test_xun_kong_table():
+    """六旬旬空表与 lunar-python 柱旬空一致性（抽样）。"""
+    from tianze.relation.tables import xun_kong_of
+    assert xun_kong_of("甲子") == frozenset({"戌", "亥"})
+    assert xun_kong_of("甲戌") == frozenset({"申", "酉"})
+    assert xun_kong_of("甲寅") == frozenset({"子", "丑"})
+    assert xun_kong_of("癸亥") == frozenset({"子", "丑"})   # 甲寅旬末
+    assert xun_kong_of("乙卯") == frozenset({"子", "丑"})   # 甲寅旬
+
+
+def test_liuyi_shugui_kongwang_blocker():
+    """SS-R16 第三要件空亡：贵人子落日柱旬空 → blocker；年柱两说注记。"""
+    from tianze.analysis.case_chart import build_case_chart
+    c = build_case_chart({"year": "丙子", "month": "戊子", "day": "乙卯", "hour": "丙子"})
+    m = next(x for x in c.advancedAnalysis["specialPattern"]["xushiOuter"]
+             if "六乙鼠贵" in x["type"])
+    kong = [b for b in m["blockers"] if "空亡" in b["text"]]
+    assert kong and "日柱旬空" in kong[0]["text"]
+    # 乙亥日（甲戌旬，申酉空）→ 无空亡阻断
+    c2 = build_case_chart({"year": "丙子", "month": "戊子", "day": "乙亥", "hour": "丙子"})
+    m2 = next(x for x in c2.advancedAnalysis["specialPattern"]["xushiOuter"]
+              if "六乙鼠贵" in x["type"])
+    assert not [b for b in m2["blockers"] if "空亡" in b["text"]]
+
+
+def test_root_grade_in_jiacong_evidence():
+    """假从说证据带根气分级（强根/明根/微根），不改状态映射。"""
+    from tianze.analysis.case_chart import build_case_chart
+    c = build_case_chart({"year": "壬寅", "month": "丁未", "day": "己卯", "hour": "乙亥"})
+    x = next(x for x in c.advancedAnalysis["specialPattern"]["cong"]
+             if x["type"] == "从财")
+    e2 = next(e for e in x["exceptions"] if e["ruleId"] == "SP-CG-E2")
+    assert "强根（本气）" in e2["text"] and "有印比生助" in e2["text"]
+    assert x["status"] == "DISPUTED"  # 状态映射不变（M26 锁定）
+
+
+def test_arch_unfill_multi_layer_coexist():
+    """多层同见填实字 + 冲 → unfill 证据带并存注记（单层冲不误报并存）。"""
+    from tianze.analysis.temporal import analyze_temporal
+    # 两层都见子（大运+流日），另一层午冲 → 去填与填实并存
+    ta = analyze_temporal(natal_stems=["癸", "己", "甲", "乙"],
+                          natal_branches=["亥", "丑", "巳", "卯"],
+                          day_master="癸", luck_stem="壬", luck_branch="子",
+                          annual_stem="庚", annual_branch="午",
+                          daily_stem="壬", daily_branch="子")
+    unfill = next(r for r in ta.relations if r.kind == "arch_unfill")
+    assert "并存" in unfill.note or "两说" in unfill.note
+    fills = [r for r in ta.relations if r.kind == "arch_fill"]
+    assert len(fills) >= 1  # 大运子与流日子各产生 fill

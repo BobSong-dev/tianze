@@ -93,6 +93,28 @@ class SpecialPatternCandidate:
 
 # ---------- M8.1 从格 ----------
 
+def _root_grade(roots: list) -> str:
+    """日主根气强度分级（M28，DTZ-49 微根口径的证据化）。
+
+    微根 = 仅余气/墓库类藏干（RootEvidence.strength 含 WEAK/MEDIUM/STRONG 口径）；
+    明根 = 中气/本气。只用于证据文本，不改变状态映射（R29 纪律）。
+    """
+    dm_roots = [r for r in roots if r.is_day_master]
+    if not dm_roots:
+        return "无根"
+    depths = {getattr(r, "depth", None) for r in dm_roots}
+    roles = {getattr(r, "root_type", None) for r in dm_roots}
+    depth_vals = {getattr(d, "value", d) for d in depths if d is not None}
+    role_vals = {getattr(r_, "value", r_) for r_ in roles if r_ is not None}
+    if depth_vals & {"STRONG"} or role_vals & {"本气"}:
+        return "强根（本气）"
+    if depth_vals & {"MEDIUM"} or role_vals & {"中气"}:
+        return "明根（中气）"
+    return "微根（余气/墓库）"
+
+
+
+
 def analyze_cong(
     day_master: str,
     month_branch: str,
@@ -102,6 +124,7 @@ def analyze_cong(
     weighted_score: float | None,
     day_master_roots: int,
     helper_stems: list[str],
+    day_master_roots_evidence: list | None = None,
 ) -> list[SpecialPatternCandidate]:
     """从格候选：从财/从官杀/从儿/从强。输入复用 M4 StrengthResult 与 M3 根事实。
 
@@ -192,10 +215,13 @@ def analyze_cong(
                 "真从说：日主孤弱、无根无印（DTZ-49「真从之家有几人」）——格局纯粹，"
                 "行运只要不逆旺气即无失败之虑"))
         elif has_root or has_helper:
+            grade = _root_grade(day_master_roots_evidence or [])
+            helper_txt = "有印比生助" if has_helper else "无印比生助"
             cand.exceptions.append(Factor(
                 "exception", "SP-CG-E2",
-                "假从说：日主有微根或印生助（DTZ-49 假从定义）——从势可成但岁运敏感"
-                "（「未交运前寒素、运过复初」；从财食伤不透/从官煞官煞不透亦假从）"))
+                f"假从说：日主{grade}、{helper_txt}（DTZ-49 假从定义）——从势可成但岁运敏感"
+                f"（「未交运前寒素、运过复初」；从财食伤不透/从官煞官煞不透亦假从；"
+                f"{'微根被合去/受制则近真从，两说' if grade.startswith('微根') else '明根以上假从迹近不立，与 BLOCKED 判定互证'}）"))
         # 状态映射（永不 CONFIRMED）
         if analyzer_conflict:
             cand.status = SpecialStatus.DISPUTED
@@ -456,6 +482,8 @@ def analyze_xushi_outer(
     month_branch: str,
     stems: list[str | None],
     branches: list[str | None],
+    day_xun_kong: frozenset[str] | None = None,
+    year_xun_kong: frozenset[str] | None = None,
 ) -> list[SpecialPatternCandidate]:
     """外格虚神候选：飞天禄马/井栏叉（拱刃）/刑合/子邀巳。
 
@@ -561,6 +589,14 @@ def analyze_xushi_outer(
             cand.blockers.append(Factor(
                 "blocker", "SP-XO-B8",
                 "第三要件「无冲破」不满足：午冲子（SS-R16：无死绝冲破空亡方为上格）"))
+        # M28 · 第三要件空亡：贵人落日柱旬空 → blocker（年柱口径两说注记）
+        if day_xun_kong and "子" in day_xun_kong:
+            also_year = bool(year_xun_kong and "子" in year_xun_kong)
+            cand.blockers.append(Factor(
+                "blocker", "SP-XO-B9",
+                "第三要件「空亡」不满足：贵人子落日柱旬空"
+                + ("（年柱旬空同见）" if also_year else "（年柱口径是否并计两说保留）")
+                + "（SS-R16：无死绝冲破空亡方为上格）"))
         for st in visible_stems:
             if st != day_master and ten_god(day_master, st).value in guansha_gods:
                 cand.blockers.append(Factor(
@@ -697,14 +733,20 @@ def analyze_all_special(
     day_master_roots: int,
     helper_stems: list[str],
     element_counts: dict[str, dict[str, int]],
+    day_xun_kong: frozenset[str] | None = None,
+    year_xun_kong: frozenset[str] | None = None,
+    day_master_roots_evidence: list | None = None,
 ) -> dict:
     """M8 总入口：specialPattern / bingYao / tongGuan 三组结果。"""
     cong = analyze_cong(day_master, month_branch, stems, branches, strength_verdicts,
-                        weighted_score, day_master_roots, helper_stems)
+                        weighted_score, day_master_roots, helper_stems,
+                        day_master_roots_evidence=day_master_roots_evidence)
     zhuanwang = analyze_zhuanwang(day_master, month_branch, stems, branches, element_counts,
                                   strength_verdicts)
     transformation = analyze_transformation(day_master, month_branch, stems, branches)
-    xushi_outer = analyze_xushi_outer(day_master, month_branch, stems, branches)
+    xushi_outer = analyze_xushi_outer(day_master, month_branch, stems, branches,
+                                      day_xun_kong=day_xun_kong,
+                                      year_xun_kong=year_xun_kong)
     bingyao = analyze_bingyao(element_counts)
     tongguan = analyze_tongguan(element_counts)
     return {

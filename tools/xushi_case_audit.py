@@ -43,6 +43,9 @@ def main() -> int:
     arch_by_sub_daymaster_top: Counter = Counter()
     hidden_by_monthbranch: Counter = Counter()
     engine_vs_claims = {"engineCases": 0, "claimsMentionXushi": 0, "overlap": 0}
+    # M28 · 空亡/贵人统计
+    kong_stats = {"nobleInDayKong": 0, "nobleInYearKong": 0, "nobleCases": 0,
+                  "shuguiKongBlocked": 0, "shuguiTotal": 0}
     XUSHI_KEYWORDS = ("拱", "暗合", "虚神", "邀")
 
     for book in books:
@@ -87,6 +90,25 @@ def main() -> int:
                 slot["xushiOuter"] += 1
                 outer_total += 1
                 has = True
+            # M28：贵人×旬空（日柱/年柱口径；SS-R16 第三要件语料级统计）
+            dm2 = chart.day_master.stem
+            from tianze.relation.tables import TIAN_YI_NOBLE, xun_kong_of
+            nobles = TIAN_YI_NOBLE.get(dm2, frozenset())
+            if nobles:
+                kong_stats["nobleCases"] += 1
+                day_gz = pillars.get("day") or ""
+                year_gz = pillars.get("year") or ""
+                dk, yk = xun_kong_of(day_gz), xun_kong_of(year_gz)
+                if dk and (nobles & dk):
+                    kong_stats["nobleInDayKong"] += 1
+                if yk and (nobles & yk):
+                    kong_stats["nobleInYearKong"] += 1
+            for x in xo:
+                if "六乙鼠贵" in x["type"]:
+                    kong_stats["shuguiTotal"] += 1
+                    if x["status"] == "BLOCKED" and any(
+                            "空亡" in b.get("text", "") for b in x.get("blockers", [])):
+                        kong_stats["shuguiKongBlocked"] += 1
             if has:
                 cases_with += 1
                 slot["withXushi"] += 1
@@ -136,6 +158,7 @@ def main() -> int:
         "archByDayMasterTop": dict(arch_by_daymaster.most_common(12)),
         "hiddenByMonthBranchTop": dict(hidden_by_monthbranch.most_common(10)),
         "engineVsClaims": dict(engine_vs_claims),
+        "nobleKongStats": kong_stats,
         "engineVsClaimsCaveat": "claims 文本为 MACHINE_EXTRACTED 摘要，仅作粗对照；"
                                 "「原书明确采用」需对照 raw OCR 语料（不在仓库，BLOCKED）",
         "discipline": "历史断语只用于对照；本审计不输出任何吉凶或事件结论",

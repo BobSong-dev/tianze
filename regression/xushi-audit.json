@@ -39,11 +39,11 @@
   "飞天禄马（子暗冲午）:CANDIDATE": 1,
   "井栏叉（拱刃酉）:CANDIDATE": 4,
   "飞天禄马（子暗冲午）:BLOCKED": 5,
-  "六乙鼠贵（乙日子时）:BLOCKED": 15,
-  "六乙鼠贵（乙日子时）:CANDIDATE": 3,
+  "六乙鼠贵（乙日子时）:BLOCKED": 17,
   "井栏叉（拱刃酉）:BLOCKED": 3,
   "刑合（寅刑巳邀戊禄）:BLOCKED": 1,
-  "刑合（寅刑巳邀戊禄）:CANDIDATE": 1
+  "刑合（寅刑巳邀戊禄）:CANDIDATE": 1,
+  "六乙鼠贵（乙日子时）:CANDIDATE": 1
  },
  "perBook": {
   "?": {
@@ -85,6 +85,13 @@
   "engineCases": 719,
   "claimsMentionXushi": 0,
   "overlap": 0
+ },
+ "nobleKongStats": {
+  "nobleInDayKong": 378,
+  "nobleInYearKong": 391,
+  "nobleCases": 1045,
+  "shuguiKongBlocked": 4,
+  "shuguiTotal": 18
  },
  "engineVsClaimsCaveat": "claims 文本为 MACHINE_EXTRACTED 摘要，仅作粗对照；「原书明确采用」需对照 raw OCR 语料（不在仓库，BLOCKED）",
  "discipline": "历史断语只用于对照；本审计不输出任何吉凶或事件结论"

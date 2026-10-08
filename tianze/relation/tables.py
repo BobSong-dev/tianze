@@ -126,6 +126,32 @@ TIAN_YI_NOBLE: dict[str, frozenset[str]] = {
 }
 
 
+# 六旬旬空（公版）：甲子旬戌亥空、甲戌旬申酉空、甲申旬午未空、
+# 甲午旬辰巳空、甲辰旬寅卯空、甲寅旬子丑空。口径：以日柱为主（年柱为辅，
+# 两说并存注记）。lunar-python 的 pillar.xunKong 与本表同源（R 系历法对账）。
+_XUN_KONG_BY_XUN_START: dict[int, frozenset[str]] = {
+    0: frozenset({"戌", "亥"}),   # 甲子旬
+    10: frozenset({"申", "酉"}),  # 甲戌旬
+    20: frozenset({"午", "未"}),  # 甲申旬
+    30: frozenset({"辰", "巳"}),  # 甲午旬
+    40: frozenset({"寅", "卯"}),  # 甲辰旬
+    50: frozenset({"子", "丑"}),  # 甲寅旬
+}
+
+
+def xun_kong_of(gz: str) -> frozenset[str] | None:
+    """四柱干支 → 该柱旬空两支（六旬表）。"""
+    from tianze.ganzhi.tables import STEMS as _S
+    if len(gz) != 2 or gz[0] not in _S or gz[1] not in BRANCHES:
+        return None
+    si, bi = _S.index(gz[0]), BRANCHES.index(gz[1])
+    if (si % 2) != (bi % 2):
+        return None
+    idx = next(i for i in range(60)
+               if i % 10 == si and i % 12 == bi)
+    return _XUN_KONG_BY_XUN_START[idx - idx % 10]
+
+
 def arch_target(a: str, b: str) -> str | None:
     """拱夹定位（DTZ-10/ZP-05）：两支在地支环上恰隔一支 → 返回被拱之支。
 

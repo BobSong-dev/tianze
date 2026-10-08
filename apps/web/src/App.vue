@@ -1055,6 +1055,15 @@ async function loadTemporal() {
             · provenance {{ (selectedNodeDetail.provenanceLevels || []).join('/') }}
           </div>
           <div v-if="selectedNodeDetail.conflictNote" class="note">⚠ {{ selectedNodeDetail.conflictNote }}</div>
+          <details v-if="(selectedNodeDetail.conditions || []).length">
+            <summary>成立条件（ExplanationChain 条件层）</summary>
+            <div v-for="(cd, ci) in selectedNodeDetail.conditions" :key="ci" class="evidence-item">
+              {{ cd.field }} {{ cd.operator }} {{ Array.isArray(cd.value) ? cd.value.join('/') : cd.value }}
+            </div>
+          </details>
+          <div v-if="selectedNodeDetail.normalizationNotes" class="note">
+            归一化口径：{{ selectedNodeDetail.normalizationNotes }}
+          </div>
           <details v-if="(selectedNodeDetail.replaySamples || []).length">
             <summary>重放命例（Rule→Case，最多 3 条）</summary>
             <div v-for="(rc, ri) in selectedNodeDetail.replaySamples" :key="ri" class="evidence-item">

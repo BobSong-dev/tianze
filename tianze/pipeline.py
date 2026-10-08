@@ -203,8 +203,13 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
 
     # 特殊格局 + 病药 + 通关（M8）
     ec = element_counts.elements if element_counts else {}
+    def _kong(pillar_obj) -> frozenset[str] | None:
+        xk = getattr(pillar_obj, "xun_kong", None)
+        return frozenset(xk) if xk else None
+
     advanced = analyze_all_special(
         day_master=day_master, month_branch=month_gz[1], stems=stems, branches=branches,
+        day_xun_kong=_kong(pillar_day), year_xun_kong=_kong(pillar_year),
         strength_verdicts={"weighted": strength.methods[1].verdict if strength and len(strength.methods) > 1 else None,
                          "fuyi": strength.methods[2].verdict if strength and len(strength.methods) > 2 else None,
                          "dimension": strength.methods[0].verdict if strength else None},
@@ -212,6 +217,7 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
         helper_stems=[s for s in stems if s and s != day_master and
                       ten_god(day_master, s).value in ("比肩", "劫财", "正印", "偏印")],
         element_counts={k: {"visible": v.visible, "hidden": v.hidden} for k, v in ec.items()},
+        day_master_roots_evidence=[r for r in roots if r.is_day_master],
     )
 
     warnings = list(time_warnings)
