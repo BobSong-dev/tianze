@@ -1,8 +1,8 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `c1254b460e42`（含未提交改动）
+- commit: `3f168154cff8`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（100.0s / 22 步）
+- 质量门：FAIL（98.3s / 23 步）
 
 ## 版本与规模
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,13 +24,13 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.586,
-  "perCaseMs": 0.56
+  "elapsedSeconds": 0.558,
+  "perCaseMs": 0.53
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.706,
-  "perCaseMs": 0.68
+  "elapsedSeconds": 0.743,
+  "perCaseMs": 0.71
  },
  "timeline80y": {
   "nodes": 87,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（33）
+### 特性（34）
+- M27.3: 知识来源治理 tools/source_coverage.py（raw 语料 556/556 缺失 → status=BLOCKED 如实记录；引文注册表一致性 issue 0；入质量门 23 步）+ Web 节点→重放命例/随机触发率导航 + fuzz（贵人表完整性/外格状态词汇/缓存一致性）
 - M27.2: 六乙鼠贵 SS-R16 三要件条件化（见合 support/无合 blocker/交互得待核/午冲子 blocker）+ arch_unfill 去填复现状态（去填说 vs 填实不破说，DTZ-10）入 TR-DTZ-10
 - M27.1: TR-SP-08 假从/假化岁运敏感（DTZ-49 行运之别）— 假从+岁运根气/印比→逆旺气破格两说 vs 顺势与真从无别；假化+岁运泄气→假化敏感；executable 221→222, temporal 19, graph 228
 - M26 final: ADR-064 + README M26 + release metadata refreshed

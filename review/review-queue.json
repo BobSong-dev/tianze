@@ -5,11 +5,11 @@
  "generatedBy": "tools/review_queue.py",
  "stats": {
   "ocrRisk": 163,
-  "machineCurated": 221,
+  "machineCurated": 222,
   "sensitiveClaims": 38,
   "ruleConflicts": 8
  },
- "totalItems": 430,
+ "totalItems": 431,
  "queue": {
   "ocrRiskRules": [
    {
@@ -1015,6 +1015,13 @@
     "id": "TR-DTZ-11",
     "domain": "temporal",
     "label": "旺者冲衰衰者拔，衰神冲旺旺者发（旺衰以全局气势言）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-SP-08",
+    "domain": "temporal",
+    "label": "假从/假化岁运敏感（行运之别）",
     "method": "ai_curation",
     "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
    },

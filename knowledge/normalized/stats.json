@@ -4,15 +4,15 @@
  "candidates_total": 556,
  "quotes_total": 893,
  "commentaries_total": 556,
- "executable_total": 221,
+ "executable_total": 222,
  "executable_by_domain": {
   "event": 21,
-  "temporal": 18,
+  "temporal": 19,
   "tiaohou": 182
  },
  "candidates_total_unique": 556,
- "classical_explicit_total": 216,
- "project_reference_total": 221,
+ "classical_explicit_total": 217,
+ "project_reference_total": 222,
  "unverified_total": 0,
  "ocr_risk_total": 163,
  "tiaohou_coverage": {
