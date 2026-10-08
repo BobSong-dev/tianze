@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **218**（{'event': 20, 'temporal': 16, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 535
+- 命例 1147；Replay 165；测试 538
 
 ## 质量状态
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（4）
+### 特性（5）
+- M22.4: knowledge expansion — TR-SP-05 化神所忌 + TR-SP-07 从格所从受克
 - M22.2: Rule Graph interactive SVG canvas
 - M22.1: v0.3.0 RC audit — refreshed all artifacts at HEAD, wheel+sdist built, release_check P1 extended with wheel content verification (7 data files + manifest + cli/paths); RC evidence: tag v0.3.0→5821c84, gate+check ALL PASS
 - M21 final: gate 20 steps ALL PASS + external release_check + E2E + RC discipline fixes

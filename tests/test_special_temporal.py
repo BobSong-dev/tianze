@@ -147,8 +147,6 @@ def test_sp05_hua_taboo_per_pair():
     from types import SimpleNamespace
     ctx = SimpleNamespace(temporal_units=lambda: [("annual", "庚", "子")])
     cands = {("transformation", "丁壬"): {"status": "CANDIDATE", "temporal_only": False}}
-    out = _sp_hua(chart, ctx, cands)  # 占位避免误用
-    from tianze.analysis.special_temporal import _sp_hua_taboo
     out = _sp_hua_taboo(chart, ctx, cands)
     assert out and "化神所忌" in out[0][5] and "庚" in out[0][5]
     ctx2 = SimpleNamespace(temporal_units=lambda: [("annual", "辛", "丑")])
@@ -176,4 +174,4 @@ def test_sp05_07_in_gate_rules():
 
 
 import tianze.analysis.special_temporal as st_mod  # noqa: E402
-from tianze.analysis.special_temporal import _sp_hua  # noqa: E402
+from tianze.analysis.special_temporal import _sp_hua_taboo  # noqa: E402
