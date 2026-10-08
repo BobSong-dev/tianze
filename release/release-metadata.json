@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "release": {
-  "gitCommit": "1cdcb0bd28f2bcae43cd00ed07779c7bdd2bc372",
+  "gitCommit": "907fce99948b181abe1a1a89ef33c562addc9c98",
   "gitBranch": "main",
   "dirty": true,
   "generatedBy": "tools/release_metadata.py（全部数据来自真实运行）"
@@ -18,10 +18,10 @@
   "python": "3.14.7"
  },
  "counts": {
-  "executableRules": 221,
+  "executableRules": 222,
   "rulesByDomain": {
    "event": 21,
-   "temporal": 18,
+   "temporal": 19,
    "tiaohou": 182
   },
   "ruleCandidates": 556,
@@ -73,6 +73,6 @@
  },
  "governance": {
   "migrationRanBefore": true,
-  "aiEvaluationStatus": "mock"
+  "aiEvaluationStatus": "SKIPPED"
  }
 }

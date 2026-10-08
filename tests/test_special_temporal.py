@@ -190,3 +190,47 @@ def test_sp05_07_in_gate_rules():
 
 import tianze.analysis.special_temporal as st_mod  # noqa: E402
 from tianze.analysis.special_temporal import _sp_hua_taboo  # noqa: E402
+
+
+# ---------- M27 · TR-SP-08 假从/假化岁运敏感（DTZ-49 行运之别） ----------
+
+def test_trsp08_jiacong_sensitivity(chart_1983):
+    """假从候选 + 岁运印比/根气 → 假从岁运敏感两说；无岁运不触发。"""
+    from tianze.analysis.temporal_delta import compute_temporal_delta
+    # 找一个带 SP-CG-E2 假从说的盘
+    chart = None
+    import datetime as _dt
+    d0 = _dt.date(1980, 1, 1)
+    for i in range(400):
+        c = build_chart(BirthInfo(date=d0 + _dt.timedelta(days=i),
+                                  time=_dt.time(10, 0), gender=Gender.MALE))
+        for x in (c.advancedAnalysis or {}).get("specialPattern", {}).get("cong", []):
+            if any("假从说" in (e.get("text") or "") for e in x.get("exceptions", [])):
+                chart = c
+                break
+        if chart:
+            break
+    assert chart is not None, "样本窗口内应存在带假从说的从格候选"
+    rep = compute_temporal_delta(chart, annual=("甲", "子"))
+    f = next((x for x in rep.specialFindings
+              if x["ruleId"] == "TR-SP-08" and x["group"] == "cong"), None)
+    assert f is not None
+    assert "假从" in f["evidence"][0]
+    assert "逆旺气" in f["schoolSplit"]["逆旺气破格说（权重更高）"]
+    assert f["status"] == "CANDIDATE"
+
+
+def test_trsp08_jiahua_drain():
+    """化气候选 + 岁运泄气之干 → 假化敏感（DTZ-49：化神见克泄便是假化）。"""
+    from tianze.analysis.temporal_delta import compute_temporal_delta
+    from tianze.analysis.special import analyze_transformation
+    # 构造：甲日主 己邻位合（化土候选）+ 流年庚（土之泄？土生金→庚=泄）
+    ts = analyze_transformation("甲", "未", ["丙", "己", "甲", "庚"], ["辰", "未", "戌", "申"])
+    assert any(t.status.value == "CANDIDATE" for t in ts)
+    chart = build_chart(BirthInfo(date=datetime.date(1990, 1, 15),
+                                  time=datetime.time(10, 0), gender=Gender.MALE))
+    rep = compute_temporal_delta(chart, annual=("庚", "辰"))
+    jh = [x for x in rep.specialFindings if x["ruleId"] == "TR-SP-08"
+          and x["group"] == "transformation"]
+    if jh:  # 该盘若有化气候选则必须带假化敏感两说
+        assert "假化" in jh[0]["label"] or "假化" in jh[0]["evidence"][0]

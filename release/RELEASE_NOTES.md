@@ -1,13 +1,13 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `228e3ee81547`（含未提交改动）
+- commit: `907fce99948b`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：FAIL（95.8s / 22 步）
+- 质量门：ALL PASS（100.0s / 22 步）
 
 ## 版本与规模
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
-- ExecutableRule: **221**（{'event': 21, 'temporal': 18, 'tiaohou': 182}）；candidates 556（不同口径）
+- ExecutableRule: **222**（{'event': 21, 'temporal': 19, 'tiaohou': 182}）；candidates 556（不同口径）
 - 命例 1147；Replay 165；测试 584
 
 ## 质量状态
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,13 +24,13 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.56,
-  "perCaseMs": 0.54
+  "elapsedSeconds": 0.586,
+  "perCaseMs": 0.56
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.691,
-  "perCaseMs": 0.66
+  "elapsedSeconds": 0.706,
+  "perCaseMs": 0.68
  },
  "timeline80y": {
   "nodes": 87,
@@ -46,7 +46,9 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（29）
+### 特性（31）
+- M26 final: ADR-064 + README M26 + release metadata refreshed
+- M26.3: gate 22 步 ALL PASS（含 cross_layer_audit）+ release_check ALL PASS
 - M26.2: 跨层一致性审计（1045例 C1-C5 全 0，入质量门 22 步）+ 命例专题 v2（Engine 719 vs 标注提及 0/重叠 0，raw OCR BLOCKED；日主×拱型分布：拱贵 167 次居次）+ 真从/假从两说 SP-CG-E2（DTZ-49）+ Web cong 例外渲染 + 引文→图谱跳转 + fuzz（重复支/arch_broken 不变量/争合）+ 伏吟自对修复
 - M26.1: 拱贵（天乙贵人 SS-R17 起例并集表+拱贵 sub_type+双注记）+ arch_broken（拱位逢刑冲：拱破说 vs 拱动说 DTZ-10 两说）+ 六乙鼠贵候选（ZP-06，SS-R16 三要件两说）+ TR-DTZ-10 扩展；citations 13→16
 - M25 final: ADR-063 关系解释链三态与外格泛化纪律 + README M25 + gate 21 步/release_check ALL PASS

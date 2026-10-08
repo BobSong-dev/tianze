@@ -311,6 +311,59 @@ def _sp_cong_ke(  chart, ctx, candidates):
     return out
 
 
+def _sp_jia_cong_hua_sensitive(chart, ctx, candidates):
+    """TR-SP-08 假从/假化岁运敏感（DTZ-49 行运之别）：假从候选 + 岁运根气/印比
+    → 逆旺气破格风险 vs 顺势与真从无别，两说；假化同理（化神见克泄）。
+
+    假从判定复用 natal 候选的 SP-CG-E2 例外注记（微根/印生助）——本评估器只读
+    natal 证据，不重复判定。候选级观察，永不升级。
+    """
+    out = []
+    dm = chart.day_master.stem
+    # natal cong 候选是否带假从说（SP-CG-E2 文本特征）
+    natal_cong = {c["type"]: c for c in
+                  (chart.advancedAnalysis or {}).get("specialPattern", {}).get("cong", [])}
+    jia_cong_types = {t for t, c in natal_cong.items()
+                      if any("假从说" in (e.get("text") or "") for e in c.get("exceptions", []))}
+    for (group, ctype), info in candidates.items():
+        note_suffix = "" if not info.get("temporal_only") else "（岁运上下文新增候选）"
+        if group == "cong" and ctype in jia_cong_types and info["status"] not in ("BLOCKED", "UNRESOLVED"):
+            # 岁运根气（支藏干见日主）或印比 → 逆旺气风险
+            root_hits = [f"{_cn(l)}支{b}藏{h}" for l, b in _temporal_branches(ctx)
+                         for h in _hidden_of(b) if h == dm]
+            helper_hits = [f"{_cn(l)}干{s}（{ten_god(dm, s).value}）" for l, s in _temporal_stems(ctx)
+                           if ten_god(dm, s).value in ("正印", "偏印", "比肩", "劫财")]
+            if root_hits or helper_hits:
+                det = "；".join(root_hits + helper_hits)
+                out.append((ctype, "cong", info["status"], "假从岁运敏感", "school-split",
+                            f"假从候选 {ctype}（natal={info['status']}{note_suffix}）："
+                            f"岁运{det}为日主根气/印比",
+                            {"逆旺气破格说（权重更高）": "DTZ-49：假从行逆旺气之乡有失败之虑",
+                             "顺势说（保留）": "行从化旺乡与真从无别，一样取富贵——"
+                                              "「未交运前寒素、运过复初」属行运先后叙事，"
+                                              "不构成结构判定"}))
+        if group == "transformation" and info["status"] not in ("BLOCKED", "UNRESOLVED"):
+            # 假化：岁运见化神之克/泄（克神=所忌已在 TR-SP-05；此处补「泄气」半边）
+            ctype_str = ctype
+            if ctype_str in _HUA_ELEMENT:
+                from tianze.ganzhi.tables import Element as _E
+                hua = _HUA_ELEMENT[ctype_str]
+                hua_enum = _E(hua)
+                drain = {"WOOD": "FIRE", "FIRE": "EARTH", "EARTH": "METAL",
+                         "METAL": "WATER", "WATER": "WOOD"}[hua]
+                drain_enum = _E(drain)
+                hits = [f"{_cn(l)}干{s}" for l, s in _temporal_stems(ctx)
+                        if STEM_ELEMENT.get(s) == drain_enum]
+                if hits:
+                    out.append((ctype_str, "transformation", info["status"], "假化岁运敏感",
+                                "school-split",
+                                f"化气候选 {ctype_str}（natal={info['status']}{note_suffix}）："
+                                f"岁运{'、'.join(hits)}泄化神之气",
+                                {"假化说": "DTZ-49：化神见克泄便是假化——岁运敏感",
+                                 "保留": "候选不因单条岁运引文改判"}))
+    return out
+
+
 _SPECIAL_EVALUATORS = {
     "TR-SP-01": _sp_cong_shunshi,
     "TR-SP-02": _sp_cong_break,
@@ -318,6 +371,7 @@ _SPECIAL_EVALUATORS = {
     "TR-SP-04": _sp_hua,
     "TR-SP-05": _sp_hua_taboo,
     "TR-SP-07": _sp_cong_ke,
+    "TR-SP-08": _sp_jia_cong_hua_sensitive,
 }
 
 

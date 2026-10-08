@@ -1,12 +1,12 @@
 # Tianze Release Report
 
-- commit: `1cdcb0bd28f2`（含未提交改动）
+- commit: `907fce99948b`（含未提交改动）
 - engine: 0.4.0.dev0
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 
 ## 规模
 
-- ExecutableRule：**221**（{'event': 21, 'temporal': 18, 'tiaohou': 182}）
+- ExecutableRule：**222**（{'event': 21, 'temporal': 19, 'tiaohou': 182}）
 - RuleCandidate：556（不同口径）
 - 命例：1147；Replay：165
 - 测试：584
@@ -17,7 +17,7 @@
 - Case Regression：无变化
 - Temporal Regression：{'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems：无
-- AI Evaluation：mock
+- AI Evaluation：SKIPPED
 
 ## 基准
 

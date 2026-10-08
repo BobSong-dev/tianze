@@ -15,8 +15,8 @@ def test_metadata_generated():
         release_main()
     d = json.load(open("release/release-metadata.json", encoding="utf-8"))
     assert d["release"]["gitCommit"], "commit 必须来自 git"
-    assert d["counts"]["executableRules"] == 221
-    assert d["counts"]["rulesByDomain"] == {"event": 21, "temporal": 18, "tiaohou": 182}
+    assert d["counts"]["executableRules"] == 222
+    assert d["counts"]["rulesByDomain"] == {"event": 21, "temporal": 19, "tiaohou": 182}
     assert d["counts"]["ruleCandidates"] == 556
     assert d["counts"]["cases"] == 1147
     assert d["counts"]["tests"] > 0                # 来自真实 pytest 采集

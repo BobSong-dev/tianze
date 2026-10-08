@@ -211,6 +211,37 @@ def main() -> int:
                                 "阵营映射只对水火之冲成立（徐注例证范围），其余六冲不量化。",
         ),
         build_rule(
+            "TR-SP-08", "DTZ-49", "special-pattern", "假从/假化岁运敏感（行运之别）",
+            conditions=[{"field": "jiaCongCandidate", "operator": "exists", "value": None},
+                        {"field": "temporalRootOrHelper", "operator": "exists", "value": None}],
+            effects=[{"kind": "note",
+                      "text": "假从候选 + 岁运根气/印比 → 逆旺气破格风险两说；"
+                              "假化候选 + 岁运泄气 → 假化敏感；候选级，不升级"}],
+            source={"sourceKind": "COMMENTARY", "book": "滴天髓补注",
+                    "chapter": "真从", "pages": [],
+                    "sourceFile": "09p-滴天髓补注/09-滴天髓补注知识库.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（补注）"},
+            provenance=[
+                {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库（用户提供 zip）",
+                 "concept": "滴天髓补注·真从之家有几人（DTZ-49）"},
+                {"level": "CLASSICAL_EXPLICIT", "project": None,
+                 "concept": "古籍原文引文（真从之家有几人？假从亦可发其身；假从=日主有微根"
+                            "或有印生助；行运之别：假从行从化旺乡与真从无别，但未交运前"
+                            "寒素、运过复初；只要不行逆旺气之乡，无失败之虑）",
+                 "note": _quote_note("真从之家有几人？假从亦可发其身；假化之人亦多贵，"
+                                     "异姓孤儿能出类。……凡格局纯粹而真者……只要不行逆旺气"
+                                     "之乡，无失败之虑。若不纯粹而假……运过之后即回复其"
+                                     "原来之状况矣。")},
+                {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+                 "concept": "假从判定复用 natal SP-CG-E2 例外注记（微根/印）；岁运根气="
+                            "支藏干见日主；印比=十神表；泄气=化神所生五行"},
+            ],
+            quality="B",
+            normalization_notes="「未交运前寒素、运过复初」为行运先后叙事（富贵层面），"
+                                "Tianze 仅输出岁运根气/印比/泄气的结构敏感观察；"
+                                "逆旺气破格说与顺势说两说并存，不裁决。",
+        ),
+        build_rule(
             "TR-DTZ-10", "DTZ-10", "an chong an hui", "暗冲暗会/拱夹/暗合/填实（岁运 × 虚神）",
             conditions=[{"field": "temporalXushiInteraction", "operator": "in",
                          "value": ["arch", "arch_fill", "arch_broken", "hidden_combination"]}],

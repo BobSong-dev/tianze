@@ -1,11 +1,11 @@
 {
  "files": {
-  "event/conflict-graph.json": "1c67a0adcbae",
+  "event/conflict-graph.json": "a4131d98a90a",
   "event/conflicts.json": "33a793a03715",
   "event/rescues.json": "f2591bd10d45",
   "event/rules.json": "822b4506f559",
   "relations/citations.json": "274c26fc2dcf",
-  "temporal/rules.json": "30af99e1e74e",
+  "temporal/rules.json": "f472b23dc7c6",
   "tiaohou/conflicts.json": "26fad863062a",
   "tiaohou/rules.json": "6b96eeba9abd"
  },

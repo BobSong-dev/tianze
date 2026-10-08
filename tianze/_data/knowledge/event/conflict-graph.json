@@ -1,6 +1,6 @@
 {
  "schemaVersion": "1.0.0",
- "nodeCount": 227,
+ "nodeCount": 228,
  "edgeCount": 18,
  "edgeTypes": {
   "conflict": 5,
@@ -385,6 +385,20 @@
     "PROJECT_REFERENCE"
    ],
    "candidateId": "DTZ-11"
+  },
+  {
+   "type": "rule",
+   "id": "TR-SP-08",
+   "domain": "temporal",
+   "theme": "special-pattern",
+   "view": null,
+   "label": "假从/假化岁运敏感（行运之别）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-49"
   },
   {
    "type": "rule",

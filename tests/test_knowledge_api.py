@@ -13,8 +13,8 @@ def test_knowledge_stats():
     r = client.get("/api/v1/knowledge/stats")
     assert r.status_code == 200
     d = r.json()
-    assert d["executableTotal"] == 221
-    assert d["executableByDomain"] == {"event": 21, "temporal": 18, "tiaohou": 182}
+    assert d["executableTotal"] == 222
+    assert d["executableByDomain"] == {"event": 21, "temporal": 19, "tiaohou": 182}
 
 
 def test_knowledge_rules_with_conflict_neighbors():
@@ -22,7 +22,7 @@ def test_knowledge_rules_with_conflict_neighbors():
     assert r.status_code == 200
     d = r.json()
     by_id = {x["id"]: x for x in d["rules"]}
-    assert len(d["rules"]) == 221
+    assert len(d["rules"]) == 222
     car3 = by_id["EV-CAR-03"]
     assert any(c["edgeType"] == "rescues" for c in car3["conflictNeighbors"])
     guan = by_id["TR-SP-02"]
@@ -31,7 +31,7 @@ def test_knowledge_rules_with_conflict_neighbors():
 
 def test_knowledge_graph_and_rescues():
     g = client.get("/api/v1/knowledge/graph").json()
-    assert g["nodeCount"] == 227 and g["edgeCount"] == 18
+    assert g["nodeCount"] == 228 and g["edgeCount"] == 18
     r = client.get("/api/v1/knowledge/rescues").json()
     assert r["count"] == 6
 
@@ -51,14 +51,14 @@ def test_knowledge_review_queue_readonly():
 def test_dashboard_endpoints():
     """M19 Dashboard 数据端点：funnel/coverage-audit/rule-audit/release。"""
     fn = client.get("/api/v1/knowledge/funnel").json()
-    assert fn["funnel"]["executable"] == 221
+    assert fn["funnel"]["executable"] == 222
     assert fn["funnel"]["sources"] == 8 and fn["funnel"]["candidates"] == 556
     cov = client.get("/api/v1/knowledge/coverage-audit").json()
-    assert cov["ruleCount"] == 221
+    assert cov["ruleCount"] == 222
     ra = client.get("/api/v1/knowledge/rule-audit").json()
     assert ra["ruleCount"] == 21  # rule-audit 只审计 event 域规则
     rel = client.get("/api/v1/knowledge/release").json()
-    assert rel["metadata"]["counts"]["executableRules"] == 221
+    assert rel["metadata"]["counts"]["executableRules"] == 222
     # qualitySummary 可能 stale（门内测试运行时刻），只验结构；freshness 归 release_check
     assert "allPass" in rel["qualitySummary"]
 

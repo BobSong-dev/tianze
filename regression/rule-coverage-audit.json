@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "discipline": "全部分类进入 REVIEW 清单；不自动删除/调整任何规则",
- "ruleCount": 221,
+ "ruleCount": 222,
  "classifications": {
   "high_conflict": [
    "EV-CON-01",
@@ -33,6 +33,7 @@
    "TR-SP-04",
    "TR-SP-05",
    "TR-SP-07",
+   "TR-SP-08",
    "TR-SPZY-28",
    "TR-SS-R09",
    "TR-SS-R10A",
@@ -59,7 +60,7 @@
   "high_conflict": 6,
   "high_rescue_dep": 1,
   "low_trigger": 1,
-  "no_case_coverage": 20,
+  "no_case_coverage": 21,
   "only_silent": 13
  },
  "triggerRates": {
