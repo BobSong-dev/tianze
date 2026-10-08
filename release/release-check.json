@@ -6,7 +6,7 @@
   {
    "step": "P0_quality_gate",
    "pass": true,
-   "detail": "21 步 ALL PASS"
+   "detail": "22 步 ALL PASS"
   },
   {
    "step": "P1_package_build",
