@@ -1,6 +1,6 @@
 {
  "meta": {
-  "engineVersion": "0.2.0",
+  "engineVersion": "0.4.0.dev0",
   "engineStage": "M4",
   "deltaSchemaVersion": "1.0.0",
   "generatedBy": "tools/temporal_regression.py snapshot",
@@ -96,13 +96,17 @@
      "year": 2010,
      "gz": "庚寅",
      "relations": [
+      "arch:丑|子|寅:natal:year,annual",
+      "arch:卯|寅|辰:natal:month,luck",
       "harm:寅|巳:natal:day,annual",
       "harm:寅|巳:natal:hour,annual",
+      "hidden_combination:子|辰:natal:year,luck",
       "stem_opposition:庚|甲:natal:year,annual"
      ],
      "structures": [],
      "rules": [
       "TR-DTZ-09",
+      "TR-DTZ-10",
       "TR-SPZY-28"
      ]
     },
@@ -118,6 +122,7 @@
       "fanyin"
      ],
      "rules": [
+      "TR-DTZ-11",
       "TR-FANYIN-01",
       "TR-SPZY-28"
      ]
@@ -126,10 +131,13 @@
      "year": 2040,
      "gz": "庚申",
      "relations": [
+      "arch:午|巳|未:natal:day,luck",
+      "arch:午|巳|未:natal:hour,luck",
       "break:巳|申:natal:day,annual",
       "break:巳|申:natal:hour,annual",
       "clash:寅|申:natal:month,annual",
       "harm:子|未:natal:year,luck",
+      "hidden_combination:寅|未:natal:month,luck",
       "six_combination:巳|申:natal:day,annual",
       "six_combination:巳|申:natal:hour,annual",
       "stem_combination:丙|辛:natal:month,luck",
@@ -138,6 +146,7 @@
      "structures": [],
      "rules": [
       "TR-DTZ-09",
+      "TR-DTZ-10",
       "TR-SPZY-28"
      ]
     }
@@ -237,8 +246,8 @@
     "劫财:new"
    ],
    "scores": {
-    "大运 丁卯": 0.0,
-    "大运 戊辰": 0.0
+    "大运 丁卯": 4.0,
+    "大运 戊辰": 4.0
    }
   },
   {
@@ -344,6 +353,7 @@
      ],
      "rules": [
       "TR-DTZ-09",
+      "TR-DTZ-11",
       "TR-FANYIN-01",
       "TR-SPZY-28"
      ]
@@ -352,11 +362,14 @@
      "year": 2026,
      "gz": "丙午",
      "relations": [
+      "hidden_combination:亥|午:natal:year,annual",
+      "hidden_combination:亥|午:natal:year,luck",
       "stem_combination:戊|癸:natal:year,luck",
       "three_harmony_completed:午|寅|戌:natal:month,natal:day,luck"
      ],
      "structures": [],
      "rules": [
+      "TR-DTZ-10",
       "TR-SPZY-28"
      ]
     },
@@ -364,6 +377,10 @@
      "year": 2040,
      "gz": "庚申",
      "relations": [
+      "arch:戌|申|酉:natal:day,annual",
+      "arch:戌|申|酉:natal:day,luck",
+      "arch:戌|申|酉:natal:hour,annual",
+      "arch:戌|申|酉:natal:hour,luck",
       "clash:寅|申:natal:month,annual",
       "clash:寅|申:natal:month,luck",
       "harm:亥|申:natal:year,annual",
@@ -382,6 +399,7 @@
      "rules": [
       "TR-BINGLIN-01",
       "TR-DTZ-09",
+      "TR-DTZ-10",
       "TR-FANYIN-01",
       "TR-SPZY-28"
      ]
@@ -487,7 +505,7 @@
    ],
    "scores": {
     "大运 乙卯": 4.0,
-    "大运 丙辰": 10.0
+    "大运 丙辰": 12.0
    }
   },
   {
@@ -581,6 +599,8 @@
      "relations": [
       "break:亥|寅:natal:day,annual",
       "clash:寅|申:natal:month,annual",
+      "hidden_combination:寅|未:natal:hour,annual",
+      "hidden_combination:寅|未:natal:year,annual",
       "six_combination:亥|寅:natal:day,annual"
      ],
      "structures": [
@@ -588,6 +608,7 @@
      ],
      "rules": [
       "TR-DTZ-09",
+      "TR-DTZ-10",
       "TR-FUYIN-01",
       "TR-SPZY-28"
      ]
@@ -596,6 +617,8 @@
      "year": 2026,
      "gz": "丙午",
      "relations": [
+      "hidden_combination:亥|午:natal:day,annual",
+      "hidden_combination:亥|午:natal:day,luck",
       "six_combination:午|未:natal:hour,annual",
       "six_combination:午|未:natal:hour,luck",
       "six_combination:午|未:natal:year,annual",
@@ -605,6 +628,7 @@
      ],
      "structures": [],
      "rules": [
+      "TR-DTZ-10",
       "TR-SPZY-28",
       "TR-SS-R09"
      ]
@@ -727,7 +751,7 @@
    ],
    "scores": {
     "大运 己未": 3.0,
-    "大运 戊午": 8.0
+    "大运 戊午": 10.0
    }
   },
   {
@@ -819,12 +843,15 @@
      "year": 2010,
      "gz": "庚寅",
      "relations": [
+      "arch:午|巳|辰:natal:month,luck",
+      "arch:午|巳|辰:natal:year,luck",
       "break:亥|寅:natal:day,annual",
       "harm:卯|辰:natal:hour,luck",
       "six_combination:亥|寅:natal:day,annual"
      ],
      "structures": [],
      "rules": [
+      "TR-DTZ-10",
       "TR-SPZY-28"
      ]
     },
@@ -834,6 +861,7 @@
      "relations": [
       "break:亥|寅:natal:day,luck",
       "break:午|卯:natal:hour,annual",
+      "hidden_combination:亥|午:natal:day,annual",
       "six_combination:亥|寅:natal:day,luck",
       "stem_combination:丙|辛:natal:day,annual",
       "stem_combination:丙|辛:natal:hour,annual",
@@ -842,6 +870,7 @@
      "structures": [],
      "rules": [
       "TR-DTZ-09",
+      "TR-DTZ-10",
       "TR-SPZY-28"
      ]
     },
@@ -849,13 +878,19 @@
      "year": 2040,
      "gz": "庚申",
      "relations": [
+      "arch:丑|亥|子:natal:day,luck",
+      "arch:丑|卯|寅:natal:hour,luck",
+      "arch:午|未|申:natal:month,annual",
+      "arch:午|未|申:natal:year,annual",
       "harm:丑|午:natal:month,luck",
       "harm:丑|午:natal:year,luck",
       "harm:亥|申:natal:day,annual",
+      "hidden_combination:卯|申:natal:hour,annual",
       "stem_combination:丁|壬:natal:month,luck"
      ],
      "structures": [],
      "rules": [
+      "TR-DTZ-10",
       "TR-SPZY-28"
      ]
     }
@@ -960,8 +995,8 @@
     "比肩:increased"
    ],
    "scores": {
-    "大运 辛巳": 5.0,
-    "大运 庚辰": 2.0
+    "大运 辛巳": 7.0,
+    "大运 庚辰": 6.0
    }
   },
   {
@@ -1053,13 +1088,17 @@
      "year": 2010,
      "gz": "庚寅",
      "relations": [
+      "arch:亥|子|戌:natal:hour,luck",
+      "arch_fill:丑|卯|寅:natal:year,natal:month,annual",
       "harm:寅|巳:natal:day,annual",
+      "hidden_combination:子|戌:natal:hour,luck",
       "six_combination:卯|戌:natal:year,luck",
       "stem_combination:丙|辛:natal:day,luck",
       "stem_combination:乙|庚:natal:year,annual"
      ],
      "structures": [],
      "rules": [
+      "TR-DTZ-10",
       "TR-SPZY-28"
      ]
     },
@@ -1071,6 +1110,7 @@
       "break:巳|申:natal:day,luck",
       "clash:午|子:natal:hour,annual",
       "harm:丑|午:natal:month,annual",
+      "hidden_combination:卯|申:natal:year,luck",
       "six_combination:巳|申:natal:day,luck",
       "stem_combination:丙|辛:natal:day,annual",
       "stem_combination:己|甲:natal:month,luck",
@@ -1078,6 +1118,8 @@
      ],
      "structures": [],
      "rules": [
+      "TR-DTZ-10",
+      "TR-DTZ-11",
       "TR-SPZY-28"
      ]
     },
@@ -1085,9 +1127,11 @@
      "year": 2040,
      "gz": "庚申",
      "relations": [
+      "arch:午|巳|未:natal:day,luck",
       "break:巳|申:natal:day,annual",
       "clash:丑|未:natal:month,luck",
       "harm:子|未:natal:hour,luck",
+      "hidden_combination:卯|申:natal:year,annual",
       "six_combination:巳|申:natal:day,annual",
       "stem_combination:乙|庚:natal:year,annual"
      ],
@@ -1096,6 +1140,7 @@
      ],
      "rules": [
       "TR-DTZ-09",
+      "TR-DTZ-10",
       "TR-FANYIN-01",
       "TR-SPZY-28"
      ]
@@ -1206,7 +1251,7 @@
     "正印:new"
    ],
    "scores": {
-    "大运 戊子": 2.0,
+    "大运 戊子": 4.0,
     "大运 丁亥": 5.0
    }
   },
@@ -1299,13 +1344,17 @@
      "year": 2010,
      "gz": "庚寅",
      "relations": [
+      "arch:卯|寅|辰:natal:year,annual",
       "break:丑|辰:natal:year,luck",
       "harm:丑|午:natal:hour,luck",
-      "harm:寅|巳:natal:day,annual"
+      "harm:寅|巳:natal:day,annual",
+      "hidden_combination:丑|寅:natal:month,luck",
+      "hidden_combination:丑|巳:natal:day,luck"
      ],
      "structures": [],
      "rules": [
       "TR-DTZ-09",
+      "TR-DTZ-10",
       "TR-SPZY-28",
       "TR-SS-R09"
      ]
@@ -1314,13 +1363,18 @@
      "year": 2026,
      "gz": "丙午",
      "relations": [
-      "clash:午|子:natal:hour,luck"
+      "arch:丑|子|寅:natal:month,luck",
+      "clash:午|子:natal:hour,luck",
+      "hidden_combination:子|巳:natal:day,luck",
+      "hidden_combination:子|辰:natal:year,luck"
      ],
      "structures": [
       "fanyin",
       "identical"
      ],
      "rules": [
+      "TR-DTZ-10",
+      "TR-DTZ-11",
       "TR-FANYIN-01",
       "TR-FUYIN-01",
       "TR-SPZY-28"
@@ -1330,6 +1384,7 @@
      "year": 2040,
      "gz": "庚申",
      "relations": [
+      "arch:午|未|申:natal:hour,annual",
       "break:巳|申:natal:day,annual",
       "clash:寅|申:natal:month,annual",
       "clash:戌|辰:natal:year,luck",
@@ -1342,6 +1397,7 @@
      ],
      "rules": [
       "TR-DTZ-09",
+      "TR-DTZ-10",
       "TR-FANYIN-01",
       "TR-SPZY-28",
       "TR-SS-R09"
@@ -1444,8 +1500,8 @@
     "比肩:new"
    ],
    "scores": {
-    "大运 丁丑": 4.0,
-    "大运 丙子": 5.0
+    "大运 丁丑": 8.0,
+    "大运 丙子": 11.0
    }
   }
  ]

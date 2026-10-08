@@ -246,3 +246,83 @@ def test_rescue_predicates_random_robust():
             assert isinstance(v["active"], bool)
             assert isinstance(v["evidence"], list)
             assert v["note"]
+
+
+# ---------- M24 · 拱夹/暗合关系不变量（随机盘） ----------
+
+def _random_branch_chart(rng):
+    pool = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
+    return [rng.choice(pool) for _ in range(4)]
+
+
+def test_fuzz_arch_target_absence_invariant():
+    """不变量：arch 关系的被拱支（members[2]）必须不在原局（拱虚；见则不报）。"""
+    import random
+    from tianze.relation.relations import analyze_relations
+    rng = random.Random(2424)
+    pos = ["year", "month", "day", "hour"]
+    for _ in range(300):
+        branches = _random_branch_chart(rng)
+        stems = [rng.choice(list("甲乙丙丁戊己庚辛壬癸")) for _ in range(4)]
+        rels = analyze_relations(stems, branches, pos)
+        present = {b for b in branches if b}
+        for r in rels:
+            if r.kind.value == "arch":
+                target = r.members[2]
+                assert target not in present, f"{branches}: 拱{target} 但 {target} 在场"
+                # 隔二缺一：members 前两支在地支环上恰夹 target
+                from tianze.ganzhi.tables import BRANCHES
+                i1, i2, it = (BRANCHES.index(r.members[0]), BRANCHES.index(r.members[1]),
+                              BRANCHES.index(target))
+                assert (i1 + 1) % 12 == it or (i1 - 1) % 12 == it
+                assert (i2 + 1) % 12 == it or (i2 - 1) % 12 == it
+                assert r.transform_candidate is None  # 虚神不产化候选
+
+
+def test_fuzz_hidden_combination_constraints():
+    """不变量：暗合只出现在贴邻柱、不与六合重叠、transform_candidate 恒 None。"""
+    import random
+    from tianze.relation.relations import analyze_relations
+    from tianze.relation import tables as T
+    rng = random.Random(3434)
+    pos = ["year", "month", "day", "hour"]
+    for _ in range(300):
+        branches = _random_branch_chart(rng)
+        stems = [rng.choice(list("甲乙丙丁戊己庚辛壬癸")) for _ in range(4)]
+        for r in analyze_relations(stems, branches, pos):
+            if r.kind.value == "hidden_combination":
+                assert r.adjacency.value == "ADJACENT" or r.adjacency == "ADJACENT",                     f"{branches}: 暗合须贴邻（SPZY-34 两支毗连）"
+                assert T.FS(set(r.members)) not in T.SIX_COMBINATIONS
+                assert r.transform_candidate is None  # 非以化论也
+                pair = T.HIDDEN_COMBINATIONS.get(T.FS(set(r.members)))
+                assert pair is not None  # 只允许 SPZY-34 逐对表内暗合
+
+
+def test_fuzz_relation_determinism_random_charts():
+    """确定性：同盘重复分析 → 关系 JSON 完全一致（无 set 迭代序泄漏）。"""
+    import random
+    from tianze.relation.relations import analyze_relations
+    rng = random.Random(4444)
+    pos = ["year", "month", "day", "hour"]
+    for _ in range(120):
+        branches = _random_branch_chart(rng)
+        stems = [rng.choice(list("甲乙丙丁戊己庚辛壬癸")) for _ in range(4)]
+        dm = stems[2]
+        a = [r.model_dump(by_alias=True) for r in analyze_relations(stems, branches, pos, dm)]
+        b = [r.model_dump(by_alias=True) for r in analyze_relations(stems, branches, pos, dm)]
+        assert a == b
+
+
+def test_mld12_zhouxi_chart_arch():
+    """MLD-12 周熙造（乙丑 己丑 丁亥 辛亥）：两丑两亥 → 丑亥拱子（虚神候选）。"""
+    from tianze.relation.relations import analyze_relations
+    rs = analyze_relations(["乙", "己", "丁", "辛"], ["丑", "丑", "亥", "亥"],
+                           ["year", "month", "day", "hour"], "丁")
+    arches = [r for r in rs if r.kind.value == "arch"]
+    assert any(r.label == "丑亥拱子" for r in arches), [r.label for r in rs]
+    a = next(r for r in arches if r.label == "丑亥拱子")
+    assert a.members[2] == "子" and "子" not in {"丑", "亥"}
+    # 跨年界拱（亥→丑 经子）：两支隔二缺一
+    # 丑亥子 ⊆ 亥子丑（亥在场）→ 拱三会方（北方水·暗会）；丁禄在午，非拱禄
+    assert a.sub_type == "拱三会方（北方水·暗会）"
+    assert "暗冲暗会两说" in a.note

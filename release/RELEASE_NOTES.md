@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `314517eb4c03`（含未提交改动）
+- commit: `83ebb6a92338`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（103.1s / 20 步）
 
@@ -8,15 +8,15 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **221**（{'event': 21, 'temporal': 18, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 558
+- 命例 1147；Replay 165；测试 562
 
 ## 质量状态
 
 - Audit Gates: ALL PASS
 - Case Regression: 无变化
-- Temporal Regression: {'REVIEW': 4}
+- Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.536,
+  "elapsedSeconds": 0.528,
   "perCaseMs": 0.51
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.707,
-  "perCaseMs": 0.68
+  "elapsedSeconds": 0.722,
+  "perCaseMs": 0.69
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.018
+  "elapsedSeconds": 0.021
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（15）
+### 特性（16）
+- M24.1: 拱夹/虚神(arch)与暗合(hidden_combination)关系引擎 — DTZ-10/ZP-05/SPZY-34 引文级；temporal 层 arch_fill/arch/hidden_combination；TR-DTZ-10 评估器只读关系层；cong 印比合去两说(SP-CG-E1)；arch members canonical
 - M23 final: README M23 status + gate 20 steps ALL PASS + release_check ALL PASS (dev wheel 0.4.0.dev0, P5 commit 一致)
 - M23.6: Web Graph pan/zoom (viewBox 滚轮缩放+拖拽平移+重置) + 规则→ExplanationChain 跳转 + AI Evaluation 趋势 sparkline (pass率/grounding/latency)
 - M23.5: ADR-061 神煞主从与去取纪律（MLD-06/SS-R22/MLD-21 治理固化；红艳/桃花马等 OCR 残缺名目保持 UNRESOLVED 不落地）

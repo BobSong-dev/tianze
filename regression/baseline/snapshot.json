@@ -4,7 +4,7 @@
    "knowledge": "1.1.0",
    "case": "1.0.0"
   },
-  "engineVersion": "0.2.0",
+  "engineVersion": "0.4.0.dev0",
   "engineStage": "M4",
   "generatedBy": "tools/case_regression.py snapshot",
   "count": 1147
@@ -874,7 +874,7 @@
      "曲直:BLOCKED"
     ],
     "transformation": [
-     "甲己:CANDIDATE",
+     "甲己:UNRESOLVED",
      "乙庚:UNRESOLVED"
     ]
    },
@@ -1611,7 +1611,7 @@
      "从革:CANDIDATE"
     ],
     "transformation": [
-     "丙辛:CANDIDATE"
+     "丙辛:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -2389,7 +2389,7 @@
      "从革:UNRESOLVED"
     ],
     "transformation": [
-     "戊癸:CANDIDATE"
+     "戊癸:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -2966,7 +2966,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -6104,7 +6104,7 @@
      "稼穑:CANDIDATE"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -7876,7 +7876,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -8276,7 +8276,7 @@
      "炎上:UNRESOLVED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -9118,7 +9118,7 @@
      "炎上:UNRESOLVED"
     ],
     "transformation": [
-     "戊癸:CANDIDATE"
+     "戊癸:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -9818,7 +9818,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "乙庚:CANDIDATE"
+     "乙庚:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -10231,7 +10231,7 @@
      "炎上:CANDIDATE"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -10955,7 +10955,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "丙辛:CANDIDATE"
+     "丙辛:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -11291,7 +11291,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "丙辛:CANDIDATE"
+     "丙辛:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -11584,7 +11584,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -12462,7 +12462,7 @@
      "曲直:BLOCKED"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -13169,7 +13169,7 @@
      "曲直:CANDIDATE"
     ],
     "transformation": [
-     "乙庚:CANDIDATE"
+     "乙庚:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -14168,7 +14168,7 @@
      "曲直:UNRESOLVED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -14606,7 +14606,7 @@
      "曲直:CANDIDATE"
     ],
     "transformation": [
-     "乙庚:CANDIDATE"
+     "乙庚:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -14780,7 +14780,7 @@
      "曲直:BLOCKED"
     ],
     "transformation": [
-     "乙庚:CANDIDATE"
+     "乙庚:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -15719,7 +15719,7 @@
      "炎上:CANDIDATE"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -15761,7 +15761,7 @@
      "炎上:CANDIDATE"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -15963,7 +15963,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -17048,7 +17048,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "乙庚:CANDIDATE"
+     "乙庚:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -17625,7 +17625,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "丙辛:CANDIDATE"
+     "丙辛:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -17783,7 +17783,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "丙辛:CANDIDATE"
+     "丙辛:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -18406,7 +18406,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -18566,7 +18566,7 @@
      "炎上:UNRESOLVED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -18968,7 +18968,7 @@
      "炎上:UNRESOLVED"
     ],
     "transformation": [
-     "戊癸:CANDIDATE"
+     "戊癸:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -19395,7 +19395,7 @@
      "炎上:BLOCKED"
     ],
     "transformation": [
-     "乙庚:CANDIDATE"
+     "乙庚:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -20052,7 +20052,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -20380,7 +20380,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE",
+     "丁壬:UNRESOLVED",
      "戊癸:UNRESOLVED"
     ]
    },
@@ -21499,7 +21499,7 @@
      "稼穑:CANDIDATE"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -22451,7 +22451,7 @@
      "从革:BLOCKED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE",
+     "丁壬:UNRESOLVED",
      "乙庚:UNRESOLVED"
     ]
    },
@@ -23748,7 +23748,7 @@
      "从革:BLOCKED"
     ],
     "transformation": [
-     "丙辛:CANDIDATE"
+     "丙辛:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -25895,7 +25895,7 @@
      "润下:UNRESOLVED"
     ],
     "transformation": [
-     "乙庚:CANDIDATE"
+     "乙庚:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -26177,7 +26177,7 @@
      "润下:BLOCKED"
     ],
     "transformation": [
-     "甲己:CANDIDATE",
+     "甲己:UNRESOLVED",
      "丁壬:UNRESOLVED"
     ]
    },
@@ -28262,7 +28262,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -28630,7 +28630,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE",
+     "丁壬:UNRESOLVED",
      "戊癸:UNRESOLVED"
     ]
    },
@@ -28749,7 +28749,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -28956,7 +28956,7 @@
      "稼穑:CANDIDATE"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -29075,7 +29075,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -29359,7 +29359,7 @@
     ],
     "transformation": [
      "丙辛:UNRESOLVED",
-     "戊癸:CANDIDATE"
+     "戊癸:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -29400,7 +29400,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "戊癸:CANDIDATE"
+     "戊癸:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -30719,7 +30719,7 @@
      "稼穑:CANDIDATE"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -31207,7 +31207,7 @@
      "稼穑:CANDIDATE"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -32842,7 +32842,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -32968,7 +32968,7 @@
      "稼穑:CANDIDATE"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -33250,7 +33250,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "戊癸:CANDIDATE"
+     "戊癸:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -33536,7 +33536,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "戊癸:CANDIDATE"
+     "戊癸:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -34804,7 +34804,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "丙辛:CANDIDATE"
+     "丙辛:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -35220,7 +35220,7 @@
      "稼穑:BLOCKED"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -36400,7 +36400,7 @@
      "曲直:BLOCKED"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -37170,7 +37170,7 @@
      "曲直:CANDIDATE"
     ],
     "transformation": [
-     "乙庚:CANDIDATE"
+     "乙庚:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -37335,7 +37335,7 @@
      "曲直:CANDIDATE"
     ],
     "transformation": [
-     "乙庚:CANDIDATE"
+     "乙庚:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -38030,7 +38030,7 @@
      "曲直:UNRESOLVED"
     ],
     "transformation": [
-     "丙辛:CANDIDATE"
+     "丙辛:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -38997,7 +38997,7 @@
      "曲直:UNRESOLVED"
     ],
     "transformation": [
-     "丁壬:CANDIDATE"
+     "丁壬:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -39725,7 +39725,7 @@
      "曲直:BLOCKED"
     ],
     "transformation": [
-     "戊癸:CANDIDATE"
+     "戊癸:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -40032,7 +40032,7 @@
      "曲直:CANDIDATE"
     ],
     "transformation": [
-     "乙庚:CANDIDATE"
+     "乙庚:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -40211,7 +40211,7 @@
      "曲直:BLOCKED"
     ],
     "transformation": [
-     "乙庚:CANDIDATE"
+     "乙庚:UNRESOLVED"
     ]
    },
    "bingYao": {
@@ -41530,7 +41530,7 @@
      "曲直:UNRESOLVED"
     ],
     "transformation": [
-     "丙辛:CANDIDATE",
+     "丙辛:UNRESOLVED",
      "乙庚:UNRESOLVED"
     ]
    },
@@ -42736,7 +42736,7 @@
      "曲直:BLOCKED"
     ],
     "transformation": [
-     "甲己:CANDIDATE"
+     "甲己:UNRESOLVED"
     ]
    },
    "bingYao": {

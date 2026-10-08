@@ -1,7 +1,7 @@
 {
  "meta": {
   "baseline": {
-   "engineVersion": "0.2.0",
+   "engineVersion": "0.4.0.dev0",
    "engineStage": "M4",
    "deltaSchemaVersion": "1.0.0",
    "generatedBy": "tools/temporal_regression.py snapshot",
@@ -19,67 +19,6 @@
  },
  "newProbes": [],
  "removedProbes": [],
- "changedProbes": [
-  {
-   "probe": "f_1983_0215",
-   "field": "annual[2010].rules",
-   "before": [
-    "TR-DTZ-09",
-    "TR-FANYIN-01",
-    "TR-SPZY-28"
-   ],
-   "after": [
-    "TR-DTZ-09",
-    "TR-DTZ-11",
-    "TR-FANYIN-01",
-    "TR-SPZY-28"
-   ],
-   "severity": "REVIEW"
-  },
-  {
-   "probe": "f_2000_0229",
-   "field": "annual[2026].rules",
-   "before": [
-    "TR-FANYIN-01",
-    "TR-FUYIN-01",
-    "TR-SPZY-28"
-   ],
-   "after": [
-    "TR-DTZ-11",
-    "TR-FANYIN-01",
-    "TR-FUYIN-01",
-    "TR-SPZY-28"
-   ],
-   "severity": "REVIEW"
-  },
-  {
-   "probe": "m_1976_0130",
-   "field": "annual[2026].rules",
-   "before": [
-    "TR-SPZY-28"
-   ],
-   "after": [
-    "TR-DTZ-11",
-    "TR-SPZY-28"
-   ],
-   "severity": "REVIEW"
-  },
-  {
-   "probe": "m_1984_0205",
-   "field": "annual[2026].rules",
-   "before": [
-    "TR-FANYIN-01",
-    "TR-SPZY-28"
-   ],
-   "after": [
-    "TR-DTZ-11",
-    "TR-FANYIN-01",
-    "TR-SPZY-28"
-   ],
-   "severity": "REVIEW"
-  }
- ],
- "severityCounts": {
-  "REVIEW": 4
- }
+ "changedProbes": [],
+ "severityCounts": {}
 }

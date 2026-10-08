@@ -5,7 +5,7 @@
     "knowledge": "1.1.0",
     "case": "1.0.0"
    },
-   "engineVersion": "0.2.0",
+   "engineVersion": "0.4.0.dev0",
    "engineStage": "M4",
    "generatedBy": "tools/case_regression.py snapshot",
    "count": 1147
