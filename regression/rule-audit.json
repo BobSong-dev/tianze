@@ -982,8 +982,8 @@
      "luck": null,
      "annual": "己卯",
      "theme": "relationship",
-     "status": "CANDIDATE",
-     "agreement": null,
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
      "relation": "SOURCE_SILENT"
     },
     {
@@ -2037,9 +2037,22 @@
     "TIANZE_NORMALIZATION"
    ],
    "randomTriggerRate": 0.0,
-   "relationDistribution": {},
-   "occurrenceCount": 0,
-   "samples": [],
+   "relationDistribution": {
+    "SOURCE_SILENT": 1
+   },
+   "occurrenceCount": 1,
+   "samples": [
+    {
+     "caseId": "CASE-MLYD-32（女命无名例四·庚子月）",
+     "book": "命理一得",
+     "luck": null,
+     "annual": "己卯",
+     "theme": "relationship",
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "relation": "SOURCE_SILENT"
+    }
+   ],
    "overGeneralizationSignal": false
   }
  ]

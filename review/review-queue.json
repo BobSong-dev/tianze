@@ -5,11 +5,11 @@
  "generatedBy": "tools/review_queue.py",
  "stats": {
   "ocrRisk": 163,
-  "machineCurated": 218,
+  "machineCurated": 220,
   "sensitiveClaims": 38,
-  "ruleConflicts": 7
+  "ruleConflicts": 8
  },
- "totalItems": 426,
+ "totalItems": 429,
  "queue": {
   "ocrRiskRules": [
    {
@@ -970,6 +970,13 @@
     "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
    },
    {
+    "id": "EV-REL-06",
+    "domain": "event",
+    "label": "婚变之微（女命夫宫坐伤官）",
+    "method": "ai_curation",
+    "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言"
+   },
+   {
     "id": "TR-SS-R09",
     "domain": "temporal",
     "label": "日犯岁君（流年干为日主所克）",
@@ -1001,6 +1008,13 @@
     "id": "TR-DTZ-09",
     "domain": "temporal",
     "label": "岁运冲提纲/三刑全备观察",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-DTZ-11",
+    "domain": "temporal",
+    "label": "旺者冲衰衰者拔，衰神冲旺旺者发（旺衰以全局气势言）",
     "method": "ai_curation",
     "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
    },
@@ -2653,6 +2667,15 @@
     ],
     "resolution": "keep-both",
     "note": "MLD-18：配偶星临岁运（support）与夫妻宫逢冲（oppose）可同时成立；原文并注明「离婚非不可避免事」，方向相反只表示主题内张力"
+   },
+   {
+    "source": "event",
+    "rules": [
+     "EV-REL-03",
+     "EV-REL-06"
+    ],
+    "resolution": "keep-both",
+    "note": "同一 MLD-18 段落：配偶星临岁运（support）与夫宫坐伤官（oppose）可同时成立——「微象」与「临岁运」分属不同结构层面，方向相反只表示关系主题内张力；原文注明离婚非不可避免事"
    },
    {
     "source": "event",

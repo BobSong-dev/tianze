@@ -1,7 +1,7 @@
 # Tianze Review Queue
 
-- total items: 426
-- stats: {'ocrRisk': 163, 'machineCurated': 218, 'sensitiveClaims': 38, 'ruleConflicts': 7}
+- total items: 429
+- stats: {'ocrRisk': 163, 'machineCurated': 220, 'sensitiveClaims': 38, 'ruleConflicts': 8}
 
 ## 分区
 
@@ -17,7 +17,7 @@
 - {"id": "DTZ-13", "book": "DTZ", "title": "土居中央寄于四隅——寅申巳亥同藏戊土，午藏己土；亥子之土名存实亡"}
 - …（其余 155 条见 JSON）
 
-### machineCuratedRules（218）
+### machineCuratedRules（220）
 
 - {"id": "EV-CAR-01", "domain": "event", "label": "官星透岁运+官杀主题增强", "method": "ai_curation", "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件
 - {"id": "EV-CAR-02", "domain": "event", "label": "官印相生（印化官杀）", "method": "ai_curation", "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言
@@ -27,7 +27,7 @@
 - {"id": "EV-WEA-03", "domain": "event", "label": "财库逢冲（两说并存）", "method": "ai_curation", "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言
 - {"id": "EV-REL-01", "domain": "event", "label": "夫妻宫（日支）逢岁运六合", "method": "ai_curation", "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件
 - {"id": "EV-REL-02", "domain": "event", "label": "夫妻宫逢冲/夫星逢冲", "method": "ai_curation", "note": "M14 事件规则 curation 由 AI 依候选原文完成（非人工）；升级需真人对照扫描件；效果只输出主题方向，不输出事件断言
-- …（其余 210 条见 JSON）
+- …（其余 212 条见 JSON）
 
 ### sensitiveClaims（38）
 
@@ -41,11 +41,12 @@
 - {"caseId": "CASE-QBTM-戊-26", "text": "位至总长；戊运己卯年元旦被刺殒命", "keywords": ["刺"]}
 - …（其余 30 条见 JSON）
 
-### ruleConflicts（7）
+### ruleConflicts（8）
 
 - {"source": "event", "rules": ["EV-CAR-01", "EV-CAR-03"], "resolution": "specific-over-general", "note": "无救应条件时回落 keep-both：DTZ-39「可见/不可见」之辨需察财印有无"}
 - {"source": "event", "rules": ["EV-WEA-01", "EV-WEA-02"], "resolution": "specific-over-general", "note": "无强度条件时回落 keep-both：SS-R10「须察其配合，非可一例以推」"}
 - {"source": "event", "rules": ["EV-REL-02", "EV-REL-03"], "resolution": "keep-both", "note": "MLD-18：配偶星临岁运（support）与夫妻宫逢冲（oppose）可同时成立；原文并注明「离婚非不可避免事」，方向相反只表示主题
+- {"source": "event", "rules": ["EV-REL-03", "EV-REL-06"], "resolution": "keep-both", "note": "同一 MLD-18 段落：配偶星临岁运（support）与夫宫坐伤官（oppose）可同时成立——「微象」与「临岁运」分属不同结构层面
 - {"source": "event", "rules": ["EV-CON-01", "EV-WEA-02"], "resolution": "no-adjudication", "note": "special_pattern 视角（从格顺势/破格两说）与 traditional 视角（比劫夺财）方向相反时属流派差异
 - {"source": "tiaohou", "rules": ["QBT-甲-07", "QBT-甲-06"], "resolution": "specific-over-general", "note": "QBT-甲-06（五六月合论）与 QBT-甲-07（六月专论）覆盖重叠：specific-over-gener
 - {"source": "tiaohou", "rules": ["QBT-甲-07", "QBT-甲-06"], "resolution": "specific-over-general", "note": "QBT-甲-06（五六月合论）与 QBT-甲-07（六月专论）覆盖重叠：specific-over-gener

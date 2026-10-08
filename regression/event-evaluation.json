@@ -1,13 +1,13 @@
 {
  "schemaVersion": "1.0.0",
- "ruleCount": 20,
+ "ruleCount": 21,
  "ruleCoverageByProbe": {
-  "multi_view_agree": 0.2,
-  "multi_view_conflict": 0.3,
-  "shensha_only": 0.1,
-  "unknown_hour": 0.15,
-  "wealth_ku": 0.15,
-  "female_guan": 0.15
+  "multi_view_agree": 0.19,
+  "multi_view_conflict": 0.286,
+  "shensha_only": 0.095,
+  "unknown_hour": 0.143,
+  "wealth_ku": 0.143,
+  "female_guan": 0.143
  },
  "disagreementRate": {
   "byProbe": {
@@ -88,7 +88,8 @@
     "EV-CAR-04",
     "EV-CAR-05",
     "EV-WEA-04",
-    "EV-REL-05"
+    "EV-REL-05",
+    "EV-REL-06"
    ]
   },
   {
@@ -160,7 +161,8 @@
     "EV-CAR-04",
     "EV-CAR-05",
     "EV-WEA-04",
-    "EV-REL-05"
+    "EV-REL-05",
+    "EV-REL-06"
    ]
   },
   {
@@ -210,7 +212,8 @@
     "EV-CAR-04",
     "EV-CAR-05",
     "EV-WEA-04",
-    "EV-REL-05"
+    "EV-REL-05",
+    "EV-REL-06"
    ]
   },
   {
@@ -271,7 +274,8 @@
     "EV-CAR-04",
     "EV-CAR-05",
     "EV-WEA-04",
-    "EV-REL-05"
+    "EV-REL-05",
+    "EV-REL-06"
    ]
   },
   {
@@ -332,7 +336,8 @@
     "EV-CAR-04",
     "EV-CAR-05",
     "EV-WEA-04",
-    "EV-REL-05"
+    "EV-REL-05",
+    "EV-REL-06"
    ]
   },
   {
@@ -393,7 +398,8 @@
     "EV-CAR-04",
     "EV-CAR-05",
     "EV-WEA-04",
-    "EV-REL-05"
+    "EV-REL-05",
+    "EV-REL-06"
    ]
   }
  ],
@@ -413,6 +419,7 @@
    "EV-REL-03": 0.185,
    "EV-REL-04": 0.13,
    "EV-REL-05": 0.09,
+   "EV-REL-06": 0.03,
    "EV-SOC-01": 0.19,
    "EV-STU-01": 0.235,
    "EV-WEA-01": 0.165,
@@ -423,14 +430,14 @@
   "themeTriggerRate": {
    "career": 0.44,
    "mobility": 0.315,
-   "relationship": 0.485,
+   "relationship": 0.495,
    "social": 0.335,
    "study": 0.235,
    "wealth": 0.27
   },
   "statusDistribution": {
-   "CANDIDATE": 382,
-   "DISPUTED": 12,
+   "CANDIDATE": 381,
+   "DISPUTED": 15,
    "LIKELY": 22
   },
   "abnormalTriggerRate": {
@@ -552,6 +559,11 @@
      {
       "id": "EV-REL-05",
       "label": "财印不容（关系张力）",
+      "view": "traditional"
+     },
+     {
+      "id": "EV-REL-06",
+      "label": "婚变之微（女命夫宫坐伤官）",
       "view": "traditional"
      }
     ],
@@ -691,6 +703,10 @@
    "claimsInTheme": 73
   },
   "EV-REL-05": {
+   "theme": "relationship",
+   "claimsInTheme": 18
+  },
+  "EV-REL-06": {
    "theme": "relationship",
    "claimsInTheme": 18
   }

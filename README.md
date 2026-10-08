@@ -4,7 +4,7 @@
 >
 > **取诸家之长，统一为 Tianze。** 基础计算直接复用；成熟实现优先借鉴；算法必须可解释；规则必须可追踪；流派差异必须保留；权重与 heuristic 必须公开；有争议的地方不伪装成唯一答案；LLM 不参与确定性计算。
 
-## 当前状态：M22 完成（v0.3.0 RC 审计 + 图谱画布 + 遥测闭环 + 知识扩容）
+## 当前状态：M23 完成（0.4.0.dev0 开发线：真化条件精细化 + DTZ-11 旺衰冲 + EV-REL-06 婚变之微 + Graph 平移缩放/解释链跳转 + 遥测趋势线；v0.3.0 tag 冻结于 5821c84，RC 工件归档 release/rc/0.3.0/）
 
 | 里程碑 | 内容 | 状态 |
 |---|---|---|
@@ -32,6 +32,7 @@
 | M20 | 产品化收口（可安装 wheel + `tianze` CLI / release_check P0-P7 / clean-install smoke / Benchmark History / Web 评估对比+图视图 / README Quick Start / 版本单一事实源） | ✅ |
 | M21 | 发布验证（多平台 CI 矩阵 / Provider 遥测 / CLI human 模式 / Rescue coverage 审计 / v0.3.0 本地 RC + Release History / 质量门 20 步） | ✅ |
 | M22 | 产品深化（RC 全工件审计 + wheel 内容校验 / Rule Graph SVG 画布 / 遥测趋势入 compare / TR-SP-05 化神所忌 + TR-SP-07 从格受克 / 五读数实证 / Rule↔Case 联动） | ✅ |
+| M23 | 知识推理深化与产品成熟化（DTZ-47 真化条件入引擎 / DTZ-06 经典造回归 / TR-DTZ-11 旺衰冲 / EV-REL-06 婚变之微 / ADR-060 版本纪律 + ADR-061 神煞去取 / Graph pan-zoom + 解释链跳转 + 评估趋势线；可执行规则 218→220） | ✅ |
 
 **测试：506 项全绿**（Python）；E2E 8 项；可执行规则 216；救应谓词 7（五读数一致）/
 冲突边 4 / 流派冲突对 6；Case Replay 165 例；Audit Gates 10 门全过；一键质量门 17 步

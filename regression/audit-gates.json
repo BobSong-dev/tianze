@@ -149,6 +149,7 @@
    "EV-REL-03": 14,
    "EV-REL-04": 31,
    "EV-REL-05": 12,
+   "EV-REL-06": 1,
    "EV-SOC-01": 40,
    "EV-STU-01": 27,
    "EV-WEA-01": 43,
@@ -156,8 +157,6 @@
    "EV-WEA-03": 4,
    "EV-WEA-04": 14
   },
-  "eventRulesNeverInReplay": [
-   "EV-REL-06"
-  ]
+  "eventRulesNeverInReplay": []
  }
 }

@@ -3,6 +3,11 @@
 - baseline engine: 0.2.0 (M4)
 - current engine: 0.4.0.dev0 (M4)
 - probes: 6 → 6
-- severity: {}
+- severity: {'REVIEW': 4}
 
-无变化。
+| severity | probe | field | detail |
+|---|---|---|---|
+| REVIEW | f_1983_0215 | annual[2010].rules |  |
+| REVIEW | f_2000_0229 | annual[2026].rules |  |
+| REVIEW | m_1976_0130 | annual[2026].rules |  |
+| REVIEW | m_1984_0205 | annual[2026].rules |  |

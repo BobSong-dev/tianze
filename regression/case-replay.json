@@ -25,7 +25,7 @@
    "family": 16
   },
   "unresolvedRate": 0.157,
-  "disagreementRate": 0.052,
+  "disagreementRate": 0.055,
   "ruleHitCoverage": {
    "EV-CAR-01": 32,
    "EV-CAR-02": 15,
@@ -41,6 +41,7 @@
    "EV-REL-03": 14,
    "EV-REL-04": 31,
    "EV-REL-05": 12,
+   "EV-REL-06": 1,
    "EV-SOC-01": 40,
    "EV-STU-01": 27,
    "EV-WEA-01": 43,
@@ -49,10 +50,10 @@
    "EV-WEA-04": 14
   },
   "statusDistribution": {
-   "CANDIDATE": 327,
+   "CANDIDATE": 326,
    "UNRESOLVED": 69,
    "LIKELY": 20,
-   "DISPUTED": 23
+   "DISPUTED": 24
   },
   "luckSourceCounts": {
    "mention": 92,
@@ -963,7 +964,8 @@
    "temporalChain": "natal→己卯",
    "ruleChains": {
     "relationship": [
-     "EV-REL-04"
+     "EV-REL-04",
+     "EV-REL-06"
     ],
     "social": [
      "EV-CON-01"
@@ -983,11 +985,12 @@
    "tianzeThemes": [
     {
      "theme": "relationship",
-     "status": "CANDIDATE",
-     "agreement": null,
-     "confidence": 0.6,
+     "status": "DISPUTED",
+     "agreement": "CONFLICT",
+     "confidence": 0.45,
      "rules": [
-      "EV-REL-04"
+      "EV-REL-04",
+      "EV-REL-06"
      ]
     },
     {
