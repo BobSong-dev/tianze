@@ -1,0 +1,64 @@
+{
+ "schemaVersion": "1.0.0",
+ "ruleCount": 20,
+ "rescuedRules": {
+  "EV-CAR-01": [
+   {
+    "id": "RSC-GUANSHA-CONTROL",
+    "predicate": "guan_sha_has_control",
+    "effect": "reinforce"
+   }
+  ],
+  "EV-CAR-03": [
+   {
+    "id": "RSC-SHANGGUAN-YIN",
+    "predicate": "yin_present",
+    "effect": "weaken"
+   },
+   {
+    "id": "RSC-SHANGGUAN-CAI",
+    "predicate": "cai_present",
+    "effect": "weaken"
+   }
+  ],
+  "EV-REL-05": [
+   {
+    "id": "RSC-CAI-YIN-GUAN",
+    "predicate": "guan_bridges_cai_yin",
+    "effect": "weaken"
+   }
+  ],
+  "EV-WEA-01": [
+   {
+    "id": "RSC-WEA-UNFAVORABLE",
+    "predicate": "wealth_unfavorable",
+    "effect": "weaken"
+   }
+  ],
+  "EV-WEA-02": [
+   {
+    "id": "RSC-BIJIE-WEALTH",
+    "predicate": "wealth_favorable",
+    "effect": "weaken"
+   }
+  ]
+ },
+ "rescueCoverage": {
+  "rescued": 5,
+  "total": 20,
+  "ratio": 0.25
+ },
+ "heuristicConditionPredicates": [
+  "wealth_favorable"
+ ],
+ "keepBothConflicts": [
+  "EV-REL-02×EV-REL-03"
+ ],
+ "resolutionDistribution": {
+  "specific-over-general": 2,
+  "keep-both": 1,
+  "no-adjudication": 1
+ },
+ "unstructuredClassicalExceptions": [],
+ "note": "审计只报告；证据不足保持现状（宁缺毋滥，ADR-049）"
+}

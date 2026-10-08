@@ -46,7 +46,8 @@
 
 ## Commits（自 起点）
 
-### 特性（86）
+### 特性（87）
+- M21.5: CLI human-readable format + bad-input UX
 - M21.2-3: multi-platform CI matrix + provider observability
 - M20 final: gate 18 steps (incl. release_check) ALL PASS + external release_check ALL PASS (stale integrity enforced externally) + E2E 8 + build - fixed gate/release_check self-reference deadlock (P5 stale flag for   gate-internal calls, structure-only summary assertions, step count 18)
 - M20 final: quality gate ALL PASS + release_check ALL PASS + E2E 8 + build

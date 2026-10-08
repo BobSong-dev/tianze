@@ -31,7 +31,7 @@
   {
    "step": "P5_stale_artifact",
    "pass": true,
-   "detail": "SKIP（gate 内部调用；dirty）"
+   "detail": "SKIP（gate 内部调用；dirty）——metadata commit 落后，发布前重跑 release_metadata"
   },
   {
    "step": "P6_notes_consistency",

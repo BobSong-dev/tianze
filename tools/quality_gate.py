@@ -45,6 +45,7 @@ STEPS = [
     ("ai_evaluation_mock", [PY, "tools/ai_evaluation.py", "--mock"]),
     ("review_queue", [PY, "tools/review_queue.py"]),
     ("rule_coverage_audit", [PY, "tools/rule_coverage_audit.py"]),
+    ("rescue_coverage", [PY, "tools/rescue_coverage.py"]),
     ("ai_eval_compare", [PY, "tools/ai_eval_compare.py"]),
     ("benchmark", [PY, "tools/benchmark.py"]),
     ("release_metadata", [PY, "tools/release_metadata.py"]),
