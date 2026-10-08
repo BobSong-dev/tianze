@@ -261,8 +261,22 @@ def build_interpretation_context(
             "matchedRules": matched_rules,
             "deltaItems": delta_items,
             "unsupportedNotes": delta.get("unsupportedNotes", []),
+            "replay": [
+                {"layer": st.get("layer"), "ganzhi": st.get("ganzhi", ""),
+                 "note": st.get("note", ""),
+                 "added": [{"kind": a.get("kind"), "label": a.get("label"),
+                            "refId": a.get("refId")} for a in st.get("added", [])],
+                 "removed": [{"kind": rm.get("kind"), "label": rm.get("label")}
+                             for rm in st.get("removed", [])]}
+                for st in (tp.get("replay") or {}).get("steps", [])
+            ],
         }
         claim_refs.append(f"temporal:chain:{'-'.join(chain[1:]).replace(' ', '') or 'natal-only'}")
+        for st in (tp.get("replay") or {}).get("steps", []):
+            for ad in st.get("added", []):
+                if ad.get("refId"):
+                    claim_refs.append(ad["refId"])
+                    claim_refs.append(f"replayLayer:{ad['refId']}:{st.get('layer')}")
         for t in matched_rules:
             if t.get("refId"):
                 claim_refs.append(t["refId"])

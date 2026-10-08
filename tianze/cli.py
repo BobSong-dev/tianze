@@ -134,9 +134,24 @@ def cmd_timeline(a) -> int:
         target_month=a.month, target_day=a.day,
         include_event_themes=a.event_themes,
         include_temporal_delta=True, include_explanations=a.explanations,
+        include_temporal_replay=a.replay,
     )
     result = analyze(_build_birth(a), options)
-    return _emit(result.model_dump(), a.format, a.out)
+    payload = result.model_dump()
+    if a.replay and a.format == "human":
+        # 人类可读回放摘要（--out/json 走完整 payload）
+        rp = (payload.get("temporal") or {}).get("replay") or {}
+        lines = ["逐层状态回放（natal→大运→流年→流月→流日）"]
+        for st in rp.get("steps", []):
+            lines.append(f"[{st['layer']}] {st['ganzhi']}  {st['note']}")
+            for ad in st.get("added", []):
+                lines.append(f"   + {ad['kind']}  {ad['label']}")
+            for rm in st.get("removed", []):
+                lines.append(f"   - {rm['kind']}  {rm['label']}")
+        lines.append("（结构候选事件回放，不构成吉凶或事件预测）")
+        print(chr(10).join(lines))
+        return 0
+    return _emit(payload, a.format, a.out)
 
 
 def cmd_export(a) -> int:
@@ -199,6 +214,8 @@ def main(argv: list[str] | None = None) -> int:
 
     pt = sub.add_parser("timeline", help="聚焦岁运分析（大运→年→月→日）")
     _birth_args(pt); _temporal_args(pt)
+    pt.add_argument("--replay", action="store_true",
+                    help="逐层状态回放（natal→大运→流年→流月→流日 快照对比）")
     pt.add_argument("--event-themes", action="store_true")
     pt.add_argument("--explanations", action="store_true")
     pt.add_argument("--format", choices=["human", "json", "md", "html"], default="human")

@@ -366,6 +366,7 @@ const selYear = ref<number | null>(null);
 const selMonth = ref<number | null>(null);
 const selDay = ref<string>("");
 const temporalLoading = ref(false);
+const withReplay = ref(true);   // M31：默认带逐层状态回放（按需计算）
 const temporalError = ref("");
 const temporalData = ref<any>(null);
 
@@ -476,6 +477,7 @@ async function loadTemporal() {
         targetDay: selDay.value || undefined,
         includeTemporalDelta: true,
         includeEventThemes: true,
+        includeTemporalReplay: withReplay.value,
       },
     });
     temporalData.value = resp.temporal;
@@ -827,6 +829,7 @@ async function loadTemporal() {
           <label>流日（可选）
             <input type="date" v-model="selDay" :disabled="selMonth === null" />
           </label>
+          <label class="checkbox"><input type="checkbox" v-model="withReplay" /> 状态回放</label>
           <button class="submit" @click="loadTemporal" :disabled="temporalLoading">
             {{ temporalLoading ? "分析中…" : "分析" }}
           </button>
@@ -837,6 +840,21 @@ async function loadTemporal() {
         <p v-if="temporalError" class="error-text">{{ temporalError }}</p>
 
         <template v-if="temporalData">
+          <!-- M31 · 逐层状态回放时间轴 -->
+          <div v-if="temporalData.replay?.steps?.length" class="candidate-block">
+            <strong>逐层状态回放 <span class="note">natal→大运→流年→流月→流日；每层只显示该层引入（+）/移除（−）的虚神候选事件</span></strong>
+            <div v-for="(st, i) in temporalData.replay.steps" :key="i" class="evidence-item">
+              <span class="badge">{{ st.layer }}{{ st.ganzhi ? ' ' + st.ganzhi : '' }}</span>
+              {{ st.note }}
+              <div v-for="(a, ai) in st.added" :key="'a' + ai" class="evidence-item rescue">
+                + {{ a.kind }}：{{ a.label }}
+              </div>
+              <div v-for="(rm, ri) in st.removed" :key="'r' + ri" class="evidence-item damage">
+                − {{ rm.kind }}：{{ rm.label }}
+              </div>
+            </div>
+            <div class="note">结构候选事件回放，不构成吉凶或事件预测</div>
+          </div>
           <!-- 岁运上下文 -->
           <div class="temporal-context">
             <span class="ctx-chip natal">原局 {{ temporalData.context.natalStems.filter(Boolean).map((s: string, i: number) => s + temporalData.context.natalBranches.filter(Boolean)[i]).join(" ") }}</span>

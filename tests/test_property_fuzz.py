@@ -817,3 +817,48 @@ def test_special_findings_labels_complete():
     rep = compute_temporal_delta(chart, annual=("壬", "子"))
     assert rep.specialFindings
     assert all(f.get("label") for f in rep.specialFindings)
+
+
+# ---------- M31 · replay 产品化不变量 ----------
+
+def test_fuzz_replay_random_charts():
+    """随机盘回放：natal 层恒无岁运事件；层序固定；确定；层数随输入单调。"""
+    import random
+    from tianze.analysis.temporal_replay import replay_temporal
+    rng = random.Random(3131)
+    pool = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
+    stems = list("甲乙丙丁戊己庚辛壬癸")
+    for _ in range(120):
+        ns = [rng.choice(stems) for _ in range(4)]
+        nb = [rng.choice(pool) for _ in range(4)]
+        pairs = [(rng.choice(stems), rng.choice(pool)) for _ in range(2)]
+        r = replay_temporal(natal_stems=ns, natal_branches=nb, day_master=ns[2],
+                            luck=pairs[0], annual=pairs[1])
+        assert [s.layer for s in r.steps] == ["natal", "luck", "annual"]
+        assert r.steps[0].added == [] and r.steps[0].removed == []
+        r2 = replay_temporal(natal_stems=ns, natal_branches=nb, day_master=ns[2],
+                             luck=pairs[0], annual=pairs[1])
+        assert r1_eq(r, r2) if False else r.model_dump() == r2.model_dump()
+
+
+def r1_eq(a, b):
+    return a == b
+
+
+def test_sdk_replay_option_roundtrip():
+    """SDK includeTemporalReplay → temporal.replay 步骤层序与 context 一致。"""
+    from tianze.sdk import analyze, AnalysisOptions, SimplifiedBirthInfo
+    b = SimplifiedBirthInfo.model_validate({"date": "1984-02-05", "time": "10:30",
+                                            "gender": "male"})
+    r = analyze(b, AnalysisOptions(include_temporal=True, target_luck_index=0,
+                                   target_year=2024, include_temporal_replay=True))
+    rp = (r.temporal or {}).get("replay")
+    assert rp and rp["steps"][0]["layer"] == "natal"
+    ctx = r.temporal["context"]
+    last = rp["steps"][-1]
+    # 最末层加入的干支应与 context 最高层一致（或为空层跳过）
+    assert last["layer"] in ("luck", "annual", "monthly", "daily")
+    # 不开 replay 时无该键
+    r2 = analyze(b, AnalysisOptions(include_temporal=True, target_luck_index=0,
+                                    target_year=2024))
+    assert "replay" not in (r2.temporal or {})

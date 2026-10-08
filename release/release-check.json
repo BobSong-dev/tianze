@@ -11,7 +11,7 @@
   {
    "step": "P1_package_build",
    "pass": true,
-   "detail": "tianze_bazi-0.4.0.dev0-py3-none-any.whl，4.5s"
+   "detail": "tianze_bazi-0.4.0.dev0-py3-none-any.whl，4.3s"
   },
   {
    "step": "P2_clean_install_smoke",

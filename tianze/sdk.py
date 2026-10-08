@@ -117,6 +117,7 @@ class AnalysisOptions(BaseModel):
     include_temporal_delta: bool = False  # M13：完整 Temporal Delta（strength/pattern/tiaohou/special/...）
     include_event_themes: bool = False    # M14：事件主题候选（career/wealth/...，非事件预测）
     include_explanations: bool = False    # M17：全链路解释链（theme → rule → rescue → source）
+    include_temporal_replay: bool = False  # M31：逐层状态回放（natal→运→年→月→日，按需计算）
 
 
 # ---- 输出模型 ----
@@ -277,6 +278,24 @@ def analyze(
         temporal = temporal_result.model_dump(by_alias=True, exclude_none=True)
         if mw_info:
             temporal["monthWindow"] = mw_info
+
+        # M31：逐层状态回放（按需；复用 build_focused_temporal 已解析的层）
+        if options.include_temporal_replay:
+            from tianze.analysis.temporal_replay import replay_temporal
+
+            def _pair(prefix: str) -> tuple[str | None, str | None] | None:
+                st = temporal.get("context", {}).get(prefix)
+                br = temporal.get("context", {}).get(prefix.replace("Stem", "Branch"))
+                return (st, br) if (st or br) else None
+
+            replay = replay_temporal(
+                natal_stems=list(temporal_result.context.natal_stems),
+                natal_branches=list(temporal_result.context.natal_branches),
+                day_master=temporal_result.context.day_master,
+                luck=_pair("luckStem"), annual=_pair("annualStem"),
+                monthly=_pair("monthlyStem"), daily=_pair("dailyStem"),
+            )
+            temporal["replay"] = replay.model_dump(by_alias=True, exclude_none=True)
 
         # M13/M14: 完整 Delta（所选岁运层级 vs 原局）——事件主题需要 Delta 作为证据源
         if options.include_temporal_delta or options.include_event_themes:

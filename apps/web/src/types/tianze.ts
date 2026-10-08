@@ -225,6 +225,11 @@ export interface TimelineNodeData {
   level: string; label: string; year: number | null; month: number | null;
   day: number | null; ganzhi: string; source: string;
   structuralChangeScore: number; relations: TemporalRelationData[];
+  replay?: { steps: { layer: string; ganzhi: string; note: string;
+                      added: { kind: string; label: string; refId?: string }[];
+                      removed: { kind: string; label: string }[];
+                      snapshotKeys: string[]; relationCount: number }[];
+           replaySchemaVersion: string; warnings: string[] };
   structures: TemporalStructureData[]; tenGodTheme: Record<string, number>;
   evidence: string[]; monthWindow: string | null; children: TimelineNodeData[];
 }

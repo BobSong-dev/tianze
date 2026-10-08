@@ -30,6 +30,7 @@ export interface AnalyzePayload {
     includeTemporalDelta?: boolean;
     includeEventThemes?: boolean;
     includeExplanations?: boolean;
+    includeTemporalReplay?: boolean;
   };
 }
 

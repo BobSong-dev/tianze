@@ -1,8 +1,8 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `af2b3cb834de`（含未提交改动）
+- commit: `c31631cbe64c`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（86.8s / 23 步）
+- 质量门：ALL PASS（102.2s / 23 步）
 
 ## 版本与规模
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（40）
+### 特性（41）
+- M30 final: ADR-068 + README M30 + gate 23 步/release_check ALL PASS
 - M30.1: 统一岁运状态机 temporal_replay（natal→运→年→月→日 逐层快照+迁移原因，固定层序；再次填实自然涌现）+ SP-CG-E3 合去×根气联动两说 + 跨层审计 C6 Evidence 完整化（1045 例全 0）+ 命例状态回放统计（原书大运层 100 例，流年层待可靠年锚如实注记）+ unfill 中文层名
 - M29 final: gate 23 步/release_check ALL PASS（工件刷新于 HEAD a9b2b58+）
 - M29.1: 旬空差分验证（300盘×4柱 vs lunar-python 全一致）+ TR-SP-08 微根受制两说 + SpecialTemporalFinding.label（additive）+ 假从根气分布审计 + 触发率透明化（随机成拱46.5%/暗合41.5%/拱破17.5%/填实4.5% vs 语料69%）
