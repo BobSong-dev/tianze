@@ -536,3 +536,22 @@
     流年层**不回推**（起运年龄无出生年锚，回推=编造年份），如实注记待可靠锚点。
 - **Tradeoff**：回放对每层重算 analyze_temporal（O(层数×单层成本)，引擎缓存
   兜底，非默认路径）；流年层缺年锚是语料限制而非引擎限制。
+
+## ADR-069 · Temporal Replay 全链路产品化（M31）
+
+- **Context**：M30 的 temporal_replay 停留在分析模块层；目标 #1 要求 SDK/API/CLI/
+  Web/HTML 全链路，且按需计算（避免无意义的全量展开）。
+- **Decision**：
+  - `AnalysisOptions.include_temporal_replay`（默认 False）：开启时在 include_temporal
+    通道内复用 build_focused_temporal 已解析的岁运层，直接调 replay_temporal 并挂
+    `temporal.replay`（零额外解析、零重复实现）；/analyze API 经 options 透传；
+  - CLI `tianze timeline --replay`：human 格式输出逐层摘要
+    （[层] 干支 迁移原因 + 事件行），json/md 走完整 payload；
+  - Web 时序工作台「状态回放」开关（默认开）→ 步骤时间轴（层徽章 + 迁移原因
+    + 增/删事件行 + 免责注记）；
+  - AI：replay 步骤进入 InterpretationContext（`replay:*` / `replayLayer:*`
+    claimRefs），prompt 铁律 11 扩展允许 replay: 前缀并要求保持「候选」表述；
+    AI 评测 caseSet 4→5（temporal_replay 用例），grounding 直连测试
+    （validate_grounding 零问题）。
+- **Tradeoff**：replay 每层重算 analyze_temporal（引擎缓存兜底）；默认关闭，
+  Web 工作台显式开关，避免无目标岁运时的无意义计算。

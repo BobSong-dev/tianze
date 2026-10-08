@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `b5b01beb6243`（含未提交改动）
+- commit: `af405977e9b7`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（102.2s / 23 步）
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.559,
-  "perCaseMs": 0.53
+  "elapsedSeconds": 0.567,
+  "perCaseMs": 0.54
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.701,
-  "perCaseMs": 0.67
+  "elapsedSeconds": 0.694,
+  "perCaseMs": 0.66
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.025
+  "elapsedSeconds": 0.027
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（42）
+### 特性（43）
+- M31.2: AI 评测新增 temporal_replay 用例（caseSet 4→5，replay:* refId Grounding 回归测试直连 SDK+validate_grounding）
 - M31.1: Temporal Replay 全链路产品化 — AnalysisOptions.includeTemporalReplay（SDK 按需计算）+ CLI timeline --replay（human 摘要）+ /analyze 透传 + Web 状态回放时间轴（步骤+/-事件）+ AI Context replay:* claimRefs 与 prompt 铁律 11 扩展 + fuzz 不变量
 - M30 final: ADR-068 + README M30 + gate 23 步/release_check ALL PASS
 - M30.1: 统一岁运状态机 temporal_replay（natal→运→年→月→日 逐层快照+迁移原因，固定层序；再次填实自然涌现）+ SP-CG-E3 合去×根气联动两说 + 跨层审计 C6 Evidence 完整化（1045 例全 0）+ 命例状态回放统计（原书大运层 100 例，流年层待可靠年锚如实注记）+ unfill 中文层名
