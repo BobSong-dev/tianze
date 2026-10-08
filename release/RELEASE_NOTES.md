@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `2fddbda96976`（含未提交改动）
+- commit: `a9b2b58665d7`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（91.2s / 23 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **222**（{'event': 21, 'temporal': 19, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 595
+- 命例 1147；Replay 165；测试 597
 
 ## 质量状态
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.673,
-  "perCaseMs": 0.64
+  "elapsedSeconds": 0.623,
+  "perCaseMs": 0.6
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.806,
-  "perCaseMs": 0.77
+  "elapsedSeconds": 0.77,
+  "perCaseMs": 0.74
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.032
+  "elapsedSeconds": 0.03
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（37）
+### 特性（38）
+- M29.1: 旬空差分验证（300盘×4柱 vs lunar-python 全一致）+ TR-SP-08 微根受制两说 + SpecialTemporalFinding.label（additive）+ 假从根气分布审计 + 触发率透明化（随机成拱46.5%/暗合41.5%/拱破17.5%/填实4.5% vs 语料69%）
 - M28 final: ADR-066 + README M28 + RC 本地构建验证（wheel/sdist）+ gate 23 步/release_check ALL PASS
 - M28.1: 旬空引擎（六旬公版表 xun_kong_of，SS-R16 第三要件空亡 blocker 落地六乙鼠贵，日柱口径/年柱两说）+ 根气强度分级（微根/明根/强根）入假从说 SP-CG-E2 + 命例审计空亡贵人统计（贵人落日空 378/1045）+ Web 节点条件层直展
 - M27 final: ADR-065 + README M27 + gate 23 步/release_check ALL PASS
