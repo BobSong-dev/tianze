@@ -6,12 +6,12 @@
   {
    "step": "P0_quality_gate",
    "pass": true,
-   "detail": "20 步 ALL PASS"
+   "detail": "WARN: 最近一次 quality summary 未 ALL PASS（pytest）——发布前请重跑 tools/quality_gate.py"
   },
   {
    "step": "P1_package_build",
    "pass": true,
-   "detail": "tianze_bazi-0.4.0.dev0-py3-none-any.whl，4.3s"
+   "detail": "tianze_bazi-0.4.0.dev0-py3-none-any.whl，4.5s"
   },
   {
    "step": "P2_clean_install_smoke",
@@ -31,7 +31,7 @@
   {
    "step": "P5_stale_artifact",
    "pass": true,
-   "detail": "commit 一致"
+   "detail": "SKIP（gate 内部调用；dirty）"
   },
   {
    "step": "P6_notes_consistency",

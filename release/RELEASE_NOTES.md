@@ -1,14 +1,14 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `4030fd258875`（含未提交改动）
+- commit: `b672395d520a`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（77.6s / 20 步）
+- 质量门：FAIL（97.1s / 21 步）
 
 ## 版本与规模
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **221**（{'event': 21, 'temporal': 18, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 573
+- 命例 1147；Replay 165；测试 575
 
 ## 质量状态
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.534,
-  "perCaseMs": 0.51
+  "elapsedSeconds": 0.573,
+  "perCaseMs": 0.55
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.665,
-  "perCaseMs": 0.64
+  "elapsedSeconds": 0.715,
+  "perCaseMs": 0.68
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.017
+  "elapsedSeconds": 0.026
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（24）
+### 特性（25）
+- M25.3: StructuralTheme 虚神填实主题 + 命例×虚神专题审计(gate 21步; 1045例: 拱911/暗合308/未成立144/外格15) + 泛化审计结论落地（井栏叉限庚日、子邀巳不落地引擎） + 全拱对×在场矩阵 fuzz
 - M25.2: 关系级 ExplanationChain（ESTABLISHED/CANDIDATE/BLOCKED 三态）— citations.json 机械引文注册表(13条) + relation_explain 统一解释器 + pipeline/SDK/temporal/AI(铁律13:候选不得升级/BLOCKED不得描述为成立)/Web解释链details/markdown+HTML报告；wheel 数据 7→8
 - M25.1: 外格虚神候选 xushiOuter（飞天禄马/井栏叉拱刃/刑合/子邀巳）— ZP-05/07/11/12+DTZ-41，候选永不成格，外格说vs伤官变格说两注记；AI context refs + Web 候选区 + delta UNSUPPORTED note
 - M24 final: README + gate 20 steps ALL PASS at HEAD (artifacts refreshed)
