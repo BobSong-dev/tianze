@@ -40,3 +40,20 @@ def test_benchmark_history_signals():
     assert os.path.exists(path)
     last = json.loads(open(path, encoding="utf-8").read().strip().split("\n")[-1])
     assert "regressionSignals" in last and "commit" in last and "engine" in last
+
+
+def test_release_history_and_ready_marker():
+    """Release history 记录 + RC READY_FOR_RELEASE 标记（不伪造外部权限）。"""
+    import subprocess
+    hist = [json.loads(x) for x in open("release/release-history.jsonl", encoding="utf-8")]
+    last = hist[-1]
+    assert last["version"] == "0.3.0" and last["commit"]
+    assert last["qualityGate"]["allPass"] is True and last["releaseCheck"]["allPass"] is True
+    ready = json.load(open("release/READY_FOR_RELEASE.json", encoding="utf-8"))
+    assert ready["status"] == "READY_FOR_RELEASE" and ready["tagCreatedLocally"] is True
+    assert any("push" in b for b in ready["blockedActions"])
+    # 本地 tag 存在
+    tags = subprocess.run(["git", "tag", "-l"], capture_output=True, text=True,
+                          encoding="utf-8",
+                          cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))).stdout
+    assert "v0.3.0" in tags

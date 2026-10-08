@@ -51,6 +51,7 @@ STEPS = [
     ("release_metadata", [PY, "tools/release_metadata.py"]),
     ("release_check", [PY, "tools/release_check.py", "--skip-stale-check"]),
     ("release_automation_dryrun", [PY, "tools/release_automation.py", "--skip-gate-check"]),
+    ("release_history", [PY, "tools/release_history.py"]),
 ]
 
 SKIP_CASE_REGRESSION_BREAKING = {"case_regression", "temporal_regression"}
