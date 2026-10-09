@@ -1,6 +1,6 @@
 # Tianze Release Report
 
-- commit: `0ed709abdb58`（含未提交改动）
+- commit: `c51f94b1bfcd`（含未提交改动）
 - engine: 0.4.0.dev0
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 
@@ -15,9 +15,9 @@
 
 - Audit Gates：ALL PASS
 - Case Regression：无变化
-- Temporal Regression：{'REVIEW': 7, 'INFO': 2}
+- Temporal Regression：{'REVIEW': 9, 'INFO': 2}
 - Event Evaluation problems：无
-- AI Evaluation：SKIPPED
+- AI Evaluation：mock
 
 ## 基准
 
@@ -25,17 +25,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.579,
-  "perCaseMs": 0.55
+  "elapsedSeconds": 0.596,
+  "perCaseMs": 0.57
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.713,
-  "perCaseMs": 0.68
+  "elapsedSeconds": 0.745,
+  "perCaseMs": 0.71
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.026
+  "elapsedSeconds": 0.028
  },
  "explanationChains": {
   "themes": 2,

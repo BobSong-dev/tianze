@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `0ed709abdb58`（含未提交改动）
+- commit: `c51f94b1bfcd`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（102.0s / 23 步）
 
@@ -14,9 +14,9 @@
 
 - Audit Gates: ALL PASS
 - Case Regression: 无变化
-- Temporal Regression: {'REVIEW': 7, 'INFO': 2}
+- Temporal Regression: {'REVIEW': 9, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.579,
-  "perCaseMs": 0.55
+  "elapsedSeconds": 0.596,
+  "perCaseMs": 0.57
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.713,
-  "perCaseMs": 0.68
+  "elapsedSeconds": 0.745,
+  "perCaseMs": 0.71
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.026
+  "elapsedSeconds": 0.028
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（54）
+### 特性（55）
+- M37.1: 争合结构化推理 — zhenghe_families（五合家族计数：一侧≥2即争合/两侧≥2并见不争，QBT-甲-20「见二甲则不争」+ DTZ-47「重见己土则为争合」）+ 岁运争合事件（temporal kind=zhenghe）+ TR-DTZ-47 规则（executable 222→223, temporal 20, graph 229）
 - M36 final: ADR-074 + README M36 + gate 23 步/release_check ALL PASS
 - M36.1: 合化状态入 RelationExplanation（combination_state 三要素解释链 + DTZ-47/18/26/36 引文，pipeline 经 stem_combination_states 传入）+ 后端 replayEventKinds 映射（/rules 提供事件种类，前端只展示）+ C8 同构审计（1045 例全 0，八项；同 pair 取最少阻化对齐规则）
 - M35 final: ADR-073 + README M35 + gate 23 步/release_check ALL PASS

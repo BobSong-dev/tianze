@@ -5,11 +5,11 @@
  "generatedBy": "tools/review_queue.py",
  "stats": {
   "ocrRisk": 163,
-  "machineCurated": 222,
+  "machineCurated": 223,
   "sensitiveClaims": 38,
   "ruleConflicts": 8
  },
- "totalItems": 431,
+ "totalItems": 432,
  "queue": {
   "ocrRiskRules": [
    {
@@ -1022,6 +1022,13 @@
     "id": "TR-SP-08",
     "domain": "temporal",
     "label": "假从/假化岁运敏感（行运之别）",
+    "method": "ai_curation",
+    "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
+   },
+   {
+    "id": "TR-DTZ-47",
+    "domain": "temporal",
+    "label": "争合观察（岁运干加入五合家族重见）",
     "method": "ai_curation",
     "note": "M13 岁运规则 curation 由 AI 依候选原文完成（非人工）；升级 SOURCE_ALIGNED/HUMAN_VERIFIED 需真人对照扫描件"
    },

@@ -66,7 +66,22 @@
     "hidden_combination:子|戌:natal:hour,luck",
     "six_combination:卯|戌:natal:year,luck",
     "stem_combination:丙|辛:natal:day,luck",
-    "stem_combination:乙|庚:natal:year,annual"
+    "stem_combination:乙|庚:natal:year,annual",
+    "zhenghe:乙|庚|庚:annual"
+   ],
+   "severity": "REVIEW"
+  },
+  {
+   "probe": "m_1976_0130",
+   "field": "annual[2010].rules",
+   "before": [
+    "TR-DTZ-10",
+    "TR-SPZY-28"
+   ],
+   "after": [
+    "TR-DTZ-10",
+    "TR-DTZ-47",
+    "TR-SPZY-28"
    ],
    "severity": "REVIEW"
   },
@@ -119,7 +134,26 @@
     "harm:子|未:natal:hour,luck",
     "hidden_combination:卯|申:natal:year,annual",
     "six_combination:巳|申:natal:day,annual",
-    "stem_combination:乙|庚:natal:year,annual"
+    "stem_combination:乙|庚:natal:year,annual",
+    "zhenghe:乙|庚|庚:annual"
+   ],
+   "severity": "REVIEW"
+  },
+  {
+   "probe": "m_1976_0130",
+   "field": "annual[2040].rules",
+   "before": [
+    "TR-DTZ-09",
+    "TR-DTZ-10",
+    "TR-FANYIN-01",
+    "TR-SPZY-28"
+   ],
+   "after": [
+    "TR-DTZ-09",
+    "TR-DTZ-10",
+    "TR-DTZ-47",
+    "TR-FANYIN-01",
+    "TR-SPZY-28"
    ],
    "severity": "REVIEW"
   },
@@ -218,7 +252,7 @@
   }
  ],
  "severityCounts": {
-  "REVIEW": 7,
+  "REVIEW": 9,
   "INFO": 2
  }
 }
