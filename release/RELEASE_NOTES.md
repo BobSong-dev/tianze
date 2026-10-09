@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `5151641cf47b`（含未提交改动）
+- commit: `b4f09429fdc2`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（90.0s / 23 步）
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.621,
-  "perCaseMs": 0.59
+  "elapsedSeconds": 0.578,
+  "perCaseMs": 0.55
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.807,
-  "perCaseMs": 0.77
+  "elapsedSeconds": 0.732,
+  "perCaseMs": 0.7
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.031
+  "elapsedSeconds": 0.026
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（59）
+### 特性（60）
+- M39.1: 产品体验 — HTML 报告封面/摘要/术语说明 + A4 打印 CSS（replay 打印展开降级）+ Web 总览摘要块（四柱视觉/核心结论/术语说明/使用说明入口）+ 关系页合化状态区块 + replay→规则链接 + 移动端媒体查询（375/768/1280）+ Playwright 3 项新增（移动视口/合化状态/回放联动，E2E 8→11）
 - M38 final: ADR-076 + README M38 + gate 23 步/release_check ALL PASS
 - M38.1: 完整性审计与核心能力补齐 — 跨渠道一致性测试（SDK/CLI/API 4样本三通道核心语义一致）+ 能力覆盖矩阵（36 项诚实评估+证据指针验证：COMPLETE 25/PARTIAL 4/EXPERIMENTAL 1/BLOCKED 4/UNSUPPORTED 2）+ 端到端场景套件 21 项（含近真化真实日盘 1978-07-11 探测）+ 争合入 natal 解释链（见辰条件化两说注记）+ AI 评测 claimCoverage/stateUpgrade 指标
 - M37.2: temporal baseline refreshed（TR-DTZ-47 争合为文档化引擎变更，ADR-075）

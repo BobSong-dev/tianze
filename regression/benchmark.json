@@ -1,21 +1,21 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.657,
-  "perCaseMs": 0.63
+  "elapsedSeconds": 0.578,
+  "perCaseMs": 0.55
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.794,
-  "perCaseMs": 0.76
+  "elapsedSeconds": 0.732,
+  "perCaseMs": 0.7
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.029
+  "elapsedSeconds": 0.026
  },
  "explanationChains": {
   "themes": 2,
-  "avgMs": 0.04
+  "avgMs": 0.03
  },
  "note": "耗时供跨版本对比；节点/主题数是确定性计数（回归可用）"
 }
