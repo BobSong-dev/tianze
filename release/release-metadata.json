@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "release": {
-  "gitCommit": "c51f94b1bfcdeeeaadbd20eada71440741883a68",
+  "gitCommit": "cb58af03b8ef3e5203bfc4c7adf47bea48316011",
   "gitBranch": "main",
   "dirty": true,
   "generatedBy": "tools/release_metadata.py（全部数据来自真实运行）"
@@ -73,6 +73,6 @@
  },
  "governance": {
   "migrationRanBefore": true,
-  "aiEvaluationStatus": "mock"
+  "aiEvaluationStatus": "SKIPPED"
  }
 }

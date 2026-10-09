@@ -114,6 +114,8 @@
      "year": 2026,
      "gz": "丙午",
      "relations": [
+      "arch_broken:午|子|寅:natal:year,natal:month,annual",
+      "arch_broken:午|子|寅:natal:year,natal:month,luck",
       "clash:午|子:natal:year,annual",
       "clash:午|子:natal:year,luck",
       "stem_opposition:庚|甲:natal:year,luck"
@@ -122,6 +124,7 @@
       "fanyin"
      ],
      "rules": [
+      "TR-DTZ-10",
       "TR-DTZ-11",
       "TR-FANYIN-01",
       "TR-SPZY-28"
@@ -133,6 +136,7 @@
      "relations": [
       "arch:午|巳|未:natal:day,luck",
       "arch:午|巳|未:natal:hour,luck",
+      "arch_broken:子|寅|申:natal:year,natal:month,annual",
       "break:巳|申:natal:day,annual",
       "break:巳|申:natal:hour,annual",
       "clash:寅|申:natal:month,annual",
@@ -246,7 +250,7 @@
     "劫财:new"
    ],
    "scores": {
-    "大运 丁卯": 4.0,
+    "大运 丁卯": 6.0,
     "大运 戊辰": 4.0
    }
   },
@@ -1089,16 +1093,20 @@
      "gz": "庚寅",
      "relations": [
       "arch:亥|子|戌:natal:hour,luck",
+      "arch_broken:丑|卯|戌:natal:year,natal:month,luck",
       "arch_fill:丑|卯|寅:natal:year,natal:month,annual",
       "harm:寅|巳:natal:day,annual",
+      "hidden_combination:丑|寅:natal:month,annual",
       "hidden_combination:子|戌:natal:hour,luck",
       "six_combination:卯|戌:natal:year,luck",
       "stem_combination:丙|辛:natal:day,luck",
-      "stem_combination:乙|庚:natal:year,annual"
+      "stem_combination:乙|庚:natal:year,annual",
+      "zhenghe:乙|庚|庚:annual"
      ],
      "structures": [],
      "rules": [
       "TR-DTZ-10",
+      "TR-DTZ-47",
       "TR-SPZY-28"
      ]
     },
@@ -1106,6 +1114,7 @@
      "year": 2026,
      "gz": "丙午",
      "relations": [
+      "arch_broken:卯|巳|申:natal:year,natal:day,luck",
       "break:午|卯:natal:year,annual",
       "break:巳|申:natal:day,luck",
       "clash:午|子:natal:hour,annual",
@@ -1128,12 +1137,15 @@
      "gz": "庚申",
      "relations": [
       "arch:午|巳|未:natal:day,luck",
+      "arch_broken:丑|卯|未:natal:year,natal:month,luck",
+      "arch_broken:卯|巳|申:natal:year,natal:day,annual",
       "break:巳|申:natal:day,annual",
       "clash:丑|未:natal:month,luck",
       "harm:子|未:natal:hour,luck",
       "hidden_combination:卯|申:natal:year,annual",
       "six_combination:巳|申:natal:day,annual",
-      "stem_combination:乙|庚:natal:year,annual"
+      "stem_combination:乙|庚:natal:year,annual",
+      "zhenghe:乙|庚|庚:annual"
      ],
      "structures": [
       "fanyin"
@@ -1141,6 +1153,7 @@
      "rules": [
       "TR-DTZ-09",
       "TR-DTZ-10",
+      "TR-DTZ-47",
       "TR-FANYIN-01",
       "TR-SPZY-28"
      ]
@@ -1251,8 +1264,8 @@
     "正印:new"
    ],
    "scores": {
-    "大运 戊子": 4.0,
-    "大运 丁亥": 5.0
+    "大运 戊子": 6.0,
+    "大运 丁亥": 7.0
    }
   },
   {
@@ -1385,6 +1398,8 @@
      "gz": "庚申",
      "relations": [
       "arch:午|未|申:natal:hour,annual",
+      "arch_broken:寅|戌|辰:natal:year,natal:month,luck",
+      "arch_broken:寅|申|辰:natal:year,natal:month,annual",
       "break:巳|申:natal:day,annual",
       "clash:寅|申:natal:month,annual",
       "clash:戌|辰:natal:year,luck",
