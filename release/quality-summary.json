@@ -2,22 +2,22 @@
  "schemaVersion": "1.0.0",
  "allPass": true,
  "failed": [],
- "totalSeconds": 109.2,
+ "totalSeconds": 90.0,
  "steps": [
   {
    "step": "pytest",
    "exitCode": 0,
-   "elapsedSeconds": 71.33,
+   "elapsedSeconds": 57.91,
    "tail": [
     "",
     "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
-    "620 passed, 5 warnings in 70.40s (0:01:10)"
+    "641 passed, 5 warnings in 57.21s"
    ]
   },
   {
    "step": "knowledge_validator",
    "exitCode": 0,
-   "elapsedSeconds": 0.08,
+   "elapsedSeconds": 0.17,
    "tail": [
     "}",
     "",
@@ -53,7 +53,7 @@
   {
    "step": "rule_audit",
    "exitCode": 0,
-   "elapsedSeconds": 0.07,
+   "elapsedSeconds": 0.06,
    "tail": [
     "Rule Audit：21 条规则；异常泛化信号 无"
    ]
@@ -61,7 +61,7 @@
   {
    "step": "case_regression",
    "exitCode": 0,
-   "elapsedSeconds": 0.76,
+   "elapsedSeconds": 0.72,
    "tail": [
     "  \"current\": 1147",
     " }",
@@ -71,15 +71,15 @@
   {
    "step": "temporal_regression",
    "exitCode": 0,
-   "elapsedSeconds": 0.37,
+   "elapsedSeconds": 0.36,
    "tail": [
-    "Temporal Regression：{'REVIEW': 9, 'INFO': 2} → 报告 C:\\Project\\tianze\\regression\\temporal-report.md"
+    "Temporal Regression：{} → 报告 C:\\Project\\tianze\\regression\\temporal-report.md"
    ]
   },
   {
    "step": "event_evaluation",
    "exitCode": 0,
-   "elapsedSeconds": 1.67,
+   "elapsedSeconds": 1.71,
    "tail": [
     "  随机盘主题触发率：{'career': 0.44, 'mobility': 0.315, 'relationship': 0.495, 'social': 0.335, 'study': 0.235, 'wealth': 0.27}",
     "  异常触发：{'rules': {}, 'themes': {}}",
@@ -89,7 +89,7 @@
   {
    "step": "case_replay",
    "exitCode": 0,
-   "elapsedSeconds": 0.62,
+   "elapsedSeconds": 0.63,
    "tail": [
     "  status 分布：{'CANDIDATE': 326, 'UNRESOLVED': 69, 'LIKELY': 20, 'DISPUTED': 24}",
     "  unresolved 率：0.157 | disagreement 率：0.055",
@@ -99,7 +99,7 @@
   {
    "step": "xushi_case_audit",
    "exitCode": 0,
-   "elapsedSeconds": 1.25,
+   "elapsedSeconds": 1.36,
    "tail": [
     "虚神专题审计：1045 例，727 例含虚神/暗合/候选（拱 911、暗合 308、未成立 144、外格候选 33）→ regression/xushi-audit.json"
    ]
@@ -107,7 +107,7 @@
   {
    "step": "cross_layer_audit",
    "exitCode": 0,
-   "elapsedSeconds": 0.85,
+   "elapsedSeconds": 0.87,
    "tail": [
     "跨层一致性审计：1045 例，violation 0（{'C1': 0, 'C2': 0, 'C3': 0, 'C4': 0, 'C5': 0, 'C6': 0, 'C7': 0, 'C8': 0}）→ regression/cross-layer-audit.json"
    ]
@@ -115,7 +115,7 @@
   {
    "step": "source_coverage",
    "exitCode": 0,
-   "elapsedSeconds": 0.11,
+   "elapsedSeconds": 0.09,
    "tail": [
     "来源治理：status=BLOCKED；候选 556，引文 556（缺失 556）；注册表 issue 0"
    ]
@@ -123,7 +123,7 @@
   {
    "step": "ai_evaluation_mock",
    "exitCode": 0,
-   "elapsedSeconds": 0.56,
+   "elapsedSeconds": 0.57,
    "tail": [
     "  PIPELINE_OK multi_view_agree issues=0 banned=[] disputeMissing=True",
     "  PIPELINE_OK event_themes_shensha issues=0 banned=[] disputeMissing=True",
@@ -142,7 +142,7 @@
   {
    "step": "rule_coverage_audit",
    "exitCode": 0,
-   "elapsedSeconds": 0.08,
+   "elapsedSeconds": 0.07,
    "tail": [
     "Rule Coverage Audit：223 条规则 → {'high_conflict': 6, 'high_rescue_dep': 1, 'low_trigger': 1, 'no_case_coverage': 22, 'only_silent': 13}"
    ]
@@ -150,7 +150,7 @@
   {
    "step": "rescue_coverage",
    "exitCode": 0,
-   "elapsedSeconds": 0.07,
+   "elapsedSeconds": 0.06,
    "tail": [
     "Rescue Coverage：5/21 规则有救应；heuristic 谓词 ['wealth_favorable']；keep-both 2；未结构化经典例外 0"
    ]
@@ -160,13 +160,13 @@
    "exitCode": 0,
    "elapsedSeconds": 0.07,
    "tail": [
-    "AI Eval Compare：612 条历史；回归信号 0"
+    "AI Eval Compare：623 条历史；回归信号 0"
    ]
   },
   {
    "step": "benchmark",
    "exitCode": 0,
-   "elapsedSeconds": 1.65,
+   "elapsedSeconds": 1.75,
    "tail": [
     "benchmark history signals: 无"
    ]
@@ -174,7 +174,7 @@
   {
    "step": "release_metadata",
    "exitCode": 0,
-   "elapsedSeconds": 1.13,
+   "elapsedSeconds": 1.22,
    "tail": [
     " }",
     "}",
@@ -184,7 +184,7 @@
   {
    "step": "release_check",
    "exitCode": 0,
-   "elapsedSeconds": 26.93,
+   "elapsedSeconds": 20.77,
    "tail": [
     "  PASS P7_benchmark_regression（全部在阈值内（阈值：{\"caseChart1147.perCaseMs\": 5.0, \"replayCorpus.perCaseMs\": 5.0, \"timeline80y.elapsedSeconds\": 1.0}））",
     "",
@@ -194,18 +194,18 @@
   {
    "step": "release_automation_dryrun",
    "exitCode": 0,
-   "elapsedSeconds": 0.27,
+   "elapsedSeconds": 0.26,
    "tail": [
-    "Release Automation：0.4.0.dev0 → v0.4.0（minor）；commits {'features': 55, 'fixes': 0, 'tests': 2, 'docs': 0, 'chores': 0}；notes → release/RELEASE_NOTES.md",
+    "Release Automation：0.4.0.dev0 → v0.4.0（minor）；commits {'features': 58, 'fixes': 0, 'tests': 2, 'docs': 0, 'chores': 0}；notes → release/RELEASE_NOTES.md",
     "  tag：dry-run（未创建，不 push）"
    ]
   },
   {
    "step": "release_history",
    "exitCode": 0,
-   "elapsedSeconds": 0.24,
+   "elapsedSeconds": 0.21,
    "tail": [
-    "Release History：v0.4.0.dev0 @ c51f94b1bfcd 已记录 → release-history.jsonl"
+    "Release History：v0.4.0.dev0 @ aacfdfcc848b 已记录 → release-history.jsonl"
    ]
   }
  ]

@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `cb58af03b8ef`（含未提交改动）
+- commit: `aacfdfcc848b`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（109.2s / 23 步）
 
@@ -8,15 +8,15 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **223**（{'event': 21, 'temporal': 20, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 620
+- 命例 1147；Replay 165；测试 641
 
 ## 质量状态
 
 - Audit Gates: ALL PASS
 - Case Regression: 无变化
-- Temporal Regression: {'REVIEW': 9, 'INFO': 2}
+- Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.596,
-  "perCaseMs": 0.57
+  "elapsedSeconds": 0.621,
+  "perCaseMs": 0.59
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.745,
-  "perCaseMs": 0.71
+  "elapsedSeconds": 0.807,
+  "perCaseMs": 0.77
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.028
+  "elapsedSeconds": 0.031
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（57）
+### 特性（58）
+- M38.1: 完整性审计与核心能力补齐 — 跨渠道一致性测试（SDK/CLI/API 4样本三通道核心语义一致）+ 能力覆盖矩阵（36 项诚实评估+证据指针验证：COMPLETE 25/PARTIAL 4/EXPERIMENTAL 1/BLOCKED 4/UNSUPPORTED 2）+ 端到端场景套件 21 项（含近真化真实日盘 1978-07-11 探测）+ 争合入 natal 解释链（见辰条件化两说注记）+ AI 评测 claimCoverage/stateUpgrade 指标
 - M37.2: temporal baseline refreshed（TR-DTZ-47 争合为文档化引擎变更，ADR-075）
 - M37 final: ADR-075 + README M37 + gate 23 步/release_check ALL PASS
 - M37.1: 争合结构化推理 — zhenghe_families（五合家族计数：一侧≥2即争合/两侧≥2并见不争，QBT-甲-20「见二甲则不争」+ DTZ-47「重见己土则为争合」）+ 岁运争合事件（temporal kind=zhenghe）+ TR-DTZ-47 规则（executable 222→223, temporal 20, graph 229）
