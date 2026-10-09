@@ -30,6 +30,84 @@ const tabs = [
   { id: "ai", label: "AI 解读" },
 ];
 const expandedEvidence = ref<string | null>(null);
+
+// 五行色（Engine 元素 → 设计体系映射；仅展示，不做命理计算）
+function wxClass(el?: string): string {
+  return ({ WOOD: "wx-wood", FIRE: "wx-fire", EARTH: "wx-earth",
+            METAL: "wx-metal", WATER: "wx-water" } as Record<string, string>)[(el ?? "").toUpperCase()] ?? "";
+}
+
+const WX_VAR: Record<string, string> = { WOOD: "var(--wx-wood)", FIRE: "var(--wx-fire)",
+                                         EARTH: "var(--wx-earth)", METAL: "var(--wx-metal)",
+                                         WATER: "var(--wx-water)" };
+const EL_CN: Record<string, string> = { WOOD: "木", FIRE: "火", EARTH: "土", METAL: "金", WATER: "水",
+                                        YIN: "阴", YANG: "阳" };
+function elCn(el?: string): string { return EL_CN[(el ?? "").toUpperCase()] ?? el ?? ""; }
+function elVar(el?: string): string { return WX_VAR[(el ?? "").toUpperCase()] ?? "var(--bronze)"; }
+
+const SEASON_CN: Record<string, string> = { spring: "春", summer: "夏", autumn: "秋", winter: "冬" };
+function seasonCn(s?: string): string { return SEASON_CN[(s ?? "").toLowerCase()] ?? s ?? ""; }
+const AGREEMENT_CN: Record<string, string> = { AGREED: "各方法一致", PARTIAL: "部分一致", DISAGREED: "存在分歧" };
+
+function goHome() { result.value = null; activeTab.value = "overview"; }
+
+// ---- M41 · AI Provider 配置（后端会话内存；Key 不进前端存储） ----
+const showAiSettings = ref(false);
+const aiCfg = ref<{ configured: boolean; source: string; baseUrl?: string;
+                   model?: string; keyMasked?: string; preset?: string } | null>(null);
+const aiPresets = ref<any[]>([]);
+const aiForm = ref({ apiKey: "", baseUrl: "", model: "", preset: "custom" });
+const aiCfgMsg = ref("");
+const aiTesting = ref(false);
+const aiTestResult = ref<any>(null);
+
+async function openAiSettings() {
+  showAiSettings.value = true;
+  aiCfgMsg.value = ""; aiTestResult.value = null;
+  await Promise.all([refreshAiStatus(), loadPresets()]);
+}
+async function refreshAiStatus() {
+  try {
+    aiCfg.value = await fetch("/api/v1/ai-config/status").then(r => r.json());
+    if (aiCfg.value?.source === "ui" && aiCfg.value.preset) {
+      aiForm.value.preset = aiCfg.value.preset;
+      aiForm.value.baseUrl = aiCfg.value.baseUrl ?? "";
+      aiForm.value.model = aiCfg.value.model ?? "";
+    }
+  } catch { aiCfg.value = null; }
+}
+async function loadPresets() {
+  try {
+    const d = await fetch("/api/v1/ai-config/presets").then(r => r.json());
+    aiPresets.value = d.presets ?? [];
+  } catch { aiPresets.value = []; }
+}
+function pickPreset(p: any) {
+  aiForm.value.preset = p.id;
+  if (p.baseUrl) aiForm.value.baseUrl = p.baseUrl;
+  if (p.model) aiForm.value.model = p.model;
+}
+async function saveAiConfig() {
+  aiCfgMsg.value = "";
+  const r = await fetch("/api/v1/ai-config/set", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(aiForm.value),
+  }).then(x => x.json());
+  if (r.ok) { aiCfgMsg.value = "已保存（服务端内存；重启后需重新配置）"; await refreshAiStatus(); }
+  else aiCfgMsg.value = `保存失败：${r.error}`;
+}
+async function testAiConfig() {
+  aiTesting.value = true; aiTestResult.value = null;
+  try { aiTestResult.value = await fetch("/api/v1/ai-config/test", { method: "POST" }).then(r => r.json()); }
+  catch (e) { aiTestResult.value = { ok: false, error: String(e) }; }
+  finally { aiTesting.value = false; }
+}
+async function clearAiConfig() {
+  await fetch("/api/v1/ai-config/clear", { method: "POST" });
+  aiForm.value = { apiKey: "", baseUrl: "", model: "", preset: "custom" };
+  aiTestResult.value = null;
+  await refreshAiStatus();
+}
 const aiState = ref<"NOT_CONFIGURED" | "READY" | "LOADING" | "SUCCESS" | "GROUNDING_FAILED" | "PROVIDER_ERROR" | "SCHEMA_ERROR">("READY");
 const aiResult = ref<any>(null);
 const aiError = ref("");
@@ -517,11 +595,40 @@ async function loadTemporal() {
 
 <template>
   <div class="tianze-app">
-    <header class="header">
-      <h1>Tianze 天泽</h1>
-      <span class="subtitle">可解释八字结构分析引擎</span>
-      <span v-if="meta" class="version">v{{ meta.engineVersion }}</span>
+    <header class="site-header">
+      <a class="brand" href="#" @click.prevent="goHome">
+        <span class="brand-seal">泽</span>
+        <span class="brand-name">天泽</span>
+        <span class="brand-sub">TIANTZE · 可解释八字结构分析</span>
+      </a>
+      <nav v-if="result" class="site-nav tabs">
+        <button v-for="t in tabs" :key="t.id" :class="{ active: activeTab === t.id }" @click="activeTab = t.id">
+          {{ t.label }}
+        </button>
+      </nav>
+      <button class="link ai-entry" @click="openAiSettings">⚙ AI 设置</button>
+      <span v-if="meta" class="note version">v{{ meta.engineVersion }}</span>
     </header>
+
+    <!-- 首页品牌区（未分析时） -->
+    <section v-if="!result" class="hero">
+      <span class="seal-tag">现代宋韵 · 结构可溯</span>
+      <h1 class="hero-title">天泽</h1>
+      <p class="hero-sub">
+        以古籍为据、以引擎为骨的八字结构分析平台。<br />
+        排盘 · 旺衰 · 格局 · 调候 · 岁运回放 · 证据可逐层追溯。
+      </p>
+      <div class="hero-rule"></div>
+      <div class="feature-grid">
+        <div class="feature-card"><h4>四柱排盘</h4><p>节气交界、真太阳时、晚子时流派、海外时区，逐项可核。</p></div>
+        <div class="feature-card"><h4>多法旺衰</h4><p>三种方法并列呈现，分歧不裁决——如实展示学术分歧。</p></div>
+        <div class="feature-card"><h4>岁运回放</h4><p>大运→流年→流月逐层推演，结构变化一层层看清楚。</p></div>
+        <div class="feature-card"><h4>证据溯源</h4><p>每个判断可展开：规则编号 → 古籍出处 → 原文与页码。</p></div>
+      </div>
+      <div class="disclaimer" style="max-width:640px;margin:0 auto;">
+        本工具输出命理结构分析与古籍知识整理，不构成任何吉凶或现实事件预测。
+      </div>
+    </section>
 
     <!-- Birth Input -->
     <section class="panel input-panel">
@@ -563,34 +670,26 @@ async function loadTemporal() {
     <!-- Results -->
     <template v-if="result">
       <section class="panel chart-panel">
-        <h2>四柱</h2>
-        <div class="pillars">
-          <div v-for="key in pillarKeys" :key="key" class="pillar-card">
-            <div class="pillar-label">{{ ({ year: "年柱", month: "月柱", day: "日柱", hour: "时柱" } as Record<string, string>)[key as string] }}</div>
-            <div class="pillar-ganzhi">
-              <span class="stem">{{ (result.pillars as any)[key]?.stem }}</span>
-              <span class="branch">{{ (result.pillars as any)[key]?.branch }}</span>
+        <h2>四柱命盘 <span class="seal-tag">天干地支</span></h2>
+        <div class="chart-grid">
+          <div v-for="key in pillarKeys" :key="key"
+               class="pillar-card pillar-tile" :class="{ dm: key === 'day' }">
+            <div class="pillar-pos">{{ ({ year: "年柱", month: "月柱", day: "日柱", hour: "时柱" } as Record<string, string>)[key as string] }}</div>
+            <div class="pillar-gz">
+              <span class="gz-stem" :class="wxClass((result.pillars as any)[key]?.stemElement)">{{ (result.pillars as any)[key]?.stem }}</span>
+              <span class="gz-branch" :class="wxClass((result.pillars as any)[key]?.branchElement)">{{ (result.pillars as any)[key]?.branch }}</span>
             </div>
-            <div class="pillar-tengod">{{ (result.pillars as any)[key]?.tenGod ?? "日主" }}</div>
-            <div class="pillar-details">
-              <span>{{ (result.pillars as any)[key]?.naYin }}</span>
-              <span v-if="(result.pillars as any)[key]?.changSheng">{{ (result.pillars as any)[key]?.changSheng }}</span>
-            </div>
-            <details><summary>藏干</summary>
-              <div v-for="h in (result.pillars as any)[key]?.hiddenStems" :key="h.stem" class="hidden-stem">
-                {{ h.stem }}（{{ h.role }}）→ {{ h.tenGod }}
+            <div class="pillar-meta">
+              <div><span class="lbl">十神</span> {{ (result.pillars as any)[key]?.tenGod ?? "日主本人" }}</div>
+              <div v-for="h in (result.pillars as any)[key]?.hiddenStems" :key="h.stem">
+                <span class="lbl">藏</span> {{ h.stem }}<span class="lbl">（{{ h.role }}）</span>{{ h.tenGod }}
               </div>
-            </details>
+              <div><span class="lbl">纳音</span> {{ (result.pillars as any)[key]?.naYin }}</div>
+              <div v-if="(result.pillars as any)[key]?.changSheng"><span class="lbl">长生</span> {{ (result.pillars as any)[key]?.changSheng }}</div>
+            </div>
           </div>
         </div>
       </section>
-
-      <!-- Tabs -->
-      <nav class="tabs">
-        <button v-for="t in tabs" :key="t.id" :class="{ active: activeTab === t.id }" @click="activeTab = t.id">
-          {{ t.label }}
-        </button>
-      </nav>
 
       <!-- Overview -->
       <section v-if="activeTab === 'overview'" class="panel">
@@ -604,19 +703,19 @@ async function loadTemporal() {
             </div>
           </div>
           <ul>
-            <li>日主：{{ result.dayMaster.stem }}（{{ result.dayMaster.element }}·{{ result.dayMaster.yinYang }}）</li>
+            <li>日主：{{ result.dayMaster.stem }}（{{ elCn(result.dayMaster.element) }}·{{ elCn(result.dayMaster.yinYang) }}）</li>
             <li v-if="result.pattern?.candidates?.length">
               格局候选：{{ result.pattern.candidates.slice(0, 3).map((c: any) => c.name).join('、') }}
               <span class="note">（候选，需复核）</span>
             </li>
-            <li v-if="result.strength?.agreement">旺衰一致性：{{ result.strength.agreement }}（多方法并列，不裁决）</li>
+            <li v-if="result.strength?.agreement">旺衰一致性：{{ AGREEMENT_CN[result.strength.agreement] || result.strength.agreement }}（多方法并列，不裁决）</li>
             <li v-if="result.tiaohou?.resolved">
               调候：{{ result.tiaohou.recommendations.slice(0, 2).map((r: any) => r.targetStem).join('、') || '—' }}
             </li>
           </ul>
         </div>
         <details class="terms-box">
-          <summary>术语与状态说明（候选/LIKELY/DISPUTED/BLOCKED/EXPERIMENTAL…）</summary>
+          <summary>术语与状态说明（候选状态词汇表）</summary>
           <dl>
             <dt>候选（CANDIDATE）</dt><dd>满足部分结构条件，需进一步复核，不是结论。</dd>
             <dt>LIKELY / DISPUTED</dt><dd>支持证据占优 / 方法或流派存在分歧，两说并列。</dd>
@@ -634,13 +733,13 @@ async function loadTemporal() {
           <p>完整说明见仓库 <code>docs/user-guide.md</code>。</p>
         </details>
         <h2>日主</h2>
-        <p>{{ result.dayMaster.stem }}（{{ result.dayMaster.element }}·{{ result.dayMaster.yinYang }}）</p>
+        <p>{{ result.dayMaster.stem }}（{{ elCn(result.dayMaster.element) }}·{{ elCn(result.dayMaster.yinYang) }}）</p>
         <h2>五行分布</h2>
         <div v-if="result.elementCounts" class="elements">
           <div v-for="(v, k) in result.elementCounts.elements" :key="k" class="element-row">
-            <span class="elem-label">{{ k }}</span>
-            <div class="bar"><div class="fill" :style="{ width: (v.visible / 8 * 100) + '%' }"></div></div>
-            <span>显 {{ v.visible }} / 藏 {{ v.hidden }}</span>
+            <span class="elem-label" :class="wxClass(k as string)">{{ elCn(k as string) }}</span>
+            <div class="bar"><div class="fill" :style="{ width: (v.visible / 8 * 100) + '%', background: elVar(k as string) }"></div></div>
+            <span class="elem-count">显 {{ v.visible }} · 藏 {{ v.hidden }}</span>
           </div>
         </div>
       </section>
@@ -714,7 +813,7 @@ async function loadTemporal() {
       <section v-if="activeTab === 'structure'" class="panel">
         <h2>月令</h2>
         <div v-if="result.monthCommand">
-          <p>{{ result.monthCommand.monthBranch }}月 · {{ result.monthCommand.season }} · {{ result.monthCommand.element }}</p>
+          <p>{{ result.monthCommand.monthBranch }}月 · {{ seasonCn(result.monthCommand.season) }} · {{ elCn(result.monthCommand.element) }}</p>
           <p>日主状态：{{ result.monthCommand.relationToDayMaster.state }}
             <template v-if="result.monthCommand.relationToDayMaster.inCommand">（得令）</template>
           </p>
@@ -738,7 +837,8 @@ async function loadTemporal() {
       <section v-if="activeTab === 'strength' && result.strength" class="panel">
         <h2>旺衰分析（多方法并列）</h2>
         <p class="agreement" v-if="result.strength.agreement">
-          Agreement: {{ result.strength.agreement }}
+          多方法一致性：{{ AGREEMENT_CN[result.strength.agreement] || result.strength.agreement }}
+          <span class="note">（并列展示，不裁决）</span>
         </p>
         <div v-for="m in result.strength.methods" :key="m.analyzerId" class="method-block">
           <h3>{{ m.name }} <span class="badge" v-if="m.verdict">{{ m.verdict }}</span>
@@ -816,7 +916,7 @@ async function loadTemporal() {
         <h2>调候</h2>
         <p v-if="!result.tiaohou.resolved" class="note">资料不足（UNRESOLVED）</p>
         <div v-for="rec in result.tiaohou.recommendations" :key="rec.targetStem + rec.priority" class="tiaohou-item">
-          <strong>{{ rec.targetStem }}</strong>（{{ rec.element }} · {{ rec.priority }}）
+          <strong>{{ rec.targetStem }}</strong>（{{ elCn(rec.element) }} · {{ rec.priority }}）
           <span class="badge">{{ rec.present ? "命局已有" : "命局未见" }}</span>
           <span v-if="rec.positions.length" class="pos">{{ rec.positions.join(" · ") }}</span>
           <details><summary>查看依据</summary>
@@ -1286,21 +1386,29 @@ async function loadTemporal() {
 
       <!-- AI Interpretation -->
     <section v-if="activeTab === 'ai' && result" class="panel">
-      <h2>AI 解读</h2>
+      <h2>AI 解读 <span class="seal-tag">Grounded</span></h2>
+      <div class="ai-status-strip">
+        <span class="ai-dot" :class="aiCfg?.configured ? 'on' : 'off'"></span>
+        <template v-if="aiCfg?.configured">
+          {{ aiCfg.source === 'env' ? '环境变量配置' : '页面配置' }} · {{ aiCfg.model }} · {{ aiCfg.keyMasked }}
+        </template>
+        <template v-else>未配置 AI 服务</template>
+        <button class="link" @click="openAiSettings">配置 / 修改</button>
+      </div>
       <div class="note ai-privacy">
-        ⚠ 隐私提示：点击生成后，您的命盘分析结果（含出生信息派生的四柱）
-        将发送至已配置的外部 AI 服务（TIANZE_LLM_BASE_URL）进行解释。
-        不配置 AI 服务时，确定性分析完全本地运行，不受影响。
+        ⚠ 隐私提示：生成后，命盘分析结果（含出生信息派生的四柱）将发送至
+        所配置的外部 AI 服务进行解释。不配置时确定性分析完全本地运行。
       </div>
       <div v-if="aiState === 'READY'" class="ai-ready">
-        <p>点击下方按钮生成基于确定性分析结果的 AI 解释。</p>
+        <p>AI 只解释引擎已计算的结构与候选，不得自行推算；输出经事实一致性校验。</p>
         <button class="submit" @click="generateAI">生成 AI 解读</button>
       </div>
       <div v-if="aiState === 'LOADING'" class="ai-loading">
-        <p>正在生成基于 Tianze 分析结果的解释…</p>
+        <p>正在生成基于 Tianze 分析结果的解释…（分段返回，稍候）</p>
       </div>
       <div v-if="aiState === 'NOT_CONFIGURED'" class="ai-not-configured">
-        <p>当前未配置 AI 解读服务，确定性命理分析仍可正常使用。</p>
+        <p>尚未配置 AI 服务。确定性命理分析不受影响。</p>
+        <button class="primary" @click="openAiSettings">前往配置</button>
       </div>
       <div v-if="aiState === 'GROUNDING_FAILED'" class="ai-grounding-failed">
         <p>本次 AI 输出未通过事实一致性检查，因此未展示。</p>
@@ -1317,9 +1425,9 @@ async function loadTemporal() {
       </div>
       <template v-if="aiState === 'SUCCESS' && aiResult">
         <p class="ai-summary">{{ aiResult.summary }}</p>
-        <div v-for="sec in aiResult.sections || []" :key="sec.type + sec.title" class="ai-section">
-          <h3>{{ sec.title }}</h3>
-          <p>{{ sec.content }}</p>
+        <div v-for="sec in aiResult.sections || []" :key="sec.type + sec.title" class="ai-section-card">
+          <h4><span class="badge">{{ sec.type }}</span> {{ sec.title }}</h4>
+          <p style="margin:.2rem 0 .4rem; white-space:pre-line;">{{ sec.content }}</p>
           <details v-if="sec.claims?.length"><summary>引用依据</summary>
             <div v-for="c in sec.claims" :key="c.refId" class="evidence-item">
               <span class="badge">{{ c.type }}</span> {{ c.refId }}
@@ -1347,114 +1455,180 @@ async function loadTemporal() {
         <div v-for="f in result.fallbacks" :key="f" class="evidence-item fallback">ℹ {{ f }}</div>
       </section>
     </template>
+
+    <!-- M41 · AI 设置弹窗 -->
+    <div v-if="showAiSettings" class="ai-modal-mask" @click.self="showAiSettings = false">
+      <div class="ai-modal">
+        <h3>AI 服务设置</h3>
+        <div class="ai-status-strip">
+          <span class="ai-dot" :class="aiCfg?.configured ? 'on' : 'off'"></span>
+          <template v-if="aiCfg?.configured">
+            当前：{{ aiCfg.source === 'env' ? '环境变量' : '页面配置' }} ·
+            {{ aiCfg.model }} · {{ aiCfg.keyMasked }}
+          </template>
+          <template v-else>未配置（确定性分析不受影响）</template>
+          <span class="note">密钥仅存于服务端内存，不落盘不回显</span>
+        </div>
+
+        <div class="preset-grid">
+          <div v-for="p in aiPresets" :key="p.id" class="preset-card"
+               :class="{ selected: aiForm.preset === p.id }" @click="pickPreset(p)">
+            <div>{{ p.name }}</div>
+            <div class="verified">{{ p.verified ? '已验证' : '预设（未逐一实测）' }}</div>
+          </div>
+        </div>
+
+        <div class="ai-form-row">
+          API Key
+          <input v-model="aiForm.apiKey" type="password" placeholder="sk-…" autocomplete="off" />
+        </div>
+        <div class="ai-form-row">
+          Base URL（OpenAI 兼容端点）
+          <input v-model="aiForm.baseUrl" placeholder="https://api.deepseek.com/v1" />
+        </div>
+        <div class="ai-form-row">
+          模型名称
+          <input v-model="aiForm.model" placeholder="deepseek-chat" />
+        </div>
+
+        <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.8rem;">
+          <button class="primary" @click="saveAiConfig">保存配置</button>
+          <button @click="testAiConfig" :disabled="aiTesting">{{ aiTesting ? '测试中…' : '测试连接' }}</button>
+          <button v-if="aiCfg?.source === 'ui'" @click="clearAiConfig">清除配置</button>
+          <button class="link" @click="showAiSettings = false">关闭</button>
+        </div>
+        <p v-if="aiCfgMsg" class="note" style="margin-top:.5rem;">{{ aiCfgMsg }}</p>
+        <div v-if="aiTestResult" class="note" style="margin-top:.4rem;"
+             :style="aiTestResult.ok ? 'color:var(--ok)' : 'color:var(--err)'">
+          {{ aiTestResult.ok ? '✓ 连接成功' : '✗ ' + (aiTestResult.error || '失败') }}
+        </div>
+        <p class="note" style="margin-top:.8rem;">
+          ⚠ 启用 AI 解读后，命盘分析结果将发送至所配置的外部服务。
+          公网部署须自行加鉴权（详见 docs/release-procedure-v0.4.0.md）。
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: "Noto Sans SC", system-ui, sans-serif; background: #f5f6fa; color: #2c3e50; }
-.tianze-app { max-width: 960px; margin: 0 auto; padding: 1rem; }
-.header { padding: 1rem 0; border-bottom: 2px solid #3498db; margin-bottom: 1rem; }
-.header h1 { display: inline; font-size: 1.5rem; color: #2c3e50; }
-.header .subtitle { margin-left: 0.5rem; color: #7f8c8d; font-size: 0.9rem; }
-.header .version { float: right; color: #95a5a6; font-size: 0.8rem; }
-.panel { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
-.panel h2 { font-size: 1.1rem; color: #2c3e50; margin-bottom: 0.5rem; border-left: 3px solid #3498db; padding-left: 0.5rem; }
-.panel h3 { font-size: 0.95rem; color: #34495e; margin: 0.5rem 0 0.3rem; }
-.form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.5rem; margin: 0.5rem 0; }
-.form-grid label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.85rem; }
-.form-grid input, .form-grid select { padding: 0.4rem; border: 1px solid #bdc3c7; border-radius: 4px; }
-.checkbox { flex-direction: row !important; align-items: center; }
-.submit { background: #3498db; color: white; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; cursor: pointer; font-size: 1rem; margin-top: 0.5rem; }
-.submit:hover { background: #2980b9; }
-.submit:disabled { background: #95a5a6; }
-.error { color: #e74c3c; margin-top: 0.5rem; padding: 0.5rem; background: #fdf0ef; border-radius: 4px; }
-.pillars { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.5rem; }
-.pillar-card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; padding: 0.8rem; text-align: center; }
-.pillar-label { font-size: 0.8rem; color: #7f8c8d; }
-.pillar-ganzhi { font-size: 1.8rem; font-weight: bold; margin: 0.3rem 0; }
-.pillar-ganzhi .stem { color: #2c3e50; margin-right: 0.3rem; }
-.pillar-ganzhi .branch { color: #3498db; }
-.pillar-tengod { font-size: 0.85rem; color: #e67e22; }
-.pillar-details { font-size: 0.75rem; color: #95a5a6; display: flex; flex-direction: column; gap: 0.1rem; }
-.pillar-details details { margin-top: 0.3rem; }
-.tabs { display: flex; gap: 0.2rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
-.tabs button { padding: 0.4rem 0.8rem; border: 1px solid #bdc3c7; background: white; cursor: pointer; border-radius: 4px 4px 0 0; }
-.tabs button.active { background: #3498db; color: white; border-color: #3498db; }
-.relation-item, .evidence-item, .tiaohou-item, .candidate-block { padding: 0.4rem 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
-.badge { display: inline-block; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.75rem; background: #eaf2f8; color: #2980b9; margin: 0 0.2rem; }
-.badge.likely { background: #e8f8f5; color: #27ae60; }
-.badge.blocked { background: #fdedec; color: #e74c3c; }
-.damage { color: #c0392b; }
-.rescue { color: #27ae60; }
-.conflict { color: #e67e22; }
-.note { color: #95a5a6; font-size: 0.8rem; }
-.pos { color: #7f8c8d; font-size: 0.8rem; }
-.quote { font-style: italic; color: #555; }
-.agreement { padding: 0.5rem; background: #fef9e7; border-radius: 4px; font-size: 0.9rem; }
-.method-block { border-left: 3px solid #3498db; padding-left: 0.8rem; margin: 0.8rem 0; }
-.dim-row { display: flex; gap: 1rem; font-size: 0.95rem; }
-.elements { display: flex; flex-direction: column; gap: 0.3rem; }
-.element-row { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
-.elem-label { width: 3em; text-align: right; }
-.bar { flex: 1; height: 1rem; background: #ecf0f1; border-radius: 3px; overflow: hidden; }
-.fill { height: 100%; background: #3498db; border-radius: 3px; }
-.status { font-size: 1rem; }
-.candidate-block { border-left: 3px solid #e67e22; padding-left: 0.8rem; margin: 0.5rem 0; }
-.warnings-panel { border-left: 3px solid #f39c12; }
-.warning { color: #e67e22; }
-.fallback { color: #7f8c8d; }
-details { margin: 0.3rem 0; }
-summary { cursor: pointer; color: #3498db; font-size: 0.85rem; }
-.link { background: none; border: none; color: #3498db; cursor: pointer; text-decoration: underline; font-size: 0.85rem; }
-.temporal-controls { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: end; margin-bottom: 0.8rem; }
-.temporal-controls label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.85rem; }
-.temporal-controls select, .temporal-controls input { padding: 0.3rem; border: 1px solid #bdc3c7; border-radius: 4px; }
-.temporal-context { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin: 0.6rem 0 1rem; }
-.ctx-chip { padding: 0.3rem 0.7rem; border-radius: 4px; font-size: 0.9rem; font-weight: 600; }
-.ctx-chip.natal { background: #eaf2f8; color: #2471a3; }
-.ctx-chip.luck { background: #fef9e7; color: #b7950b; }
-.ctx-chip.annual { background: #e8f8f5; color: #148f77; }
-.ctx-chip.monthly { background: #f4ecf7; color: #7d3c98; }
-.ctx-chip.daily { background: #fdedec; color: #b03a2e; }
-.arrow { color: #95a5a6; font-weight: 700; }
-.error-text { color: #e74c3c; font-size: 0.9rem; }
-.graph-svg { width: 100%; height: auto; background: #fafafa; border: 1px solid #eee; border-radius: 6px; margin: 0.5rem 0; }
+/* ==== 组件级样式（继承 styles/tianze.css 设计令牌） ==== */
+.form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+             gap: 0.6rem 0.9rem; margin: 0.6rem 0 0.9rem; }
+.form-grid label { display: flex; flex-direction: column; gap: 0.25rem;
+                   font-size: 0.86rem; color: var(--ink-2); }
+.checkbox { flex-direction: row !important; align-items: center; gap: 0.4rem !important; }
+.error { color: var(--err); background: var(--wx-bg-fire); border: 1px solid rgba(179,67,43,.25);
+         border-radius: 8px; padding: 0.5rem 0.8rem; margin-top: 0.6rem; font-size: 0.88rem; }
+
+/* 概览摘要（保留 summary-pillar 供 E2E） */
+.pillars-visual { display: flex; gap: 0.5rem; margin: 0.5rem 0; flex-wrap: wrap; }
+.summary-pillar { border: 1px solid var(--border-strong); border-radius: 8px;
+                  padding: 0.35rem 0.7rem; text-align: center; background: #fffdf8; min-width: 60px; }
+.summary-pillar.me { border-color: var(--cinnabar); background: #fdf6ee; }
+.summary-pillar .pillar-label { font-size: 0.7rem; color: var(--ink-3); }
+.summary-pillar .pillar-gz { font-family: var(--font-display); font-size: 1.2rem;
+                             font-weight: 700; letter-spacing: 0.12em; }
+
+/* 关系/证据条目 */
+.relation-item { padding: 0.5rem 0.7rem; border: 1px solid #e7e0d0; border-radius: 8px;
+                 margin: 0.4rem 0; background: #fffdf8; }
+.relation-item .pos { color: var(--ink-3); font-size: 0.8rem; margin: 0 0.4rem; }
+.evidence-item { font-size: 0.85rem; padding: 0.25rem 0.6rem; margin: 0.2rem 0;
+                 border-left: 2px solid var(--bronze-light); color: var(--ink-2); }
+.evidence-item.rescue { border-left-color: var(--wx-wood); }
+.evidence-item.damage { border-left-color: var(--wx-fire); }
+.quote { font-family: var(--font-display); color: var(--ink-2);
+         border-left: 2px solid var(--bronze); padding-left: 0.6rem; margin: 0.3rem 0; }
+
+/* 旺衰方法块 */
+.method-block { border: 1px solid #e7e0d0; border-radius: 8px; padding: 0.7rem 0.9rem;
+                margin: 0.6rem 0; background: #fffdf8; }
+.method-block h3 { margin-top: 0; }
+.agreement { color: var(--indigo); font-size: 0.9rem; }
+.dim-row { display: flex; gap: 1.2rem; font-size: 0.88rem; margin: 0.3rem 0; }
+
+/* 五行条形 */
+.elements .element-row { display: flex; align-items: center; gap: 0.6rem; margin: 0.32rem 0; }
+.elem-label { width: 1.4em; font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; }
+.elem-count { white-space: nowrap; font-size: 0.8rem; color: var(--ink-2); }
+.bar { flex: 1; height: 10px; background: var(--paper-2); border-radius: 5px; overflow: hidden;
+       min-width: 80px; box-shadow: inset 0 0 0 1px #e0d8c4; }
+.fill { height: 100%; background: var(--bronze); border-radius: 5px; transition: width .4s ease; }
+
+/* 候选块 */
+.candidate-block { border: 1px solid #e7e0d0; border-left: 3px solid var(--bronze);
+                   border-radius: 8px; padding: 0.7rem 0.9rem; margin: 0.55rem 0;
+                   background: #fffdf8; }
+.warnings-panel { background: var(--wx-bg-earth); border: 1px solid var(--bronze-light);
+                  border-radius: 8px; padding: 0.6rem 0.9rem; }
+.warning, .fallback { color: var(--warn); font-size: 0.85rem; }
+
+/* 时序工作台 */
+.temporal-controls { display: flex; flex-wrap: wrap; gap: 0.6rem 0.9rem; align-items: center;
+                     margin: 0.6rem 0; font-size: 0.88rem; }
+.temporal-controls label { display: flex; flex-direction: column; gap: 0.2rem;
+                           font-size: 0.82rem; color: var(--ink-2); }
+.temporal-context { display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem;
+                    margin: 0.6rem 0; }
+.arrow { color: var(--ink-3); }
+.ctx-chip { border: 1px solid var(--border); border-radius: 6px; padding: 0.1rem 0.55rem;
+            font-size: 0.82rem; background: #fffdf8; }
+.ctx-chip.natal { border-color: var(--bronze); color: var(--ink-2); }
+.ctx-chip.luck { border-color: var(--indigo); color: var(--indigo); background: var(--indigo-light); }
+.ctx-chip.annual, .ctx-chip.monthly, .ctx-chip.daily { border-color: var(--cinnabar);
+                                                       color: var(--cinnabar-dark); }
+
+/* 知识库 */
+.kb-stats { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.4rem 0; }
+.rule-item { border: 1px solid #e7e0d0; border-radius: 8px; padding: 0.55rem 0.8rem;
+             margin: 0.4rem 0; background: #fffdf8; }
+
+/* 图谱 */
+.graph-svg { width: 100%; height: auto; background: #fbf9f3;
+             border: 1px solid #e7e0d0; border-radius: 8px; margin: 0.5rem 0;
+             touch-action: none; user-select: none; }
 .graph-node { cursor: pointer; }
-.graph-node:hover circle { stroke: #3498db; }
-.graph-svg { touch-action: none; user-select: none; }
-.trend-box { margin: 0.4rem 0; }
-.trend-svg { width: 100%; max-width: 640px; height: auto; background: #fafafa; border: 1px solid #eee; border-radius: 6px; }
-.graph-label { font-size: 9px; fill: #555; pointer-events: none; }
-@media (max-width: 600px) { .pillars { grid-template-columns: repeat(2, 1fr); } .form-grid { grid-template-columns: 1fr; } }
-</style>
+.graph-node:hover circle { stroke: var(--cinnabar); }
+.graph-label { font-size: 9px; fill: var(--ink-2); font-family: var(--font-body); }
+.trend-svg { width: 100%; max-width: 640px; height: auto; background: #fbf9f3;
+             border: 1px solid #e7e0d0; border-radius: 8px; }
 
-/* ---- M39 · 移动端与摘要组件 ---- */
-.summary-box { background: #f4f8f4; border: 1px solid #cfe0cf; border-radius: 8px;
-               padding: .7rem 1rem; margin: .4rem 0 .8rem; }
-.summary-box ul { margin: .4rem 0 0; padding-left: 1.1rem; }
-.pillars-visual { display: flex; gap: .5rem; margin: .5rem 0; flex-wrap: wrap; }
-.summary-pillar { border: 1px solid #d8d8d8; border-radius: 8px; padding: .4rem .8rem;
-               text-align: center; background: #fff; min-width: 64px; }
-.pillar-card.me { border-color: #2e7d32; background: #f1f8f1; }
-.pillar-label { font-size: .72rem; color: #777; }
-.pillar-gz { font-size: 1.25rem; font-weight: 700; letter-spacing: .15em; }
-.terms-box { margin: .5rem 0 .8rem; }
-.terms-box dl { margin: .3rem 0; }
-.terms-box dt { font-weight: 600; }
-.terms-box dd { margin: 0 0 .25rem 1rem; color: #555; }
+/* AI */
+.ai-privacy { background: var(--wx-bg-earth); border: 1px solid var(--bronze-light);
+              border-radius: 8px; padding: 0.5rem 0.8rem; margin-bottom: 0.7rem; }
+.ai-section-card { border: 1px solid #e7e0d0; border-left: 3px solid var(--indigo);
+                   border-radius: 8px; padding: 0.7rem 0.9rem; margin: 0.5rem 0; }
+.ai-section-card h4 { margin: 0 0 0.3rem; font-family: var(--font-display); color: var(--indigo); }
+
+/* AI 设置弹窗 */
+.ai-modal-mask { position: fixed; inset: 0; background: rgba(34,38,43,.45);
+                 display: flex; align-items: center; justify-content: center;
+                 z-index: 50; padding: 16px; }
+.ai-modal { background: #fffdf8; border: var(--border-strong); border-radius: 12px;
+            width: min(560px, 100%); max-height: 88vh; overflow-y: auto;
+            padding: 1.2rem 1.4rem; box-shadow: var(--shadow-md); }
+.ai-modal h3 { margin-top: 0; }
+.preset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+               gap: 8px; margin: 0.6rem 0; }
+.preset-card { border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 0.7rem;
+               cursor: pointer; background: #fff; font-size: 0.85rem; }
+.preset-card.selected { border-color: var(--cinnabar); background: #fdf6ee;
+                        box-shadow: var(--shadow-sm); }
+.preset-card .verified { font-size: 0.7rem; color: var(--ink-3); }
+.ai-form-row { display: flex; flex-direction: column; gap: 0.25rem; margin: 0.6rem 0;
+               font-size: 0.86rem; color: var(--ink-2); }
+.ai-form-row input { width: 100%; }
+
+/* 首页 hero 兼容 */
+.subtitle { color: var(--ink-3); }
+.version { color: var(--ink-3); }
+.ai-entry { margin-left: auto; }
+nav.tabs { margin-left: auto; }
+
 @media (max-width: 768px) {
-  body { font-size: .95rem; }
-  .panel { padding: .8rem; }
-  .header { flex-wrap: wrap; }
-  .tabs { flex-wrap: wrap; overflow-x: auto; }
-  .elements .bar { min-width: 60px; }
-  table { display: block; overflow-x: auto; white-space: nowrap; }
-  .graph-svg { min-width: 100%; }
-  button, .submit { min-height: 40px; }
-  input, select { max-width: 100%; }
-  .ctx-chip { display: inline-block; margin: .1rem 0; }
+  nav.tabs { margin-left: 0; }
+  .ai-entry { margin-left: auto; }
+  .temporal-controls label { flex: 1 1 140px; }
 }
-
-.user-guide { background: #f7f9fc; border: 1px solid #dbe4f0; border-radius: 8px;
-              padding: .5rem .8rem; margin-bottom: .8rem; font-size: .9rem; }
+</style>

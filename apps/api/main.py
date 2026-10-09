@@ -33,8 +33,10 @@ app.add_middleware(
 )
 
 from apps.api.knowledge_api import router as knowledge_router  # noqa: E402
+from apps.api.ai_config import router as ai_config_router  # noqa: E402
 
 app.include_router(knowledge_router)
+app.include_router(ai_config_router)
 
 
 app.add_exception_handler(TianzeError, tianze_error_handler)
@@ -117,9 +119,15 @@ async def interpret_endpoint(request: Request):
 
     provider = create_provider_from_env()
     if provider is None:
+        # M41：UI 配置回退（进程内存；环境变量优先不变）
+        from apps.api.ai_config import get_ui_provider
+        provider = get_ui_provider()
+    if provider is None:
         return JSONResponse(status_code=503, content={
             "error": {"code": "AI_NOT_CONFIGURED",
-                       "message": "AI 解读尚未配置。请设置 TIANZE_LLM_API_KEY 环境变量。确定性分析仍可正常使用。",
+                       "message": "AI 解读尚未配置。可在页面右上「AI 设置」配置，"
+                                  "或设置 TIANZE_LLM_API_KEY 环境变量。"
+                                  "确定性分析仍可正常使用。",
                        "details": {}}
         })
 

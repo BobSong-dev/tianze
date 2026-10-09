@@ -1,8 +1,8 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `629c7876827b`（含未提交改动）
+- commit: `f8a3dc3a9f55`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（86.8s / 23 步）
+- 质量门：ALL PASS（104.9s / 23 步）
 
 ## 版本与规模
 
@@ -24,13 +24,13 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.561,
-  "perCaseMs": 0.54
+  "elapsedSeconds": 0.586,
+  "perCaseMs": 0.56
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.729,
-  "perCaseMs": 0.7
+  "elapsedSeconds": 0.767,
+  "perCaseMs": 0.73
  },
  "timeline80y": {
   "nodes": 87,
@@ -114,6 +114,10 @@
 ### 测试（2）
 - test: lazy chart fixture for expansion tests
 - test: fix imports in special temporal expansion tests
+
+### 杂项（2）
+- Handoff: 修复 RC 工件 JSON 语法（Python 隐式拼接混入 JSON）+ 交接修复记录与三浏览器证据
+- Handoff v0.4.0: 发布交接 — P1 安全修复（.env 入 gitignore）+ AI 外发数据告知 + 一键启动 dev_start.py + 发布步骤与回滚方案 + 试用者交付包 TRIAL-PACK + 三浏览器 E2E 实测（Chromium/Firefox/WebKit 各 11/11）；645 tests + gate 23 步 + release_check ALL PASS
 
 ## Migration 要求
 

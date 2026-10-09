@@ -6,7 +6,7 @@ test("normal case: full analysis flow", async ({ page }) => {
   await page.fill('input[type="time"]', "14:30");
   await page.click("button.submit");
   await expect(page.locator(".pillar-card")).toHaveCount(4, { timeout: 15000 });
-  await expect(page.locator(".pillar-ganzhi").first()).toContainText("癸");
+  await expect(page.locator(".pillar-tile .gz-stem").first()).toContainText("癸");
   await page.click('button:has-text("旺衰")');
   await expect(page.locator(".method-block")).toHaveCount(3);
   await expect(page.locator("text=dimension")).toBeVisible();
