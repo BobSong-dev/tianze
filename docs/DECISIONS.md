@@ -621,3 +621,22 @@
     邻位候选 180。
 - **Tradeoff**：三态是「条件结构」而非化气结论（化成与否仍永不判定）；
   隔位合的力量口径两说保留。
+
+## ADR-074 · 合化状态解释链与后端事件映射（M36）
+
+- **Context**：M35 的 stem_combination_states 停留在证据文本；「规则到事件的
+  映射由后端提供，前端只展示」（目标 #4）未落地；combination_states 与
+  transformation 候选的一致性无程序化检测。
+- **Decision**：
+  - `combination_state` 解释链（CANDIDATE）：四条件（五合/邻位/月令化神/无阻化）
+    + DTZ-47/18/26/36 引文 + 「不判定化成」边界；pipeline 以
+    stem_combination_states 产出传入 build_relation_explanations（引擎算事实、
+    解释层只转译），随 relationExplanations 进 SDK/API/Web/报告；
+  - `/api/v1/knowledge/rules` 新增 `replayEventKinds`（由 conditions 的
+    temporalXushiInteraction 后端推导）——Rule↔Replay 映射单一事实源，前端删
+    本地推导；
+  - 跨层审计 C8（八项）：combination_states 与 transformation 候选按
+    「同 pair 取最少阻化」同一选择规则比对月令/邻位/阻化（1045 例全 0——
+    首轮 51 条违规系审计自身取首候选的匹配错误，对齐选择规则后归零）。
+- **Tradeoff**：无 month_command 的视图（case shim 解释层）跳过合化状态链；
+  隔位合的邻位语义（柱邻位 vs 日主邻位）仅对日主对强制一致。

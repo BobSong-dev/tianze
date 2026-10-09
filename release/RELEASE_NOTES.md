@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `044a870e8adf`（含未提交改动）
+- commit: `f41f6f9847dc`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（99.6s / 23 步）
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.576,
+  "elapsedSeconds": 0.577,
   "perCaseMs": 0.55
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.696,
-  "perCaseMs": 0.67
+  "elapsedSeconds": 0.725,
+  "perCaseMs": 0.69
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.026
+  "elapsedSeconds": 0.025
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（52）
+### 特性（53）
+- M36.1: 合化状态入 RelationExplanation（combination_state 三要素解释链 + DTZ-47/18/26/36 引文，pipeline 经 stem_combination_states 传入）+ 后端 replayEventKinds 映射（/rules 提供事件种类，前端只展示）+ C8 同构审计（1045 例全 0，八项；同 pair 取最少阻化对齐规则）
 - M35 final: ADR-073 + README M35 + gate 23 步/release_check ALL PASS
 - M35.1: 合化状态结构化 stem_combination_states（近真化/合而不化/隔位三态，复用 DTZ-47 口径）→ E1 升级为可审计三要素证据（邻位/月令/阻化）+ Rule Graph 联动去特判（rules.json conditions 数据驱动）+ 合化专题审计（1045 例：UNRESOLVED 563/CANDIDATE 11，阻化=隔位394/印比290/争合224）
 - M34 final: ADR-072 + README M34 + gate 23 步/release_check ALL PASS
