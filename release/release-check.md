@@ -5,7 +5,7 @@
 | step | 状态 | detail |
 |---|---|---|
 | P0_quality_gate | PASS | 23 步 ALL PASS |
-| P1_package_build | PASS | tianze_bazi-0.4.0.dev0-py3-none-any.whl，5.1s |
+| P1_package_build | PASS | tianze_bazi-0.4.0.dev0-py3-none-any.whl，4.4s |
 | P2_clean_install_smoke | PASS | clean venv install → version/analyze |
 | P3_cli_smoke | PASS | 3/3 |
 | P4_version_consistency | PASS | 0.4.0.dev0（dynamic single-source=True，metadata=0.4.0.dev0） |

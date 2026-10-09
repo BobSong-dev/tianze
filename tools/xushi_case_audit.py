@@ -45,7 +45,10 @@ def main() -> int:
     engine_vs_claims = {"engineCases": 0, "claimsMentionXushi": 0, "overlap": 0}
     # M29 · 假从根气分级分布（SP-CG-E2 文本特征统计）
     grade_dist: Counter = Counter()
-    
+    # M35 · 合化专题统计
+    hehua_status: Counter = Counter()
+    hehua_obstruction: Counter = Counter()
+    hehua_adjacent = 0
     kong_stats = {"nobleInDayKong": 0, "nobleInYearKong": 0, "nobleCases": 0,
                   "shuguiKongBlocked": 0, "shuguiTotal": 0}
     XUSHI_KEYWORDS = ("拱", "暗合", "虚神", "邀")
@@ -105,6 +108,15 @@ def main() -> int:
                     kong_stats["nobleInDayKong"] += 1
                 if yk and (nobles & yk):
                     kong_stats["nobleInYearKong"] += 1
+            for t in chart.advancedAnalysis.get("specialPattern", {}).get("transformation", []):
+                hehua_status[t["status"]] += 1
+                for ob in t.get("obstructions", []):
+                    kind = ("争合" if "争合" in ob else
+                            "隔位" if ("相隔" in ob or "非日主" in ob) else
+                            "印比阻化" if "印绶" in ob else "其他")
+                    hehua_obstruction[kind] += 1
+                if t.get("adjacentToDayMaster"):
+                    hehua_adjacent += 1
             for c in chart.advancedAnalysis.get("specialPattern", {}).get("cong", []):
                 for e in c.get("exceptions", []):
                     t = e.get("text", "")
@@ -170,6 +182,11 @@ def main() -> int:
         "engineVsClaims": dict(engine_vs_claims),
         "nobleKongStats": kong_stats,
         "jiacongGradeDistribution": dict(grade_dist),
+        "hehuaStats": {
+            "statusDistribution": dict(hehua_status),
+            "obstructionTypes": dict(hehua_obstruction),
+            "adjacentCandidates": hehua_adjacent,
+        },
         "engineVsClaimsCaveat": "claims 文本为 MACHINE_EXTRACTED 摘要，仅作粗对照；"
                                 "「原书明确采用」需对照 raw OCR 语料（不在仓库，BLOCKED）",
         "discipline": "历史断语只用于对照；本审计不输出任何吉凶或事件结论",

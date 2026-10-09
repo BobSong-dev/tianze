@@ -1023,3 +1023,34 @@ def test_replay_ref_integrity_warnings():
                         chart=chart, include_themes=True)
     dangling = [w for w in r.warnings if w.startswith("悬空")]
     assert dangling == [], dangling
+
+
+# ---------- M35 · 合化状态结构化 ----------
+
+def test_stem_combination_states_vocabulary():
+    """状态词汇限定三态；伍庭芳丁壬=合而不化倾向（邻位+非日主阻化）。"""
+    from tianze.analysis.special import stem_combination_states
+    rs = stem_combination_states("己", "未", ["壬", "丁", "己", "乙"])
+    assert rs and rs[0]["state"] in ("合（近真化条件）", "合（合而不化倾向）", "合（隔位）")
+    assert rs[0]["state"] == "合（合而不化倾向）"
+    assert rs[0]["adjacent"] is True and rs[0]["season"] is False
+    assert any("非日主之合" in o or "相隔" in o for o in rs[0]["obstructions"])
+
+
+def test_stem_combination_states_near_hua():
+    """邻位 + 月令化神 + 无阻化 → 合（近真化条件）。"""
+    from tianze.analysis.special import stem_combination_states
+    rs = stem_combination_states("甲", "未", ["丙", "己", "甲", "庚"])
+    hit = next(x for x in rs if x["pair"] == ["甲", "己"])  # pair 规范序（stem_index）
+    assert hit["state"] == "合（近真化条件）"
+    assert hit["adjacent"] and hit["season"] and hit["obstructions"] == []
+
+
+def test_e1_structured_state_text():
+    """E1 文本携带结构化状态（邻位/月令/阻化三要素可审计）。"""
+    from tianze.analysis.case_chart import build_case_chart
+    c = build_case_chart({"year": "壬寅", "month": "丁未", "day": "己卯", "hour": "乙亥"})
+    x = next(x for x in c.advancedAnalysis["specialPattern"]["cong"] if x["type"] == "从财")
+    e1 = next(e for e in x["exceptions"] if e["ruleId"] == "SP-CG-E1")
+    assert "合而不化倾向" in e1["text"] and "邻位=True" in e1["text"]
+    assert x["status"] == "DISPUTED"  # 状态映射不变

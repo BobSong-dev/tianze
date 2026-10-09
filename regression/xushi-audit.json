@@ -99,6 +99,18 @@
   "强根（本气）": 611,
   "微根（余气/墓库）": 167
  },
+ "hehuaStats": {
+  "statusDistribution": {
+   "UNRESOLVED": 563,
+   "CANDIDATE": 11
+  },
+  "obstructionTypes": {
+   "争合": 224,
+   "隔位": 394,
+   "印比阻化": 290
+  },
+  "adjacentCandidates": 180
+ },
  "engineVsClaimsCaveat": "claims 文本为 MACHINE_EXTRACTED 摘要，仅作粗对照；「原书明确采用」需对照 raw OCR 语料（不在仓库，BLOCKED）",
  "discipline": "历史断语只用于对照；本审计不输出任何吉凶或事件结论"
 }

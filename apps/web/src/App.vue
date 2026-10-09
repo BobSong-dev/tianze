@@ -290,13 +290,27 @@ const chainJumpThemes = computed<string[]>(() => {
 function jumpToChain() { activeTab.value = "temporal"; }
 
 // M26：关系引文 → 知识图谱跳转（切 tab + 搜索 + 聚焦节点）
-// M34 · Rule↔Replay 联动：xushi 规则节点显示当前分析的回放事件
+// M34/M35 · Rule↔Replay 联动（数据驱动）：从规则 conditions 的
+// temporalXushiInteraction 值提取事件种类映射，不再特判单条规则。
+const XUSHI_RULE_EVENT_KINDS = computed<Record<string, string[]>>(() => {
+  const map: Record<string, string[]> = {};
+  for (const r of kbRules.value) {
+    const cond = (r.conditions ?? []).find((c: any) => c?.field === "temporalXushiInteraction");
+    if (cond?.value && Array.isArray(cond.value)) map[r.id] = cond.value as string[];
+  }
+  return map;
+});
+
 const ruleReplayEvents = computed<string[]>(() => {
-  if (selectedNodeId.value !== "TR-DTZ-10") return [];
+  const rid = selectedNodeId.value;
+  const kinds = rid ? XUSHI_RULE_EVENT_KINDS.value[rid] : undefined;
+  if (!kinds) return [];
   const steps = (temporalData.value?.replay?.steps ?? []) as any[];
   return steps.flatMap((st: any) => [
-    ...((st.added ?? []) as any[]).map((a: any) => `+ [${st.layer}] ${a.label}`),
-    ...((st.removed ?? []) as any[]).map((rm: any) => `− [${st.layer}] ${rm.label}`),
+    ...((st.added ?? []) as any[]).filter((a: any) => kinds.includes(a.kind))
+      .map((a: any) => `+ [${st.layer}] ${a.label}`),
+    ...((st.removed ?? []) as any[]).filter((rm: any) => kinds.includes(rm.kind))
+      .map((rm: any) => `− [${st.layer}] ${rm.label}`),
   ]);
 });
 

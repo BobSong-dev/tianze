@@ -93,6 +93,58 @@ class SpecialPatternCandidate:
 
 # ---------- M8.1 从格 ----------
 
+def stem_combination_states(
+    day_master: str,
+    month_branch: str,
+    stems: list[str | None],
+) -> list[dict]:
+    """天干五合的状态结构化（M35）：合而不化/合去/合绊/争合/隔位的可审计口径。
+
+    状态词汇（候选级，永不判定化成）：
+      合（近真化条件）  —— 邻位 + 月令化神 + 无争合/印比阻化（analyze_transformation 口径）
+      合（合而不化倾向）—— 邻位但有阻化条件（DTZ-18：合与化不同）
+      合（隔位）        —— 非邻位（合的力量口径两说）
+    返回：[{stem, partner, pair, state, positions, adjacent, season, obstructions}]
+    """
+    ts = analyze_transformation(day_master, month_branch, stems,
+                                [None] * len(stems))
+    # pair → 候选（取 obstruction 最少者）
+    by_pair: dict[tuple[str, str], dict] = {}
+    for t in ts:
+        key = t.stem_pair
+        prev = by_pair.get(key)
+        if prev is None or len(t.obstructions) < len(prev["obstructions"]):
+            by_pair[key] = {"obstructions": list(t.obstructions),
+                            "season": t.season_support}
+    from tianze.relation.tables import STEM_COMBINATIONS as _SC
+    n = len(stems)
+    out: list[dict] = []
+    for i in range(n):
+        for j in range(i + 1, n):
+            s1, s2 = stems[i], stems[j]
+            if not s1 or not s2 or s1 == s2:
+                continue
+            pair = (s1, s2) if stem_index(s1) < stem_index(s2) else (s2, s1)
+            if frozenset(pair) not in _SC or pair not in by_pair:
+                continue
+            info = by_pair[pair]
+            adjacent = (j - i) == 1
+            obstructions = info["obstructions"]
+            if adjacent and info["season"] and not obstructions:
+                state = "合（近真化条件）"
+            elif adjacent:
+                state = "合（合而不化倾向）"
+            else:
+                state = "合（隔位）"
+            out.append({
+                "stem": pair[0], "partner": pair[1], "pair": list(pair), "state": state,
+                "positions": [i, j], "adjacent": adjacent,
+                "season": bool(info["season"]),
+                "obstructions": obstructions,
+            })
+    return out
+
+
 def _root_grade(roots: list) -> str:
     """日主根气强度分级（M28，DTZ-49 微根口径的证据化）。
 
@@ -187,22 +239,33 @@ def analyze_cong(
                 "blocker", "SP-CG-B2",
                 f"印比透干（{'、'.join(helper_stems)}）——逆从格之势",
             ))
-            # M24 · 印比合去/合绊两说（伍庭芳造口径：丁壬合，徐断「弃命相从」）——
-            # 印比与**非印比**之干天干相合 → 真从说（合去不能生身，从势成立）与
-            # 保留说（合而不化仍有意）并存；只加证据，不改状态映射（不调参）。
+            # M24/M35 · 印比合去/合绊两说——M35 升级为结构化状态依据
+            # （stem_combination_states：近真化条件→合去说权重升；合而不化→合绊保留说；
+            #   隔位→力量弱两说。只升级证据结构，不改状态映射。）
             helper_set = set(helper_stems)
+            combo_states = {(cs["stem"], cs["partner"]): cs
+                            for cs in stem_combination_states(day_master, month_branch, stems)}
             for h in helper_stems:
                 for s2 in stems:
                     if not s2 or s2 == day_master or s2 == h or s2 in helper_set:
                         continue
-                    if tuple(sorted((h, s2), key=stem_index)) in _STEM_PAIR_TRANSFORM:
-                        cand.exceptions.append(Factor(
-                            "exception", "SP-CG-E1",
-                            f"印比{h}与{s2}天干相合——合去（不能生身，真从说，"
-                            "伍庭芳造丁壬合丁印而弃命相从）vs 合绊（合而不化仍有意，"
-                            "保留说）两说并存（DTZ-06：能从与否须察干支配合之趋向）",
-                        ))
-                        break
+                    key = (h, s2) if stem_index(h) < stem_index(s2) else (s2, h)
+                    if key not in _STEM_PAIR_TRANSFORM:
+                        continue
+                    cs = combo_states.get(key)
+                    if cs:
+                        det = (f"状态：{cs['state']}"
+                               f"（邻位={cs['adjacent']}，月令化神={cs['season']}"
+                               f"，阻化={len(cs['obstructions'])}）")
+                    else:
+                        det = "状态：未入结构化口径"
+                    cand.exceptions.append(Factor(
+                        "exception", "SP-CG-E1",
+                        f"印比{h}与{s2}天干相合——{det}。合去（不能生身，真从说，"
+                        "伍庭芳造丁壬合丁印而弃命相从）vs 合绊（合而不化仍有意，"
+                        "保留说）两说并存（DTZ-06：能从与否须察干支配合之趋向）",
+                    ))
+                    break
         if analyzer_conflict:
             cand.conflicts.append(Factor(
                 "conflict", "SP-CG-C1",
