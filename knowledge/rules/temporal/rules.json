@@ -529,6 +529,7 @@
       "arch",
       "arch_fill",
       "arch_broken",
+      "arch_unfill",
       "hidden_combination"
      ]
     }

@@ -290,13 +290,12 @@ const chainJumpThemes = computed<string[]>(() => {
 function jumpToChain() { activeTab.value = "temporal"; }
 
 // M26：关系引文 → 知识图谱跳转（切 tab + 搜索 + 聚焦节点）
-// M34/M35 · Rule↔Replay 联动（数据驱动）：从规则 conditions 的
-// temporalXushiInteraction 值提取事件种类映射，不再特判单条规则。
+// M34/M35/M36 · Rule↔Replay 联动：映射由后端 /knowledge/rules 的
+// replayEventKinds 字段提供（单一事实源），前端只展示不推导。
 const XUSHI_RULE_EVENT_KINDS = computed<Record<string, string[]>>(() => {
   const map: Record<string, string[]> = {};
   for (const r of kbRules.value) {
-    const cond = (r.conditions ?? []).find((c: any) => c?.field === "temporalXushiInteraction");
-    if (cond?.value && Array.isArray(cond.value)) map[r.id] = cond.value as string[];
+    if (Array.isArray(r.replayEventKinds)) map[r.id] = r.replayEventKinds as string[];
   }
   return map;
 });

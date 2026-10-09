@@ -9,3 +9,4 @@
 - C5（暗合 ⟹ SPZY-34 表内 + 贴邻）：0 条
 - C6（Evidence 完整化：关系键无重复 + 解释链数 == relations+blocked（M30））：0 条
 - C7（悬空引用：解释链 refId 唯一 + 引文 candidateId 非空（M33））：0 条
+- C8（合化状态同构：states 与 transformation 候选的月令/邻位/阻化一致（M36））：0 条

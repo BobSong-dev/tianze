@@ -1,7 +1,7 @@
 {
  "domain": "relations",
  "schemaVersion": "1.0.0",
- "count": 16,
+ "count": 18,
  "description": "关系级解释链引文注册表（M25）：由 tools/build_relation_citations.py 从 normalized 候选机械生成，引文逐字可回溯；禁止手写引文",
  "citations": {
   "DTZ-10": {
@@ -133,6 +133,28 @@
    "quote": "按六乙鼠贵者，（食伤印煞财是）不相戾以成格也。日元恃印煞滋生，而印煞临天乙贵人。六乙遁干（在）丙子…为六乙鼠贵之地…六乙鼠贵爱见食神（时）…支配合适宜…柱有官煞，贫臭下贱，（泥途）不喜刑冲。",
    "sourceFile": "09p-滴天髓补注/06-子平一得知识库.md",
    "quality": "B",
+   "ocrRisk": true,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "DTZ-47": {
+   "candidateId": "DTZ-47",
+   "book": "DTZ",
+   "title": "化得真者只论化——化气乘旺、日干衰绝、须见辰（逢龙而运）",
+   "purpose": "化得真者只论化（真化条件：邻位/月令/辰——合化状态三要素出处）",
+   "quote": "化得真者只论化，化神还有几般话。",
+   "sourceFile": "09p-滴天髓补注/09n-滴天髓补注_从化章.md",
+   "quality": "C",
+   "ocrRisk": true,
+   "sourceKind": "CLASSICAL_EXPLICIT"
+  },
+  "DTZ-18": {
+   "candidateId": "DTZ-18",
+   "book": "DTZ",
+   "title": "天合地者，地旺宜静——合与化不同，最重合神非取其化",
+   "purpose": "天合地者，地旺宜静（合与化不同）",
+   "quote": "天合地者，地旺宜静。",
+   "sourceFile": "09p-滴天髓补注/09d-滴天髓补注_顺遂精粹六法.md",
+   "quality": "C",
    "ocrRisk": true,
    "sourceKind": "CLASSICAL_EXPLICIT"
   },

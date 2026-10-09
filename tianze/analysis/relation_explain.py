@@ -48,6 +48,7 @@ _KIND_CITATIONS: dict[str, list[str]] = {
     "three_harmony_completed": ["R10"],
     "three_meeting": ["R9"],
     "six_combination": ["R13"], "stem_combination": ["R13"],
+    "combination_state": ["R13", "DTZ-47", "DTZ-18", "DTZ-26", "DTZ-36"],
     "stem_opposition": ["R14"],
 }
 
@@ -229,9 +230,46 @@ def explain_relation_generic(
     )
 
 
-def build_relation_explanations(chart) -> list[RelationExplanation]:
-    """原局关系 + 未成立候选 → 解释链列表（chart.relations / chart.blocked_relations）。"""
+def explain_combination_state(entry: dict) -> RelationExplanation:
+    """合化状态解释链（M36）：stem_combination_states 条目 → 三态解释。
+
+    状态候选级：永不判定化成（DTZ-18「合与化不同」）；引文 DTZ-47（真化条件三要素）。
+    refId 独立前缀 combination-state:*（不与关系/事件 refId 冲突）。
+    """
+    state = entry.get("state", "")
+    conditions = [
+        _cond("五合表命中（R13/SPZY-34 口径）"),
+        _cond("邻位（贴邻柱）", bool(entry.get("adjacent"))),
+        _cond("月令化神（乘旺秉令，DTZ-47）", bool(entry.get("season"))),
+        _cond("无阻化（争合/印比/隔位，DTZ-47）", not entry.get("obstructions")),
+    ]
+    school = ["合与化不同（DTZ-18：今人见合皆作化论殊误）——状态仅为条件结构"]
+    if "近真化" in state:
+        school.append("近真化条件满足为候选前提；化成与否永不判定（R13）")
+    return RelationExplanation(
+        refId=f"combination-state:{entry.get('stem')}:{entry.get('partner')}",
+        kind="combination_state", kindCn="合化状态",
+        status="CANDIDATE",
+        label=f"{entry.get('stem')}{entry.get('partner')}——{state}",
+        members=[entry.get("stem", ""), entry.get("partner", "")],
+        positions=[f"pos{p}" for p in entry.get("positions", [])],
+        conditions=conditions, schoolNotes=school,
+        citations=_citations_for("combination_state"),
+        evidence=[f"三要素：邻位={entry.get('adjacent')}，月令化神={entry.get('season')}，"
+                  f"阻化={len(entry.get('obstructions') or [])}"],
+        boundary="合化状态候选：不判定化成，不参与旺衰/事件推理（DTZ-26/36 同口径）",
+    )
+
+
+def build_relation_explanations(chart, combination_states: list[dict] | None = None) -> list[RelationExplanation]:
+    """原局关系 + 未成立候选 + 合化状态 → 解释链列表（M36）。
+
+    combination_states：调用方（pipeline）以 stem_combination_states() 产出传入
+    （引擎层负责计算，解释层只转译）。
+    """
     out: list[RelationExplanation] = []
+    for entry in combination_states or []:
+        out.append(explain_combination_state(entry))
     for rel in getattr(chart, "relations", None) or []:
         out.append(explain_relation_generic(
             rel.kind.value if hasattr(rel.kind, "value") else str(rel.kind),

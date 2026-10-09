@@ -365,7 +365,8 @@ def test_relation_explanations_three_states():
     assert "ESTABLISHED" in statuses
     assert "CANDIDATE" in statuses      # 子戌暗合
     assert "BLOCKED" in statuses        # 子戌拱亥（不成）
-    cand = next(e for e in exs if e["status"] == "CANDIDATE")
+    cand = next(e for e in exs if e["status"] == "CANDIDATE"
+                and e["kind"] != "combination_state")  # M36 起另有合化状态链
     assert any(c["candidateId"] == "SPZY-34" for c in cand["citations"])
     blk = next(e for e in exs if e["status"] == "BLOCKED")
     assert any("拱实不若拱虚" in c["text"] for c in blk["conditions"])
@@ -1054,3 +1055,44 @@ def test_e1_structured_state_text():
     e1 = next(e for e in x["exceptions"] if e["ruleId"] == "SP-CG-E1")
     assert "合而不化倾向" in e1["text"] and "邻位=True" in e1["text"]
     assert x["status"] == "DISPUTED"  # 状态映射不变
+
+
+# ---------- M36 · 合化状态解释链 / C8 同构 ----------
+
+def test_combination_state_explanations():
+    """合化状态解释链：CANDIDATE 三要素条件 + DTZ-47/18 引文 + 永不化成边界。"""
+    from tianze.sdk import analyze, AnalysisOptions, SimplifiedBirthInfo
+    b = SimplifiedBirthInfo.model_validate({"date": "1984-02-05", "time": "10:30",
+                                            "gender": "male"})
+    r = analyze(b, AnalysisOptions())
+    cs = [e for e in r.relationExplanations if e["kind"] == "combination_state"]
+    assert cs, "该盘应有合化状态解释链"
+    for e in cs:
+        assert e["status"] == "CANDIDATE"
+        assert any(c["candidateId"] == "DTZ-47" for c in e["citations"])
+        assert "不判定化成" in e["boundary"]
+        assert len(e["conditions"]) == 4  # 五合/邻位/月令/无阻化
+
+
+def test_combination_states_transformation_consistency():
+    """C8 同构：states 与 transformation（同 pair 取最少阻化）月令/阻化一致。"""
+    from tianze.analysis.case_chart import build_case_chart
+    from tianze.analysis.special import stem_combination_states
+    chart = build_case_chart({"year": "癸酉", "month": "辛酉", "day": "乙丑", "hour": "辛巳"})
+    dm_stems = [chart.pillars.year.stem, chart.pillars.month.stem,
+                chart.pillars.day.stem, chart.pillars.hour.stem]
+    states = {(s["stem"], s["partner"]): s
+              for s in stem_combination_states(chart.day_master.stem,
+                                               chart.month_command.month_branch, dm_stems)}
+    trs: dict = {}
+    for t in chart.advancedAnalysis["specialPattern"]["transformation"]:
+        pair = tuple(t["stemPair"])
+        prev = trs.get(pair)
+        if prev is None or len(t["obstructions"]) < len(prev["obstructions"]):
+            trs[pair] = t
+    for pair, st in states.items():
+        t = trs.get(pair)
+        if t is None:
+            continue
+        assert bool(t["seasonSupport"]) == bool(st["season"]), pair
+        assert len(t["obstructions"]) == len(st["obstructions"]), pair

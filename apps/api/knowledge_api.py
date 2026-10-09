@@ -52,6 +52,13 @@ def _all_rules() -> list[dict]:
                 "verification": r.get("verification"),
                 "conflictNote": r.get("conflictNote"),
                 "accuracyMatrix": r.get("accuracyMatrix"),
+                # M36 · 规则→回放事件种类映射（后端单一事实源，前端只展示）
+                "replayEventKinds": next(
+                    (c.get("value") for c in r.get("conditions", [])
+                     if isinstance(c, dict) and c.get("field") == "temporalXushiInteraction"
+                     and isinstance(c.get("value"), list)),
+                    None,
+                ),
             })
     return rules
 

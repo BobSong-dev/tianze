@@ -36,7 +36,7 @@ def main() -> int:
                 x in f for x in ("temporal_refs", "event_claims", "raw_temporal_spans")):
             books.append(json.load(open(f"knowledge/normalized/cases/{f}", encoding="utf-8")))
 
-    violations: dict[str, list[str]] = {f"C{i}": [] for i in range(1, 8)}
+    violations: dict[str, list[str]] = {f"C{i}": [] for i in range(1, 9)}
     stats = Counter()
     total = 0
 
@@ -99,6 +99,43 @@ def main() -> int:
                                 f"{cid}: 从格 {x['type']} BLOCKED 但无阻断证据")
                         stats[f"cong:{x['status']}"] += 1
 
+            # C8 合化状态同构（M36）：stem_combination_states 的 (pair→邻位/月令/阻化)
+            # 必须与 transformation 候选的 adjacentToDayMaster/seasonSupport/obstructions 一致
+            from tianze.analysis.special import stem_combination_states
+            dm_stems = [p.stem for p in (chart.pillars.year, chart.pillars.month,
+                                         chart.pillars.day, chart.pillars.hour) if p]
+            states = {(s["stem"], s["partner"]): s
+                      for s in stem_combination_states(chart.day_master.stem,
+                                                       chart.month_command.month_branch,
+                                                       dm_stems)}
+            # 同 pair 多候选时取阻化最少者（与 stem_combination_states 同一选择规则）
+            tr_by_pair: dict = {}
+            for t in adv.get("transformation", []):
+                pair = tuple(t["stemPair"])
+                prev = tr_by_pair.get(pair)
+                if prev is None or len(t.get("obstructions", [])) < len(prev.get("obstructions", [])):
+                    tr_by_pair[pair] = t
+            for pair, t in tr_by_pair.items():
+                st = states.get(pair)
+                if st is None:
+                    continue
+                if bool(t.get("seasonSupport")) != bool(st["season"]):
+                    violations["C8"].append(
+                        f"{cid}: {pair} 月令口径不一致（transformation={t.get('seasonSupport')}"
+                        f" vs state={st['season']}）")
+                if bool(t.get("adjacentToDayMaster")) != bool(st["adjacent"]) and                         st["adjacent"] and t.get("adjacentToDayMaster") is False:
+                    # 非日主对的 adjacent 语义不同（组合状态=柱邻位；transformation=与日主邻位），
+                    # 仅在同为日主对时才要求一致
+                    if pair[0] == chart.day_master.stem or pair[1] == chart.day_master.stem:
+                        violations["C8"].append(
+                            f"{cid}: {pair} 邻位口径不一致")
+                tr_obs = len(t.get("obstructions", []))
+                st_obs = len(st["obstructions"])
+                if tr_obs != st_obs and (pair[0] == chart.day_master.stem
+                                         or pair[1] == chart.day_master.stem):
+                    violations["C8"].append(
+                        f"{cid}: {pair} 阻化数不一致（{tr_obs} vs {st_obs}）")
+
             # C5 hidden combination
             for r in rels:
                 if r.kind.value == "hidden_combination":
@@ -147,6 +184,7 @@ def main() -> int:
             "C5": "暗合 ⟹ SPZY-34 表内 + 贴邻",
             "C6": "Evidence 完整化：关系键无重复 + 解释链数 == relations+blocked（M30）",
             "C7": "悬空引用：解释链 refId 唯一 + 引文 candidateId 非空（M33）",
+            "C8": "合化状态同构：states 与 transformation 候选的月令/邻位/阻化一致（M36）",
         },
     }
     with open(OUT_JSON, "w", encoding="utf-8") as f:

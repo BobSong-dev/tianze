@@ -1,14 +1,14 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `80369d90fe89`（含未提交改动）
+- commit: `044a870e8adf`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（102.0s / 23 步）
+- 质量门：ALL PASS（99.6s / 23 步）
 
 ## 版本与规模
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **222**（{'event': 21, 'temporal': 19, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 616
+- 命例 1147；Replay 165；测试 618
 
 ## 质量状态
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,12 +24,12 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.563,
-  "perCaseMs": 0.54
+  "elapsedSeconds": 0.576,
+  "perCaseMs": 0.55
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.699,
+  "elapsedSeconds": 0.696,
   "perCaseMs": 0.67
  },
  "timeline80y": {
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（51）
+### 特性（52）
+- M35 final: ADR-073 + README M35 + gate 23 步/release_check ALL PASS
 - M35.1: 合化状态结构化 stem_combination_states（近真化/合而不化/隔位三态，复用 DTZ-47 口径）→ E1 升级为可审计三要素证据（邻位/月令/阻化）+ Rule Graph 联动去特判（rules.json conditions 数据驱动）+ 合化专题审计（1045 例：UNRESOLVED 563/CANDIDATE 11，阻化=隔位394/印比290/争合224）
 - M34 final: ADR-072 + README M34 + gate 23 步/release_check ALL PASS
 - M34: 合去调制（E3→TR-SP-08：natal 印比已合去→岁运印比为新增生助不叠加）+ replay 引用完整性自检（虚神⊆快照/冲突⊆关系键，悬空入 warnings）+ Web TR-DTZ-10 节点↔回放事件联动

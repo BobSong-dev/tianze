@@ -173,9 +173,12 @@ def build_chart(birth: M.BirthInfo) -> M.BaziChart:
     blocked_relations = analyze_blocked_arches(stems, branches, positions, day_master=day_master)
     from types import SimpleNamespace as _NS
     from tianze.analysis.relation_explain import build_relation_explanations as _bre
+    from tianze.analysis.special import stem_combination_states as _scs
 
+    combination_states = _scs(day_master, month_gz[1], stems)
     relation_explanations = [e.model_dump(by_alias=True, exclude_none=True) for e in _bre(
-        _NS(relations=relations, blocked_relations=blocked_relations))]
+        _NS(relations=relations, blocked_relations=blocked_relations),
+        combination_states=combination_states)]
 
     # 结构事实（M3）：月令 / 通根 / 透干 / 五行统计（不加权，R15-R18）
     month_command = compute_month_command(month_gz[1], day_master, stems)

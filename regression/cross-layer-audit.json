@@ -9,7 +9,8 @@
   "C4": [],
   "C5": [],
   "C6": [],
-  "C7": []
+  "C7": [],
+  "C8": []
  },
  "violationCounts": {
   "C1": 0,
@@ -18,7 +19,8 @@
   "C4": 0,
   "C5": 0,
   "C6": 0,
-  "C7": 0
+  "C7": 0,
+  "C8": 0
  },
  "totalViolations": 0,
  "stats": {
@@ -37,6 +39,7 @@
   "C4": "特殊格局永不 CONFIRMED；cong BLOCKED 必带阻断",
   "C5": "暗合 ⟹ SPZY-34 表内 + 贴邻",
   "C6": "Evidence 完整化：关系键无重复 + 解释链数 == relations+blocked（M30）",
-  "C7": "悬空引用：解释链 refId 唯一 + 引文 candidateId 非空（M33）"
+  "C7": "悬空引用：解释链 refId 唯一 + 引文 candidateId 非空（M33）",
+  "C8": "合化状态同构：states 与 transformation 候选的月令/邻位/阻化一致（M36）"
  }
 }

@@ -318,6 +318,8 @@ export interface ApiError {
   error: { code: string; message: string; details: Record<string, unknown> };
 }
 
+export interface KnowledgeRuleData { replayEventKinds?: string[] | null }
+
 export interface RelationExplanationData {
   refId: string;
   kind: string;
