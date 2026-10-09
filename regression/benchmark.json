@@ -1,13 +1,13 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.578,
-  "perCaseMs": 0.55
+  "elapsedSeconds": 0.562,
+  "perCaseMs": 0.54
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.732,
-  "perCaseMs": 0.7
+  "elapsedSeconds": 0.717,
+  "perCaseMs": 0.69
  },
  "timeline80y": {
   "nodes": 87,

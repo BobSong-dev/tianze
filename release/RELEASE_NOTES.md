@@ -1,14 +1,14 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `b4f09429fdc2`（含未提交改动）
+- commit: `cbe0f7f5a0f6`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（90.0s / 23 步）
+- 质量门：ALL PASS（85.4s / 23 步）
 
 ## 版本与规模
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **223**（{'event': 21, 'temporal': 20, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 641
+- 命例 1147；Replay 165；测试 645
 
 ## 质量状态
 
@@ -24,13 +24,13 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.578,
-  "perCaseMs": 0.55
+  "elapsedSeconds": 0.562,
+  "perCaseMs": 0.54
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.732,
-  "perCaseMs": 0.7
+  "elapsedSeconds": 0.717,
+  "perCaseMs": 0.69
  },
  "timeline80y": {
   "nodes": 87,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（60）
+### 特性（61）
+- M39 final: ADR-077 + README M39 + gate 23 步/release_check ALL PASS
 - M39.1: 产品体验 — HTML 报告封面/摘要/术语说明 + A4 打印 CSS（replay 打印展开降级）+ Web 总览摘要块（四柱视觉/核心结论/术语说明/使用说明入口）+ 关系页合化状态区块 + replay→规则链接 + 移动端媒体查询（375/768/1280）+ Playwright 3 项新增（移动视口/合化状态/回放联动，E2E 8→11）
 - M38 final: ADR-076 + README M38 + gate 23 步/release_check ALL PASS
 - M38.1: 完整性审计与核心能力补齐 — 跨渠道一致性测试（SDK/CLI/API 4样本三通道核心语义一致）+ 能力覆盖矩阵（36 项诚实评估+证据指针验证：COMPLETE 25/PARTIAL 4/EXPERIMENTAL 1/BLOCKED 4/UNSUPPORTED 2）+ 端到端场景套件 21 项（含近真化真实日盘 1978-07-11 探测）+ 争合入 natal 解释链（见辰条件化两说注记）+ AI 评测 claimCoverage/stateUpgrade 指标
