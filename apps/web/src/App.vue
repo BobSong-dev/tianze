@@ -1287,6 +1287,11 @@ async function loadTemporal() {
       <!-- AI Interpretation -->
     <section v-if="activeTab === 'ai' && result" class="panel">
       <h2>AI 解读</h2>
+      <div class="note ai-privacy">
+        ⚠ 隐私提示：点击生成后，您的命盘分析结果（含出生信息派生的四柱）
+        将发送至已配置的外部 AI 服务（TIANZE_LLM_BASE_URL）进行解释。
+        不配置 AI 服务时，确定性分析完全本地运行，不受影响。
+      </div>
       <div v-if="aiState === 'READY'" class="ai-ready">
         <p>点击下方按钮生成基于确定性分析结果的 AI 解释。</p>
         <button class="submit" @click="generateAI">生成 AI 解读</button>

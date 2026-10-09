@@ -1,8 +1,8 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `cbe0f7f5a0f6`（含未提交改动）
+- commit: `629c7876827b`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（85.4s / 23 步）
+- 质量门：ALL PASS（86.8s / 23 步）
 
 ## 版本与规模
 
@@ -24,17 +24,17 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.562,
+  "elapsedSeconds": 0.561,
   "perCaseMs": 0.54
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.717,
-  "perCaseMs": 0.69
+  "elapsedSeconds": 0.729,
+  "perCaseMs": 0.7
  },
  "timeline80y": {
   "nodes": 87,
-  "elapsedSeconds": 0.026
+  "elapsedSeconds": 0.027
  },
  "explanationChains": {
   "themes": 2,
@@ -46,7 +46,9 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（61）
+### 特性（63）
+- M40 final: ADR-078 + README + READY_FOR_RELEASE_v0.4.0_RC（判定 READY_FOR_RELEASE_PENDING_AUTHORIZATION，零 Release Blocker，六项 External Blocked 如实）
+- M40.1: 发布稳定化 — developer-guide/release-notes-v0.4.0/known-limitations 三文档 + RC 隔离验证（sdist→wheel 重建 64/64 hash 一致；OpenAPI 17 路径契约无漂移）+ 异常流验收（API 422 错误码无 traceback/缺时辰降级 fallback/AI 无 Provider 503 AI_NOT_CONFIGURED/CLI 非法日期非零退出）→ 测试 641→645
 - M39 final: ADR-077 + README M39 + gate 23 步/release_check ALL PASS
 - M39.1: 产品体验 — HTML 报告封面/摘要/术语说明 + A4 打印 CSS（replay 打印展开降级）+ Web 总览摘要块（四柱视觉/核心结论/术语说明/使用说明入口）+ 关系页合化状态区块 + replay→规则链接 + 移动端媒体查询（375/768/1280）+ Playwright 3 项新增（移动视口/合化状态/回放联动，E2E 8→11）
 - M38 final: ADR-076 + README M38 + gate 23 步/release_check ALL PASS

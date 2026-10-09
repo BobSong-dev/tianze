@@ -107,6 +107,9 @@ for theme in r.temporal["eventThemes"]["themes"]:
 pip install -e ".[api]"
 .venv/Scripts/python -m uvicorn apps.api.main:app --port 8000   # API :8000
 cd apps/web && npm install && npm run dev                        # Web :5173
+
+# 或一键启动（封装以上两步）：
+python scripts/dev_start.py
 ```
 
 配置 AI 解读：复制 `.env.example` 并设置 `TIANZE_LLM_API_KEY`（可选）。

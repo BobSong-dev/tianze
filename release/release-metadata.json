@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "release": {
-  "gitCommit": "cbe0f7f5a0f6ce522997561361426238e2a86db7",
+  "gitCommit": "629c7876827babd6232ac4797d0cab5ccf950ab5",
   "gitBranch": "main",
   "dirty": true,
   "generatedBy": "tools/release_metadata.py（全部数据来自真实运行）"
@@ -50,17 +50,17 @@
  "benchmark": {
   "caseChart1147": {
    "count": 1045,
-   "elapsedSeconds": 0.562,
+   "elapsedSeconds": 0.561,
    "perCaseMs": 0.54
   },
   "replayCorpus": {
    "count": 1045,
-   "elapsedSeconds": 0.717,
-   "perCaseMs": 0.69
+   "elapsedSeconds": 0.729,
+   "perCaseMs": 0.7
   },
   "timeline80y": {
    "nodes": 87,
-   "elapsedSeconds": 0.026
+   "elapsedSeconds": 0.027
   },
   "explanationChains": {
    "themes": 2,
