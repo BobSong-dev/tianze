@@ -20,7 +20,7 @@ def rules():
 
 
 def test_rules_load(rules):
-    assert len(rules) == 19
+    assert len(rules) == 20
     ids = [r["id"] for r in rules]
     assert len(ids) == len(set(ids))
     for r in rules:
@@ -34,7 +34,8 @@ def test_provenance_discipline(rules):
     """有引文的规则必须带 CLASSICAL_EXPLICIT；无引文的只能是 PROJECT_REFERENCE/ENGINEERING_HEURISTIC。"""
     by_id = {r["id"]: r for r in rules}
     for rid in ("TR-SS-R09", "TR-SS-R10A", "TR-SS-R10B", "TR-DTZ-35", "TR-DTZ-09",
-                "TR-DTZ-10", "TR-DTZ-11", "TR-SPZY-28", "TR-SP-08"):
+                "TR-DTZ-10", "TR-DTZ-11", "TR-SPZY-28", "TR-SP-08",
+                "TR-DTZ-47"):
         levels = {p["level"] for p in by_id[rid]["provenance"]}
         assert "CLASSICAL_EXPLICIT" in levels, f"{rid} 有原文链必须标 CLASSICAL_EXPLICIT"
     for rid in ("TR-FUYIN-01", "TR-FANYIN-01", "TR-BINGLIN-01", "TR-TIANKEDI-01"):
@@ -166,7 +167,7 @@ def test_rule_triggers_in_analyze_temporal():
         natal_branches=["子", "寅", "戌", "卯"],
         day_master="甲", annual_stem="戊", annual_branch="辰",
     )
-    assert len(ta.ruleTriggers) == 12  # 19 条中 7 条 special-pattern 由 special_temporal 评估
+    assert len(ta.ruleTriggers) == 13  # 20 条中 7 条 special-pattern 由 special_temporal 评估
     blob = ta.model_dump_json(by_alias=True, exclude_none=True)
     # 观察项/结论层不得出现吉凶断语；古籍引文仅允许存在于 provenance 引文注记中
     for t_ in ta.ruleTriggers:

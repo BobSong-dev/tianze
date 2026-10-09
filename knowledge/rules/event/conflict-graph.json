@@ -1,6 +1,6 @@
 {
  "schemaVersion": "1.0.0",
- "nodeCount": 228,
+ "nodeCount": 229,
  "edgeCount": 18,
  "edgeTypes": {
   "conflict": 5,
@@ -399,6 +399,20 @@
     "PROJECT_REFERENCE"
    ],
    "candidateId": "DTZ-49"
+  },
+  {
+   "type": "rule",
+   "id": "TR-DTZ-47",
+   "domain": "temporal",
+   "theme": "zheng he",
+   "view": null,
+   "label": "争合观察（岁运干加入五合家族重见）",
+   "provenanceLevels": [
+    "CLASSICAL_EXPLICIT",
+    "ENGINEERING_HEURISTIC",
+    "PROJECT_REFERENCE"
+   ],
+   "candidateId": "DTZ-47"
   },
   {
    "type": "rule",

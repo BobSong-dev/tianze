@@ -208,6 +208,14 @@ def _evaluate_tr_dtz_09(ctx: TemporalContext,
     return bool(obs), obs
 
 
+def _evaluate_tr_dtz_47(ctx: TemporalContext,
+                        relations: list[TemporalRelation],
+                        structures: list[TemporalStructure]) -> tuple[bool, list[str]]:
+    """争合观察（DTZ-47 + QBT-甲-20/乙-08）：读取关系层 zhenghe 事件，不重复检测。"""
+    obs = [f"{r.label}——{r.note}" for r in relations if r.kind == "zhenghe"]
+    return bool(obs), obs
+
+
 def _evaluate_tr_dtz_10(ctx: TemporalContext,
                         relations: list[TemporalRelation],
                         structures: list[TemporalStructure]) -> tuple[bool, list[str]]:
@@ -322,6 +330,7 @@ _EVALUATORS = {
     "TR-DTZ-35": _evaluate_tr_dtz_35,
     "TR-DTZ-09": _evaluate_tr_dtz_09,
     "TR-DTZ-10": _evaluate_tr_dtz_10,
+    "TR-DTZ-47": _evaluate_tr_dtz_47,
     "TR-DTZ-11": _evaluate_tr_dtz_11,
     "TR-FUYIN-01": _evaluate_tr_fuyin,
     "TR-FANYIN-01": _evaluate_tr_fanyin,

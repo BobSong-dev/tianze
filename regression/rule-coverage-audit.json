@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "discipline": "全部分类进入 REVIEW 清单；不自动删除/调整任何规则",
- "ruleCount": 222,
+ "ruleCount": 223,
  "classifications": {
   "high_conflict": [
    "EV-CON-01",
@@ -25,6 +25,7 @@
    "TR-DTZ-10",
    "TR-DTZ-11",
    "TR-DTZ-35",
+   "TR-DTZ-47",
    "TR-FANYIN-01",
    "TR-FUYIN-01",
    "TR-SP-01",
@@ -60,7 +61,7 @@
   "high_conflict": 6,
   "high_rescue_dep": 1,
   "low_trigger": 1,
-  "no_case_coverage": 21,
+  "no_case_coverage": 22,
   "only_silent": 13
  },
  "triggerRates": {

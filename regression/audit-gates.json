@@ -49,8 +49,8 @@
  },
  "coverage": {
   "candidatesTotal": 556,
-  "candidatesUsedAsRules": 194,
-  "candidatesUnused": 362,
+  "candidatesUsedAsRules": 195,
+  "candidatesUnused": 361,
   "unusedCandidateIds": [
    "DTZ-00",
    "DTZ-01",
@@ -90,7 +90,6 @@
    "DTZ-44",
    "DTZ-45",
    "DTZ-46",
-   "DTZ-47",
    "DTZ-50",
    "DTZ-51",
    "DTZ-52",
@@ -131,7 +130,8 @@
    "MLD-11",
    "MLD-12",
    "MLD-13",
-   "MLD-14"
+   "MLD-14",
+   "MLD-15"
   ],
   "ruleCaseCoverage": {
    "EV-CAR-01": 32,

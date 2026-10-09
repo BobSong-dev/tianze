@@ -242,6 +242,37 @@ def main() -> int:
                                 "逆旺气破格说与顺势说两说并存，不裁决。",
         ),
         build_rule(
+            "TR-DTZ-47", "DTZ-47", "zheng he", "争合观察（岁运干加入五合家族重见）",
+            conditions=[{"field": "temporalStemJoinsCombinationFamily",
+                         "operator": "eq", "value": True}],
+            effects=[{"kind": "note",
+                      "text": "岁运干使五合家族出现重见 → 争合结构观察（候选级）；"
+                              "原书争合与化合条件并存（见辰/破干另论），不判吉凶"}],
+            source={"sourceKind": "COMMENTARY", "book": "穷通宝鉴评注",
+                    "chapter": "甲木·二月", "pages": [],
+                    "sourceFile": "_知识库/_知识库/穷通宝鉴评注.md",
+                    "confidence": "unverified", "commentator": "徐乐吾（评注）"},
+            provenance=[
+                {"level": "PROJECT_REFERENCE", "project": "徐乐吾八字知识库（用户提供 zip）",
+                 "concept": "穷通宝鉴·二土争合/二庚争合（QBT-甲-20/QBT-乙-08）"
+                            "+ 滴天髓·重见己土则为争合（DTZ-47）"},
+                {"level": "CLASSICAL_EXPLICIT", "project": None,
+                 "concept": "古籍原文引文（时月两透己土名二土争合，见二甲则不争矣；"
+                            "庚辰时月名二庚争合；重见己土则为争合亦为不可）",
+                 "note": _quote_note("时月两透己土，名「二土争合」……见二甲则不争矣。"
+                                     "……庚辰时月，名「二庚争合」。……重见己土则为"
+                                     "争合亦为不可。")},
+                {"level": "ENGINEERING_HEURISTIC", "project": "Tianze",
+                 "concept": "家族计数口径（M37）：五合家族两干合计 ≥3 且一侧 ≥2 → 争合；"
+                            "两侧各 ≥2 → 双方并见不争（QBT-甲-20：见二甲则不争矣）；"
+                            "只输出结构计数，不输出吉凶"},
+            ],
+            quality="B",
+            normalization_notes="「贫贱」「名利双全」为原书吉凶断语，Tianze 仅输出"
+                                "争合/并见的结构计数；见辰化合与破干从化属条件化"
+                                "（v1 不判定）。",
+        ),
+        build_rule(
             "TR-DTZ-10", "DTZ-10", "an chong an hui", "暗冲暗会/拱夹/暗合/填实（岁运 × 虚神）",
             conditions=[{"field": "temporalXushiInteraction", "operator": "in",
                          "value": ["arch", "arch_fill", "arch_broken",

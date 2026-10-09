@@ -1096,3 +1096,32 @@ def test_combination_states_transformation_consistency():
             continue
         assert bool(t["seasonSupport"]) == bool(st["season"]), pair
         assert len(t["obstructions"]) == len(st["obstructions"]), pair
+
+
+# ---------- M37 · 争合结构化与岁运争合 ----------
+
+def test_zhenghe_families_structures():
+    """家族计数：二己一甲=争合（己重见）；二己二甲=双方并见不争；单合不触发。"""
+    from tianze.analysis.special import zhenghe_families
+    zh = zhenghe_families(["己", "己", "甲", "乙"])
+    assert zh and zh[0]["state"] == "争合" and zh[0]["majority"] == "己"
+    both = zhenghe_families(["甲", "己", "甲", "己"])
+    assert both[0]["state"] == "双方并见（不争）"
+    assert zhenghe_families(["甲", "己", "丙", "丁"]) == []
+
+
+def test_tr_dtz47_temporal_zhenghe():
+    """岁运己入甲己家族 → TR-DTZ-47 触发（争合观察，不判吉凶）。"""
+    from tianze.analysis.temporal import analyze_temporal
+    ta = analyze_temporal(natal_stems=["甲", "己", "丙", "丁"],
+                          natal_branches=["子", "丑", "寅", "卯"],
+                          day_master="甲", annual_stem="己", annual_branch="酉")
+    kinds = [r.kind for r in ta.relations]
+    assert "zhenghe" in kinds
+    ev = next(t for t in ta.ruleTriggers if t.ruleId == "TR-DTZ-47")
+    assert ev.matched and any("争合" in o for o in ev.observations)
+    # 负例：岁运干不加入任何家族重见 → 不触发
+    ta2 = analyze_temporal(natal_stems=["甲", "己", "丙", "丁"],
+                           natal_branches=["子", "丑", "寅", "卯"],
+                           day_master="甲", annual_stem="壬", annual_branch="申")
+    assert not any(r.kind == "zhenghe" for r in ta2.relations)

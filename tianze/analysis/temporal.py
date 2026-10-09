@@ -406,6 +406,32 @@ def analyze_temporal(
                     f"——去填/填实不破两说")
                 break
 
+    # M37 · 岁运争合：岁运干加入某五合家族使该家族出现重见 → 争合观察
+    # （QBT-甲-20「二土争合」/ QBT-乙-08「二庚争合」/ DTZ-47「重见己土则为争合」；
+    #   「见二甲则不争」双方并见口径同步；原书吉凶断语不输出）
+    from tianze.analysis.special import zhenghe_families
+    for label, st in [(l, s) for l, s, _b in ctx.temporal_units() if s]:
+        ext_stems = [x for x in ctx.natal_stems if x] + [st]
+        for fam in zhenghe_families(ext_stems):
+            if fam["state"] != "争合" or fam["majority"] != st:
+                continue
+            a, b = fam["family"][0], fam["family"][1]
+            relations.append(TemporalRelation(
+                kind="zhenghe",
+                label=f"岁运{_LAYER_CN.get(label, label)}{st}入{a}{b}家族："
+                      f"{st}重见争合",
+                members=[a, b, st],
+                positions=[label],
+                sources=[_src(label)],
+                is_new=True,
+                note=f"{a}{b}家族 {a}×{fam['counts'][a]}、{b}×{fam['counts'][b]}——"
+                     "争合结构（DTZ-47：重见则为争合；QBT 两说：争合与化合条件"
+                     "并存——见辰/破干另论）；候选级观察，不判吉凶",
+            ))
+            evidence.append(
+                f"岁运{_LAYER_CN.get(label, label)}干{st}使{a}{b}家族形成争合"
+                f"（{fam['counts'][a]}/{fam['counts'][b]}）")
+
     # M24 · 岁运成拱/暗合（原局支 × 岁运支；与 fill/broken 同一虚神层）
     for label, br in temporal_branches:
         for i, nb in enumerate(ctx.natal_branches):

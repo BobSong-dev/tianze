@@ -145,6 +145,44 @@ def stem_combination_states(
     return out
 
 
+# 五合家族（争合判定用）：{无序对: 双干}
+_ZHENGHE_FAMILIES: list[tuple[str, str]] = [
+    ("甲", "己"), ("乙", "庚"), ("丙", "辛"), ("丁", "壬"), ("戊", "癸"),
+]
+
+
+def zhenghe_families(stems: list[str | None]) -> list[dict]:
+    """争合/双方并见结构（M37；QBT-甲-20「二土争合」/ QBT-乙-08「二庚争合」/
+    DTZ-47「重见己土则为争合」）。
+
+    判定：某五合家族内，两干合计可见 ≥3 且一侧 ≥2 → 争合；
+    两侧各 ≥2 → 双方并见（QBT-甲-20：「见二甲则不争矣」）。
+    只输出结构计数，不输出吉凶（「贫贱」「名利双全」为原书断语）。
+    """
+    visible = [s for s in stems if s]
+    out: list[dict] = []
+    for a, b in _ZHENGHE_FAMILIES:
+        na, nb = visible.count(a), visible.count(b)
+        if na == 0 or nb == 0:
+            continue
+        if na + nb < 3:
+            continue
+        if na >= 2 and nb >= 2:
+            state, majority = "双方并见（不争）", None
+        else:
+            state = "争合"
+            majority = a if na >= 2 else b
+        out.append({
+            "family": a + b, "counts": {a: na, b: nb},
+            "state": state,
+            "majority": majority,
+            "note": (f"{a}{b}家族可见 {a}×{na}、{b}×{nb}"
+                     + (f"——{majority}重见争合（DTZ-47：重见则为争合）" if majority
+                        else "——两侧并见不争（QBT-甲-20：见二甲则不争矣）")),
+        })
+    return out
+
+
 def _root_grade(roots: list) -> str:
     """日主根气强度分级（M28，DTZ-49 微根口径的证据化）。
 
