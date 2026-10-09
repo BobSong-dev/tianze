@@ -1,0 +1,402 @@
+{
+ "schemaVersion": "1.0.0",
+ "description": "命理分析能力覆盖矩阵（M38）：人工诚实评估 + 证据指针程序化验证；「存在代码」≠ 功能完整——每条状态挂接可验证证据",
+ "statusCounts": {
+  "COMPLETE": 25,
+  "PARTIAL": 4,
+  "EXPERIMENTAL": 1,
+  "BLOCKED": 4,
+  "UNSUPPORTED": 2
+ },
+ "total": 36,
+ "evidenceFailures": [],
+ "capabilities": [
+  {
+   "capability": "排盘（四柱/藏干/十神/纳音）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_cross_channel.py",
+    "tests/test_smoke.py"
+   ],
+   "ruleIds": [],
+   "notes": "",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "节气边界/立春/晚子时/时区/DST",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_temporal_boundaries.py"
+   ],
+   "ruleIds": [],
+   "notes": "R1/R4 口径；lunar-python 独立对账",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "真太阳时/地方时",
+   "status": "PARTIAL",
+   "evidence": [
+    "tests/test_temporal_boundaries.py"
+   ],
+   "ruleIds": [],
+   "notes": "支持 clock/true_solar/mean_solar convention；经度输入依赖用户提供",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "大运起运/顺逆排",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_temporal_boundaries.py",
+    "tests/test_timeline.py"
+   ],
+   "ruleIds": [],
+   "notes": "",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "旺衰多方法（dimension/weighted/fuyi）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_strength.py"
+   ],
+   "ruleIds": [],
+   "notes": "R19 多方法并列不裁决（ADR-059 实证）",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "通根透干/月令（RootEvidence）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_relations.py",
+    "tests/test_special_patterns.py"
+   ],
+   "ruleIds": [],
+   "notes": "R15 定性深度；M28 根气分级入假从说",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "格局（正格/评估/救应）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_pattern.py"
+   ],
+   "ruleIds": [],
+   "notes": "R25 评估状态",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "调候",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_tiaohou.py"
+   ],
+   "ruleIds": [],
+   "notes": "M6 desired/present 分离",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "刑冲合害破/三合三会/三刑",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_relations.py"
+   ],
+   "ruleIds": [],
+   "notes": "R9 多重并存不裁决",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "天干五合/化气候选（DTZ-47 真化条件）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_special_patterns.py"
+   ],
+   "ruleIds": [
+    "TR-SP-04",
+    "TR-SP-05"
+   ],
+   "notes": "合而不化/隔位/印比/争合阻化（M35 三态结构化）",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "争合（QBT-甲-20/QBT-乙-08/DTZ-47）",
+   "status": "PARTIAL",
+   "evidence": [
+    "tests/test_property_fuzz.py"
+   ],
+   "ruleIds": [
+    "TR-DTZ-47"
+   ],
+   "notes": "家族计数+岁运事件落地；「见辰化合」「破干从化」条件化变体待考证",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "虚神/拱夹/暗合/填实（DTZ-10/ZP-05/SPZY-34）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_relations.py",
+    "tests/test_temporal_rules.py"
+   ],
+   "ruleIds": [
+    "TR-DTZ-10"
+   ],
+   "notes": "三态解释链；候选永不升格（ADR-062）",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "空亡（六旬旬空）",
+   "status": "PARTIAL",
+   "evidence": [
+    "tests/test_property_fuzz.py"
+   ],
+   "ruleIds": [],
+   "notes": "表+差分验证落地；仅消费于贵人三要件——作用位置泛化待引文",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "天乙贵人/拱贵/六乙鼠贵（SS-R16/17/ZP-05/06）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_property_fuzz.py"
+   ],
+   "ruleIds": [],
+   "notes": "三要件条件化；裸贵人不输出独立事实（ADR-064）",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "暗冲格（飞天禄马/井栏叉/刑合）",
+   "status": "EXPERIMENTAL",
+   "evidence": [
+    "tests/test_special_patterns.py"
+   ],
+   "ruleIds": [],
+   "notes": "xushiOuter 候选；外格说 vs 伤官变格说两注记（ADR-062/063）",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "子邀巳（ZP-11）",
+   "status": "BLOCKED",
+   "evidence": [],
+   "ruleIds": [],
+   "notes": "OCR 残缺（取印为用口径缺失）+ 泛化 ~27%——不落地引擎，待语料",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "从格（真从/假从 DTZ-49）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_special_patterns.py"
+   ],
+   "ruleIds": [
+    "TR-SP-01",
+    "TR-SP-02",
+    "TR-SP-08"
+   ],
+   "notes": "E1/E2/E3 结构化证据链；DISPUTED 保留（不因名造调参）",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "专旺",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_special_patterns.py"
+   ],
+   "ruleIds": [
+    "TR-SP-03"
+   ],
+   "notes": "",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "化气（真化/假化）",
+   "status": "PARTIAL",
+   "evidence": [
+    "tests/test_special_patterns.py",
+    "tests/test_temporal_rules.py"
+   ],
+   "ruleIds": [
+    "TR-SP-04",
+    "TR-SP-05",
+    "TR-SP-08"
+   ],
+   "notes": "真化条件结构化（M35 三态）；假化岁运敏感；化成与否永不判定",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "Temporal Delta（strength/pattern/tiaohou/special/bingyao/tongguan/tengod）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_temporal_delta.py"
+   ],
+   "ruleIds": [],
+   "notes": "EXPERIMENTAL/UNSUPPORTED 显式标注",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "流月/流日（节气窗口/JDN）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_timeline.py",
+    "tests/test_temporal_boundaries.py"
+   ],
+   "ruleIds": [],
+   "notes": "",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "Temporal Replay（逐层快照/Theme Delta）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_property_fuzz.py"
+   ],
+   "ruleIds": [],
+   "notes": "M30-M33；SDK/CLI/API/Web/AI 五通道（include_temporal_replay）",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "岁运规则（日犯岁君/刃头财/伏吟/反吟/天克地冲…）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_temporal_rules.py"
+   ],
+   "ruleIds": [
+    "TR-SS-R09",
+    "TR-SS-R10A",
+    "TR-FUYIN-01",
+    "TR-TIANKEDI-01",
+    "TR-DTZ-11"
+   ],
+   "notes": "",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "争合岁运事件（TR-DTZ-47）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_property_fuzz.py"
+   ],
+   "ruleIds": [
+    "TR-DTZ-47"
+   ],
+   "notes": "M37 家族计数口径",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "关系解释链（三态/引文/条件）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_property_fuzz.py"
+   ],
+   "ruleIds": [],
+   "notes": "M25 三态 + M33 反查 + M36 合化状态（18 条引文注册表）",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "合去/合绊/微根受制（E1/E2/E3×TR-SP-08）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_special_temporal.py"
+   ],
+   "ruleIds": [
+    "TR-SP-08"
+   ],
+   "notes": "E3 合去调制（M34）；文字注记→结构化依据（M35/M36）",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "跨层一致性审计 C1-C8",
+   "status": "COMPLETE",
+   "evidence": [
+    "tools/cross_layer_audit.py"
+   ],
+   "ruleIds": [],
+   "notes": "1045 例全 0；入质量门",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "Grounded AI（claim/refId/状态保持）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_ai.py",
+    "tests/test_ai_evaluation.py",
+    "tests/test_ai_evaluation_history.py"
+   ],
+   "ruleIds": [],
+   "notes": "真实 Provider 评测另见 BLOCKED 项",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "AI 真实 Provider 评测",
+   "status": "BLOCKED",
+   "evidence": [],
+   "ruleIds": [],
+   "notes": "无 API Key——mock 评测全绿，真实成绩不伪造",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "raw OCR 原文核对",
+   "status": "BLOCKED",
+   "evidence": [
+    "tools/source_coverage.py"
+   ],
+   "ruleIds": [],
+   "notes": "556/556 sourceFile 缺失（知识库 zip 未入库）——引用路径/页码可回溯",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "命例流年层回放",
+   "status": "BLOCKED",
+   "evidence": [
+    "tools/state_replay_audit.py"
+   ],
+   "ruleIds": [],
+   "notes": "年锚多解（60 年周期）——UNRESOLVED，待唯一年份语料",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "SDK/API/CLI/Web 跨渠道一致",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_cross_channel.py"
+   ],
+   "ruleIds": [],
+   "notes": "M38 四样本三通道核心语义字段一致",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "Web（排盘/岁运工作台/知识图谱/回放时间轴）",
+   "status": "COMPLETE",
+   "evidence": [
+    "apps/web/e2e/"
+   ],
+   "ruleIds": [],
+   "notes": "8 项 E2E；移动端/打印优化见 M39",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "报告（Markdown/HTML/打印）",
+   "status": "COMPLETE",
+   "evidence": [
+    "tests/test_export.py"
+   ],
+   "ruleIds": [],
+   "notes": "回放/解释链/未成立候选章节（M32/M36）；打印样式 M39 细化",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "自由人生事件预测/医疗寿命/投资赌博",
+   "status": "UNSUPPORTED",
+   "evidence": [],
+   "ruleIds": [],
+   "notes": "任务书禁令（永不实现）",
+   "evidenceVerified": true
+  },
+  {
+   "capability": "流时（时辰以下粒度）",
+   "status": "UNSUPPORTED",
+   "evidence": [],
+   "ruleIds": [],
+   "notes": "M12 起明确不做",
+   "evidenceVerified": true
+  }
+ ]
+}

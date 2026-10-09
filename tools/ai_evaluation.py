@@ -64,6 +64,32 @@ CANONICAL_CASES = [
 ]
 
 
+def _claim_coverage(interp, ctx) -> float:
+    """M38 · Claim 覆盖率：被引用 refId / context 提供的可引用 refId。"""
+    provided = {r for r in ctx.claim_refs if not r.startswith("verification:")}
+    if not provided:
+        return 1.0
+    used = {c.ref_id for s in interp.sections for c in s.claims}
+    return round(len(used & provided) / len(provided), 4)
+
+
+def _state_upgrade_hits(interp) -> int:
+    """M38 · 状态升级检测：CANDIDATE/UNRESOLVED 被确定化措辞描述即计数。"""
+    hits = 0
+    blob = json.dumps(interp.model_dump(by_alias=True), ensure_ascii=False)
+    for marker in ("CANDIDATE", "UNRESOLVED", "候选", "未成立"):
+        idx = 0
+        while True:
+            idx = blob.find(marker, idx)
+            if idx < 0:
+                break
+            window = blob[idx:idx + 60]
+            if any(w in window for w in ("已确认", "确定为", "成立", "已成格")):
+                hits += 1
+            idx += len(marker)
+    return hits
+
+
 def _evaluate_output(interp, ctx) -> dict:
     """确定性评估（无 LLM-as-judge）。"""
     issues = validate_grounding(interp, ctx)
@@ -99,6 +125,9 @@ def _evaluate_output(interp, ctx) -> dict:
         "statusVocabularyOk": status_ok,
         "sectionsCount": len(interp.sections),
         "claimRefsUsed": len({c.ref_id for s in interp.sections for c in s.claims}),
+        # M38 · 附加确定性指标
+        "claimCoverage": _claim_coverage(interp, ctx),
+        "stateUpgradeHits": _state_upgrade_hits(interp),
         "latencyMs": getattr(ctx, "_last_latency_ms", None),
         "totalTokens": None,
         "retries": getattr(ctx, "_last_retries", 0),

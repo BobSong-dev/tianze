@@ -151,12 +151,16 @@ _ZHENGHE_FAMILIES: list[tuple[str, str]] = [
 ]
 
 
-def zhenghe_families(stems: list[str | None]) -> list[dict]:
+def zhenghe_families(stems: list[str | None],
+                     branches: list[str | None] | None = None) -> list[dict]:
     """争合/双方并见结构（M37；QBT-甲-20「二土争合」/ QBT-乙-08「二庚争合」/
     DTZ-47「重见己土则为争合」）。
 
     判定：某五合家族内，两干合计可见 ≥3 且一侧 ≥2 → 争合；
     两侧各 ≥2 → 双方并见（QBT-甲-20：「见二甲则不争矣」）。
+    branches 提供时：见辰 → 附 QBT-甲-20 条件化变体注记
+    （「四柱有辰干见二己二甲名利双全」「六月见辰支名为逢时化合极验」——
+    条件化两说，不判定化成）。
     只输出结构计数，不输出吉凶（「贫贱」「名利双全」为原书断语）。
     """
     visible = [s for s in stems if s]
@@ -172,13 +176,18 @@ def zhenghe_families(stems: list[str | None]) -> list[dict]:
         else:
             state = "争合"
             majority = a if na >= 2 else b
+        note = (f"{a}{b}家族可见 {a}×{na}、{b}×{nb}"
+                + (f"——{majority}重见争合（DTZ-47：重见则为争合）" if majority
+                   else "——两侧并见不争（QBT-甲-20：见二甲则不争矣）"))
+        chen_hit = any(br == "辰" for br in (branches or []) if br)
+        if chen_hit and state == "争合":
+            note += ("；见辰条件化变体（QBT-甲-20：四柱有辰干见二己二甲名利双全/"
+                     "六月见辰支逢时化合极验——两说，不判定化成）")
         out.append({
             "family": a + b, "counts": {a: na, b: nb},
             "state": state,
             "majority": majority,
-            "note": (f"{a}{b}家族可见 {a}×{na}、{b}×{nb}"
-                     + (f"——{majority}重见争合（DTZ-47：重见则为争合）" if majority
-                        else "——两侧并见不争（QBT-甲-20：见二甲则不争矣）")),
+            "note": note,
         })
     return out
 

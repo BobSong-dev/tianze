@@ -261,15 +261,42 @@ def explain_combination_state(entry: dict) -> RelationExplanation:
     )
 
 
-def build_relation_explanations(chart, combination_states: list[dict] | None = None) -> list[RelationExplanation]:
-    """原局关系 + 未成立候选 + 合化状态 → 解释链列表（M36）。
+def explain_zhenghe(entry: dict) -> RelationExplanation:
+    """争合解释链（M38）：zhenghe_families 条目 → 结构计数 + 条件化变体两说。"""
+    is_zheng = entry.get("state") == "争合"
+    conditions = [
+        _cond("五合家族两干均可见"),
+        _cond("家族合计可见 ≥3 且一侧 ≥2（争合口径，QBT-甲-20/DTZ-47）", is_zheng),
+        _cond("两侧各 ≥2 → 双方并见不争（QBT-甲-20：见二甲则不争矣）",
+              entry.get("state") == "双方并见（不争）"),
+        _cond("见辰条件化变体（QBT-甲-20 两说，不判定化成）",
+              "见辰" in (entry.get("note") or "")),
+    ]
+    school = ["争合并非单向为凶：QBT-甲-20 二己二甲见辰反主名利双全——两说并存",
+              "原书吉凶断语（贫贱/名利双全）不进入引擎输出"]
+    members = sorted({*entry.get("counts", {}).keys()}) or ["", ""]
+    return RelationExplanation(
+        refId=f"zhenghe:{entry.get('family')}",
+        kind="zhenghe", kindCn="争合/并见",
+        status="CANDIDATE",
+        label=f"{entry.get('family')}——{entry.get('state')}",
+        members=members,
+        positions=[],
+        conditions=conditions, schoolNotes=school,
+        citations=_citations_for("combination_state"),
+        evidence=[entry.get("note", "")],
+        boundary="争合结构候选：只输出家族计数与条件化两说，不判吉凶、不判定化成",
+    )
 
-    combination_states：调用方（pipeline）以 stem_combination_states() 产出传入
-    （引擎层负责计算，解释层只转译）。
-    """
+
+def build_relation_explanations(chart, combination_states: list[dict] | None = None,
+                                zhenghe_entries: list[dict] | None = None) -> list[RelationExplanation]:
+    """原局关系 + 未成立候选 + 合化状态 + 争合 → 解释链列表（M36/M38）。"""
     out: list[RelationExplanation] = []
     for entry in combination_states or []:
         out.append(explain_combination_state(entry))
+    for entry in zhenghe_entries or []:
+        out.append(explain_zhenghe(entry))
     for rel in getattr(chart, "relations", None) or []:
         out.append(explain_relation_generic(
             rel.kind.value if hasattr(rel.kind, "value") else str(rel.kind),
