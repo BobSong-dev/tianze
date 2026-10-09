@@ -6,18 +6,25 @@
  "previousTag": "v0.3.0",
  "previousTagCommit": "5821c84",
  "tagFrozen": true,
- "head": "fcc2ca6",
+ "head": "cce8bcc",
  "localRcEvidence": {
   "qualityGate": "23 步 ALL PASS",
   "releaseCheck": "P0-P7 ALL PASS",
   "pythonTests": 645,
-  "browserE2E": 11,
+  "browserE2E": "Chromium 11/11 · Firefox 11/11 · WebKit 11/11（Playwright 实测）",
   "scenarioSuites": 21,
   "crossLayerAudit": "C1-C8 全 0（1045 例）",
   "wheelRebuildFromSdist": "64/64 文件 hash 一致（dist-rc/ 隔离构建）",
   "openapiContract": "17 路径，与 Web 生成类型零漂移",
   "errorPaths": "API 422/503 错误码无 traceback；CLI 非零退出；缺时辰降级 fallback"
  },
+ "handoffFixes": [
+  "P1 安全：.env/.env.local 加入 .gitignore（防 API Key 误提交）",
+  "隐私：Web AI 页新增外部数据发送告知（显著提示）",
+  "部署：scripts/dev_start.py 一键启动 + README 更新",
+  "文档：docs/release-procedure-v0.4.0.md（发布步骤 + 回滚方案）",
+  "文档：docs/TRIAL-PACK.md 试用者交付包"
+ ],
  "blockedActions": [
   "git push（需人工授权）",
   "创建正式 tag v0.4.0（需人工授权；tag-prep 建议 v0.4.0）",
@@ -32,7 +39,7 @@
   "真实 AI 评测（API Key）",
   "raw OCR 核对（语料）",
   "命例年锚唯一化（数据）",
-  "跨浏览器打印实测（Safari/Firefox NOT_TESTED）"
+  "Safari 真机/Firefox 打印预览人工目检（自动化 E2E 已过，打印视觉 NOT_TESTED）"
  ],
  "postRelease": [
   "争合条件化变体（见辰化合/破干从化）考证",
@@ -42,6 +49,5 @@
   "benchmark 折线图可视化扩展"
  ],
  "verdict": "READY_FOR_RELEASE_PENDING_AUTHORIZATION",
- "note": "本地 RC 就绪（LOCAL_RC_READY）：全部本地必需验收通过、零 Release Blocker。"
-          "正式发布（GitHub Release/正式 tag/push）需人工执行 blockedActions。"
+ "note": "本地 RC 就绪（LOCAL_RC_READY）：全部本地必需验收通过、零 Release Blocker。正式发布（GitHub Release/正式 tag/push）需人工执行 blockedActions。"
 }
