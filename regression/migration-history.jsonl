@@ -568,3 +568,6 @@
 {"file": "knowledge/rules\\event\\rules.json", "from": "1.0.0", "to": "1.2.0", "changed": {"rules": 21}, "mode": "write-copy", "sourceSha256": "822b4506f55910b1"}
 {"file": "knowledge/rules\\temporal\\rules.json", "from": "1.1.0", "to": "1.2.0", "changed": {"rules": 19}, "mode": "write-copy", "sourceSha256": "f472b23dc7c6a2ad"}
 {"file": "knowledge/rules\\tiaohou\\rules.json", "from": "1.1.0", "to": "1.2.0", "changed": {"rules": 182}, "mode": "write-copy", "sourceSha256": "6b96eeba9abd10f1"}
+{"file": "knowledge/rules\\event\\rules.json", "from": "1.0.0", "to": "1.2.0", "changed": {"rules": 21}, "mode": "write-copy", "sourceSha256": "822b4506f55910b1"}
+{"file": "knowledge/rules\\temporal\\rules.json", "from": "1.1.0", "to": "1.2.0", "changed": {"rules": 19}, "mode": "write-copy", "sourceSha256": "f472b23dc7c6a2ad"}
+{"file": "knowledge/rules\\tiaohou\\rules.json", "from": "1.1.0", "to": "1.2.0", "changed": {"rules": 182}, "mode": "write-copy", "sourceSha256": "6b96eeba9abd10f1"}

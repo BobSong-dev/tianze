@@ -603,3 +603,21 @@
   - Web：TR-DTZ-10 节点详情列当前分析的回放事件（Rule↔Replay 联动）。
 - **Tradeoff**：调制只改证据文本不改 LIKELY/DISPUTED/BLOCKED 映射——与
   「不因单一条件改判成格」纪律一致；自检走 warnings 不抛错（回放可用性优先）。
+
+## ADR-073 · 合化状态结构化与数据驱动联动（M35）
+
+- **Context**：E1 的「合去 vs 合绊」此前是纯文字两说，缺可审计结构；Web 的
+  Rule↔Replay 联动特判 TR-DTZ-10 单条规则。
+- **Decision**：
+  - `stem_combination_states`：对每对五合干输出结构化状态——
+    合（近真化条件）｜合（合而不化倾向）｜合（隔位），三要素（邻位/月令化神/
+    阻化数）直接复用 DTZ-47 的 analyze_transformation 口径（不重算）；
+    E1/E3 文本引用该状态（伍庭芳造丁壬＝「合而不化倾向（邻位=True、月令=False、
+    阻化=1）」——因合干为年干隔位不合）；状态词汇候选级，永不判定化成；
+  - Rule↔Replay 联动改数据驱动：由 rules.json conditions 的
+    `temporalXushiInteraction` 值提取规则→事件种类映射（前端不再特判）；
+  - 合化专题审计入 xushi-audit：1045 例 UNRESOLVED 563 / CANDIDATE 11
+    （DTZ-47 收紧后的正确形态），阻化分布=隔位 394/印比 290/争合 224，
+    邻位候选 180。
+- **Tradeoff**：三态是「条件结构」而非化气结论（化成与否仍永不判定）；
+  隔位合的力量口径两说保留。
