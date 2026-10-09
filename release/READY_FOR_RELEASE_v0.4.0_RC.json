@@ -1,0 +1,47 @@
+{
+ "schemaVersion": "1.0.0",
+ "status": "LOCAL_RC_READY",
+ "version": "0.4.0.dev0",
+ "releaseVersion": "0.4.0",
+ "previousTag": "v0.3.0",
+ "previousTagCommit": "5821c84",
+ "tagFrozen": true,
+ "head": "fcc2ca6",
+ "localRcEvidence": {
+  "qualityGate": "23 步 ALL PASS",
+  "releaseCheck": "P0-P7 ALL PASS",
+  "pythonTests": 645,
+  "browserE2E": 11,
+  "scenarioSuites": 21,
+  "crossLayerAudit": "C1-C8 全 0（1045 例）",
+  "wheelRebuildFromSdist": "64/64 文件 hash 一致（dist-rc/ 隔离构建）",
+  "openapiContract": "17 路径，与 Web 生成类型零漂移",
+  "errorPaths": "API 422/503 错误码无 traceback；CLI 非零退出；缺时辰降级 fallback"
+ },
+ "blockedActions": [
+  "git push（需人工授权）",
+  "创建正式 tag v0.4.0（需人工授权；tag-prep 建议 v0.4.0）",
+  "GitHub Release（需人工授权）",
+  "三平台 CI 实跑（需远端；配置就绪，未执行不称已验证）",
+  "真实 Provider AI 评测（无 API Key）",
+  "raw OCR 原文核对（语料未入库）"
+ ],
+ "releaseBlockers": [],
+ "externalBlocked": [
+  "远端发布与 CI（权限）",
+  "真实 AI 评测（API Key）",
+  "raw OCR 核对（语料）",
+  "命例年锚唯一化（数据）",
+  "跨浏览器打印实测（Safari/Firefox NOT_TESTED）"
+ ],
+ "postRelease": [
+  "争合条件化变体（见辰化合/破干从化）考证",
+  "子邀巳（ZP-11）待 OCR 修复后评估",
+  "空亡作用位置泛化（待引文）",
+  "Web 图谱移动端双指缩放细化",
+  "benchmark 折线图可视化扩展"
+ ],
+ "verdict": "READY_FOR_RELEASE_PENDING_AUTHORIZATION",
+ "note": "本地 RC 就绪（LOCAL_RC_READY）：全部本地必需验收通过、零 Release Blocker。"
+          "正式发布（GitHub Release/正式 tag/push）需人工执行 blockedActions。"
+}

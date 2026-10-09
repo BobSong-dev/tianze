@@ -698,3 +698,21 @@
     本地反馈模板（默认不上传任何用户数据，无账户/云/遥测）。
 - **Tradeoff**：状态回放默认开启（工作台显式开关可关）；打印展开 details 由
   CSS 强制（浏览器打印预览兼容性待 M40 跨浏览器核验）。
+
+## ADR-078 · v0.4.0 最终稳定化与发布判定（M40）
+
+- **Context**：M40 为计划内最后一轮集中开发；目标从功能转向可复现、可交付、
+  可维护。
+- **Decision**：
+  - 文档交付包：developer-guide（架构/不变量/扩展/回归/发布/排障）、
+    release-notes-v0.4.0（真实变化与口径）、known-limitations
+    （EXTERNAL_BLOCKED/PARTIAL/UNSUPPORTED 三分类）；
+  - RC 隔离验证：dist-rc 干净构建 wheel+sdist → sdist 重建 wheel
+    **64/64 文件 hash 一致**；OpenAPI 17 路径与 Web 生成类型零漂移；
+  - 异常流验收（新增 4 测试）：非法日期 422 INVALID_BIRTH_INFO 无
+    traceback、缺时辰走降级 fallback 通道、AI 无 Provider 503
+    AI_NOT_CONFIGURED、CLI 非法日期非零退出（测试 641→645）；
+  - 发布判定：READY_FOR_RELEASE_PENDING_AUTHORIZATION——本地零 Release
+    Blocker；正式 tag/push/GitHub Release 列入 blockedActions（人工执行）。
+- **Release Blocker 分类**：RELEASE_BLOCKER 无；EXTERNAL_BLOCKED 六项
+  （权限/Key/语料/年锚/跨浏览器）；POST_RELEASE 五项（条件化变体考证等）。
