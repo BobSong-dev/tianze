@@ -1,8 +1,8 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `aacfdfcc848b`（含未提交改动）
+- commit: `5151641cf47b`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（109.2s / 23 步）
+- 质量门：ALL PASS（90.0s / 23 步）
 
 ## 版本与规模
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（58）
+### 特性（59）
+- M38 final: ADR-076 + README M38 + gate 23 步/release_check ALL PASS
 - M38.1: 完整性审计与核心能力补齐 — 跨渠道一致性测试（SDK/CLI/API 4样本三通道核心语义一致）+ 能力覆盖矩阵（36 项诚实评估+证据指针验证：COMPLETE 25/PARTIAL 4/EXPERIMENTAL 1/BLOCKED 4/UNSUPPORTED 2）+ 端到端场景套件 21 项（含近真化真实日盘 1978-07-11 探测）+ 争合入 natal 解释链（见辰条件化两说注记）+ AI 评测 claimCoverage/stateUpgrade 指标
 - M37.2: temporal baseline refreshed（TR-DTZ-47 争合为文档化引擎变更，ADR-075）
 - M37 final: ADR-075 + README M37 + gate 23 步/release_check ALL PASS

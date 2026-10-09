@@ -594,6 +594,45 @@ async function loadTemporal() {
 
       <!-- Overview -->
       <section v-if="activeTab === 'overview'" class="panel">
+        <div class="summary-box">
+          <strong>分析摘要</strong>
+          <div class="pillars-visual">
+            <div v-for="(pos, i) in (['year', 'month', 'day', 'hour'] as const)" :key="pos"
+                 class="summary-pillar" :class="{ me: pos === 'day' }">
+              <div class="pillar-label">{{ ['年柱', '月柱', '日柱', '时柱'][i] }}</div>
+              <div class="pillar-gz">{{ result.pillars[pos]?.stem }}{{ result.pillars[pos]?.branch }}</div>
+            </div>
+          </div>
+          <ul>
+            <li>日主：{{ result.dayMaster.stem }}（{{ result.dayMaster.element }}·{{ result.dayMaster.yinYang }}）</li>
+            <li v-if="result.pattern?.candidates?.length">
+              格局候选：{{ result.pattern.candidates.slice(0, 3).map((c: any) => c.name).join('、') }}
+              <span class="note">（候选，需复核）</span>
+            </li>
+            <li v-if="result.strength?.agreement">旺衰一致性：{{ result.strength.agreement }}（多方法并列，不裁决）</li>
+            <li v-if="result.tiaohou?.resolved">
+              调候：{{ result.tiaohou.recommendations.slice(0, 2).map((r: any) => r.targetStem).join('、') || '—' }}
+            </li>
+          </ul>
+        </div>
+        <details class="terms-box">
+          <summary>术语与状态说明（候选/LIKELY/DISPUTED/BLOCKED/EXPERIMENTAL…）</summary>
+          <dl>
+            <dt>候选（CANDIDATE）</dt><dd>满足部分结构条件，需进一步复核，不是结论。</dd>
+            <dt>LIKELY / DISPUTED</dt><dd>支持证据占优 / 方法或流派存在分歧，两说并列。</dd>
+            <dt>BLOCKED / UNRESOLVED</dt><dd>存在明确阻断 / 证据不足。</dd>
+            <dt>EXPERIMENTAL</dt><dd>岁运参与该计算存在流派分歧，仅作参考。</dd>
+            <dt>真从 / 假从</dt><dd>从格纯粹与不纯粹之分；假从岁运敏感。</dd>
+            <dt>争合 / 合去 / 合绊</dt><dd>多干争一合 / 合而使原十神失效（两说）/ 合而不化仍有意。</dd>
+            <dt>虚神 / 填实</dt><dd>拱夹所缺之支；岁运补上即为填实（候选级观察）。</dd>
+          </dl>
+        </details>
+        <details class="user-guide">
+          <summary>首次使用？查看使用说明</summary>
+          <p>先看"总览"的摘要与术语说明；切换标签查看关系、旺衰、格局、调候；
+             在"时序"页选择大运/年份后分析结构变化。所有候选状态都不是结论。</p>
+          <p>完整说明见仓库 <code>docs/user-guide.md</code>。</p>
+        </details>
         <h2>日主</h2>
         <p>{{ result.dayMaster.stem }}（{{ result.dayMaster.element }}·{{ result.dayMaster.yinYang }}）</p>
         <h2>五行分布</h2>
@@ -633,6 +672,24 @@ async function loadTemporal() {
             </div>
           </details>
         </div>
+        <template v-if="result.relationExplanations?.filter((e: any) => e.kind === 'combination_state').length">
+          <h3>合化状态 <span class="note">三要素（邻位/月令化神/阻化）候选——永不判定化成（DTZ-47/18）</span></h3>
+          <div v-for="e in result.relationExplanations.filter((e: any) => e.kind === 'combination_state')"
+               :key="e.refId" class="relation-item">
+            <strong>{{ e.label }}</strong>
+            <span class="badge">{{ e.status }}</span>
+            <span class="note">{{ e.evidence.join('；') }}</span>
+            <details>
+              <summary>成立条件与引文</summary>
+              <div v-for="(c, ci) in e.conditions" :key="ci" class="evidence-item"
+                   :class="c.satisfied ? 'rescue' : 'damage'">{{ c.satisfied ? '✓' : '✗' }} {{ c.text }}</div>
+              <div v-for="(sn, si) in e.schoolNotes" :key="'sn' + si" class="note">流派：{{ sn }}</div>
+              <div v-for="(c2, ki) in e.citations" :key="'c' + ki" class="evidence-item">
+                <span class="badge">{{ c2.candidateId }}</span> {{ c2.book }}——{{ c2.quote }}
+              </div>
+            </details>
+          </div>
+        </template>
         <template v-if="result.blockedRelations && result.blockedRelations.length">
           <h3>未成立的关系候选 <span class="note">「为什么不成立」——仅解释，不参与推理</span></h3>
           <div v-for="r in result.blockedRelations" :key="'b' + r.label + r.positions.join()" class="relation-item">
@@ -881,7 +938,11 @@ async function loadTemporal() {
                 <span v-else-if="(t.basisRefs || []).length">← {{ t.basisRefs.join('、') }}</span>
               </div>
             </div>
-            <div class="note">结构候选事件回放，不构成吉凶或事件预测</div>
+            <div class="note">
+              结构候选事件回放，不构成吉凶或事件预测。
+              相关规则：
+              <button class="link" @click="jumpToGraph('TR-DTZ-10')">TR-DTZ-10（虚神交互）</button>
+            </div>
           </div>
           <!-- 岁运上下文 -->
           <div class="temporal-context">
@@ -1362,3 +1423,33 @@ summary { cursor: pointer; color: #3498db; font-size: 0.85rem; }
 .graph-label { font-size: 9px; fill: #555; pointer-events: none; }
 @media (max-width: 600px) { .pillars { grid-template-columns: repeat(2, 1fr); } .form-grid { grid-template-columns: 1fr; } }
 </style>
+
+/* ---- M39 · 移动端与摘要组件 ---- */
+.summary-box { background: #f4f8f4; border: 1px solid #cfe0cf; border-radius: 8px;
+               padding: .7rem 1rem; margin: .4rem 0 .8rem; }
+.summary-box ul { margin: .4rem 0 0; padding-left: 1.1rem; }
+.pillars-visual { display: flex; gap: .5rem; margin: .5rem 0; flex-wrap: wrap; }
+.summary-pillar { border: 1px solid #d8d8d8; border-radius: 8px; padding: .4rem .8rem;
+               text-align: center; background: #fff; min-width: 64px; }
+.pillar-card.me { border-color: #2e7d32; background: #f1f8f1; }
+.pillar-label { font-size: .72rem; color: #777; }
+.pillar-gz { font-size: 1.25rem; font-weight: 700; letter-spacing: .15em; }
+.terms-box { margin: .5rem 0 .8rem; }
+.terms-box dl { margin: .3rem 0; }
+.terms-box dt { font-weight: 600; }
+.terms-box dd { margin: 0 0 .25rem 1rem; color: #555; }
+@media (max-width: 768px) {
+  body { font-size: .95rem; }
+  .panel { padding: .8rem; }
+  .header { flex-wrap: wrap; }
+  .tabs { flex-wrap: wrap; overflow-x: auto; }
+  .elements .bar { min-width: 60px; }
+  table { display: block; overflow-x: auto; white-space: nowrap; }
+  .graph-svg { min-width: 100%; }
+  button, .submit { min-height: 40px; }
+  input, select { max-width: 100%; }
+  .ctx-chip { display: inline-block; margin: .1rem 0; }
+}
+
+.user-guide { background: #f7f9fc; border: 1px solid #dbe4f0; border-radius: 8px;
+              padding: .5rem .8rem; margin-bottom: .8rem; font-size: .9rem; }

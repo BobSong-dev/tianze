@@ -30,11 +30,32 @@ li { margin: .15rem 0; }
 .support { color: #1e6b34; }
 .oppose { color: #9c2b2b; }
 .note { color: #777; font-size: .82rem; }
+details { border: 1px solid #e3e3e3; border-radius: 4px; padding: .3rem .6rem; margin: .3rem 0; }
+summary { cursor: pointer; font-weight: 600; font-size: .92rem; }
+.cover { border-bottom: 2px solid #333; padding-bottom: .6rem; margin-bottom: .8rem; }
+.cover h1 { margin: .1rem 0; }
+.summary-box { background: #f4f8f4; border: 1px solid #cfe0cf; border-radius: 4px;
+               padding: .7rem 1rem; margin: .6rem 0; }
+.terms { background: #f5f5fa; border: 1px solid #ddd; border-radius: 4px;
+         padding: .5rem .9rem; font-size: .86rem; }
+.terms dt { font-weight: 600; margin-top: .25rem; }
+.terms dd { margin: 0 0 .2rem 1rem; }
+@media (max-width: 768px) {
+  body { padding: .6rem; font-size: .95rem; }
+  table { font-size: .8rem; display: block; overflow-x: auto; }
+  .toc { font-size: .84rem; }
+}
 @media print {
-  body { max-width: none; padding: 0; font-size: 12pt; }
-  h2 { break-after: avoid; }
-  table, .disclaimer, .toc { break-inside: avoid; }
-  a { color: inherit; }
+  @page { size: A4; margin: 14mm 12mm; }
+  body { max-width: none; padding: 0; font-size: 11.5pt; }
+  h1, h2, h3 { break-after: avoid; }
+  table, .disclaimer, .toc, details, .summary-box { break-inside: avoid; }
+  li { break-inside: avoid; }
+  a { color: inherit; text-decoration: none; }
+  details { border: none; padding: 0; }
+  details > summary { font-weight: 600; }
+  details > *:not(summary) { display: block !important; }  /* 打印时展开全部证据 */
+  .no-print { display: none !important; }
 }
 """
 
@@ -233,15 +254,46 @@ def to_html(result: dict) -> str:
         body.append(_ul([f"⚠️ {w}" for w in warnings]))
 
     toc_html = '<nav class="toc"><b>目录</b><br/>' + " · ".join(toc) + "</nav>"
+    # M39 · 封面/摘要/术语说明（普通用户先看摘要，研究者展开证据）
+    dm = result.get("dayMaster") or {}
+    pillars = result.get("pillars") or {}
+    pillar_line = "　".join(
+        f"{pos}柱 {(pillars.get(pos) or {}).get('stem', '')}"
+        f"{(pillars.get(pos) or {}).get('branch', '')}"
+        for pos in ("year", "month", "day", "hour") if pillars.get(pos))
+    pattern = result.get("pattern") or {}
+    strength = result.get("strength") or {}
+    summary_items = [f"日主：{dm.get('stem', '')}（{dm.get('element', '')}·{dm.get('yinYang', '')}）",
+                     f"四柱：{pillar_line or '—'}"]
+    for cand in pattern.get("candidates", [])[:3]:
+        evaluation = pattern.get("evaluation") or {}
+        summary_items.append(f"格局候选：{cand.get('name')}（{evaluation.get('status', 'CANDIDATE')}）")
+    if strength.get("agreement"):
+        summary_items.append(f"旺衰一致性：{strength['agreement']}（多方法并列，不裁决）")
+    summary_html = ("<div class='summary-box'><strong>分析摘要</strong><ul>"
+                    + "".join(f"<li>{_esc(x)}</li>" for x in summary_items)
+                    + "</ul></div>")
+    terms_html = ("<details class='terms'><summary>术语与状态说明</summary><dl>"
+                  "<dt>候选（CANDIDATE）</dt><dd>满足部分结构条件，需进一步复核，不是结论。</dd>"
+                  "<dt>LIKELY / DISPUTED</dt><dd>支持证据占优 / 各方法或流派存在分歧，两说并列。</dd>"
+                  "<dt>BLOCKED / UNRESOLVED</dt><dd>存在明确阻断因素 / 证据不足。</dd>"
+                  "<dt>EXPERIMENTAL</dt><dd>岁运参与该计算存在流派分歧，仅作参考。</dd>"
+                  "<dt>真从/假从</dt><dd>从格纯粹与不纯粹之分（DTZ-49）：假从岁运敏感。</dd>"
+                  "<dt>争合 / 合去 / 合绊</dt><dd>多干争一合 / 合而使原十神失效（两说）/"
+                  "合而不化仍有意。</dd>"
+                  "<dt>虚神 / 填实</dt><dd>拱夹所缺之支；岁运补上即为填实（候选级观察）。</dd>"
+                  "</dl></details>")
     return (
         '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">'
         "<title>Tianze 分析报告</title>"
         f"<style>{_CSS}</style></head><body>"
-        "<h1>Tianze 八字结构分析报告</h1>"
+        "<div class='cover'><h1>Tianze 八字结构分析报告</h1>"
         f"<p class=\"note\">引擎 {_esc(meta.get('engineVersion', ''))}"
         f"（{_esc(meta.get('engineStage', ''))}）· Schema "
-        f"{_esc(meta.get('analysisSchemaVersion', ''))}</p>"
-        + toc_html + "".join(body) +
+        f"{_esc(meta.get('analysisSchemaVersion', ''))}</p></div>"
+        + "<div class='disclaimer'>本报告仅为命理结构分析，不构成任何吉凶或现实事件预测；"
+          "候选状态与流派分歧如实保留。</div>"
+        + summary_html + terms_html + toc_html + "".join(body) +
         "<p class=\"disclaimer\">核心原则：Engine 计算事实，Knowledge 提供规则依据，"
         "Reasoning 保留分歧，AI 负责解释，历史命例负责对照——而不是证明命理「正确」。</p>"
         "</body></html>"
