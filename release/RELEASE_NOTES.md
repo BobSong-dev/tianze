@@ -1,14 +1,14 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `b58155d094b3`（含未提交改动）
+- commit: `d7c84ef7c6f8`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（93.2s / 23 步）
+- 质量门：ALL PASS（99.4s / 23 步）
 
 ## 版本与规模
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **222**（{'event': 21, 'temporal': 19, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 611
+- 命例 1147；Replay 165；测试 613
 
 ## 质量状态
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（47）
+### 特性（48）
+- M33 final: ADR-071 + README M33 + gate 23 步/release_check ALL PASS
 - M33.1: 主题→事件反查（确定性映射：虚神填实←arch_fill/冲突←新冲害破/十神←层干；映射空回退 basisRefs 提取 temporal:*）→ Web/Markdown/HTML 反查展示 + C7 悬空引用审计（1045 例全 0，七项）
 - M32 final: ADR-070 + README M32 + gate 23 步/release_check ALL PASS
 - M32.1: Replay Theme Delta（逐层复用 delta 主题层+replay-theme:* refs，入 AI Context/Web/报告）+ Markdown/HTML 回放章节 + html ev-None 潜伏 bug 修复 + 命例年锚候选集（4 例干支年×10 候选全 UNRESOLVED，流年层维持 BLOCKED）

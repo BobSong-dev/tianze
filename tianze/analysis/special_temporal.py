@@ -336,9 +336,15 @@ def _sp_jia_cong_hua_sensitive(chart, ctx, candidates):
                            if ten_god(dm, s).value in ("正印", "偏印", "比肩", "劫财")]
             if root_hits or helper_hits:
                 det = "；".join(root_hits + helper_hits)
+                # M34 · E3 联动：natal 印比已被合去（E1/E3）→ 岁运印比是「新增」生助，
+                # 不与被合去的原局印比叠加计数（证据注记，不改状态）
+                modulation = ""
+                if helper_hits and any("SP-CG-E3" in (e.get("ruleId") or "")
+                                       for e in natal_cong[ctype].get("exceptions", [])):
+                    modulation = "；natal 印比已合去（E1/E3）——岁运印比为新增生助，不叠加"
                 out.append((ctype, "cong", info["status"], "假从岁运敏感", "school-split",
                             f"假从候选 {ctype}（natal={info['status']}{note_suffix}）："
-                            f"岁运{det}为日主根气/印比",
+                            f"岁运{det}为日主根气/印比{modulation}",
                             {"逆旺气破格说（权重更高）": "DTZ-49：假从行逆旺气之乡有失败之虑",
                              "顺势说（保留）": "行从化旺乡与真从无别，一样取富贵——"
                                               "「未交运前寒素、运过复初」属行运先后叙事，"

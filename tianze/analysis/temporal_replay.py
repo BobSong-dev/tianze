@@ -141,6 +141,7 @@ def replay_temporal(
         active = active + [(name, pair)]
         keys, cnt, rels = _run(active)
         added = [keys[k] for k in sorted(set(keys) - set(prev_keys))]
+        relation_keys_all = {f"{r.kind}:{r.label}" for r in rels}
         removed = [prev_keys[k] for k in sorted(set(prev_keys) - set(keys))]
         gz = (pair[0] or "") + (pair[1] or "")
         theme_delta: list[dict] = []
@@ -173,17 +174,35 @@ def replay_temporal(
                     t["basisRefs"] = sorted({ref for b in t.get("basis", [])
                                              for ref in _re.findall(r"temporal:[^\s（）]+", b)})
             prev_themes = cur_themes
-        steps.append(ReplayStep(
+        step = ReplayStep(
             layer=name, ganzhi=gz, added=added, removed=removed,
             snapshotKeys=sorted(keys), relationCount=cnt,
             note=f"加入{_LAYER_CN[name]}{gz}：+{len(added)}/-{len(removed)} 虚神事件",
             themeDelta=theme_delta,
-        ))
+        )
+        step._relation_keys = relation_keys_all  # 校验用（不序列化）
+        steps.append(step)
         prev_keys = keys
 
+    # M34 · 引用完整性自检（belt-and-braces，发现悬空即写入 warnings）：
+    # - 虚神事件类 relatedEvents ⊆ 本层 snapshotKeys
+    # - 冲突关系类 relatedEvents ⊆ 本层全部关系键（快照只存虚神事件，冲害破属关系层）
+    warnings = ["状态回放仅描述虚神候选事件的结构迁移，不构成吉凶或事件预测。",
+                "层序固定为 大运→流年→流月→流日；每层事件归属其触发干支所在层。"]
+    _CONFLICT_PREFIXES = ("clash:", "harm:", "break:", "stem_opposition:")
+    for st in steps:
+        xushi_keys = set(st.snapshotKeys)
+        relation_keys = getattr(st, "_relation_keys", None) or set()
+        for t in st.themeDelta:
+            for ref in t.get("relatedEvents", []):
+                if ref.startswith("stem:"):
+                    continue  # 层干映射非事件键
+                if ref.startswith(_CONFLICT_PREFIXES):
+                    if ref not in relation_keys:
+                        warnings.append(f"悬空 relatedEvent 引用（{st.layer}）：{ref}")
+                elif ref not in xushi_keys:
+                    warnings.append(f"悬空 relatedEvent 引用（{st.layer}）：{ref}")
     return TemporalReplay(
         natalStems=list(natal_stems), natalBranches=list(natal_branches),
-        steps=steps,
-        warnings=["状态回放仅描述虚神候选事件的结构迁移，不构成吉凶或事件预测。",
-                  "层序固定为 大运→流年→流月→流日；每层事件归属其触发干支所在层。"],
+        steps=steps, warnings=warnings,
     )

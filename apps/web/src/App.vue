@@ -290,6 +290,16 @@ const chainJumpThemes = computed<string[]>(() => {
 function jumpToChain() { activeTab.value = "temporal"; }
 
 // M26：关系引文 → 知识图谱跳转（切 tab + 搜索 + 聚焦节点）
+// M34 · Rule↔Replay 联动：xushi 规则节点显示当前分析的回放事件
+const ruleReplayEvents = computed<string[]>(() => {
+  if (selectedNodeId.value !== "TR-DTZ-10") return [];
+  const steps = (temporalData.value?.replay?.steps ?? []) as any[];
+  return steps.flatMap((st: any) => [
+    ...((st.added ?? []) as any[]).map((a: any) => `+ [${st.layer}] ${a.label}`),
+    ...((st.removed ?? []) as any[]).map((rm: any) => `− [${st.layer}] ${rm.label}`),
+  ]);
+});
+
 function jumpToGraph(candidateId: string) {
   activeTab.value = "knowledge";
   kbSearch.value = candidateId;
@@ -1102,6 +1112,12 @@ async function loadTemporal() {
             当前分析的解释链引用了该规则（{{ chainJumpThemes.join('、') }} 主题）：
             <button class="link" @click="jumpToChain">跳转解释链</button>
           </div>
+          <details v-if="ruleReplayEvents.length">
+            <summary>当前分析的回放事件（Rule↔Replay 联动，{{ ruleReplayEvents.length }} 条）</summary>
+            <div v-for="(ev, i) in ruleReplayEvents" :key="i" class="evidence-item">
+              {{ ev }}
+            </div>
+          </details>
         </div>
         <div v-for="(e, i) in graphEdges" :key="i" class="evidence-item">
           <span class="badge" :class="{ damage: e.type === 'conflict' }">{{ e.type }}</span>

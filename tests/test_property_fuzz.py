@@ -983,3 +983,43 @@ def test_c7_no_dangling_citations():
     from tianze.analysis.relation_explain import _load_citations
     reg = _load_citations()
     assert len(reg) >= 16
+
+
+# ---------- M34 · 合去调制 / replay 引用完整性 ----------
+
+def test_trsp08_hequ_modulation():
+    """E3 联动：natal 印比合去（伍庭芳造 E1/E3）+ 岁运印比 → 「新增生助，不叠加」。
+
+    对照：无 helper 的假从（无 E1/E3）→ 不出现调制注记。
+    """
+    import datetime as dt
+    from tianze.pipeline import build_chart
+    from tianze.domain.models import BirthInfo, Gender
+    from tianze.analysis.temporal_delta import compute_temporal_delta
+    chart = build_chart(BirthInfo(date=dt.date(1980, 1, 3),
+                                  time=dt.time(10, 0), gender=Gender.MALE))
+    rep = compute_temporal_delta(chart, annual=("甲", "申"))
+    assert not [x for x in rep.specialFindings if "不叠加" in x["evidence"][0]]
+    # 伍庭芳造（E1+E3 同现）：丁 = 偏印 → 调制注记
+    chart_wu = build_chart(BirthInfo(date=dt.date(1980, 1, 3),
+                                     time=dt.time(10, 0), gender=Gender.MALE))
+    # 用 M30 验证过的伍庭芳四柱直接构造
+    from tianze.analysis.case_chart import build_case_chart
+    wu = build_case_chart({"year": "壬寅", "month": "丁未", "day": "己卯", "hour": "乙亥"})
+    rep2 = compute_temporal_delta(wu, annual=("丁", "丑"))
+    hits = [x for x in rep2.specialFindings if "不叠加" in x["evidence"][0]]
+    assert hits, [x["evidence"][0][:70] for x in rep2.specialFindings]
+
+
+
+def test_replay_ref_integrity_warnings():
+    """回放引用完整性：正常构造零悬空（warnings 无悬空条目）。"""
+    from tianze.analysis.case_chart import build_case_chart
+    from tianze.analysis.temporal_replay import replay_temporal
+    chart = build_case_chart({"year": "癸亥", "month": "己丑", "day": "甲戌", "hour": "乙卯"})
+    r = replay_temporal(natal_stems=["癸", "己", "甲", "乙"],
+                        natal_branches=["亥", "丑", "巳", "卯"],
+                        day_master="癸", luck=("壬", "子"), annual=("庚", "午"),
+                        chart=chart, include_themes=True)
+    dangling = [w for w in r.warnings if w.startswith("悬空")]
+    assert dangling == [], dangling
