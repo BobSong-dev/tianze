@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `d7c84ef7c6f8`（含未提交改动）
+- commit: `cfd771dfcc59`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（99.4s / 23 步）
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: {'REVIEW': 7, 'INFO': 2}
 - Event Evaluation problems: 无
-- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -24,13 +24,13 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.548,
-  "perCaseMs": 0.52
+  "elapsedSeconds": 0.583,
+  "perCaseMs": 0.56
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.697,
-  "perCaseMs": 0.67
+  "elapsedSeconds": 0.718,
+  "perCaseMs": 0.69
  },
  "timeline80y": {
   "nodes": 87,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（48）
+### 特性（49）
+- M34: 合去调制（E3→TR-SP-08：natal 印比已合去→岁运印比为新增生助不叠加）+ replay 引用完整性自检（虚神⊆快照/冲突⊆关系键，悬空入 warnings）+ Web TR-DTZ-10 节点↔回放事件联动
 - M33 final: ADR-071 + README M33 + gate 23 步/release_check ALL PASS
 - M33.1: 主题→事件反查（确定性映射：虚神填实←arch_fill/冲突←新冲害破/十神←层干；映射空回退 basisRefs 提取 temporal:*）→ Web/Markdown/HTML 反查展示 + C7 悬空引用审计（1045 例全 0，七项）
 - M32 final: ADR-070 + README M32 + gate 23 步/release_check ALL PASS
