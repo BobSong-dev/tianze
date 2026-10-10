@@ -130,6 +130,18 @@ async function generateAI() {
       body: JSON.stringify({ analysis: payloadAnalysis }),
     });
     if (r.status === 503) {
+      // 自诊断：503 但 /status 显示已配置 → API 进程未读到配置
+      // （旧版本进程 / 重启后内存配置丢失），给出可操作提示
+      try {
+        const st = await fetch("/api/v1/ai-config/status").then(x => x.json());
+        if (st?.configured) {
+          aiState.value = "PROVIDER_ERROR";
+          aiError.value = `配置已保存（${st.source === "env" ? "环境变量/.env" : "页面配置"}），但 API 进程没有使用它。`
+            + " 常见原因：① API 进程是旧版本（重启：python scripts/dev_start.py）；"
+            + " ② 配置存于 API 进程内存，API 重启后丢失（在「AI 设置」重新保存一次）。";
+          return;
+        }
+      } catch { /* 诊断失败按普通未配置处理 */ }
       aiState.value = "NOT_CONFIGURED";
       return;
     }
@@ -140,6 +152,15 @@ async function generateAI() {
       return;
     }
     const interp = body.interpretation;
+    // API 契约：interpretation 字段为 snake_case（InterpretationResult 无别名）
+    interp.groundingPassed = interp.groundingPassed ?? interp.grounding_passed;
+    interp.groundingIssues = interp.groundingIssues ?? interp.grounding_issues ?? [];
+    interp.sourceReferences = interp.sourceReferences ?? interp.source_references ?? [];
+    for (const sec of interp.sections ?? []) {
+      sec.sourceIds = sec.sourceIds ?? sec.source_ids ?? [];
+      sec.evidenceIds = sec.evidenceIds ?? sec.evidence_ids ?? [];
+      for (const c of sec.claims ?? []) c.refId = c.refId ?? c.ref_id;
+    }
     if (!interp.groundingPassed) {
       aiState.value = "GROUNDING_FAILED";
       aiResult.value = interp;

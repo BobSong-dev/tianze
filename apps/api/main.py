@@ -14,8 +14,11 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from apps.api.config import API_VERSION, CORS_ORIGINS
+from apps.api.config import API_VERSION, CORS_ORIGINS, load_env_file
 from apps.api.errors import ApiError, TianzeError, api_error_handler, tianze_error_handler
+
+# 兑现 dev_start 的提示：.env 中的 Key 在启动时进入环境变量（不覆盖已有）
+load_env_file()
 
 app = FastAPI(
     title="Tianze API",

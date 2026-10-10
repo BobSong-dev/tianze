@@ -1,14 +1,14 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `2ec4f21d9b41`（含未提交改动）
+- commit: `4264ca239435`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（104.9s / 23 步）
+- 质量门：ALL PASS（169.3s / 23 步）
 
 ## 版本与规模
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **223**（{'event': 21, 'temporal': 20, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 661
+- 命例 1147；Replay 165；测试 663
 
 ## 质量状态
 
@@ -24,13 +24,13 @@
 {
  "caseChart1147": {
   "count": 1045,
-  "elapsedSeconds": 0.606,
-  "perCaseMs": 0.58
+  "elapsedSeconds": 0.728,
+  "perCaseMs": 0.7
  },
  "replayCorpus": {
   "count": 1045,
-  "elapsedSeconds": 0.751,
-  "perCaseMs": 0.72
+  "elapsedSeconds": 0.804,
+  "perCaseMs": 0.77
  },
  "timeline80y": {
   "nodes": 87,
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（64）
+### 特性（65）
+- M41-hotfix: 发布前最终修复 — 测试数量根因 + AI 配置安全加固 + 推理链路验收 + UI 收尾
 - M41: 东方美学设计体系重构 + 前端 AI Provider 配置系统
 - M40 final: ADR-078 + README + READY_FOR_RELEASE_v0.4.0_RC（判定 READY_FOR_RELEASE_PENDING_AUTHORIZATION，零 Release Blocker，六项 External Blocked 如实）
 - M40.1: 发布稳定化 — developer-guide/release-notes-v0.4.0/known-limitations 三文档 + RC 隔离验证（sdist→wheel 重建 64/64 hash 一致；OpenAPI 17 路径契约无漂移）+ 异常流验收（API 422 错误码无 traceback/缺时辰降级 fallback/AI 无 Provider 503 AI_NOT_CONFIGURED/CLI 非法日期非零退出）→ 测试 641→645
