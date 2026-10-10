@@ -12,31 +12,35 @@ from typing import Any
 __all__ = ["to_html"]
 
 _CSS = """
-body { font-family: 'Songti SC', 'SimSun', serif; max-width: 46rem; margin: 0 auto;
-       padding: 2rem 1rem; color: #1a1a1a; line-height: 1.7; }
-h1 { font-size: 1.5rem; border-bottom: 2px solid #333; padding-bottom: .4rem; }
-h2 { font-size: 1.15rem; margin-top: 1.6rem; border-left: 4px solid #555; padding-left: .5rem; }
-h3 { font-size: 1rem; margin-top: 1.2rem; color: #444; }
+/* M41-hotfix：与 Web 端「现代宋韵」设计令牌同源（宣纸/深墨/朱砂/古铜金）；
+   仅色彩与字体品牌化，版式与打印规则保持不变（A4 兼容）。 */
+body { font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif; max-width: 46rem;
+       margin: 0 auto; padding: 2rem 1rem; color: #22262b; line-height: 1.7;
+       background: #f7f3ea; }
+h1 { font-size: 1.5rem; border-bottom: 2px solid #8a6d3b; padding-bottom: .4rem;
+     letter-spacing: .06em; }
+h2 { font-size: 1.15rem; margin-top: 1.6rem; border-left: 4px solid #a63a2b; padding-left: .5rem; }
+h3 { font-size: 1rem; margin-top: 1.2rem; color: #4a5058; }
 table { border-collapse: collapse; width: 100%; font-size: .9rem; margin: .5rem 0; }
-th, td { border: 1px solid #bbb; padding: .3rem .5rem; text-align: left; }
-th { background: #f0f0f0; }
-.disclaimer { background: #fff8e1; border: 1px solid #e0c96a; padding: .6rem .8rem;
+th, td { border: 1px solid #d9d0bc; padding: .3rem .5rem; text-align: left; }
+th { background: #efe9db; }
+.disclaimer { background: #f8f1e4; border: 1px solid #c9b98c; padding: .6rem .8rem;
               border-radius: 4px; font-size: .85rem; }
-.toc { background: #f7f7f7; border: 1px solid #ddd; padding: .8rem 1.2rem;
+.toc { background: #faf7f0; border: 1px solid #d9d0bc; padding: .8rem 1.2rem;
        border-radius: 4px; font-size: .9rem; }
-.toc a { color: #1a1a1a; text-decoration: none; }
+.toc a { color: #22262b; text-decoration: none; }
 ul { padding-left: 1.2rem; }
 li { margin: .15rem 0; }
-.support { color: #1e6b34; }
-.oppose { color: #9c2b2b; }
-.note { color: #777; font-size: .82rem; }
-details { border: 1px solid #e3e3e3; border-radius: 4px; padding: .3rem .6rem; margin: .3rem 0; }
+.support { color: #2e6b45; }
+.oppose { color: #a63a2b; }
+.note { color: #6b7178; font-size: .82rem; }
+details { border: 1px solid #e0d8c4; border-radius: 4px; padding: .3rem .6rem; margin: .3rem 0; }
 summary { cursor: pointer; font-weight: 600; font-size: .92rem; }
-.cover { border-bottom: 2px solid #333; padding-bottom: .6rem; margin-bottom: .8rem; }
+.cover { border-bottom: 2px solid #8a6d3b; padding-bottom: .6rem; margin-bottom: .8rem; }
 .cover h1 { margin: .1rem 0; }
-.summary-box { background: #f4f8f4; border: 1px solid #cfe0cf; border-radius: 4px;
+.summary-box { background: #f4f0e6; border: 1px solid #c9b98c; border-radius: 4px;
                padding: .7rem 1rem; margin: .6rem 0; }
-.terms { background: #f5f5fa; border: 1px solid #ddd; border-radius: 4px;
+.terms { background: #faf7f0; border: 1px solid #d9d0bc; border-radius: 4px;
          padding: .5rem .9rem; font-size: .86rem; }
 .terms dt { font-weight: 600; margin-top: .25rem; }
 .terms dd { margin: 0 0 .2rem 1rem; }
@@ -47,7 +51,7 @@ summary { cursor: pointer; font-weight: 600; font-size: .92rem; }
 }
 @media print {
   @page { size: A4; margin: 14mm 12mm; }
-  body { max-width: none; padding: 0; font-size: 11.5pt; }
+  body { max-width: none; padding: 0; font-size: 11.5pt; background: #fff; }
   h1, h2, h3 { break-after: avoid; }
   table, .disclaimer, .toc, details, .summary-box { break-inside: avoid; }
   li { break-inside: avoid; }

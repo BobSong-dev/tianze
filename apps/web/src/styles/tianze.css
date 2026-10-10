@@ -220,7 +220,7 @@ code { font-family: var(--font-mono); font-size: 0.85em; background: var(--paper
   color: var(--ink-2); border-radius: 8px; padding: 0.6rem 0.9rem;
   font-size: 0.85rem;
 }
-.note { color: var(--ink-3); font-size: 0.82rem; }
+.note { color: #5f656d; font-size: 0.82rem; }
 
 /* ---- 徽章 ---- */
 .badge {

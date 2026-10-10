@@ -29,8 +29,9 @@ def main() -> int:
     if "--build" in sys.argv:
         subprocess.run(["npm", "run", "build"], cwd=os.path.join(ROOT, "apps", "web"), check=True)
 
-    print("[Tianze] 启动 API（:8000）…")
-    api = subprocess.Popen([py, "-m", "uvicorn", "apps.api.main:app", "--port", "8000"],
+    print("[Tianze] 启动 API（127.0.0.1:8000，单用户本地模式）…")
+    api = subprocess.Popen([py, "-m", "uvicorn", "apps.api.main:app",
+                            "--host", "127.0.0.1", "--port", "8000"],
                            cwd=ROOT)
     time.sleep(1.5)
     print("[Tianze] 启动 Web 开发服务器（:5173）…")

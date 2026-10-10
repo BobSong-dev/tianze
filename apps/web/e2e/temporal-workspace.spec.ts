@@ -45,11 +45,12 @@ test("event themes render with status and disclaimer", async ({ page }) => {
   await page.click('.temporal-controls button:has-text("分析")');
 
   await expect(page.locator("h3", { hasText: "事件主题" })).toBeVisible({ timeout: 15000 });
-  // status 词汇受控（无 CONFIRMED）
+  // M41-hotfix：状态徽章中文化（原码保留在 title 悬停），受控词汇表同步更新
   const badges = await page.locator(".candidate-block .badge").allTextContents();
-  const statuses = badges.filter(b => ["CANDIDATE", "LIKELY", "DISPUTED", "BLOCKED", "UNRESOLVED"].includes(b));
+  const statuses = badges.filter(b => ["候选", "倾向支持", "两说并存", "阻断", "待定"].includes(b));
   expect(statuses.length).toBeGreaterThan(0);
   expect(badges).not.toContain("CONFIRMED");
+  expect(badges).not.toContain("已确认");
   // 非概率声明
   await expect(page.locator("text=非概率").first()).toBeVisible();
 });

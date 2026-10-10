@@ -92,9 +92,12 @@ async function saveAiConfig() {
   const r = await fetch("/api/v1/ai-config/set", {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify(aiForm.value),
-  }).then(x => x.json());
-  if (r.ok) { aiCfgMsg.value = "已保存（服务端内存；重启后需重新配置）"; await refreshAiStatus(); }
-  else aiCfgMsg.value = `保存失败：${r.error}`;
+  }).then(x => x.json()).catch(() => ({ ok: false, error: "网络错误" }));
+  const errText = typeof r.error === "object" && r.error ? `${r.error.message || r.error.code}` : r.error;
+  if (r.ok) {
+    aiCfgMsg.value = r.note || "已保存（服务端内存；重启后需重新配置）";
+    await refreshAiStatus();
+  } else aiCfgMsg.value = `保存失败：${errText}`;
 }
 async function testAiConfig() {
   aiTesting.value = true; aiTestResult.value = null;
@@ -532,6 +535,21 @@ const KIND_CN: Record<string, string> = {
   disagreement_changed: "一致性变化",
 };
 
+// 受控状态词中文（原码悬停可见；术语表保留完整对照「候选（CANDIDATE）」）
+const STATUS_CN: Record<string, string> = {
+  CANDIDATE: "候选", LIKELY: "倾向支持", DISPUTED: "两说并存", BLOCKED: "阻断",
+  UNRESOLVED: "待定", ESTABLISHED: "已确立", EXPERIMENTAL: "实验性",
+  SUPPORTED: "受支持", MISSING: "缺", PRESENT: "在场",
+};
+const VIEW_CN: Record<string, string> = {
+  CLASSICAL_EXPLICIT: "古籍明言", CLASSICAL_IMPLICIT: "古籍隐含",
+  PROJECT_REFERENCE: "项目参考", ENGINEERING_HEURISTIC: "工程启发",
+};
+const SEVERITY_CN: Record<string, string> = { FATAL: "严重", WARNING: "警告", INFO: "提示" };
+function codeCn(map: Record<string, string>, v?: string): string {
+  return (v && map[v]) || v || "";
+}
+
 function onLuckChange() {
   selYear.value = null;
   selMonth.value = null;
@@ -718,9 +736,9 @@ async function loadTemporal() {
           <summary>术语与状态说明（候选状态词汇表）</summary>
           <dl>
             <dt>候选（CANDIDATE）</dt><dd>满足部分结构条件，需进一步复核，不是结论。</dd>
-            <dt>LIKELY / DISPUTED</dt><dd>支持证据占优 / 方法或流派存在分歧，两说并列。</dd>
-            <dt>BLOCKED / UNRESOLVED</dt><dd>存在明确阻断 / 证据不足。</dd>
-            <dt>EXPERIMENTAL</dt><dd>岁运参与该计算存在流派分歧，仅作参考。</dd>
+            <dt>倾向支持（LIKELY）/ 两说并存（DISPUTED）</dt><dd>支持证据占优 / 方法或流派存在分歧，两说并列。</dd>
+            <dt>阻断（BLOCKED）/ 待定（UNRESOLVED）</dt><dd>存在明确阻断 / 证据不足。</dd>
+            <dt>实验性（EXPERIMENTAL）</dt><dd>岁运参与该计算存在流派分歧，仅作参考。</dd>
             <dt>真从 / 假从</dt><dd>从格纯粹与不纯粹之分；假从岁运敏感。</dd>
             <dt>争合 / 合去 / 合绊</dt><dd>多干争一合 / 合而使原十神失效（两说）/ 合而不化仍有意。</dd>
             <dt>虚神 / 填实</dt><dd>拱夹所缺之支；岁运补上即为填实（候选级观察）。</dd>
@@ -776,7 +794,7 @@ async function loadTemporal() {
           <div v-for="e in result.relationExplanations.filter((e: any) => e.kind === 'combination_state')"
                :key="e.refId" class="relation-item">
             <strong>{{ e.label }}</strong>
-            <span class="badge">{{ e.status }}</span>
+            <span class="badge" :title="e.status">{{ codeCn(STATUS_CN, e.status) }}</span>
             <span class="note">{{ e.evidence.join('；') }}</span>
             <details>
               <summary>成立条件与引文</summary>
@@ -889,7 +907,7 @@ async function loadTemporal() {
           <div v-for="e in c.evidence" :key="e" class="evidence-item">{{ e }}</div>
         </div>
         <template v-if="result.pattern.evaluation">
-          <p class="status">Status: <strong>{{ result.pattern.evaluation.status }}</strong></p>
+          <p class="status">综合评估：<strong>{{ result.pattern.evaluation.status }}</strong></p>
           <h3>支持因素</h3>
           <div v-for="f in result.pattern.evaluation.supports" :key="f.ruleId" class="evidence-item">
             {{ f.name }}: {{ f.detail }}
@@ -942,7 +960,7 @@ async function loadTemporal() {
         <h3>特殊格局候选</h3>
         <div v-for="c in result.advancedAnalysis.specialPattern?.cong || []" :key="c.type" class="candidate-block">
           <strong>{{ c.type }}</strong>
-          <span class="badge" :class="c.status.toLowerCase()">{{ c.status }}</span>
+          <span class="badge" :class="c.status.toLowerCase()" :title="c.status">{{ codeCn(STATUS_CN, c.status) }}</span>
           <details><summary>Supports / Blockers / 例外与两说</summary>
             <div v-for="s in c.supports" :key="s.ruleId" class="evidence-item">+ {{ s.text }}</div>
             <div v-for="b in c.blockers" :key="b.ruleId" class="evidence-item damage">− {{ b.text }}</div>
@@ -954,13 +972,13 @@ async function loadTemporal() {
           </details>
         </div>
         <div v-for="z in result.advancedAnalysis.specialPattern?.zhuanwang || []" :key="z.type" class="candidate-block">
-          <strong>{{ z.type }}</strong> <span class="badge">{{ z.status }}</span>
+          <strong>{{ z.type }}</strong> <span class="badge" :title="z.status">{{ codeCn(STATUS_CN, z.status) }}</span>
         </div>
         <!-- M25 外格虚神候选 -->
         <template v-if="result.advancedAnalysis.specialPattern?.xushiOuter?.length">
           <h3>外格虚神候选 <span class="note">飞天禄马/井栏叉/刑合/子邀巳——候选仅供参考，非格局（DTZ-26/36）</span></h3>
           <div v-for="x in result.advancedAnalysis.specialPattern.xushiOuter" :key="x.type" class="candidate-block">
-            <strong>{{ x.type }}</strong> <span class="badge">{{ x.status }}</span>
+            <strong>{{ x.type }}</strong> <span class="badge" :title="x.status">{{ codeCn(STATUS_CN, x.status) }}</span>
             <div v-for="(sv, k) in x.schoolVariants" :key="k" class="note">{{ k }}：{{ sv }}</div>
             <div v-for="(b, i) in (x.blockers || [])" :key="'b' + i" class="evidence-item damage">阻断：{{ b.text }}</div>
           </div>
@@ -1023,14 +1041,14 @@ async function loadTemporal() {
           <!-- M31 · 逐层状态回放时间轴 -->
           <div v-if="temporalData.replay?.steps?.length" class="candidate-block">
             <strong>逐层状态回放 <span class="note">natal→大运→流年→流月→流日；每层只显示该层引入（+）/移除（−）的虚神候选事件</span></strong>
-            <div v-for="(st, i) in temporalData.replay.steps" :key="i" class="evidence-item">
+            <div v-for="(st, i) in temporalData.replay.steps" :key="i" class="evidence-item replay-step">
               <span class="badge">{{ st.layer }}{{ st.ganzhi ? ' ' + st.ganzhi : '' }}</span>
               {{ st.note }}
               <div v-for="(a, ai) in st.added" :key="'a' + ai" class="evidence-item rescue">
-                + {{ a.kind }}：{{ a.label }}
+                + {{ codeCn(KIND_CN, a.kind) }}：{{ a.label }}
               </div>
               <div v-for="(rm, ri) in st.removed" :key="'r' + ri" class="evidence-item damage">
-                − {{ rm.kind }}：{{ rm.label }}
+                − {{ codeCn(KIND_CN, rm.kind) }}：{{ rm.label }}
               </div>
               <div v-for="(t, ti) in st.themeDelta || []" :key="'t' + ti" class="note">
                 主题：{{ t.theme }}（{{ t.direction }}）
@@ -1085,7 +1103,7 @@ async function loadTemporal() {
               <strong>{{ analysis }}</strong>
               <div v-for="it in items" :key="it.refId + it.kind" class="evidence-item">
                 <span class="badge">{{ KIND_CN[it.kind] || it.kind }}</span>
-                <span v-if="it.supportLevel === 'EXPERIMENTAL'" class="badge damage">EXPERIMENTAL</span>
+                <span v-if="it.supportLevel === 'EXPERIMENTAL'" class="badge damage" title="EXPERIMENTAL">实验性</span>
                 <strong>{{ it.subject }}</strong>
                 <span v-if="it.natalValue !== null || it.temporalValue !== null" class="note">
                   {{ JSON.stringify(it.natalValue) }} → {{ JSON.stringify(it.temporalValue) }}
@@ -1101,7 +1119,7 @@ async function loadTemporal() {
             <h3>结构主题 <span class="note">十神主题/冲突关系/结构波动——中间描述层，不是事件预测</span></h3>
             <div v-for="(t, i) in temporalData.delta.themes || []" :key="'t' + i" class="evidence-item">
               <span class="badge rescue">{{ t.label }}</span>
-              <span v-if="t.supportLevel === 'EXPERIMENTAL'" class="badge damage">EXPERIMENTAL</span>
+              <span v-if="t.supportLevel === 'EXPERIMENTAL'" class="badge damage" title="EXPERIMENTAL">实验性</span>
               <span class="note">{{ t.note }}</span>
               <details><summary>依据</summary>
                 <div v-for="(b, j) in t.basis" :key="j" class="evidence-item">{{ b }}</div>
@@ -1115,10 +1133,10 @@ async function loadTemporal() {
             <h3>事件主题 <span class="note">结构层面的「值得关注」候选——不是预测事件；无 CONFIRMED 状态</span></h3>
             <div v-for="t in temporalData.eventThemes.themes" :key="t.theme" class="candidate-block">
               <strong>{{ t.themeCn || t.theme }}</strong>
-              <span class="badge" :class="statusBadgeClass(t.status)">{{ t.status }}</span>
+              <span class="badge" :class="statusBadgeClass(t.status)" :title="t.status">{{ codeCn(STATUS_CN, t.status) }}</span>
               <span v-if="t.agreement === 'CONFLICT'" class="badge damage">多体系冲突</span>
               <span v-else-if="t.agreement === 'HIGH'" class="badge rescue">多体系一致</span>
-              <span class="badge">confidence {{ t.confidence }}</span>
+              <span class="badge">置信 {{ t.confidence }}</span>
               <span class="note">（ENGINEERING_HEURISTIC 加权，非概率）</span>
               <div v-for="(v, k) in t.schoolViews" :key="k" class="evidence-item note">
                 视角 {{ k }}：{{ v }}
@@ -1133,7 +1151,7 @@ async function loadTemporal() {
               <details v-if="t.conflictExplanations && t.conflictExplanations.length">
                 <summary>冲突解释（上下文相关，无全局优先级）</summary>
                 <div v-for="(c, i) in t.conflictExplanations" :key="'c' + i" class="evidence-item">
-                  <span class="badge">{{ c.kind }}</span> {{ c.explanation }}
+                  <span class="badge" :title="c.kind">{{ codeCn(KIND_CN, c.kind) }}</span> {{ c.explanation }}
                 </div>
               </details>
               <details v-if="explanationFor(t.theme)"
@@ -1142,7 +1160,7 @@ async function loadTemporal() {
                 <div class="chain-verdict">{{ explanationFor(t.theme).reasoning.verdictStatement }}</div>
                 <h4>支持链</h4>
                 <div v-for="h in explanationFor(t.theme).reasoning.supportingChain" :key="h.ruleId" class="evidence-item rescue">
-                  <strong>{{ h.ruleId }}</strong>（{{ h.view }}）
+                  <strong>{{ h.ruleId }}</strong>（{{ codeCn(VIEW_CN, h.view) || h.view }}）
                   <span v-if="h.rescueApplied" class="badge rescue">救应：{{ h.rescueApplied.id }}</span>
                   <div v-for="(e, i) in h.evidence" :key="'e' + i" class="note">{{ e }}</div>
                   <div v-if="h.quote" class="quote">原文：{{ h.quote }}（{{ h.source?.book }}）</div>
@@ -1150,7 +1168,7 @@ async function loadTemporal() {
                 </div>
                 <h4>反对链</h4>
                 <div v-for="h in explanationFor(t.theme).reasoning.opposingChain" :key="'o' + h.ruleId" class="evidence-item damage">
-                  <strong>{{ h.ruleId }}</strong>（{{ h.view }}）
+                  <strong>{{ h.ruleId }}</strong>（{{ codeCn(VIEW_CN, h.view) || h.view }}）
                   <span v-if="h.rescueApplied" class="badge rescue">被救应削弱：{{ h.rescueApplied.id }}</span>
                   <div v-for="(e, i) in h.evidence" :key="'oe' + i" class="note">{{ e }}</div>
                   <div v-if="h.quote" class="quote">原文：{{ h.quote }}（{{ h.source?.book }}）</div>
@@ -1170,9 +1188,9 @@ async function loadTemporal() {
       <section v-if="activeTab === 'knowledge'" class="panel">
         <h2>知识工作台 <span class="note">Source ↔ Rule ↔ Conflict ↔ Case 只读导航；不复制推理逻辑</span></h2>
         <div class="kb-stats" v-if="kbStats">
-          <span class="badge">executable {{ kbStats.executableTotal }}</span>
+          <span class="badge">可执行规则 {{ kbStats.executableTotal }}</span>
           <span class="badge" v-for="(v, k) in kbStats.executableByDomain" :key="k">{{ k }}: {{ v }}</span>
-          <span class="note">candidates（556）与 executable（{{ kbStats.executableTotal }}）是不同口径</span>
+          <span class="note">候选规则（556）与可执行规则（{{ kbStats.executableTotal }}）是不同口径</span>
         </div>
         <div class="temporal-controls">
           <input v-model="kbSearch" placeholder="搜索 id/label/theme…" />
@@ -1186,7 +1204,7 @@ async function loadTemporal() {
         <div v-for="r in kbFiltered" :key="r.id" class="candidate-block">
           <strong>{{ r.id }}</strong>
           <span class="badge">{{ r.domain }}</span>
-          <span v-if="r.view" class="badge">{{ r.view }}</span>
+          <span v-if="r.view" class="badge" :title="r.view">{{ codeCn(VIEW_CN, r.view) || r.view }}</span>
           <span class="badge" v-for="lv in r.provenanceLevels" :key="lv"
                 :class="{ damage: lv === 'ENGINEERING_HEURISTIC' }">{{ lv }}</span>
           <span class="badge">Q{{ r.quality }}</span>
@@ -1255,7 +1273,7 @@ async function loadTemporal() {
         <div v-if="selectedNodeDetail" class="candidate-block">
           <strong>{{ selectedNodeDetail.id }}</strong>
           <span class="badge">{{ selectedNodeDetail.domain }}</span>
-          <span v-if="selectedNodeDetail.view" class="badge">{{ selectedNodeDetail.view }}</span>
+          <span v-if="selectedNodeDetail.view" class="badge" :title="selectedNodeDetail.view">{{ codeCn(VIEW_CN, selectedNodeDetail.view) || selectedNodeDetail.view }}</span>
           <div>{{ selectedNodeDetail.label }}</div>
           <div class="note">
             来源：{{ selectedNodeDetail.source?.book || '—' }}
@@ -1414,7 +1432,7 @@ async function loadTemporal() {
         <p>本次 AI 输出未通过事实一致性检查，因此未展示。</p>
         <details v-if="aiResult?.groundingIssues?.length"><summary>Grounding Issues</summary>
           <div v-for="(gi, i) in aiResult.groundingIssues" :key="i" class="evidence-item conflict">
-            [{{ gi.severity }}] {{ gi.type }}: {{ gi.detail }}
+            [{{ codeCn(SEVERITY_CN, gi.severity) || gi.severity }}] {{ gi.type }}：{{ gi.detail }}
           </div>
         </details>
         <button class="submit" @click="generateAI">重新生成</button>
@@ -1504,7 +1522,8 @@ async function loadTemporal() {
         </div>
         <p class="note" style="margin-top:.8rem;">
           ⚠ 启用 AI 解读后，命盘分析结果将发送至所配置的外部服务。
-          公网部署须自行加鉴权（详见 docs/release-procedure-v0.4.0.md）。
+          配置操作仅限本机访问（单用户本地模式）；密钥只存服务端内存，重启后清除。
+          公网部署须自行加鉴权（详见 docs/known-limitations.md 部署边界一节）。
         </p>
       </div>
     </div>
@@ -1560,6 +1579,16 @@ async function loadTemporal() {
 .candidate-block { border: 1px solid #e7e0d0; border-left: 3px solid var(--bronze);
                    border-radius: 8px; padding: 0.7rem 0.9rem; margin: 0.55rem 0;
                    background: #fffdf8; }
+.replay-step { border-left: 2px solid var(--bronze-light); position: relative; }
+.replay-step:not(:last-child)::after {
+  content: ""; position: absolute; left: -6px; bottom: -0.35rem;
+  width: 2px; height: 0.45rem; background: var(--bronze-light);
+}
+.replay-step:last-child::before {
+  content: ""; position: absolute; left: -9px; top: 0.55rem;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--paper-1, #f7f3ea); border: 2px solid var(--bronze);
+}
 .warnings-panel { background: var(--wx-bg-earth); border: 1px solid var(--bronze-light);
                   border-radius: 8px; padding: 0.6rem 0.9rem; }
 .warning, .fallback { color: var(--warn); font-size: 0.85rem; }

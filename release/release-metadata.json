@@ -1,7 +1,7 @@
 {
  "schemaVersion": "1.0.0",
  "release": {
-  "gitCommit": "f8a3dc3a9f55624661b475f817d077bd669da831",
+  "gitCommit": "2ec4f21d9b4128cba0afe415a58bcc121730f09c",
   "gitBranch": "main",
   "dirty": true,
   "generatedBy": "tools/release_metadata.py（全部数据来自真实运行）"
@@ -27,7 +27,7 @@
   "ruleCandidates": 556,
   "cases": 1147,
   "replays": 165,
-  "tests": 645
+  "tests": 661
  },
  "quality": {
   "auditGates": {
@@ -50,17 +50,17 @@
  "benchmark": {
   "caseChart1147": {
    "count": 1045,
-   "elapsedSeconds": 0.586,
-   "perCaseMs": 0.56
+   "elapsedSeconds": 0.606,
+   "perCaseMs": 0.58
   },
   "replayCorpus": {
    "count": 1045,
-   "elapsedSeconds": 0.767,
-   "perCaseMs": 0.73
+   "elapsedSeconds": 0.751,
+   "perCaseMs": 0.72
   },
   "timeline80y": {
    "nodes": 87,
-   "elapsedSeconds": 0.027
+   "elapsedSeconds": 0.028
   },
   "explanationChains": {
    "themes": 2,
@@ -70,6 +70,6 @@
  },
  "governance": {
   "migrationRanBefore": true,
-  "aiEvaluationStatus": "SKIPPED"
+  "aiEvaluationStatus": "mock"
  }
 }

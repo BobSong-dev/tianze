@@ -34,3 +34,28 @@
   采用 vs Engine 检出」严格对照需 raw OCR（BLOCKED）。
 - 旺衰多方法（dimension/weighted/fuyi）分歧是真实方法论差异（ADR-059
   实证），引擎并列呈现、不裁决。
+
+## AI Provider 配置的部署边界（M41-hotfix）
+
+**支持的部署形态：单用户本机运行**（默认）。安全边界如下：
+
+- **配置操作（set/test/clear）仅接受回环客户端**（127.0.0.1/::1）。这是
+  服务端 socket 级判定，不可经请求头伪造；**CORS 不是鉴权**，仅是浏览器
+  侧附带约束。`dev_start.py` 显式绑定 `127.0.0.1:8000`。
+- 局域网/公网部署默认被拒绝（403 AI_CONFIG_LOCAL_ONLY）。运维若显式设置
+  `TIANZE_ALLOW_REMOTE_AI_CONFIG=1` 自担风险放行，**必须**同时在反向代理
+  层完成鉴权与身份隔离——本项目不内建账户系统（单用户假设）。
+- API Key 仅存后端进程内存：不落盘、不写日志、接口只回显尾 4 位、
+  前端无 localStorage/cookie 持久化（已代码审计 + 测试锁定）。
+- Base URL SSRF 防护：仅 http(s)、拒绝内网/环回/链路本地（「本地模型」
+  预设显式豁免回环，对应单用户本机 Ollama 场景）；连接测试不跟随重定向
+  （3xx 判失败）；set 与 test 双重校验。
+- **已知残余风险（如实声明）**：SSRF 校验与实际请求各自解析 DNS，存在
+  理论 DNS-rebinding TOCTOU 窗口；单用户本机模式下接受此残余，未做
+  IP 钉扎传输层。
+- 环境变量 `TIANZE_LLM_API_KEY` 优先于 UI 配置；两者并存时 set 响应与
+  status 均明示"实际使用环境变量"，避免保存成功却不生效的误导。
+- 预设兼容性：全部 `verified: false`——本项目无真实云 Key，未经实测的
+  提供商不标"已兼容"（协议层由本地 Mock 全链路验证，见
+  apps/api/tests/test_ai_config_security.py）。
+- **BLOCKED**：真实云端 Provider 实测成绩（无外网凭据，不伪造）。
