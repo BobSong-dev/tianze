@@ -41,7 +41,7 @@ PRESETS: list[dict] = [
     {"id": "openai", "name": "OpenAI", "baseUrl": "https://api.openai.com/v1",
      "model": "gpt-4o-mini", "verified": False},
     {"id": "deepseek", "name": "DeepSeek", "baseUrl": "https://api.deepseek.com/v1",
-     "model": "deepseek-chat", "verified": False},
+     "model": "deepseek-flash", "verified": False},
     {"id": "qwen", "name": "通义千问（DashScope 兼容模式）",
      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
      "model": "qwen-plus", "verified": False},
