@@ -129,7 +129,16 @@ def _resolve_effective() -> dict:
 
 
 def _ssrf_check(url: str, allow_local: bool = False) -> tuple[bool, str]:
-    """Base URL 防护：仅 http(s)；非 allow_local 时拒绝内网/环回/链路本地。"""
+    """Base URL 防护（威胁模型对齐单用户本地应用）。
+
+    - 字面 IP 命中内网/环回/链路本地/保留段 → 拒绝（SSRF 核心防护）；
+    - 域名：解析失败或解析到环回/链路本地 → 拒绝；
+    - 域名解析到私网/保留段（如 198.18.0.0/15）→ **放行并警告**：
+      本机代理（Clash 类 fake-ip DNS）会把所有公网域名解析到该段，
+      一律拒绝等于在代理环境下完全不可用；配置由用户本人填写，
+      域名级风险已在 known-limitations 的 DNS rebinding 条目声明。
+    返回 (ok, message)；ok=True 且 message 非空 = 放行但带警告。
+    """
     try:
         p = urlparse(url)
     except Exception:
@@ -138,15 +147,30 @@ def _ssrf_check(url: str, allow_local: bool = False) -> tuple[bool, str]:
         return False, "仅支持 http(s) URL"
     if allow_local:
         return True, ""
+    host = p.hostname
     try:
-        infos = socket.getaddrinfo(p.hostname, None)
+        literal = ipaddress.ip_address(host)
+    except ValueError:
+        literal = None
+    if literal is not None:
+        if (literal.is_private or literal.is_loopback or literal.is_link_local
+                or literal.is_reserved or literal.is_multicast):
+            return False, f"禁止内网/本地地址（{literal}）；本地模型请选择「本地模型」预设"
+        return True, ""
+    try:
+        infos = socket.getaddrinfo(host, None)
     except Exception:
         return False, "主机名无法解析"
+    warn_ips: list[str] = []
     for info in infos:
         ip = ipaddress.ip_address(info[4][0])
-        if (ip.is_private or ip.is_loopback or ip.is_link_local
-                or ip.is_reserved or ip.is_multicast):
-            return False, f"禁止内网/本地地址（{ip}）；本地模型请选择「本地模型」预设"
+        if ip.is_loopback or ip.is_link_local:
+            return False, f"域名解析到回环/链路本地地址（{ip}），已拒绝"
+        if ip.is_private or ip.is_reserved:
+            warn_ips.append(str(ip))
+    if warn_ips:
+        return True, (f"注意：{host} 在本机解析到保留段地址 {warn_ips[0]}"
+                      "（常见于代理 fake-ip DNS 环境），已放行；实际出口由本机网络栈决定")
     return True, ""
 
 
@@ -184,6 +208,7 @@ async def set_config(body: SetConfigBody, request: Request):
     ok, err = _ssrf_check(body.baseUrl, allow_local=allow_local)
     if not ok:
         return {"ok": False, "error": err}
+    warning = err or None  # ok=True 且非空 = 放行但带警告（如 fake-ip 代理环境）
     async with _LOCK:
         _STORE.api_key = body.apiKey.strip()
         _STORE.base_url = body.baseUrl.strip().rstrip("/")
@@ -195,7 +220,9 @@ async def set_config(body: SetConfigBody, request: Request):
     note = None
     if eff["source"] == "env":
         note = "已保存，但当前检测到 TIANZE_LLM_API_KEY 环境变量——实际调用仍使用环境变量配置。"
-    return {"ok": True, **eff, **({"note": note} if note else {})}
+    return {"ok": True, **eff,
+            **({"note": note} if note else {}),
+            **({"warning": warning} if warning else {})}
 
 
 @router.post("/test")

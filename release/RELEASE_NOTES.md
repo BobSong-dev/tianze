@@ -2,7 +2,7 @@
 
 - commit: `4264ca239435`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
-- 质量门：ALL PASS（169.3s / 23 步）
+- 质量门：ALL PASS（141.6s / 23 步）
 
 ## 版本与规模
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（65）
+### 特性（66）
+- M41-hotfix2: 修复"填了 Key 仍提示未配置"— .env 加载缺失 + grounding 字段蛇形/驼峰错读
 - M41-hotfix: 发布前最终修复 — 测试数量根因 + AI 配置安全加固 + 推理链路验收 + UI 收尾
 - M41: 东方美学设计体系重构 + 前端 AI Provider 配置系统
 - M40 final: ADR-078 + README + READY_FOR_RELEASE_v0.4.0_RC（判定 READY_FOR_RELEASE_PENDING_AUTHORIZATION，零 Release Blocker，六项 External Blocked 如实）

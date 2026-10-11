@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import os
+import socket
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
@@ -344,3 +345,38 @@ def test_invalid_inputs_rejected():
                 {"apiKey": "k", "baseUrl": "https://a.com/v1", "model": " "}):
         r = client.post("/api/v1/ai-config/set", json=bad)
         assert r.json()["ok"] is False
+
+
+# ---------- fake-ip 代理环境回归（M41-hotfix3：曾误拒一切公网 AI 端点） ----------
+
+def test_ssrf_domain_resolving_to_fakeip_allowed_with_warning(monkeypatch):
+    """域名 → 198.18.x（Clash fake-ip 段）：放行并附警告，不再一律拒绝。"""
+    monkeypatch.setattr(ai_config.socket, "getaddrinfo",
+                        lambda h, p: [(socket.AF_INET, None, None, "", ("198.18.0.225", 0))])
+    ok, msg = ai_config._ssrf_check("https://api.deepseek.com/v1")
+    assert ok is True and "198.18.0.225" in msg and "代理" in msg
+    # set 端点透出 warning
+    r = client.post("/api/v1/ai-config/set", json={
+        "apiKey": SECRET, "baseUrl": "https://api.deepseek.com/v1",
+        "model": "deepseek-chat", "preset": "custom"})
+    body = r.json()
+    assert body["ok"] is True and "warning" in body and SECRET not in body["warning"]
+
+
+def test_ssrf_domain_resolving_to_loopback_rejected(monkeypatch):
+    """域名解析到 127.0.0.1（非 local 预设）→ 仍拒绝。"""
+    monkeypatch.setattr(ai_config.socket, "getaddrinfo",
+                        lambda h, p: [(socket.AF_INET, None, None, "", ("127.0.0.1", 0))])
+    ok, msg = ai_config._ssrf_check("https://evil.example.com/v1")
+    assert ok is False and "回环" in msg
+
+
+def test_ssrf_literal_private_ip_still_rejected():
+    """字面内网 IP（不经 DNS）→ 拒绝（SSRF 核心防护不变）。"""
+    for url in ("http://10.1.2.3/v1", "http://192.168.0.9/v1",
+                "http://169.254.1.1/v1", "http://[fe80::1]/v1"):
+        ok, _ = ai_config._ssrf_check(url)
+        assert ok is False, url
+    # 字面公网 IP 放行
+    ok, _ = ai_config._ssrf_check("https://8.8.8.8/v1")
+    assert ok is True

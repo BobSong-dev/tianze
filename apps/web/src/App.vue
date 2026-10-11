@@ -96,6 +96,7 @@ async function saveAiConfig() {
   const errText = typeof r.error === "object" && r.error ? `${r.error.message || r.error.code}` : r.error;
   if (r.ok) {
     aiCfgMsg.value = r.note || "已保存（服务端内存；重启后需重新配置）";
+    if (r.warning) aiCfgMsg.value += `　⚠ ${r.warning}`;
     await refreshAiStatus();
   } else aiCfgMsg.value = `保存失败：${errText}`;
 }
