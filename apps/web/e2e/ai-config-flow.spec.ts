@@ -10,6 +10,7 @@
  */
 import { test, expect } from "@playwright/test";
 import { createServer, type Server } from "node:http";
+import { navigateTo } from "./helpers";
 
 const MOCK_REPLY = JSON.stringify({
   summary: "MOCK-OK：端到端链路验证成功。",
@@ -25,6 +26,25 @@ let mockPort = 0;
 
 // 两个用例共享 API 进程内存中的配置状态，必须串行
 test.describe.configure({ mode: "serial" });
+
+/**
+ * 每个用例从"未配置"开始，避免 API 进程内存中的配置在用例间泄漏。
+ *
+ * 注意：Node 的 fetch（测试进程）不接受相对 URL —— 必须给绝对地址；
+ * 相对路径只在浏览器上下文里有效。
+ */
+const API = process.env.E2E_API_ORIGIN ?? "http://localhost:5173";
+
+async function clearAiConfig() {
+  const r = await fetch(`${API}/api/v1/ai-config/clear`, { method: "POST" })
+    .then(x => x.json())
+    .catch(e => ({ error: String(e) }));
+  if (!r?.ok) throw new Error(`清理 AI 配置失败：${JSON.stringify(r)}`);
+}
+
+test.beforeEach(async () => {
+  await clearAiConfig();
+});
 
 test.beforeAll(async () => {
   mockServer = createServer((req, res) => {
@@ -48,7 +68,7 @@ test.beforeAll(async () => {
 
 test.afterAll(async () => {
   // 清理全局 API 状态，避免污染其他 spec（配置存 API 进程内存）
-  await fetch("/api/v1/ai-config/clear", { method: "POST" }).catch(() => {});
+  await clearAiConfig().catch(() => {});
   await new Promise<void>(resolve => mockServer ? mockServer.close(() => resolve()) : resolve());
 });
 
@@ -74,7 +94,7 @@ test("configure via UI → status shows 页面配置 → interpret renders mock 
   await page.waitForSelector(".ai-modal", { state: "detached" });
 
   // AI 页状态条必须显示页面配置（否则就是"保存了却不生效"类回归）
-  await page.locator("nav.tabs button", { hasText: "AI 解读" }).click();
+  await navigateTo(page, "AI 解读");
   await expect(page.locator("section .ai-status-strip").first())
     .toContainText("页面配置 · e2e-mock-model");
 
@@ -87,14 +107,17 @@ test("configure via UI → status shows 页面配置 → interpret renders mock 
 });
 
 test("unconfigured interpret degrades to guided 503 state", async ({ page }) => {
-  // 显式确保未配置（与上一用例并行/乱序时保持独立）
-  await fetch("/api/v1/ai-config/clear", { method: "POST" }).catch(() => {});
+  // 显式确保未配置（不依赖执行顺序）
+  await clearAiConfig();
   await page.goto("/");
+  const seen = await page.evaluate(() => fetch("/api/v1/ai-config/status").then(r => r.json()));
+  expect(seen.configured, "前置条件：浏览器侧应看到未配置").toBe(false);
+
   await page.fill('input[type="date"]', "2003-08-18");
   await page.fill('input[type="time"]', "14:30");
   await page.click("button.submit");
   await expect(page.locator(".pillar-tile")).toHaveCount(4, { timeout: 20000 });
-  await page.locator("nav.tabs button", { hasText: "AI 解读" }).click();
+  await navigateTo(page, "AI 解读");
   await expect(page.locator("section .ai-status-strip").first())
     .toContainText("未配置");
 });

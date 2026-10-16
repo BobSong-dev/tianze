@@ -128,25 +128,41 @@ export interface TiaoHouResult {
   ruleIds: string[]; note: string | null;
 }
 
+export interface SpecialPatternFactor {
+  kind: string;
+  ruleId: string;
+  text: string;
+}
+
+/** 从格 / 专旺 / 外格虚神共用的候选结构（字段按引擎实际输出声明） */
+export interface SpecialPatternEntry {
+  type: string;
+  status: string;
+  school?: string;
+  prerequisites?: string[];
+  supports: SpecialPatternFactor[];
+  blockers: SpecialPatternFactor[];
+  exceptions?: SpecialPatternFactor[];
+  conflicts?: SpecialPatternFactor[];
+  schoolVariants: Record<string, string>;
+  provenance?: { level: string; project?: string | null; concept: string; note?: string | null }[];
+}
+
 export interface AdvancedAnalysis {
   specialPattern: {
-    cong: { type: string; school: string; status: string; prerequisites: string[];
-            exceptions?: { ruleId: string; text: string }[];
-            supports: { kind: string; ruleId: string; text: string }[];
-            blockers: { kind: string; ruleId: string; text: string }[];
-            conflicts: { kind: string; ruleId: string; text: string }[];
-            schoolVariants: Record<string, string>;
-            provenance: { level: string; concept: string }[];
-          }[];
-    zhuanwang: { type: string; status: string; supports: unknown[]; blockers: unknown[]; schoolVariants: Record<string, string> }[];
-    xushiOuter?: { type: string; status: string; supports: unknown[]; blockers: { text: string }[]; schoolVariants: Record<string, string> }[];
+    cong: SpecialPatternEntry[];
+    zhuanwang: SpecialPatternEntry[];
+    xushiOuter?: SpecialPatternEntry[];
     transformation: { stemPair: string[]; targetElement: string; status: string;
                       seasonSupport: boolean | null; obstructions: string[] }[];
   };
   bingYao: { problems: { type: string; target: string; evidence: string[] }[];
-             medicines: { problem: string; kind: string; target: string; evidence: string[] }[] };
+             medicines: { problem: string; kind: string; target: string; evidence: string[] }[];
+             provenance?: { level: string; project?: string | null; concept: string; note?: string | null }[] };
   tongGuan: { conflictPairs: { conflict: { from: string; to: string }; evidence: string[] }[];
-              bridges: { conflict: { from: string; to: string }; bridge: string; present: boolean; evidence: string[] }[] };
+              bridges: { conflict: { from: string; to: string }; bridge: string; present: boolean;
+                         positions?: string[]; evidence: string[] }[];
+              provenance?: { level: string; project?: string | null; concept: string; note?: string | null }[] };
 }
 
 export interface AnalyzeResponse {

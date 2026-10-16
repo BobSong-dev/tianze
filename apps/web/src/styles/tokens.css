@@ -1,0 +1,146 @@
+/* ============================================================================
+ * Tianze · 天泽 — 设计令牌 (Design Tokens)
+ * ----------------------------------------------------------------------------
+ * 设计方向：东方知识系统 × 现代研究工作台 × 数字古籍
+ *
+ * 视觉语言不靠纹样与装饰，而靠：
+ *   秩序（严格网格与基线）· 层级（字号/字重/色彩的明确阶梯）
+ *   留白（呼吸而非堆叠）· 排印（宋体标题 + 无衬线正文 + 等宽数据）
+ *
+ * 色彩策略：以「墨分五色」为隐喻的**中性阶**为主，朱砂仅作极克制的
+ * 强调（约 2% 面积），青黛承担信息型强调，古铜仅用于细线。
+ * 绝不使用：大红大面积、金色渐变、祥云龙凤八卦、蓝紫 SaaS 渐变。
+ * ========================================================================== */
+
+:root {
+  /* ---- 中性阶：纸 · 墨 ---- */
+  --paper-000: #fdfbf6;   /* 卡片面（最亮） */
+  --paper-050: #f8f4ea;   /* 页面底 */
+  --paper-100: #f3eee1;   /* 分区底 */
+  --paper-200: #ebe4d3;   /* 轨道 / 填充底 */
+  --paper-300: #ded5c0;   /* 强分隔 */
+
+  --ink-900: #14171a;     /* 主文字（近墨） */
+  --ink-700: #2e343a;     /* 标题 */
+  --ink-500: #565e66;     /* 正文次级 */
+  --ink-400: #727a82;     /* 辅助 */
+  --ink-300: #98a0a7;     /* 弱化 / 占位 */
+
+  --line-100: #e8e1d1;    /* 常规分隔线 */
+  --line-200: #d8cfb9;    /* 强分隔 / 卡片边 */
+  --line-300: #c3b79c;    /* 强调边（古铜向） */
+
+  /* ---- 强调色：极克制使用 ---- */
+  --cinnabar-700: #7d2d1d;
+  --cinnabar-600: #9a3626;  /* 朱砂主色：日主 / 主行动 / 印章 */
+  --cinnabar-500: #b04a34;
+  --cinnabar-100: #f4e4de;  /* 朱砂浅底 */
+
+  --indigo-700: #23394a;
+  --indigo-600: #2c4a5e;    /* 青黛：信息型强调 / 结构 */
+  --indigo-500: #3f6379;
+  --indigo-100: #e4ebee;    /* 青黛浅底 */
+
+  --bronze-600: #8a6f45;    /* 古铜：仅细线与小标 */
+  --bronze-300: #c9b795;
+  --bronze-100: #f0e8d8;
+
+  /* ---- 语义状态（沿用后端状态语义，绝不改写含义） ---- */
+  --st-candidate:  #6b6152;  --st-candidate-bg:  #efe9db;  /* CANDIDATE 候选 */
+  --st-likely:     #2c5c42;  --st-likely-bg:     #e3efe7;  /* LIKELY 倾向支持 */
+  --st-disputed:   #7a4a12;  --st-disputed-bg:   #f7ecda;  /* DISPUTED 两说并存 */
+  --st-blocked:    #8d2c22;  --st-blocked-bg:    #f6e4e0;  /* BLOCKED 阻断 */
+  --st-unresolved: #4a5460;  --st-unresolved-bg: #e9ebee;  /* UNRESOLVED 待定 */
+  --st-established:#23394a;  --st-established-bg:#e2e9ed;  /* ESTABLISHED 已确立 */
+  --st-experimental:#5b3a6e; --st-experimental-bg:#efe6f3; /* EXPERIMENTAL 实验性 */
+  --st-supported:  #2c5c42;  --st-supported-bg:  #e3efe7;  /* SUPPORTED 受支持 */
+
+  --ok:  #2c5c42;
+  --warn:#8a5a1c;
+  --err: #8d2c22;
+
+  /* ---- 五行（低饱和矿物色；文字与填充同源） ---- */
+  --wx-wood:  #2f6448;
+  --wx-fire:  #a8402c;
+  --wx-earth: #8a6a34;
+  --wx-metal: #5a6875;
+  --wx-water: #2a4a6b;
+
+  --wx-wood-bg:  #e4efe8;
+  --wx-fire-bg:  #f7e6e1;
+  --wx-earth-bg: #f1e9d7;
+  --wx-metal-bg: #e7ebee;
+  --wx-water-bg: #e2e9f1;
+
+  /* ---- 排印 ---- */
+  --font-display: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "SimSun", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+               "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  /* 字号阶梯 —— 研究工具：正文 14px 起，数据密集但可读 */
+  --t-3xs: 10px;
+  --t-2xs: 11px;
+  --t-xs:  12px;
+  --t-sm:  13px;
+  --t-md:  14px;
+  --t-lg:  16px;
+  --t-xl:  19px;
+  --t-2xl: 24px;
+  --t-3xl: 30px;
+  --t-4xl: 40px;
+  --t-5xl: 56px;
+
+  /* 行高 */
+  --lh-tight: 1.25;
+  --lh-snug: 1.45;
+  --lh-base: 1.7;
+  --lh-loose: 1.85;
+
+  /* 字距 —— 中文标题需要轻微张开 */
+  --ls-tight: -0.01em;
+  --ls-normal: 0;
+  --ls-wide: 0.04em;
+  --ls-wider: 0.12em;
+  --ls-widest: 0.34em;
+
+  /* ---- 间距（4px 基线） ---- */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-5: 20px;  --s-6: 24px;  --s-7: 32px;  --s-8: 40px;
+  --s-9: 56px;  --s-10: 72px; --s-11: 96px; --s-12: 128px;
+
+  /* ---- 形状 ---- */
+  --r-xs: 3px;
+  --r-sm: 5px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-full: 999px;
+
+  /* ---- 层次：以细线为主，阴影极清淡 ---- */
+  --shadow-0: none;
+  --shadow-1: 0 1px 2px rgba(20, 23, 26, 0.04);
+  --shadow-2: 0 2px 8px rgba(20, 23, 26, 0.06);
+  --shadow-3: 0 12px 32px -8px rgba(20, 23, 26, 0.14);
+  --shadow-4: 0 24px 64px -16px rgba(20, 23, 26, 0.22);
+
+  /* ---- 布局 ---- */
+  --sidebar-w: 252px;
+  --topbar-h: 58px;
+  --content-max: 1120px;
+  --rail-w: 236px;
+
+  /* ---- 动效：克制、短促、有目的 ---- */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-1: 110ms;
+  --dur-2: 180ms;
+  --dur-3: 280ms;
+
+  /* ---- 焦点环 ---- */
+  --focus-ring: 0 0 0 2px var(--paper-050), 0 0 0 4px var(--indigo-500);
+}
+
+/* 尊重系统减少动态偏好 */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-1: 0ms; --dur-2: 0ms; --dur-3: 0ms; }
+}

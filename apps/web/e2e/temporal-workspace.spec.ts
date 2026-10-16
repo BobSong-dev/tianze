@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { navigateTo } from "./helpers";
 
 test("temporal workspace: select luck → year → analyze delta", async ({ page }) => {
   await page.goto("/");
@@ -7,7 +8,7 @@ test("temporal workspace: select luck → year → analyze delta", async ({ page
   await page.click("button.submit");
   await expect(page.locator(".pillar-card")).toHaveCount(4, { timeout: 15000 });
 
-  await page.locator("nav.tabs button", { hasText: "时序" }).click();
+  await navigateTo(page, "时序");
   await expect(page.locator("h2", { hasText: "时序工作台" })).toBeVisible();
 
   // 选择大运 → 流年 → 分析
@@ -23,7 +24,8 @@ test("temporal workspace: select luck → year → analyze delta", async ({ page
   await expect(page.locator(".ctx-chip.annual")).toBeVisible();
 
   // 规则触发区渲染（至少 TR-SPZY-28 流年即太岁必触发）
-  await expect(page.locator(".candidate-block").first()).toBeVisible({ timeout: 15000 });
+  await expect(page.locator('[data-testid="rule-triggers"] .row-item').first())
+    .toBeVisible({ timeout: 15000 });
   await expect(page.locator("text=TR-SPZY-28").first()).toBeVisible();
 
   // Delta 区渲染
@@ -39,14 +41,15 @@ test("event themes render with status and disclaimer", async ({ page }) => {
   await page.click("button.submit");
   await expect(page.locator(".pillar-card")).toHaveCount(4, { timeout: 15000 });
 
-  await page.locator("nav.tabs button", { hasText: "时序" }).click();
+  await navigateTo(page, "时序");
   await page.locator(".temporal-controls select").first().selectOption({ index: 1 });
   await page.locator(".temporal-controls select").nth(1).selectOption({ index: 1 });
   await page.click('.temporal-controls button:has-text("分析")');
 
   await expect(page.locator("h3", { hasText: "事件主题" })).toBeVisible({ timeout: 15000 });
   // M41-hotfix：状态徽章中文化（原码保留在 title 悬停），受控词汇表同步更新
-  const badges = await page.locator(".candidate-block .badge").allTextContents();
+  const themeArea = page.locator('[data-testid="event-themes"]');
+  const badges = await themeArea.locator(".badge").allTextContents();
   const statuses = badges.filter(b => ["候选", "倾向支持", "两说并存", "阻断", "待定"].includes(b));
   expect(statuses.length).toBeGreaterThan(0);
   expect(badges).not.toContain("CONFIRMED");
