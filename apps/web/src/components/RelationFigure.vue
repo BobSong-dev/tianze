@@ -6,9 +6,10 @@
  * 合化状态、邻位、月令、化神、阻化等**一律原样呈现**，前端绝不判定化成。
  */
 import StatusBadge from "./StatusBadge.vue";
+import { computed } from "vue";
 import ConditionList from "./ConditionList.vue";
 import Citation from "./Citation.vue";
-import { relationTone, STATUS_MAP } from "../presentation/vocab";
+import { relationTone, relationKindShort, relationKindCn, positionShortCn, STATUS_MAP } from "../presentation/vocab";
 import type { RelationData, RelationExplanationData } from "../types/tianze";
 
 const props = defineProps<{
@@ -27,13 +28,28 @@ function tone(kind: string) {
 
 /** 关系标签的中文键（后端 label 已含"甲己合"等表述，这里只做符号补充） */
 const members = props.relation.members ?? [];
+
+/** 柱位显示为「年·日」而不是 "year · day" */
+function positionsText(): string {
+  return (props.relation.positions ?? []).map(positionShortCn).join(" · ");
+}
+
+/** 连接线内的标签用关系短名（合 / 冲 / 三合 …），避免与行标题重复 */
+const edgeLabel = computed(() => {
+  const short = relationKindShort(props.relation.kind);
+  return short || relationKindCn(props.relation.kind);
+});
 </script>
 
 <template>
   <article class="row-item">
     <div class="row-item-head">
       <span class="row-item-title">{{ props.relation.label }}</span>
-      <StatusBadge :label="(props.relation.positions ?? []).join(' · ')" variant="mute" />
+      <StatusBadge
+        :label="positionsText()"
+        :title="(props.relation.positions ?? []).join(' · ')"
+        variant="mute"
+      />
       <StatusBadge
         v-if="props.relation.adjacency"
         :label="props.relation.adjacency === 'ADJACENT' ? '贴邻' : '隔位'"
@@ -55,8 +71,8 @@ const members = props.relation.members ?? [];
     <!-- 横向示意：参与干支之间的线 + 关系标签 -->
     <div v-if="members.length" class="rel-link mt-3" style="max-width: 320px">
       <span class="rel-glyph">{{ members[0] }}</span>
-      <span class="rel-edge" :class="tone(props.relation.kind)">
-        <span class="rel-edge-label">{{ props.relation.label }}</span>
+      <span class="rel-edge" :class="tone(props.relation.kind)" :title="relationKindCn(props.relation.kind)">
+        <span class="rel-edge-label">{{ edgeLabel }}</span>
       </span>
       <span v-if="members[1]" class="rel-glyph">{{ members[1] }}</span>
       <template v-if="members.length > 2">

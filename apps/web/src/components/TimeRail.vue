@@ -29,7 +29,7 @@ const emit = defineEmits<{ (e: "focus", key: string): void }>();
       type="button"
       role="listitem"
       class="time-stop"
-      :class="{ 'is-active': props.activeKey === s.key }"
+      :class="{ 'is-active': props.activeKey === s.key, 'is-natal': s.key === 'natal' }"
       :disabled="!s.enabled"
       :aria-current="props.activeKey === s.key ? 'step' : undefined"
       @click="emit('focus', s.key)"

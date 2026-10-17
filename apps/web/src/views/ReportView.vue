@@ -14,7 +14,7 @@ import PillarDisplay from "../components/PillarDisplay.vue";
 import ElementBars from "../components/ElementBars.vue";
 import StatusBadge from "../components/StatusBadge.vue";
 import Citation from "../components/Citation.vue";
-import { elementCn, seasonCn as seasonCnShared, STATUS_MAP } from "../presentation/vocab";
+import { elementCn, seasonCn as seasonCnShared, STATUS_MAP, analyzerCn, positionShortCn } from "../presentation/vocab";
 import type { AnalyzeResponse } from "../types/tianze";
 
 const props = defineProps<{
@@ -197,7 +197,7 @@ function jump(id: string) {
         </thead>
         <tbody>
           <tr v-for="m in props.result.strength?.methods ?? []" :key="m.analyzerId">
-            <td class="mono">{{ m.analyzerId }}</td>
+            <td>{{ analyzerCn(m.analyzerId) }}<span class="note-sm mono" style="display:block">{{ m.analyzerId }}</span></td>
             <td>{{ m.verdict ?? "—" }}</td>
             <td>{{ m.confidence ?? "—" }}</td>
             <td class="mono">{{ m.score ?? "—" }}</td>
@@ -267,7 +267,7 @@ function jump(id: string) {
         <li v-for="(r, i) in props.result.relations" :key="i">
           <strong>{{ r.label }}</strong>
           <span class="note-sm">
-            ［{{ r.positions.join(" · ") }}<template v-if="r.adjacency"> · {{ r.adjacency === "ADJACENT" ? "贴邻" : "隔位" }}</template><template v-if="r.monthInvolved"> · 月令</template>］
+            ［{{ r.positions.map(positionShortCn).join(" · ") }}<template v-if="r.adjacency"> · {{ r.adjacency === "ADJACENT" ? "贴邻" : "隔位" }}</template><template v-if="r.monthInvolved"> · 月令</template>］
           </span>
           <div v-if="r.note" class="note-sm">{{ r.note }}</div>
         </li>
@@ -276,7 +276,7 @@ function jump(id: string) {
         <h3 style="font-size: var(--t-md); margin: var(--s-4) 0 var(--s-2)">未成立的候选</h3>
         <ul class="report-sec-body" style="padding-left: 1.2em">
           <li v-for="(r, i) in props.result.blockedRelations" :key="i">
-            {{ r.label }}［{{ r.positions.join(" · ") }}］
+            {{ r.label }}［{{ r.positions.map(positionShortCn).join(" · ") }}］
             <span v-if="r.note" class="note-sm">{{ r.note }}</span>
           </li>
         </ul>

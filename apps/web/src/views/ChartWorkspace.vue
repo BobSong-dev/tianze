@@ -85,16 +85,14 @@ const fallbacks = computed(() => props.result.fallbacks ?? []);
 
 <template>
   <div class="stack stack-6 panel">
-    <!-- 常驻命盘 -->
-    <section>
+    <!-- 命盘：总览页给完整版框；其它页只给一行速览，
+         把首屏让给该页真正的分析内容（同一参照信息，两种密度） -->
+    <section v-if="props.page === 'overview'">
       <div class="sec-sub" style="margin-top: 0">
         <h3>四柱命盘</h3>
         <span class="sec-sub-note">当前命例的参照锚点 · 各页面共用</span>
         <span class="sec-sub-aside">
-          <StatusBadge
-            :label="`${props.result.dayMaster?.stem ?? ''} 日主`"
-            variant="mute"
-          />
+          <StatusBadge :label="`${props.result.dayMaster?.stem ?? ''} 日主`" variant="mute" />
           <StatusBadge
             v-if="props.result.monthCommand"
             :label="`${props.result.monthCommand.monthBranch} 月令`"
@@ -104,6 +102,25 @@ const fallbacks = computed(() => props.result.fallbacks ?? []);
       </div>
       <PillarDisplay :pillars="props.result.pillars" :order="props.order" />
     </section>
+
+    <div v-else class="pillar-line" :aria-label="`四柱速览：日主 ${props.result.dayMaster?.stem ?? ''}`">
+      <span class="pillar-line-label">四柱</span>
+      <div
+        v-for="k in props.order"
+        :key="k"
+        class="pillar-line-item"
+        :class="{ 'is-dm': k === 'day' }"
+      >
+        <span class="pillar-line-pos">{{ ["年", "月", "日", "时"][props.order.indexOf(k)] }}</span>
+        <span class="pillar-line-gz">{{ props.result.pillars[k]?.stem }}{{ props.result.pillars[k]?.branch }}</span>
+        <span class="pillar-line-tg">{{ props.result.pillars[k]?.tenGod ?? "日主" }}</span>
+      </div>
+      <span class="grow" />
+      <span class="pillar-line-meta">
+        {{ props.result.monthCommand?.monthBranch ?? "" }} 月令
+        · 关系 {{ props.result.relations?.length ?? 0 }}
+      </span>
+    </div>
 
     <!-- 注意事项（引擎警告与降级） -->
     <section

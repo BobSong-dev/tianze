@@ -11,7 +11,7 @@ import RelationFigure from "../components/RelationFigure.vue";
 import ConditionList from "../components/ConditionList.vue";
 import Citation from "../components/Citation.vue";
 import StatusBadge from "../components/StatusBadge.vue";
-import { STATUS_MAP } from "../presentation/vocab";
+import { STATUS_MAP, relationKindCn } from "../presentation/vocab";
 import type { AnalyzeResponse, RelationData } from "../types/tianze";
 
 const props = defineProps<{
@@ -28,7 +28,7 @@ const blocked = computed<RelationData[]>(() => props.result.blockedRelations ?? 
 const kindGroups = computed(() => {
   const g = new Map<string, number>();
   for (const r of relations.value) g.set(r.kind, (g.get(r.kind) ?? 0) + 1);
-  return [...g.entries()].map(([k, v]) => ({ kind: k, count: v }));
+  return [...g.entries()].map(([k, v]) => ({ kind: k, label: relationKindCn(k), count: v }));
 });
 
 const statusCounts = computed(() => {
@@ -44,13 +44,16 @@ const statusCounts = computed(() => {
     <section class="verdict">
       <span class="verdict-kicker">关系总览</span>
       <p class="verdict-text">
-        已成立关系 {{ relations.length }} 条<template v-if="blocked.length">，未成立候选 {{ blocked.length }} 条</template>
+        刑冲合害破与天干五合共 {{ relations.length }} 条成立<template v-if="blocked.length">，
+        另有 {{ blocked.length }} 条候选未成立</template>。合化状态
+        {{ props.combinationStates.length }} 项均为候选，不判定化成。
       </p>
       <div class="verdict-meta">
         <StatusBadge
           v-for="g in kindGroups"
           :key="g.kind"
-          :label="`${g.kind} × ${g.count}`"
+          :label="`${g.label} × ${g.count}`"
+          :title="g.kind"
           variant="mute"
         />
         <StatusBadge
@@ -62,8 +65,7 @@ const statusCounts = computed(() => {
         />
       </div>
       <p class="note mt-3">
-        点开任意关系可查看成立条件、流派注记与古籍引文。合化状态为三要素候选，
-        工具永不判定化成。
+        点开任意关系可查看成立条件、流派注记与古籍引文。
       </p>
     </section>
 

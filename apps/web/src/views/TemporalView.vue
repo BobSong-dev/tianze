@@ -13,7 +13,7 @@ import TimeRail from "../components/TimeRail.vue";
 import TimelineTrack from "../components/TimelineTrack.vue";
 import EvidenceCard from "../components/EvidenceCard.vue";
 import StatusBadge from "../components/StatusBadge.vue";
-import { DELTA_KIND_MAP, LAYER_MAP, VIEW_MAP, STATUS_MAP } from "../presentation/vocab";
+import { DELTA_KIND_MAP, LAYER_MAP, VIEW_MAP, STATUS_MAP, deltaTitle, positionCn } from "../presentation/vocab";
 
 const props = defineProps<{
   temporal: any;
@@ -53,6 +53,37 @@ const replaySteps = computed(() => props.temporal?.replay?.steps ?? []);
 const explanations = computed<Record<string, any>>(() => props.temporal?.eventThemes?.explanations ?? {});
 const themes = computed(() => props.temporal?.eventThemes?.themes ?? []);
 const delta = computed(() => props.temporal?.delta);
+
+/** 岁运层级的中文名（引擎给 natal/luck/annual/monthly/daily） */
+const LAYER_CN: Record<string, string> = {
+  natal: "原局", luck: "大运", annual: "流年", monthly: "流月", daily: "流日",
+};
+function layerCn(l?: string | null): string {
+  if (!l) return "";
+  return LAYER_CN[l] ?? l;
+}
+
+/** sources: ["natal","annual"] → "原局 · 流年" */
+function sourcesText(sources?: string[]): string {
+  return (sources ?? []).map(layerCn).join(" · ");
+}
+
+/** positions: "natal:year" → "原局年柱"；未知层级原样返回 */
+function positionText(p: string): string {
+  const [layer, pos] = String(p).split(":");
+  if (!pos) return layerCn(layer);
+  return `${layerCn(layer)}${positionCn(pos)}`;
+}
+
+/** 结构现象类型（引擎用 fuyin / fanyin 等标识） */
+const STRUCTURE_TYPE_CN: Record<string, string> = {
+  fuyin: "伏吟", fanyin: "反吟", "suiyun-binglin": "岁运并临",
+  "tiake-dichong": "天克地冲", "tiandi-hede": "天地合德",
+};
+function structureTypeCn(t?: string | null): string {
+  if (!t) return "";
+  return STRUCTURE_TYPE_CN[t] ?? t;
+}
 
 const contextChips = computed(() => {
   const c = props.temporal?.context;
@@ -238,7 +269,12 @@ function analysisLabel(key: string): string {
           <article v-for="(r, i) in props.temporal.relations" :key="i" class="row-item">
             <div class="row-item-head">
               <span class="row-item-title">{{ r.label }}</span>
-              <StatusBadge :label="(r.sources ?? []).join(' + ')" variant="mute" />
+              <StatusBadge
+                v-if="r.sources?.length"
+                :label="sourcesText(r.sources)"
+                :title="(r.sources ?? []).join(' + ')"
+                variant="mute"
+              />
               <StatusBadge v-if="r.completesHarmony" label="补齐三合" variant="pos" />
               <StatusBadge
                 v-if="r.transformCandidate"
@@ -247,7 +283,7 @@ function analysisLabel(key: string): string {
               />
             </div>
             <p v-if="r.positions?.length" class="row-item-body mono">
-              {{ r.positions.join(" ↔ ") }}
+              {{ (r.positions ?? []).map(positionText).join(" ↔ ") }}
             </p>
             <p v-if="r.note" class="row-item-body">{{ r.note }}</p>
           </article>
@@ -264,10 +300,16 @@ function analysisLabel(key: string): string {
           <article v-for="(s, i) in props.temporal.structures" :key="i" class="row-item">
             <div class="row-item-head">
               <span class="row-item-title">{{ s.label }}</span>
-              <StatusBadge v-if="s.type" :label="s.type" variant="mute" />
+              <StatusBadge
+                v-if="s.type"
+                :label="structureTypeCn(s.type)"
+                :title="s.type"
+                variant="mute"
+              />
               <StatusBadge
                 v-if="s.sources?.length"
-                :label="(s.sources ?? []).join(' + ')"
+                :label="sourcesText(s.sources)"
+                :title="(s.sources ?? []).join(' + ')"
                 variant="mute"
               />
             </div>
@@ -316,11 +358,12 @@ function analysisLabel(key: string): string {
                 v-for="it in items"
                 :key="it.refId + it.kind"
                 :ref-id="it.refId"
-                :title="it.subject"
+                :title="deltaTitle(it.subject)"
                 :tone="it.kind === 'strengthened' || it.kind === 'added' ? 'plus'
                      : it.kind === 'weakened' || it.kind === 'removed' || it.kind === 'blocked' ? 'minus'
                      : 'neutral'"
               >
+                <p class="note-sm mono" style="margin-bottom: var(--s-1)">{{ it.subject }}</p>
                 <div class="row row-2">
                   <StatusBadge
                     :label="DELTA_KIND_MAP[it.kind] ?? it.kind"

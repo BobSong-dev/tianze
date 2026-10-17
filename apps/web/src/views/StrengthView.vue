@@ -184,11 +184,11 @@ const dims = [
   gap: var(--s-3);
 }
 .dim-cell {
-  border: 1px solid var(--line-100);
+  border: none;
   border-top: 2px solid var(--line-200);
-  border-radius: 0 0 var(--r-sm) var(--r-sm);
-  background: var(--paper-050);
-  padding: var(--s-3) var(--s-4);
+  border-radius: 0;
+  background: none;
+  padding: var(--s-3) var(--s-4) var(--s-4) 0;
 }
 .dim-cell.is-met { border-top-color: var(--wx-wood); }
 .dim-cell.is-unmet { border-top-color: var(--wx-fire); }
@@ -201,11 +201,12 @@ const dims = [
 }
 .dim-name {
   font-family: var(--font-display);
-  font-size: var(--t-lg);
+  font-size: var(--t-xl);
   font-weight: 600;
   color: var(--ink-900);
+  letter-spacing: 0.04em;
 }
-.dim-mark { font-family: var(--font-mono); font-weight: 700; }
+.dim-mark { font-family: var(--font-mono); font-weight: 700; font-size: var(--t-md); }
 .dim-cell.is-met .dim-mark { color: var(--wx-wood); }
 .dim-cell.is-unmet .dim-mark { color: var(--wx-fire); }
 .dim-reasons {
@@ -219,8 +220,9 @@ const dims = [
   margin: 0;
   padding: var(--s-3);
   background: var(--paper-100);
-  border: 1px solid var(--line-100);
-  border-radius: var(--r-sm);
+  border: none;
+  border-left: 1px solid var(--line-300);
+  border-radius: 0;
   font-family: var(--font-mono);
   font-size: var(--t-2xs);
   color: var(--ink-700);

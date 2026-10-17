@@ -25,6 +25,8 @@ const t = tianzeStore();
 const ai = aiConfigStore();
 
 const sidebarOpen = ref(false);
+/** 工作区顶部"排盘参数"展开态（默认收起，参数以单行读数呈现） */
+const paramOpen = ref(false);
 
 onMounted(async () => {
   await Promise.all([t.loadMeta(), ai.refresh()]);
@@ -116,6 +118,14 @@ watch(() => t.result.value, (r) => {
   }
 });
 
+/**
+ * 切换工作区时回到页首。
+ * 首页的"开始排盘"按钮在页面下方，若保留滚动位置，进入工作台会落在半截处——必须归位。
+ */
+watch(workspace, () => {
+  window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+});
+
 async function onNavigate(id: string) {
   workspace.value = id as Workspace;
 }
@@ -180,13 +190,28 @@ function printReport() { window.print(); }
       </button>
     </template>
 
-    <!-- 排盘参数：工作区内始终可改（研究者需要反复改流派/时区核对），
-         但以单行密集版式呈现，不与分析内容争夺视觉重心 -->
-    <section class="surface surface-tint no-print" style="margin-bottom: var(--s-6)">
-      <div class="row row-3" style="margin-bottom: var(--s-3)">
-        <span class="badge is-mute">排盘参数</span>
-        <span class="note">调整后点「重新排盘」— 全部推导在本地引擎完成</span>
-      </div>
+    <!-- 排盘参数：一行"仪表读数"，需要改时再展开。
+         研究者常要反复改流派 / 时区核对，但参数区不该占据内容重心。 -->
+    <div class="param-strip no-print">
+      <span class="param-strip-key">排盘参数</span>
+      <span class="param-strip-val">{{ t.state.birth.date }}</span>
+      <span v-if="t.state.birth.timeKnown" class="param-strip-val">{{ t.state.birth.time }}</span>
+      <span v-else class="param-strip-val">时辰未知</span>
+      <span class="param-strip-val">{{ t.state.birth.gender === "male" ? "男" : "女" }}</span>
+      <span class="param-strip-val">
+        UTC{{ t.state.birth.timezoneOffset >= 0 ? "+" : "" }}{{ t.state.birth.timezoneOffset }}
+      </span>
+      <span class="param-strip-val">晚子时流派 {{ t.state.birth.sect }}</span>
+      <span v-if="t.state.birth.longitude != null" class="param-strip-val">
+        经度 {{ t.state.birth.longitude }}
+      </span>
+      <span class="grow" />
+      <button class="btn-link" type="button" @click="paramOpen = !paramOpen">
+        {{ paramOpen ? "收起" : "调整参数" }}
+      </button>
+    </div>
+
+    <div v-if="paramOpen" class="no-print" style="margin-bottom: var(--s-5)">
       <BirthIntake
         :birth="t.state.birth"
         :loading="t.state.loading"
@@ -194,7 +219,7 @@ function printReport() { window.print(); }
         compact
         @submit="onSubmit"
       />
-    </section>
+    </div>
 
     <!-- 岁运时序 -->
     <template v-if="workspace === 'temporal'">

@@ -2,9 +2,11 @@
 /**
  * HomeView — 研究入口。
  *
- * 结构：品牌标识 → 定位 → 四项核心能力 → 研究入口（排盘）→ 研究定位 /
- *       方法边界 / 状态词表。
- * 刻意避免「表单即首页」：首屏是产品与研究定位，排盘是明确的下一步。
+ * 构图：整幅暗色题头（品牌 + 定位 + 二十四节气版刻索引）
+ *   → 纸白区「四部」版刻索引 → 排盘入口 → 研究定位与方法边界 → 状态词表
+ *
+ * 题头右侧的二十四节气不是装饰：月建以「节」为界，这正是引擎定月柱与流月的依据。
+ * 十二「节」提亮、十二「气」压暗，并用一行脚注说明这一关系。
  */
 import BirthIntake from "./BirthIntake.vue";
 import type { BirthForm } from "../composables/useTianze";
@@ -21,6 +23,22 @@ const emit = defineEmits<{
   (e: "configure-ai"): void;
 }>();
 
+/** 二十四节气（顺序即历法顺序）；jie=节（月建之界），qi=气（中气） */
+const SOLAR_TERMS: { name: string; kind: "jie" | "qi" }[] = [
+  { name: "立春", kind: "jie" }, { name: "雨水", kind: "qi" },
+  { name: "惊蛰", kind: "jie" }, { name: "春分", kind: "qi" },
+  { name: "清明", kind: "jie" }, { name: "谷雨", kind: "qi" },
+  { name: "立夏", kind: "jie" }, { name: "小满", kind: "qi" },
+  { name: "芒种", kind: "jie" }, { name: "夏至", kind: "qi" },
+  { name: "小暑", kind: "jie" }, { name: "大暑", kind: "qi" },
+  { name: "立秋", kind: "jie" }, { name: "处暑", kind: "qi" },
+  { name: "白露", kind: "jie" }, { name: "秋分", kind: "qi" },
+  { name: "寒露", kind: "jie" }, { name: "霜降", kind: "qi" },
+  { name: "立冬", kind: "jie" }, { name: "小雪", kind: "qi" },
+  { name: "大雪", kind: "jie" }, { name: "冬至", kind: "qi" },
+  { name: "小寒", kind: "jie" }, { name: "大寒", kind: "qi" },
+];
+
 interface Capability {
   idx: string;
   name: string;
@@ -32,19 +50,19 @@ const CAPABILITIES: Capability[] = [
   {
     idx: "01",
     name: "历法",
-    desc: "节气交界、时区偏移、真太阳时与晚子时流派逐项可核，排盘口径不做黑箱处理。",
+    desc: "节气交界、时区偏移、真太阳时与晚子时流派逐项可核。排盘口径不做黑箱处理。",
     keys: ["节气", "时区", "真太阳时", "晚子时"],
   },
   {
     idx: "02",
     name: "结构",
-    desc: "旺衰三法并列、月令与通根透干、格局与调候、刑冲合害破与合化状态，分歧如实保留。",
+    desc: "旺衰三法并列、月令与通根透干、格局与调候、刑冲合害破与合化状态。分歧如实保留。",
     keys: ["旺衰", "格局", "调候", "关系"],
   },
   {
     idx: "03",
     name: "时序",
-    desc: "大运 → 流年 → 流月 → 流日逐层展开，并以状态回放呈现每一层引入或移除了什么。",
+    desc: "大运、流年、流月、流日逐层展开，并以状态回放呈现每一层引入或移除了什么。",
     keys: ["大运", "流年", "Delta", "Replay"],
   },
   {
@@ -56,12 +74,12 @@ const CAPABILITIES: Capability[] = [
 ];
 
 const STATUS_LEGEND = [
-  { code: "CANDIDATE", term: "候选", desc: "满足部分结构条件，需进一步复核——不是结论。" },
-  { code: "LIKELY", term: "倾向支持", desc: "支持证据占优，仍非确定性判断。" },
-  { code: "DISPUTED", term: "两说并存", desc: "方法或流派存在分歧，两说并列，工具不代为裁决。" },
-  { code: "BLOCKED", term: "阻断", desc: "存在明确阻断条件，该结构不成立——并给出「为什么不成立」。" },
-  { code: "UNRESOLVED", term: "待定", desc: "证据不足，保持未判定状态而非猜测。" },
-  { code: "EXPERIMENTAL", term: "实验性", desc: "岁运参与该计算存在流派分歧，仅作参考。" },
+  { code: "candidate", term: "候选", raw: "CANDIDATE", desc: "满足部分结构条件，需进一步复核——不是结论。" },
+  { code: "likely", term: "倾向支持", raw: "LIKELY", desc: "支持证据占优，仍非确定性判断。" },
+  { code: "disputed", term: "两说并存", raw: "DISPUTED", desc: "方法或流派存在分歧，两说并列，工具不代为裁决。" },
+  { code: "blocked", term: "阻断", raw: "BLOCKED", desc: "存在明确阻断条件，该结构不成立——并给出「为什么不成立」。" },
+  { code: "unresolved", term: "待定", raw: "UNRESOLVED", desc: "证据不足，保持未判定状态而非猜测。" },
+  { code: "experimental", term: "实验性", raw: "EXPERIMENTAL", desc: "岁运参与该计算存在流派分歧，仅作参考。" },
 ];
 
 function toIntake() {
@@ -76,7 +94,7 @@ function toIntake() {
         <span class="brand-seal" aria-hidden="true">泽</span>
         <span class="brand-text">
           <span class="brand-name">天泽</span>
-          <span class="brand-latin">TIANZE</span>
+          <span class="brand-latin">Tianze</span>
         </span>
       </a>
       <div class="topbar-actions">
@@ -85,11 +103,11 @@ function toIntake() {
       </div>
     </header>
 
-    <!-- 首屏 -->
+    <!-- 题头：整幅暗部 -->
     <section class="home-hero" id="top">
-      <div class="home-hero-grid">
+      <div class="home-hero-inner">
         <div>
-          <div class="home-eyebrow">东方历法结构研究工具 · 可追溯推理</div>
+          <div class="home-eyebrow">东方历法结构研究 · 可追溯推理</div>
           <h1 class="home-title">
             天泽
             <span class="home-title-latin">Tianze</span>
@@ -127,30 +145,59 @@ function toIntake() {
           </dl>
         </div>
 
-        <!-- 四项核心能力：编号索引，不是卡片墙 -->
-        <div class="home-index">
-          <div class="home-index-head">
-            <span>核心能力</span>
-            <span>四部</span>
+        <!-- 二十四节气：月建以节为界 -->
+        <aside class="calendar-panel" aria-label="二十四节气">
+          <div class="calendar-head">
+            <span>二十四节气</span>
+            <span>月建以节为界</span>
           </div>
-          <article v-for="c in CAPABILITIES" :key="c.idx" class="home-cap">
-            <span class="home-cap-idx">{{ c.idx }}</span>
-            <div>
-              <h2 class="home-cap-name">{{ c.name }}</h2>
-              <p class="home-cap-desc">{{ c.desc }}</p>
-              <div class="home-cap-keys">
-                <span v-for="k in c.keys" :key="k" class="badge is-mute">{{ k }}</span>
-              </div>
+          <div class="calendar-grid">
+            <span
+              v-for="t in SOLAR_TERMS"
+              :key="t.name"
+              class="calendar-cell"
+              :class="{ 'is-node': t.kind === 'jie' }"
+              :title="t.kind === 'jie' ? `${t.name}（节）` : `${t.name}（气）`"
+            >{{ t.name }}</span>
+          </div>
+          <p class="calendar-foot">
+            亮者为「节」，十二节分定十二月的月柱与流月；暗者为「气」。
+            天泽按节气交接时刻换月，而非按日期换月。
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 四部能力：版刻索引 -->
+    <section class="home-index">
+      <div class="home-index-inner">
+        <div class="sec-head" style="border-bottom-color: var(--ink-900)">
+          <div class="sec-head-top">
+            <span class="sec-head-idx">四部</span>
+            <h2>核心能力</h2>
+          </div>
+          <p class="sec-head-lede">
+            历法、结构、时序、证据——四者互为支撑，缺一层则结论不可追溯。
+          </p>
+        </div>
+
+        <div class="cap-grid">
+          <article v-for="c in CAPABILITIES" :key="c.idx" class="cap">
+            <span class="cap-idx">{{ c.idx }}</span>
+            <h3 class="cap-name">{{ c.name }}</h3>
+            <p class="cap-desc">{{ c.desc }}</p>
+            <div class="cap-keys">
+              <span v-for="k in c.keys" :key="k">{{ k }}</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 研究入口 -->
+    <!-- 排盘入口 -->
     <section class="home-method" id="intake" style="background: var(--paper-050)">
       <div class="home-method-inner">
-        <div class="sec-head" style="border-bottom-color: var(--line-200)">
+        <div class="sec-head">
           <div class="sec-head-top">
             <span class="sec-head-idx">00</span>
             <h2>排盘入口</h2>
@@ -171,7 +218,7 @@ function toIntake() {
     <!-- 研究定位与方法边界 -->
     <section class="home-method">
       <div class="home-method-inner">
-        <div class="sec-head" style="border-bottom-color: var(--line-200)">
+        <div class="sec-head">
           <div class="sec-head-top">
             <span class="sec-head-idx">—</span>
             <h2>研究定位与方法边界</h2>
@@ -181,7 +228,7 @@ function toIntake() {
           </p>
         </div>
 
-        <div class="home-method-grid">
+        <div class="method-grid">
           <div class="method-item">
             <h4>不进行确定性人生预测</h4>
             <p>
@@ -217,10 +264,10 @@ function toIntake() {
           <span class="sec-sub-note">全站受控词汇 · 悬停可见原码</span>
         </div>
         <div class="legend-table">
-          <div v-for="s in STATUS_LEGEND" :key="s.code" class="legend-row">
+          <div v-for="s in STATUS_LEGEND" :key="s.raw" class="legend-row">
             <div class="legend-term">
-              <span class="badge" :class="`st-${s.code.toLowerCase()}`" :title="s.code">{{ s.term }}</span>
-              <span class="mono note-sm">{{ s.code }}</span>
+              <span class="badge" :class="`st-${s.code}`" :title="s.raw">{{ s.term }}</span>
+              <span class="mono note-sm">{{ s.raw }}</span>
             </div>
             <p class="legend-desc">{{ s.desc }}</p>
           </div>

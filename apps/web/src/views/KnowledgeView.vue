@@ -27,6 +27,23 @@ const selectedId = ref<string | null>(props.focusId ?? null);
 const loading = ref(false);
 const graphRef = ref<InstanceType<typeof GraphPanel> | null>(null);
 
+/**
+ * 知识库内部的域 / 指标键是机器标识（event / temporal / grounding …）。
+ * 界面必须给人读的名字；**未收录的键原样显示**，不做猜测。
+ */
+const TERM_CN: Record<string, string> = {
+  event: "事件", temporal: "时序", tenet: "理论", structure: "结构",
+  relation: "关系", pattern: "格局", strength: "旺衰", tiaohou: "调候",
+  special_pattern: "特殊格局", stem_branch: "干支", calendar: "历法",
+  grounding: "事实接地", banned: "违禁词", "disagreement-missing": "分歧缺失",
+  disagreementMissing: "分歧缺失", claimRefs: "引用缺失",
+  latencyMs: "延迟 ms", tokens: "tokens", commit: "提交", engine: "引擎",
+  "strict-disagreement": "严格分歧",
+};
+function termCn(k: string): string {
+  return TERM_CN[k] ?? k;
+}
+
 const rules = computed(() => bundle.value?.rules ?? []);
 const stats = computed(() => bundle.value?.stats ?? null);
 const funnel = computed(() => bundle.value?.funnel ?? null);
@@ -115,7 +132,7 @@ function onSelect(id: string | null) {
           :key="k"
           class="metric"
         >
-          <span class="metric-key">{{ k }}</span>
+          <span class="metric-key">{{ termCn(String(k)) }}</span>
           <span class="metric-val">{{ v }}</span>
           <span class="metric-sub">domain</span>
         </div>
@@ -414,23 +431,23 @@ function onSelect(id: string | null) {
           </summary>
           <div class="metrics mt-3">
             <div class="metric">
-              <span class="metric-key">grounding</span>
+              <span class="metric-key">事实接地</span>
               <span class="metric-val">{{ c.metrics.groundingIssueTotal }}</span>
             </div>
             <div class="metric">
-              <span class="metric-key">banned</span>
+              <span class="metric-key">违禁词</span>
               <span class="metric-val">{{ c.metrics.bannedTotal }}</span>
             </div>
             <div class="metric">
-              <span class="metric-key">disagreement 缺失</span>
+              <span class="metric-key">分歧缺失</span>
               <span class="metric-val">{{ c.metrics.disagreementMissingCount }}</span>
             </div>
             <div class="metric">
-              <span class="metric-key">claim refs</span>
+              <span class="metric-key">引用缺失</span>
               <span class="metric-val">{{ c.metrics.claimRefsUsedAvg }}</span>
             </div>
             <div v-if="c.telemetry" class="metric">
-              <span class="metric-key">latency ms</span>
+              <span class="metric-key">延迟 ms</span>
               <span class="metric-val">{{ c.telemetry.latencyMsAvg }}</span>
             </div>
             <div v-if="c.telemetry" class="metric">
@@ -454,13 +471,13 @@ function onSelect(id: string | null) {
       </div>
       <div class="metrics">
         <div class="metric">
-          <span class="metric-key">commit</span>
+          <span class="metric-key">提交</span>
           <span class="metric-val mono" style="font-size: var(--t-md)">
             {{ (release.metadata.release?.gitCommit || "").slice(0, 12) || "—" }}
           </span>
         </div>
         <div class="metric">
-          <span class="metric-key">engine</span>
+          <span class="metric-key">引擎</span>
           <span class="metric-val mono" style="font-size: var(--t-md)">
             {{ release.metadata.engineVersion }}
           </span>

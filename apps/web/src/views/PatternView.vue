@@ -47,15 +47,16 @@ const groups = computed(() => {
         <template v-else>本次分析未产生格局候选</template>
       </p>
       <div class="verdict-meta">
-        <span v-if="evaluation">综合评估：{{ evaluation.status }}</span>
+        <span v-if="evaluation">
+          综合评估：<b>{{ evaluation.status }}</b>
+        </span>
         <span v-if="candidates.length > 1">候选 {{ candidates.length }} 个 · 不裁决</span>
-        <span class="note">格局候选为结构观察，需结合研究者判断复核</span>
+        <span v-if="candidates.length">格局名称：{{ candidates.map(c => c.name).join("、") }}
+          <span class="note-sm">（候选，需复核）</span>
+        </span>
       </div>
       <p v-if="props.pattern?.note" class="note mt-3">{{ props.pattern.note }}</p>
-      <p v-if="candidates.length" class="note mt-2">
-        格局名称：{{ candidates.map(c => c.name).join("、") }}
-        <span class="note-sm">（候选，需复核）</span>
-      </p>
+      <p class="note mt-2">格局候选为结构观察，需结合研究者判断复核。</p>
     </section>
 
     <!-- 候选并列 -->

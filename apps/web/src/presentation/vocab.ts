@@ -148,6 +148,109 @@ export const POSITION_CN: Record<string, string> = {
   year: '年柱', month: '月柱', day: '日柱', hour: '时柱',
 };
 
+/** 柱位简写（用于关系行内的 "年·日" 这类紧凑标注） */
+export const POSITION_SHORT_CN: Record<string, string> = {
+  year: '年', month: '月', day: '日', hour: '时',
+};
+
+/**
+ * 关系类型 → 中文名。
+ * 引擎把 kind 作为机器标识返回（stem_combination / punishment_pair / …），
+ * 界面必须给它一个人读的名字；**未收录的 kind 原样显示**，不做猜测。
+ */
+export const RELATION_KIND_CN: Record<string, string> = {
+  stem_combination: '天干五合',
+  branch_combination: '地支六合',
+  combination: '合',
+  triple_combination: '三合',
+  directional_combination: '三会',
+  hidden_combination: '暗合',
+  arch: '拱夹',
+  clash: '冲',
+  break: '破',
+  harm: '害',
+  punishment: '刑',
+  punishment_pair: '刑',
+  self_punishment: '自刑',
+  stem_clash: '天干相冲',
+};
+
+/** 关系类型的短名（图内连接线上的标签） */
+export const RELATION_KIND_SHORT_CN: Record<string, string> = {
+  stem_combination: '合',
+  branch_combination: '六合',
+  combination: '合',
+  triple_combination: '三合',
+  directional_combination: '三会',
+  hidden_combination: '暗合',
+  arch: '拱',
+  clash: '冲',
+  break: '破',
+  harm: '害',
+  punishment: '刑',
+  punishment_pair: '刑',
+  self_punishment: '自刑',
+  stem_clash: '冲',
+};
+
+export function relationKindCn(kind?: string | null): string {
+  if (!kind) return '';
+  return RELATION_KIND_CN[kind] ?? kind;
+}
+
+export function relationKindShort(kind?: string | null): string {
+  if (!kind) return '';
+  return RELATION_KIND_SHORT_CN[kind] ?? kind;
+}
+
+export function positionCn(pos?: string | null): string {
+  if (!pos) return '';
+  return POSITION_CN[pos] ?? pos;
+}
+
+export function positionShortCn(pos?: string | null): string {
+  if (!pos) return '';
+  return POSITION_SHORT_CN[pos] ?? pos;
+}
+
+/** 分析器展示名（未收录原样返回） */
+export function analyzerCn(id?: string | null): string {
+  if (!id) return '';
+  return ANALYZER_MAP[id]?.cn ?? id;
+}
+
+/**
+ * Delta 条目的机器标识 → 可读标题。
+ * 例：`temporal:strength:weighted:v1` → `旺衰 · 加权计分`
+ *     `temporal:pattern:damage:PAT-YIN-b1` → `格局 · 破坏（PAT-YIN-b1）`
+ * 只做"把已知片段换成中文"，不做语义推断。
+ */
+const DELTA_GROUP_CN: Record<string, string> = {
+  strength: '旺衰',
+  pattern: '格局',
+  relations: '关系',
+  structure: '结构',
+  tiaohou: '调候',
+  special_pattern: '特殊格局',
+  temporal: '岁运',
+  element: '五行',
+};
+
+export function deltaTitle(id?: string | null): string {
+  if (!id) return '';
+  const raw = id.startsWith('temporal:') ? id.slice('temporal:'.length) : id;
+  const parts = raw.split(':').filter(Boolean);
+  if (!parts.length) return id;
+  const head = DELTA_GROUP_CN[parts[0]] ?? parts[0];
+  const rest = parts.slice(1).map(p => {
+    if (DELTA_GROUP_CN[p]) return DELTA_GROUP_CN[p];
+    if (ANALYZER_MAP[p]) return ANALYZER_MAP[p].cn;
+    if (p === 'v1') return '';
+    return p;
+  }).filter(Boolean);
+  return rest.length ? `${head} · ${rest.join(" · ")}` : head;
+}
+
 /** 关系类型 → 图形语义分组（仅决定线条配色，不改变关系含义） */
 export function relationTone(kind: string): 'harmony' | 'clash' | 'punish' | 'plain' {
   const k = (kind || '').toUpperCase();
