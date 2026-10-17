@@ -79,10 +79,10 @@ watch(() => props.open, (v) => { if (v) void ai.refresh(); });
             @click="ai.pickPreset(p)"
           >
             <span class="prov-name">{{ p.name }}</span>
-            <span class="prov-url">{{ p.baseUrl || '— 自定义端点 —' }}</span>
+            <span class="prov-url" :title="p.baseUrl || '自定义端点'">{{ p.baseUrl || "— 自定义端点 —" }}</span>
             <span class="prov-flag">
-              {{ p.verified ? '已验证' : '预设（未逐一实测）' }}
-              <template v-if="p.allowLocal"> · 允许本机地址</template>
+              {{ p.verified ? "已验证" : "预设（未逐一实测）" }}
+              <template v-if="p.allowLocal"> · 本机地址</template>
             </span>
           </button>
         </div>

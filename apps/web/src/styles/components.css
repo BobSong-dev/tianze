@@ -1293,7 +1293,7 @@
 .graph-svg {
   display: block;
   width: 100%;
-  height: clamp(340px, 50vh, 560px);
+  height: clamp(420px, 58vh, 600px);
   touch-action: none;
   user-select: none;
   cursor: grab;
@@ -1303,11 +1303,44 @@
 .graph-node circle { transition: r var(--dur-2) var(--ease-out); }
 .graph-label {
   font-family: var(--font-body);
-  font-size: 9px;
+  font-size: 10px;
   fill: var(--ink-500);
   pointer-events: none;
 }
+.graph-node.is-isolated .graph-label { fill: var(--ink-300); }
 .graph-node.is-selected .graph-label { fill: var(--ink-900); font-weight: 600; }
+
+/* 悬停提示：被标签避让隐藏的节点在此完整显示 */
+.graph-tip {
+  position: absolute;
+  left: var(--s-3);
+  bottom: var(--s-3);
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  max-width: calc(100% - 2 * var(--s-3));
+  padding: 4px var(--s-3);
+  background: rgba(253, 251, 246, 0.97);
+  border: 1px solid var(--line-300);
+  pointer-events: none;
+}
+.graph-tip-id {
+  font-size: 9px;
+  color: var(--indigo-700);
+  letter-spacing: 0.02em;
+}
+.graph-tip-label {
+  font-family: var(--font-display);
+  font-size: var(--t-sm);
+  color: var(--ink-900);
+}
+.graph-tip-meta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--ink-300);
+  letter-spacing: 0.04em;
+}
 .graph-hint {
   position: absolute;
   right: var(--s-3);
@@ -1319,6 +1352,21 @@
   padding: 2px 7px;
   pointer-events: none;
   font-family: var(--font-mono);
+}
+
+/* 折叠说明：放在画布与图例之间，不遮挡节点 */
+.graph-fold-line {
+  padding: var(--s-2) var(--s-3);
+  border-top: 1px solid var(--line-100);
+  font-size: var(--t-2xs);
+  line-height: 1.65;
+  color: var(--ink-400);
+  background: var(--paper-100);
+}
+.graph-fold-line b {
+  color: var(--ink-700);
+  font-family: var(--font-mono);
+  font-weight: 700;
 }
 .graph-legend {
   display: flex;
@@ -1601,7 +1649,7 @@
 }
 .modal {
   width: min(680px, 100%);
-  max-height: min(88vh, 860px);
+  max-height: min(94vh, 900px);
   display: flex;
   flex-direction: column;
   background: var(--paper-050);
@@ -1617,7 +1665,7 @@
   display: flex;
   align-items: flex-start;
   gap: var(--s-3);
-  padding: var(--s-5) var(--s-6) var(--s-4);
+  padding: var(--s-4) var(--s-6) var(--s-4);
   border-bottom: none;
   background: var(--ink-surface);
   color: var(--ink-surface-text);
@@ -1672,16 +1720,16 @@
 /* Provider 卡：方角、细线，选中用朱砂左刻痕 */
 .prov-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(186px, 1fr));
   gap: 0;
   border-top: 1px solid var(--line-300);
 }
 .prov-card {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
   align-items: flex-start;
-  padding: var(--s-3) var(--s-3);
+  padding: var(--s-2) var(--s-3);
   background: none;
   border: none;
   border-bottom: 1px solid var(--line-100);
@@ -1698,18 +1746,23 @@
 }
 .prov-name {
   font-family: var(--font-display);
-  font-size: var(--t-md);
+  font-size: var(--t-sm);
   font-weight: 600;
   color: var(--ink-900);
+  line-height: 1.35;
 }
+/* 单行省略：完整端点见 title，避免卡片被 URL 撑高 */
 .prov-url {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 8.5px;
   color: var(--ink-300);
-  word-break: break-all;
-  line-height: 1.45;
+  line-height: 1.5;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.prov-flag { font-size: 9px; color: var(--ink-400); }
+.prov-flag { font-size: 8.5px; color: var(--ink-400); line-height: 1.5; }
 
 .field { display: flex; flex-direction: column; gap: 4px; }
 .field + .field { margin-top: var(--s-3); }
