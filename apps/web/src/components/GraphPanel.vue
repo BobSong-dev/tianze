@@ -51,12 +51,12 @@ const LABEL_FS = 10;
 const DOMAIN_ORDER = ["predicate", "event", "tenet", "temporal", "tiaohou", "structure", "relation"];
 
 const DOMAIN_COLOR: Record<string, string> = {
-  event: "#a8402c",     /* 事件域 · 朱砂系 */
-  temporal: "#2c4a5e",  /* 岁运域 · 青黛系 */
-  tiaohou: "#2f6448",   /* 调候域 · 木系 */
-  tenet: "#6b5a3e",     /* 理论条目 · 赭石系 */
-  predicate: "#7a4a12", /* 救应谓词 */
-  default: "#727a82",
+  event: "#dc2626",     /* 事件域 · 绯红 */
+  temporal: "#2563eb",  /* 岁运域 · 蓝黛 */
+  tiaohou: "#059669",   /* 调候域 · 翠绿 */
+  tenet: "#d97706",     /* 理论条目 · 琥珀 */
+  predicate: "#7c3aed", /* 救应谓词 · 罗兰 */
+  default: "#64748b",   /* 默认 · 石板灰 */
 };
 
 const DOMAIN_CN: Record<string, string> = {
@@ -329,10 +329,10 @@ function colorOf(n: any): string {
 }
 
 function edgeStroke(type: string): string {
-  if (type === "conflict") return "#8d2c22";
-  if (type === "rescues") return "#2f6448";
-  if (type === "school-conflict") return "#7a4a12";
-  return "#98a0a7";
+  if (type === "conflict") return "#dc2626";
+  if (type === "rescues") return "#059669";
+  if (type === "school-conflict") return "#d97706";
+  return "#94a3b8";
 }
 
 defineExpose({ reset });
@@ -381,7 +381,7 @@ defineExpose({ reset });
         <ellipse
           v-for="(r, i) in layout.rings" :key="`ring${i}`"
           :cx="CANVAS.cx" :cy="CANVAS.cy" :rx="r.rx" :ry="r.ry"
-          fill="none" stroke="#e4dbc8" stroke-width="1"
+          fill="none" stroke="#cbd5e1" stroke-width="1"
         />
         <line
           v-for="(e, i) in drawnEdges" :key="`e${i}`"
@@ -404,7 +404,7 @@ defineExpose({ reset });
           <circle
             :r="n.type === 'predicate' ? 5 : n.selected ? 10.5 : n.degree > 0 ? 8 : 6"
             :fill="colorOf(n)"
-            :stroke="n.selected ? '#14171a' : '#fdfbf6'"
+            :stroke="n.selected ? '#0f172a' : '#ffffff'"
             :stroke-width="n.selected ? 2.4 : 1.6"
           />
           <text

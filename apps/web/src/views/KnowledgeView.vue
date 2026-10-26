@@ -1,17 +1,24 @@
 <script setup lang="ts">
 /**
- * KnowledgeView — 知识工作台。
+ * KnowledgeView — 知识与质量工作台。
  *
- * 定位：Source ↔ Rule ↔ Conflict ↔ Case 的**只读导航**。
- * 纪律：不复制推理逻辑；规则图与命例索引均来自后端；
- *       冲突密度、覆盖率、审计门等指标原样呈现，不做解读性加工。
+ * 定位：Source ↔ Rule ↔ Conflict ↔ Case 的只读科研导航。
+ * 架构：
+ *  - 顶部指标仪表带：快速感知知识库规模与审计门状态
+ *  - 标签式科研分区：
+ *    1. 规则关系图谱 (GraphPanel & 节点详情)
+ *    2. 规则目录检索 (Rule Directory, 分页与领域检索)
+ *    3. 知识漏斗与指标 (Funnel & Domain Breakdown)
+ *    4. 审计门与覆盖率 (Audit Gates & Case Coverage)
+ *    5. AI 评测对比 (Deterministic Evaluation Benchmarks)
+ *    6. 复核队列与发布 (Review Queue & Release Info)
  */
 import { computed, onMounted, ref, watch } from "vue";
 import GraphPanel from "../components/GraphPanel.vue";
 import RuleCard from "../components/RuleCard.vue";
 import StatusBadge from "../components/StatusBadge.vue";
 import { loadKnowledgeBundle, loadKnowledgeGraph } from "../api/tianze";
-import { VIEW_MAP, PROVENANCE_MAP } from "../presentation/vocab";
+import { PROVENANCE_MAP } from "../presentation/vocab";
 
 const props = defineProps<{
   /** 由关系 / 时序页跳转注入的规则号 */
@@ -27,10 +34,9 @@ const selectedId = ref<string | null>(props.focusId ?? null);
 const loading = ref(false);
 const graphRef = ref<InstanceType<typeof GraphPanel> | null>(null);
 
-/**
- * 知识库内部的域 / 指标键是机器标识（event / temporal / grounding …）。
- * 界面必须给人读的名字；**未收录的键原样显示**，不做猜测。
- */
+type KnowledgeTab = "graph" | "rules" | "funnel" | "gates" | "eval" | "review";
+const activeTab = ref<KnowledgeTab>("graph");
+
 const TERM_CN: Record<string, string> = {
   event: "事件", temporal: "时序", tenet: "理论", structure: "结构",
   relation: "关系", pattern: "格局", strength: "旺衰", tiaohou: "调候",
@@ -71,17 +77,11 @@ const filtered = computed(() => {
 const selectedRule = computed(() =>
   rules.value.find((r: any) => r.id === selectedId.value) ?? null);
 
-/**
- * 分页：默认只渲染一屏可见量。
- * 数百条规则一次性铺开会把页面拉成长卷，反而降低"快速找到目标"的能力；
- * 这里以检索为主、翻页为辅。
- */
 const PAGE_SIZE = 36;
 const visibleCount = ref(PAGE_SIZE);
 const pagedRules = computed(() => filtered.value.slice(0, visibleCount.value));
 const hasMore = computed(() => filtered.value.length > visibleCount.value);
 
-// 检索条件变化时回到第一页
 watch([search, domain], () => { visibleCount.value = PAGE_SIZE; });
 
 async function load() {
@@ -94,10 +94,12 @@ async function load() {
 }
 
 onMounted(load);
+
 watch(() => props.focusId, (v) => {
   if (v) {
     selectedId.value = v;
     search.value = v;
+    activeTab.value = "graph";
     void load();
   }
 });
@@ -109,100 +111,133 @@ watch(() => selectedId.value, (v) => {
 function onSelect(id: string | null) {
   selectedId.value = id === selectedId.value ? null : id;
 }
+
+function switchToRules(id?: string) {
+  if (id) {
+    selectedId.value = id;
+    search.value = id;
+  }
+  activeTab.value = "rules";
+}
 </script>
 
 <template>
-  <div class="stack stack-6">
-    <!-- 知识库规模 -->
-    <section v-if="stats">
-      <div class="sec-sub" style="margin-top: 0">
-        <h3>知识库规模</h3>
-        <span class="sec-sub-note">
-          候选规则与可执行规则是不同口径，此处分别列出，不做合并
-        </span>
-      </div>
+  <div class="stack stack-5">
+    <!-- 顶层科研指标带 -->
+    <section v-if="stats" class="surface surface-tint">
       <div class="metrics">
         <div class="metric">
           <span class="metric-key">可执行规则</span>
-          <span class="metric-val">{{ stats.executableTotal }}</span>
+          <span class="metric-val mono">{{ stats.executableTotal }}</span>
           <span class="metric-sub">ExecutableRule</span>
-        </div>
-        <div
-          v-for="(v, k) in stats.executableByDomain"
-          :key="k"
-          class="metric"
-        >
-          <span class="metric-key">{{ termCn(String(k)) }}</span>
-          <span class="metric-val">{{ v }}</span>
-          <span class="metric-sub">domain</span>
         </div>
         <div v-if="stats.candidateTotal != null" class="metric">
           <span class="metric-key">候选规则</span>
-          <span class="metric-val">{{ stats.candidateTotal }}</span>
+          <span class="metric-val mono">{{ stats.candidateTotal }}</span>
           <span class="metric-sub">候选 ≠ 可执行</span>
+        </div>
+        <div v-if="funnel?.funnel" class="metric">
+          <span class="metric-key">来源古籍</span>
+          <span class="metric-val mono">{{ funnel.funnel.sources }}</span>
+          <span class="metric-sub">Sources</span>
+        </div>
+        <div v-if="coverage" class="metric">
+          <span class="metric-key">质量审计门</span>
+          <span class="metric-val" :style="{ color: coverage.allPass ? 'var(--st-likely)' : 'var(--st-blocked)' }">
+            {{ coverage.allPass ? 'ALL PASS' : 'FAIL' }}
+          </span>
+          <span class="metric-sub">10 项自动化质检门</span>
+        </div>
+        <div v-if="review.length" class="metric">
+          <span class="metric-key">复核队列</span>
+          <span class="metric-val mono">{{ review.length }}</span>
+          <span class="metric-sub">需人工核实条目</span>
         </div>
       </div>
     </section>
 
-    <!-- 规则检索 -->
-    <section>
+    <!-- 工作台导航切换标签 -->
+    <div class="kw-tab-bar" role="tablist">
+      <button
+        type="button"
+        class="kw-tab-btn"
+        :class="{ 'is-active': activeTab === 'graph' }"
+        role="tab"
+        :aria-selected="activeTab === 'graph'"
+        @click="activeTab = 'graph'"
+      >
+        <span class="kw-tab-idx">01</span>
+        <span>规则关系图谱</span>
+      </button>
+
+      <button
+        type="button"
+        class="kw-tab-btn"
+        :class="{ 'is-active': activeTab === 'rules' }"
+        role="tab"
+        :aria-selected="activeTab === 'rules'"
+        @click="activeTab = 'rules'"
+      >
+        <span class="kw-tab-idx">02</span>
+        <span>规则目录检索</span>
+        <span class="kw-tab-badge mono">{{ filtered.length }}</span>
+      </button>
+
+      <button
+        type="button"
+        class="kw-tab-btn"
+        :class="{ 'is-active': activeTab === 'funnel' }"
+        role="tab"
+        :aria-selected="activeTab === 'funnel'"
+        @click="activeTab = 'funnel'"
+      >
+        <span class="kw-tab-idx">03</span>
+        <span>知识规模与漏斗</span>
+      </button>
+
+      <button
+        type="button"
+        class="kw-tab-btn"
+        :class="{ 'is-active': activeTab === 'gates' }"
+        role="tab"
+        :aria-selected="activeTab === 'gates'"
+        @click="activeTab = 'gates'"
+      >
+        <span class="kw-tab-idx">04</span>
+        <span>审计门与覆盖率</span>
+      </button>
+
+      <button
+        type="button"
+        class="kw-tab-btn"
+        :class="{ 'is-active': activeTab === 'eval' }"
+        role="tab"
+        :aria-selected="activeTab === 'eval'"
+        @click="activeTab = 'eval'"
+      >
+        <span class="kw-tab-idx">05</span>
+        <span>AI 评测对比</span>
+      </button>
+
+      <button
+        type="button"
+        class="kw-tab-btn"
+        :class="{ 'is-active': activeTab === 'review' }"
+        role="tab"
+        :aria-selected="activeTab === 'review'"
+        @click="activeTab = 'review'"
+      >
+        <span class="kw-tab-idx">06</span>
+        <span>复核队列与发布</span>
+      </button>
+    </div>
+
+    <!-- 01 规则关系图谱 (主视图) -->
+    <section v-show="activeTab === 'graph'">
       <div class="sec-sub" style="margin-top: 0">
-        <h3>规则检索</h3>
-        <span class="sec-sub-note">按 id / 标签 / 主题 / 候选号检索</span>
-        <span class="sec-sub-aside">
-          <StatusBadge :label="`${filtered.length} / ${rules.length}`" variant="mute" />
-        </span>
-      </div>
-
-      <div class="toolbar" style="margin-bottom: var(--s-4)">
-        <label class="field grow">
-          <span class="field-label">检索</span>
-          <input v-model="search" type="search" placeholder="例如 EV-CAR-01 / 官星 / career" />
-        </label>
-        <label class="field">
-          <span class="field-label">领域</span>
-          <select v-model="domain">
-            <option value="all">全部</option>
-            <option v-for="d in domains" :key="d" :value="d">{{ d }}</option>
-          </select>
-        </label>
-        <button v-if="search || domain !== 'all'" class="btn-sm" type="button" @click="search = ''; domain = 'all'">
-          清除
-        </button>
-      </div>
-
-      <p v-if="loading" class="empty">正在载入知识库…</p>
-      <div v-else class="rule-list">
-        <RuleCard
-          v-for="r in pagedRules"
-          :key="r.id"
-          :rule="r"
-          :selected="selectedId === r.id"
-          @select="onSelect"
-        />
-      </div>
-      <p v-if="!loading && !filtered.length" class="empty">无匹配规则。</p>
-      <div v-if="hasMore" class="row row-3 mt-4">
-        <button
-          class="btn-sm"
-          type="button"
-          @click="visibleCount += PAGE_SIZE"
-        >再显示 {{ Math.min(PAGE_SIZE, filtered.length - visibleCount) }} 条</button>
-        <span class="note">
-          已显示 {{ pagedRules.length }} / {{ filtered.length }} 条
-        </span>
-      </div>
-      <p v-else-if="filtered.length" class="note mt-3">
-        已显示全部 {{ filtered.length }} 条。
-      </p>
-    </section>
-
-    <!-- 规则关系图 -->
-    <section>
-      <div class="sec-sub" style="margin-top: 0">
-        <h3>规则关系图</h3>
+        <h3>规则关系图 (Rule Graph)</h3>
         <span class="sec-sub-note">
-          节点按 domain 分层铺设；边为后端声明的 conflict / rescues / school-conflict
+          节点按 domain 分层椭圆布局；边为后端 conflict / rescues / school-conflict 声明
         </span>
       </div>
 
@@ -214,18 +249,18 @@ function onSelect(id: string | null) {
           @select="onSelect"
         />
 
-        <!-- 节点研究成果面板 -->
+        <!-- 节点研究详情面板 -->
         <aside class="graph-detail">
           <template v-if="selectedRule">
             <div class="row row-2">
               <StatusBadge :code="selectedRule.id" variant="rule" />
               <StatusBadge :label="selectedRule.domain" variant="mute" />
             </div>
-            <p class="rule-card-label" style="font-size: var(--t-md); color: var(--ink-900)">
+            <p class="rule-card-label" style="font-size: var(--t-md); color: var(--ink-900); margin-top: 6px">
               {{ selectedRule.label }}
             </p>
 
-            <dl class="report-dl mt-4">
+            <dl class="report-dl mt-3">
               <dt>来源</dt>
               <dd>{{ selectedRule.source?.book || "—" }}</dd>
               <dt>主题</dt>
@@ -238,7 +273,7 @@ function onSelect(id: string | null) {
 
             <div v-if="selectedRule.provenanceLevels?.length" class="mt-3">
               <div class="note-sm" style="margin-bottom: 4px">溯源层级</div>
-              <div class="row row-1">
+              <div class="row row-1" style="flex-wrap: wrap">
                 <StatusBadge
                   v-for="lv in selectedRule.provenanceLevels"
                   :key="lv"
@@ -249,12 +284,12 @@ function onSelect(id: string | null) {
               </div>
             </div>
 
-            <div v-if="selectedRule.normalizationNotes" class="notice mt-4">
-              <span class="notice-key">归一化口径</span>
+            <div v-if="selectedRule.normalizationNotes" class="notice mt-3">
+              <span class="notice-key">归一化</span>
               <span>{{ selectedRule.normalizationNotes }}</span>
             </div>
 
-            <div v-if="selectedRule.conflictNeighbors?.length" class="mt-4">
+            <div v-if="selectedRule.conflictNeighbors?.length" class="mt-3">
               <div class="note-sm" style="margin-bottom: 4px">冲突 / 救应邻接</div>
               <div class="stack stack-1">
                 <div
@@ -274,8 +309,8 @@ function onSelect(id: string | null) {
 
             <p v-if="selectedRule.conflictNote" class="note mt-3">⚠ {{ selectedRule.conflictNote }}</p>
 
-            <details v-if="selectedRule.conditions?.length" class="mt-4">
-              <summary>成立条件（ExplanationChain 条件层）</summary>
+            <details v-if="selectedRule.conditions?.length" class="mt-3">
+              <summary>成立条件（{{ selectedRule.conditions.length }} 项）</summary>
               <div class="stack stack-1 mt-2">
                 <p v-for="(cd, i) in selectedRule.conditions" :key="i" class="note mono">
                   {{ cd.field }} {{ cd.operator }}
@@ -284,15 +319,15 @@ function onSelect(id: string | null) {
               </div>
             </details>
 
-            <details v-if="selectedRule.replaySamples?.length" class="mt-4">
-              <summary>重放命例（Rule → Case，最多 {{ selectedRule.replaySamples.length }} 条）</summary>
+            <details v-if="selectedRule.replaySamples?.length" class="mt-3">
+              <summary>重放命例（Rule → Case，共 {{ selectedRule.replaySamples.length }} 例）</summary>
               <div class="stack stack-2 mt-2">
                 <div v-for="(rc, i) in selectedRule.replaySamples" :key="i" class="ev evidence-item is-quiet">
                   <span class="ev-mark">·</span>
                   <span class="ev-body">
                     <span class="mono">{{ rc.caseId }}</span>
                     <span class="note-sm">（{{ rc.book }}·{{ rc.luck || "原局" }}{{ rc.annual ? "→" + rc.annual : "" }}）</span>
-                    <div class="mt-2 row row-1">
+                    <div class="mt-1 row row-1">
                       <StatusBadge :label="rc.theme" variant="mute" />
                       <StatusBadge
                         :label="rc.relation"
@@ -311,67 +346,149 @@ function onSelect(id: string | null) {
               </div>
             </details>
 
-            <p v-if="selectedRule.randomTriggerRate != null" class="note mt-3">
-              随机盘触发率 {{ (selectedRule.randomTriggerRate * 100).toFixed(1) }}%
-            </p>
+            <div class="mt-3 row between">
+              <span v-if="selectedRule.randomTriggerRate != null" class="note mono">
+                随机盘触发 {{ (selectedRule.randomTriggerRate * 100).toFixed(1) }}%
+              </span>
+              <button class="btn-link" type="button" @click="switchToRules(selectedRule.id)">
+                在目录中定位 →
+              </button>
+            </div>
           </template>
 
-          <div v-else class="stack stack-2">
-            <p class="note">
-              点击图中节点或左侧规则卡，可在此查看该规则的身份、溯源层级、
-              冲突邻接与重放命例。
+          <div v-else class="stack stack-2" style="padding: var(--s-4) var(--s-2); text-align: center">
+            <p class="note" style="color: var(--ink-700); font-weight: 600">
+              点击图中节点或下方规则卡
             </p>
             <p class="note-sm">
-              颜色对应 domain（事件 / 岁运 / 调候 / 救应谓词），线的样式对应边型。
+              在此查看规则身份、溯源层级、成立条件、冲突邻接与历史重放命例。
             </p>
+            <div class="note-sm" style="margin-top: var(--s-2)">
+              节点颜色对应领域，连线样式区分冲突、救应与流派分歧。
+            </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- 质量与覆盖 -->
-    <section v-if="funnel || coverage">
+    <!-- 02 规则目录检索 -->
+    <section v-show="activeTab === 'rules'">
       <div class="sec-sub" style="margin-top: 0">
-        <h3>质量与覆盖</h3>
-        <span class="sec-sub-note">知识库漏斗、未触发规则与审计门（原样呈现）</span>
+        <h3>规则名录检索</h3>
+        <span class="sec-sub-note">按规则 ID / 标签 / 领域 / 主题关键字即时检索</span>
+        <span class="sec-sub-aside">
+          <StatusBadge :label="`${filtered.length} / ${rules.length}`" variant="mute" />
+        </span>
       </div>
 
+      <div class="toolbar" style="margin-bottom: var(--s-4)">
+        <label class="field grow">
+          <span class="field-label">关键字检索</span>
+          <input v-model="search" type="search" placeholder="例如 EV-CAR-01 / 官星 / career / 伏吟" />
+        </label>
+        <label class="field" style="min-width: 140px">
+          <span class="field-label">所属领域</span>
+          <select v-model="domain">
+            <option value="all">全部领域</option>
+            <option v-for="d in domains" :key="d" :value="d">{{ termCn(d) }} ({{ d }})</option>
+          </select>
+        </label>
+        <button v-if="search || domain !== 'all'" class="btn-sm" type="button" @click="search = ''; domain = 'all'">
+          清除筛选
+        </button>
+      </div>
+
+      <p v-if="loading" class="empty">正在载入规则库…</p>
+      <div v-else class="rule-list">
+        <RuleCard
+          v-for="r in pagedRules"
+          :key="r.id"
+          :rule="r"
+          :selected="selectedId === r.id"
+          @select="onSelect"
+        />
+      </div>
+      <p v-if="!loading && !filtered.length" class="empty">无匹配规则。</p>
+      <div v-if="hasMore" class="row row-3 mt-4">
+        <button
+          class="btn-sm btn-primary"
+          type="button"
+          @click="visibleCount += PAGE_SIZE"
+        >再显示 {{ Math.min(PAGE_SIZE, filtered.length - visibleCount) }} 条</button>
+        <span class="note">
+          已显示 {{ pagedRules.length }} / {{ filtered.length }} 条
+        </span>
+      </div>
+      <p v-else-if="filtered.length" class="note mt-3">
+        已显示全部 {{ filtered.length }} 条。
+      </p>
+    </section>
+
+    <!-- 03 知识规模与漏斗 -->
+    <section v-show="activeTab === 'funnel'">
+      <div class="sec-sub" style="margin-top: 0">
+        <h3>知识库规模与领域分布</h3>
+      </div>
+      <div v-if="stats" class="metrics">
+        <div
+          v-for="(v, k) in stats.executableByDomain"
+          :key="k"
+          class="metric"
+        >
+          <span class="metric-key">{{ termCn(String(k)) }}</span>
+          <span class="metric-val mono">{{ v }}</span>
+          <span class="metric-sub">{{ k }} domain</span>
+        </div>
+      </div>
+
+      <div class="sec-sub" style="margin-top: var(--s-6)">
+        <h3>知识工程漏斗 (Knowledge Funnel)</h3>
+        <span class="sec-sub-note">古籍出处 → 候选规则 → 引擎可执行规则的转化链路</span>
+      </div>
       <div v-if="funnel?.funnel" class="funnel">
         <div class="funnel-stage">
-          <div class="funnel-key">Source</div>
-          <div class="funnel-val">{{ funnel.funnel.sources }}</div>
+          <div class="funnel-key">Sources</div>
+          <div class="funnel-val mono">{{ funnel.funnel.sources }}</div>
           <div class="funnel-sub">古籍来源</div>
         </div>
         <div class="funnel-stage">
-          <div class="funnel-key">Candidate</div>
-          <div class="funnel-val">{{ funnel.funnel.candidates }}</div>
+          <div class="funnel-key">Candidates</div>
+          <div class="funnel-val mono">{{ funnel.funnel.candidates }}</div>
           <div class="funnel-sub">候选规则</div>
         </div>
         <div class="funnel-stage">
           <div class="funnel-key">Executable</div>
-          <div class="funnel-val">{{ funnel.funnel.executable }}</div>
-          <div class="funnel-sub">可执行规则</div>
+          <div class="funnel-val mono">{{ funnel.funnel.executable }}</div>
+          <div class="funnel-sub">引擎可执行规则</div>
         </div>
         <div class="funnel-stage">
-          <div class="funnel-key">未用候选</div>
-          <div class="funnel-val">{{ funnel.candidatesUnused }}</div>
+          <div class="funnel-key">Unused Candidates</div>
+          <div class="funnel-val mono">{{ funnel.candidatesUnused }}</div>
           <div class="funnel-sub">尚未进入引擎</div>
         </div>
         <div class="funnel-stage">
-          <div class="funnel-key">未触发</div>
-          <div class="funnel-val">{{ funnel.neverTriggered }}</div>
-          <div class="funnel-sub">never-triggered</div>
+          <div class="funnel-key">Never Triggered</div>
+          <div class="funnel-val mono">{{ funnel.neverTriggered }}</div>
+          <div class="funnel-sub">全命例未触发数</div>
         </div>
         <div class="funnel-stage">
-          <div class="funnel-key">冲突密度</div>
-          <div class="funnel-val">{{ funnel.conflictDensity }}</div>
-          <div class="funnel-sub">conflict density</div>
+          <div class="funnel-key">Conflict Density</div>
+          <div class="funnel-val mono">{{ funnel.conflictDensity }}</div>
+          <div class="funnel-sub">冲突密度指数</div>
         </div>
       </div>
+    </section>
 
-      <div v-if="coverage?.gates" class="surface mt-4">
+    <!-- 04 审计门与覆盖率 -->
+    <section v-show="activeTab === 'gates'">
+      <div class="sec-sub" style="margin-top: 0">
+        <h3>质量审计门 (Quality Assurance Gates)</h3>
+        <span class="sec-sub-note">规则完整性、古籍出处与事实推演自动化质量门</span>
+      </div>
+
+      <div v-if="coverage?.gates" class="surface">
         <div class="row between" style="margin-bottom: var(--s-3)">
-          <h4 style="font-family: var(--font-display)">审计门</h4>
+          <h4 style="font-size: var(--t-md)">自动化质量门状态</h4>
           <StatusBadge
             :label="coverage.allPass ? 'ALL PASS' : 'FAIL'"
             :variant="coverage.allPass ? 'pos' : 'neg'"
@@ -388,71 +505,72 @@ function onSelect(id: string | null) {
       </div>
 
       <div v-if="coverage?.coverage" class="surface mt-4">
-        <h4 style="font-family: var(--font-display); margin-bottom: var(--s-3)">Rule → Case 覆盖</h4>
+        <h4 style="margin-bottom: var(--s-3); font-size: var(--t-md)">Rule → Case 命例覆盖</h4>
         <div class="stack stack-2">
           <p class="note">
             {{ Object.entries(coverage.coverage.ruleCaseCoverage ?? {})
                 .map(([k, v]) => `${k}:${v}`).join("、") || "无" }}
           </p>
           <p class="note">
-            未触发（never-in-replay）：
+            重放未触发（never-in-replay）：
             {{ (coverage.coverage.eventRulesNeverInReplay ?? []).join("、") || "无" }}
           </p>
         </div>
       </div>
     </section>
 
-    <!-- 评估对比：只展示最近若干次运行，避免历史记录把页面拉成长卷 -->
-    <section v-if="evalCompare?.comparisons?.length">
+    <!-- 05 AI 评测对比 -->
+    <section v-show="activeTab === 'eval'">
       <div class="sec-sub" style="margin-top: 0">
-        <h3>AI 评估对比</h3>
+        <h3>AI 解释确定性评测对比</h3>
         <span class="sec-sub-note">
-          确定性指标回归对比（无 LLM-as-judge）· 默认显示最近 12 次
+          确定性指标回归对比（无 LLM-as-judge）· 呈现近期评测历史
         </span>
         <span class="sec-sub-aside">
-          <StatusBadge :label="`共 ${evalCompare.comparisons.length} 次`" variant="mute" />
+          <StatusBadge v-if="evalCompare?.comparisons" :label="`共 ${evalCompare.comparisons.length} 次运行`" variant="mute" />
         </span>
       </div>
-      <div class="stack stack-2">
+
+      <div v-if="evalCompare?.comparisons?.length" class="stack stack-2">
         <details
           v-for="(c, i) in evalCompare.comparisons.slice(-12).reverse()"
           :key="i"
           class="surface"
         >
           <summary>
-            <span class="mono">{{ c.metrics.provider }}/{{ c.metrics.model }}</span>
-            <span class="note-sm">（prompt {{ c.metrics.promptVersion }}）</span>
+            <span class="mono" style="font-weight: 700">{{ c.metrics.provider }}/{{ c.metrics.model }}</span>
+            <span class="note-sm" style="margin: 0 8px">（prompt {{ c.metrics.promptVersion }}）</span>
             — pass {{ c.metrics.verdictPass }}/{{ c.metrics.verdictTotal }}
             <StatusBadge
               v-if="Object.keys(c.regressionAgainstPrevious ?? {}).length"
-              label="回归"
+              label="回归告警"
               variant="neg"
             />
           </summary>
           <div class="metrics mt-3">
             <div class="metric">
               <span class="metric-key">事实接地</span>
-              <span class="metric-val">{{ c.metrics.groundingIssueTotal }}</span>
+              <span class="metric-val mono">{{ c.metrics.groundingIssueTotal }}</span>
             </div>
             <div class="metric">
               <span class="metric-key">违禁词</span>
-              <span class="metric-val">{{ c.metrics.bannedTotal }}</span>
+              <span class="metric-val mono">{{ c.metrics.bannedTotal }}</span>
             </div>
             <div class="metric">
               <span class="metric-key">分歧缺失</span>
-              <span class="metric-val">{{ c.metrics.disagreementMissingCount }}</span>
+              <span class="metric-val mono">{{ c.metrics.disagreementMissingCount }}</span>
             </div>
             <div class="metric">
               <span class="metric-key">引用缺失</span>
-              <span class="metric-val">{{ c.metrics.claimRefsUsedAvg }}</span>
+              <span class="metric-val mono">{{ c.metrics.claimRefsUsedAvg }}</span>
             </div>
             <div v-if="c.telemetry" class="metric">
-              <span class="metric-key">延迟 ms</span>
-              <span class="metric-val">{{ c.telemetry.latencyMsAvg }}</span>
+              <span class="metric-key">平均延迟</span>
+              <span class="metric-val mono">{{ c.telemetry.latencyMsAvg }} ms</span>
             </div>
             <div v-if="c.telemetry" class="metric">
-              <span class="metric-key">tokens</span>
-              <span class="metric-val">{{ c.telemetry.tokensTotal }}</span>
+              <span class="metric-key">消耗 tokens</span>
+              <span class="metric-val mono">{{ c.telemetry.tokensTotal }}</span>
             </div>
           </div>
           <div v-if="Object.keys(c.regressionAgainstPrevious ?? {}).length" class="stack stack-1 mt-3">
@@ -462,86 +580,139 @@ function onSelect(id: string | null) {
           </div>
         </details>
       </div>
+      <p v-else class="empty">暂无评测比对数据。</p>
     </section>
 
-    <!-- 发布元信息 -->
-    <section v-if="release?.metadata">
-      <div class="sec-sub" style="margin-top: 0">
-        <h3>发布元信息</h3>
+    <!-- 06 复核队列与发布 -->
+    <section v-show="activeTab === 'review'">
+      <div v-if="review.length">
+        <div class="sec-sub" style="margin-top: 0">
+          <h3>人工复核队列</h3>
+          <span class="sec-sub-note">
+            HUMAN_VERIFIED 仅由真实人工产出，系统不伪造
+          </span>
+          <span class="sec-sub-aside">
+            <StatusBadge :label="String(review.length)" variant="mute" />
+          </span>
+        </div>
+        <div class="rows">
+          <article v-for="(it, i) in review" :key="i" class="row-item">
+            <div class="row-item-head">
+              <StatusBadge
+                :label="it.priority"
+                :variant="it.priority === 'P1' ? 'neg' : it.priority === 'P2' ? 'warn' : 'mute'"
+              />
+              <StatusBadge :label="it.section" variant="mute" />
+              <span class="mono note">{{ it.id || it.caseId || "" }}</span>
+            </div>
+            <p v-if="it.text" class="row-item-body">{{ it.text }}</p>
+            <p v-else-if="it.title" class="row-item-body">{{ it.title }}</p>
+            <p v-if="it.note" class="note mt-2">{{ it.note }}</p>
+          </article>
+        </div>
       </div>
-      <div class="metrics">
-        <div class="metric">
-          <span class="metric-key">提交</span>
-          <span class="metric-val mono" style="font-size: var(--t-md)">
-            {{ (release.metadata.release?.gitCommit || "").slice(0, 12) || "—" }}
-          </span>
-        </div>
-        <div class="metric">
-          <span class="metric-key">引擎</span>
-          <span class="metric-val mono" style="font-size: var(--t-md)">
-            {{ release.metadata.engineVersion }}
-          </span>
-        </div>
-        <div class="metric">
-          <span class="metric-key">测试</span>
-          <span class="metric-val">{{ release.metadata.counts?.tests }}</span>
-        </div>
-        <div class="metric">
-          <span class="metric-key">质量</span>
-          <span class="metric-val" style="font-size: var(--t-md)">
-            {{ release.qualitySummary?.allPass ? "ALL PASS" : "FAIL" }}
-          </span>
-        </div>
-      </div>
-      <details class="mt-3">
-        <summary>版本依赖</summary>
-        <div class="stack stack-1 mt-2">
-          <p v-for="(v, k) in release.metadata.versions" :key="k" class="note mono">
-            {{ k }}: {{ v }}
-          </p>
-        </div>
-      </details>
-    </section>
 
-    <!-- 复核队列 -->
-    <section v-if="review.length">
-      <div class="sec-sub" style="margin-top: 0">
-        <h3>复核队列</h3>
-        <span class="sec-sub-note">
-          只读；HUMAN_VERIFIED 只能由真实人工产生，系统不伪造
-        </span>
-        <span class="sec-sub-aside">
-          <StatusBadge :label="String(review.length)" variant="mute" />
-        </span>
-      </div>
-      <div class="rows">
-        <article v-for="(it, i) in review" :key="i" class="row-item">
-          <div class="row-item-head">
-            <StatusBadge
-              :label="it.priority"
-              :variant="it.priority === 'P1' ? 'neg' : it.priority === 'P2' ? 'warn' : 'mute'"
-            />
-            <StatusBadge :label="it.section" variant="mute" />
-            <span class="mono note">{{ it.id || it.caseId || "" }}</span>
+      <!-- 发布元信息 -->
+      <div v-if="release?.metadata" style="margin-top: var(--s-6)">
+        <div class="sec-sub" style="margin-top: 0">
+          <h3>发布与环境元信息</h3>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric-key">提交 Commit</span>
+            <span class="metric-val mono" style="font-size: var(--t-md)">
+              {{ (release.metadata.release?.gitCommit || "").slice(0, 12) || "—" }}
+            </span>
           </div>
-          <p v-if="it.text" class="row-item-body">{{ it.text }}</p>
-          <p v-else-if="it.title" class="row-item-body">{{ it.title }}</p>
-          <p v-if="it.note" class="note mt-2">{{ it.note }}</p>
-        </article>
+          <div class="metric">
+            <span class="metric-key">引擎版本</span>
+            <span class="metric-val mono" style="font-size: var(--t-md)">
+              {{ release.metadata.engineVersion }}
+            </span>
+          </div>
+          <div class="metric">
+            <span class="metric-key">回归测试数</span>
+            <span class="metric-val mono">{{ release.metadata.counts?.tests }}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-key">质量评估结论</span>
+            <span class="metric-val" style="font-size: var(--t-md); color: var(--st-likely)">
+              {{ release.qualitySummary?.allPass ? "ALL PASS" : "FAIL" }}
+            </span>
+          </div>
+        </div>
+        <details class="mt-3">
+          <summary>版本依赖树</summary>
+          <div class="stack stack-1 mt-2">
+            <p v-for="(v, k) in release.metadata.versions" :key="k" class="note mono">
+              {{ k }}: {{ v }}
+            </p>
+          </div>
+        </details>
       </div>
     </section>
 
-    <p class="note">
-      本页为知识库的只读导航界面：来源、规则、冲突、命例四者的关系由后端声明，
-      前端不合并口径、不推断缺失关系。
+    <p class="note" style="border-top: 1px solid var(--line-200); padding-top: var(--s-3)">
+      本页为知识工作台只读导航：来源、规则、冲突、命例四者关系由后端声明，前端不合并口径、不推测缺失关系。
     </p>
   </div>
 </template>
 
 <style scoped>
-.rule-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+.kw-tab-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: var(--s-2);
+  padding: 4px;
+  background: var(--paper-100);
+  border-radius: var(--r-md);
+  border: 1px solid var(--line-200);
+}
+
+.kw-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 6px 14px;
+  min-height: 34px;
+  font-size: var(--t-xs);
+  font-weight: 500;
+  border-radius: var(--r-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--ink-700);
+  box-shadow: none;
+  transition: all 0.15s ease;
+}
+
+.kw-tab-btn:hover {
+  background: var(--paper-000);
+  color: var(--ink-900);
+}
+
+.kw-tab-btn.is-active {
+  background: var(--paper-000);
+  border-color: var(--line-200);
+  color: var(--primary-600);
+  font-weight: 700;
+  box-shadow: var(--shadow-1);
+}
+
+.kw-tab-idx {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-400);
+}
+
+.kw-tab-btn.is-active .kw-tab-idx {
+  color: var(--primary-600);
+}
+
+.kw-tab-badge {
+  font-size: 10px;
+  background: var(--paper-100);
+  padding: 1px 5px;
+  border-radius: var(--r-full);
 }
 </style>
