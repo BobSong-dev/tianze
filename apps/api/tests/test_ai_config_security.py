@@ -376,6 +376,33 @@ def test_invalid_inputs_rejected():
         assert r.json()["ok"] is False
 
 
+# ---------- M49 · 真实 Provider 偏差容错（用户实测：模型自创 claim type=ADVANCED 曾致 500） ----------
+
+def test_mock_unknown_claim_type_degrades_not_500(mock_server):
+    """模型输出枚举外 claim type：丢弃该条并声明，不整单失败。"""
+    base, srv = mock_server
+    srv.behavior = {"key": "k", "content": json.dumps({
+        "summary": "MOCK：含未知 claim 类型的输出。",
+        "sections": [{
+            "type": "advanced", "title": "高级结构",
+            "content": "解释文本。",
+            "claims": [
+                {"type": "ADVANCED", "refId": "advanced:combo", "value": "x"},
+                {"type": "fact", "refId": "strength:weighted", "value": "y"},  # 小写应归一化保留
+            ],
+            "evidenceIds": [], "sourceIds": []}],
+        "disagreements": [], "uncertainties": [], "sourceReferences": []}, ensure_ascii=False)}
+    client.post("/api/v1/ai-config/set", json={
+        "apiKey": "k", "baseUrl": base, "model": "m", "preset": "openai"})
+    i = client.post("/api/v1/interpret", json={"analysis": ANALYSIS})
+    assert i.status_code == 200
+    body = i.json()
+    claims = body["interpretation"]["sections"][0]["claims"]
+    assert len(claims) == 1 and claims[0]["type"] == "FACT"  # ADVANCED 丢弃，fact→FACT 归一
+    assert any("类型未知" in u for u in body["interpretation"]["uncertainties"])
+    client.post("/api/v1/ai-config/clear")
+
+
 # ---------- M48 · Anthropic 协议全链路（MOCK，非真实 Provider 成绩） ----------
 
 def test_mock_anthropic_full_chain(mock_server):

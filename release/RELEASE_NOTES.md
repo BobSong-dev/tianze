@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `00dbc85a1467`（含未提交改动）
+- commit: `6540f0fb72c1`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（141.6s / 23 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **223**（{'event': 21, 'temporal': 20, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 666
+- 命例 1147；Replay 165；测试 668
 
 ## 质量状态
 
@@ -46,7 +46,8 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（75）
+### 特性（76）
+- M48: AI 预设重构为协议型三类（用户决策）——OpenAI 兼容 / Anthropic 兼容 / DeepSeek + Anthropic Messages 协议真实现
 - M47: AI 预设更新为 2026-10 主流模型（联网核对官方文档）+ 新增 Kimi 预设
 - M46: 微粒场 —— 烛尘/纸尘双层动态质感（大气古朴，克制实现）
 - M45: 视觉语言拨回东方纸墨体系 —— 宣纸底×深墨×朱砂×青黛×古铜细线

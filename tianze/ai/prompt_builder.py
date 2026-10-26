@@ -44,6 +44,10 @@ _SYSTEM_INSTRUCTIONS = """\
 ```
 
 claims[].refId 只能使用 Context CLAIM REFS 中列出的值。
+claims[].type 只能取以下值之一（大小写敏感，不得自创）：
+FACT / STRENGTH / PATTERN / TIAOHOU / SPECIAL_PATTERN / TRANSFORMATION /
+BINGYAO / TONGGUAN / SOURCE / VERIFICATION / TEMPORAL。
+不确定归属时用 FACT。
 只有 Context 中实际存在对应结果时才输出对应 section。没有就不写。
 """
 
