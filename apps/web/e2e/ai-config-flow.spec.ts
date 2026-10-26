@@ -82,7 +82,8 @@ test("configure via UI → status shows 页面配置 → interpret renders mock 
   // 用户路径：右上 ⚙ AI 设置 → 本地模型预设 → 填 Key/端点/模型 → 保存
   await page.click(".ai-entry");
   await page.waitForSelector(".ai-modal");
-  await page.locator(".preset-card", { hasText: "本地模型" }).click();
+  // 卡片顺序固定：OpenAI 兼容恒为第一张（DeepSeek 的 note 文案也含"OpenAI 兼容"，按文本匹配会双命中）
+  await page.locator(".preset-card").first().click();
   const inputs = page.locator(".ai-form-row input");
   await inputs.nth(0).fill("e2e-mock-key");
   await inputs.nth(1).fill(`http://127.0.0.1:${mockPort}/v1`);

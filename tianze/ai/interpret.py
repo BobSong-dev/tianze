@@ -127,12 +127,91 @@ class OpenAICompatibleProvider(InterpretationProvider):
         return self.model
 
 
+class AnthropicMessagesProvider(InterpretationProvider):
+    """Anthropic Messages API（/v1/messages；兼容官方及第三方 Anthropic 兼容端点）。
+
+    鉴权同时携带 x-api-key 与 Authorization Bearer（官方两者皆收，
+    第三方兼容层通常至少实现其一）；anthropic-version 采用兼容面最广的
+    2023-06-01。响应 content[].text 拼接为输出文本。
+    """
+
+    def __init__(self, api_key: str, base_url: str, model: str):
+        self.api_key = api_key
+        self.base_url = base_url.rstrip("/")
+        self.model = model
+
+    async def complete(self, system_prompt: str, user_prompt: str) -> tuple[str, dict]:
+        import time
+
+        import httpx
+        url = f"{self.base_url}/v1/messages"
+        headers = {
+            "x-api-key": self.api_key,
+            "Authorization": f"Bearer {self.api_key}",
+            "anthropic-version": "2023-06-01",
+            "Content-Type": "application/json",
+        }
+        payload = {
+            "model": self.model,
+            "max_tokens": 4096,
+            "system": system_prompt,
+            "messages": [{"role": "user", "content": user_prompt}],
+            "temperature": 0.3,
+        }
+        started = time.perf_counter()
+        retries = 0
+        error_category = None
+        data = None
+        async with httpx.AsyncClient(timeout=30) as client:
+            for attempt in range(3):
+                try:
+                    r = await client.post(url, json=payload, headers=headers)
+                    if r.status_code >= 500 and attempt < 2:
+                        retries += 1
+                        error_category = "http_5xx"
+                        await __import__("asyncio").sleep(0.5 * (attempt + 1))
+                        continue
+                    r.raise_for_status()
+                    data = r.json()
+                    error_category = None
+                    break
+                except httpx.TransportError:
+                    retries += 1
+                    error_category = "network"
+                    if attempt == 2:
+                        raise
+                    await __import__("asyncio").sleep(0.5 * (attempt + 1))
+        latency_ms = int((time.perf_counter() - started) * 1000)
+        text = "".join(block.get("text", "") for block in data.get("content", [])
+                       if block.get("type") == "text")
+        usage = data.get("usage", {})
+        return text, {
+            "prompt_tokens": usage.get("input_tokens"),
+            "completion_tokens": usage.get("output_tokens"),
+            "total_tokens": (usage.get("input_tokens") or 0) + (usage.get("output_tokens") or 0) or None,
+            "latency_ms": latency_ms,
+            "retries": retries,
+            "error_category": error_category or "none",
+        }
+
+    @property
+    def provider_name(self) -> str:
+        return "anthropic_compatible"
+
+    @property
+    def model_name(self) -> str:
+        return self.model
+
+
 def create_provider_from_env() -> InterpretationProvider | None:
     api_key = os.environ.get("TIANZE_LLM_API_KEY")
     if not api_key:
         return None
     base_url = os.environ.get("TIANZE_LLM_BASE_URL", "https://api.openai.com/v1")
-    model = os.environ.get("TIANZE_LLM_MODEL", "gpt-4o-mini")
+    model = os.environ.get("TIANZE_LLM_MODEL", "chat-latest")
+    protocol = os.environ.get("TIANZE_LLM_PROTOCOL", "openai").strip().lower()
+    if protocol == "anthropic":
+        return AnthropicMessagesProvider(api_key=api_key, base_url=base_url, model=model)
     return OpenAICompatibleProvider(api_key=api_key, base_url=base_url, model=model)
 
 

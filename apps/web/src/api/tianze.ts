@@ -95,6 +95,8 @@ export interface AiPreset {
   model: string;
   verified: boolean;
   allowLocal?: boolean;
+  protocol?: "openai" | "anthropic";
+  note?: string;
 }
 
 export interface AiConfigForm {

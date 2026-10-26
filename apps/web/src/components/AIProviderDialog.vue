@@ -78,8 +78,9 @@ watch(() => props.open, (v) => { if (v) void ai.refresh(); });
             :class="{ selected: ai.form.value.preset === p.id, 'is-selected': ai.form.value.preset === p.id }"
             @click="ai.pickPreset(p)"
           >
-            <span class="prov-name">{{ p.name }}</span>
+            <span class="prov-name">{{ p.name }} <span class="prov-proto">{{ p.protocol === "anthropic" ? "/v1/messages" : "chat/completions" }}</span></span>
             <span class="prov-url" :title="p.baseUrl || '自定义端点'">{{ p.baseUrl || "— 自定义端点 —" }}</span>
+            <span v-if="p.note" class="prov-note">{{ p.note }}</span>
             <span class="prov-flag">
               {{ p.verified ? "已验证" : "预设（未逐一实测）" }}
               <template v-if="p.allowLocal"> · 本机地址</template>

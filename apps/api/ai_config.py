@@ -1,4 +1,4 @@
-"""M41 · AI Provider 用户配置系统（后端）——M41-hotfix 安全加固版。
+"""M41 · AI Provider 用户配置系统（后端）——M48 协议型预设重构。
 
 安全边界（单用户本地应用，不引入账户系统）：
 - **配置变更/使用操作（set/test/clear）仅允许本机回环客户端**。这是服务端
@@ -7,19 +7,18 @@
   须显式设置 TIANZE_ALLOW_REMOTE_AI_CONFIG=1 并自行在反向代理层加鉴权。
 - API Key 只保存在**后端进程内存**（单用户本地模式的合理默认），不落盘、
   不进日志、不回显明文（状态接口只返回 masked 尾 4 位）；
-- Base URL SSRF 防护：仅允许 http(s)，拒绝 localhost/内网/链路本地地址
-  （本地模型例外需显式 allow_local=True，即「本地模型」预设）；
-  set 与 test 双重校验（防 set→test 之间配置漂移）。已知残余风险：
-  校验与实际请求各自解析 DNS，存在理论 TOCTOU（DNS rebinding）窗口，
-  本地单用户模式下接受并在 known-limitations 如实记录。
-- 连接测试不跟随重定向（httpx follow_redirects=False），3xx 一律判失败，
-  防止经重定向跳转到内网地址。
-- 环境变量优先级高于 UI 配置（不破坏现有部署方式）；环境变量 URL 视为
-  运维方可信配置，不做 SSRF 校验。
+- Base URL SSRF 防护：仅允许 http(s)；字面 IP 命中内网/环回/链路本地/
+  保留段一律拒绝；域名解析到回环/链路本地拒绝；域名解析到私网/保留段
+  （如 198.18.0.0/15 fake-ip 代理环境）放行并附警告。allow_local
+  （本地端点例外）仅放行回环与链路本地，私网段仍拒绝。
+- 连接测试不跟随重定向（3xx 判失败）；set 与 test 双重校验。
+- 环境变量优先级高于 UI 配置（TIANZE_LLM_PROTOCOL 支持 anthropic）。
 - 并发安全：set/clear/test 在 asyncio.Lock 内原子执行，无半写状态。
 
-提供 OpenAI-compatible 预设（OpenAI/DeepSeek/通义千问/智谱 GLM/本地服务）。
-预设仅为便利填充，未经实际验证的提供商不标记“已验证”。
+预设哲学（M48，用户决策）：**按协议而非厂商**——OpenAI 兼容 / Anthropic
+兼容 / DeepSeek 三类，覆盖绝大多数服务商（含第三方兼容端点与本地 Ollama，
+本地端点在「OpenAI 兼容」预设下填写 127.0.0.1 地址即可）。
+模型名按 2026-10 官方文档核对；未经本项目真实连接实测的提供商不标已验证。
 """
 
 from __future__ import annotations
@@ -36,26 +35,19 @@ from pydantic import BaseModel
 
 router = APIRouter(prefix="/api/v1/ai-config", tags=["ai-config"])
 
-# ---- 预设（OpenAI-compatible；标注是否经过项目实际验证） ----
-# 模型名按 2026-10 官方文档核对；优先使用官方"跟随最新"别名（chat-latest /
-# qwen-plus / deepseek-flash），具体版本号仅在无稳定别名时使用。
-# 全部 verified=False：未经本项目真实连接实测，不标"已兼容"。
+# ---- 预设（协议型；2026-10 官方文档核对的当前主流模型） ----
 PRESETS: list[dict] = [
-    {"id": "openai", "name": "OpenAI", "baseUrl": "https://api.openai.com/v1",
-     "model": "chat-latest", "verified": False},
-    {"id": "deepseek", "name": "DeepSeek（V4.1 Flash）", "baseUrl": "https://api.deepseek.com/v1",
-     "model": "deepseek-flash", "verified": False},
-    {"id": "qwen", "name": "通义千问（DashScope 兼容模式，千问 Plus 别名跟随最新）",
-     "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-     "model": "qwen-plus", "verified": False},
-    {"id": "zhipu", "name": "智谱 GLM-5.3", "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
-     "model": "glm-5.3", "verified": False},
-    {"id": "kimi", "name": "Kimi（月之暗面）", "baseUrl": "https://api.moonshot.ai/v1",
-     "model": "kimi-k2.6", "verified": False},
-    {"id": "local", "name": "本地模型（Ollama/LM Studio 等 OpenAI 兼容端点）",
-     "baseUrl": "http://127.0.0.1:11434/v1", "model": "qwen3:8b",
+    {"id": "openai", "name": "OpenAI 兼容", "protocol": "openai",
+     "baseUrl": "https://api.openai.com/v1", "model": "gpt-5.6-sol",
+     "note": "覆盖 OpenAI/通义/智谱/Kimi/Ollama 等一切 chat/completions 端点",
      "verified": False, "allowLocal": True},
-    {"id": "custom", "name": "自定义 OpenAI 兼容服务", "baseUrl": "", "model": "",
+    {"id": "anthropic", "name": "Anthropic 兼容", "protocol": "anthropic",
+     "baseUrl": "https://api.anthropic.com", "model": "claude-sonnet-5-5",
+     "note": "/v1/messages 协议；官方 Claude 或第三方 Anthropic 兼容端点",
+     "verified": False, "allowLocal": True},
+    {"id": "deepseek", "name": "DeepSeek", "protocol": "openai",
+     "baseUrl": "https://api.deepseek.com/v1", "model": "deepseek-flash",
+     "note": "OpenAI 兼容；deepseek-flash 别名跟随最新（现为 V4.1 Flash）",
      "verified": False},
 ]
 
@@ -104,9 +96,11 @@ class _Config:
         self.base_url: str | None = None
         self.model: str | None = None
         self.preset: str | None = None
+        self.protocol: str = "openai"
 
     def clear(self) -> None:
         self.api_key = self.base_url = self.model = self.preset = None
+        self.protocol = "openai"
 
 
 _STORE = _Config()
@@ -119,6 +113,7 @@ def _resolve_effective() -> dict:
     if env_key:
         return {
             "source": "env",
+            "protocol": os.environ.get("TIANZE_LLM_PROTOCOL", "openai").strip().lower(),
             "baseUrl": os.environ.get("TIANZE_LLM_BASE_URL", "https://api.openai.com/v1"),
             "model": os.environ.get("TIANZE_LLM_MODEL", "chat-latest"),
             "keyMasked": f"···{env_key[-4:]}" if len(env_key) >= 4 else "···",
@@ -126,6 +121,7 @@ def _resolve_effective() -> dict:
     if _STORE.api_key:
         return {
             "source": "ui",
+            "protocol": _STORE.protocol,
             "baseUrl": _STORE.base_url, "model": _STORE.model,
             "keyMasked": f"···{_STORE.api_key[-4:]}" if len(_STORE.api_key) >= 4 else "···",
             "preset": _STORE.preset,
@@ -134,15 +130,13 @@ def _resolve_effective() -> dict:
 
 
 def _ssrf_check(url: str, allow_local: bool = False) -> tuple[bool, str]:
-    """Base URL 防护（威胁模型对齐单用户本地应用）。
+    """Base URL 防护（威胁模型对齐单用户本地应用）。返回 (ok, message)；
+    ok=True 且 message 非空 = 放行但带警告（如 fake-ip 代理环境）。
 
-    - 字面 IP 命中内网/环回/链路本地/保留段 → 拒绝（SSRF 核心防护）；
-    - 域名：解析失败或解析到环回/链路本地 → 拒绝；
-    - 域名解析到私网/保留段（如 198.18.0.0/15）→ **放行并警告**：
-      本机代理（Clash 类 fake-ip DNS）会把所有公网域名解析到该段，
-      一律拒绝等于在代理环境下完全不可用；配置由用户本人填写，
-      域名级风险已在 known-limitations 的 DNS rebinding 条目声明。
-    返回 (ok, message)；ok=True 且 message 非空 = 放行但带警告。
+    - 字面 IP：内网/保留段拒绝；回环/链路本地仅在 allow_local 时放行
+      （本地模型走「OpenAI 兼容」预设，allowLocal=True）
+    - 域名：解析失败或解析到回环/链路本地（非 allow_local）拒绝；
+      解析到私网/保留段（fake-ip 代理）放行并附警告
     """
     try:
         p = urlparse(url)
@@ -150,17 +144,19 @@ def _ssrf_check(url: str, allow_local: bool = False) -> tuple[bool, str]:
         return False, "URL 无法解析"
     if p.scheme not in ("http", "https") or not p.hostname:
         return False, "仅支持 http(s) URL"
-    if allow_local:
-        return True, ""
     host = p.hostname
     try:
         literal = ipaddress.ip_address(host)
     except ValueError:
         literal = None
     if literal is not None:
-        if (literal.is_private or literal.is_loopback or literal.is_link_local
-                or literal.is_reserved or literal.is_multicast):
-            return False, f"禁止内网/本地地址（{literal}）；本地模型请选择「本地模型」预设"
+        if literal.is_loopback or literal.is_link_local:
+            if allow_local:
+                return True, ""
+            return False, (f"回环/链路本地地址（{literal}）用于本地模型时，"
+                           "请选择「OpenAI 兼容」预设（它允许本机端点）")
+        if literal.is_private or literal.is_reserved or literal.is_multicast:
+            return False, f"禁止内网/保留地址（{literal}）"
         return True, ""
     try:
         infos = socket.getaddrinfo(host, None)
@@ -170,6 +166,8 @@ def _ssrf_check(url: str, allow_local: bool = False) -> tuple[bool, str]:
     for info in infos:
         ip = ipaddress.ip_address(info[4][0])
         if ip.is_loopback or ip.is_link_local:
+            if allow_local:
+                continue
             return False, f"域名解析到回环/链路本地地址（{ip}），已拒绝"
         if ip.is_private or ip.is_reserved:
             warn_ips.append(str(ip))
@@ -183,7 +181,7 @@ class SetConfigBody(BaseModel):
     apiKey: str
     baseUrl: str
     model: str
-    preset: str = "custom"
+    preset: str = "openai"
 
 
 @router.get("/status")
@@ -208,8 +206,10 @@ async def set_config(body: SetConfigBody, request: Request):
         return {"ok": False, "error": "API Key 不能为空"}
     if not body.model.strip():
         return {"ok": False, "error": "模型名不能为空"}
-    allow_local = any(pr["id"] == body.preset and pr.get("allowLocal")
-                      for pr in PRESETS)
+    preset = next((pr for pr in PRESETS if pr["id"] == body.preset), None)
+    if preset is None:
+        return {"ok": False, "error": f"未知预设：{body.preset}"}
+    allow_local = bool(preset.get("allowLocal"))
     ok, err = _ssrf_check(body.baseUrl, allow_local=allow_local)
     if not ok:
         return {"ok": False, "error": err}
@@ -219,6 +219,7 @@ async def set_config(body: SetConfigBody, request: Request):
         _STORE.base_url = body.baseUrl.strip().rstrip("/")
         _STORE.model = body.model.strip()
         _STORE.preset = body.preset
+        _STORE.protocol = preset["protocol"]
     eff = _resolve_effective()
     # 环境变量在场时 source=env：明确告知"已保存但当前被环境变量覆盖"，
     # 避免保存成功却不生效的误导。
@@ -232,7 +233,7 @@ async def set_config(body: SetConfigBody, request: Request):
 
 @router.post("/test")
 async def test_connection(request: Request):
-    """真实连接测试：向配置端点发 1-token 请求，返回真实成败与原因。
+    """真实连接测试：向配置端点发 1-token 请求，按协议选择请求格式。
 
     幂等只读外部服务，但会携带真实密钥出站，故同样受本机守卫保护；
     不跟随重定向（3xx 判失败）；UI 来源时复验 SSRF。
@@ -243,8 +244,8 @@ async def test_connection(request: Request):
     async with _LOCK:
         eff = _resolve_effective()
         if eff["source"] == "ui":
-            allow_local = any(pr["id"] == _STORE.preset and pr.get("allowLocal")
-                              for pr in PRESETS)
+            preset = next((pr for pr in PRESETS if pr["id"] == _STORE.preset), None)
+            allow_local = bool(preset and preset.get("allowLocal"))
             ok, err = _ssrf_check(_STORE.base_url or "", allow_local=allow_local)
             if not ok:
                 return {"ok": False, "error": f"配置的 Base URL 未通过安全校验：{err}"}
@@ -255,28 +256,42 @@ async def test_connection(request: Request):
         else:
             key = _STORE.api_key
         base_url, model = eff["baseUrl"], eff["model"]
+        protocol = eff.get("protocol", "openai")
     import httpx
     try:
         async with httpx.AsyncClient(timeout=15.0, follow_redirects=False) as client:
-            r = await client.post(
-                f"{base_url}/chat/completions",
-                headers={"Authorization": f"Bearer {key}",
-                         "Content-Type": "application/json"},
-                json={"model": model,
-                      "messages": [{"role": "user", "content": "ping"}],
-                      "max_tokens": 1})
+            if protocol == "anthropic":
+                r = await client.post(
+                    f"{base_url}/v1/messages",
+                    headers={"x-api-key": key,
+                             "Authorization": f"Bearer {key}",
+                             "anthropic-version": "2023-06-01",
+                             "Content-Type": "application/json"},
+                    json={"model": model, "max_tokens": 1,
+                          "messages": [{"role": "user", "content": "ping"}]})
+            else:
+                r = await client.post(
+                    f"{base_url}/chat/completions",
+                    headers={"Authorization": f"Bearer {key}",
+                             "Content-Type": "application/json"},
+                    json={"model": model,
+                          "messages": [{"role": "user", "content": "ping"}],
+                          "max_tokens": 1})
         if r.status_code in (301, 302, 303, 307, 308):
             return {"ok": False, "httpStatus": r.status_code,
                     "error": f"端点返回重定向（{r.headers.get('location', '')[:80]}）——已拒绝跟随，"
                              "请直接填写最终端点地址"}
         if r.status_code == 200:
-            return {"ok": True, "httpStatus": 200, "provider": base_url}
+            return {"ok": True, "httpStatus": 200, "provider": base_url,
+                    "protocol": protocol}
         detail = ""
         try:
-            detail = (r.json().get("error", {}) or {}).get("message", "")[:120]
+            body = r.json()
+            detail = (body.get("error", {}) or {}).get("message") or body.get("message") or ""
+            detail = str(detail)[:120]
         except Exception:
             detail = r.text[:120]
-        return {"ok": False, "httpStatus": r.status_code,
+        return {"ok": False, "httpStatus": r.status_code, "protocol": protocol,
                 "error": f"服务返回 {r.status_code}{('：' + detail) if detail else ''}"}
     except httpx.HTTPError as e:
         return {"ok": False, "error": f"连接失败：{type(e).__name__}：{str(e)[:120]}"}
@@ -293,12 +308,19 @@ async def clear_config(request: Request):
 
 
 def get_ui_provider():
-    """供 /interpret 使用：返回 UI 配置的 Provider（无则 None）。
+    """供 /interpret 使用：按配置协议返回 Provider（无则 None）。
 
     base_url 已在 /set 时通过 SSRF 校验（内存单例仅经 /set 写入）。
     """
     if _STORE.api_key:
-        from tianze.ai.interpret import OpenAICompatibleProvider
+        from tianze.ai.interpret import (
+            AnthropicMessagesProvider,
+            OpenAICompatibleProvider,
+        )
+        if _STORE.protocol == "anthropic":
+            return AnthropicMessagesProvider(api_key=_STORE.api_key,
+                                             base_url=_STORE.base_url,
+                                             model=_STORE.model)
         return OpenAICompatibleProvider(api_key=_STORE.api_key,
                                         base_url=_STORE.base_url,
                                         model=_STORE.model)

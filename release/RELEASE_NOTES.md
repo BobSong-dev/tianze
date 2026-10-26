@@ -1,6 +1,6 @@
 # Tianze v0.4.0 Release Notes
 
-- commit: `4264ca239435`（含未提交改动）
+- commit: `00dbc85a1467`（含未提交改动）
 - 当前版本 0.4.0.dev0 → 建议 v0.4.0（minor；规则：特性 commit → minor，否则 patch）
 - 质量门：ALL PASS（141.6s / 23 步）
 
@@ -8,7 +8,7 @@
 
 - versions: {'knowledge': '1.1.0', 'case': '1.0.0', 'analysis': '1.0.0', 'delta': '1.0.0', 'event': '1.0.0', 'interpretation': '1.1.0', 'prompt': '1.1.0', 'python': '3.14.7'}
 - ExecutableRule: **223**（{'event': 21, 'temporal': 20, 'tiaohou': 182}）；candidates 556（不同口径）
-- 命例 1147；Replay 165；测试 663
+- 命例 1147；Replay 165；测试 666
 
 ## 质量状态
 
@@ -16,7 +16,7 @@
 - Case Regression: 无变化
 - Temporal Regression: 无变化
 - Event Evaluation problems: 无
-- AI Evaluation: mock（无 API Key 时 SKIPPED，不伪造）
+- AI Evaluation: SKIPPED（无 API Key 时 SKIPPED，不伪造）
 
 ## 基准
 
@@ -46,7 +46,16 @@
 
 ## Commits（自 v0.3.0）
 
-### 特性（66）
+### 特性（75）
+- M47: AI 预设更新为 2026-10 主流模型（联网核对官方文档）+ 新增 Kimi 预设
+- M46: 微粒场 —— 烛尘/纸尘双层动态质感（大气古朴，克制实现）
+- M45: 视觉语言拨回东方纸墨体系 —— 宣纸底×深墨×朱砂×青黛×古铜细线
+- M45-wip: 承接并行会话未提交的重构现场（深色化起步/知识页/图谱面板改动）
+- M44: 知识图谱与 AI 设置弹窗可读性修正
+- M43: 前端视觉重做（从"卡片栅格"改为"版心·界栏·批注·版框"）
+- M42: 前端产品级视觉与交互重写（东方知识研究工作台）
+- M41-hotfix3 补：DeepSeek 预设模型名更新 deepseek-chat→deepseek-flash
+- M41-hotfix3: SSRF 校验误拒代理 fake-ip 环境——用户保存 DeepSeek 端点报"仅支持 http(s) URL"
 - M41-hotfix2: 修复"填了 Key 仍提示未配置"— .env 加载缺失 + grounding 字段蛇形/驼峰错读
 - M41-hotfix: 发布前最终修复 — 测试数量根因 + AI 配置安全加固 + 推理链路验收 + UI 收尾
 - M41: 东方美学设计体系重构 + 前端 AI Provider 配置系统

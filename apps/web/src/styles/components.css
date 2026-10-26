@@ -2383,6 +2383,9 @@
 .prov-name { font-size: var(--t-xs); font-weight: 700; color: var(--ink-900); }
 .prov-url  { font-size: 10px; color: var(--ink-400); font-family: var(--font-mono); margin: 2px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .prov-flag { font-size: 10px; color: var(--primary-600); }
+.prov-proto { font-size: 10px; font-family: var(--font-mono); color: var(--ink-400);
+              border: 1px solid var(--line-200); padding: 0 4px; margin-left: 4px; }
+.prov-note { font-size: 10px; color: var(--ink-400); display: block; }
 
 .ai-form-row {
   margin-top: var(--s-3);
