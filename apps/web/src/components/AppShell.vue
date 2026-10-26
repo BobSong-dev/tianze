@@ -9,6 +9,7 @@
  * 纪律：导航项由上层传入，外壳不含任何命理语义。
  */
 import { watch } from "vue";
+import ParticleField from "./ParticleField.vue";
 
 export interface NavItem {
   id: string;
@@ -144,6 +145,7 @@ function go(id: string) {
     </aside>
 
     <div class="app-main">
+      <ParticleField variant="dust" fit="viewport" class="app-dust" />
       <header class="app-topbar">
         <button
           class="btn-ghost sidebar-toggle"

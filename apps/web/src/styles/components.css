@@ -74,7 +74,7 @@
   font-weight: 700;
   line-height: 1;
   border-radius: var(--r-sm);
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 2px 8px rgba(47, 72, 88, 0.35);
 }
 
 .brand-text {
@@ -126,7 +126,7 @@
   font-size: var(--t-xs);
   font-weight: 600;
   color: var(--primary-400);
-  background: rgba(37, 99, 235, 0.15);
+  background: rgba(47, 72, 88, 0.12);
   padding: 1px 6px;
   border-radius: var(--r-xs);
 }
@@ -147,8 +147,8 @@
 }
 
 .side-chart-cell.is-dm {
-  background: rgba(37, 99, 235, 0.2);
-  border-color: rgba(96, 165, 250, 0.4);
+  background: rgba(47, 72, 88, 0.16);
+  border-color: rgba(86, 112, 127, 0.45);
 }
 
 .side-chart-pos {
@@ -226,8 +226,8 @@
 }
 
 .side-nav-item.is-active {
-  background: rgba(37, 99, 235, 0.2);
-  border-color: rgba(96, 165, 250, 0.3);
+  background: rgba(47, 72, 88, 0.16);
+  border-color: rgba(86, 112, 127, 0.35);
   color: #ffffff;
   font-weight: 600;
 }
@@ -292,6 +292,8 @@
 }
 
 /* 主工作区外壳与顶栏 */
+.app-dust { position: fixed; inset: 0; z-index: 0; }
+
 .app-main {
   display: flex;
   flex-direction: column;
@@ -454,7 +456,7 @@
 }
 
 .home-hero {
-  background: linear-gradient(180deg, var(--ink-surface) 0%, #111827 100%);
+  background: linear-gradient(180deg, var(--ink-surface) 0%, var(--ink-surface-2) 100%);
   color: #ffffff;
   padding: var(--s-10) var(--s-8) var(--s-11);
   border-bottom: 1px solid var(--ink-surface-line);
@@ -489,8 +491,8 @@
   align-items: center;
   gap: var(--s-2);
   padding: 4px 12px;
-  background: rgba(37, 99, 235, 0.15);
-  border: 1px solid rgba(96, 165, 250, 0.3);
+  background: rgba(47, 72, 88, 0.12);
+  border: 1px solid rgba(86, 112, 127, 0.4);
   border-radius: var(--r-full);
   font-size: var(--t-xs);
   font-weight: 500;
@@ -528,7 +530,7 @@
 
 .home-lede em {
   font-style: normal;
-  color: #60a5fa;
+  color: var(--primary-400);
   font-weight: 600;
 }
 
@@ -603,8 +605,8 @@
 .calendar-cell.is-node {
   color: #ffffff;
   font-weight: 600;
-  background: rgba(37, 99, 235, 0.25);
-  border: 1px solid rgba(96, 165, 250, 0.4);
+  background: rgba(166, 58, 43, 0.22);
+  border: 1px solid rgba(166, 58, 43, 0.45);
 }
 
 .calendar-foot {
@@ -1145,7 +1147,7 @@
 
 .pillar-line-item.is-dm {
   background: var(--primary-100);
-  border-color: rgba(96, 165, 250, 0.4);
+  border-color: rgba(86, 112, 127, 0.45);
   font-weight: 600;
 }
 
@@ -1613,7 +1615,7 @@
 
 .summary-pillar.me {
   background: var(--primary-100);
-  border-color: rgba(96, 165, 250, 0.5);
+  border-color: rgba(86, 112, 127, 0.55);
 }
 
 .summary-pillar .pillar-label {
@@ -2075,7 +2077,7 @@
 .rule-card.is-selected {
   border-color: var(--primary-600);
   background: #f8faff;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 0 0 2px rgba(166, 58, 43, 0.18);
 }
 
 .rule-card-head {

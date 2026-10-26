@@ -9,6 +9,7 @@
  * 十二「节」提亮、十二「气」压暗，并用一行脚注说明这一关系。
  */
 import BirthIntake from "./BirthIntake.vue";
+import ParticleField from "../components/ParticleField.vue";
 import type { BirthForm } from "../composables/useTianze";
 
 const props = defineProps<{
@@ -105,6 +106,7 @@ function toIntake() {
 
     <!-- 题头：整幅暗部 -->
     <section class="home-hero" id="top">
+      <ParticleField variant="ember" />
       <div class="home-hero-inner">
         <div>
           <div class="home-eyebrow">东方历法结构研究 · 可追溯推理</div>
