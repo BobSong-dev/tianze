@@ -37,18 +37,23 @@ from pydantic import BaseModel
 router = APIRouter(prefix="/api/v1/ai-config", tags=["ai-config"])
 
 # ---- 预设（OpenAI-compatible；标注是否经过项目实际验证） ----
+# 模型名按 2026-10 官方文档核对；优先使用官方"跟随最新"别名（chat-latest /
+# qwen-plus / deepseek-flash），具体版本号仅在无稳定别名时使用。
+# 全部 verified=False：未经本项目真实连接实测，不标"已兼容"。
 PRESETS: list[dict] = [
     {"id": "openai", "name": "OpenAI", "baseUrl": "https://api.openai.com/v1",
-     "model": "gpt-4o-mini", "verified": False},
-    {"id": "deepseek", "name": "DeepSeek", "baseUrl": "https://api.deepseek.com/v1",
+     "model": "chat-latest", "verified": False},
+    {"id": "deepseek", "name": "DeepSeek（V4.1 Flash）", "baseUrl": "https://api.deepseek.com/v1",
      "model": "deepseek-flash", "verified": False},
-    {"id": "qwen", "name": "通义千问（DashScope 兼容模式）",
+    {"id": "qwen", "name": "通义千问（DashScope 兼容模式，千问 Plus 别名跟随最新）",
      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
      "model": "qwen-plus", "verified": False},
-    {"id": "zhipu", "name": "智谱 GLM", "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
-     "model": "glm-4-flash", "verified": False},
+    {"id": "zhipu", "name": "智谱 GLM-5.3", "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+     "model": "glm-5.3", "verified": False},
+    {"id": "kimi", "name": "Kimi（月之暗面）", "baseUrl": "https://api.moonshot.ai/v1",
+     "model": "kimi-k2.6", "verified": False},
     {"id": "local", "name": "本地模型（Ollama/LM Studio 等 OpenAI 兼容端点）",
-     "baseUrl": "http://127.0.0.1:11434/v1", "model": "qwen2.5:7b",
+     "baseUrl": "http://127.0.0.1:11434/v1", "model": "qwen3:8b",
      "verified": False, "allowLocal": True},
     {"id": "custom", "name": "自定义 OpenAI 兼容服务", "baseUrl": "", "model": "",
      "verified": False},
@@ -115,7 +120,7 @@ def _resolve_effective() -> dict:
         return {
             "source": "env",
             "baseUrl": os.environ.get("TIANZE_LLM_BASE_URL", "https://api.openai.com/v1"),
-            "model": os.environ.get("TIANZE_LLM_MODEL", "gpt-4o-mini"),
+            "model": os.environ.get("TIANZE_LLM_MODEL", "chat-latest"),
             "keyMasked": f"···{env_key[-4:]}" if len(env_key) >= 4 else "···",
         }
     if _STORE.api_key:
