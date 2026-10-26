@@ -401,13 +401,19 @@ async def interpret(
                 why = "未知类型" if ctype not in valid_types else "缺refId"
                 dropped_claims.append(f"{sec.get('title', '?')}→{why}:{ctype}")
         sec["claims"] = kept
+        # camelCase 归一（模型无别名，evidenceIds/sourceIds 若不归一会
+        # 被静默丢弃 → grounding 校验器看不到 → 假证据 ID 从不被拦截）
+        if "evidenceIds" in sec:
+            sec["evidence_ids"] = sec.pop("evidenceIds")
+        if "sourceIds" in sec:
+            sec["source_ids"] = sec.pop("sourceIds")
         try:
             sections.append(InterpretationSection.model_validate(sec))
         except Exception as e:
             dropped_sections.append(f"{sec.get('title') or sec.get('type', '?')}"
                                     f"（{str(e).splitlines()[0][:60]}）")
 
-    uncertainties = list(parsed.get("uncertainties", []))
+    uncertainties = [str(x) for x in parsed.get("uncertainties", []) if isinstance(x, (str, int, float))]
     if dropped_claims:
         uncertainties.append(
             f"模型输出了 {len(dropped_claims)} 条无法校验的引用，已丢弃："
@@ -420,11 +426,12 @@ async def interpret(
             + ("…" if len(dropped_sections) > 3 else ""))
 
     result = InterpretationResult(
-        summary=parsed.get("summary", ""),
+        summary=str(parsed.get("summary") or ""),
         sections=sections,
-        disagreements=parsed.get("disagreements", []),
+        disagreements=[str(x) for x in parsed.get("disagreements", []) if isinstance(x, (str, int, float))],
         uncertainties=uncertainties,
-        source_references=parsed.get("sourceReferences", []),
+        source_references=[str(x) for x in parsed.get("sourceReferences", [])
+                           if isinstance(x, (str, int, float))],
     )
 
     # Grounding validation

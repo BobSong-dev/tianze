@@ -61,10 +61,41 @@ const sectionTypeCn: Record<string, string> = {
     <div class="notice">
       <span class="notice-key">方法边界</span>
       <span>
-        AI 只解释引擎已计算的结构与候选，不得自行推算新结论；输出还需通过事实一致性校验，
-        未通过的内容不会被展示。AI 文本不构成吉凶或事件预测。
+        AI 只解释引擎已计算的结构与候选，不得自行推算新结论；输出经事实一致性校验，
+        未通过的条目会标注警示（不隐藏内容）。AI 文本不构成吉凶或事件预测。
       </span>
     </div>
+
+    <!-- 一致性校验未通过：M51 起不再隐藏内容——照常展示 + 顶部醒目警示
+         （真实 Provider 常有少量引用偏差，一票否决会让用户永远看不到结果） -->
+    <section v-if="props.aiState === 'GROUNDING_FAILED'" class="ai-state is-warn-state">
+      <div class="ai-state-title">⚠ 本次输出有 {{ groundingIssues.length }} 项未通过事实一致性校验</div>
+      <p class="ai-state-body">
+        以下解读内容照常展示，但模型引用的部分证据 ID 不在引擎事实库中（或含越界表述）。
+        带 ! 标记的问题明细见下方；相关表述请以引擎确定性分析为准。可重新生成以获得更干净的输出。
+      </p>
+      <div class="ai-state-actions">
+        <button class="btn-primary" type="button" @click="emit('generate')">重新生成</button>
+      </div>
+
+      <details v-if="groundingIssues.length" style="margin-top: var(--s-5); text-align: left">
+        <summary>一致性问题明细（{{ groundingIssues.length }}）</summary>
+        <div class="stack stack-2 mt-3">
+          <div
+            v-for="(gi, i) in groundingIssues"
+            :key="i"
+            class="ev evidence-item is-minus"
+          >
+            <span class="ev-mark">!</span>
+            <span class="ev-body">
+              <StatusBadge :code="gi.severity" with-hint />
+              <span class="mono">{{ gi.type }}</span>
+              <div>{{ gi.detail }}</div>
+            </span>
+          </div>
+        </div>
+      </details>
+    </section>
 
     <!-- 未配置：引导 -->
     <section v-if="!props.aiConfigured || props.aiState === 'NOT_CONFIGURED'" class="ai-state">
@@ -106,36 +137,6 @@ const sectionTypeCn: Record<string, string> = {
       </div>
     </section>
 
-    <!-- 一致性校验失败 -->
-    <section v-else-if="props.aiState === 'GROUNDING_FAILED'" class="ai-state">
-      <div class="ai-state-title">本次输出未通过事实一致性检查</div>
-      <p class="ai-state-body">
-        AI 输出与引擎事实不一致的部分已被拦截，因此不予展示。这通常意味着模型引入了
-        引擎未给出的结论或改动。
-      </p>
-      <div class="ai-state-actions">
-        <button class="btn-primary" type="button" @click="emit('generate')">重新生成</button>
-        <button type="button" @click="emit('configure')">检查配置</button>
-      </div>
-
-      <details v-if="groundingIssues.length" style="margin-top: var(--s-5); text-align: left">
-        <summary>一致性问题明细（{{ groundingIssues.length }}）</summary>
-        <div class="stack stack-2 mt-3">
-          <div
-            v-for="(gi, i) in groundingIssues"
-            :key="i"
-            class="ev evidence-item is-minus"
-          >
-            <span class="ev-mark">!</span>
-            <span class="ev-body">
-              <StatusBadge :code="gi.severity" with-hint />
-              <span class="mono">{{ gi.type }}</span>
-              <div>{{ gi.detail }}</div>
-            </span>
-          </div>
-        </div>
-      </details>
-    </section>
 
     <!-- Provider 错误 -->
     <section v-else-if="props.aiState === 'PROVIDER_ERROR'" class="ai-state">
@@ -149,7 +150,7 @@ const sectionTypeCn: Record<string, string> = {
     </section>
 
     <!-- 成功 -->
-    <template v-else-if="props.aiState === 'SUCCESS' && props.aiResult">
+    <template v-else-if="(props.aiState === 'SUCCESS' || props.aiState === 'GROUNDING_FAILED') && props.aiResult">
       <section class="verdict">
         <span class="verdict-kicker">AI 辅助解读</span>
         <p class="verdict-text" style="font-size: var(--t-md); line-height: var(--lh-loose)">
