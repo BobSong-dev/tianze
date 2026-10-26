@@ -905,47 +905,82 @@
 .pillar-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--s-4);
+  gap: var(--s-3);
   margin-top: var(--s-4);
 }
 
+/* 版框：外粗内细的方角双线框（古籍书版语法），无圆角无投影 */
 .pillar-card {
   background: var(--paper-000);
-  border: 1px solid var(--line-200);
-  border-radius: var(--r-lg);
-  padding: var(--s-5);
-  box-shadow: var(--shadow-1);
+  border: 2px solid var(--ink-700);
+  border-radius: 0;
+  padding: var(--s-5) var(--s-4) var(--s-4);
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease;
+}
+
+.pillar-card::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid var(--line-300);
+  pointer-events: none;
 }
 
 .pillar-card:hover {
-  box-shadow: var(--shadow-2);
-  border-color: var(--line-300);
+  box-shadow: none;
+  border-color: var(--ink-900);
 }
 
-/* 日主柱 (Day Master) - 精致微光强调，非黑棺盒 */
+/* 日主柱：整卡反白（墨底纸字），唯一的墨色锚点 */
 .pillar-card.is-dm,
 .pillar-card.dm {
-  border-color: #60a5fa;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
-  background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+  background: var(--ink-surface);
+  border-color: var(--ink-surface);
+  color: var(--paper-050);
 }
 
+.pillar-card.is-dm::before {
+  border-color: rgba(244, 240, 229, 0.22);
+}
+
+.pillar-card.is-dm .pillar-pos,
+.pillar-card.is-dm .pillar-tengod-label,
+.pillar-card.is-dm .pillar-meta-key,
+.pillar-card.is-dm .hidden-stem-role,
+.pillar-card.is-dm .hidden-stem-tg,
+.pillar-card.is-dm .note-sm {
+  color: var(--ink-surface-muted);
+}
+
+.pillar-card.is-dm .pillar-tengod-value,
+.pillar-card.is-dm .pillar-meta-val {
+  color: var(--ink-surface-text);
+}
+
+.pillar-card.is-dm .pillar-top,
+.pillar-card.is-dm .pillar-tengod {
+  border-bottom-color: var(--ink-surface-line);
+}
+
+/* 朱砂小印：方角、衬线、竖排感 */
 .dm-seal {
   position: absolute;
-  top: -10px;
-  right: var(--s-4);
-  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
-  color: #ffffff;
+  top: -12px;
+  right: var(--s-3);
+  background: var(--cinnabar-600);
+  color: #fdfbf5;
+  font-family: var(--font-display);
   font-size: 11px;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: var(--r-full);
-  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);
-  letter-spacing: var(--ls-wide);
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 0;
+  box-shadow: none;
+  letter-spacing: var(--ls-widest);
+  z-index: 1;
 }
 
 .pillar-top {
@@ -957,30 +992,36 @@
 .pillar-pos {
   font-size: var(--t-xs);
   font-weight: 600;
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
   color: var(--ink-400);
-  margin-bottom: var(--s-2);
+  margin-bottom: var(--s-3);
 }
 
+/* 干支大字：宋体 · 墨色压迫感 · 64px 阶 */
 .pillar-glyphs {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--s-3);
+  gap: var(--s-4);
   margin-bottom: var(--s-1);
 }
 
 .pillar-glyph {
-  font-size: var(--t-4xl);
-  font-weight: 800;
-  line-height: 1;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 4.6vw, var(--t-6xl));
+  font-weight: 600;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
 }
 
 .pillar-glyph-sep {
   width: 1px;
-  height: 28px;
-  background: var(--line-200);
+  height: 44px;
+  background: var(--line-300);
+}
+
+.pillar-card.is-dm .pillar-glyph-sep {
+  background: var(--ink-surface-line);
 }
 
 .pillar-tengod {
@@ -995,7 +1036,7 @@
   font-size: var(--t-2xs);
   color: var(--ink-400);
   font-weight: 600;
-  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
 }
 
 .pillar-tengod-value {
@@ -1005,7 +1046,7 @@
 }
 
 .pillar-card.is-dm .pillar-tengod-value {
-  color: var(--primary-600);
+  color: var(--cinnabar-500);
 }
 
 .pillar-meta {
@@ -1018,8 +1059,18 @@
 .pillar-meta-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   font-size: var(--t-xs);
+  border-bottom: 1px dotted var(--line-200); /* 行界：点线，对应校勘行款 */
+  padding-bottom: 2px;
+}
+
+.pillar-meta-row:last-child {
+  border-bottom: none;
+}
+
+.pillar-card.is-dm .pillar-meta-row {
+  border-bottom-color: rgba(244, 240, 229, 0.14);
 }
 
 .pillar-meta-key {
@@ -1032,28 +1083,30 @@
   font-weight: 500;
 }
 
+/* 藏干：去 chip 底色，纯文字层级 + 五行色只落在单字上 */
 .hidden-stem {
   display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  margin-left: 6px;
-  background: var(--paper-100);
-  padding: 1px 5px;
-  border-radius: var(--r-xs);
+  align-items: baseline;
+  gap: 4px;
+  margin-left: 8px;
+  background: none;
+  padding: 0;
+  border-radius: 0;
   font-size: 11px;
 }
 
 .hidden-stem-glyph {
   font-weight: 700;
+  font-family: var(--font-display);
 }
 
 .hidden-stem-role {
-  color: var(--ink-400);
+  color: var(--ink-300);
   font-size: 10px;
 }
 
 .hidden-stem-tg {
-  color: var(--ink-600);
+  color: var(--ink-400);
   font-size: 10px;
 }
 

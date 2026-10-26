@@ -1,132 +1,135 @@
 /* ============================================================================
- * Tianze · 天泽 — 现代研究工作台设计系统 (Design Tokens)
+ * Tianze · 天泽 — 现代宋韵设计系统 (Design Tokens)
  * ----------------------------------------------------------------------------
  * 定位：东方历法与命理结构研究工作台 · 确定性规则引擎 · 证据驱动与可解释
- * 风格：精致、沉稳、现代的技术工作台 (Technical Research Workbench)
- * 
- * 色彩体系：
- *   - 现代冷灰阶 (Slate/Zinc)，通透纯净的工作台底色，拒绝陈旧暗黄纸色
- *   - 精准的五行矿物语义色 (Emerald 木, Rose 火, Amber 土, Slate 金, Cobalt 水)
- *   - 严格的受控状态语义色阶 (Candidate, Likely, Disputed, Blocked, Unresolved, etc.)
+ * 风格：现代宋韵 —— 宣纸暖白 × 深墨 × 朱砂（克制）× 青黛 × 古铜细线
+ *
+ * 色彩体系（v2 · M45 视觉修正）：
+ *   - 宣纸暖白阶做底（纸感、微暖，拒绝冷灰 SaaS 底）
+ *   - 暖墨阶承担全部文字层级
+ *   - 朱砂仅用于"行动/日主/印章"三处，惜红如金
+ *   - 青黛（墨青）承担链接、结构、交互
+ *   - 古铜只出现在 1px 细线与刻度
+ *   - 五行用矿物墨调（低饱和），可区分但不喧哗
  * ========================================================================== */
 
 :root {
-  /* ---- 品牌主调：深海科技蓝 / 钛青 (Deep Slate & Cobalt) ---- */
-  --primary-700: #1d4ed8;
-  --primary-600: #2563eb;
-  --primary-500: #3b82f6;
-  --primary-400: #60a5fa;
-  --primary-100: #eff6ff;
-  --primary-50:  #f8faff;
+  /* ---- 品牌主调：青黛墨 (Indigo Ink) —— 链接 / 结构 / 交互 ---- */
+  --primary-700: #24404e;
+  --primary-600: #2f4858;
+  --primary-500: #3d5a6c;
+  --primary-400: #56707f;
+  --primary-100: #e7ebe9;
+  --primary-50:  #f0f2ee;
 
-  /* ---- 强调色 (原 cinnabar/indigo/bronze 映射) ---- */
-  --cinnabar-700: #9f1239;
-  --cinnabar-600: #e11d48;  /* 核心行动 / 关键标记 */
-  --cinnabar-500: #f43f5e;
-  --cinnabar-100: #ffe4e6;
+  /* ---- 朱砂 (Cinnabar) —— 仅行动 / 日主 / 印章 ---- */
+  --cinnabar-700: #7d2c20;
+  --cinnabar-600: #a63a2b;  /* 核心行动 / 日主标记 */
+  --cinnabar-500: #bd4d3a;
+  --cinnabar-100: #f3e0da;
 
-  --indigo-700: #1e3a8a;
-  --indigo-600: #2563eb;    /* 结构与连接 */
-  --indigo-500: #3b82f6;
-  --indigo-100: #eff6ff;
+  --indigo-700: #24404e;
+  --indigo-600: #2f4858;    /* 结构与连接（同青黛） */
+  --indigo-500: #3d5a6c;
+  --indigo-100: #e7ebe9;
 
-  --bronze-600: #b45309;    /* 历法与辅助细节 */
-  --bronze-300: #f59e0b;
-  --bronze-100: #fef3c7;
+  --bronze-600: #8a6d3b;    /* 历法与辅助细节 */
+  --bronze-300: #c9bc9e;
+  --bronze-100: #efe9da;
 
-  /* ---- 工作台表面 (Surfaces & Canvas) ---- */
-  --paper-000: #ffffff;     /* 卡片顶层背景（纯净白） */
-  --paper-050: #f8fafc;     /* 工作台全局画布背景 (Slate-50) */
-  --paper-100: #f1f5f9;     /* 次级分区底色 (Slate-100) */
-  --paper-200: #e2e8f0;     /* 轨道 / 槽位底色 (Slate-200) */
-  --paper-300: #cbd5e1;     /* 突出分隔块 (Slate-300) */
+  /* ---- 工作台表面：宣纸暖白阶 ---- */
+  --paper-000: #fdfbf5;     /* 卡片顶层：纸面白 */
+  --paper-050: #f4f0e5;     /* 全局画布：宣纸底 */
+  --paper-100: #ece7d8;     /* 次级分区 */
+  --paper-200: #e2dbc9;     /* 轨道 / 槽位 */
+  --paper-300: #d3cab1;     /* 突出分隔块 */
 
-  /* ---- 文字层级 (High-Contrast Clean Slate) ---- */
-  --ink-900: #0f172a;       /* 主标题 / 核心干支 / 强调文本 (Slate-900) */
-  --ink-700: #1e293b;       /* 次级标题 / 正文重点 (Slate-800) */
-  --ink-500: #475569;       /* 常规正文 / 描述说明 (Slate-600) */
-  --ink-400: #64748b;       /* 辅助标注 / 元数据小字 (Slate-500) */
-  --ink-300: #94a3b8;       /* 占位符 / 禁用文本 (Slate-400) */
+  /* ---- 文字层级：暖墨阶 ---- */
+  --ink-900: #26221c;       /* 主标题 / 核心干支 */
+  --ink-700: #3a352d;       /* 次级标题 / 正文重点 */
+  --ink-500: #5c564b;       /* 常规正文 */
+  --ink-400: #7a7365;       /* 辅助标注 / 元数据 */
+  --ink-300: #a39a88;       /* 占位符 / 禁用 */
 
-  /* ---- 精密线条与边框 (Precision Borders) ---- */
-  --line-100: #f1f5f9;      /* 极细微隐形分隔 */
-  --line-200: #e2e8f0;      /* 标准卡片外框 / 分割线 (Slate-200) */
-  --line-300: #cbd5e1;      /* 强边框 / 悬停交互框 (Slate-300) */
+  /* ---- 精密线条：古铜细线阶 ---- */
+  --line-100: #eae3d1;      /* 极细微分隔 */
+  --line-200: #ddd3bd;      /* 标准卡片外框 / 分割线 */
+  --line-300: #c9bc9e;      /* 强边框 / 悬停 */
 
-  /* ---- 受控状态语义 (Controlled Vocabulary Semantics) ---- */
-  /* 候选 CANDIDATE: 靛蓝阶 */
-  --st-candidate:     #4f46e5;
-  --st-candidate-bg:  #eef2ff;
-  --st-candidate-bd:  #c7d2fe;
+  /* ---- 受控状态语义 (低饱和 · 纸上矿物) ---- */
+  /* 候选 CANDIDATE: 青黛阶 */
+  --st-candidate:     #3d5a6c;
+  --st-candidate-bg:  #edf0ec;
+  --st-candidate-bd:  #cdd8d4;
 
-  /* 倾向支持 LIKELY: 翡翠绿阶 */
-  --st-likely:        #059669;
-  --st-likely-bg:     #ecfdf5;
-  --st-likely-bd:     #a7f3d0;
+  /* 倾向支持 LIKELY: 苔绿阶 */
+  --st-likely:        #4a7043;
+  --st-likely-bg:     #edf1e7;
+  --st-likely-bd:     #d2dcc6;
 
-  /* 两说并存 DISPUTED: 琥珀金阶 */
-  --st-disputed:      #d97706;
-  --st-disputed-bg:   #fffbeb;
-  --st-disputed-bd:   #fde68a;
+  /* 两说并存 DISPUTED: 赭金阶 */
+  --st-disputed:      #9a6b2f;
+  --st-disputed-bg:   #f4edda;
+  --st-disputed-bd:   #e2d5b4;
 
-  /* 阻断 BLOCKED: 玫瑰红阶 */
-  --st-blocked:       #e11d48;
-  --st-blocked-bg:    #fff1f2;
-  --st-blocked-bd:    #fecdd3;
+  /* 阻断 BLOCKED: 朱砂阶 */
+  --st-blocked:       #a63a2b;
+  --st-blocked-bg:    #f5e6e0;
+  --st-blocked-bd:    #e3c8bd;
 
-  /* 待定 UNRESOLVED: 中性冷灰阶 */
-  --st-unresolved:    #64748b;
-  --st-unresolved-bg: #f8fafc;
-  --st-unresolved-bd: #e2e8f0;
+  /* 待定 UNRESOLVED: 淡墨阶 */
+  --st-unresolved:    #7a7365;
+  --st-unresolved-bg: #f0ece1;
+  --st-unresolved-bd: #ddd3bd;
 
-  /* 已确立 ESTABLISHED: 科技青阶 */
-  --st-established:   #0284c7;
-  --st-established-bg:#f0f9ff;
-  --st-established-bd:#bae6fd;
+  /* 已确立 ESTABLISHED: 深青阶 */
+  --st-established:   #31567a;
+  --st-established-bg:#e8edf2;
+  --st-established-bd:#cbd7e2;
 
-  /* 实验性 EXPERIMENTAL: 紫罗兰阶 */
-  --st-experimental:  #7c3aed;
-  --st-experimental-bg:#f5f3ff;
-  --st-experimental-bd:#ddd6fe;
+  /* 实验性 EXPERIMENTAL: 紫黛阶 */
+  --st-experimental:  #6b5a7a;
+  --st-experimental-bg:#efeaf2;
+  --st-experimental-bd:#d9cfe0;
 
-  /* 受支持 SUPPORTED: 翡翠绿阶 */
-  --st-supported:     #059669;
-  --st-supported-bg:  #ecfdf5;
-  --st-supported-bd:  #a7f3d0;
+  /* 受支持 SUPPORTED: 苔绿阶 */
+  --st-supported:     #4a7043;
+  --st-supported-bg:  #edf1e7;
+  --st-supported-bd:  #d2dcc6;
 
-  --ok:   #059669;
-  --warn: #d97706;
-  --err:  #e11d48;
+  --ok:   #4a7043;
+  --warn: #9a6b2f;
+  --err:  #a63a2b;
 
-  /* ---- 五行矿物色 (Five Elements Modern Mineral Palette) ---- */
-  /* 木 (Wood): 苍翠青碧 */
-  --wx-wood:      #059669;
-  --wx-wood-bg:   #ecfdf5;
-  --wx-wood-bd:   #a7f3d0;
+  /* ---- 五行矿物色 (低饱和 · 矿物颜料的墨调) ---- */
+  /* 木 (Wood): 苍青 */
+  --wx-wood:      #3d6b4f;
+  --wx-wood-bg:   #eaf0ea;
+  --wx-wood-bd:   #ccd9cd;
 
-  /* 火 (Fire): 朱砂明赤 */
-  --wx-fire:      #e11d48;
-  --wx-fire-bg:   #fff1f2;
-  --wx-fire-bd:   #fecdd3;
+  /* 火 (Fire): 朱砂 */
+  --wx-fire:      #a6402c;
+  --wx-fire-bg:   #f4e7e2;
+  --wx-fire-bd:   #e0c8bf;
 
-  /* 土 (Earth): 琥珀金黄 */
-  --wx-earth:     #d97706;
-  --wx-earth-bg:  #fffbeb;
-  --wx-earth-bd:  #fde68a;
+  /* 土 (Earth): 赭黄 */
+  --wx-earth:     #8a6d3b;
+  --wx-earth-bg:  #f2ecdc;
+  --wx-earth-bd:  #ded2b2;
 
-  /* 金 (Metal): 冷钛银灰 */
-  --wx-metal:     #475569;
-  --wx-metal-bg:  #f1f5f9;
-  --wx-metal-bd:  #cbd5e1;
+  /* 金 (Metal): 钛灰 */
+  --wx-metal:     #56707f;
+  --wx-metal-bg:  #eaedee;
+  --wx-metal-bd:  #ccd4d8;
 
-  /* 水 (Water): 渊深湛蓝 */
-  --wx-water:     #2563eb;
-  --wx-water-bg:  #eff6ff;
-  --wx-water-bd:  #bfdbfe;
+  /* 水 (Water): 黛蓝 */
+  --wx-water:     #31567a;
+  --wx-water-bg:  #e8edf2;
+  --wx-water-bd:  #c8d4de;
 
-  /* ---- 字体与排印体系 (Modern Typography System) ---- */
-  --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  --font-body:    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  /* ---- 字体与排印：宋体标题 + 无衬线正文 + 等宽数据 ---- */
+  --font-display: "Noto Serif SC", "Songti SC", "STSong", SimSun, serif;
+  --font-body:    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --font-mono:    "JetBrains Mono", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   /* 字号阶梯 */
@@ -141,12 +144,13 @@
   --t-3xl: 28px;
   --t-4xl: 36px;
   --t-5xl: 48px;
+  --t-6xl: 64px;   /* 干支大字 / 题头大字 */
 
   /* 行高 */
   --lh-tight: 1.25;
   --lh-snug:  1.4;
   --lh-base:  1.6;
-  --lh-loose: 1.75;
+  --lh-loose:  1.75;
 
   /* 字距 */
   --ls-tight: -0.015em;
@@ -160,31 +164,31 @@
   --s-5: 20px;  --s-6: 24px;  --s-7: 32px;  --s-8: 40px;
   --s-9: 48px;  --s-10: 64px; --s-11: 80px; --s-12: 96px;
 
-  /* ---- 几何圆角规范 ---- */
-  --r-xs: 4px;
-  --r-sm: 6px;
-  --r-md: 8px;
-  --r-lg: 12px;
-  --r-xl: 16px;
+  /* ---- 几何圆角：方角为主（版框），小件微圆 ---- */
+  --r-xs: 2px;
+  --r-sm: 2px;
+  --r-md: 3px;
+  --r-lg: 4px;
+  --r-xl: 4px;
   --r-full: 9999px;
 
-  /* ---- 侧栏与暗部 (Workstation Nav & Dark Contrast) ---- */
-  --ink-surface:      #0b0f19;  /* 侧栏主背景：深蓝黑底 */
-  --ink-surface-2:    #111827;  /* 侧栏卡片底色 */
-  --ink-surface-line: rgba(255, 255, 255, 0.08);
-  --ink-surface-text: #f8fafc;
-  --ink-surface-muted:#94a3b8;
+  /* ---- 侧栏与暗部：暖墨黑（题头锚点，非蓝黑） ---- */
+  --ink-surface:      #221e18;
+  --ink-surface-2:    #2c2720;
+  --ink-surface-line: rgba(244, 240, 229, 0.10);
+  --ink-surface-text: #f4f0e5;
+  --ink-surface-muted:#a39a88;
 
   /* 布局度量 */
   --sidebar-w: 248px;
   --measure: 48em;
   --rail: 120px;
 
-  /* ---- 阴影与景深 (Layering & Elevation) ---- */
+  /* ---- 阴影与景深：纸面极轻景深 ---- */
   --shadow-0: none;
-  --shadow-1: 0 1px 2px 0 rgb(0 0 0 / 0.04);
-  --shadow-2: 0 4px 6px -1px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.04);
-  --shadow-3: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.03);
-  --shadow-4: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.04);
-  --shadow-focus: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  --shadow-1: 0 1px 2px 0 rgb(60 50 30 / 0.05);
+  --shadow-2: 0 3px 6px -1px rgb(60 50 30 / 0.07), 0 1px 3px -2px rgb(60 50 30 / 0.05);
+  --shadow-3: 0 8px 14px -3px rgb(60 50 30 / 0.09), 0 3px 5px -3px rgb(60 50 30 / 0.04);
+  --shadow-4: 0 16px 22px -5px rgb(60 50 30 / 0.11), 0 6px 8px -6px rgb(60 50 30 / 0.05);
+  --shadow-focus: 0 0 0 3px rgba(166, 58, 43, 0.16);
 }
