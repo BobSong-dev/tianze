@@ -376,33 +376,52 @@ async def interpret(
         except json.JSONDecodeError:
             raise ValueError(f"Provider returned non-JSON output: {raw[:200]}") from None
 
-    # 真实 LLM 会偶发自创 claim type（如 ADVANCED）——逐条过滤未知枚举并
-    # 如实声明，而不是让整个解读 500（M49：真实 Provider 实测暴露）。
+    # 真实 LLM 的输出天然带偏差（自创 claim type=ADVANCED、缺 refId、
+    # section 缺字段……）——逐条/逐节容错：坏的单条丢弃、坏的单节跳过并
+    # 如实声明，绝不让整个解读 500（M49/M50：真实 Provider 实测暴露）。
     valid_types = {t.value for t in ClaimType}
     dropped_claims: list[str] = []
+    sections: list[InterpretationSection] = []
+    dropped_sections: list[str] = []
     for sec in parsed.get("sections", []):
-        raw_claims = sec.get("claims") or []
+        if not isinstance(sec, dict):
+            dropped_sections.append(str(sec)[:40])
+            continue
         kept = []
-        for c in raw_claims:
-            if str(c.get("type", "")).upper() in valid_types:
-                if c.get("type") != str(c.get("type")).upper():
-                    c = {**c, "type": str(c["type"]).upper()}
-                kept.append(c)
+        for c in (sec.get("claims") or []):
+            if not isinstance(c, dict):
+                dropped_claims.append(f"{sec.get('title', '?')}→非对象claim")
+                continue
+            ctype = str(c.get("type", "")).upper()
+            ref = c.get("refId") or c.get("ref_id")
+            if ctype in valid_types and ref:
+                kept.append({"type": ctype, "refId": str(ref),
+                             **({"value": c["value"]} if c.get("value") is not None else {})})
             else:
-                dropped_claims.append(
-                    f"{sec.get('title', '?')}→type={c.get('type')}({c.get('refId', '?')})")
+                why = "未知类型" if ctype not in valid_types else "缺refId"
+                dropped_claims.append(f"{sec.get('title', '?')}→{why}:{ctype}")
         sec["claims"] = kept
+        try:
+            sections.append(InterpretationSection.model_validate(sec))
+        except Exception as e:
+            dropped_sections.append(f"{sec.get('title') or sec.get('type', '?')}"
+                                    f"（{str(e).splitlines()[0][:60]}）")
 
     uncertainties = list(parsed.get("uncertainties", []))
     if dropped_claims:
         uncertainties.append(
-            f"模型输出了 {len(dropped_claims)} 条类型未知的 claims，已按校验规则丢弃："
+            f"模型输出了 {len(dropped_claims)} 条无法校验的引用，已丢弃："
             + "；".join(dropped_claims[:5])
             + ("…" if len(dropped_claims) > 5 else ""))
+    if dropped_sections:
+        uncertainties.append(
+            f"模型输出的 {len(dropped_sections)} 个章节未通过结构校验，已跳过："
+            + "；".join(dropped_sections[:3])
+            + ("…" if len(dropped_sections) > 3 else ""))
 
     result = InterpretationResult(
         summary=parsed.get("summary", ""),
-        sections=[s for s in (InterpretationSection.model_validate(sec) for sec in parsed.get("sections", []))],
+        sections=sections,
         disagreements=parsed.get("disagreements", []),
         uncertainties=uncertainties,
         source_references=parsed.get("sourceReferences", []),

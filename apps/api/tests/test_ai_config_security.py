@@ -376,6 +376,37 @@ def test_invalid_inputs_rejected():
         assert r.json()["ok"] is False
 
 
+# ---------- M50 · 更深的真实偏差容错（缺 refId / 坏 section 不再 500） ----------
+
+def test_mock_malformed_claims_and_sections_degrade(mock_server):
+    """claim 缺 refId / section 缺必填字段 / 非对象条目：逐级丢弃+声明。"""
+    base, srv = mock_server
+    srv.behavior = {"key": "k", "content": json.dumps({
+        "summary": "MOCK：多级偏差输出。",
+        "sections": [
+            {"type": "advanced", "title": "高级结构", "content": "解释文本。",
+             "claims": [
+                 {"type": "ADVANCED", "refId": "a:x", "value": "1"},          # 未知类型→丢
+                 {"type": "FACT"},                                             # 缺 refId→丢
+                 {"type": "fact", "refId": "strength:weighted"},               # 小写→归一保留
+                 "junk-claim",                                                 # 非对象→丢
+             ]},
+            {"type": "pattern", "title": "坏节"},                              # 缺 content→整节跳过
+            "junk-section",
+        ],
+        "disagreements": [], "uncertainties": [], "sourceReferences": []}, ensure_ascii=False)}
+    client.post("/api/v1/ai-config/set", json={
+        "apiKey": "k", "baseUrl": base, "model": "m", "preset": "openai"})
+    i = client.post("/api/v1/interpret", json={"analysis": ANALYSIS})
+    assert i.status_code == 200
+    body = i.json()["interpretation"]
+    claims = body["sections"][0]["claims"]
+    assert len(claims) == 1 and claims[0]["type"] == "FACT" and claims[0]["refId"]
+    u = " | ".join(body["uncertainties"])
+    assert "无法校验" in u and "章节未通过结构校验" in u
+    client.post("/api/v1/ai-config/clear")
+
+
 # ---------- M49 · 真实 Provider 偏差容错（用户实测：模型自创 claim type=ADVANCED 曾致 500） ----------
 
 def test_mock_unknown_claim_type_degrades_not_500(mock_server):
@@ -399,7 +430,7 @@ def test_mock_unknown_claim_type_degrades_not_500(mock_server):
     body = i.json()
     claims = body["interpretation"]["sections"][0]["claims"]
     assert len(claims) == 1 and claims[0]["type"] == "FACT"  # ADVANCED 丢弃，fact→FACT 归一
-    assert any("类型未知" in u for u in body["interpretation"]["uncertainties"])
+    assert any("无法校验" in u or "类型未知" in u for u in body["interpretation"]["uncertainties"])
     client.post("/api/v1/ai-config/clear")
 
 
@@ -409,8 +440,11 @@ def test_mock_anthropic_full_chain(mock_server):
     """MOCK：anthropic 预设 set→test→interpret（x-api-key 真实出站）→content 解析。"""
     base, srv = mock_server
     srv.behavior = {"key": "anthropic-key", "raw_path": False}
+    # removesuffix 而非 rstrip：rstrip 按字符集剥尾，端口号以'1'结尾时
+    # 会被误剥（如 :51771→:5177）导致偶发连错端口（约 1/10 概率闪断）
+    base_root = base.removesuffix("/v1")
     r = client.post("/api/v1/ai-config/set", json={
-        "apiKey": "anthropic-key", "baseUrl": base.rstrip("/v1"),
+        "apiKey": "anthropic-key", "baseUrl": base_root,
         "model": "claude-sonnet-5-5", "preset": "anthropic"})
     assert r.json()["ok"] is True and r.json()["protocol"] == "anthropic"
     t = client.post("/api/v1/ai-config/test").json()
