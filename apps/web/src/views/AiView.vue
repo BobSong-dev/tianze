@@ -31,6 +31,8 @@ const emit = defineEmits<{
 const groundingIssues = computed(() => props.aiResult?.groundingIssues ?? []);
 
 const sectionTypeCn: Record<string, string> = {
+  overview: "总体", personality: "性格", career: "事业求财",
+  relationships: "感情人际", recent_trend: "近年走向", honesty: "如实说明",
   strength: "旺衰", pattern: "格局", tiaohou: "调候", relations: "关系",
   temporal: "岁运", structure: "结构", summary: "总述", caveat: "边界",
 };
@@ -61,40 +63,23 @@ const sectionTypeCn: Record<string, string> = {
     <div class="notice">
       <span class="notice-key">方法边界</span>
       <span>
-        AI 只解释引擎已计算的结构与候选，不得自行推算新结论；输出经事实一致性校验，
-        未通过的条目会标注警示（不隐藏内容）。AI 文本不构成吉凶或事件预测。
+        AI 用大白话帮你理解排盘结果；它不做预测（不算吉凶、不算婚期财运），
+        说法与系统对不上的地方会如实标出来。
       </span>
     </div>
 
     <!-- 一致性校验未通过：M51 起不再隐藏内容——照常展示 + 顶部醒目警示
          （真实 Provider 常有少量引用偏差，一票否决会让用户永远看不到结果） -->
     <section v-if="props.aiState === 'GROUNDING_FAILED'" class="ai-state is-warn-state">
-      <div class="ai-state-title">⚠ 本次输出有 {{ groundingIssues.length }} 项未通过事实一致性校验</div>
+      <div class="ai-state-title">⚠ 这次解读里有 {{ groundingIssues.length }} 处说法与引擎对不上</div>
       <p class="ai-state-body">
-        以下解读内容照常展示，但模型引用的部分证据 ID 不在引擎事实库中（或含越界表述）。
-        带 ! 标记的问题明细见下方；相关表述请以引擎确定性分析为准。可重新生成以获得更干净的输出。
+        内容照常展示；对不上的具体位置收在下方「查看依据与技术细节」里，偏技术，可不管。
+        拿不准的说法以页面上的确定性分析为准；也可以点「重新生成」试试更干净的结果。
       </p>
       <div class="ai-state-actions">
         <button class="btn-primary" type="button" @click="emit('generate')">重新生成</button>
       </div>
 
-      <details v-if="groundingIssues.length" style="margin-top: var(--s-5); text-align: left">
-        <summary>一致性问题明细（{{ groundingIssues.length }}）</summary>
-        <div class="stack stack-2 mt-3">
-          <div
-            v-for="(gi, i) in groundingIssues"
-            :key="i"
-            class="ev evidence-item is-minus"
-          >
-            <span class="ev-mark">!</span>
-            <span class="ev-body">
-              <StatusBadge :code="gi.severity" with-hint />
-              <span class="mono">{{ gi.type }}</span>
-              <div>{{ gi.detail }}</div>
-            </span>
-          </div>
-        </div>
-      </details>
     </section>
 
     <!-- 未配置：引导 -->
@@ -157,9 +142,7 @@ const sectionTypeCn: Record<string, string> = {
           {{ props.aiResult.summary }}
         </p>
         <div class="verdict-meta">
-          <StatusBadge label="已通过事实一致性校验" variant="pos" />
-          <StatusBadge :label="`段落 ${props.aiResult.sections?.length ?? 0}`" variant="mute" />
-          <span class="note">AI 文本仅辅助理解，请以证据链为准</span>
+          <span class="note">AI 解读仅帮助你理解，不预测具体事件；依据可在下方「查看依据」中核对</span>
         </div>
       </section>
 
@@ -178,52 +161,61 @@ const sectionTypeCn: Record<string, string> = {
             />
           </div>
           <p class="ai-section-body">{{ sec.content }}</p>
+        </article>
+      </section>
 
-          <div v-if="sec.claims?.length" class="mt-3">
-            <div class="note-sm" style="margin-bottom: 4px">引用依据</div>
-            <div class="row row-1">
+      <!-- 查看依据：技术细节统一折叠（小白默认不看；愿意深挖的用户展开） -->
+      <details class="ai-evidence-fold mt-2">
+        <summary>查看依据与技术细节（引用编号 / 分歧 / 校验结果）</summary>
+        <div class="stack stack-3 mt-3">
+          <section v-for="sec in props.aiResult.sections || []" :key="'ev-' + sec.type + sec.title">
+            <div class="note-sm" style="margin-bottom: 4px">{{ sec.title }}</div>
+            <div v-if="sec.claims?.length || sec.sourceIds?.length" class="row row-1">
               <StatusBadge
-                v-for="c in sec.claims"
+                v-for="c in sec.claims || []"
                 :key="String(c.refId)"
                 :code="String(c.refId)"
                 variant="rule"
                 :title="String(c.type ?? '')"
               />
+              <StatusBadge
+                v-for="sid in sec.sourceIds || []"
+                :key="sid"
+                :code="String(sid)"
+                variant="mute"
+              />
             </div>
-          </div>
+            <p v-if="!sec.claims?.length && !sec.sourceIds?.length" class="note">（本段未附引用编号）</p>
+          </section>
 
-          <details v-if="sec.sourceIds?.length" class="mt-3">
-            <summary>来源（{{ sec.sourceIds.length }}）</summary>
-            <div class="stack stack-1 mt-2">
-              <p v-for="sid in sec.sourceIds" :key="sid" class="note mono">{{ sid }}</p>
+          <section v-if="props.aiResult.disagreements?.length">
+            <div class="note-sm" style="margin-bottom: 4px">分析分歧（各流派说法不一之处）</div>
+            <div class="stack stack-2">
+              <div v-for="d in props.aiResult.disagreements" :key="d" class="ev evidence-item is-warn">
+                <span class="ev-mark">⚠</span><span class="ev-body">{{ d }}</span>
+              </div>
             </div>
-          </details>
-        </article>
-      </section>
+          </section>
 
-      <section v-if="props.aiResult.disagreements?.length">
-        <div class="sec-sub" style="margin-top: 0">
-          <h3>分析分歧</h3>
-          <span class="sec-sub-note">AI 指出的引擎内部或流派分歧点</span>
-        </div>
-        <div class="stack stack-2">
-          <div v-for="d in props.aiResult.disagreements" :key="d" class="ev evidence-item is-warn">
-            <span class="ev-mark">⚠</span><span class="ev-body">{{ d }}</span>
-          </div>
-        </div>
-      </section>
+          <section v-if="props.aiResult.uncertainties?.length">
+            <div class="note-sm" style="margin-bottom: 4px">不确定项（证据不足，如实保留疑问）</div>
+            <div class="stack stack-2">
+              <div v-for="u in props.aiResult.uncertainties" :key="u" class="ev evidence-item is-quiet">
+                <span class="ev-mark">·</span><span class="ev-body">{{ u }}</span>
+              </div>
+            </div>
+          </section>
 
-      <section v-if="props.aiResult.uncertainties?.length">
-        <div class="sec-sub" style="margin-top: 0">
-          <h3>不确定项</h3>
-          <span class="sec-sub-note">证据不足或存在学派分歧之处，保持未判定</span>
+          <section v-if="groundingIssues.length">
+            <div class="note-sm" style="margin-bottom: 4px">一致性校验问题（模型说法与引擎对不上的地方）</div>
+            <div class="stack stack-2">
+              <div v-for="(gi, i) in groundingIssues" :key="'g' + i" class="ev evidence-item is-minus">
+                <span class="ev-mark">!</span><span class="ev-body">{{ gi.detail }}</span>
+              </div>
+            </div>
+          </section>
         </div>
-        <div class="stack stack-2">
-          <div v-for="u in props.aiResult.uncertainties" :key="u" class="ev evidence-item is-quiet">
-            <span class="ev-mark">·</span><span class="ev-body">{{ u }}</span>
-          </div>
-        </div>
-      </section>
+      </details>
 
       <div class="row row-3 mt-4">
         <button class="btn-primary" type="button" @click="emit('generate')">重新生成</button>
