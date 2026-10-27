@@ -29,8 +29,9 @@ test.describe("M39 mobile & replay", () => {
     expect(overflow).toBeLessThanOrEqual(2);
 
     // 术语说明可展开
-    await page.click("text=术语与状态说明");
-    await expect(page.locator("text=候选（CANDIDATE）").first()).toBeVisible();
+    // M53：术语表入口文案小白化（原"术语与状态说明"）
+    await page.click("text=看不懂某个词");
+    await expect(page.locator("text=候选 / 倾向支持 / 两说并存 / 阻断 / 待定").first()).toBeVisible();
   });
 
   test("375px: relations view shows combination states", async ({ page }) => {

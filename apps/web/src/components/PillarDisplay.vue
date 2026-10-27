@@ -9,6 +9,7 @@
  * 保留 .pillar-card / .pillar-tile / .gz-stem 等既有标记作为稳定测试锚点。
  */
 import { POSITION_CN, elementCn, yinYangCn } from "../presentation/vocab";
+import { TERM_PLAIN, TENGOD_PLAIN } from "../presentation/layman";
 import type { PillarData } from "../types/tianze";
 
 const props = defineProps<{
@@ -22,6 +23,9 @@ const WX: Record<string, string> = {
 const wx = (el?: string) => WX[(el ?? "").toUpperCase()] ?? "";
 const elCn = elementCn;
 const yyCn = yinYangCn;
+// 白话悬停（M53 小白优先）：术语标签与十神值挂 :title，不新增视觉噪音
+const tgPlain = (tg?: string | null) => TENGOD_PLAIN[tg ?? ""] ?? "";
+const termPlain = (k: string) => TERM_PLAIN[k] ?? "";
 </script>
 
 <template>
@@ -55,8 +59,8 @@ const yyCn = yinYangCn;
 
       <!-- 第二层：十神 -->
       <div class="pillar-tengod">
-        <span class="pillar-tengod-label">十神</span>
-        <div class="pillar-tengod-value">
+        <span class="pillar-tengod-label" :title="termPlain('十神') + '：给盘里每个字贴的传统角色标签'">十神</span>
+        <div class="pillar-tengod-value" :title="tgPlain(props.pillars[key]?.tenGod)">
           {{ props.pillars[key]?.tenGod ?? (key === "day" ? "日主本人" : "—") }}
         </div>
       </div>
@@ -64,7 +68,7 @@ const yyCn = yinYangCn;
       <!-- 第三层：藏干 / 纳音 / 长生 / 旬空 -->
       <div class="pillar-meta">
         <div v-if="props.pillars[key]?.hiddenStems?.length" class="pillar-meta-row">
-          <span class="pillar-meta-key">藏干</span>
+          <span class="pillar-meta-key" :title="termPlain('藏干')">藏干</span>
           <span class="pillar-meta-val">
             <span
               v-for="h in props.pillars[key]?.hiddenStems"
@@ -78,11 +82,11 @@ const yyCn = yinYangCn;
           </span>
         </div>
         <div v-if="props.pillars[key]?.naYin" class="pillar-meta-row">
-          <span class="pillar-meta-key">纳音</span>
+          <span class="pillar-meta-key" :title="termPlain('纳音')">纳音</span>
           <span class="pillar-meta-val">{{ props.pillars[key]?.naYin }}</span>
         </div>
         <div v-if="props.pillars[key]?.changSheng" class="pillar-meta-row">
-          <span class="pillar-meta-key">长生</span>
+          <span class="pillar-meta-key" :title="termPlain('长生')">长生</span>
           <span class="pillar-meta-val">{{ props.pillars[key]?.changSheng }}</span>
         </div>
         <div v-if="props.pillars[key]?.xunKong" class="pillar-meta-row">

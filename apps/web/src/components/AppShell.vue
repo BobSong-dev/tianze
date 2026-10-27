@@ -18,6 +18,8 @@ export interface NavItem {
   meta?: string;
   /** 状态点：'on' | 'warn' | undefined */
   dot?: "on" | "warn";
+  /** 一句话白话副题（M53 小白优先；悬停显示） */
+  hint?: string;
 }
 export interface NavGroup {
   title: string;
@@ -121,7 +123,7 @@ function go(id: string) {
             @click="go(it.id)"
           >
             <span class="side-nav-idx">{{ String(i + 1).padStart(2, "0") }}</span>
-            <span class="side-nav-label">{{ it.label }}</span>
+            <span class="side-nav-label" :title="it.hint">{{ it.label }}</span>
             <span v-if="it.meta" class="side-nav-count">{{ it.meta }}</span>
             <span v-if="it.dot" class="side-nav-dot" :class="`is-${it.dot}`" />
           </button>

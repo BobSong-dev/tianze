@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { VIEW_PLAIN } from "./presentation/layman";
 /**
  * Tianze · 应用根组件。
  *
@@ -42,32 +43,33 @@ const navGroups = computed<NavGroup[]>(() => {
   const groups: NavGroup[] = [];
   if (!t.result.value) return groups;
 
+  const plain = (id: string) => VIEW_PLAIN[id] ?? "";
   groups.push({
     title: "命盘 · 原局",
     items: [
-      { id: "overview", label: "命盘总览", meta: "01" },
-      { id: "strength", label: "旺衰", meta: "02" },
-      { id: "pattern", label: "格局", meta: "03" },
-      { id: "relations", label: "关系", meta: "04" },
-      { id: "structure", label: "结构", meta: "05" },
-      { id: "tiaohou", label: "调候", meta: "06" },
-      { id: "advanced", label: "高级结构", meta: "07" },
+      { id: "overview", label: "命盘总览", meta: "01", hint: plain("overview") },
+      { id: "strength", label: "旺衰", meta: "02", hint: plain("strength") },
+      { id: "pattern", label: "格局", meta: "03", hint: plain("pattern") },
+      { id: "relations", label: "关系", meta: "04", hint: plain("relations") },
+      { id: "structure", label: "结构", meta: "05", hint: plain("structure") },
+      { id: "tiaohou", label: "调候", meta: "06", hint: plain("tiaohou") },
+      { id: "advanced", label: "高级结构", meta: "07", hint: "更深的专业观察（合化/虚神），可跳过" },
     ],
   });
 
   groups.push({
     title: "时序 · 岁运",
     items: [
-      { id: "temporal", label: "岁运时序", meta: t.temporal.value ? "✓" : "" },
+      { id: "temporal", label: "岁运时序", meta: t.temporal.value ? "✓" : "", hint: plain("temporal") },
     ],
   });
 
   groups.push({
     title: "知识 · 溯源",
     items: [
-      { id: "knowledge", label: "知识图谱" },
-      { id: "ai", label: "AI 解读", dot: ai.configured.value ? "on" : "warn" },
-      { id: "report", label: "研究报告" },
+      { id: "knowledge", label: "知识图谱", hint: plain("knowledge") },
+      { id: "ai", label: "AI 解读", dot: ai.configured.value ? "on" : "warn", hint: plain("ai") },
+      { id: "report", label: "研究报告", hint: "把以上内容汇成一份可打印的完整报告" },
     ],
   });
 
