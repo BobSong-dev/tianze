@@ -500,6 +500,60 @@
   margin-bottom: var(--s-4);
 }
 
+.home-title { position: relative; display: inline-block; }
+
+/* 大字装饰体系（M54）：印章压角 + 镌刻底线 + 竖排引文 */
+.home-title-hanzi { letter-spacing: 0.14em; }
+
+.home-title-seal {
+  position: absolute;
+  right: -1.5em;
+  bottom: 0.4em;
+  writing-mode: vertical-rl;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  color: #fdfbf5;
+  background: var(--cinnabar-600);
+  padding: 8px 4px;
+  border: 1px solid rgba(253, 251, 245, 0.55);
+  outline: 1px solid var(--cinnabar-600);
+  outline-offset: 2px;
+  border-radius: 0;
+  transform: rotate(-3deg);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.home-title::after {
+  content: "";
+  display: block;
+  margin-top: 14px;
+  height: 3px;
+  background: linear-gradient(90deg,
+    rgba(253, 251, 245, 0.85) 0%, rgba(253, 251, 245, 0.85) 34%,
+    rgba(201, 188, 158, 0.9) 34%, rgba(201, 188, 158, 0.9) 38%,
+    rgba(253, 251, 245, 0) 60%);
+}
+
+.home-motto {
+  writing-mode: vertical-rl;
+  position: absolute;
+  top: 0;
+  right: -5.5em;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  color: rgba(201, 188, 158, 0.75);
+  padding-left: 10px;
+  border-left: 1px solid rgba(201, 188, 158, 0.35);
+}
+
+@media (max-width: 768px) {
+  .home-title-seal { right: -1.1em; font-size: 10px; padding: 6px 3px; }
+  .home-motto { display: none; }
+}
+
 .home-title {
   font-size: var(--t-5xl);
   font-weight: 800;
@@ -914,9 +968,9 @@
 /* 版框：外粗内细的方角双线框（古籍书版语法），无圆角无投影 */
 .pillar-card {
   background: var(--paper-000);
-  border: 2px solid var(--ink-700);
+  border: 3px solid var(--ink-900);
   border-radius: 0;
-  padding: var(--s-5) var(--s-4) var(--s-4);
+  padding: var(--s-6) var(--s-5) var(--s-5);
   box-shadow: none;
   display: flex;
   flex-direction: column;
@@ -927,7 +981,7 @@
 .pillar-card::before {
   content: "";
   position: absolute;
-  inset: 3px;
+  inset: 4px;
   border: 1px solid var(--line-300);
   pointer-events: none;
 }
@@ -1004,8 +1058,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--s-4);
-  margin-bottom: var(--s-1);
+  gap: var(--s-5);
+  margin: var(--s-3) 0 var(--s-4);
 }
 
 .pillar-glyph {
@@ -1038,7 +1092,7 @@
   font-size: var(--t-2xs);
   color: var(--ink-400);
   font-weight: 600;
-  letter-spacing: var(--ls-wider);
+  letter-spacing: var(--ls-widest);
 }
 
 .pillar-tengod-value {

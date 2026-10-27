@@ -160,6 +160,10 @@ function printReport() { window.print(); }
 </script>
 
 <template>
+  <!-- M54 · 全局纸感肌理层（噪点 + 暗角；纯装饰，不参与交互） -->
+  <div class="paper-grain" aria-hidden="true" />
+  <div class="paper-vignette" aria-hidden="true" />
+
   <!-- 首页：独立版式（产品官网 + 研究入口） -->
   <HomeView
     v-if="workspace === 'home'"

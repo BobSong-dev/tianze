@@ -111,9 +111,11 @@ function toIntake() {
         <div>
           <div class="home-eyebrow">东方历法结构研究 · 可追溯推理</div>
           <h1 class="home-title">
-            天泽
+            <span class="home-title-hanzi">天泽</span>
+            <span class="home-title-seal" aria-hidden="true">天泽之印</span>
             <span class="home-title-latin">Tianze</span>
           </h1>
+          <div class="home-motto" aria-hidden="true">以历法为基 · 以结构为据</div>
           <p class="home-lede">
             以<em>历法</em>为基，以<em>结构</em>为据，<br />
             构建可追溯的命理分析。
