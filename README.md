@@ -1,192 +1,110 @@
-# Tianze 天泽
+# 天泽 Tianze
 
-> 以四柱八字为核心的可验证、可溯源、多流派并列的开源命理分析引擎。
->
-> **取诸家之长，统一为 Tianze。** 基础计算直接复用；成熟实现优先借鉴；算法必须可解释；规则必须可追踪；流派差异必须保留；权重与 heuristic 必须公开；有争议的地方不伪装成唯一答案；LLM 不参与确定性计算。
+天泽是用于四柱八字研究的本地工作台和 Python 分析引擎。输入出生时间后，可以从四柱排盘逐层查看旺衰、格局和岁运。展开一项判断，可以核对它引用的规则、古籍出处和验证状态。不同流派对同一命例的判断并列呈现，方便比较。
 
-## 当前状态：M40 完成（v0.4.0 本地 RC 就绪：645 测试/E2E 11/21 场景/C1-C8 全 0/sdist 重建一致/异常流验收；判定 READY_FOR_RELEASE_PENDING_AUTHORIZATION——正式发布待人工授权）+ 跨渠道一致性 + 21 场景端到端验收 + AI 评测覆盖率/升级检测；可执行规则 223，质量门 23 步）；可执行规则 222→223，temporal 20，质量门 23 步）+ 后端 replayEventKinds 映射 + C8 同构审计（1045 例全 0，八项）；可执行规则 222，质量门 23 步）+ Rule↔Replay 联动数据驱动化 + 合化专题审计；可执行规则 222，质量门 23 步）+ 回放引用完整性自检 + Web Rule↔Replay 联动；可执行规则 222，质量门 23 步）+ C7 悬空引用审计（七项全 0）；可执行规则 222，质量门 23 步）+ Markdown/HTML 回放章节 + 命例年锚候选集（多解即 UNRESOLVED）；可执行规则 222，质量门 23 步）；可执行规则 222，质量门 23 步）+ SP-CG-E3 合去×根气联动 + 跨层审计 C6 Evidence 完整化 + 命例状态回放统计（100 例顺序违规 0）；可执行规则 222，质量门 23 步）+ TR-SP-08 微根受制 + SpecialTemporalFinding label + 虚神触发率透明化 + 假从根气分布审计；可执行规则 222，质量门 23 步）；可执行规则 222，质量门 23 步）+ 六乙鼠贵三要件 + 来源治理 BLOCKED 如实化；可执行规则 222，质量门 23 步）+ 跨层一致性审计 C1-C5 全 0（质量门 22 步）+ 真从/假从两说；可执行规则 221）+ 外格虚神候选（候选永不成格）+ 命例×虚神专题审计入质量门 21 步；可执行规则 221）+ 填实规则 + 印比合去两说；可执行规则 220→221）
+[本地启动](#本地启动) · [命令行与 Python](#命令行与-python) · [使用指南](docs/user-guide.md) · [开发与验证](#开发与验证)
 
-| 里程碑 | 内容 | 状态 |
-|---|---|---|
-| Phase 0 | 7 个上游项目深度研究 + 架构设计 | ✅ `docs/research/` |
-| M0-M2 | 脚手架 / 排盘+差分对拍 / 关系引擎 | ✅ |
-| M3 | 通根 / 透干 / 月令 / 五行统计 | ✅ |
-| M4 | 旺衰三方法（dimension / weighted / fuyi） | ✅ |
-| M5 | 格局候选 + 证据化评估 | ✅ |
-| K0/K1/M6 | 古籍知识 Schema + 调候 120 格 | ✅ |
-| M6.1 | 验证体系（MACHINE_CURATED / HUMAN_VERIFIED 严格分离） | ✅ |
-| M7 | 1147 命例结构化 + Rule↔Case 双向索引 | ✅ |
-| M8 | 特殊格局（从格/专旺/化气）+ 病药 + 通关 + Case Regression | ✅ |
-| M8.6 | 从格审计 / 阴阳干证据 / PopulationStats | ✅ |
-| M9 | SDK Facade (`tianze.analyze()`) | ✅ |
-| M10 | FastAPI + Vue 3 Web + Contract Tests | ✅ |
-| M11 | Grounded AI 解释层（claim_refs + Grounding Validator） | ✅ |
-| M12 | 岁运基础（大运/流年关系 + Timeline + 十神主题） | ✅ |
-| M13 | 完整岁运系统（Temporal Delta / 流月流日 / TemporalCaseReference / 岁运规则 / Temporal Regression / 时间边界 / Web 时序工作台 / AI 岁运 / StructuralTheme / 报告导出） | ✅ |
-| M14 | 事件主题层（Event Rule Framework / School-aware Reasoning / EventThemeCandidate / Confidence / Event Evaluation / Grounded AI / Web / 导出） | ✅ |
-| M15 | 成熟推理层（方向级 Rule Conflict / 从格专旺化气岁运专题 / Historical Case Replay / Real-provider AI Evaluation / 打印 HTML 报告 / Timeline memoization / Property-Fuzz 门 / Review Queue） | ✅ |
-| M16 | 条件化推理（救应谓词 / SPECIFIC_EXCEPTION 启用 / Rule-ID Conflict Graph / 全链路可解释性 / Knowledge Explorer API+Web / Review Queue API / AI Evaluation History / Schema Migration 1.1→1.2） | ✅ |
-| M17 | 产品化（ExplanationChain SDK/Web/HTML / 多方法一致救应 / 原文岁运 span 解析 / Audit Gates ×10 / Coverage Workbench / Migration governance / 真实规模 benchmark） | ✅ |
-| M18 | 发布工程（Graph/Rule Audit 报告 / 原文解析 OCR 容错+一运多年 / Release Metadata JSON+MD / 版本兼容矩阵 / Funnel 端点 / Replay 链对照 / 一键质量门 14 步） | ✅ |
-| M19 | 产品闭环（Release Automation changelog/notes/tag-prep / Web Quality-Coverage Dashboard / AI Eval Compare 回归检测 / 五读数救应 / Stale 工件检测 / VERSIONING 治理 / 质量门 17 步） | ✅ |
-| M20 | 产品化收口（可安装 wheel + `tianze` CLI / release_check P0-P7 / clean-install smoke / Benchmark History / Web 评估对比+图视图 / README Quick Start / 版本单一事实源） | ✅ |
-| M21 | 发布验证（多平台 CI 矩阵 / Provider 遥测 / CLI human 模式 / Rescue coverage 审计 / v0.3.0 本地 RC + Release History / 质量门 20 步） | ✅ |
-| M22 | 产品深化（RC 全工件审计 + wheel 内容校验 / Rule Graph SVG 画布 / 遥测趋势入 compare / TR-SP-05 化神所忌 + TR-SP-07 从格受克 / 五读数实证 / Rule↔Case 联动） | ✅ |
-| M23 | 知识推理深化与产品成熟化（DTZ-47 真化条件入引擎 / DTZ-06 经典造回归 / TR-DTZ-11 旺衰冲 / EV-REL-06 婚变之微 / ADR-060 版本纪律 + ADR-061 神煞去取 / Graph pan-zoom + 解释链跳转 + 评估趋势线；可执行规则 218→220） | ✅ |
-| M24 | 深层干支关系与复杂格局推理（arch 拱夹/虚神 + hidden_combination 暗合关系入引擎与时序层 / TR-DTZ-10 填实·成拱·暗合 / SP-CG-E1 印比合去两说 / MLD-12 周熙造回归 / fuzz 不变量×3；可执行规则 220→221，temporal 18 条） | ✅ |
-| M25 | 深层关系推理与虚神体系深化（关系级 ExplanationChain 三态 + citations 注册表 / xushiOuter 外格候选（泛化纪律：井栏叉限庚日、子邀巳不落地）/ 虚神填实 StructuralTheme / 命例×虚神审计（1045 例：拱911/暗合308/未成立144/外格15）/ AI 铁律 13 候选与 BLOCKED 约束；质量门 21 步） | ✅ |
-| M26 | 虚神考证与推理体系升级（TIAN_YI 贵人表→拱贵 sub_type + 六乙鼠贵 / arch_broken 拱破·拱动两说 / cross_layer_audit 跨层一致性 1045 例全 0 入门 / SP-CG-E2 真从假从 / fuzz 重复支·arch_broken·争合；质量门 22 步） | ✅ |
-| M27 | 动态格局推理与知识证据闭环（TR-SP-08 假从/假化行运之别 / arch_unfill 去填两说 / SS-R16 三要件条件化 / source_coverage 来源治理（raw 语料 BLOCKED 如实）+ Web 节点→命例导航；质量门 23 步） | ✅ |
-| M28 | 复杂推理深化与全链路完善（xun_kong_of 六旬表 + 贵人空亡阻断 / _root_grade 根气分级（证据层）/ 去填并存注记 / 空亡贵人命例统计（378/1045）/ RC 本地构建验证；质量门 23 步） | ✅ |
-| M29 | 复杂格局动态推理与知识体系深化（xun_kong 差分 / 微根受制两说 / findings label / 触发率透明化（随机 75% vs 语料 69% 分列）/ 假从根气分布（无根416/微根167/明根283/强根611）；质量门 23 步） | ✅ |
-| M30 | 动态推理状态机与复杂格局深化（temporal_replay 逐层快照+迁移原因 / SP-CG-E3 组合两说 / C6 解释链完备（1045 例全 0）/ state_replay 100 例回放（顺序违规 0）/ unfill 中文层名；质量门 23 步） | ✅ |
-| M31 | 动态推理全链路产品化（include_temporal_replay SDK 选项（按需）/ CLI --replay human 摘要 / Web 回放时间轴 / AI replay:* refs + 铁律 11 扩展 + 评测第 5 用例；质量门 23 步） | ✅ |
-| M32 | 时序因果推理与复杂格局整合（Theme Delta 逐层归因 + replay-theme refs 进四通道 / 报告回放章节 + ev-None 修复 / 年锚候选集 4 例全 UNRESOLVED 不回推；质量门 23 步） | ✅ |
-| M33 | 动态证据链闭环与深层推理完善（themeDelta.relatedEvents 确定性反查 + basisRefs 回退 / C7 悬空引用 1045 例全 0 / 反查入 Web+双报告；质量门 23 步） | ✅ |
-| M34 | 深层条件推理与完整证据图谱（E3→TR-SP-08 合去调制（不叠加注记）/ replay 悬空引用自检（分类校验）/ Web 节点↔回放事件联动；质量门 23 步） | ✅ |
-| M35 | 复杂合化推理与产品深度完善（stem_combination_states 三态 + E1 结构化依据 / 联动数据驱动 / 合化审计（UNRESOLVED 563·CANDIDATE 11·阻化分布）；质量门 23 步） | ✅ |
-| M36 | 复杂合化体系与推理产品完整化（combination_state 解释链（DTZ-47/18/26/36）/ replayEventKinds 后端单一事实源 / C8 同构审计（同构全 0）；质量门 23 步） | ✅ |
-| M37 | 争合动态推理与体系深化（zhenghe_families（一侧≥2争合/两侧≥2并见不争）+ 岁运争合事件 + TR-DTZ-47；质量门 23 步） | ✅ |
-| M38 | 完整性审计与核心能力补齐（capability_audit 36 项矩阵 / 跨渠道一致性（SDK=CLI=API）/ 21 场景 E2E / 争合入解释链（见辰两说）/ AI claimCoverage+stateUpgrade；质量门 23 步） | ✅ |
-| M39 | 产品体验全面优化与试用准备（HTML 报告封面/摘要/术语/A4 打印 / Web 总览摘要+术语说明+使用指引 / 移动端媒体查询 / 合化状态区块+replay 规则链接 / user-guide.md 试用文档 / E2E 8→11；质量门 23 步） | ✅ |
-| M40 | v0.4.0 最终稳定化（三份交付文档 / RC 隔离验证（sdist 重建 64/64 一致、OpenAPI 契约零漂移）/ 异常流验收（645 测试）/ 发布判定 READY（待授权）） | ✅ |
+![天泽命盘总览，左侧为研究导航，右侧展示四柱与命盘摘要](docs/audits/2026-11-20-assets/overview-1440.png)
 
-**测试：506 项全绿**（Python）；E2E 8 项；可执行规则 216；救应谓词 7（五读数一致）/
-冲突边 4 / 流派冲突对 6；Case Replay 165 例；Audit Gates 10 门全过；一键质量门 17 步
-26s；发布产物 RELEASE_NOTES/tag-prep。治理：`docs/VERSIONING.md`。详见 DECISIONS.md。
+## 在工作台里研究一个命例
 
+| 你想了解什么 | 从哪里看 |
+| --- | --- |
+| 出生时间如何换算为四柱？ | **命盘总览**展示干支、藏干、十神和五行计数。调整时区或晚子时流派后可重新排盘。 |
+| 几种方法为何得出不同判断？ | **旺衰、格局与调候**列出各方法的判断和依据，可回到原局逐项核对。 |
+| 进入某个大运或流年后，哪些关系发生了变化？ | **岁运时序**按大运、流年、流月和流日逐层展开，并提供规则触发记录与状态回放。 |
+| 如何复核一条规则、保存一次分析？ | **知识图谱**关联规则、来源和命例。**研究报告**汇总当前分析，支持打印。命令行可导出 Markdown 或 HTML。 |
 
-## Quick Start
+## 本地启动
 
-### 安装
+准备 **Python 3.12 或更高版本**，以及 **Node.js 22** 和 npm。仅使用 Python SDK 或命令行时，只需安装 Python。
 
-```bash
-# 从仓库安装（含 CLI）
-pip install -e .
-tianze version
+**1. 获取源码并创建虚拟环境**
+
+```sh
+git clone https://github.com/BobSong-dev/tianze.git
+cd tianze
+python -m venv .venv
 ```
 
-### CLI
+**2. 激活虚拟环境**
 
-```bash
-# 原局分析（JSON）
-tianze analyze --date 2003-08-18 --time 14:30 --gender male
+Windows PowerShell：
 
-# 聚焦岁运分析（大运→流年→流月）+ 事件主题
-tianze timeline --date 1984-02-05 --time 10:30 --gender male   --year 2026 --month 1 --event-themes
-
-# 导出 Markdown / HTML 报告
-tianze export --date 2003-08-18 --time 14:30 --gender male --format md --out report.md
-
-# 版本信息 / 知识库校验
-tianze version
-tianze validate
+```powershell
+.\.venv\Scripts\Activate.ps1
 ```
 
-错误以 `CODE: message` 输出到 stderr（退出码 1），如 `INVALID_BIRTH_INFO: ...`。
+macOS 或 Linux：
 
-### Python SDK
-
-```python
-from tianze import analyze, AnalysisOptions
-
-result = analyze({"date": "2003-08-18", "time": "14:30", "gender": "male"})
-print(result.pillars["day"]["stem"])          # 癸
-
-# 岁运 + 事件主题 + 解释链
-r = analyze({"date": "1984-02-05", "time": "10:30", "gender": "male"},
-            AnalysisOptions(include_temporal=True, target_year=2026,
-                            include_event_themes=True, include_explanations=True))
-for theme in r.temporal["eventThemes"]["themes"]:
-    print(theme["themeCn"], theme["status"], theme["confidence"])
+```sh
+source .venv/bin/activate
 ```
 
-### Web / API
+**3. 安装依赖并启动工作台**
 
-```bash
-pip install -e ".[api]"
-.venv/Scripts/python -m uvicorn apps.api.main:app --port 8000   # API :8000
-cd apps/web && npm install && npm run dev                        # Web :5173
-
-# 或一键启动（封装以上两步）：
+```sh
+python -m pip install -e ".[api]"
+npm --prefix apps/web ci
 python scripts/dev_start.py
 ```
 
-配置 AI 解读：复制 `.env.example` 并设置 `TIANZE_LLM_API_KEY`（可选）。
+打开 [本地工作台](http://127.0.0.1:5173)，输入出生日期、时间和性别，点击「开始排盘」。接口可在 [本地 API 文档](http://127.0.0.1:8000/docs) 中试用。按 `Ctrl+C` 停止服务。Windows PowerShell 若限制运行 npm 脚本，可使用 `npm.cmd`。
 
-### 开发
+**AI 解读为可选功能。** 排盘和规则分析均可在本地完成。需要文字解读时，打开「AI 设置」填写服务地址、模型和 API Key。页面保存的密钥保存在服务进程内存中，重启后需重新填写。生成解读时，所选模型服务会收到该命例的结构与证据摘要。
 
-```bash
-pip install -e ".[dev,api]"
-python -m pytest tests apps/api/tests -q        # 测试
-python tools/check_version.py                   # 安装版本与源码/tag 一致性
-python tools/quality_gate.py                    # 一键质量门（23 步）
-python tools/release_check.py                   # 发布前检查（构建/安装/一致性）
-python tools/release_automation.py              # 发布演练（dry-run，不 push/tag）
+## 命令行与 Python
+
+在仓库根目录的虚拟环境中执行 `python -m pip install -e .` 即可使用 CLI 和 SDK。已安装上述工作台依赖的用户可直接运行示例。
+
+```sh
+tianze analyze --date 2003-08-18 --time 14:30 --gender male
+tianze timeline --date 2003-08-18 --time 14:30 --gender male --year 2026
+tianze export --date 2003-08-18 --time 14:30 --gender male --format html --out report.html
 ```
 
-前端验证（在 `apps/web` 中执行）：`npm test`、`npm run build`、`npm run api:check`、
-`npm run test:e2e -- --retries=0`。首次运行浏览器测试先执行 `npx playwright install chromium`。
-`api:check` 只读比较 OpenAPI 与 TypeScript；后端契约变更后显式执行 `npm run api:generate`。
-非默认 Python 解释器可通过 `TIANZE_PYTHON` 指定。Windows PowerShell 可使用 `npm.cmd`。
-
-质量门会刷新发布/回归工件；请在独立工作副本执行完整验收。
-Playwright 自动启动独立的本地前后端（默认端口 15173 和 18000），所有配置操作经测试页面同源代理发出。可用 `E2E_WEB_PORT` 和 `E2E_API_PORT` 指定空闲端口，端口被占用时测试停止。
-发布检查和打标签都要求当前提交的完整质量报告，且所有必需步骤各成功一次。发布前请运行完整质量门。
-
-本轮审计修复及验收记录：[2026-11-20 修复报告](docs/audits/2026-11-20-remediation.html)。
-
-数据目录：开发模式用仓库 `knowledge/`；安装模式用打包副本 `tianze/_data/knowledge`；
-可用 `TIANZE_DATA_DIR` 覆盖（见 `docs/VERSIONING.md`）。
-
-
-
-打开浏览器 → `http://localhost:5173` → 输入出生信息 → 查看完整分析。
-每个结论可展开"为什么"→ 查看规则来源 → 古籍原文 → 页码 → 验证状态。
-
-## 快速开始
-
-```bash
-python -m venv .venv
-source .venv/Scripts/activate   # Windows Git Bash（Linux/macOS: source .venv/bin/activate）
-pip install -e ".[dev]"
-pytest -q
-```
+在 Python 中可以直接读取结构化结果，例如取出同一命例的日干：
 
 ```python
-import datetime as dt
-from tianze.domain.models import BirthInfo
-from tianze.pipeline import build_chart
+from tianze import analyze
 
-chart = build_chart(BirthInfo(date=dt.date(1983, 2, 15), time=dt.time(20, 0), gender="female"))
-d = chart.to_json_dict()
-d["monthCommand"]["relationToDayMaster"]   # {'state': '旺', 'inCommand': True, ...} 甲木寅月得令
-[(r["statement"]) for r in d["roots"]]     # 通根证据：甲通根于月支寅（本气），月令通根 …
-d["strength"]["methods"][0]["strengthEvidence"]["deShi"]  # {'result': True, 'reason': [...]}
+result = analyze({"date": "2003-08-18", "time": "14:30", "gender": "male"})
+print(result.pillars["day"]["stem"])
 ```
 
-## 架构一览
+## 开发与验证
 
-```text
-BirthInfo → 双轨道时间（R3）→ lunar-python 排盘 + 十神推导
-          → 关系引擎（R9-R14）→ 结构事实（R15-R18：根/透干/月令/统计）
-          → 旺衰框架（R19：多分析器并列，当前 dimension 定性三维）
-          → BaziChart 统一 JSON（conventions 回显 / warnings / fallbacks）
-          ↑ 测试网：oracle 独立路径差分 + 盖章 fixture + 守恒律 + 反例
+Python 引擎负责历法、排盘和规则计算，FastAPI 提供接口，Vue 3 工作台展示分析结果。历法底层依赖 `lunar-python`。各层的数据约定与来源见 [架构说明](docs/ARCHITECTURE.md)、[流派与计算口径](docs/CONVENTIONS.md) 和 [来源与许可](docs/SOURCES.md)。
+
+<details>
+<summary><strong>运行测试、生产构建与发布检查</strong></summary>
+
+在仓库根目录安装开发依赖并运行 Python 测试：
+
+```sh
+python -m pip install -e ".[dev,api]"
+python -m pytest tests apps/api/tests -q
 ```
 
-- 活动架构文档：`docs/ARCHITECTURE.md`；设计决策：`docs/DECISIONS.md`
-- 流派口径 R 表：`docs/CONVENTIONS.md`（R1-R19；改 R 必须同步改 fixture + 测试）
-- 上游缺陷与勘误：`docs/ERRATA.md`
-- 来源与许可：`docs/SOURCES.md`（代码 MIT；未使用任何 CC BY-NC-SA / AGPL / 无许可证代码）
+在已安装前端依赖的环境中运行：
 
-## 与上游的关系（取诸家之长）
+```sh
+cd apps/web
+npm test
+npm run api:check
+npm run build
+npx playwright install chromium
+npm run test:e2e -- --retries=0
+```
 
-- **依赖**：lunar-python（MIT）承担历法/四柱/藏干/纳音/长生/大运底座。
-- **方法论继承**：bazi-atlas（对拍/盖章/守恒律/守卫 fixture）、jiwenxu（边界警告/provenance/反例测试/"别柱同干比肩必须计入"）、ruan（规则 schema 与质检思想）、Horosa（事实/解释分离思想，AGPL 不复制代码）。
-- **独立验证**：日柱锚定外部事实（1949-10-01=甲子、2000-01-01=戊午、2024-01-01=甲子）；节气用自写 Meeus Ch.25 黄经路径交叉验证；lunar-python 的十神/藏干表被 Tianze 推导逐项对账。
+端到端测试会启动独立的前后端服务。回到仓库根目录后，可用 `python tools/quality_gate.py` 执行完整质量门。它会刷新回归与发布工件，建议在独立工作副本中运行。详见[发布流程](docs/release-procedure-v0.4.0.md)。
 
-## 免责声明
+</details>
 
-Tianze 是传统文化研究与工程实践项目，输出为结构化事实与规则推导，不构成任何现实建议。
+## 延伸阅读
 
+- **使用与边界**　[工作台使用指南](docs/user-guide.md) · [已知限制](docs/known-limitations.md)
+- **研究与复核**　[规则来源追踪](docs/knowledge/04-SOURCE-PROVENANCE.md) · [知识验证机制](docs/knowledge/07-VERIFICATION-SYSTEM.md) · [勘误记录](docs/ERRATA.md)
+- **开发与演进**　[开发指南](docs/developer-guide.md) · [设计决策](docs/DECISIONS.md) · [版本治理](docs/VERSIONING.md)
+
+天泽面向传统文化研究与工程实践。阅读命例时，请将规则推导与现实决策区分开来。
