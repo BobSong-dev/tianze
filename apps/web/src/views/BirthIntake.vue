@@ -50,7 +50,7 @@ const tzIsPreset = computed(() =>
 </script>
 
 <template>
-  <div class="intake" :class="{ 'is-compact': props.compact }">
+  <form class="intake" :class="{ 'is-compact': props.compact }" :aria-busy="props.loading" novalidate @submit.prevent="emit('submit')">
     <!-- ============ 单行密集版式（工作区） ============ -->
     <div v-if="props.compact" class="birth-compact">
       <label class="field">
@@ -72,6 +72,7 @@ const tzIsPreset = computed(() =>
             type="button"
             class="btn-sm"
             :class="props.birth.gender === g.v ? 'btn-ink' : ''"
+            :aria-pressed="props.birth.gender === g.v"
             @click="props.birth.gender = g.v"
           >{{ g.label }}</button>
         </div>
@@ -95,7 +96,7 @@ const tzIsPreset = computed(() =>
       </label>
 
       <label class="field">
-        <span class="field-label">经度 <span class="mono">真太阳时</span></span>
+        <span class="field-label">经度 <span class="mono">仅记录</span></span>
         <input
           v-model.number="props.birth.longitude"
           type="number"
@@ -109,7 +110,7 @@ const tzIsPreset = computed(() =>
         知道出生时间
       </label>
 
-      <button class="btn-primary submit" type="button" :disabled="props.loading" @click="emit('submit')">
+      <button class="btn-primary submit" type="submit" :disabled="props.loading">
         {{ props.loading ? "排盘中…" : "重新排盘" }}
       </button>
     </div>
@@ -142,6 +143,7 @@ const tzIsPreset = computed(() =>
                     :key="g.v"
                     type="button"
                     :class="props.birth.gender === g.v ? 'btn-ink' : ''"
+                    :aria-pressed="props.birth.gender === g.v"
                     @click="props.birth.gender = g.v"
                   >{{ g.label }}</button>
                 </div>
@@ -181,8 +183,7 @@ const tzIsPreset = computed(() =>
               </label>
             </div>
             <p class="field-hint mt-3">
-              时区按标准时间偏移参与换日与节气判定；如需真太阳时 / 地方平太阳时，
-              请在下方填写出生地经度。
+              请选择出生地的标准时区。日柱与时柱按当地钟表时计算，适用时扣除中国夏令时。
             </p>
           </div>
         </section>
@@ -204,7 +205,7 @@ const tzIsPreset = computed(() =>
             </label>
 
             <div class="mt-4">
-              <button class="btn-link" type="button" @click="showAdvanced = !showAdvanced">
+              <button class="btn-link" type="button" :aria-expanded="showAdvanced" @click="showAdvanced = !showAdvanced">
                 {{ showAdvanced ? "收起高级选项" : "高级选项（出生地经度）" }}
               </button>
             </div>
@@ -218,7 +219,7 @@ const tzIsPreset = computed(() =>
                 placeholder="例如 116.4（北京）"
               />
               <span class="field-hint">
-                填写后引擎按真太阳时校正时差；留空则仅使用标准时区偏移。
+                经度仅作为出生地资料记录，当前排盘使用钟表时。
               </span>
             </label>
           </div>
@@ -227,11 +228,11 @@ const tzIsPreset = computed(() =>
 
       <!-- 视觉终点：开始排盘 -->
       <div class="intake-actions">
-        <button class="btn-primary btn-lg submit" type="button" :disabled="props.loading" @click="emit('submit')">
+        <button class="btn-primary btn-lg submit" type="submit" :disabled="props.loading">
           {{ props.loading ? "正在排盘…" : "开始排盘" }}
         </button>
         <span class="spacer" />
-        <span class="note">全部确定性推导在本地引擎完成，不上传出生信息。</span>
+        <span class="note">确定性分析由当前后端引擎完成；不调用第三方 AI。</span>
       </div>
     </template>
 
@@ -239,5 +240,6 @@ const tzIsPreset = computed(() =>
       <span class="mono" aria-hidden="true">ERR</span>
       <span>{{ props.error }}</span>
     </p>
-  </div>
+    <p v-if="props.loading" class="loading-status" role="status"><span class="loading-indicator" aria-hidden="true" />正在核对历法与结构，请稍候…</p>
+  </form>
 </template>

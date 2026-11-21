@@ -32,7 +32,7 @@ const hasBingYao = computed(() =>
 </script>
 
 <template>
-  <div class="stack stack-5">
+  <div class="advanced-layout">
     <!-- 特殊格局候选 -->
     <section>
       <div class="sec-sub" style="margin-top: 0">

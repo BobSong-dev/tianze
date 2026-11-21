@@ -52,11 +52,11 @@ function seed(w: number, h: number): P[] {
                 : (1.2 + Math.random() * 2.4),           // 纸尘：缓慢沉降
       r: ember ? (Math.random() < 0.12 ? 1.9 : 0.7 + Math.random() * 0.9)
                : (0.8 + Math.random() * 1.1),
-      a: ember ? (0.22 + Math.random() * 0.5)            // 星屑可被直视
-               : (0.02 + Math.random() * 0.035),         // 纸尘仅余光可察
+      a: ember ? (0.24 + Math.random() * 0.52)            // 星屑/金箔可被直视
+               : (0.04 + Math.random() * 0.06),         // 秘阁微尘仅余光可察
       tw: Math.random() * Math.PI * 2,
       tws: 0.3 + Math.random() * 0.7,
-      hue: Math.random() < (ember ? 0.72 : 0.5) ? 0 : 1,
+      hue: Math.random() < (ember ? 0.62 : 0.55) ? 0 : 1,
     });
   }
   return ps;
@@ -72,10 +72,10 @@ onMounted(() => {
   let w = 0, h = 0, dpr = 1;
   let particles: P[] = [];
 
-  // ember 色系：暖纸白 与 古铜金；dust 色系：淡墨 与 淡褐
+  // ember 色系：鎏金赤金 与 宣纸象牙白；dust 色系：淡赤金 与 柔古铜
   const colors = props.variant === "ember"
-    ? ["244, 240, 229", "201, 188, 158"]
-    : ["58, 53, 44", "122, 104, 71"];
+    ? ["212, 175, 55", "244, 239, 230"]
+    : ["212, 175, 55", "197, 155, 95"];
 
   const viewportFit = () => props.fit === "viewport";
   const size = () => {

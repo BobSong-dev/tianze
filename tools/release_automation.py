@@ -44,10 +44,19 @@ def _pyproject_version() -> str:
 
 def main() -> int:
     # --skip-gate-check：质量门内部调用（gate 的 summary 尚未写出，无法自证 ALL PASS）
-    summary = _load("release/quality-summary.json", None)
-    if "--skip-gate-check" not in sys.argv:
-        if not summary or not summary.get("allPass"):
-            print("BLOCKED：quality summary 不存在或未 ALL PASS——先运行 tools/quality_gate.py")
+    from tools.release_check import quality_gate_status
+
+    internal = "--gate-progress" in sys.argv
+    execute = "--tag" in sys.argv
+    if execute and (internal or "--skip-gate-check" in sys.argv):
+        print("BLOCKED：创建标签需要正式质量报告")
+        return 2
+    path = sys.argv[sys.argv.index("--gate-progress") + 1] if internal else "release/quality-summary.json"
+    summary = _load(path, {})
+    if "--skip-gate-check" not in sys.argv or execute:
+        passed, detail = quality_gate_status(summary, _git("rev-parse", "HEAD"))
+        if not passed:
+            print(f"BLOCKED：{detail}")
             return 2
     metadata = _load("release/release-metadata.json", None)
     if not metadata:
@@ -89,7 +98,6 @@ def main() -> int:
         parts = current.split(".")
         suggested = f"{parts[0]}.{parts[1]}.{int(parts[2]) + 1}"
 
-    execute = "--tag" in sys.argv
     tag_name = f"v{suggested}"
     tag_prepared = {"tag": tag_name, "created": False,
                     "command": f"git tag -a {tag_name} -m 'Tianze {tag_name}'",
@@ -105,7 +113,7 @@ def main() -> int:
         f"- commit: `{metadata['release']['gitCommit'][:12]}`"
         f"（{'含未提交改动' if metadata['release']['dirty'] else '工作区干净'}）",
         f"- 当前版本 {current} → 建议 {tag_name}（{kind}；规则：特性 commit → minor，否则 patch）",
-        f"- 质量门：{'ALL PASS' if summary.get('allPass') else 'FAIL'}"
+        f"- 质量门：{'执行中' if internal else ('ALL PASS' if summary.get('allPass') else 'FAIL')}"
         f"（{summary.get('totalSeconds')}s / {len(summary.get('steps', []))} 步）",
         "",
         "## 版本与规模",
@@ -166,7 +174,7 @@ def main() -> int:
         "currentVersion": current, "suggestedTag": tag_name, "bumpKind": kind,
         "commitGroups": {k: len(v) for k, v in groups.items()},
         "tagPrepared": tag_prepared,
-        "qualityGate": {"allPass": summary.get("allPass")},
+        "qualityGate": {"allPass": None if internal else summary.get("allPass")},
     }
     with open(os.path.join(REPO, "release/tag-prep.json"), "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=1)

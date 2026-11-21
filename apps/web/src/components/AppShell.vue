@@ -8,8 +8,9 @@
  *
  * 纪律：导航项由上层传入，外壳不含任何命理语义。
  */
-import { watch } from "vue";
-import ParticleField from "./ParticleField.vue";
+import { onBeforeUnmount, onMounted, ref, watch } from "vue";
+import UiIcon from "./UiIcon.vue";
+import { useFocusTrap } from "../composables/useFocusTrap";
 
 export interface NavItem {
   id: string;
@@ -53,6 +54,19 @@ const emit = defineEmits<{
 
 /** 移动端抽屉开关（双向绑定，供外壳自己在导航后关闭） */
 const sidebarOpen = defineModel<boolean>("sidebarOpen", { default: false });
+const sidebar = ref<HTMLElement | null>(null);
+let desktop: MediaQueryList | null = null;
+function syncBreakpoint() {
+  if (desktop?.matches) sidebarOpen.value = false;
+}
+onMounted(() => {
+  desktop = window.matchMedia("(min-width: 901px)");
+  desktop.addEventListener("change", syncBreakpoint);
+  syncBreakpoint();
+});
+onBeforeUnmount(() => desktop?.removeEventListener("change", syncBreakpoint));
+useFocusTrap(sidebarOpen, sidebar, () => { sidebarOpen.value = false; });
+onBeforeUnmount(() => document.body.classList.remove("is-drawer-open"));
 
 watch(() => props.active, () => { sidebarOpen.value = false; });
 
@@ -77,12 +91,13 @@ function go(id: string) {
     <!-- 移动端遮罩 -->
     <div v-if="sidebarOpen" class="sidebar-scrim" @click="sidebarOpen = false" />
 
-    <aside class="app-sidebar" :class="{ 'is-open': sidebarOpen }">
+    <aside ref="sidebar" id="research-navigation" class="app-sidebar" :class="{ 'is-open': sidebarOpen }" :role="sidebarOpen ? 'dialog' : undefined" :aria-modal="sidebarOpen || undefined" aria-label="研究导航">
+      <button v-if="sidebarOpen" type="button" class="drawer-close btn-ghost" aria-label="关闭研究路径" @click="sidebarOpen = false"><UiIcon name="close" /></button>
       <button class="brand-block" type="button" @click="emit('home')">
         <span class="brand-seal" aria-hidden="true">泽</span>
         <span class="brand-text">
           <span class="brand-name">天泽</span>
-          <span class="brand-latin">TIANZE</span>
+          <span class="brand-latin">观象研究室 · TIANZE</span>
         </span>
       </button>
 
@@ -114,17 +129,18 @@ function go(id: string) {
         <div v-for="grp in props.groups" :key="grp.title" class="side-nav-group">
           <div class="side-nav-title">{{ grp.title }}</div>
           <button
-            v-for="(it, i) in grp.items"
+            v-for="it in grp.items"
             :key="it.id"
             type="button"
             class="side-nav-item"
             :class="{ 'is-active': props.active === it.id }"
             :aria-current="props.active === it.id ? 'page' : undefined"
+            :aria-label="it.label"
             @click="go(it.id)"
           >
-            <span class="side-nav-idx">{{ String(i + 1).padStart(2, "0") }}</span>
+            <UiIcon :name="it.id" :size="18" />
             <span class="side-nav-label" :title="it.hint">{{ it.label }}</span>
-            <span v-if="it.meta" class="side-nav-count">{{ it.meta }}</span>
+            <span v-if="props.active === it.id" class="side-nav-count">当前</span>
             <span v-if="it.dot" class="side-nav-dot" :class="`is-${it.dot}`" />
           </button>
         </div>
@@ -146,16 +162,17 @@ function go(id: string) {
       </div>
     </aside>
 
-    <div class="app-main">
-      <ParticleField variant="dust" fit="viewport" class="app-dust" />
+    <div class="app-main" :inert="sidebarOpen || undefined">
       <header class="app-topbar">
         <button
           class="btn-ghost sidebar-toggle"
           type="button"
           aria-label="打开研究路径"
+          :aria-expanded="sidebarOpen"
+          aria-controls="research-navigation"
           @click="sidebarOpen = !sidebarOpen"
         >
-          <span aria-hidden="true">☰</span>
+          <UiIcon name="menu" />
         </button>
 
         <nav class="crumb" aria-label="位置">
@@ -176,10 +193,11 @@ function go(id: string) {
         </div>
       </header>
 
-      <main class="app-content" id="main">
-        <div class="content-inner" :class="{ 'is-wide': $slots.default && props.showNav === false }">
+      <main class="app-content" id="main" tabindex="-1">
+        <div class="content-inner" :class="[{ 'is-wide': $slots.default && props.showNav === false }, `workspace-${props.active}`]">
           <slot />
         </div>
+        <footer class="workspace-footer"><span>天泽 · 观象研究室</span><span>结构有据，分歧可见。仅供传统文化研究。</span></footer>
       </main>
     </div>
   </div>

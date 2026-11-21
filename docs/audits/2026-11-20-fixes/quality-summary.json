@@ -1,0 +1,214 @@
+{
+ "schemaVersion": "1.0.0",
+ "gitCommit": "07b6e30e59443eac8fbcba04f1b369745898d197",
+ "phase": "complete",
+ "allPass": true,
+ "failed": [],
+ "totalSeconds": 124.3,
+ "steps": [
+  {
+   "step": "pytest",
+   "exitCode": 0,
+   "elapsedSeconds": 89.89,
+   "tail": [
+    "",
+    "-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html",
+    "684 passed, 1 warning in 89.06s (0:01:29)"
+   ]
+  },
+  {
+   "step": "knowledge_validator",
+   "exitCode": 0,
+   "elapsedSeconds": 0.1,
+   "tail": [
+    "}",
+    "",
+    "knowledge validation: OK"
+   ]
+  },
+  {
+   "step": "conflict_graph",
+   "exitCode": 0,
+   "elapsedSeconds": 0.08,
+   "tail": [
+    "Conflict Graph：229 节点 / 18 边 {'conflict': 5, 'rescues': 6, 'school-conflict': 7}"
+   ]
+  },
+  {
+   "step": "graph_audit",
+   "exitCode": 0,
+   "elapsedSeconds": 0.81,
+   "tail": [
+    "Graph Audit：A1 UNVERIFIED=0 | A4 cycles=0 | A2 overActive=无 | heuristic-only 规则=0"
+   ]
+  },
+  {
+   "step": "audit_gates",
+   "exitCode": 0,
+   "elapsedSeconds": 0.32,
+   "tail": [
+    "  PASS G9_no_confirmed",
+    "  PASS G10_no_machine_human",
+    "Audit Gates：ALL PASS → regression/audit-gates.json"
+   ]
+  },
+  {
+   "step": "rule_audit",
+   "exitCode": 0,
+   "elapsedSeconds": 0.09,
+   "tail": [
+    "Rule Audit：21 条规则；异常泛化信号 无"
+   ]
+  },
+  {
+   "step": "case_regression",
+   "exitCode": 0,
+   "elapsedSeconds": 0.79,
+   "tail": [
+    "  \"current\": 1147",
+    " }",
+    "}"
+   ]
+  },
+  {
+   "step": "temporal_regression",
+   "exitCode": 0,
+   "elapsedSeconds": 0.43,
+   "tail": [
+    "Temporal Regression：{} → 报告 C:\\Project\\tianze\\apps\\web\\test-results\\audit-20261120\\workspace\\regression\\temporal-report.md"
+   ]
+  },
+  {
+   "step": "event_evaluation",
+   "exitCode": 0,
+   "elapsedSeconds": 1.8,
+   "tail": [
+    "  随机盘主题触发率：{'career': 0.44, 'mobility': 0.315, 'relationship': 0.495, 'social': 0.335, 'study': 0.235, 'wealth': 0.27}",
+    "  异常触发：{'rules': {}, 'themes': {}}",
+    "  problems：无"
+   ]
+  },
+  {
+   "step": "case_replay",
+   "exitCode": 0,
+   "elapsedSeconds": 0.71,
+   "tail": [
+    "  status 分布：{'CANDIDATE': 326, 'UNRESOLVED': 69, 'LIKELY': 20, 'DISPUTED': 24}",
+    "  unresolved 率：0.157 | disagreement 率：0.055",
+    "  虚神/暗合（M24）：{'hidden_combination': 51, 'arch': 155}，覆盖 109 例"
+   ]
+  },
+  {
+   "step": "xushi_case_audit",
+   "exitCode": 0,
+   "elapsedSeconds": 1.44,
+   "tail": [
+    "虚神专题审计：1045 例，727 例含虚神/暗合/候选（拱 911、暗合 308、未成立 144、外格候选 33）→ regression/xushi-audit.json"
+   ]
+  },
+  {
+   "step": "cross_layer_audit",
+   "exitCode": 0,
+   "elapsedSeconds": 0.97,
+   "tail": [
+    "跨层一致性审计：1045 例，violation 0（{'C1': 0, 'C2': 0, 'C3': 0, 'C4': 0, 'C5': 0, 'C6': 0, 'C7': 0, 'C8': 0}）→ regression/cross-layer-audit.json"
+   ]
+  },
+  {
+   "step": "source_coverage",
+   "exitCode": 0,
+   "elapsedSeconds": 0.12,
+   "tail": [
+    "来源治理：status=BLOCKED；候选 556，引文 556（缺失 556）；注册表 issue 0"
+   ]
+  },
+  {
+   "step": "ai_evaluation_mock",
+   "exitCode": 0,
+   "elapsedSeconds": 0.63,
+   "tail": [
+    "  PIPELINE_OK multi_view_agree issues=0 banned=[] disputeMissing=True",
+    "  PIPELINE_OK event_themes_shensha issues=0 banned=[] disputeMissing=True",
+    "  PIPELINE_OK temporal_replay issues=0 banned=[] disputeMissing=True"
+   ]
+  },
+  {
+   "step": "review_queue",
+   "exitCode": 0,
+   "elapsedSeconds": 0.09,
+   "tail": [
+    "Review Queue：432 项 → review/review-queue.json",
+    "  {'ocrRisk': 163, 'machineCurated': 223, 'sensitiveClaims': 38, 'ruleConflicts': 8}"
+   ]
+  },
+  {
+   "step": "rule_coverage_audit",
+   "exitCode": 0,
+   "elapsedSeconds": 0.09,
+   "tail": [
+    "Rule Coverage Audit：223 条规则 → {'high_conflict': 6, 'high_rescue_dep': 1, 'low_trigger': 1, 'no_case_coverage': 22, 'only_silent': 13}"
+   ]
+  },
+  {
+   "step": "rescue_coverage",
+   "exitCode": 0,
+   "elapsedSeconds": 0.08,
+   "tail": [
+    "Rescue Coverage：5/21 规则有救应；heuristic 谓词 ['wealth_favorable']；keep-both 2；未结构化经典例外 0"
+   ]
+  },
+  {
+   "step": "ai_eval_compare",
+   "exitCode": 0,
+   "elapsedSeconds": 0.09,
+   "tail": [
+    "AI Eval Compare：709 条历史；回归信号 0"
+   ]
+  },
+  {
+   "step": "benchmark",
+   "exitCode": 0,
+   "elapsedSeconds": 1.91,
+   "tail": [
+    "benchmark history signals: 无"
+   ]
+  },
+  {
+   "step": "release_metadata",
+   "exitCode": 0,
+   "elapsedSeconds": 1.54,
+   "tail": [
+    " }",
+    "}",
+    "→ release/release-metadata.json + release/release-report.md"
+   ]
+  },
+  {
+   "step": "release_check",
+   "exitCode": 0,
+   "elapsedSeconds": 21.52,
+   "tail": [
+    "  PASS P7_benchmark_regression（全部在阈值内（阈值：{\"caseChart1147.perCaseMs\": 5.0, \"replayCorpus.perCaseMs\": 5.0, \"timeline80y.elapsedSeconds\": 1.0}））",
+    "",
+    "Release Check：ALL PASS → release/release-check.md"
+   ]
+  },
+  {
+   "step": "release_automation_dryrun",
+   "exitCode": 0,
+   "elapsedSeconds": 0.39,
+   "tail": [
+    "Release Automation：0.4.0.dev0 → v0.4.0（minor）；commits {'features': 82, 'fixes': 0, 'tests': 2, 'docs': 0, 'chores': 2}；notes → release/RELEASE_NOTES.md",
+    "  tag：dry-run（未创建，不 push）"
+   ]
+  },
+  {
+   "step": "release_history",
+   "exitCode": 0,
+   "elapsedSeconds": 0.34,
+   "tail": [
+    "Release History：v0.4.0.dev0 @ 07b6e30e5944 已记录 → release-history.jsonl"
+   ]
+  }
+ ]
+}

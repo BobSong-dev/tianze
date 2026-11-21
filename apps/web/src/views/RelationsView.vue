@@ -75,7 +75,7 @@ const statusCounts = computed(() => {
         <h3>已成立关系</h3>
         <span class="sec-sub-note">刑 · 冲 · 合 · 害 · 破 · 三合三会 · 天干五合</span>
       </div>
-      <div class="rows">
+      <div class="rows rows-ledger">
         <RelationFigure
           v-for="(r, i) in relations"
           :key="`${r.label}-${i}`"
@@ -146,7 +146,7 @@ const statusCounts = computed(() => {
         <h3>未成立的关系候选</h3>
         <span class="sec-sub-note">「为什么不成立」——仅解释，不参与推理</span>
       </div>
-      <div class="rows">
+      <div class="rows rows-ledger">
         <RelationFigure
           v-for="(r, i) in blocked"
           :key="`b-${r.label}-${i}`"

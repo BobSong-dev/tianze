@@ -24,7 +24,7 @@ import tempfile
 import time
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PY = os.path.join(REPO, ".venv", "Scripts", "python.exe")
+PY = sys.executable
 sys.path.insert(0, REPO)  # release_check 自身可从任意 CWD 运行
 CHECK_SCHEMA_VERSION = "1.0.0"
 
@@ -56,18 +56,22 @@ def main() -> int:
         results.append({"step": name, "pass": bool(ok), "detail": detail})
         print(f"  {'PASS' if ok else 'FAIL'} {name}" + (f"（{detail}）" if detail else ""))
 
-    # 前提：quality gate。allPass=False → FAIL；但无 summary 或与当前 HEAD 不一致
-    # 视为 stale（WARN 不 FAIL）：正式发布前应重跑 quality_gate（release_check 通常
-    # 在 gate 之后由同一流程调用，单测内 gate 可能尚未重跑）。
-    qg = _load("release/quality-summary.json", {})
-    if not qg:
-        step("P0_quality_gate", False, "先运行 tools/quality_gate.py")
-    elif qg.get("allPass"):
-        step("P0_quality_gate", True, f"{len(qg.get('steps', []))} 步 ALL PASS")
-    else:
-        step("P0_quality_gate", True,
-             "WARN: 最近一次 quality summary 未 ALL PASS（"
-             + ",".join(qg.get("failed", [])) + "）——发布前请重跑 tools/quality_gate.py")
+    summary_path = "release/quality-summary.json"
+    if "--quality-summary" in sys.argv:
+        summary_path = sys.argv[sys.argv.index("--quality-summary") + 1]
+    internal = "--gate-progress" in sys.argv
+    if internal:
+        summary_path = sys.argv[sys.argv.index("--gate-progress") + 1]
+    quality_ok, quality_detail = quality_gate_status(_load(summary_path, {}), _git("rev-parse", "HEAD"), internal=internal)
+    step("P0_quality_gate", quality_ok, quality_detail)
+    if not quality_ok:
+        payload = {"schemaVersion": CHECK_SCHEMA_VERSION, "allPass": False, "steps": results}
+        os.makedirs(os.path.join(REPO, "release"), exist_ok=True)
+        with open(os.path.join(REPO, "release/release-check.json"), "w", encoding="utf-8") as stream:
+            json.dump(payload, stream, ensure_ascii=False, indent=1)
+        with open(os.path.join(REPO, "release/release-check.md"), "w", encoding="utf-8") as stream:
+            stream.write("# Tianze Release Check\n\nFAIL P0_quality_gate: " + quality_detail + "\n")
+        return 1
 
     import tianze
     version = tianze.__version__
@@ -101,7 +105,7 @@ def main() -> int:
     # P2 clean-install smoke
     if wheels:
         with tempfile.TemporaryDirectory() as venv_dir:
-            venv_py = os.path.join(venv_dir, "Scripts", "python.exe")
+            venv_py = os.path.join(venv_dir, "Scripts", "python.exe") if os.name == "nt" else os.path.join(venv_dir, "bin", "python")
             subprocess.run([sys.executable, "-m", "venv", venv_dir],
                            capture_output=True, encoding="utf-8", errors="replace")
             subprocess.run([venv_py, "-m", "pip", "install", "--quiet", wheels[0]],
@@ -205,6 +209,30 @@ def main() -> int:
         f.write("\n".join(md) + "\n")
     print(f"\nRelease Check：{'ALL PASS' if all_pass else 'FAIL'} → release/release-check.md")
     return 0 if all_pass else 1
+
+
+def quality_gate_status(summary: dict, head: str, *, internal: bool = False) -> tuple[bool, str]:
+    from tools.quality_gate import STEPS
+
+    if not summary:
+        return False, "质量工件缺失，请运行 tools/quality_gate.py"
+    if summary.get("allPass") is not True or summary.get("failed"):
+        return False, "质量门未通过：" + ",".join(summary.get("failed") or ["allPass != true"])
+    if not head or summary.get("gitCommit") != head:
+        return False, "质量工件提交过期或未记录提交，请重新运行质量门"
+    steps = summary.get("steps", [])
+    required = [name for name, _ in STEPS]
+    if internal:
+        required = required[:required.index("release_check")]
+    if summary.get("phase") != ("prerelease" if internal else "complete"):
+        return False, "质量报告阶段不符"
+    if not isinstance(steps, list) or any(not isinstance(item, dict) or type(item.get("exitCode")) is not int
+                                          or item["exitCode"] != 0 for item in steps):
+        return False, "质量工件步骤缺失或包含失败"
+    names = [item.get("step") for item in steps]
+    if len(names) != len(required) or any(name not in names for name in required):
+        return False, "质量报告的必需步骤缺失或重复"
+    return True, f"{len(steps)} 步 ALL PASS，提交一致"
 
 
 if __name__ == "__main__":

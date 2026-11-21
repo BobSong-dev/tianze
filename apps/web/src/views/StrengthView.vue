@@ -41,7 +41,7 @@ const dims = [
 </script>
 
 <template>
-  <div class="stack stack-5">
+  <div class="strength-layout">
     <!-- 结论摘要 -->
     <section class="verdict">
       <span class="verdict-kicker">旺衰结论</span>

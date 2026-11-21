@@ -1,0 +1,17 @@
+
+Running 9 tests using 1 worker
+
+
+(node:25688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/9] e2e\audit-regressions.spec.ts:18:1 › F01: unsubmitted birth cannot change report or temporal inputs
+[2/9] e2e\audit-regressions.spec.ts:37:1 › F02: stale temporal response never replaces a new selection
+[3/9] e2e\audit-regressions.spec.ts:68:3 › F03: report accurately shows grounding true
+[4/9] e2e\audit-regressions.spec.ts:68:3 › F03: report accurately shows grounding false
+[5/9] e2e\audit-regressions.spec.ts:68:3 › F03: report accurately shows grounding undefined
+[6/9] e2e\audit-regressions.spec.ts:88:1 › F04: AI from a previous chart is discarded
+[7/9] e2e\audit-regressions.spec.ts:117:1 › F05/F06: configuration failures recover without false success
+[8/9] e2e\audit-regressions.spec.ts:141:1 › F07/F08: drawer resizing and nested settings preserve keyboard access
+[9/9] e2e\audit-regressions.spec.ts:163:1 › F09: partial rule failure is not an empty search and can retry
+  9 passed (14.9s)

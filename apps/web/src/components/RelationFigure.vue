@@ -9,7 +9,7 @@ import StatusBadge from "./StatusBadge.vue";
 import { computed } from "vue";
 import ConditionList from "./ConditionList.vue";
 import Citation from "./Citation.vue";
-import { relationTone, relationKindShort, relationKindCn, positionShortCn, STATUS_MAP } from "../presentation/vocab";
+import { relationTone, relationKindShort, relationKindCn, positionShortCn, elementCn, STATUS_MAP } from "../presentation/vocab";
 import type { RelationData, RelationExplanationData } from "../types/tianze";
 
 const props = defineProps<{
@@ -60,9 +60,9 @@ const edgeLabel = computed(() => {
       <StatusBadge v-if="props.relation.subType" :label="props.relation.subType" variant="mute" />
       <StatusBadge
         v-if="props.relation.transformCandidate"
-        :label="`化 ${props.relation.transformCandidate}（候选）`"
+        :label="`化${elementCn(props.relation.transformCandidate)}（候选）`"
         variant="warn"
-        title="化神候选：引擎给出的候选，未判定化成"
+        :title="`化神候选 (${props.relation.transformCandidate})：引擎给出的候选，未判定化成`"
       />
       <span class="grow" />
       <StatusBadge v-if="props.blocked" label="未成立" variant="neg" />

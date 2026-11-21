@@ -232,8 +232,21 @@ const DELTA_GROUP_CN: Record<string, string> = {
   structure: '结构',
   tiaohou: '调候',
   special_pattern: '特殊格局',
+  special: '特殊格局',
   temporal: '岁运',
   element: '五行',
+  tengod: '十神',
+  tongguan: '通关',
+  'weighted-v1': '加权计分',
+  'fuyi-v1': '扶抑取用',
+  dimensional_v1: '得令·得地·得势',
+  damage: '破损',
+  rescue: '救应',
+  status: '成格状态',
+  score: '分值变化',
+  cong: '从格',
+  zhuanwang: '专旺',
+  xushi: '虚神',
 };
 
 export function deltaTitle(id?: string | null): string {
@@ -245,6 +258,7 @@ export function deltaTitle(id?: string | null): string {
   const rest = parts.slice(1).map(p => {
     if (DELTA_GROUP_CN[p]) return DELTA_GROUP_CN[p];
     if (ANALYZER_MAP[p]) return ANALYZER_MAP[p].cn;
+    if (p.startsWith('bridge-')) return `通关桥（${p.slice('bridge-'.length)}）`;
     if (p === 'v1') return '';
     return p;
   }).filter(Boolean);

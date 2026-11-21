@@ -1,13 +1,43 @@
-import { execSync } from "node:child_process";
-import { resolve } from "node:path";
-const root = resolve(import.meta.dirname, "../..");
+import { execFileSync } from "node:child_process";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import openapiTS, { astToString, COMMENT_HEADER } from "openapi-typescript";
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
 const check = process.argv.includes("--check");
-const specPath = resolve(root, "apps/web/src/api/generated/openapi.json");
-const tsPath = resolve(root, "apps/web/src/api/generated/schema.d.ts");
-execSync(`cd "${root}" && .venv/Scripts/python -c "import sys;sys.path.insert(0,'.');from apps.api.main import app;import json;open('apps/web/src/api/generated/openapi.json','w').write(json.dumps(app.openapi(),indent=2))"`, { stdio: "pipe" });
-execSync(`cd "${resolve(root, "apps/web")}" && npx openapi-typescript src/api/generated/openapi.json -o src/api/generated/schema.d.ts`, { stdio: "pipe" });
-if (check) {
-  const diff = execSync(`git diff --stat "apps/web/src/api/generated/schema.d.ts"`, { encoding: "utf-8", cwd: root }).trim();
-  if (diff) { console.error("CONTRACT DRIFT:", diff); process.exit(1); }
-  console.log("No drift.");
-} else { console.log("Types generated."); }
+const localPython = resolve(root, process.platform === "win32" ? ".venv/Scripts/python.exe" : ".venv/bin/python");
+const python = process.env.TIANZE_PYTHON || (existsSync(localPython) ? localPython : "python");
+
+export function compareOrWrite(files, checkOnly) {
+  const changed = [];
+  for (const [path, expected] of files) {
+    const actual = existsSync(path) ? readFileSync(path, "utf8").replace(/\r\n/g, "\n") : null;
+    if (actual === expected) continue;
+    changed.push(path);
+    if (!checkOnly) writeFileSync(path, expected, "utf8");
+  }
+  return changed;
+}
+
+export async function generate() {
+  const output = execFileSync(python, ["-c", "from apps.api.main import app; import json; print(json.dumps(app.openapi(), ensure_ascii=True))"], {
+    cwd: root, encoding: "utf8", env: { ...process.env, PYTHONUTF8: "1", PYTHONIOENCODING: "utf-8" },
+  });
+  const spec = JSON.parse(output);
+  const schema = COMMENT_HEADER + astToString(await openapiTS(spec));
+  const changed = compareOrWrite([
+    [resolve(root, "apps/web/src/api/generated/openapi.json"), JSON.stringify(spec, null, 2) + "\n"],
+    [resolve(root, "apps/web/src/api/generated/schema.d.ts"), schema],
+  ], check);
+  if (check && changed.length) {
+    console.error("CONTRACT DRIFT:\n" + changed.join("\n"));
+    process.exitCode = 1;
+  } else {
+    console.log(check ? "No drift. Source files unchanged." : "Types generated.");
+  }
+}
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  await generate();
+}

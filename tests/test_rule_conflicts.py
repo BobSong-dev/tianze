@@ -240,8 +240,10 @@ def test_conflict_graph_integrity():
     import subprocess, sys, os
     r = subprocess.run([sys.executable, "tools/build_conflict_graph.py"],
                        capture_output=True, text=True, encoding="utf-8",
+                       env={**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"},
                        cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     assert r.returncode == 0, r.stdout + r.stderr
+    assert "Conflict Graph" in r.stdout and "节点" in r.stdout
     g = json.load(open("knowledge/rules/event/conflict-graph.json", encoding="utf-8"))
     assert g["problems"] == []
     assert g["edgeTypes"]["conflict"] == 5

@@ -1,7 +1,22 @@
 import { defineConfig } from "@playwright/test";
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
+
+const localPython = resolve("../../", process.platform === "win32" ? ".venv/Scripts/python.exe" : ".venv/bin/python");
+const python = process.env.TIANZE_PYTHON || (existsSync(localPython) ? localPython : "python");
+if (process.env.E2E_API_ORIGIN || process.env.E2E_BASE_URL) {
+  throw new Error("E2E 需要独立进程。请使用 E2E_WEB_PORT 和 E2E_API_PORT 指定空闲端口。");
+}
+const webPort = Number(process.env.E2E_WEB_PORT ?? 15173);
+const apiPort = Number(process.env.E2E_API_PORT ?? 18000);
+if (webPort === apiPort || [webPort, apiPort].some(port => !Number.isInteger(port) || port < 1 || port > 65535)) {
+  throw new Error("请为测试前后端指定两个不同的有效端口。");
+}
+const baseURL = `http://127.0.0.1:${webPort}`;
 
 export default defineConfig({
   testDir: "./e2e",
+  outputDir: "./test-results/playwright",
   timeout: 30000,
   retries: 1,
   /**
@@ -13,12 +28,16 @@ export default defineConfig({
    */
   workers: 1,
   fullyParallel: false,
-  use: { baseURL: "http://localhost:5173" },
+  use: { baseURL },
   webServer: [
     {
-      command: "cd ../../ && .venv\\Scripts\\python.exe -m uvicorn apps.api.main:app --port 8000",
-      port: 8000, reuseExistingServer: true, timeout: 15000,
+      command: `"${python}" -m uvicorn apps.api.main:app --host 127.0.0.1 --port ${apiPort}`,
+      cwd: "../../",
+      env: { TIANZE_LLM_API_KEY: "", TIANZE_ALLOW_REMOTE_AI_CONFIG: "0" },
+      port: apiPort, reuseExistingServer: false, timeout: 15000,
     },
-    { command: "npm run dev", port: 5173, reuseExistingServer: true, timeout: 15000 },
+    { command: `node node_modules/vite/bin/vite.js --port ${webPort} --strictPort`,
+      env: { TIANZE_DEV_API_ORIGIN: `http://127.0.0.1:${apiPort}` },
+      url: baseURL, reuseExistingServer: false, timeout: 15000 },
   ],
 });

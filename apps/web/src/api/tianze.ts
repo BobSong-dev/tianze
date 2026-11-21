@@ -115,21 +115,23 @@ export interface AiTestResult {
 
 async function jsonOr<T>(url: string, init?: RequestInit, fallback?: T): Promise<T> {
   try {
-    const r = await fetch(url, init);
-    return (await r.json()) as T;
-  } catch {
+    const response = await fetch(url, init);
+    const body = await response.json();
+    if (!response.ok) throw new TianzeApiError(messageOf(body?.error, `HTTP ${response.status}`));
+    return body as T;
+  } catch (error) {
     if (fallback !== undefined) return fallback;
-    throw new Error("网络错误");
+    if (error instanceof TianzeApiError) throw error;
+    throw new Error("网络错误或响应格式无效，请检查本地 API 服务后重试");
   }
 }
 
 export function getAiStatus(): Promise<AiConfigStatus> {
-  return jsonOr<AiConfigStatus>(`${BASE}/ai-config/status`, undefined,
-    { configured: false, source: "none" } as AiConfigStatus);
+  return jsonOr<AiConfigStatus>(`${BASE}/ai-config/status`);
 }
 
 export function getAiPresets(): Promise<AiPreset[]> {
-  return jsonOr<{ presets: AiPreset[] }>(`${BASE}/ai-config/presets`, undefined, { presets: [] })
+  return jsonOr<{ presets: AiPreset[] }>(`${BASE}/ai-config/presets`)
     .then(d => d.presets ?? []);
 }
 
@@ -146,7 +148,7 @@ export function testAiConfig(): Promise<AiTestResult> {
 }
 
 export function clearAiConfig(): Promise<Record<string, unknown>> {
-  return jsonOr<Record<string, unknown>>(`${BASE}/ai-config/clear`, { method: "POST" }, {});
+  return jsonOr<Record<string, unknown>>(`${BASE}/ai-config/clear`, { method: "POST" });
 }
 
 // ---------------- AI 解读 ----------------
@@ -219,6 +221,7 @@ export async function interpretAnalysis(analysis: unknown): Promise<InterpretOut
 // ---------------- 知识工作台（只读导航） ----------------
 
 export interface KnowledgeBundle {
+  errors: Partial<Record<"rules" | "stats" | "review" | "funnel" | "coverage" | "release" | "evaluationCompare", string>>;
   rules: any[];
   stats: any;
   review: any[];
@@ -229,17 +232,24 @@ export interface KnowledgeBundle {
 }
 
 export async function loadKnowledgeBundle(): Promise<KnowledgeBundle> {
-  const safe = (u: string) => fetch(u).then(x => x.json()).catch(() => null);
+  const errors: KnowledgeBundle["errors"] = {};
+  const safe = async (key: keyof KnowledgeBundle["errors"], path: string) => {
+    try {
+      const data = await jsonOr<any>(`${BASE}/knowledge/${path}`);
+      if (!data || data.error || (key === "rules" && !Array.isArray(data.rules))) throw new Error("数据格式无效");
+      return data;
+    } catch (error) {
+      errors[key] = error instanceof Error ? error.message : String(error);
+      return null;
+    }
+  };
   const [rules, stats, review, funnel, coverage, release, evaluationCompare] = await Promise.all([
-    safe(`${BASE}/knowledge/rules`),
-    safe(`${BASE}/knowledge/stats`),
-    safe(`${BASE}/knowledge/review-queue`),
-    safe(`${BASE}/knowledge/funnel`),
-    safe(`${BASE}/knowledge/coverage`),
-    safe(`${BASE}/knowledge/release`),
-    safe(`${BASE}/knowledge/evaluation-compare`),
+    safe("rules", "rules"), safe("stats", "stats"), safe("review", "review-queue"),
+    safe("funnel", "funnel"), safe("coverage", "coverage"), safe("release", "release"),
+    safe("evaluationCompare", "evaluation-compare"),
   ]);
   return {
+    errors,
     rules: rules?.rules ?? [],
     stats,
     review: (review?.items ?? []).slice(0, 60),
@@ -248,5 +258,5 @@ export async function loadKnowledgeBundle(): Promise<KnowledgeBundle> {
 }
 
 export function loadKnowledgeGraph(): Promise<any> {
-  return fetch(`${BASE}/knowledge/graph`).then(x => x.json()).catch(() => null);
+  return jsonOr<any>(`${BASE}/knowledge/graph`).catch(() => null);
 }

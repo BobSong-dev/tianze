@@ -63,7 +63,7 @@ const citations = computed(() => {
 });
 
 function jump(id: string) {
-  document.getElementById(`sec-${id}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  document.getElementById(`sec-${id}`)?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
 }
 </script>
 
@@ -108,7 +108,8 @@ function jump(id: string) {
         <dt>时区偏移</dt><dd>UTC{{ props.birth.timezoneOffset >= 0 ? "+" : "" }}{{ props.birth.timezoneOffset }}</dd>
         <dt>晚子时流派</dt><dd>流派 {{ props.birth.sect }}</dd>
         <dt v-if="props.birth.longitude != null">经度</dt>
-        <dd v-if="props.birth.longitude != null">{{ props.birth.longitude }}（真太阳时校正）</dd>
+        <dd v-if="props.birth.longitude != null">{{ props.birth.longitude }}°（仅记录）</dd>
+        <dt>日时柱计时</dt><dd>出生地钟表时，适用时扣除中国夏令时</dd>
         <dt>日主</dt><dd>{{ dm.stem }}（{{ elCn(dm.element) }}）</dd>
         <dt v-if="props.result.monthCommand">月令</dt>
         <dd v-if="props.result.monthCommand">
@@ -191,6 +192,7 @@ function jump(id: string) {
           <strong>{{ STATUS_MAP[props.result.strength.agreement]?.label ?? props.result.strength.agreement }}</strong>
         </template>
       </p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="旺衰方法比较表">
       <table style="margin-top: var(--s-4)">
         <thead>
           <tr><th>方法</th><th>判定</th><th>置信</th><th>计分</th></tr>
@@ -204,6 +206,7 @@ function jump(id: string) {
           </tr>
         </tbody>
       </table>
+      </div>
       <p v-if="props.result.strength?.note" class="note" style="margin-top: var(--s-3)">
         {{ props.result.strength.note }}
       </p>
@@ -417,8 +420,13 @@ function jump(id: string) {
           </ul>
         </div>
         <p class="note" style="margin-top: var(--s-3)">
-          以上 AI 文本已通过事实一致性校验；它仅解释引擎已给出的结构，不构成结论。
+          <template v-if="props.aiResult.groundingPassed === true">以上 AI 文本已通过事实一致性校验；它仅解释引擎已给出的结构，不构成结论。</template>
+          <template v-else-if="props.aiResult.groundingPassed === false">以上 AI 文本未通过事实一致性校验，请以引擎证据为准，不应作为已核实结论。</template>
+          <template v-else>以上 AI 文本的事实一致性校验状态未知，请核对引擎证据。</template>
         </p>
+        <ul v-if="props.aiResult.groundingIssues?.length" class="report-sec-body">
+          <li v-for="(issue, index) in props.aiResult.groundingIssues" :key="index">{{ issue.detail }}</li>
+        </ul>
       </template>
       <p v-else-if="!props.aiConfigured" class="report-sec-body">
         未配置 AI 服务，本次报告不含 AI 辅助解读。确定性命理分析不受影响。
@@ -440,7 +448,7 @@ function jump(id: string) {
         <li>候选状态（CANDIDATE / LIKELY / DISPUTED / UNRESOLVED / EXPERIMENTAL）均<strong>不是确定性结论</strong>。</li>
         <li>多方法与多流派分歧处一律并列呈现，工具不代为裁决。</li>
         <li>「事件主题」为结构层面的关注候选，置信度为工程启发式加权，<strong>不是概率</strong>，也无 CONFIRMED 状态。</li>
-        <li>AI 解读只解释引擎结果并需通过事实一致性校验；未通过的内容不予展示。</li>
+        <li>AI 解读仅辅助解释引擎结果；存在一致性校验偏差时显示警示，不能替代引擎证据。</li>
       </ol>
 
       <div v-if="props.result.warnings?.length" style="margin-top: var(--s-5)">

@@ -8,37 +8,16 @@
  * 而柱位字段用大写（WOOD/…），统一经 normalizeElement 归一后再查表。
  */
 import { computed } from "vue";
-import { normalizeElement, elementCn, elementVar, ELEMENT_ORDER } from "../presentation/vocab";
+import { elementCn, elementVar, ELEMENT_ORDER } from "../presentation/vocab";
+import { elementRows } from "../presentation/elementCounts";
 import type { ElementCountsData } from "../types/tianze";
 
 const props = defineProps<{ counts: ElementCountsData | null }>();
 
-/** 把引擎返回的任意大小写键映射为归一大写键 */
-const byKey = computed<Record<string, { visible: number; hidden: number }>>(() => {
-  const out: Record<string, { visible: number; hidden: number }> = {};
-  for (const [k, v] of Object.entries(props.counts?.elements ?? {})) {
-    out[normalizeElement(k)] = {
-      visible: Number((v as any)?.visible ?? 0),
-      hidden: Number((v as any)?.hidden ?? 0),
-    };
-  }
-  return out;
-});
-
 const rows = computed(() => {
-  // 刻度上限取全盘最大可见数（至少 4，保证小数值时条形仍可读）
-  const max = Math.max(4, ...ELEMENT_ORDER.map(k => byKey.value[k]?.visible ?? 0));
-  return ELEMENT_ORDER.map(k => {
-    const v = byKey.value[k] ?? { visible: 0, hidden: 0 };
-    return {
-      key: k,
-      cn: elementCn(k),
-      color: elementVar(k),
-      visible: v.visible,
-      hidden: v.hidden,
-      pct: Math.max(0, Math.min(100, (v.visible / max) * 100)),
-    };
-  });
+  const counts = elementRows(props.counts);
+  const max = Math.max(4, ...counts.map(row => row.visible));
+  return counts.map(row => ({ ...row, color: elementVar(row.key), pct: row.visible / max * 100 }));
 });
 
 const total = computed(() =>
@@ -69,7 +48,8 @@ const peak = computed(() => {
       <span v-if="peak.length" class="note">
         最旺：{{ peak.join("、") }}（按显数计）
       </span>
-      <span class="note">合计 {{ total }} 字（显 + 藏）</span>
+      <span v-if="rows.length === ELEMENT_ORDER.length" class="note">合计 {{ total }} 字（显 + 藏）</span>
+      <span v-else class="note">部分五行计数缺失</span>
       <span v-if="missing.length" class="note">
         命局未见：{{ missing.join("、") }}
       </span>

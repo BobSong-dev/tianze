@@ -10,13 +10,19 @@
  *  2) AI 解读会将当前命盘相关信息发送至所配置的第三方模型服务；
  *  3) 配置操作仅限本机访问（后端强制），公网部署须自行加鉴权。
  */
-import { onMounted, watch } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { aiConfigStore } from "../composables/useAiConfig";
+import { useFocusTrap } from "../composables/useFocusTrap";
+import UiIcon from "./UiIcon.vue";
 
 const props = defineProps<{ open: boolean }>();
 const emit = defineEmits<{ (e: "close"): void }>();
 
 const ai = aiConfigStore();
+const modal = ref<HTMLElement | null>(null);
+useFocusTrap(computed(() => props.open), modal, () => emit("close"));
+watch(() => props.open, open => document.body.classList.toggle("is-modal-open", open));
+onBeforeUnmount(() => document.body.classList.remove("is-modal-open"));
 
 onMounted(() => { void ai.refresh(); });
 watch(() => props.open, (v) => { if (v) void ai.refresh(); });
@@ -31,31 +37,20 @@ watch(() => props.open, (v) => { if (v) void ai.refresh(); });
     aria-label="AI 服务设置"
     @click.self="emit('close')"
   >
-    <div class="modal ai-modal">
+    <div ref="modal" class="modal ai-modal">
       <div class="modal-head">
+        <span class="connection-symbol"><UiIcon name="settings" :size="24" /></span>
         <div class="modal-head-text">
-          <div class="modal-title">AI 服务设置</div>
-          <p class="modal-sub">
-            用于生成基于当前证据链的辅助解释。不配置时，全部确定性分析仍在本地完成。
-          </p>
+          <h2 class="modal-title">AI 服务设置</h2>
+          <p class="modal-sub">为命盘解读连接模型服务。</p>
         </div>
-        <button class="modal-close" type="button" aria-label="关闭" @click="emit('close')">×</button>
+        <button class="modal-close" type="button" aria-label="关闭" @click="emit('close')"><UiIcon name="close" /></button>
       </div>
 
       <div class="modal-body">
-        <!-- 当前状态 -->
-        <div class="ai-status ai-status-strip" :class="ai.configured.value ? 'is-on' : 'is-off'">
-          <span class="ai-dot" :class="ai.configured.value ? 'is-on' : 'is-off'" aria-hidden="true" />
-          <span class="ai-status-label">当前</span>
-          <span class="ai-status-meta">
-            {{ ai.sourceLabel.value }}
-            <template v-if="ai.configured.value && ai.status.value?.model">
-              · {{ ai.status.value.model }}
-            </template>
-            <template v-if="ai.status.value?.keyMasked"> · {{ ai.status.value.keyMasked }}</template>
-          </span>
+        <div v-if="ai.loadError.value" class="error" role="alert">
+          <span>{{ ai.loadError.value }}</span><button type="button" @click="ai.refresh()">重新加载状态</button>
         </div>
-
         <p v-if="ai.source.value === 'env'" class="notice is-boundary mt-3">
           <span class="notice-key">环境变量优先</span>
           <span>
@@ -64,11 +59,9 @@ watch(() => props.open, (v) => { if (v) void ai.refresh(); });
           </span>
         </p>
 
-        <!-- Provider 选择 -->
-        <div class="sec-sub" style="margin-top: var(--s-5)">
-          <h3>服务商</h3>
-          <span class="sec-sub-note">OpenAI 兼容端点 · 预设仅为便利填充，未逐一实测者不标记已验证</span>
-        </div>
+        <div class="connection-layout">
+        <section class="connection-presets" aria-labelledby="provider-heading">
+        <h3 id="provider-heading">选择服务商</h3>
         <div class="preset-grid prov-grid">
           <button
             v-for="p in ai.presets.value"
@@ -76,42 +69,49 @@ watch(() => props.open, (v) => { if (v) void ai.refresh(); });
             type="button"
             class="preset-card prov-card"
             :class="{ selected: ai.form.value.preset === p.id, 'is-selected': ai.form.value.preset === p.id }"
+            :aria-pressed="ai.form.value.preset === p.id"
             @click="ai.pickPreset(p)"
           >
-            <span class="prov-name">{{ p.name }} <span class="prov-proto">{{ p.protocol === "anthropic" ? "/v1/messages" : "chat/completions" }}</span></span>
-            <span class="prov-url" :title="p.baseUrl || '自定义端点'">{{ p.baseUrl || "— 自定义端点 —" }}</span>
-            <span v-if="p.note" class="prov-note">{{ p.note }}</span>
-            <span class="prov-flag">
-              {{ p.verified ? "已验证" : "预设（未逐一实测）" }}
-              <template v-if="p.allowLocal"> · 本机地址</template>
-            </span>
+            <span class="prov-name">{{ p.name }}</span>
+            <span class="prov-indicator" aria-hidden="true" />
           </button>
         </div>
+        <p v-if="ai.activePreset.value" class="preset-caption">
+          {{ ai.activePreset.value.protocol === 'anthropic' ? '/v1/messages' : 'chat/completions' }}
+          · {{ ai.activePreset.value.verified ? '已验证' : '预设待验证' }}<template v-if="ai.activePreset.value.allowLocal"> · 支持本机地址</template>
+          <span v-if="ai.activePreset.value.note">{{ ai.activePreset.value.note }}</span>
+        </p>
+        <p v-else class="preset-caption">手动填写时默认使用 OpenAI 兼容协议。</p>
+        </section>
 
-        <!-- 凭据 -->
-        <div class="sec-sub">
-          <h3>连接参数</h3>
-          <span class="sec-sub-note">Base URL 需为 OpenAI 兼容端点（…/v1）</span>
+        <section class="connection-fields" aria-labelledby="connection-heading">
+        <div class="connection-heading">
+          <h3 id="connection-heading">连接参数</h3>
+          <span class="ai-status-meta connection-status">
+            <span class="ai-dot" :class="ai.configured.value ? 'is-on' : 'is-off'" aria-hidden="true" />
+            {{ ai.loadError.value ? '状态待确认' : ai.sourceLabel.value }}
+            <template v-if="ai.configured.value && ai.status.value?.model"> · {{ ai.status.value.model }}</template>
+            <template v-if="ai.status.value?.keyMasked"> · {{ ai.status.value.keyMasked }}</template>
+          </span>
         </div>
         <div class="ai-form-row field">
-          <span class="field-label">
-            API Key
-            <span class="mono">仅存服务端内存</span>
-          </span>
+          <label for="provider-key" class="field-label">API Key</label>
           <input
+            id="provider-key"
+            aria-describedby="provider-key-hint"
             v-model="ai.form.value.apiKey"
             type="password"
-            placeholder="sk-…"
+            placeholder="粘贴服务商提供的密钥"
             autocomplete="off"
             spellcheck="false"
           />
-          <span class="field-hint">
-            密钥不回显、不落盘、不写入浏览器存储；服务重启后需重新填写。
-          </span>
+          <span id="provider-key-hint" class="field-hint">密钥仅存于本机服务内存，重启后需重新填写。</span>
         </div>
         <div class="ai-form-row field">
-          <span class="field-label">Base URL <span class="mono">OpenAI 兼容端点</span></span>
+          <label for="provider-url" class="field-label">服务地址 <span class="mono">Base URL</span></label>
           <input
+            id="provider-url"
+            aria-label="Base URL"
             v-model="ai.form.value.baseUrl"
             placeholder="https://api.deepseek.com/v1"
             autocomplete="off"
@@ -119,51 +119,45 @@ watch(() => props.open, (v) => { if (v) void ai.refresh(); });
           />
         </div>
         <div class="ai-form-row field">
-          <span class="field-label">模型名称 <span class="mono">model</span></span>
+          <label for="provider-model" class="field-label">模型名称</label>
           <input
+            id="provider-model"
+            aria-label="模型名称"
             v-model="ai.form.value.model"
             :placeholder="ai.activePreset.value?.model || 'gpt-4o-mini'"
             autocomplete="off"
             spellcheck="false"
           />
         </div>
+        </section>
+        </div>
 
-        <!-- 结果消息：必须是 modal 内第一个 p.note -->
-        <p v-if="ai.message.value" class="note" :class="`msg-${ai.messageTone.value}`" style="margin-top: var(--s-4)">
+        <p class="connection-privacy"><strong>数据使用</strong>生成 AI 解读时，四柱、结构和证据摘要会发送给所选服务商。排盘分析在本地完成。配置仅限本机访问，公网部署需另设鉴权。</p>
+      </div>
+
+      <div class="connection-actions">
+        <p v-if="ai.message.value" class="note action-feedback" :role="ai.messageTone.value === 'err' ? 'alert' : 'status'" :class="`msg-${ai.messageTone.value}`">
           {{ ai.message.value }}
         </p>
 
-        <div v-if="ai.testResult.value" class="test-result mt-3"
+        <div v-if="ai.testResult.value" class="test-result action-feedback" role="status"
              :class="ai.testResult.value.ok ? 'is-ok' : 'is-fail'">
-          <span class="mono">{{ ai.testResult.value.ok ? "OK" : "FAIL" }}</span>
           <span>
             {{ ai.testResult.value.ok
               ? `连接成功 · ${ai.testResult.value.provider ?? ""}`
               : (ai.testResult.value.error || "测试失败") }}
           </span>
         </div>
-      </div>
-
       <div class="modal-foot">
-        <button class="btn-primary" type="button" :disabled="ai.saving.value" @click="ai.save()">
-          {{ ai.saving.value ? "保存中…" : "保存配置" }}
-        </button>
-        <button type="button" :disabled="ai.testing.value" @click="ai.test()">
+        <button class="test-connection" title="测试当前已保存的连接" type="button" :disabled="ai.testing.value" @click="ai.test()">
           {{ ai.testing.value ? "测试中…" : "测试连接" }}
         </button>
-        <button v-if="ai.source.value === 'ui'" type="button" @click="ai.clear()">清除配置</button>
-        <button class="btn-link" type="button" style="margin-left: auto" @click="emit('close')">
-          关闭
+        <button v-if="ai.source.value === 'ui'" class="clear-connection" type="button" :disabled="ai.saving.value || ai.clearing.value" @click="ai.clear()">{{ ai.clearing.value ? "清除中…" : "清除配置" }}</button>
+        <button class="cancel-connection" type="button" @click="emit('close')">关闭</button>
+        <button class="btn-primary" type="button" :disabled="ai.saving.value || ai.clearing.value" @click="ai.save()">
+          {{ ai.saving.value ? "保存中…" : "保存配置" }}
         </button>
       </div>
-
-      <div class="modal-foot" style="border-top: none; padding-top: 0; display: block">
-        <p class="note">
-          <strong>数据边界</strong>：启用 AI 解读后，当前命盘分析结果（含由出生信息派生的四柱、
-          结构与证据摘要）将发送至你配置的第三方模型服务。API Key 仅保存在当前 Tianze
-          进程内存中，服务重启后清除。配置操作仅限本机访问（单用户本地模式）；
-          公网部署须由运维在反向代理层加鉴权，详见 <code>docs/known-limitations.md</code>。
-        </p>
       </div>
     </div>
   </div>

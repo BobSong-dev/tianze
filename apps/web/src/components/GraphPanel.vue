@@ -45,18 +45,18 @@ let drag: { px: number; py: number } | null = null;
 
 const CANVAS = { w: 900, h: 566, cx: 450, cy: 272 };
 /** 标签字号（SVG 用户单位）；宽度估算与渲染同源 */
-const LABEL_FS = 10;
+const LABEL_FS = 12;
 
 /** 域名的固定顺序（决定环序）；未列出的域名排在其后 */
 const DOMAIN_ORDER = ["predicate", "event", "tenet", "temporal", "tiaohou", "structure", "relation"];
 
 const DOMAIN_COLOR: Record<string, string> = {
-  event: "#dc2626",     /* 事件域 · 绯红 */
-  temporal: "#2563eb",  /* 岁运域 · 蓝黛 */
-  tiaohou: "#059669",   /* 调候域 · 翠绿 */
-  tenet: "#d97706",     /* 理论条目 · 琥珀 */
-  predicate: "#7c3aed", /* 救应谓词 · 罗兰 */
-  default: "#64748b",   /* 默认 · 石板灰 */
+  event: "var(--wx-fire)",
+  temporal: "var(--wx-water)",
+  tiaohou: "var(--wx-wood)",
+  tenet: "var(--wx-earth)",
+  predicate: "var(--st-experimental)",
+  default: "var(--ink-400)",
 };
 
 const DOMAIN_CN: Record<string, string> = {
@@ -323,16 +323,32 @@ function reset() {
   moved.value = false;
 }
 
+function zoom(factor: number) {
+  const current = view.value;
+  const width = Math.min(2600, Math.max(200, current.w * factor));
+  const height = current.h * width / current.w;
+  view.value = { x: current.x + (current.w - width) / 2, y: current.y + (current.h - height) / 2, w: width, h: height };
+}
+
+function pan(horizontal: number, vertical: number) {
+  view.value = { ...view.value, x: view.value.x + horizontal * view.value.w * .12, y: view.value.y + vertical * view.value.h * .12 };
+}
+
+function selectWithKeyboard(id: string) {
+  moved.value = false;
+  clickNode(id);
+}
+
 function colorOf(n: any): string {
   if (n.type === "predicate") return DOMAIN_COLOR.predicate;
   return DOMAIN_COLOR[n.domain] ?? DOMAIN_COLOR.default;
 }
 
 function edgeStroke(type: string): string {
-  if (type === "conflict") return "#dc2626";
-  if (type === "rescues") return "#059669";
-  if (type === "school-conflict") return "#d97706";
-  return "#94a3b8";
+  if (type === "conflict") return "var(--wx-fire)";
+  if (type === "rescues") return "var(--wx-wood)";
+  if (type === "school-conflict") return "var(--wx-earth)";
+  return "var(--ink-400)";
 }
 
 defineExpose({ reset });
@@ -365,11 +381,20 @@ defineExpose({ reset });
       <button class="btn-sm" type="button" @click="reset">重置视图</button>
     </div>
 
+    <div class="graph-controls" role="group" aria-label="图谱视图控制">
+      <button class="btn-sm" type="button" @click="zoom(1 / 1.3)">放大</button>
+      <button class="btn-sm" type="button" @click="zoom(1.3)">缩小</button>
+      <span class="note-sm">平移</span>
+      <button class="btn-sm" type="button" aria-label="向左平移" @click="pan(-1, 0)">左</button>
+      <button class="btn-sm" type="button" aria-label="向右平移" @click="pan(1, 0)">右</button>
+      <button class="btn-sm" type="button" aria-label="向上平移" @click="pan(0, -1)">上</button>
+      <button class="btn-sm" type="button" aria-label="向下平移" @click="pan(0, 1)">下</button>
+    </div>
     <div class="graph-stage">
       <svg
         :viewBox="viewBox"
         class="graph-svg"
-        role="img"
+        role="group"
         aria-label="规则冲突与救应关系图"
         @wheel.prevent="onWheel"
         @pointerdown="onDown"
@@ -381,31 +406,39 @@ defineExpose({ reset });
         <ellipse
           v-for="(r, i) in layout.rings" :key="`ring${i}`"
           :cx="CANVAS.cx" :cy="CANVAS.cy" :rx="r.rx" :ry="r.ry"
-          fill="none" stroke="#cbd5e1" stroke-width="1"
+          fill="none" stroke="var(--bronze-300)" stroke-width="1"
         />
         <line
           v-for="(e, i) in drawnEdges" :key="`e${i}`"
           :x1="e!.x1" :y1="e!.y1" :x2="e!.x2" :y2="e!.y2"
           :stroke="edgeStroke(e!.edge.type)"
-          :stroke-width="e!.edge.type === 'conflict' ? 1.9 : 1.4"
+          :stroke-width="e!.edge.type === 'conflict' ? 2 : 1.5"
           :stroke-dasharray="e!.edge.type === 'school-conflict' ? '5 4' : e!.edge.type === 'rescues' ? '2 3' : undefined"
-          opacity="0.65"
+          opacity="0.72"
         />
         <g
           v-for="n in visibleNodes" :key="n.id"
           class="graph-node"
+          role="button"
+          tabindex="0"
+          :aria-label="`${n.id} ${n.label ?? ''}`"
+          :aria-pressed="n.selected"
           :class="{ 'is-selected': n.selected, 'is-isolated': n.degree === 0 }"
           :transform="`translate(${n.x},${n.y})`"
           :opacity="n.faded ? 0.24 : n.degree === 0 ? 0.72 : 1"
           @click="clickNode(n.id)"
+          @keydown.enter.prevent="selectWithKeyboard(n.id)"
+          @keydown.space.prevent="selectWithKeyboard(n.id)"
+          @focus="hoverId = n.id"
+          @blur="hoverId = null"
           @pointerenter="hoverId = n.id"
           @pointerleave="hoverId = null"
         >
           <circle
-            :r="n.type === 'predicate' ? 5 : n.selected ? 10.5 : n.degree > 0 ? 8 : 6"
+            :r="n.type === 'predicate' ? 5 : n.selected ? 11 : n.degree > 0 ? 8 : 6"
             :fill="colorOf(n)"
-            :stroke="n.selected ? '#0f172a' : '#ffffff'"
-            :stroke-width="n.selected ? 2.4 : 1.6"
+            :stroke="n.selected ? 'var(--ink-900)' : 'var(--ink-surface)'"
+            :stroke-width="n.selected ? 2.5 : 1.6"
           />
           <text
             v-if="shownLabels.has(n.id) || n.selected"

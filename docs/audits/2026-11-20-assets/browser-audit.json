@@ -1,0 +1,259 @@
+[
+  {
+    "id": "F01-draft-mismatch",
+    "observed": true,
+    "originalBirth": "1984-02-05",
+    "originalPillars": [
+      "年柱甲子木·阳 ／ 水·阳十神正官藏干癸本气偏财纳音海中金长生绝旬空戌亥",
+      "月柱丙寅火·阳 ／ 木·阳十神正印藏干甲本气正官丙中气正印戊余气劫财纳音炉中火长生死旬空戌亥",
+      "日主日柱己巳土·阴 ／ 火·阴十神日主本人藏干丙本气正印庚中气伤官戊余气劫财纳音大林木长生帝旺旬空戌亥",
+      "时柱己巳土·阴 ／ 火·阴十神比肩藏干丙本气正印庚中气伤官戊余气劫财纳音大林木长生帝旺旬空戌亥"
+    ],
+    "reportedBirth": "1990-07-12 10:30 · 男 · UTC+8 · 晚子时流派 2",
+    "reportedPillars": [
+      "年柱甲子木·阳 ／ 水·阳十神正官藏干癸本气偏财纳音海中金长生绝旬空戌亥",
+      "月柱丙寅火·阳 ／ 木·阳十神正印藏干甲本气正官丙中气正印戊余气劫财纳音炉中火长生死旬空戌亥",
+      "日主日柱己巳土·阴 ／ 火·阴十神日主本人藏干丙本气正印庚中气伤官戊余气劫财纳音大林木长生帝旺旬空戌亥",
+      "时柱己巳土·阴 ／ 火·阴十神比肩藏干丙本气正印庚中气伤官戊余气劫财纳音大林木长生帝旺旬空戌亥"
+    ],
+    "temporalRequestBirth": {
+      "date": "1990-07-12",
+      "time": "10:30",
+      "gender": "male",
+      "timezoneOffset": 8,
+      "sect": 2
+    },
+    "temporalNatal": {
+      "natalStems": [
+        "庚",
+        "癸",
+        "戊",
+        "丁"
+      ],
+      "natalBranches": [
+        "午",
+        "未",
+        "寅",
+        "巳"
+      ],
+      "luckStem": "甲",
+      "luckBranch": "申",
+      "luckIndex": 1,
+      "dayMaster": "戊"
+    },
+    "evidence": [
+      "F01-report-draft.png",
+      "F01-mixed-natal.png"
+    ],
+    "pageErrors": []
+  },
+  {
+    "id": "F02-temporal-race",
+    "observed": true,
+    "requestedYear": "1993",
+    "selectedYear": "1994",
+    "renderedOldContext": {
+      "natalStems": [
+        "甲",
+        "丙",
+        "己",
+        "己"
+      ],
+      "natalBranches": [
+        "子",
+        "寅",
+        "巳",
+        "巳"
+      ],
+      "luckStem": "丁",
+      "luckBranch": "卯",
+      "annualStem": "癸",
+      "annualBranch": "酉",
+      "luckIndex": 1,
+      "annualYear": 1993,
+      "dayMaster": "己"
+    },
+    "evidence": [
+      "F02-temporal-race.png"
+    ],
+    "pageErrors": []
+  },
+  {
+    "id": "F03-grounding-report",
+    "observed": true,
+    "fixture": true,
+    "warning": "⚠ 这次解读里有 1 处说法与引擎对不上\n\n内容照常展示；对不上的具体位置收在下方「查看依据与技术细节」里，偏技术，可不管。 拿不准的说法以页面上的确定性分析为准；也可以点「重新生成」试试更干净的结果。\n\n重新生成",
+    "reportText": "09\nAI 辅助解读\n\n审计专用响应：此段未通过事实一致性校验。\n\n以上 AI 文本已通过事实一致性校验；它仅解释引擎已给出的结构，不构成结论。",
+    "evidence": [
+      "F03-ai-warning.png",
+      "F03-report-false-pass.png"
+    ],
+    "pageErrors": []
+  },
+  {
+    "id": "F04-stale-ai",
+    "observed": true,
+    "fixture": true,
+    "birth": "1990-07-12 10:30 · 男 · UTC+8 · 晚子时流派 2",
+    "oldInterpretation": "09\nAI 辅助解读\n\n审计专用：1984-02-05 旧命例的迟到解读\n\n以上 AI 文本已通过事实一致性校验；它仅解释引擎已给出的结构，不构成结论。",
+    "evidence": [
+      "F04-stale-ai.png"
+    ],
+    "pageErrors": []
+  },
+  {
+    "id": "F05-save-network",
+    "observed": true,
+    "injected": "set request aborted in browser, not sent to backend",
+    "error": "网络错误",
+    "persistsAfterReopen": true,
+    "evidence": [
+      "F05-save-stuck.png"
+    ],
+    "pageErrors": [
+      "网络错误"
+    ]
+  },
+  {
+    "id": "F06-clear-error",
+    "observed": true,
+    "fixture": true,
+    "message": "UI 配置已清除。环境变量配置不受影响。",
+    "status": "页面配置 · audit-fixture",
+    "evidence": [
+      "F06-clear-false-success.png"
+    ],
+    "pageErrors": []
+  },
+  {
+    "id": "F07-resize-inert",
+    "observed": true,
+    "viewportFrom": 375,
+    "viewportTo": 1440,
+    "inert": true,
+    "clickBlocked": true,
+    "escapeRecovers": true,
+    "evidence": [
+      "F07-resize-locked.png"
+    ],
+    "pageErrors": []
+  },
+  {
+    "id": "F08-nested-focus",
+    "observed": true,
+    "focusSteps": [
+      {
+        "step": 1,
+        "active": "<button class=\"modal-close\" type=\"button\" aria-label=\"关闭\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" class=\"ui-icon\"><path d=\"m6 6 12 12 M6 18 18 6\"></path></svg></button>"
+      },
+      {
+        "step": 2,
+        "active": "<button class=\"modal-close\" type=\"button\" aria-label=\"关闭\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" class=\"ui-icon\"><path d=\"m6 6 12 12 M6 18 18 6\"></path></svg></button>"
+      },
+      {
+        "step": 3,
+        "active": "<button class=\"modal-close\" type=\"button\" aria-label=\"关闭\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" class=\"ui-icon\"><path d=\"m6 6 12 12 M6 18 18 6\"></path></svg></button>"
+      }
+    ],
+    "evidence": [
+      "F08-keyboard-trap.png"
+    ],
+    "pageErrors": []
+  },
+  {
+    "id": "F09-partial-knowledge",
+    "observed": true,
+    "fixture": true,
+    "failedEndpoint": "/knowledge/rules",
+    "alerts": 0,
+    "metrics": [
+      "223",
+      "8",
+      "ALL PASS",
+      "60",
+      "21",
+      "20",
+      "182",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0",
+      "0 ms",
+      "0",
+      "07b6e30e5944",
+      "0.4.0.dev0",
+      "670",
+      "ALL PASS"
+    ],
+    "evidence": [
+      "F09-partial-knowledge.png"
+    ],
+    "pageErrors": []
+  }
+]

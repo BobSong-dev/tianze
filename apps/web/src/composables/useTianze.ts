@@ -6,7 +6,7 @@
  *  - 所有分析结果原样来自 /api/v1/analyze（SDK SimplifiedResult）；
  *  - 所有状态码（CANDIDATE/DISPUTED/BLOCKED/…）原样透传，不升级为确定性结论。
  */
-import { computed, reactive, readonly, ref, toRefs } from "vue";
+import { computed, reactive, readonly, ref, toRefs, watch } from "vue";
 import type {
   AnalyzeResponse, LuckData, DaYunEntryData, TemporalAnalysisData,
 } from "../types/tianze";
@@ -52,6 +52,7 @@ export interface TemporalSelection {
 
 interface State {
   birth: BirthForm;
+  submittedBirth: BirthForm | null;
   result: AnalyzeResponse | null;
   loading: boolean;
   error: string;
@@ -62,7 +63,7 @@ interface State {
   temporalLoading: boolean;
   temporalError: string;
 
-  aiState: "IDLE" | "LOADING" | "SUCCESS" | "GROUNDING_FAILED" | "PROVIDER_ERROR" | "NOT_CONFIGURED";
+  aiState: "IDLE" | "LOADING" | "SUCCESS" | "GROUNDING_FAILED" | "GROUNDING_UNKNOWN" | "PROVIDER_ERROR" | "NOT_CONFIGURED";
   aiResult: Interpretation | null;
   aiError: string;
 }
@@ -70,6 +71,7 @@ interface State {
 export function useTianze() {
   const state = reactive<State>({
     birth: createBirthForm(),
+    submittedBirth: null,
     result: null,
     loading: false,
     error: "",
@@ -84,6 +86,14 @@ export function useTianze() {
     aiResult: null,
     aiError: "",
   });
+
+  let analysisVersion = 0;
+  let temporalVersion = 0;
+  let aiVersion = 0;
+  const analysisBirth = computed(() => state.submittedBirth ?? state.birth);
+  const hasDraftChanges = computed(() => state.submittedBirth !== null
+    && JSON.stringify(state.birth) !== JSON.stringify(state.submittedBirth));
+  watch(() => state.temporalSelection, invalidateTemporal, { deep: true, flush: "sync" });
 
   /* ------------------------------------------------ 派生：命盘 / 岁运选项 */
 
@@ -204,14 +214,14 @@ export function useTianze() {
     } catch { /* 版本信息非关键路径 */ }
   }
 
-  function baseBirth(): BirthInfoPayload {
+  function baseBirth(birth: BirthForm): BirthInfoPayload {
     return {
-      date: state.birth.date,
-      time: state.birth.timeKnown ? state.birth.time : undefined,
-      gender: state.birth.gender,
-      timezoneOffset: state.birth.timezoneOffset,
-      sect: state.birth.sect,
-      longitude: state.birth.longitude ?? undefined,
+      date: birth.date,
+      time: birth.timeKnown ? birth.time : undefined,
+      gender: birth.gender,
+      timezoneOffset: birth.timezoneOffset,
+      sect: birth.sect,
+      longitude: birth.longitude ?? undefined,
     };
   }
 
@@ -221,32 +231,46 @@ export function useTianze() {
   };
 
   async function submit() {
+    const version = ++analysisVersion;
+    const birth = { ...state.birth };
     state.loading = true;
     state.error = "";
-    state.result = null;
-    resetTemporal();
-    resetAi();
     try {
-      state.result = await analyzeBirthInfo({
-        birthInfo: baseBirth(),
+      const result = await analyzeBirthInfo({
+        birthInfo: baseBirth(birth),
         options: { ...FULL_OPTIONS },
       });
-    } catch (e) {
-      state.error = e instanceof Error ? e.message : String(e);
+      if (version !== analysisVersion) return false;
+      resetTemporal();
+      state.submittedBirth = birth;
+      state.result = result;
+      return true;
+    } catch (error) {
+      if (version === analysisVersion) state.error = error instanceof Error ? error.message : String(error);
+      return false;
     } finally {
-      state.loading = false;
+      if (version === analysisVersion) {
+        state.loading = false;
+        void loadMeta();
+      }
     }
-    void loadMeta();
   }
 
   function resetTemporal() {
-    state.temporal = null;
-    state.temporalError = "";
-    state.temporalLoading = false;
+    invalidateTemporal();
     state.temporalSelection = { luckIndex: null, year: null, month: null, day: "", withReplay: true };
   }
 
+  function invalidateTemporal() {
+    temporalVersion++;
+    state.temporal = null;
+    state.temporalError = "";
+    state.temporalLoading = false;
+    resetAi();
+  }
+
   function resetAi() {
+    aiVersion++;
     state.aiState = "IDLE";
     state.aiResult = null;
     state.aiError = "";
@@ -254,16 +278,18 @@ export function useTianze() {
 
   /** 岁运分析：复用同一 analyze 端点，仅追加 temporal 相关 options（契约不变） */
   async function runTemporal() {
-    if (!state.result) return;
+    if (!state.result || !state.submittedBirth) return;
     if (state.temporalSelection.luckIndex === null && state.temporalSelection.year === null) {
       state.temporalError = "请先选择大运或流年";
       return;
     }
+    invalidateTemporal();
+    const version = temporalVersion;
     state.temporalLoading = true;
     state.temporalError = "";
     try {
       const resp = await analyzeBirthInfo({
-        birthInfo: baseBirth(),
+        birthInfo: baseBirth(state.submittedBirth),
         options: {
           ...FULL_OPTIONS,
           includeTemporal: true,
@@ -276,14 +302,16 @@ export function useTianze() {
           includeTemporalReplay: state.temporalSelection.withReplay,
         },
       });
+      if (version !== temporalVersion) return;
+      resetAi();
       state.temporal = resp.temporal ?? null;
       if (!state.temporal) {
         state.temporalError = "该命例无法进行岁运分析（大运缺席：性别或时辰未知）";
       }
-    } catch (e) {
-      state.temporalError = e instanceof Error ? e.message : String(e);
+    } catch (error) {
+      if (version === temporalVersion) state.temporalError = error instanceof Error ? error.message : String(error);
     } finally {
-      state.temporalLoading = false;
+      if (version === temporalVersion) state.temporalLoading = false;
     }
   }
 
@@ -312,6 +340,8 @@ export function useTianze() {
 
   async function generateAi() {
     if (!state.result) return;
+    resetAi();
+    const version = aiVersion;
     state.aiState = "LOADING";
     state.aiError = "";
     // 若时序工作台已加载岁运上下文，合并进解释输入（AI 只消费引擎结果）
@@ -319,7 +349,17 @@ export function useTianze() {
       ? { ...state.result, temporal: state.temporal }
       : state.result;
 
-    const out = await interpretAnalysis(payload);
+    let out;
+    try {
+      out = await interpretAnalysis(payload);
+    } catch (error) {
+      if (version === aiVersion) {
+        state.aiState = "PROVIDER_ERROR";
+        state.aiError = error instanceof Error ? error.message : String(error);
+      }
+      return;
+    }
+    if (version !== aiVersion) return;
     if (out.kind === "not_configured") {
       state.aiState = "NOT_CONFIGURED";
       return;
@@ -329,9 +369,9 @@ export function useTianze() {
       state.aiError = out.message;
       return;
     }
-    if (!out.interpretation.groundingPassed) {
+    if (out.interpretation.groundingPassed !== true) {
       state.aiResult = out.interpretation;
-      state.aiState = "GROUNDING_FAILED";
+      state.aiState = out.interpretation.groundingPassed === false ? "GROUNDING_FAILED" : "GROUNDING_UNKNOWN";
       return;
     }
     state.aiResult = out.interpretation;
@@ -342,7 +382,7 @@ export function useTianze() {
     state,
     // 供只读消费
     ...toRefs(state),
-    pillars, pillarOrder, dayMasterStem,
+    pillars, pillarOrder, dayMasterStem, analysisBirth, hasDraftChanges,
     luck, luckOptions, yearOptions, monthOptions,
     timeStops, matchedRules, deltaGroups,
     relationChains, combinationStates, eventThemeExplanations,

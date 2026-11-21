@@ -1,0 +1,44 @@
+
+Running 36 tests using 1 worker
+
+
+
+(node:3444) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/36] e2e\ai-config-flow.spec.ts:75:1 › configure via UI → status shows 页面配置 → interpret renders mock content
+[2/36] e2e\ai-config-flow.spec.ts:110:1 › unconfigured interpret degrades to guided 503 state
+[3/36] e2e\explainability.spec.ts:3:1 › evidence drawer opens after analysis
+[4/36] e2e\first-screen-audit.spec.ts:17:1 › first screen: home
+[5/36] e2e\first-screen-audit.spec.ts:25:1 › first screen: workspace
+[6/36] e2e\first-screen-audit.spec.ts:31:1 › first screen: strength
+[7/36] e2e\first-screen-audit.spec.ts:39:1 › first screen: mobile
+[8/36] e2e\invalid-input.spec.ts:3:1 › invalid date shows error
+[9/36] e2e\late-zi.spec.ts:9:1 › late zi: sect1 vs sect2 produce different day pillar
+[10/36] e2e\mobile-replay.spec.ts:16:3 › M39 mobile & replay › 375px: full analysis flow without horizontal overflow
+[11/36] e2e\mobile-replay.spec.ts:37:3 › M39 mobile & replay › 375px: relations view shows combination states
+[12/36] e2e\mobile-replay.spec.ts:50:3 › M39 replay interaction (desktop) › replay timeline renders layered steps with rule link
+[13/36] e2e\normal.spec.ts:8:1 › normal case: full analysis flow
+[14/36] e2e\overseas.spec.ts:3:1 › overseas timezone: NYC
+[15/36] e2e\redesign.spec.ts:12:3 › redesign: all workspaces at 375px
+[16/36] e2e\redesign.spec.ts:12:3 › redesign: all workspaces at 768px
+[17/36] e2e\redesign.spec.ts:12:3 › redesign: all workspaces at 1440px
+[18/36] e2e\redesign.spec.ts:56:1 › redesign: modal keyboard focus and restore
+[19/36] e2e\redesign.spec.ts:73:1 › redesign: graph controls, tabs, and empty search
+[20/36] e2e\redesign.spec.ts:99:1 › redesign: narrow, landscape, and large text
+[21/36] e2e\redesign.spec.ts:117:1 › redesign: knowledge unavailable gives recoverable error
+[22/36] e2e\temporal-workspace.spec.ts:4:1 › temporal workspace: select luck → year → analyze delta
+[23/36] e2e\temporal-workspace.spec.ts:37:1 › event themes render with status and disclaimer
+[24/36] e2e\unknown-time.spec.ts:3:1 › unknown time: partial result with warning
+[25/36] e2e\visual-audit.spec.ts:30:1 › 1440 home
+[26/36] e2e\visual-audit.spec.ts:37:1 › 1440 chart + overview
+[27/36] e2e\visual-audit.spec.ts:43:1 › 1440 strength + pattern + relations
+[28/36] e2e\visual-audit.spec.ts:57:1 › 1440 temporal
+[29/36] e2e\visual-audit.spec.ts:69:1 › 1440 knowledge graph
+[30/36] e2e\visual-audit.spec.ts:78:1 › 1440 ai + settings modal
+[31/36] e2e\visual-audit.spec.ts:95:1 › 1440 report
+[32/36] e2e\visual-audit.spec.ts:106:1 › 768 chart + relations
+[33/36] e2e\visual-audit.spec.ts:130:1 › 375 home + chart + temporal
+[34/36] e2e\visual-audit.spec.ts:144:1 › 375 temporal rail
+[35/36] e2e\visual-audit.spec.ts:161:1 › 375 knowledge graph
+[36/36] e2e\visual-slices.spec.ts:10:1 › crop tall screenshots into readable slices
+  36 passed (1.1m)

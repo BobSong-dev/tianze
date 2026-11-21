@@ -13,7 +13,7 @@ import TimeRail from "../components/TimeRail.vue";
 import TimelineTrack from "../components/TimelineTrack.vue";
 import EvidenceCard from "../components/EvidenceCard.vue";
 import StatusBadge from "../components/StatusBadge.vue";
-import { DELTA_KIND_MAP, LAYER_MAP, VIEW_MAP, STATUS_MAP, deltaTitle, positionCn } from "../presentation/vocab";
+import { DELTA_KIND_MAP, LAYER_MAP, VIEW_MAP, STATUS_MAP, deltaTitle, positionCn, elementCn } from "../presentation/vocab";
 
 const props = defineProps<{
   temporal: any;
@@ -108,13 +108,34 @@ function analysisLabel(key: string): string {
   const map: Record<string, string> = {
     strength: "旺衰", pattern: "格局", tiaohou: "调候", relations: "关系",
     structure: "结构", element: "五行", tenGod: "十神", special: "特殊结构",
+    tongguan: "通关", special_pattern: "特殊格局",
   };
   return map[key] ?? key;
+}
+
+function directionCn(dir?: string | null): string {
+  if (!dir) return "";
+  const map: Record<string, string> = {
+    increased: "增强", decreased: "减弱", added: "新增", removed: "消退",
+    changed: "变动", blocked: "受阻", strengthened: "强化", weakened: "转弱",
+  };
+  return map[dir] ?? dir;
+}
+
+function supportCn(lv?: string | null): string {
+  if (!lv) return "";
+  return STATUS_MAP[lv]?.label ?? lv;
+}
+
+function focusLayer(key: string) {
+  const target = document.getElementById(`temporal-layer-${key}`) ?? document.getElementById("temporal-target");
+  target?.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  target?.focus({ preventScroll: true });
 }
 </script>
 
 <template>
-  <div class="stack stack-6">
+  <div class="stack stack-6 temporal-workspace" :aria-busy="props.loading">
     <!-- 时间研究轨道 -->
     <section>
       <div class="sec-sub" style="margin-top: 0">
@@ -123,11 +144,11 @@ function analysisLabel(key: string): string {
           逐层展开：岁运不替换原局月令；未到达的层级保持空缺而非隐藏
         </span>
       </div>
-      <TimeRail :stops="props.timeStops" :active-key="activeLayer" />
+      <TimeRail :stops="props.timeStops" :active-key="activeLayer" @focus="focusLayer" />
     </section>
 
     <!-- 选择与执行 -->
-    <section class="surface">
+    <section class="surface" id="temporal-target" tabindex="-1">
       <div class="sec-sub" style="margin-top: 0; border-bottom: none; padding-bottom: 0">
         <h3 style="font-size: var(--t-md)">选择分析目标</h3>
       </div>
@@ -278,7 +299,8 @@ function analysisLabel(key: string): string {
               <StatusBadge v-if="r.completesHarmony" label="补齐三合" variant="pos" />
               <StatusBadge
                 v-if="r.transformCandidate"
-                :label="`化 ${r.transformCandidate}（候选）`"
+                :label="`化${elementCn(r.transformCandidate)}（候选）`"
+                :title="`化神候选 (${r.transformCandidate})：未判定化成`"
                 variant="warn"
               />
             </div>
@@ -357,14 +379,12 @@ function analysisLabel(key: string): string {
               <EvidenceCard
                 v-for="it in items"
                 :key="it.refId + it.kind"
-                :ref-id="it.refId"
                 :title="deltaTitle(it.subject)"
                 :tone="it.kind === 'strengthened' || it.kind === 'added' ? 'plus'
                      : it.kind === 'weakened' || it.kind === 'removed' || it.kind === 'blocked' ? 'minus'
                      : 'neutral'"
               >
-                <p class="note-sm mono" style="margin-bottom: var(--s-1)">{{ it.subject }}</p>
-                <div class="row row-2">
+                <div class="row row-2" style="margin-bottom: var(--s-1)">
                   <StatusBadge
                     :label="DELTA_KIND_MAP[it.kind] ?? it.kind"
                     :variant="it.kind === 'added' || it.kind === 'strengthened' ? 'pos'
@@ -376,7 +396,15 @@ function analysisLabel(key: string): string {
                     code="EXPERIMENTAL"
                     with-hint
                   />
-                  <StatusBadge v-else-if="it.supportLevel" :label="it.supportLevel" variant="mute" />
+                  <StatusBadge
+                    v-else-if="it.supportLevel"
+                    :label="supportCn(it.supportLevel)"
+                    :title="it.supportLevel"
+                    variant="mute"
+                  />
+                  <span class="note-sm mono" :title="`机器标识：${it.subject}`" style="margin-left: auto; opacity: 0.7">
+                    {{ it.refId }}
+                  </span>
                 </div>
 
                 <div
@@ -402,8 +430,8 @@ function analysisLabel(key: string): string {
         </div>
 
         <div v-if="delta.unsupportedNotes?.length" class="stack stack-1 mt-4">
-          <p v-for="(n, i) in delta.unsupportedNotes" :key="i" class="note">
-            UNSUPPORTED：{{ n }}
+          <p v-for="(n, i) in delta.unsupportedNotes" :key="i" class="note" title="UNSUPPORTED">
+            暂不适用说明：{{ n }}
           </p>
         </div>
       </section>
@@ -416,17 +444,22 @@ function analysisLabel(key: string): string {
             十神主题 / 冲突关系 / 结构波动 —— 中间描述层，不是事件预测
           </span>
         </div>
-        <div class="rows">
+        <div class="rows rows-ledger">
           <article v-for="(t, i) in delta.themes ?? []" :key="i" class="row-item">
             <div class="row-item-head">
               <span class="row-item-title">{{ t.label }}</span>
-              <StatusBadge :label="t.direction" variant="mute" />
+              <StatusBadge :label="directionCn(t.direction)" :title="t.direction" variant="mute" />
               <StatusBadge
                 v-if="t.supportLevel === 'EXPERIMENTAL'"
                 code="EXPERIMENTAL"
                 with-hint
               />
-              <StatusBadge v-else-if="t.supportLevel" :label="t.supportLevel" variant="mute" />
+              <StatusBadge
+                v-else-if="t.supportLevel"
+                :label="supportCn(t.supportLevel)"
+                :title="t.supportLevel"
+                variant="mute"
+              />
             </div>
             <p v-if="t.note" class="row-item-body">{{ t.note }}</p>
             <details v-if="t.basis?.length" class="mt-2">
@@ -445,7 +478,7 @@ function analysisLabel(key: string): string {
         <div class="sec-sub" style="margin-top: 0">
           <h3>事件主题</h3>
           <span class="sec-sub-note">
-            结构层面的「值得关注」候选 —— 不是预测事件；无 CONFIRMED 状态
+            结构层面的「值得关注」候选 —— 不是预测事件；无「已确认」状态
           </span>
         </div>
 
@@ -465,7 +498,7 @@ function analysisLabel(key: string): string {
                 with-hint
               />
               <StatusBadge :label="`置信 ${t.confidence}`" variant="mute" title="ENGINEERING_HEURISTIC 加权，非概率" />
-              <span class="note-sm">（ENGINEERING_HEURISTIC 加权，非概率）</span>
+              <span class="note-sm" title="ENGINEERING_HEURISTIC">（工程启发式加权，非概率）</span>
             </div>
 
             <div v-if="Object.keys(t.schoolViews ?? {}).length" class="stack stack-1 mt-2">
@@ -628,8 +661,9 @@ function analysisLabel(key: string): string {
       </section>
     </template>
 
-    <p v-else-if="!props.loading" class="note">
+    <p v-else-if="!props.loading" class="empty">
       选择大运与流年后点击「分析」，即可展开该时间点的结构变化与证据链。
     </p>
+    <p v-if="props.loading" class="loading-status" role="status"><span class="loading-indicator" aria-hidden="true" />正在分析岁运变化与证据链…</p>
   </div>
 </template>

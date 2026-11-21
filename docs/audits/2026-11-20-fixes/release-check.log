@@ -1,0 +1,10 @@
+  PASS P0_quality_gate（23 步 ALL PASS，提交一致）
+  PASS P1_package_build（tianze_bazi-0.4.0.dev0-py3-none-any.whl，4.8s）
+  PASS P2_clean_install_smoke（clean venv install → version/analyze）
+  PASS P3_cli_smoke（3/3）
+  PASS P4_version_consistency（0.4.0.dev0（dynamic single-source=True，metadata=0.4.0.dev0））
+  PASS P5_stale_artifact（commit 一致）
+  PASS P6_notes_consistency（tag v0.4.0）
+  PASS P7_benchmark_regression（全部在阈值内（阈值：{"caseChart1147.perCaseMs": 5.0, "replayCorpus.perCaseMs": 5.0, "timeline80y.elapsedSeconds": 1.0}））
+
+Release Check：ALL PASS → release/release-check.md

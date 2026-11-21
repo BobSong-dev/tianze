@@ -1,194 +1,142 @@
-/* ============================================================================
- * Tianze · 天泽 — 现代宋韵设计系统 (Design Tokens)
- * ----------------------------------------------------------------------------
- * 定位：东方历法与命理结构研究工作台 · 确定性规则引擎 · 证据驱动与可解释
- * 风格：现代宋韵 —— 宣纸暖白 × 深墨 × 朱砂（克制）× 青黛 × 古铜细线
- *
- * 色彩体系（v2 · M45 视觉修正）：
- *   - 宣纸暖白阶做底（纸感、微暖，拒绝冷灰 SaaS 底）
- *   - 暖墨阶承担全部文字层级
- *   - 朱砂仅用于"行动/日主/印章"三处，惜红如金
- *   - 青黛（墨青）承担链接、结构、交互
- *   - 古铜只出现在 1px 细线与刻度
- *   - 五行用矿物墨调（低饱和），可区分但不喧哗
- * ========================================================================== */
-
 :root {
-  /* ---- 品牌主调：青黛墨 (Indigo Ink) —— 链接 / 结构 / 交互 ---- */
-  --primary-700: #24404e;
-  --primary-600: #2f4858;
-  --primary-500: #3d5a6c;
-  --primary-400: #56707f;
-  --primary-100: #e7ebe9;
-  --primary-50:  #f0f2ee;
-
-  /* ---- 朱砂 (Cinnabar) —— 仅行动 / 日主 / 印章 ---- */
-  --cinnabar-700: #7d2c20;
-  --cinnabar-600: #a63a2b;  /* 核心行动 / 日主标记 */
-  --cinnabar-500: #bd4d3a;
-  --cinnabar-100: #f3e0da;
-
-  --indigo-700: #24404e;
-  --indigo-600: #2f4858;    /* 结构与连接（同青黛） */
-  --indigo-500: #3d5a6c;
-  --indigo-100: #e7ebe9;
-
-  --bronze-600: #8a6d3b;    /* 历法与辅助细节 */
-  --bronze-300: #c9bc9e;
-  --bronze-100: #efe9da;
-
-  /* ---- 工作台表面：宣纸暖白阶 ---- */
-  --paper-000: #fdfbf5;     /* 卡片顶层：纸面白 */
-  --paper-050: #f4f0e5;     /* 全局画布：宣纸底 */
-  --paper-100: #ece7d8;     /* 次级分区 */
-  --paper-200: #e2dbc9;     /* 轨道 / 槽位 */
-  --paper-300: #d3cab1;     /* 突出分隔块 */
-
-  /* ---- 文字层级：暖墨阶 ---- */
-  --ink-900: #26221c;       /* 主标题 / 核心干支 */
-  --ink-700: #3a352d;       /* 次级标题 / 正文重点 */
-  --ink-500: #5c564b;       /* 常规正文 */
-  --ink-400: #7a7365;       /* 辅助标注 / 元数据 */
-  --ink-300: #a39a88;       /* 占位符 / 禁用 */
-
-  /* ---- 精密线条：古铜细线阶 ---- */
-  --line-100: #eae3d1;      /* 极细微分隔 */
-  --line-200: #ddd3bd;      /* 标准卡片外框 / 分割线 */
-  --line-300: #c9bc9e;      /* 强边框 / 悬停 */
-
-  /* ---- 受控状态语义 (低饱和 · 纸上矿物) ---- */
-  /* 候选 CANDIDATE: 青黛阶 */
-  --st-candidate:     #3d5a6c;
-  --st-candidate-bg:  #edf0ec;
-  --st-candidate-bd:  #cdd8d4;
-
-  /* 倾向支持 LIKELY: 苔绿阶 */
-  --st-likely:        #4a7043;
-  --st-likely-bg:     #edf1e7;
-  --st-likely-bd:     #d2dcc6;
-
-  /* 两说并存 DISPUTED: 赭金阶 */
-  --st-disputed:      #9a6b2f;
-  --st-disputed-bg:   #f4edda;
-  --st-disputed-bd:   #e2d5b4;
-
-  /* 阻断 BLOCKED: 朱砂阶 */
-  --st-blocked:       #a63a2b;
-  --st-blocked-bg:    #f5e6e0;
-  --st-blocked-bd:    #e3c8bd;
-
-  /* 待定 UNRESOLVED: 淡墨阶 */
-  --st-unresolved:    #7a7365;
-  --st-unresolved-bg: #f0ece1;
-  --st-unresolved-bd: #ddd3bd;
-
-  /* 已确立 ESTABLISHED: 深青阶 */
-  --st-established:   #31567a;
-  --st-established-bg:#e8edf2;
-  --st-established-bd:#cbd7e2;
-
-  /* 实验性 EXPERIMENTAL: 紫黛阶 */
-  --st-experimental:  #6b5a7a;
-  --st-experimental-bg:#efeaf2;
-  --st-experimental-bd:#d9cfe0;
-
-  /* 受支持 SUPPORTED: 苔绿阶 */
-  --st-supported:     #4a7043;
-  --st-supported-bg:  #edf1e7;
-  --st-supported-bd:  #d2dcc6;
-
-  --ok:   #4a7043;
-  --warn: #9a6b2f;
-  --err:  #a63a2b;
-
-  /* ---- 五行矿物色 (低饱和 · 矿物颜料的墨调) ---- */
-  /* 木 (Wood): 苍青 */
-  --wx-wood:      #3d6b4f;
-  --wx-wood-bg:   #eaf0ea;
-  --wx-wood-bd:   #ccd9cd;
-
-  /* 火 (Fire): 朱砂 */
-  --wx-fire:      #a6402c;
-  --wx-fire-bg:   #f4e7e2;
-  --wx-fire-bd:   #e0c8bf;
-
-  /* 土 (Earth): 赭黄 */
-  --wx-earth:     #8a6d3b;
-  --wx-earth-bg:  #f2ecdc;
-  --wx-earth-bd:  #ded2b2;
-
-  /* 金 (Metal): 钛灰 */
-  --wx-metal:     #56707f;
-  --wx-metal-bg:  #eaedee;
-  --wx-metal-bd:  #ccd4d8;
-
-  /* 水 (Water): 黛蓝 */
-  --wx-water:     #31567a;
-  --wx-water-bg:  #e8edf2;
-  --wx-water-bd:  #c8d4de;
-
-  /* ---- 字体与排印：宋体标题 + 无衬线正文 + 等宽数据 ---- */
-  --font-display: "Noto Serif SC", "Songti SC", "STSong", SimSun, serif;
-  --font-body:    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  --font-mono:    "JetBrains Mono", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-
-  /* 字号阶梯 */
-  --t-3xs: 10px;
-  --t-2xs: 11px;
-  --t-xs:  12px;
-  --t-sm:  13px;
-  --t-md:  14px;
-  --t-lg:  16px;
-  --t-xl:  18px;
-  --t-2xl: 22px;
-  --t-3xl: 28px;
-  --t-4xl: 36px;
-  --t-5xl: 48px;
-  --t-6xl: 64px;   /* 干支大字 / 题头大字 */
-
-  /* 行高 */
+  --primary-700: #ab895f;
+  --primary-600: #d6b58b;
+  --primary-500: #d6b58b;
+  --primary-400: #efcfaa;
+  --primary-100: rgb(214 181 139 / 14%);
+  --primary-50: rgb(214 181 139 / 6%);
+  --gold-600: #ab895f;
+  --gold-500: #d6b58b;
+  --gold-400: #d6b58b;
+  --gold-300: #efcfaa;
+  --gold-glow: transparent;
+  --cinnabar-700: #85483f;
+  --cinnabar-600: #ad6757;
+  --cinnabar-500: #d5917f;
+  --cinnabar-400: #e5a094;
+  --cinnabar-100: rgb(229 160 148 / 12%);
+  --indigo-700: #446b8e;
+  --indigo-600: #7196ba;
+  --indigo-500: #91bbde;
+  --indigo-100: rgb(145 187 222 / 12%);
+  --bronze-600: #d6b58b;
+  --bronze-300: rgb(214 181 139 / 40%);
+  --bronze-100: rgb(214 181 139 / 10%);
+  --paper-050: #1b2739;
+  --paper-000: #223147;
+  --paper-100: #293a50;
+  --paper-200: #304259;
+  --paper-300: #3d5069;
+  --ink-900: #f5efe6;
+  --ink-700: #e2e7ed;
+  --ink-500: #b5c0ce;
+  --ink-400: #a6b3c4;
+  --ink-300: #7d8da3;
+  --line-100: rgb(174 190 210 / 12%);
+  --line-200: rgb(174 190 210 / 24%);
+  --line-300: rgb(214 181 139 / 55%);
+  --control-border: #7b8ba1;
+  --st-candidate: #a3c7e5;
+  --st-candidate-bg: rgb(163 199 229 / 10%);
+  --st-candidate-bd: rgb(163 199 229 / 30%);
+  --st-likely: #9ed2b5;
+  --st-likely-bg: rgb(158 210 181 / 10%);
+  --st-likely-bd: rgb(158 210 181 / 30%);
+  --st-disputed: #e4c48b;
+  --st-disputed-bg: rgb(228 196 139 / 10%);
+  --st-disputed-bd: rgb(228 196 139 / 30%);
+  --st-blocked: #f0aaa0;
+  --st-blocked-bg: rgb(240 170 160 / 10%);
+  --st-blocked-bd: rgb(240 170 160 / 30%);
+  --st-unresolved: #b5c0ce;
+  --st-unresolved-bg: rgb(181 192 206 / 8%);
+  --st-unresolved-bd: rgb(181 192 206 / 24%);
+  --st-established: #a3c7e5;
+  --st-established-bg: var(--st-candidate-bg);
+  --st-established-bd: var(--st-candidate-bd);
+  --st-experimental: #cebee0;
+  --st-experimental-bg: rgb(206 190 224 / 10%);
+  --st-experimental-bd: rgb(206 190 224 / 30%);
+  --st-supported: var(--st-likely);
+  --st-supported-bg: var(--st-likely-bg);
+  --st-supported-bd: var(--st-likely-bd);
+  --ok: var(--st-likely);
+  --warn: var(--st-disputed);
+  --err: var(--st-blocked);
+  --wx-wood: #8fc9ac;
+  --wx-wood-bg: rgb(143 201 172 / 10%);
+  --wx-wood-bd: rgb(143 201 172 / 30%);
+  --wx-fire: #e5a094;
+  --wx-fire-bg: rgb(229 160 148 / 10%);
+  --wx-fire-bd: rgb(229 160 148 / 30%);
+  --wx-earth: #d8bc83;
+  --wx-earth-bg: rgb(216 188 131 / 10%);
+  --wx-earth-bd: rgb(216 188 131 / 30%);
+  --wx-metal: #dce2e8;
+  --wx-metal-bg: rgb(220 226 232 / 10%);
+  --wx-metal-bd: rgb(220 226 232 / 30%);
+  --wx-water: #91bbde;
+  --wx-water-bg: rgb(145 187 222 / 10%);
+  --wx-water-bd: rgb(145 187 222 / 30%);
+  --font-display: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", SimSun, serif;
+  --font-calligraphy: var(--font-display);
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "SF Mono", Consolas, "Liberation Mono", monospace;
+  --t-3xs: .75rem;
+  --t-2xs: .75rem;
+  --t-xs: .875rem;
+  --t-sm: .875rem;
+  --t-md: 1rem;
+  --t-lg: 1.125rem;
+  --t-xl: 1.25rem;
+  --t-2xl: 1.5rem;
+  --t-3xl: 2rem;
+  --t-4xl: 2.5rem;
+  --t-5xl: 3rem;
+  --t-6xl: 4rem;
   --lh-tight: 1.25;
-  --lh-snug:  1.4;
-  --lh-base:  1.6;
-  --lh-loose:  1.75;
-
-  /* 字距 */
-  --ls-tight: -0.015em;
+  --lh-snug: 1.5;
+  --lh-base: 1.7;
+  --lh-loose: 1.9;
+  --ls-tight: -.02em;
   --ls-normal: 0;
-  --ls-wide:   0.025em;
-  --ls-wider:  0.06em;
-  --ls-widest: 0.12em;
-
-  /* 间距基线 */
-  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
-  --s-5: 20px;  --s-6: 24px;  --s-7: 32px;  --s-8: 40px;
-  --s-9: 48px;  --s-10: 64px; --s-11: 80px; --s-12: 96px;
-
-  /* ---- 几何圆角：方角为主（版框），小件微圆 ---- */
+  --ls-wide: .035em;
+  --ls-wider: .08em;
+  --ls-widest: .16em;
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 32px;
+  --s-8: 40px;
+  --s-9: 48px;
+  --s-10: 64px;
+  --s-11: 80px;
+  --s-12: 96px;
   --r-xs: 2px;
-  --r-sm: 2px;
-  --r-md: 3px;
-  --r-lg: 4px;
-  --r-xl: 4px;
+  --r-sm: 4px;
+  --r-button: 12px;
+  --r-dialog: 20px;
+  --r-md: 6px;
+  --r-lg: 6px;
+  --r-xl: 8px;
   --r-full: 9999px;
-
-  /* ---- 侧栏与暗部：暖墨黑（题头锚点，非蓝黑） ---- */
-  --ink-surface:      #221e18;
-  --ink-surface-2:    #2c2720;
-  --ink-surface-line: rgba(244, 240, 229, 0.10);
-  --ink-surface-text: #f4f0e5;
-  --ink-surface-muted:#a39a88;
-
-  /* 布局度量 */
+  --ink-surface: #172234;
+  --ink-surface-2: #1e2d42;
+  --ink-surface-line: var(--line-200);
+  --ink-surface-text: var(--ink-700);
+  --ink-surface-muted: var(--ink-400);
   --sidebar-w: 248px;
   --measure: 48em;
-  --rail: 120px;
-
-  /* ---- 阴影与景深：纸面极轻景深 ---- */
+  --rail: 96px;
   --shadow-0: none;
-  --shadow-1: 0 1px 2px 0 rgb(60 50 30 / 0.05);
-  --shadow-2: 0 3px 6px -1px rgb(60 50 30 / 0.07), 0 1px 3px -2px rgb(60 50 30 / 0.05);
-  --shadow-3: 0 8px 14px -3px rgb(60 50 30 / 0.09), 0 3px 5px -3px rgb(60 50 30 / 0.04);
-  --shadow-4: 0 16px 22px -5px rgb(60 50 30 / 0.11), 0 6px 8px -6px rgb(60 50 30 / 0.05);
-  --shadow-focus: 0 0 0 3px rgba(166, 58, 43, 0.16);
+  --shadow-1: none;
+  --shadow-2: 0 8px 24px rgb(8 15 26 / 12%);
+  --shadow-3: 0 16px 40px rgb(8 15 26 / 25%);
+  --shadow-4: 0 24px 64px rgb(8 15 26 / 40%);
+  --shadow-focus: 0 0 0 3px rgb(239 207 170 / 25%);
+  --motion-fast: 160ms;
+  --motion-enter: 200ms;
 }

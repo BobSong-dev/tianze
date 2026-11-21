@@ -21,6 +21,8 @@ jobs:
             python-version: "3.13"
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -29,19 +31,18 @@ jobs:
       - name: Install package + deps
         run: |
           python -m pip install --upgrade pip
-          pip install -e ".[dev]"
-          pip install fastapi uvicorn httpx || true
+          pip install -e ".[dev,api]"
 
       - name: Version consistency
         env:
           PYTHONIOENCODING: utf-8
-        run: python -c "import tianze; assert tianze.__version__ == '0.3.0'"
+        run: python tools/check_version.py
 
       - name: Tests（tests/ 含打包路径/CLI/UTF-8 冒烟）
         env:
           PYTHONIOENCODING: utf-8
           PYTHONUTF8: "1"
-        run: python -m pytest tests -q
+        run: python -m pytest tests apps/api/tests -q
 
       - name: Install smoke（CLI/SDK parity/UTF-8/时区/闰日/package-data/path）
         env:
@@ -90,9 +91,26 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-      - name: Build web
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install API dependencies
+        run: python -m pip install -e ".[api]"
+      - name: Check and build web
         working-directory: apps/web
         run: |
-          npm install
+          npm ci
+          npm run api:check
+          npm test
           npm run build
+      - name: Browser regression
+        working-directory: apps/web
+        run: |
+          npx playwright install --with-deps chromium
+          npm run test:e2e -- --retries=0
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-results
+          path: apps/web/test-results

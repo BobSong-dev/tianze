@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Tianze API",
-    "description": "Tianze \u516b\u5b57\u7ed3\u6784\u5206\u6790\u5f15\u64ce HTTP API",
+    "description": "Tianze 八字结构分析引擎 HTTP API",
     "version": "v1"
   },
   "paths": {
@@ -88,7 +88,7 @@
           "knowledge"
         ],
         "summary": "Review Queue",
-        "description": "Review Queue\uff08\u53ea\u8bfb\uff09\uff1apriority/reason/\u5173\u8054\uff1b\u4e0d\u4ea7\u751f\u4efb\u4f55\u4eba\u5de5\u72b6\u6001\u3002",
+        "description": "Review Queue（只读）：priority/reason/关联；不产生任何人工状态。",
         "operationId": "review_queue_api_v1_knowledge_review_queue_get",
         "responses": {
           "200": {
@@ -127,7 +127,7 @@
           "knowledge"
         ],
         "summary": "Evaluation History",
-        "description": "AI Evaluation History\uff08\u53ea\u8bfb\uff1b\u786e\u5b9a\u6027\u6307\u6807\uff0c\u65e0 LLM-as-judge \u8bc4\u5206\uff09\u3002",
+        "description": "AI Evaluation History（只读；确定性指标，无 LLM-as-judge 评分）。",
         "operationId": "evaluation_history_api_v1_knowledge_evaluation_history_get",
         "responses": {
           "200": {
@@ -147,7 +147,7 @@
           "knowledge"
         ],
         "summary": "Coverage",
-        "description": "Coverage Workbench \u6570\u636e\uff1a\u5ba1\u8ba1\u95e8 + \u8986\u76d6\u7edf\u8ba1\uff08\u672a\u7528\u5019\u9009/\u672a\u89e6\u53d1\u89c4\u5219/Rule\u2192Case\uff09\u3002",
+        "description": "Coverage Workbench 数据：审计门 + 覆盖统计（未用候选/未触发规则/Rule→Case）。",
         "operationId": "coverage_api_v1_knowledge_coverage_get",
         "responses": {
           "200": {
@@ -167,7 +167,7 @@
           "knowledge"
         ],
         "summary": "Funnel",
-        "description": "Knowledge \u6f0f\u6597\u4e0e\u5bc6\u5ea6\uff08Quality Dashboard \u6570\u636e\u6e90\uff09\u3002",
+        "description": "Knowledge 漏斗与密度（Quality Dashboard 数据源）。",
         "operationId": "funnel_api_v1_knowledge_funnel_get",
         "responses": {
           "200": {
@@ -187,7 +187,7 @@
           "knowledge"
         ],
         "summary": "Coverage Audit",
-        "description": "Rule Coverage / Dead Rule \u5206\u7c7b\uff08REVIEW \u6e05\u5355\uff0c\u4e0d\u81ea\u52a8\u8c03\u6574\uff09\u3002",
+        "description": "Rule Coverage / Dead Rule 分类（REVIEW 清单，不自动调整）。",
         "operationId": "coverage_audit_api_v1_knowledge_coverage_audit_get",
         "responses": {
           "200": {
@@ -207,7 +207,7 @@
           "knowledge"
         ],
         "summary": "Rule Audit",
-        "description": "\u9010\u89c4\u5219 replay \u6837\u672c\u4e0e relation \u5206\u5e03\u3002",
+        "description": "逐规则 replay 样本与 relation 分布。",
         "operationId": "rule_audit_api_v1_knowledge_rule_audit_get",
         "responses": {
           "200": {
@@ -227,7 +227,7 @@
           "knowledge"
         ],
         "summary": "Release Metadata",
-        "description": "Release Metadata + quality summary\uff08\u771f\u5b9e\u8fd0\u884c\u4ea7\u7269 + \u9648\u65e7\u68c0\u6d4b\uff09\u3002",
+        "description": "Release Metadata + quality summary（真实运行产物 + 陈旧检测）。",
         "operationId": "release_metadata_api_v1_knowledge_release_get",
         "responses": {
           "200": {
@@ -247,8 +247,124 @@
           "knowledge"
         ],
         "summary": "Evaluation Compare",
-        "description": "AI Evaluation History \u5bf9\u6bd4\uff08\u786e\u5b9a\u6027\u6307\u6807\u56de\u5f52\u68c0\u6d4b\uff09\u3002",
+        "description": "AI Evaluation History 对比（确定性指标回归检测）。",
         "operationId": "evaluation_compare_api_v1_knowledge_evaluation_compare_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ai-config/status": {
+      "get": {
+        "tags": [
+          "ai-config"
+        ],
+        "summary": "Status",
+        "operationId": "status_api_v1_ai_config_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ai-config/presets": {
+      "get": {
+        "tags": [
+          "ai-config"
+        ],
+        "summary": "Presets",
+        "operationId": "presets_api_v1_ai_config_presets_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ai-config/set": {
+      "post": {
+        "tags": [
+          "ai-config"
+        ],
+        "summary": "Set Config",
+        "operationId": "set_config_api_v1_ai_config_set_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetConfigBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ai-config/test": {
+      "post": {
+        "tags": [
+          "ai-config"
+        ],
+        "summary": "Test Connection",
+        "description": "真实连接测试：向配置端点发 1-token 请求，按协议选择请求格式。\n\n幂等只读外部服务，但会携带真实密钥出站，故同样受本机守卫保护；\n不跟随重定向（3xx 判失败）；UI 来源时复验 SSRF。",
+        "operationId": "test_connection_api_v1_ai_config_test_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ai-config/clear": {
+      "post": {
+        "tags": [
+          "ai-config"
+        ],
+        "summary": "Clear Config",
+        "operationId": "clear_config_api_v1_ai_config_clear_post",
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -323,6 +439,91 @@
             }
           }
         }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "SetConfigBody": {
+        "properties": {
+          "apiKey": {
+            "type": "string",
+            "title": "Apikey"
+          },
+          "baseUrl": {
+            "type": "string",
+            "title": "Baseurl"
+          },
+          "model": {
+            "type": "string",
+            "title": "Model"
+          },
+          "preset": {
+            "type": "string",
+            "title": "Preset",
+            "default": "openai"
+          }
+        },
+        "type": "object",
+        "required": [
+          "apiKey",
+          "baseUrl",
+          "model"
+        ],
+        "title": "SetConfigBody"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
       }
     }
   }

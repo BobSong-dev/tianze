@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天择 · 最终项目审计 · 2026-11-21</title>
+<style>
+  :root { color-scheme: light; font-family: system-ui, "Microsoft YaHei", sans-serif; background: #f8f6ef; color: #202c3d; }
+  body { max-width: 52rem; margin: auto; padding: clamp(1rem, 5vw, 4rem); line-height: 1.8; }
+  h1, h2, h3 { line-height: 1.4; text-wrap: balance; }
+  h1, h2 { font-family: Georgia, "Songti SC", SimSun, serif; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); margin: .25em 0; }
+  h2 { margin-top: 2em; padding-bottom: .4em; border-bottom: 1px solid #bdb3a3; }
+  article { margin: 1.6rem 0 2.2rem; }
+  p { margin: .55rem 0; }
+  small { color: #645642; }
+  code { overflow-wrap: anywhere; font-size: .92em; }
+  a { color: #22506b; text-underline-offset: .22em; }
+  nav { display: flex; flex-wrap: wrap; gap: .4rem 1.3rem; }
+  @media print { body { padding: 0; } nav { display: none; } article { break-inside: avoid; } }
+</style>
+<main>
+  <header>
+    <small>天择研究工作台 · 2026 年 11 月 21 日</small>
+    <h1>最终项目审计</h1>
+    <p><strong>六项整改已完成。</strong> 排盘报告现按钟表时标注，经度仅作记录。五行图表与摘要共用计数，原审计命例现显示金最少（0 处）。重新排盘失败时，上一份报告、岁运与 AI 解读可继续阅读。</p>
+    <p>首次手填 AI 端点默认采用 OpenAI 兼容协议，已通过本地模拟服务完成保存和解读。浏览器回归启动专用前后端。发布检查与打标签共用完整质量报告校验，中间进度保存在独立临时文件。</p>
+    <p><strong>整改后验收</strong>　46 项 Chromium 回归、35 项前端单测及 1 项契约工具测试全部通过。生产构建通过，OpenAPI 与生成类型一致。隔离副本内的 23 步质量门全部通过，其中 Python 为 688 项通过，报告 1 条警告。</p>
+    <p>以下保留整改前的复现记录与验收依据。</p>
+    <nav aria-label="报告目录"><a href="#results">排盘与报告</a><a href="#workflow">配置与恢复</a><a href="#release">发布与测试</a><a href="#scope">验证范围</a></nav>
+  </header>
+  <h2 id="results">排盘与报告</h2>
+  <article>
+    <h3>1. 填写经度后，报告会标注实际计算未采用的真太阳时校正</h3>
+    <p>浏览器录入男、2003-08-01 14:30、UTC+8、东经 87.6°，研究报告显示“87.6（真太阳时校正）”。请求携带了经度，网页使用 SDK 默认的钟表时模式。引擎计算日柱、时柱所用的时间只扣除适用的夏令时，没有使用经度。</p>
+    <p>另用 2003-08-18 相同时刻和经度直接调用时间解析，分别指定钟表时、平太阳时、真太阳时，三次返回的排柱时刻均为 14:30。靠近时辰边界的用户可能据报告误判排盘依据。</p>
+    <p><strong>建议与验收</strong>　先让录入页和报告显示引擎实际采用的计时方式，将经度列为输入资料。若交付太阳时算法，用有独立参考值的跨时辰样例核对校正分钟数、排柱时刻和报告标签。</p>
+    <small>定位　<code>BirthIntake.vue:223</code> · <code>ReportView.vue:111</code> · <code>tianze/calendar/time_resolution.py:26</code></small>
+  </article>
+  <article>
+    <h3>2. 五行总览把数量为零的一项排除在“最少”之外</h3>
+    <p>同一个 8 月 1 日命例中，显干与藏干合计为木 4、火 6、土 8、金 0、水 1。浏览器里的图表正确显示“金 显 0 · 藏 0”，同页摘要却写“土最多（8 处）、水最少”。摘要排序前过滤了零值。</p>
+    <p><strong>建议与验收</strong>　摘要与图表共用一份五项计数。该例应说明金为零；有并列最少时应能读出所有并列项；数据缺失时也应与确知为零区分。</p>
+    <small>定位　<code>apps/web/src/views/OverviewView.vue:70</code> · <code>ElementBars.vue:58</code></small>
+  </article>
+  <h2 id="workflow">配置与恢复</h2>
+  <article>
+    <h3>3. 首次手填 AI 连接参数，点击保存会进入无效重试</h3>
+    <p>设置页允许手动填写兼容端点。在临时本地服务中跳过服务商选择，填入占位 Key、地址及模型后，页面返回“保存失败：未知预设：custom。请重试。”服务端先校验预设，原样重试会得到同一结果。当前可行的绕行方式是先选与端点协议相符的预设，再编辑地址和模型。</p>
+    <p><strong>建议与验收</strong>　让界面明确所用协议。如果必须选择服务商，就在保存前提示选择；如果支持直接手填，就提交后端接受的协议。分别从空表单验收预设和手动两条路径。</p>
+    <small>定位　<code>useAiConfig.ts:15</code> · <code>AIProviderDialog.vue:84</code> · <code>apps/api/ai_config.py:209</code></small>
+  </article>
+  <article>
+    <h3>4. 重新排盘遇到临时故障，会失去上一份可阅读的报告</h3>
+    <p>先成功排盘并打开研究报告，再由浏览器将下一次分析请求模拟为 HTTP 503。点击“重新排盘”后返回首页，研究导航消失。提交逻辑在新结果到达前已清空上次成功的快照、岁运和 AI 解读。</p>
+    <p><strong>建议与验收</strong>　新请求成功后再替换整组结果。超时或 503 时应保留上次命例及报告，明确显示本次重算失败，并允许原地重试。</p>
+    <small>定位　<code>apps/web/src/composables/useTianze.ts:238</code></small>
+  </article>
+  <h2 id="release">发布与测试</h2>
+  <article>
+    <h3>5. 发布检查可以把尚未跑完的质量报告判为通过</h3>
+    <p>质量门将中间进度写到正式摘要路径。用当前提交相符、阶段为 <code>prerelease</code>、仅含一项成功 <code>pytest</code> 的样例调用校验函数，返回“1 步 ALL PASS，提交一致”。流水线若在写入进度后中断，后续使用该摘要的检查仍可能亮绿灯。</p>
+    <p><strong>建议与验收</strong>　中间进度单独保存，全部完成后原子替换正式摘要。对外发布和打标签共用校验，要求阶段完成、提交匹配、必需步骤齐全且成功。分别验证中断、缺步、提交过期及完整成功四种结果。</p>
+    <small>定位　<code>tools/quality_gate.py:79</code> · <code>tools/release_check.py:211</code> · <code>tools/release_automation.py:47</code></small>
+  </article>
+  <article>
+    <h3>6. 本地端到端测试可能清除开发者正在使用的 AI 配置</h3>
+    <p>从测试代码可见，本地 Playwright 默认复用已有服务，AI 流程每例开始前都会清除配置。只覆盖 <code>E2E_BASE_URL</code> 时，清除目标仍默认指向 <code>localhost:5173</code>。当该端口代理个人开发后端时，需要重新填写进程内配置。</p>
+    <p><strong>建议与验收</strong>　分配测试专用前后端，从同一配置推导页面与 API 地址。用独立测试实例验证清除流程，并确认只设置页面地址时不会向默认开发端口发送写请求。本项按源码判定，审计期间未对个人服务执行清除。</p>
+    <small>定位　<code>apps/web/playwright.config.ts:26</code> · <code>apps/web/e2e/ai-config-flow.spec.ts:36</code></small>
+  </article>
+  <h2 id="scope">验证范围</h2>
+  <p>对象为 <code>07b6e30</code> 基础上的当前工作区，包括未提交的界面与修复。桌面 Chromium 以 1440 × 960 运行，连接临时本地 Vue 和 FastAPI 服务，配置测试使用占位密钥。只有重新排盘的 503 是模拟故障。首次配置状态由浏览器设为未配置。</p>
+  <p>本轮运行 <code>npm test</code>，33 项 Vitest 和 1 项契约工具测试全部通过。<code>npm run api:check</code> 检查 OpenAPI 与生成类型，均无漂移。另执行了时间解析和发布校验函数的定向样例。</p>
+  <p>本轮覆盖定向审计。移动端全路由、完整 Python 与 E2E 套件、生产构建及真实第三方模型连接，均未在本轮重新验证。上一轮记录可单独查阅。<a href="2026-11-20-remediation.html">打开 11 月 20 日整改与回归记录</a></p>
+</main>
+</html>

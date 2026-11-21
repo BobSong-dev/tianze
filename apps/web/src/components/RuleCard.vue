@@ -22,8 +22,14 @@ function provenanceLabel(lv: string): string {
 <template>
   <article
     class="rule-card"
+    role="button"
+    tabindex="0"
+    :aria-pressed="Boolean(props.selected)"
+    :aria-label="`${props.rule.id} ${props.rule.label}`"
     :class="{ 'is-selected': props.selected }"
     @click="emit('select', props.rule.id)"
+    @keydown.enter.prevent="emit('select', props.rule.id)"
+    @keydown.space.prevent="emit('select', props.rule.id)"
   >
     <div class="rule-card-head">
       <span class="rule-card-id">{{ props.rule.id }}</span>

@@ -19,8 +19,6 @@ test("late zi: sect1 vs sect2 produce different day pillar", async ({ page }) =>
   await page.click('button:has-text("调整参数")');
   await page.getByLabel("晚子时流派").selectOption("2");
   await page.click("button.submit");
-  await expect(page.locator(".pillar-card").nth(3)).toBeVisible({ timeout: 15000 });
-  const day2 = await page.locator(".pillar-card").nth(2).textContent();
-
-  expect(day1).not.toBe(day2);
+  await expect(page.locator(".param-strip")).toContainText("晚子时流派 2");
+  await expect(page.locator(".pillar-card").nth(2)).not.toHaveText(day1!);
 });

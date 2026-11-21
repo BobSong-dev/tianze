@@ -25,10 +25,11 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
 import time
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PY = os.path.join(REPO, ".venv", "Scripts", "python.exe")
+PY = sys.executable
 
 STEPS = [
     ("pytest", [PY, "-m", "pytest", "tests", "apps/api/tests", "-q"]),
@@ -61,9 +62,30 @@ SKIP_CASE_REGRESSION_BREAKING = {"case_regression", "temporal_regression"}
 
 
 def main() -> int:
+    with tempfile.TemporaryDirectory() as directory:
+        return _run(os.path.join(directory, "gate-progress.json"))
+
+
+def _run(progress_path: str) -> int:
     results = []
     t_all = time.perf_counter()
+    head = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, encoding="utf-8", cwd=REPO, check=True).stdout.strip()
     for name, cmd in STEPS:
+        if name in {"release_check", "release_automation_dryrun", "release_history"}:
+            for result in results:
+                if result["step"] in SKIP_CASE_REGRESSION_BREAKING and result["exitCode"] == 1:
+                    path = "regression/report.json" if result["step"] == "case_regression" else "regression/temporal-compare.json"
+                    report = _load(path, {})
+                    if "severityCounts" in report and not report["severityCounts"].get("BREAKING", 0):
+                        result["exitCode"] = 0
+                        result["note"] = "REVIEW 级变化，无 BREAKING"
+            failed = [result["step"] for result in results if result["exitCode"] != 0]
+            os.makedirs(os.path.join(REPO, "release"), exist_ok=True)
+            with open(progress_path, "w", encoding="utf-8") as stream:
+                json.dump({"schemaVersion": "1.0.0", "gitCommit": head, "phase": "prerelease",
+                           "allPass": not failed, "failed": failed, "steps": results,
+                           "totalSeconds": round(time.perf_counter() - t_all, 1)}, stream, ensure_ascii=False, indent=1)
+            cmd = [*cmd, "--gate-progress", progress_path]
         t0 = time.perf_counter()
         try:
             r = subprocess.run(cmd, capture_output=True, encoding="utf-8",
@@ -86,8 +108,8 @@ def main() -> int:
     regression_ok = {}
     case_reg = _load("regression/report.json", {})
     temporal_reg = _load("regression/temporal-compare.json", {})
-    regression_ok["case_regression"] = not (case_reg.get("severityCounts", {}).get("BREAKING", 0))
-    regression_ok["temporal_regression"] = not (temporal_reg.get("severityCounts", {}).get("BREAKING", 0))
+    regression_ok["case_regression"] = "severityCounts" in case_reg and not case_reg["severityCounts"].get("BREAKING", 0)
+    regression_ok["temporal_regression"] = "severityCounts" in temporal_reg and not temporal_reg["severityCounts"].get("BREAKING", 0)
     for r in results:
         if r["step"] in regression_ok and r["exitCode"] == 1:
             if regression_ok[r["step"]]:
@@ -98,14 +120,18 @@ def main() -> int:
     all_pass = not failed
     summary = {
         "schemaVersion": "1.0.0",
+        "gitCommit": head,
+        "phase": "complete",
         "allPass": all_pass,
         "failed": failed,
         "totalSeconds": round(time.perf_counter() - t_all, 1),
         "steps": results,
     }
     os.makedirs(os.path.join(REPO, "release"), exist_ok=True)
-    with open(os.path.join(REPO, "release/quality-summary.json"), "w", encoding="utf-8") as f:
-        json.dump(summary, f, ensure_ascii=False, indent=1)
+    with tempfile.NamedTemporaryFile(mode="w", dir=os.path.join(REPO, "release"),
+                                     encoding="utf-8", delete=False) as stream:
+        json.dump(summary, stream, ensure_ascii=False, indent=1)
+    os.replace(stream.name, os.path.join(REPO, "release/quality-summary.json"))
     md = ["# Tianze Quality Gate Summary", "",
           f"- 结果：{'ALL PASS' if all_pass else 'FAIL: ' + ', '.join(failed)}",
           f"- 总耗时：{summary['totalSeconds']}s", "",

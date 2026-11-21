@@ -37,7 +37,8 @@ def main() -> int:
     # 1) import + version
     import tianze
     check("import", True)
-    check("version", tianze.__version__ == "0.4.0.dev0", tianze.__version__)
+    from importlib.metadata import version
+    check("version", tianze.__version__ == version("tianze-bazi"), tianze.__version__)
 
     # 2) package-data：loader 在安装/源码两种模式下都能加载全部规则（数量口径见 /api/v1/knowledge/stats）
     from tianze.knowledge.event_rules import load_event_rules

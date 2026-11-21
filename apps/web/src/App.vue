@@ -7,7 +7,7 @@ import { VIEW_PLAIN } from "./presentation/layman";
  * 展示层拆分为 components/（构件）与 views/（工作区），
  * 状态与请求集中在 composables/useTianze.ts，不做任何命理推导。
  */
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, nextTick, onMounted, ref, watch } from "vue";
 import AppShell, { type NavGroup } from "./components/AppShell.vue";
 import AIProviderDialog from "./components/AIProviderDialog.vue";
 import HomeView from "./views/HomeView.vue";
@@ -124,8 +124,11 @@ watch(() => t.result.value, (r) => {
  * 切换工作区时回到页首。
  * 首页的"开始排盘"按钮在页面下方，若保留滚动位置，进入工作台会落在半截处——必须归位。
  */
-watch(workspace, () => {
+watch(workspace, async () => {
+  sidebarOpen.value = false;
+  await nextTick();
   window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  document.getElementById("main")?.focus({ preventScroll: true });
 });
 
 async function onNavigate(id: string) {
@@ -137,8 +140,7 @@ function goHome() {
 }
 
 async function onSubmit() {
-  await t.submit();
-  if (t.result.value) workspace.value = "overview";
+  if (await t.submit()) workspace.value = "overview";
 }
 
 function openGraph(id: string) {
@@ -149,7 +151,11 @@ function openGraph(id: string) {
 
 /* -------------------------------------------------------- AI 配置入口 */
 
-function openAi() { aiDialogOpen.value = true; }
+async function openAi() {
+  sidebarOpen.value = false;
+  await nextTick();
+  aiDialogOpen.value = true;
+}
 function testAi() { openAi(); void ai.test(); }
 
 /* ---------------------------------------------------------- 岁运控制 */
@@ -160,13 +166,10 @@ function printReport() { window.print(); }
 </script>
 
 <template>
-  <!-- M54 · 全局纸感肌理层（噪点 + 暗角；纯装饰，不参与交互） -->
-  <div class="paper-grain" aria-hidden="true" />
-  <div class="paper-vignette" aria-hidden="true" />
-
   <!-- 首页：独立版式（产品官网 + 研究入口） -->
   <HomeView
     v-if="workspace === 'home'"
+    :inert="aiDialogOpen || undefined"
     :birth="t.state.birth"
     :loading="t.state.loading"
     :error="t.state.error"
@@ -178,6 +181,7 @@ function printReport() { window.print(); }
   <!-- 研究工作台：左栏研究路径 + 右栏分析内容 -->
   <AppShell
     v-else
+    :inert="aiDialogOpen || undefined"
     v-model:sidebar-open="sidebarOpen"
     :groups="navGroups"
     :active="activeNav"
@@ -200,28 +204,36 @@ function printReport() { window.print(); }
          研究者常要反复改流派 / 时区核对，但参数区不该占据内容重心。 -->
     <div class="param-strip no-print">
       <span class="param-strip-key">排盘参数</span>
-      <span class="param-strip-val">{{ t.state.birth.date }}</span>
-      <span v-if="t.state.birth.timeKnown" class="param-strip-val">{{ t.state.birth.time }}</span>
+      <span class="param-strip-val">{{ t.analysisBirth.value.date }}</span>
+      <span v-if="t.analysisBirth.value.timeKnown" class="param-strip-val">{{ t.analysisBirth.value.time }}</span>
       <span v-else class="param-strip-val">时辰未知</span>
-      <span class="param-strip-val">{{ t.state.birth.gender === "male" ? "男" : "女" }}</span>
+      <span class="param-strip-val">{{ t.analysisBirth.value.gender === "male" ? "男" : "女" }}</span>
       <span class="param-strip-val">
-        UTC{{ t.state.birth.timezoneOffset >= 0 ? "+" : "" }}{{ t.state.birth.timezoneOffset }}
+        UTC{{ t.analysisBirth.value.timezoneOffset >= 0 ? "+" : "" }}{{ t.analysisBirth.value.timezoneOffset }}
       </span>
-      <span class="param-strip-val">晚子时流派 {{ t.state.birth.sect }}</span>
-      <span v-if="t.state.birth.longitude != null" class="param-strip-val">
-        经度 {{ t.state.birth.longitude }}
+      <span class="param-strip-val">晚子时流派 {{ t.analysisBirth.value.sect }}</span>
+      <span v-if="t.analysisBirth.value.longitude != null" class="param-strip-val">
+        经度 {{ t.analysisBirth.value.longitude }}
       </span>
       <span class="grow" />
-      <button class="btn-link" type="button" @click="paramOpen = !paramOpen">
+      <button class="btn-link" type="button" :aria-expanded="paramOpen" aria-controls="workspace-parameters" @click="paramOpen = !paramOpen">
         {{ paramOpen ? "收起" : "调整参数" }}
       </button>
     </div>
 
-    <div v-if="paramOpen" class="no-print" style="margin-bottom: var(--s-5)">
+    <p v-if="t.state.error" class="error no-print" role="alert">
+      本次排盘失败，当前仍显示上次成功的结果。{{ t.state.error }}
+      <button type="button" @click="onSubmit" :disabled="t.state.loading">重试排盘</button>
+    </p>
+    <p v-if="t.hasDraftChanges.value" class="notice no-print" role="status">
+      参数已修改，尚未重新排盘。当前分析、岁运和报告仍使用上方已提交的命例。
+    </p>
+
+    <div v-if="paramOpen" id="workspace-parameters" class="no-print" style="margin-bottom: var(--s-5)">
       <BirthIntake
         :birth="t.state.birth"
         :loading="t.state.loading"
-        :error="t.state.error"
+        :error="''"
         compact
         @submit="onSubmit"
       />
@@ -278,7 +290,7 @@ function printReport() { window.print(); }
         index="10"
         title="AI 解读"
         lede="基于当前证据链生成辅助解释。AI 只解释引擎已算出的结构与候选，不自行推算。"
-        note="输出需通过事实一致性校验；未通过的内容不予展示。"
+        note="解读附事实一致性校验；存在引用偏差时会显示警示，请以引擎证据为准。"
         :level="2"
       />
       <AiView
@@ -315,7 +327,7 @@ function printReport() { window.print(); }
         v-if="t.result.value"
         :result="t.result.value"
         :order="t.pillarOrder.value"
-        :birth="t.state.birth"
+        :birth="t.analysisBirth.value"
         :temporal="t.temporal.value"
         :ai-result="t.state.aiResult"
         :ai-configured="ai.configured.value"

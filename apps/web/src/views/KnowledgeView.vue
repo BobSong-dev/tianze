@@ -32,6 +32,7 @@ const search = ref(props.searchSeed ?? "");
 const domain = ref("all");
 const selectedId = ref<string | null>(props.focusId ?? null);
 const loading = ref(false);
+const loadError = ref("");
 const graphRef = ref<InstanceType<typeof GraphPanel> | null>(null);
 
 type KnowledgeTab = "graph" | "rules" | "funnel" | "gates" | "eval" | "review";
@@ -57,6 +58,8 @@ const coverage = computed(() => bundle.value?.coverage ?? null);
 const release = computed(() => bundle.value?.release ?? null);
 const evalCompare = computed(() => bundle.value?.evaluationCompare ?? null);
 const review = computed(() => bundle.value?.review ?? []);
+const resourceLabels = { rules: "规则目录", stats: "规则统计", review: "复核队列", funnel: "知识漏斗", coverage: "审计覆盖率", release: "发布信息", evaluationCompare: "AI 评测" };
+const resourceErrors = computed(() => bundle.value?.errors ?? {});
 
 const domains = computed(() => {
   const s = new Set(rules.value.map((r: any) => r.domain).filter(Boolean));
@@ -84,16 +87,39 @@ const hasMore = computed(() => filtered.value.length > visibleCount.value);
 
 watch([search, domain], () => { visibleCount.value = PAGE_SIZE; });
 
-async function load() {
-  if (bundle.value) return;
+async function load(force = false) {
+  if (loading.value || (bundle.value && !force)) return;
   loading.value = true;
-  const [b, g] = await Promise.all([loadKnowledgeBundle(), loadKnowledgeGraph()]);
-  bundle.value = b;
-  graph.value = g;
-  loading.value = false;
+  loadError.value = "";
+  try {
+    const [loadedBundle, loadedGraph] = await Promise.all([loadKnowledgeBundle(), loadKnowledgeGraph()]);
+    bundle.value = loadedBundle;
+    graph.value = loadedGraph;
+    const failed = Object.keys(loadedBundle.errors).map(key => resourceLabels[key as keyof typeof resourceLabels]);
+    if (!loadedGraph) failed.push("规则图谱");
+    if (failed.length) loadError.value = `${failed.join("、")}暂时无法加载，请重新加载。已加载的数据仍可查看。`;
+  } catch {
+    loadError.value = "知识数据加载失败，请检查本地 API 服务后重试。";
+  } finally {
+    loading.value = false;
+  }
 }
 
-onMounted(load);
+onMounted(() => load());
+
+function moveTab(event: KeyboardEvent) {
+  const tabs: KnowledgeTab[] = ["graph", "rules", "funnel", "gates", "eval", "review"];
+  const index = tabs.indexOf(activeTab.value);
+  let target = index;
+  if (event.key === "ArrowRight") target = (index + 1) % tabs.length;
+  else if (event.key === "ArrowLeft") target = (index + tabs.length - 1) % tabs.length;
+  else if (event.key === "Home") target = 0;
+  else if (event.key === "End") target = tabs.length - 1;
+  else return;
+  event.preventDefault();
+  activeTab.value = tabs[target];
+  (event.currentTarget as HTMLElement).querySelectorAll<HTMLButtonElement>('[role="tab"]')[target]?.focus();
+}
 
 watch(() => props.focusId, (v) => {
   if (v) {
@@ -122,7 +148,9 @@ function switchToRules(id?: string) {
 </script>
 
 <template>
-  <div class="stack stack-5">
+  <div class="stack stack-5 knowledge-workspace" :aria-busy="loading">
+    <p v-if="loading" class="loading-status" role="status"><span class="loading-indicator" aria-hidden="true" />正在读取规则、来源与审计信息…</p>
+    <div v-if="loadError" class="error" role="alert"><span>{{ loadError }}</span><button type="button" :disabled="loading" @click="load(true)">重新加载</button></div>
     <!-- 顶层科研指标带 -->
     <section v-if="stats" class="surface surface-tint">
       <div class="metrics">
@@ -157,13 +185,16 @@ function switchToRules(id?: string) {
     </section>
 
     <!-- 工作台导航切换标签 -->
-    <div class="kw-tab-bar" role="tablist">
+    <div class="kw-tab-bar" role="tablist" aria-label="知识研究分区" @keydown="moveTab">
       <button
         type="button"
         class="kw-tab-btn"
         :class="{ 'is-active': activeTab === 'graph' }"
         role="tab"
         :aria-selected="activeTab === 'graph'"
+        :tabindex="activeTab === 'graph' ? 0 : -1"
+        id="tab-graph"
+        aria-controls="panel-graph"
         @click="activeTab = 'graph'"
       >
         <span class="kw-tab-idx">01</span>
@@ -176,11 +207,14 @@ function switchToRules(id?: string) {
         :class="{ 'is-active': activeTab === 'rules' }"
         role="tab"
         :aria-selected="activeTab === 'rules'"
+        :tabindex="activeTab === 'rules' ? 0 : -1"
+        id="tab-rules"
+        aria-controls="panel-rules"
         @click="activeTab = 'rules'"
       >
         <span class="kw-tab-idx">02</span>
         <span>规则目录检索</span>
-        <span class="kw-tab-badge mono">{{ filtered.length }}</span>
+        <span class="kw-tab-badge mono">{{ loading || resourceErrors.rules ? "—" : filtered.length }}</span>
       </button>
 
       <button
@@ -189,6 +223,9 @@ function switchToRules(id?: string) {
         :class="{ 'is-active': activeTab === 'funnel' }"
         role="tab"
         :aria-selected="activeTab === 'funnel'"
+        :tabindex="activeTab === 'funnel' ? 0 : -1"
+        id="tab-funnel"
+        aria-controls="panel-funnel"
         @click="activeTab = 'funnel'"
       >
         <span class="kw-tab-idx">03</span>
@@ -201,6 +238,9 @@ function switchToRules(id?: string) {
         :class="{ 'is-active': activeTab === 'gates' }"
         role="tab"
         :aria-selected="activeTab === 'gates'"
+        :tabindex="activeTab === 'gates' ? 0 : -1"
+        id="tab-gates"
+        aria-controls="panel-gates"
         @click="activeTab = 'gates'"
       >
         <span class="kw-tab-idx">04</span>
@@ -213,6 +253,9 @@ function switchToRules(id?: string) {
         :class="{ 'is-active': activeTab === 'eval' }"
         role="tab"
         :aria-selected="activeTab === 'eval'"
+        :tabindex="activeTab === 'eval' ? 0 : -1"
+        id="tab-eval"
+        aria-controls="panel-eval"
         @click="activeTab = 'eval'"
       >
         <span class="kw-tab-idx">05</span>
@@ -225,6 +268,9 @@ function switchToRules(id?: string) {
         :class="{ 'is-active': activeTab === 'review' }"
         role="tab"
         :aria-selected="activeTab === 'review'"
+        :tabindex="activeTab === 'review' ? 0 : -1"
+        id="tab-review"
+        aria-controls="panel-review"
         @click="activeTab = 'review'"
       >
         <span class="kw-tab-idx">06</span>
@@ -233,7 +279,7 @@ function switchToRules(id?: string) {
     </div>
 
     <!-- 01 规则关系图谱 (主视图) -->
-    <section v-show="activeTab === 'graph'">
+    <section v-show="activeTab === 'graph'" id="panel-graph" role="tabpanel" aria-labelledby="tab-graph">
       <div class="sec-sub" style="margin-top: 0">
         <h3>规则关系图 (Rule Graph)</h3>
         <span class="sec-sub-note">
@@ -241,7 +287,7 @@ function switchToRules(id?: string) {
         </span>
       </div>
 
-      <div class="graph-split">
+      <div v-if="graph" class="graph-split">
         <GraphPanel
           ref="graphRef"
           :graph="graph"
@@ -369,15 +415,16 @@ function switchToRules(id?: string) {
           </div>
         </aside>
       </div>
+      <p v-else-if="!loading" class="empty">规则图谱暂不可用，请使用上方“重新加载”。</p>
     </section>
 
     <!-- 02 规则目录检索 -->
-    <section v-show="activeTab === 'rules'">
+    <section v-show="activeTab === 'rules'" id="panel-rules" role="tabpanel" aria-labelledby="tab-rules">
       <div class="sec-sub" style="margin-top: 0">
         <h3>规则名录检索</h3>
         <span class="sec-sub-note">按规则 ID / 标签 / 领域 / 主题关键字即时检索</span>
         <span class="sec-sub-aside">
-          <StatusBadge :label="`${filtered.length} / ${rules.length}`" variant="mute" />
+          <StatusBadge :label="resourceErrors.rules ? '暂不可用' : `${filtered.length} / ${rules.length}`" variant="mute" />
         </span>
       </div>
 
@@ -399,6 +446,7 @@ function switchToRules(id?: string) {
       </div>
 
       <p v-if="loading" class="empty">正在载入规则库…</p>
+      <p v-else-if="resourceErrors.rules" class="empty">规则目录加载失败，请使用上方“重新加载”。</p>
       <div v-else class="rule-list">
         <RuleCard
           v-for="r in pagedRules"
@@ -408,7 +456,7 @@ function switchToRules(id?: string) {
           @select="onSelect"
         />
       </div>
-      <p v-if="!loading && !filtered.length" class="empty">无匹配规则。</p>
+      <p v-if="!loading && !resourceErrors.rules && !filtered.length" class="empty">无匹配规则。</p>
       <div v-if="hasMore" class="row row-3 mt-4">
         <button
           class="btn-sm btn-primary"
@@ -425,7 +473,7 @@ function switchToRules(id?: string) {
     </section>
 
     <!-- 03 知识规模与漏斗 -->
-    <section v-show="activeTab === 'funnel'">
+    <section v-show="activeTab === 'funnel'" id="panel-funnel" role="tabpanel" aria-labelledby="tab-funnel">
       <div class="sec-sub" style="margin-top: 0">
         <h3>知识库规模与领域分布</h3>
       </div>
@@ -480,7 +528,7 @@ function switchToRules(id?: string) {
     </section>
 
     <!-- 04 审计门与覆盖率 -->
-    <section v-show="activeTab === 'gates'">
+    <section v-show="activeTab === 'gates'" id="panel-gates" role="tabpanel" aria-labelledby="tab-gates">
       <div class="sec-sub" style="margin-top: 0">
         <h3>质量审计门 (Quality Assurance Gates)</h3>
         <span class="sec-sub-note">规则完整性、古籍出处与事实推演自动化质量门</span>
@@ -520,7 +568,7 @@ function switchToRules(id?: string) {
     </section>
 
     <!-- 05 AI 评测对比 -->
-    <section v-show="activeTab === 'eval'">
+    <section v-show="activeTab === 'eval'" id="panel-eval" role="tabpanel" aria-labelledby="tab-eval">
       <div class="sec-sub" style="margin-top: 0">
         <h3>AI 解释确定性评测对比</h3>
         <span class="sec-sub-note">
@@ -580,11 +628,11 @@ function switchToRules(id?: string) {
           </div>
         </details>
       </div>
-      <p v-else class="empty">暂无评测比对数据。</p>
+      <p v-else-if="!loading" class="empty">{{ resourceErrors.evaluationCompare ? "评测数据加载失败，请使用上方“重新加载”。" : "暂无评测比对数据。" }}</p>
     </section>
 
     <!-- 06 复核队列与发布 -->
-    <section v-show="activeTab === 'review'">
+    <section v-show="activeTab === 'review'" id="panel-review" role="tabpanel" aria-labelledby="tab-review">
       <div v-if="review.length">
         <div class="sec-sub" style="margin-top: 0">
           <h3>人工复核队列</h3>
@@ -657,62 +705,3 @@ function switchToRules(id?: string) {
     </p>
   </div>
 </template>
-
-<style scoped>
-.kw-tab-bar {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--s-2);
-  padding: 4px;
-  background: var(--paper-100);
-  border-radius: var(--r-md);
-  border: 1px solid var(--line-200);
-}
-
-.kw-tab-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-2);
-  padding: 6px 14px;
-  min-height: 34px;
-  font-size: var(--t-xs);
-  font-weight: 500;
-  border-radius: var(--r-sm);
-  background: transparent;
-  border: 1px solid transparent;
-  color: var(--ink-700);
-  box-shadow: none;
-  transition: all 0.15s ease;
-}
-
-.kw-tab-btn:hover {
-  background: var(--paper-000);
-  color: var(--ink-900);
-}
-
-.kw-tab-btn.is-active {
-  background: var(--paper-000);
-  border-color: var(--line-200);
-  color: var(--primary-600);
-  font-weight: 700;
-  box-shadow: var(--shadow-1);
-}
-
-.kw-tab-idx {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--ink-400);
-}
-
-.kw-tab-btn.is-active .kw-tab-idx {
-  color: var(--primary-600);
-}
-
-.kw-tab-badge {
-  font-size: 10px;
-  background: var(--paper-100);
-  padding: 1px 5px;
-  border-radius: var(--r-full);
-}
-</style>

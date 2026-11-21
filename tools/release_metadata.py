@@ -35,7 +35,7 @@ def _load(path, default):
 
 def _count_tests() -> int:
     try:
-        r = subprocess.run([os.path.join(REPO, ".venv", "Scripts", "python.exe"),
+        r = subprocess.run([sys.executable,
                             "-m", "pytest", "tests", "apps/api/tests",
                             "--collect-only", "-q"],
                            capture_output=True, text=True, encoding="utf-8",

@@ -39,3 +39,15 @@ def test_no_tag_created():
                        encoding="utf-8",
                        cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     assert suggested not in r.stdout.split()
+
+
+def test_tag_requires_complete_gate(monkeypatch):
+    from tools import release_automation
+    monkeypatch.setattr(release_automation, "_load", lambda *args: {
+        "phase": "prerelease", "gitCommit": "current", "allPass": True,
+        "steps": [{"step": "pytest", "exitCode": 0}],
+    })
+    monkeypatch.setattr(release_automation, "_git", lambda *args: "current")
+    for arguments in (["--tag"], ["--tag", "--skip-gate-check"]):
+        monkeypatch.setattr(sys, "argv", ["release_automation.py", *arguments])
+        assert ra_main() == 2

@@ -27,7 +27,9 @@ def _load(rel, default):
 def main() -> int:
     import tianze
     meta = _load("release/release-metadata.json", None)
-    qg = _load("release/quality-summary.json", None)
+    internal = "--gate-progress" in sys.argv
+    path = sys.argv[sys.argv.index("--gate-progress") + 1] if internal else "release/quality-summary.json"
+    qg = _load(path, None)
     rc = _load("release/release-check.json", None)
     tag_prep = _load("release/tag-prep.json", {})
     if not meta:
@@ -42,7 +44,8 @@ def main() -> int:
         "commit": head,
         "counts": meta.get("counts", {}),
         "schemaVersions": meta.get("versions", {}),
-        "qualityGate": {"allPass": (qg or {}).get("allPass"),
+        "qualityGate": {"allPass": None if internal else (qg or {}).get("allPass"),
+                        "phase": (qg or {}).get("phase"),
                         "steps": len((qg or {}).get("steps", []))},
         "releaseCheck": {"allPass": (rc or {}).get("allPass")},
         "auditGatesAllPass": meta.get("quality", {}).get("allGatesPass"),

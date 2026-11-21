@@ -1,0 +1,37 @@
+{
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "versions": {
+    "fastapi": "0.142.2",
+    "pydantic": "2.13.5",
+    "pytest": "9.1.1",
+    "uvicorn": "0.54.0",
+    "lunar-python": "1.4.8"
+  },
+  "packageVersion": "0.4.0.dev0",
+  "contract": {
+    "savedPaths": 17,
+    "currentPaths": 22,
+    "missingPaths": [
+      "/api/v1/ai-config/clear",
+      "/api/v1/ai-config/presets",
+      "/api/v1/ai-config/set",
+      "/api/v1/ai-config/status",
+      "/api/v1/ai-config/test"
+    ],
+    "savedSchemas": [],
+    "currentSchemas": [
+      "HTTPValidationError",
+      "SetConfigBody",
+      "ValidationError"
+    ]
+  },
+  "ciVersionCheck": {
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import tianze; assert tianze.__version__ == '0.3.0'\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "qualityGateFailureProbe": {
+    "injectedQualityAllPass": false,
+    "observedOutput": "  PASS P0_quality_gate（WARN: 最近一次 quality summary 未 ALL PASS（AUDIT_INJECTED_FAILURE）——发布前请重跑 tools/quality_gate.py）\n",
+    "stoppedBeforeBuildAndWrites": true
+  }
+}

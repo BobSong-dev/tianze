@@ -22,20 +22,19 @@ const emit = defineEmits<{ (e: "focus", key: string): void }>();
 </script>
 
 <template>
-  <div class="time-rail" role="list" aria-label="岁运时间轨道">
+  <div class="time-rail" role="group" aria-label="岁运时间轨道">
     <button
       v-for="s in props.stops"
       :key="s.key"
       type="button"
-      role="listitem"
       class="time-stop"
       :class="{ 'is-active': props.activeKey === s.key, 'is-natal': s.key === 'natal' }"
       :disabled="!s.enabled"
       :aria-current="props.activeKey === s.key ? 'step' : undefined"
       @click="emit('focus', s.key)"
     >
-      <span class="time-stop-layer">{{ s.layer }}</span>
-      <span class="time-stop-gz">{{ s.ganzhi || "—" }}</span>
+      <span class="time-stop-layer">{{ s.label }}</span>
+      <span class="time-stop-gz"><span v-for="(pair, index) in (s.ganzhi || '—').split(' ')" :key="index">{{ pair }}</span></span>
       <span class="time-stop-sub">{{ s.sub }}</span>
     </button>
   </div>

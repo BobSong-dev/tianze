@@ -12,7 +12,7 @@ import {
   type AiConfigForm, type AiConfigStatus, type AiPreset, type AiTestResult,
 } from "../api/tianze";
 
-const EMPTY_FORM: AiConfigForm = { apiKey: "", baseUrl: "", model: "", preset: "custom" };
+const EMPTY_FORM: AiConfigForm = { apiKey: "", baseUrl: "", model: "", preset: "openai" };
 
 export function useAiConfig() {
   const status = ref<AiConfigStatus | null>(null);
@@ -23,6 +23,8 @@ export function useAiConfig() {
   const testing = ref(false);
   const testResult = ref<AiTestResult | null>(null);
   const saving = ref(false);
+  const clearing = ref(false);
+  const loadError = ref("");
   const loaded = ref(false);
 
   const configured = computed(() => Boolean(status.value?.configured));
@@ -37,18 +39,27 @@ export function useAiConfig() {
     presets.value.find(p => p.id === form.value.preset) ?? null);
 
   async function refresh() {
-    const [st, ps] = await Promise.all([getAiStatus(), getAiPresets()]);
-    status.value = st;
-    presets.value = ps;
-    if (st?.source === "ui") {
-      form.value = {
-        apiKey: "",
-        baseUrl: st.baseUrl ?? "",
-        model: st.model ?? "",
-        preset: st.preset ?? "custom",
-      };
+    loadError.value = "";
+    try {
+      const [currentStatus, currentPresets] = await Promise.all([getAiStatus(), getAiPresets()]);
+      status.value = currentStatus;
+      presets.value = currentPresets;
+      if (!loaded.value && !form.value.apiKey && !form.value.baseUrl && currentStatus.source === "ui") {
+        form.value = {
+          apiKey: "", baseUrl: currentStatus.baseUrl ?? "",
+          model: currentStatus.model ?? "", preset: currentStatus.preset ?? EMPTY_FORM.preset,
+        };
+      }
+      loaded.value = true;
+    } catch (error) {
+      loadError.value = `配置状态暂时无法刷新：${errorText(error)}。显示的状态可能已过期。`;
     }
-    loaded.value = true;
+  }
+
+  function errorText(error: unknown): string {
+    if (error instanceof Error) return error.message;
+    if (error && typeof error === "object" && "message" in error) return String(error.message);
+    return String(error ?? "未知错误");
   }
 
   function pickPreset(p: AiPreset) {
@@ -60,44 +71,62 @@ export function useAiConfig() {
   }
 
   async function save() {
+    if (saving.value || clearing.value) return;
     saving.value = true;
     message.value = "";
     messageTone.value = "";
-    const r = await setAiConfig({ ...form.value });
-    const errText = typeof r.error === "object" && r.error
-      ? String((r.error as any).message ?? (r.error as any).code ?? "")
-      : (r.error as string | undefined);
-    if (r.ok) {
-      message.value = String(r.note ?? "已保存（存于服务端内存；重启后需重新配置）");
-      messageTone.value = r.warning ? "warn" : "ok";
-      if (r.warning) message.value += `　⚠ ${r.warning}`;
+    try {
+      const result = await setAiConfig({ ...form.value });
+      if (result.ok !== true) throw new Error(errorText(result.error));
+      message.value = String(result.note ?? "已保存（存于服务端内存；重启后需重新配置）");
+      messageTone.value = result.warning ? "warn" : "ok";
+      if (result.warning) message.value += `　⚠ ${result.warning}`;
       form.value.apiKey = "";
       await refresh();
-    } else {
-      message.value = `保存失败：${errText ?? "未知错误"}`;
+    } catch (error) {
+      message.value = `保存失败：${errorText(error)}。请重试。`;
       messageTone.value = "err";
+    } finally {
+      saving.value = false;
     }
-    saving.value = false;
   }
 
   async function test() {
+    if (testing.value) return;
     testing.value = true;
     testResult.value = null;
-    testResult.value = await testAiConfig();
-    testing.value = false;
+    try {
+      testResult.value = await testAiConfig();
+    } catch (error) {
+      testResult.value = { ok: false, error: errorText(error) };
+    } finally {
+      testing.value = false;
+    }
   }
 
   async function clear() {
-    await clearAiConfig();
-    form.value = { ...EMPTY_FORM };
-    testResult.value = null;
-    message.value = "UI 配置已清除。环境变量配置不受影响。";
-    messageTone.value = "ok";
-    await refresh();
+    if (saving.value || clearing.value) return;
+    clearing.value = true;
+    message.value = "";
+    messageTone.value = "";
+    try {
+      const result = await clearAiConfig();
+      if (result.ok !== true) throw new Error(errorText(result.error));
+      form.value = { ...EMPTY_FORM };
+      testResult.value = null;
+      message.value = "UI 配置已清除。环境变量配置不受影响。";
+      messageTone.value = "ok";
+      await refresh();
+    } catch (error) {
+      message.value = `清除失败：${errorText(error)}。原配置未确认清除，请重试。`;
+      messageTone.value = "err";
+    } finally {
+      clearing.value = false;
+    }
   }
 
   return {
-    status, presets, form, message, messageTone, testing, testResult, saving, loaded,
+    status, presets, form, message, messageTone, testing, testResult, saving, clearing, loaded, loadError,
     configured, source, sourceLabel, activePreset,
     refresh, pickPreset, save, test, clear,
   };

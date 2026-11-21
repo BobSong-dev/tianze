@@ -70,10 +70,11 @@ const sectionTypeCn: Record<string, string> = {
 
     <!-- 一致性校验未通过：M51 起不再隐藏内容——照常展示 + 顶部醒目警示
          （真实 Provider 常有少量引用偏差，一票否决会让用户永远看不到结果） -->
-    <section v-if="props.aiState === 'GROUNDING_FAILED'" class="ai-state is-warn-state">
-      <div class="ai-state-title">⚠ 这次解读里有 {{ groundingIssues.length }} 处说法与引擎对不上</div>
+    <section v-if="props.aiState === 'GROUNDING_FAILED' || props.aiState === 'GROUNDING_UNKNOWN'" class="ai-state is-warn-state" role="alert">
+      <div v-if="props.aiState === 'GROUNDING_UNKNOWN'" class="ai-state-title">这次解读的事实一致性校验状态未知</div>
+      <div v-else class="ai-state-title">⚠ 这次解读未通过事实一致性校验（{{ groundingIssues.length }} 处问题）</div>
       <p class="ai-state-body">
-        内容照常展示；对不上的具体位置收在下方「查看依据与技术细节」里，偏技术，可不管。
+        内容照常展示；请在下方「查看依据与技术细节」中核对校验问题。
         拿不准的说法以页面上的确定性分析为准；也可以点「重新生成」试试更干净的结果。
       </p>
       <div class="ai-state-actions">
@@ -135,7 +136,7 @@ const sectionTypeCn: Record<string, string> = {
     </section>
 
     <!-- 成功 -->
-    <template v-else-if="(props.aiState === 'SUCCESS' || props.aiState === 'GROUNDING_FAILED') && props.aiResult">
+    <template v-else-if="['SUCCESS', 'GROUNDING_FAILED', 'GROUNDING_UNKNOWN'].includes(props.aiState) && props.aiResult">
       <section class="verdict">
         <span class="verdict-kicker">AI 辅助解读</span>
         <p class="verdict-text" style="font-size: var(--t-md); line-height: var(--lh-loose)">

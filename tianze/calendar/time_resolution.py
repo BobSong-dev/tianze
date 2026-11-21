@@ -24,6 +24,8 @@ def resolve_time(birth: BirthInfo) -> tuple[TimeResolution, list[str]]:
             warnings.append("出生时刻处于中国夏令时窗口：日/时柱轨道已按标准时 −1h 校正（R12，窗口表待核 ERRATA-05）")
 
     pillar_dt = local - dt.timedelta(hours=dst)
+    if birth.time_alg.value != "clock":
+        warnings.append("本次使用钟表时排柱，所请求的太阳时校正尚未启用。")
     birth_instant_utc = local - dt.timedelta(hours=birth.tz_offset_hours + dst)
     beijing_dt = birth_instant_utc + dt.timedelta(hours=8)
 
@@ -41,6 +43,6 @@ def resolve_time(birth: BirthInfo) -> tuple[TimeResolution, list[str]]:
         birth_instant_utc=birth_instant_utc,
         beijing_dt=beijing_dt,
         dst_applied=bool(dst),
-        effective_mode=birth.time_alg.value,
+        effective_mode="clock",
     )
     return tr, warnings

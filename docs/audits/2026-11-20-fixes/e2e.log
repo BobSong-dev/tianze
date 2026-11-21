@@ -1,0 +1,53 @@
+
+Running 45 tests using 1 worker
+
+
+
+(node:19424) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/45] e2e\ai-config-flow.spec.ts:75:1 › configure via UI → status shows 页面配置 → interpret renders mock content
+[2/45] e2e\ai-config-flow.spec.ts:110:1 › unconfigured interpret degrades to guided 503 state
+[3/45] e2e\audit-regressions.spec.ts:18:1 › F01: unsubmitted birth cannot change report or temporal inputs
+[4/45] e2e\audit-regressions.spec.ts:37:1 › F02: stale temporal response never replaces a new selection
+[5/45] e2e\audit-regressions.spec.ts:68:3 › F03: report accurately shows grounding true
+[6/45] e2e\audit-regressions.spec.ts:68:3 › F03: report accurately shows grounding false
+[7/45] e2e\audit-regressions.spec.ts:68:3 › F03: report accurately shows grounding undefined
+[8/45] e2e\audit-regressions.spec.ts:88:1 › F04: AI from a previous chart is discarded
+[9/45] e2e\audit-regressions.spec.ts:117:1 › F05/F06: configuration failures recover without false success
+[10/45] e2e\audit-regressions.spec.ts:141:1 › F07/F08: drawer resizing and nested settings preserve keyboard access
+[11/45] e2e\audit-regressions.spec.ts:163:1 › F09: partial rule failure is not an empty search and can retry
+[12/45] e2e\explainability.spec.ts:3:1 › evidence drawer opens after analysis
+[13/45] e2e\first-screen-audit.spec.ts:17:1 › first screen: home
+[14/45] e2e\first-screen-audit.spec.ts:25:1 › first screen: workspace
+[15/45] e2e\first-screen-audit.spec.ts:31:1 › first screen: strength
+[16/45] e2e\first-screen-audit.spec.ts:39:1 › first screen: mobile
+[17/45] e2e\invalid-input.spec.ts:3:1 › invalid date shows error
+[18/45] e2e\late-zi.spec.ts:9:1 › late zi: sect1 vs sect2 produce different day pillar
+[19/45] e2e\mobile-replay.spec.ts:16:3 › M39 mobile & replay › 375px: full analysis flow without horizontal overflow
+[20/45] e2e\mobile-replay.spec.ts:37:3 › M39 mobile & replay › 375px: relations view shows combination states
+[21/45] e2e\mobile-replay.spec.ts:50:3 › M39 replay interaction (desktop) › replay timeline renders layered steps with rule link
+[22/45] e2e\normal.spec.ts:8:1 › normal case: full analysis flow
+[23/45] e2e\overseas.spec.ts:3:1 › overseas timezone: NYC
+[24/45] e2e\redesign.spec.ts:12:3 › redesign: all workspaces at 375px
+[25/45] e2e\redesign.spec.ts:12:3 › redesign: all workspaces at 768px
+[26/45] e2e\redesign.spec.ts:12:3 › redesign: all workspaces at 1440px
+[27/45] e2e\redesign.spec.ts:56:1 › redesign: modal keyboard focus and restore
+[28/45] e2e\redesign.spec.ts:73:1 › redesign: graph controls, tabs, and empty search
+[29/45] e2e\redesign.spec.ts:99:1 › redesign: narrow, landscape, and large text
+[30/45] e2e\redesign.spec.ts:117:1 › redesign: knowledge unavailable gives recoverable error
+[31/45] e2e\temporal-workspace.spec.ts:4:1 › temporal workspace: select luck → year → analyze delta
+[32/45] e2e\temporal-workspace.spec.ts:37:1 › event themes render with status and disclaimer
+[33/45] e2e\unknown-time.spec.ts:3:1 › unknown time: partial result with warning
+[34/45] e2e\visual-audit.spec.ts:30:1 › 1440 home
+[35/45] e2e\visual-audit.spec.ts:37:1 › 1440 chart + overview
+[36/45] e2e\visual-audit.spec.ts:43:1 › 1440 strength + pattern + relations
+[37/45] e2e\visual-audit.spec.ts:57:1 › 1440 temporal
+[38/45] e2e\visual-audit.spec.ts:69:1 › 1440 knowledge graph
+[39/45] e2e\visual-audit.spec.ts:78:1 › 1440 ai + settings modal
+[40/45] e2e\visual-audit.spec.ts:95:1 › 1440 report
+[41/45] e2e\visual-audit.spec.ts:106:1 › 768 chart + relations
+[42/45] e2e\visual-audit.spec.ts:130:1 › 375 home + chart + temporal
+[43/45] e2e\visual-audit.spec.ts:144:1 › 375 temporal rail
+[44/45] e2e\visual-audit.spec.ts:161:1 › 375 knowledge graph
+[45/45] e2e\visual-slices.spec.ts:10:1 › crop tall screenshots into readable slices
+  45 passed (1.6m)

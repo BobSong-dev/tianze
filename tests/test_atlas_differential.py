@@ -32,7 +32,7 @@ pytestmark = pytest.mark.skipif(
 
 def atlas_pillars() -> dict[str, dict]:
     proc = subprocess.run(
-        [_node, str(BRIDGE)], capture_output=True, text=True, timeout=120, check=True,
+        [_node, str(BRIDGE)], capture_output=True, encoding="utf-8", timeout=120, check=True,
         cwd=str(REPO_ROOT),
     )
     return {c["name"]: c["atlasPillars"] for c in json.loads(proc.stdout)}

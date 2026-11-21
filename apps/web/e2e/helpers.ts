@@ -48,6 +48,8 @@ export async function navigateTo(page: Page, label: string) {
   } else {
     await closeDrawer(page);
   }
-  await page.locator(".side-nav button", { hasText: label }).click();
+  const exact = page.locator(".side-nav").getByRole("button", { name: label, exact: true });
+  if (await exact.count()) await exact.click();
+  else await page.locator(".side-nav button", { hasText: label }).click();
   await expect(page.locator(".app-sidebar")).not.toHaveClass(/is-open/);
 }

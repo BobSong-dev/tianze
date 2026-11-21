@@ -33,7 +33,7 @@ const groups = computed(() => {
 </script>
 
 <template>
-  <div class="stack stack-5">
+  <div class="pattern-layout">
     <!-- 结论摘要 -->
     <section class="verdict">
       <span class="verdict-kicker">格局结论</span>

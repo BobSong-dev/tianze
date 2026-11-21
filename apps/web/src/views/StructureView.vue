@@ -22,7 +22,7 @@ const monthRoots = computed(() => roots.value.filter(r => r.isMonthRoot));
 </script>
 
 <template>
-  <div class="stack stack-5">
+  <div class="structure-layout">
     <!-- 月令 -->
     <section v-if="mc">
       <div class="sec-sub" style="margin-top: 0">

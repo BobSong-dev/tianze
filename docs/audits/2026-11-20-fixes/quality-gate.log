@@ -1,0 +1,25 @@
+  PASS pytest（89.89s）
+  PASS knowledge_validator（0.1s）
+  PASS conflict_graph（0.08s）
+  PASS graph_audit（0.81s）
+  PASS audit_gates（0.32s）
+  PASS rule_audit（0.09s）
+  PASS case_regression（0.79s）
+  PASS temporal_regression（0.43s）
+  PASS event_evaluation（1.8s）
+  PASS case_replay（0.71s）
+  PASS xushi_case_audit（1.44s）
+  PASS cross_layer_audit（0.97s）
+  PASS source_coverage（0.12s）
+  PASS ai_evaluation_mock（0.63s）
+  PASS review_queue（0.09s）
+  PASS rule_coverage_audit（0.09s）
+  PASS rescue_coverage（0.08s）
+  PASS ai_eval_compare（0.09s）
+  PASS benchmark（1.91s）
+  PASS release_metadata（1.54s）
+  PASS release_check（21.52s）
+  PASS release_automation_dryrun（0.39s）
+  PASS release_history（0.34s）
+
+Quality Gate：ALL PASS（124.3s）→ release/quality-summary.md

@@ -84,7 +84,8 @@ const fallbacks = computed(() => props.result.fallbacks ?? []);
 </script>
 
 <template>
-  <div class="stack stack-6 panel">
+  <div class="stack stack-6 panel" :class="`chart-${props.page}`">
+    <SectionHeader :index="meta.index" :title="meta.title" :lede="meta.lede" :note="meta.note" :level="1" />
     <!-- 命盘：总览页给完整版框；其它页只给一行速览，
          把首屏让给该页真正的分析内容（同一参照信息，两种密度） -->
     <section v-if="props.page === 'overview'">
@@ -143,14 +144,6 @@ const fallbacks = computed(() => props.result.fallbacks ?? []);
 
     <!-- 小节内容 -->
     <section>
-      <SectionHeader
-        :index="meta.index"
-        :title="meta.title"
-        :lede="meta.lede"
-        :note="meta.note"
-        :level="2"
-      />
-
       <OverviewView
         v-if="props.page === 'overview'"
         :result="props.result"

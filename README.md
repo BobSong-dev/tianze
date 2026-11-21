@@ -117,12 +117,24 @@ python scripts/dev_start.py
 ### 开发
 
 ```bash
-pip install -e ".[dev]"
+pip install -e ".[dev,api]"
 python -m pytest tests apps/api/tests -q        # 测试
-python tools/quality_gate.py                    # 一键质量门（17 步）
+python tools/check_version.py                   # 安装版本与源码/tag 一致性
+python tools/quality_gate.py                    # 一键质量门（23 步）
 python tools/release_check.py                   # 发布前检查（构建/安装/一致性）
 python tools/release_automation.py              # 发布演练（dry-run，不 push/tag）
 ```
+
+前端验证（在 `apps/web` 中执行）：`npm test`、`npm run build`、`npm run api:check`、
+`npm run test:e2e -- --retries=0`。首次运行浏览器测试先执行 `npx playwright install chromium`。
+`api:check` 只读比较 OpenAPI 与 TypeScript；后端契约变更后显式执行 `npm run api:generate`。
+非默认 Python 解释器可通过 `TIANZE_PYTHON` 指定。Windows PowerShell 可使用 `npm.cmd`。
+
+质量门会刷新发布/回归工件；请在独立工作副本执行完整验收。
+Playwright 自动启动独立的本地前后端（默认端口 15173 和 18000），所有配置操作经测试页面同源代理发出。可用 `E2E_WEB_PORT` 和 `E2E_API_PORT` 指定空闲端口，端口被占用时测试停止。
+发布检查和打标签都要求当前提交的完整质量报告，且所有必需步骤各成功一次。发布前请运行完整质量门。
+
+本轮审计修复及验收记录：[2026-11-20 修复报告](docs/audits/2026-11-20-remediation.html)。
 
 数据目录：开发模式用仓库 `knowledge/`；安装模式用打包副本 `tianze/_data/knowledge`；
 可用 `TIANZE_DATA_DIR` 覆盖（见 `docs/VERSIONING.md`）。

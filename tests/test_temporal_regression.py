@@ -92,9 +92,10 @@ def test_three_harmony_positions_deterministic():
     )
     outs = set()
     for seed in ("0", "1", "42", "999"):
-        env = {"PYTHONHASHSEED": seed, "PATH": __import__("os").environ.get("PATH", ""),
-               "SYSTEMROOT": __import__("os").environ.get("SYSTEMROOT", "")}
+        env = {**__import__("os").environ, "PYTHONHASHSEED": seed,
+               "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"}
         res = subprocess.run([sys.executable, "-c", code], capture_output=True,
-                             text=True, env=env, cwd=str(BASELINE.parents[1]))
+                             encoding="utf-8", env=env, cwd=str(BASELINE.parents[2]), check=True)
+        assert res.stdout.strip() and res.stdout.strip() != "[]", res.stderr
         outs.add(res.stdout.strip())
     assert len(outs) == 1, f"三合 positions 随哈希种子变化: {outs}"

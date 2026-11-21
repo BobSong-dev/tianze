@@ -8,6 +8,7 @@
  */
 import { computed } from "vue";
 import ElementBars from "../components/ElementBars.vue";
+import { elementRows, summarizeElements } from "../presentation/elementCounts";
 import StatusBadge from "../components/StatusBadge.vue";
 import { elementCn, yinYangCn, STATUS_MAP } from "../presentation/vocab";
 import { STRENGTH_PLAIN } from "../presentation/layman";
@@ -61,19 +62,7 @@ const strengthPlain = computed(() => {
 });
 
 // 五行最多 / 最少（含藏干口径，展示层计算）
-const elementPlain = computed(() => {
-  const el = props.result.elementCounts?.elements as
-    Record<string, { visible: number; hidden: number }> | undefined;
-  if (!el) return null;
-  const totals = Object.entries(el)
-    .map(([k, v]) => [k, (v.visible ?? 0) + (v.hidden ?? 0)] as const)
-    .filter(([, n]) => n > 0);
-  if (totals.length < 2) return null;
-  totals.sort((a, b) => b[1] - a[1]);
-  const [topK, topN] = totals[0];
-  const [lowK] = totals[totals.length - 1];
-  return { top: elementCn(topK.toUpperCase()), topN, low: elementCn(lowK.toUpperCase()) };
-});
+const elementPlain = computed(() => summarizeElements(elementRows(props.result.elementCounts)));
 
 const gloss = computed(() => {
   const parts: string[] = [];
@@ -89,10 +78,10 @@ const gloss = computed(() => {
 </script>
 
 <template>
-  <div class="stack stack-6">
+  <div class="overview-layout">
     <!-- 三句话读懂你的盘（小白首屏） -->
     <section class="verdict">
-      <span class="verdict-kicker">三句话读懂你的盘</span>
+      <span class="verdict-kicker">命盘摘要 · 从结构开始理解</span>
       <ol class="layman-lines">
         <li>
           代表你本人的字是 <strong>{{ dm.stem }}</strong
@@ -103,8 +92,7 @@ const gloss = computed(() => {
           整体强弱：系统用几种方法各算了一遍，结论是——{{ strengthPlain }}。
         </li>
         <li v-if="elementPlain">
-          五行里 <strong>{{ elementPlain.top }}</strong> 最多（{{ elementPlain.topN }} 处）、
-          {{ elementPlain.low }} 最少——后面各页会反复出现这个特点。
+          {{ elementPlain }}
         </li>
         <li v-for="g in gloss" :key="g">{{ g }}</li>
         <li v-if="relationCount">
@@ -196,8 +184,8 @@ const gloss = computed(() => {
         <details>
           <summary><strong>这个网站怎么用？</strong>三步走</summary>
           <ol class="mt-4" style="padding-left: 1.3em">
-            <li>本页先看"三句话"和五行图，对你的盘有个整体印象。</li>
-            <li>想细看就点上面的标签页：整体强弱、传统归类、字与字的关系、不同年龄段的走向——
+            <li>本页先看命盘摘要和五行图，对你的盘有个整体印象。</li>
+            <li>想细看就从研究导航进入：整体强弱、传统归类、字与字的关系、不同年龄段的结构变化——
                 每一页都是"先白话结论、后技术依据"。</li>
             <li>想让 AI 直接用人话给你讲一遍，去「AI 解读」页点生成（需要在设置里配一次 AI 服务）。</li>
           </ol>

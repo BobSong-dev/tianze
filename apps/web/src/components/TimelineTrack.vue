@@ -20,6 +20,8 @@ defineEmits<{ (e: "open-rule", id: string): void }>();
       v-for="(st, i) in props.steps"
       :key="`${st.layer}-${i}`"
       class="tl-step"
+      :id="`temporal-layer-${st.layer}`"
+      tabindex="-1"
       :class="{ 'is-first': i === 0, 'is-accent': (st.added?.length ?? 0) > 0 }"
     >
       <div class="tl-head">
